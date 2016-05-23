@@ -1,0 +1,29 @@
+get:
+  operationId: get_merge_token
+  x-onedata-service: onezone
+  x-onedata-module: token
+  x-onedata-method: token_logic:create
+  description: Creates a new account merge token.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the new account merge token.
+      schema:
+        $ref: '#/definitions/accountmergetoken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone service not available at this URL. 
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'

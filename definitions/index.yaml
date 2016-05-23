@@ -23,4 +23,16 @@ spaceinvitetoken:
 spacecreatetoken:
   $ref: ./spacecreatetoken.yaml 
 
+group:
+  $ref: ./group.yaml
+
+groupinvitetoken:
+  $ref: ./groupinvitetoken.yaml
+
+accountmergetoken:
+  $ref: ./accountmergetoken.yaml
+
+connectedaccount:
+  $ref: ./connectedaccount.yaml
+
 

@@ -1,0 +1,10 @@
+type: object
+description: Default space Id.
+properties:
+  accountId:
+    type: string
+    description: Account Id.
+  providerId:
+    type: string
+    description: Provider Id.
+

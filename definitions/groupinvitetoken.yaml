@@ -1,0 +1,8 @@
+type: object
+description: Group invitation token for user.
+properties:
+  token:
+    type: string
+    description: The token for joining a group.
+required:
+  - token

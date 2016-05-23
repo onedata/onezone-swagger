@@ -1,16 +1,16 @@
 get:
-  operationId: get_default_space
+  operationId: get_group
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:get_default_space
-  description: Returns the default users space ID.
+  x-onedata-module: group
+  x-onedata-method: group_logic:get_data
+  description: Returns information about a specific group.
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the Id of the default user space.
+      description: Returns the information about a specific group.
       schema:
-        $ref: '#/definitions/defaultspace'
+        $ref: '#/definitions/group'
     '400':
       description: Invalid request.
       schema:
@@ -27,22 +27,25 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/error'
+  parameters:
+  - name: gid
+    in: path
+    description: Group ID.
+    type: string
+    required: true
 
 
-put:
-  operationId: set_default_space
+delete:
+  operationId: leave_group
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:set_default_space
-  description: >
-   Selects a default user space.
-  consumes:
+  x-onedata-module: group
+  x-onedata-method: group_logic:remove_user
+  description: Removes the users ownership or membership in a group.
+  produces:
     - application/json
   responses:
     '200':
-      description: Space created successfully.
-      schema:
-        type: string
+      description: The user left the group successfully.
     '400':
       description: Invalid request.
       schema:
@@ -52,7 +55,7 @@ put:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone REST API unavailable at this URL.
+      description: Onezone REST API not available.
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -60,9 +63,9 @@ put:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: defaultspace
-    in: body
-    description: Default Space ID.
-    schema:
-      $ref: '#/definitions/defaultspace'
+  - name: gid
+    in: path
+    description: Group ID.
+    type: string
     required: true
+

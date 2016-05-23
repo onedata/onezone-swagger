@@ -1,16 +1,18 @@
 get:
-  operationId: get_default_space
+  operationId: get_groups
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:get_default_space
-  description: Returns the default users space ID.
+  x-onedata-module: user
+  x-onedata-method: user_logic:get_groups
+  description: Returns the list of user's groups.
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the Id of the default user space.
+      description: The list of groups.
       schema:
-        $ref: '#/definitions/defaultspace'
+        type: array
+        items:
+          $ref: '#/definitions/group'
     '400':
       description: Invalid request.
       schema:
@@ -29,18 +31,18 @@ get:
         $ref: '#/definitions/error'
 
 
-put:
-  operationId: set_default_space
+post:
+  operationId: create_group
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:set_default_space
+  x-onedata-module: group
+  x-onedata-method: group_logic:create
   description: >
-   Selects a default user space.
+   Creates a new group.
   consumes:
     - application/json
   responses:
     '200':
-      description: Space created successfully.
+      description: Group created successfully.
       schema:
         type: string
     '400':
@@ -60,9 +62,10 @@ put:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: defaultspace
+  - name: group
     in: body
-    description: Default Space ID.
+    description: New group parameters.
     schema:
-      $ref: '#/definitions/defaultspace'
+      $ref: '#/definitions/group'
     required: true
+

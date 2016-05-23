@@ -1,16 +1,16 @@
 get:
-  operationId: get_default_space
+  operationId: get_space
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:get_default_space
-  description: Returns the default users space ID.
+  x-onedata-module: space
+  x-onedata-method: space_logic:get_data
+  description: Returns information about a specific space.
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the Id of the default user space.
+      description: Returns the information about specific space.
       schema:
-        $ref: '#/definitions/defaultspace'
+        $ref: '#/definitions/space'
     '400':
       description: Invalid request.
       schema:
@@ -27,22 +27,25 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
 
 
-put:
-  operationId: set_default_space
+delete:
+  operationId: delete_space
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:set_default_space
-  description: >
-   Selects a default user space.
-  consumes:
+  x-onedata-module: space
+  x-onedata-method: space_logic:remove_user
+  description: Removes the users ownership or membership in a space.
+  produces:
     - application/json
   responses:
     '200':
-      description: Space created successfully.
-      schema:
-        type: string
+      description: The space was deleted successfuly.
     '400':
       description: Invalid request.
       schema:
@@ -52,7 +55,7 @@ put:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone REST API unavailable at this URL.
+      description: Onezone REST API not available.
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -60,9 +63,9 @@ put:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: defaultspace
-    in: body
-    description: Default Space ID.
-    schema:
-      $ref: '#/definitions/defaultspace'
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
     required: true
+

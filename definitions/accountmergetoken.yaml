@@ -1,0 +1,8 @@
+type: object
+description: Account merge token.
+properties:
+  token:
+    type: string
+    description: Account merge token.
+required:
+  - token

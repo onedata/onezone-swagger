@@ -3,19 +3,6 @@
 # defined in separate files for each path
 #
 
-        # {<<"/user">>, M, S#rstate{resource = user, methods = [get, post, patch, delete]}},
-        # {<<"/user/authorize">>, M, S#rstate{resource = auth, methods = [post], noauth = [post]}},
-        # {<<"/user/spaces">>, M, S#rstate{resource = spaces, methods = [get, post]}},
-        # {<<"/user/spaces/default">>, M, S#rstate{resource = defspace, methods = [get, put]}},
-        # {<<"/user/spaces/join">>, M, S#rstate{resource = sjoin, methods = [post]}},
-        # {<<"/user/spaces/token">>, M, S#rstate{resource = screate, methods = [get]}},
-        # {<<"/user/spaces/:sid">>, M, S#rstate{resource = space, methods = [get, delete]}},
-        # {<<"/user/groups">>, M, S#rstate{resource = groups, methods = [get, post]}},
-        # {<<"/user/groups/join">>, M, S#rstate{resource = gjoin, methods = [post]}},
-        # {<<"/user/groups/:gid">>, M, S#rstate{resource = group, methods = [get, delete]}},
-        # {<<"/user/merge">>, M, S#rstate{resource = merge, methods = [post]}},
-        # {<<"/user/merge/token">>, M, S#rstate{resource = mtoken, methods = [get]}}
-
 /user:
   $ref: ./user.yaml
 
@@ -34,61 +21,21 @@
 /user/spaces/token:
   $ref: ./user-spaces-token.yaml
 
+/user/spaces/{sid}:
+  $ref: ./user-spaces-sid.yaml
 
-# /zone:
-#   $ref: ./zone.yaml
-  
-# /zone/configuration:
-#   $ref: ./zone-configuration.yaml
+/user/groups:
+  $ref: ./user-groups.yaml
 
-# /zone/workers:
-#   $ref: ./zone-workers.yaml
+/user/groups/join:
+  $ref: ./user-groups-join.yaml
 
-# /zone/workers/{hosts}:
-#   $ref: ./zone-workers-hosts.yaml
+/user/groups/{gid}:
+  $ref: ./user-groups-gid.yaml
 
-# /zone/databases:
-#   $ref: ./zone-databases.yaml
+/user/merge:
+  $ref: ./user-merge.yaml
 
-# /zone/databases/{hosts}:
-#   $ref: ./zone-databases-hosts.yaml
+/user/merge/token:
+  $ref: ./user-merge-token.yaml
 
-# /zone/managers:
-#   $ref: ./zone-managers.yaml
-
-# /zone/managers/{hosts}:
-#   $ref: ./zone-managers-hosts.yaml
-
-# /zone/providers:
-#   $ref: ./zone-providers.yaml
-  
-
-# /provider:
-#   $ref: ./provider.yaml
-  
-# /provider/configuration:
-#   $ref: ./provider-configuration.yaml
-
-# /provider/storages:
-#   $ref: ./provider-storages.yaml
-
-# /provider/storages/{id}:
-#   $ref: ./provider-storages-id.yaml
- 
-# /provider/workers:
-#   $ref: ./provider-workers.yaml
-
-# /provider/workers/{hosts}:
-#   $ref: ./provider-workers-hosts.yaml
-
-# /provider/databases:
-#   $ref: ./provider-databases.yaml
-
-# /provider/databases/{hosts}:
-#   $ref: ./provider-databases-hosts.yaml
-
-# /provider/managers:
-#   $ref: ./provider-managers.yaml
-
-# /provider/managers/{hosts}:
-#   $ref: ./provider-managers-hosts.yaml

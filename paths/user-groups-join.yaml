@@ -1,15 +1,15 @@
 post:
-  operationId: authenticate_user
+  operationId: join_group
   x-onedata-service: onezone
   x-onedata-module: user
-  x-onedata-method: auth_logic:authenticate_user
+  x-onedata-method: group_logic:join
   description: >
-   Authenticates user using authentication token through Onezone web interface.
+   Join existing group using inivitation token.
   consumes:
     - application/json
   responses:
     '200':
-      description: User authenticated successfully.
+      description: Group joined successfully.
       schema:
         type: string
     '400':
@@ -29,9 +29,9 @@ post:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: data
+  - name: groupinvitetoken
     in: body
-    description: User authentication token.
+    description: Token for joining a group.
     schema:
-      $ref: '#/definitions/authenticationtoken'
+      $ref: '#/definitions/groupinvitetoken'
     required: true

@@ -1,8 +1,24 @@
 type: object
 description: Describes a user account.
 properties:
+  userId:
+    type: string
+    description: Unique user ID.
   name:
     type: string
     description: The user friendly name of storage resource.
+  connectedAccounts:
+    type: array
+    description: The list of accounts connected to this user.
+    items:
+      $ref: '#/definitions/connectedaccount'
+  alias:
+    type: string
+    description: User alias
+  emailList:
+    type: array
+    items: 
+      type: string
 required:
+  - userId
   - name

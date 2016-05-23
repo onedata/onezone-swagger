@@ -1,4 +1,3 @@
-#         {<<"/user">>, M, S#rstate{resource = user, methods = [get, post, patch, delete]}},
 get:
   operationId: get_user
   x-onedata-service: onezone
@@ -77,12 +76,12 @@ patch:
   x-onedata-module: user
   x-onedata-method: user_logic:modify
   description: >
-   Creates user data based when new user authenticates.
+   Updates user data.
   consumes:
     - application/json
   responses:
     '200':
-      description: User added successfully.
+      description: User information updated successfully.
       schema:
         type: string
     '400':
@@ -116,7 +115,7 @@ delete:
   x-onedata-module: user
   x-onedata-method: user_logic:delete
   description: >
-   Deletes the account of currently authenticated user.
+   Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
   consumes:
     - application/json
   responses:
