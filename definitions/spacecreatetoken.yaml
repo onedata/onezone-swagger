@@ -1,0 +1,8 @@
+type: object
+description: Space token for user.
+properties:
+  token:
+    type: string
+    description: The token for space.
+required:
+  - token

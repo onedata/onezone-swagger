@@ -1,0 +1,68 @@
+get:
+  operationId: get_default_space
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-method: user_logic:get_default_space
+  description: Returns the default users space Id.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the Id of the default user space.
+      schema:
+        $ref: '#/definitions/defaultspace'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+
+
+put:
+  operationId: set_default_space
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-method: user_logic:set_default_space
+  description: >
+   Selects a default user space.
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Space creted successfully.
+      schema:
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API unavailable at this URL.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: defaultspace
+    in: body
+    description: Default space Id.
+    schema:
+      $ref: '#/definitions/defaultspace'
+    required: true

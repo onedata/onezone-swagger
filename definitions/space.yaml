@@ -1,0 +1,16 @@
+type: object
+description: User space parameters.
+properties:
+  name:
+    type: string
+    description: The name of the space.
+  token:
+    type: string
+    description: Provider token.
+  size:
+    type: integer
+    description: The size of requested space support.
+required:
+  - name
+  - token
+  - size

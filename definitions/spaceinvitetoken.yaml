@@ -1,0 +1,8 @@
+type: object
+description: Space invitation token for user.
+properties:
+  token:
+    type: string
+    description: The token for joining a space.
+required:
+  - token

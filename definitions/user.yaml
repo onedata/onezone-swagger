@@ -1,0 +1,8 @@
+type: object
+description: Describes a user account.
+properties:
+  name:
+    type: string
+    description: The user friendly name of storage resource.
+required:
+  - name

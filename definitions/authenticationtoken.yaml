@@ -1,0 +1,8 @@
+type: object
+description: Authentication token.
+properties:
+  identifier:
+    type: string
+    description: The authentication token for Onezone service.
+required:
+  - identifier
