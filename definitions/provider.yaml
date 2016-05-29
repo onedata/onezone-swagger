@@ -1,0 +1,23 @@
+type: object
+description: Provider properties.
+properties:
+  id:
+    type: string
+    description: The provider ID.
+  urls:
+    type: array
+    description: The list of urls where the provider can be reached.
+    items:
+      type: string
+  redirectionPoint:
+    type: string
+    description: The redirection URL for the provider.
+  csr:
+    type: string
+    description: Certificate Signature Request - optional parameter used when registering a new provider.
+  latitude:
+    type: number
+    description: The geographical latitude of the provider data center location.
+  longitude:
+    type: number
+    description: The geographical latitude of the provider data center location.

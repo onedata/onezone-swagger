@@ -8,11 +8,17 @@ error:
 user:
   $ref: ./user.yaml 
 
+provider:
+  $ref: ./provider.yaml
+
 authenticationtoken:
   $ref: ./authenticationtoken.yaml 
 
 space:
   $ref: ./space.yaml 
+
+spacesupporttoken:
+  $ref: ./spacesupporttoken.yaml 
 
 defaultspace:
   $ref: ./defaultspace.yaml 

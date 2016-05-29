@@ -1,0 +1,71 @@
+get:
+  operationId: get_space
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-method: space_logic:get_data
+  description: Returns information about a specific space.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the information about a specific space.
+      schema:
+        $ref: '#/definitions/space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+
+
+delete:
+  operationId: remove_space_support
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-method: space_logic:remove_provider
+  description: Removes support for space from this provider.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The space support has ended.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+

@@ -101,4 +101,25 @@
 /groups/{id}/spaces/{sid}:
   $ref: ./groups-id-spaces-sid.yaml
 
+/provider:
+  $ref: ./provider.yaml
+
+/provider/{pid}:
+  $ref: ./provider-pid.yaml
+
+/provider/spaces:
+  $ref: ./provider-spaces.yaml
+
+/provider/spaces/support:
+  $ref: ./provider-spaces-support.yaml
+
+/provider/spaces/{sid}:
+  $ref: ./provider-spaces-sid.yaml
+
+/provider/token/{token}:
+  $ref: ./provider-token-token.yaml
+
+ # {<<"/provider/test/check_my_ip">>, M, S#rstate{resource = ip, methods = [get], noauth = [get]}},
+ #   # {<<"/provider/test/check_my_ports">>, M, S#rstate{resource = ports, methods = [post], noauth = [post]}}
+
 

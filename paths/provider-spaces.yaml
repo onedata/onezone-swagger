@@ -1,0 +1,73 @@
+get:
+  operationId: get_provider_spaces
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-resource: spaces
+  x-onedata-method: provider_logic:get_spaces
+  description: Returns the list of spaces managed by a provider.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of space ID's.
+      schema:
+        type: array
+        items:
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+
+
+post:
+  operationId: create_provider_space
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-resource: spaces
+  x-onedata-method: spaces_rest_module:accept_resource
+  description: >
+   Creates a new space.
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: The ID of the created group returned in the response entity, i.e. 201 /provider/spaces/{id}
+      schema:
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API unavailable at this URL.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: data
+    in: body
+    description: New space parameters.
+    schema:
+      $ref: '#/definitions/space'
+    required: true
+

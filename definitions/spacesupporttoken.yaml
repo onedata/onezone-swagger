@@ -1,0 +1,8 @@
+type: object
+description: Space support token for provider.
+properties:
+  token:
+    type: string
+    description: The token for supporting a space.
+required:
+  - token

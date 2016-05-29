@@ -1,0 +1,157 @@
+get:
+  operationId: get_provider
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-resource: provider
+  x-onedata-method: provider_logic:get_data
+  description: Returns the information about the Oneprovider running this service.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the information about Oneprovider.
+      schema:
+        $ref: '#/definitions/provider'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+
+
+post:
+  operationId: register_provider
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-resource: provider
+  x-onedata-method: provider_logic:create
+  description: >
+   Allows to register a provider in Onezone service.
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: Provider added successfully - user id is returned as part of the response entity.
+      schema:
+        type: object
+        properties:
+          id: 
+            description: The ID of the registered provider
+            type: string
+          cert:
+            description: The signed certificate to be used when connecting to Onezone services.
+            type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API unavailable at this URL.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: data
+    in: body
+    description: Provider properties.
+    schema:
+      $ref: '#/definitions/provider'
+    required: true
+
+
+patch:
+  operationId: modify_provider
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-resource: provider
+  x-onedata-method: provider_logic:modify
+  description: >
+   Updates user data.
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Provider information updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API unavailable at this URL.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: data
+    in: body
+    description: User data.
+    schema:
+      $ref: '#/definitions/user'
+    required: true
+
+
+delete:
+  operationId: delete_provider
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-resource: provider
+  x-onedata-method: provider_logic:remove
+  description: >
+   Unregisters a provider.
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Provider deleted successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API unavailable at this URL.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: data
+    in: body
+    description: Provider ID.
+    schema:
+      type: object
+      properties:
+        providerId:
+          type: string
+          description: The ID of the provider to remove../
+    required: true
