@@ -1,0 +1,38 @@
+get:
+  operationId: get_space_providers
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-resource: providers
+  x-onedata-method: space_logic:get_providers
+  description: Returns the list of providers supporting specific space.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all provider ID's that support a specific space.
+      schema:
+        type: array
+        items: 
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true

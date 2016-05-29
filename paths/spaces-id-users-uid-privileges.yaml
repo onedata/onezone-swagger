@@ -1,17 +1,19 @@
 get:
-  operationId: get_group_user
+  operationId: get_space_user_privileges
   x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:get_user
-  description: Returns the public information about a specific user in a group.
+  x-onedata-module: spaces
+  x-onedata-resource: upriv
+  x-onedata-method: space_logic:get_privileges
+  description: Returns the list of user privileges in a specific space.
   produces:
     - application/json
   responses:
     '200':
-      description: Information about a group user.
+      description: The list of user privileges in a space.
       schema:
-        $ref: '#/definitions/user'
+        type: array
+        items:
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -31,7 +33,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Space ID.
     type: string
     required: true
   - name: uid
@@ -41,17 +43,15 @@ get:
     required: true
 
 put:
-  operationId: add_group_user
+  operationId: set_space_user_privileges
   x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: group
-  x-onedata-method: group_logic:add_user
-  description: Adds user privileges for a group.
-  consumes:
-    - application/json
+  x-onedata-module: spaces
+  x-onedata-resource: upriv
+  x-onedata-method: space_logic:set_privileges
+  description: Adds specific privileges for a user in a space.
   responses:
     '200':
-      description: The group privileges have been set successfully.
+      description: The user privileges have been added.
     '400':
       description: Invalid request.
       schema:
@@ -71,7 +71,7 @@ put:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Space ID.
     type: string
     required: true
   - name: uid
@@ -81,8 +81,10 @@ put:
     required: true
   - name: data
     in: body
-    description: An array of user privileges to be added to the group.
+    description: User privileges.
     schema:
       type: array
       items:
         type: string
+    required: true
+

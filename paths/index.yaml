@@ -3,6 +3,48 @@
 # defined in separate files for each path
 #
 
+/spaces:
+  $ref: ./spaces.yaml
+
+/spaces/{id}:
+  $ref: ./spaces-id.yaml
+
+/spaces/{id}/users:
+  $ref: ./spaces-id-users.yaml
+
+/spaces/{id}/users/token:
+  $ref: ./spaces-id-users-token.yaml
+
+/spaces/{id}/users/{uid}:
+  $ref: ./spaces-id-users-uid.yaml
+
+/spaces/{id}/users/{uid}/privileges:
+  $ref: ./spaces-id-users-uid-privileges.yaml
+
+/spaces/{id}/groups:
+  $ref: ./spaces-id-groups.yaml
+
+/spaces/{id}/groups/token:
+  $ref: ./spaces-id-groups-token.yaml
+
+/spaces/{id}/groups/{gid}:
+  $ref: ./spaces-id-groups-gid.yaml
+
+/spaces/{id}/groups/{gid}/privileges:
+  $ref: ./spaces-id-groups-gid-privileges.yaml
+
+/spaces/{id}/providers:
+  $ref: ./spaces-id-providers.yaml
+
+/spaces/{id}/providers/token:
+  $ref: ./spaces-id-providers-token.yaml
+
+/spaces/{id}/providers/{pid}:
+  $ref: ./spaces-id-providers-pid.yaml
+  
+        # {<<"/spaces/:id/providers/:pid">>, M, S#rstate{resource = provider, methods = [get, delete]}}
+
+
 /user:
   $ref: ./user.yaml
 
@@ -101,6 +143,8 @@
 /groups/{id}/spaces/{sid}:
   $ref: ./groups-id-spaces-sid.yaml
 
+
+
 /provider:
   $ref: ./provider.yaml
 
@@ -121,5 +165,7 @@
 
  # {<<"/provider/test/check_my_ip">>, M, S#rstate{resource = ip, methods = [get], noauth = [get]}},
  #   # {<<"/provider/test/check_my_ports">>, M, S#rstate{resource = ports, methods = [post], noauth = [post]}}
+
+
 
 

@@ -1,17 +1,17 @@
 get:
-  operationId: get_group_user
+  operationId: get_space_group
   x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:get_user
-  description: Returns the public information about a specific user in a group.
+  x-onedata-module: spaces
+  x-onedata-resource: group
+  x-onedata-method: space_logic:get_group
+  description: Returns information about a specific group belonging to a space.
   produces:
     - application/json
   responses:
     '200':
-      description: Information about a group user.
+      description: Information about a specific group in a space.
       schema:
-        $ref: '#/definitions/user'
+        $ref: '#/definitions/group'
     '400':
       description: Invalid request.
       schema:
@@ -31,27 +31,26 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Space ID.
     type: string
     required: true
-  - name: uid
+  - name: gid
     in: path
-    description: User ID.
+    description: Group ID.
     type: string
     required: true
 
-put:
-  operationId: add_group_user
+
+delete:
+  operationId: delete_space_group
   x-onedata-service: onezone
-  x-onedata-module: group
+  x-onedata-module: spaces
   x-onedata-resource: group
-  x-onedata-method: group_logic:add_user
-  description: Adds user privileges for a group.
-  consumes:
-    - application/json
+  x-onedata-method: space_logic:remove_group
+  description: Removes a specific nested group.
   responses:
     '200':
-      description: The group privileges have been set successfully.
+      description: A space has been removed from group.
     '400':
       description: Invalid request.
       schema:
@@ -71,18 +70,12 @@ put:
   parameters:
   - name: id
     in: path
+    description: Space ID.
+    type: string
+    required: true
+  - name: gid
+    in: path
     description: Group ID.
     type: string
     required: true
-  - name: uid
-    in: path
-    description: User ID.
-    type: string
-    required: true
-  - name: data
-    in: body
-    description: An array of user privileges to be added to the group.
-    schema:
-      type: array
-      items:
-        type: string
+

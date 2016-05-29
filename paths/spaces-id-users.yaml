@@ -1,0 +1,38 @@
+get:
+  operationId: get_space_users
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-resource: users
+  x-onedata-method: space_logic:get_users
+  description: Returns the list of users belonging to a specific space.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all user ID's that belong to a specific space
+      schema:
+        type: array
+        items: 
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true

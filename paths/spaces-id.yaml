@@ -1,0 +1,115 @@
+get:
+  operationId: get_space
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-resource: space
+  x-onedata-method: space_logic:get_data
+  description: Returns the information about a specific space.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a space.
+      schema:
+        $ref: '#/definitions/space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+
+
+patch:
+  operationId: modify_space
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-resource: space
+  x-onedata-method: space_logic:modify
+  description: Updates the information about a space.
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Information about a group.
+      schema:
+        $ref: '#/definitions/space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Space parameters
+    schema:
+      $ref: '#/definitions/space'
+    required: true
+
+
+delete:
+  operationId: remove_space
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-resource: space
+  x-onedata-method: space_logic:remove_space
+  description: Removes a specific space
+  responses:
+    '200':
+      description: The space has been removed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+
