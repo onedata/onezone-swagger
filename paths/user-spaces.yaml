@@ -8,11 +8,18 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the information about user.
+      description: Returns the list of user spaces, including information which space is default.
       schema:
-        type: array
-        items:
-          $ref: '#/definitions/space'
+        type: object
+        properties:
+          spaces:
+            description: The list of all user spaces ID's.
+            type: array
+            items:
+              type: string
+          default:
+            description: The ID of the default user space.
+            type: string
     '400':
       description: Invalid request.
       schema:
@@ -41,8 +48,8 @@ post:
   consumes:
     - application/json
   responses:
-    '200':
-      description: Space creted successfully.
+    '201':
+      description: Space Id returned in the response entity.
       schema:
         type: string
     '400':

@@ -1,16 +1,19 @@
 get:
-  operationId: get_space
+  operationId: get_group_spaces
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
-  description: Returns information about a specific space.
+  x-onedata-module: group
+  x-onedata-resource: spaces
+  x-onedata-method: group_logic:get_spaces
+  description: Returns the list of spaces to which the group has access.
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about specific space.
+      description: The list of space ID's for which the group has access.
       schema:
-        $ref: '#/definitions/space'
+        type: array
+        items: 
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -28,24 +31,24 @@ get:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: sid
+  - name: id
     in: path
-    description: Space ID.
+    description: Group ID.
     type: string
     required: true
 
-
-delete:
-  operationId: delete_space
+post:
+  operationId: get_group_spaces
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_user
-  description: Removes the users ownership or membership in a space.
+  x-onedata-module: group
+  x-onedata-resource: spaces
+  x-onedata-method: space_logic:create
+  description: Creates a new space on behalf of a specific group.
   produces:
     - application/json
   responses:
-    '200':
-      description: The space was deleted successfuly.
+    '201':
+      description: The ID of the new space returned in the response entitiy, i.e. "201 /groups/ID/spaces/SID"
     '400':
       description: Invalid request.
       schema:
@@ -63,9 +66,8 @@ delete:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: sid
+  - name: id
     in: path
-    description: Space Id.
+    description: Group ID.
     type: string
     required: true
-

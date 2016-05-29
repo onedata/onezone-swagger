@@ -1,17 +1,15 @@
 post:
-  operationId: join_space
+  operationId: group_spaces_join
   x-onedata-service: onezone
-  x-onedata-module: space
+  x-onedata-module: group
+  x-onedata-resource: sjoin
   x-onedata-method: space_logic:join
-  description: >
-   Join existing space using inivitation token.
+  description: Joins the group to an existing space based on provide space invitation token.
   consumes:
     - application/json
   responses:
-    '201':
-      description: Returns the path of the joined space in the response entity i.e. "201 /user/spaces/{id}"
-      schema:
-        type: string
+    '200':
+      description: User has successfully joined a group.
     '400':
       description: Invalid request.
       schema:
@@ -21,7 +19,7 @@ post:
       schema:
         $ref: '#/definitions/error'
     '404':
-      description: Onezone REST API unavailable at this URL.
+      description: Onezone REST API not available.
       schema:
         $ref: '#/definitions/error'
     '500':
@@ -29,9 +27,13 @@ post:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: spaceinvitetoken
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: data
     in: body
-    description: Token for joining a space.
+    description: Space join token.
     schema:
       $ref: '#/definitions/spaceinvitetoken'
-    required: true

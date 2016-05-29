@@ -1,16 +1,17 @@
 get:
-  operationId: get_space
+  operationId: get_group_user_privileges
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
-  description: Returns information about a specific space.
+  x-onedata-module: group
+  x-onedata-resource: user
+  x-onedata-method: group_logic:get_user
+  description: Returns the public information about a specific user in a group.
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about specific space.
+      description: Information about a group user.
       schema:
-        $ref: '#/definitions/space'
+        $ref: '#/definitions/user'
     '400':
       description: Invalid request.
       schema:
@@ -28,24 +29,29 @@ get:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: sid
+  - name: id
     in: path
-    description: Space ID.
+    description: Group ID.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User ID.
     type: string
     required: true
 
-
-delete:
-  operationId: delete_space
+put:
+  operationId: set_group_user_privileges
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_user
-  description: Removes the users ownership or membership in a space.
-  produces:
+  x-onedata-module: group
+  x-onedata-resource: group
+  x-onedata-method: group_logic:set_privileges
+  description: Adds user privileges for a group.
+  consumes:
     - application/json
   responses:
     '200':
-      description: The space was deleted successfuly.
+      description: The group privileges have been set successfully.
     '400':
       description: Invalid request.
       schema:
@@ -63,9 +69,20 @@ delete:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: sid
+  - name: id
     in: path
-    description: Space Id.
+    description: Group ID.
     type: string
     required: true
-
+  - name: uid
+    in: path
+    description: User ID.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: An array of user privileges to be added to the group.
+    schema:
+      type: array
+      items:
+        type: string

@@ -1,15 +1,16 @@
 post:
-  operationId: join_group
+  operationId: create_group
   x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: group_logic:join
+  x-onedata-module: group
+  x-onedata-resource: groups
+  x-onedata-method: group_logic:create
   description: >
-   Join existing group using inivitation token.
+   Creates new group
   consumes:
     - application/json
   responses:
     '201':
-      description: The ID of the group returned is returned as part of the response entity, i.e. 201 /user/groups/{id}
+      description: ID of the group created in the form /groups/{id} is returned in the response entity.
       schema:
         type: string
     '400':
@@ -29,9 +30,9 @@ post:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: groupinvitetoken
+  - name: data
     in: body
-    description: Token for joining a group.
+    description: Group properties.
     schema:
-      $ref: '#/definitions/groupinvitetoken'
+      $ref: '#/definitions/group'
     required: true

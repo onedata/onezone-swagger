@@ -39,3 +39,66 @@
 /user/merge/token:
   $ref: ./user-merge-token.yaml
 
+
+
+/groups:
+  $ref: ./groups.yaml
+
+/groups/{id}:
+  $ref: ./groups-id.yaml
+
+/groups/{id}/effective_users:
+  $ref: ./groups-id-effective_users.yaml
+
+/groups/{id}/effective_users/{uid}:
+  $ref: ./groups-id-effective_users-uid.yaml
+
+/groups/{id}/effective_users/{uid}/privileges:
+  $ref: ./groups-id-effective_users-uid-privileges.yaml
+
+/groups/{id}/users:
+  $ref: ./groups-id-users.yaml
+
+/groups/{id}/users/token:
+  $ref: ./groups-id-users-token.yaml
+
+/groups/{id}/users/{uid}:
+  $ref: ./groups-id-users-uid.yaml
+
+/groups/{id}/users/{uid}/privileges:
+  $ref: ./groups-id-users-uid-privileges.yaml
+
+/groups/{id}/parent:
+  $ref: ./groups-id-parent.yaml
+
+/groups/{id}/parent/{pid}:
+  $ref: ./groups-id-parent-pid.yaml
+
+/groups/{id}/nested:
+  $ref: ./groups-id-nested.yaml
+
+/groups/{id}/nested/token:
+  $ref: ./groups-id-nested-token.yaml
+
+/groups/{id}/nested/join:
+  $ref: ./groups-id-nested-join.yaml
+
+/groups/{id}/nested/{nid}:
+  $ref: ./groups-id-nested-nid.yaml
+
+/groups/{id}/nested/{nid}/privileges:
+  $ref: ./groups-id-nested-nid-privileges.yaml
+
+/groups/{id}/spaces:
+  $ref: ./groups-id-spaces.yaml
+
+/groups/{id}/spaces/join:
+  $ref: ./groups-id-spaces-join.yaml
+
+/groups/{id}/spaces/token:
+  $ref: ./groups-id-spaces-token.yaml
+
+/groups/{id}/spaces/{sid}:
+  $ref: ./groups-id-spaces-sid.yaml
+
+

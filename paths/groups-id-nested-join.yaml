@@ -1,0 +1,38 @@
+post:
+  operationId: get_group_nested_join
+  x-onedata-service: onezone
+  x-onedata-module: group
+  x-onedata-resource: njoin
+  x-onedata-method: group_logic:join_group
+  description: Returns a token allowing to join a nested group.
+
+  responses:
+    '200':
+      description: User has successfully joined a group.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Group join token.
+    schema:
+      $ref: '#/definitions/groupinvitetoken'

@@ -1,16 +1,17 @@
 get:
-  operationId: get_space
+  operationId: get_group_space
   x-onedata-service: onezone
-  x-onedata-module: space
+  x-onedata-module: group
+  x-onedata-resource: space
   x-onedata-method: space_logic:get_data
   description: Returns information about a specific space.
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about specific space.
+      description: Information about a specific space in a group.
       schema:
-        $ref: '#/definitions/space'
+        $ref: '#/definitions/group'
     '400':
       description: Invalid request.
       schema:
@@ -28,6 +29,11 @@ get:
       schema:
         $ref: '#/definitions/error'
   parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
   - name: sid
     in: path
     description: Space ID.
@@ -36,16 +42,15 @@ get:
 
 
 delete:
-  operationId: delete_space
+  operationId: delete_group_space
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_user
-  description: Removes the users ownership or membership in a space.
-  produces:
-    - application/json
+  x-onedata-module: group
+  x-onedata-resource: space
+  x-onedata-method: space_logic:remove_group
+  description: Removes a specific nested group.
   responses:
     '200':
-      description: The space was deleted successfuly.
+      description: A space has been removed from group.
     '400':
       description: Invalid request.
       schema:
@@ -63,9 +68,13 @@ delete:
       schema:
         $ref: '#/definitions/error'
   parameters:
-  - name: sid
+  - name: id
     in: path
-    description: Space Id.
+    description: Group ID.
     type: string
     required: true
-
+  - name: sid
+    in: path
+    description: Space ID.
+    type: string
+    required: true

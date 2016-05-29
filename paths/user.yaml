@@ -10,9 +10,7 @@ get:
     '200':
       description: Returns the information about user.
       schema:
-        type: array
-        items:
-          $ref: '#/definitions/user'
+        $ref: '#/definitions/user'
     '400':
       description: Invalid request.
       schema:
@@ -37,12 +35,12 @@ post:
   x-onedata-module: user
   x-onedata-method: user_logic:create
   description: >
-   Creates user data based when new user authenticates.
+   Creates user when new user authenticates.
   consumes:
     - application/json
   responses:
-    '200':
-      description: User added successfully.
+    '201':
+      description: User added successfully - user id is returned as part of the response entity.
       schema:
         type: string
     '400':
@@ -64,7 +62,7 @@ post:
   parameters:
   - name: data
     in: body
-    description: User data.
+    description: User properties.
     schema:
       $ref: '#/definitions/user'
     required: true

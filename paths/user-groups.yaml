@@ -37,12 +37,12 @@ post:
   x-onedata-module: group
   x-onedata-method: group_logic:create
   description: >
-   Creates a new group.
+   Creates a new group whose administrator is currently authenticated user.
   consumes:
     - application/json
   responses:
-    '200':
-      description: Group created successfully.
+    '201':
+      description: The ID of the created group returned in the response entity, i.e. 201 /user/groups/{id}
       schema:
         type: string
     '400':

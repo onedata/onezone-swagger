@@ -1,0 +1,41 @@
+get:
+  operationId: get_group_parent
+  x-onedata-service: onezone
+  x-onedata-module: group
+  x-onedata-resource: parent_group
+  x-onedata-method: group_logic:get_parent_group
+  description: Returns information about a specific parent group.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a specific parent group.
+      schema:
+        $ref: '#/definitions/group'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: pid
+    in: path
+    description: Parent group ID.
+    type: string
+    required: true

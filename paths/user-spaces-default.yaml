@@ -8,7 +8,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the Id of the default user space.
+      description: Returns the Id of the default user space or 'undefined' in case no space is selected as default.
       schema:
         $ref: '#/definitions/defaultspace'
     '400':
