@@ -12,6 +12,6 @@ docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.2.0 ge
 # Generate C# stub to get all moustache tempalte keywords
 #swagger-codegen-dbg generate -i ./swagger.json -l csharp -o ./generated/csharp -o tmp > model.json
 
-# Generate the 
-docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.2.0 generate -i ./swagger.json -l html -o ./generated/html
+# Generate the static documentation
+docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-bootprint:1.1.0 swagger ./swagger.json generated/static
 
