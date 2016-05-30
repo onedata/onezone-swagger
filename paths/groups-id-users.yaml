@@ -4,6 +4,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: users
   x-onedata-method: group_logic:get_users
+  summary: Returns the list of users belonging to a specific group.
   description: Returns the list of users belonging to a specific group.
   produces:
     - application/json

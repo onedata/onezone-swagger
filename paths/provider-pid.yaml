@@ -1,10 +1,11 @@
 get:
-  operationId: get_provider
+  operationId: get_other_provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: nprovider
   x-onedata-method: provider_logic:get_data
-  description: Returns the information about a specific provider.
+  summary: Returns the information about a specific Oneprovider.
+  description: Returns the information about a another Oneprovider service, which is connected to the current provider.
   produces:
     - application/json
   responses:

@@ -1,9 +1,10 @@
 get:
-  operationId: get_space
+  operationId: get_supported_space
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: space_logic:get_data
-  description: Returns information about a specific space.
+  summary: Returns information about a specific space supported by this provider.
+  description: Returns information about a specific space supported by this provider.
   produces:
     - application/json
   responses:
@@ -40,6 +41,7 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: space_logic:remove_provider
+  summary: Removes support for space from this provider.
   description: Removes support for space from this provider.
   produces:
     - application/json

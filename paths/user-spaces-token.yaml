@@ -1,8 +1,9 @@
 get:
-  operationId: get_space_token
+  operationId: get_user_space_token
   x-onedata-service: onezone
   x-onedata-module: token
   x-onedata-method: token_logic:create
+  summary: Creates a new space token.
   description: Creates a new space token.
   produces:
     - application/json

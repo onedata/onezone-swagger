@@ -4,6 +4,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: users
   x-onedata-method: space_logic:get_users
+  summary: Returns the list of users belonging to a specific space.
   description: Returns the list of users belonging to a specific space.
   produces:
     - application/json

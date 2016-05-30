@@ -1,9 +1,10 @@
 get:
-  operationId: get_group_nested
+  operationId: get_nested_group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: nested_group
   x-onedata-method: group_logic:get_nested_group
+  summary: Returns information about a specific nested group.
   description: Returns information about a specific nested group.
   produces:
     - application/json
@@ -42,11 +43,12 @@ get:
 
 
 delete:
-  operationId: delete_group_nested
+  operationId: delete_nested_group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: nested_group
   x-onedata-method: group_logic:remove_nested_group
+  summary: Removes a specific nested group.
   description: Removes a specific nested group.
   responses:
     '200':

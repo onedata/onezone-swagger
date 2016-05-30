@@ -1,9 +1,10 @@
 get:
-  operationId: get_space_token
+  operationId: get_space_user_token
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: uinvite
   x-onedata-method: token_logic:create
+  summary: Creates a token allowing new user to join a space.
   description: Creates a token allowing new user to join a space.
   produces:
     - application/json

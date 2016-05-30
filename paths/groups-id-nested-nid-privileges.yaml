@@ -1,9 +1,10 @@
 get:
-  operationId: get_group_nested_privileges
+  operationId: get_nested_group_privileges
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: npriv
   x-onedata-method: group_logic:get_nested_group_privileges
+  summary: Returns the list of nested group privileges in a specific group.
   description: Returns the list of nested group privileges in a specific group.
   produces:
     - application/json
@@ -48,6 +49,7 @@ put:
   x-onedata-module: group
   x-onedata-resource: npriv
   x-onedata-method: group_logic:set_nested_group_privileges
+  summary: Adds specific privileges for a nested group in a group.
   description: Adds specific privileges for a nested group in a group.
   responses:
     '200':

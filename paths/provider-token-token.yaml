@@ -4,6 +4,7 @@ get:
   x-onedata-module: provider
   x-onedata-resource: token
   x-onedata-method: token_logic:get_issuer
+  summary: TODO
   description: TODO
   produces:
     - application/json

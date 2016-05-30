@@ -4,6 +4,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: groups
   x-onedata-method: space_logic:get_groups
+  summary: Returns the list of groups belonging to a specific space.
   description: Returns the list of groups belonging to a specific space.
   produces:
     - application/json

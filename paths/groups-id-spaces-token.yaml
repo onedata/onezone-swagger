@@ -1,9 +1,10 @@
 get:
-  operationId: get_group_spaces_token
+  operationId: create_group_spaces_token
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: screate
   x-onedata-method: token_logic:create
+  summary: Creates a token allowing a group to join a specific space.
   description: Creates a token allowing a group to join a specific space.
   produces:
     - application/json

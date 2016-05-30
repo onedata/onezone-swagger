@@ -1,9 +1,10 @@
 get:
-  operationId: get_group_parent
+  operationId: get_parent_groups
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: parent_groups
   x-onedata-method: group_logic:get_parent_groups
+  summary: Returns the parent groups of a specific group.
   description: Returns the parent groups of a specific group.
   produces:
     - application/json

@@ -1,10 +1,11 @@
 get:
-  operationId: get_group_user_privileges
+  operationId: get_groups_user_privileges
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: eupriv
   x-onedata-method: group_logic:get_effective_privileges
-  description: Returns public information about a specific group user.
+  summary: Returns the user privileges in a group.
+  description: Returns the user privileges in a group.
   produces:
     - application/json
   responses:

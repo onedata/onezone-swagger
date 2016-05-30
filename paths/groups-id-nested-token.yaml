@@ -1,9 +1,10 @@
 get:
-  operationId: get_group_nested_token
+  operationId: get_nested_group_token
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: ninvite
   x-onedata-method: token_logic:create
+  summary: Creates a token allowing new user to join a nested group.
   description: Creates a token allowing new user to join a nested group.
   produces:
     - application/json

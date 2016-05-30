@@ -3,8 +3,8 @@ post:
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:join
-  description: >
-   Join existing space using inivitation token.
+  summary: Join existing space using inivitation token.
+  description: Join existing space using inivitation token.
   consumes:
     - application/json
   responses:

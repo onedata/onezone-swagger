@@ -4,6 +4,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: user
   x-onedata-method: group_logic:get_user
+  summary: Returns the public information about a specific user in a group.
   description: Returns the public information about a specific user in a group.
   produces:
     - application/json
@@ -46,6 +47,7 @@ put:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:add_user
+  summary: Adds user privileges for a group.
   description: Adds user privileges for a group.
   consumes:
     - application/json

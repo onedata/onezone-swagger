@@ -1,9 +1,10 @@
 get:
-  operationId: get_group_token
+  operationId: create_user_group_invite_token
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: uinvite
   x-onedata-method: token_logic:create
+  summary: Creates a token allowing new user to join the group.
   description: Creates a token allowing new user to join the group.
   produces:
     - application/json

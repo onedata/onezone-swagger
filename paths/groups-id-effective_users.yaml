@@ -1,9 +1,10 @@
 get:
-  operationId: get_group_effectiveusers
+  operationId: get_group_effective_users
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: effective_users
   x-onedata-method: group_logic:get_effective_users
+  summary: Returns the information about a specific group.
   description: Returns the information about a specific group.
   produces:
     - application/json

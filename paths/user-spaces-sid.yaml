@@ -1,8 +1,9 @@
 get:
-  operationId: get_space
+  operationId: get_user_space
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:get_data
+  summary: Returns information about a specific space.
   description: Returns information about a specific space.
   produces:
     - application/json
@@ -36,10 +37,11 @@ get:
 
 
 delete:
-  operationId: delete_space
+  operationId: delete_user_space
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:remove_user
+  summary: Removes the users ownership or membership in a space.
   description: Removes the users ownership or membership in a space.
   produces:
     - application/json

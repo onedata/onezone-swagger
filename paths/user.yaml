@@ -3,6 +3,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_data
+  summary: Returns the information about currently authenticated user.
   description: Returns the information about currently authenticated user.
   produces:
     - application/json
@@ -34,8 +35,8 @@ post:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:create
-  description: >
-   Creates user when new user authenticates.
+  summary: Creates user when new user authenticates.
+  description: Creates user when new user authenticates.
   consumes:
     - application/json
   responses:
@@ -73,8 +74,8 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:modify
-  description: >
-   Updates user data.
+  summary: Updates user data.
+  description: Updates user data.
   consumes:
     - application/json
   responses:
@@ -112,8 +113,8 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:delete
-  description: >
-   Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
+  summary: Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
+  description: Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
   consumes:
     - application/json
   responses:

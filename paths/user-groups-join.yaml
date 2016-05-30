@@ -3,8 +3,8 @@ post:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: group_logic:join
-  description: >
-   Join existing group using inivitation token.
+  summary: Join existing group using inivitation token.
+  description: Join existing group using inivitation token.
   consumes:
     - application/json
   responses:

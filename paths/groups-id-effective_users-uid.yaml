@@ -1,10 +1,11 @@
 get:
-  operationId: get_group_user
+  operationId: get_groups_effective_user
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: effective_user
   x-onedata-method: group_logic:get_effective_user
   description: Returns public information about a specific group user.
+  summary: Returns public information about a specific group user.
   produces:
     - application/json
   responses:

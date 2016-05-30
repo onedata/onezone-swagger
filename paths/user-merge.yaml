@@ -1,10 +1,10 @@
 post:
-  operationId: user_merge
+  operationId: user_merge_accounts
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:merge
-  description: >
-   Merge user accounts.
+  summary: Merge user accounts.
+  description: Merge user accounts.
   consumes:
     - application/json
   responses:

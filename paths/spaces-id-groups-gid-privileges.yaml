@@ -4,7 +4,8 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: gpriv
   x-onedata-method: space_logic:get_privileges
-  description: Returns the list of group privileges in a specific space.
+  summary: Returns the list of group privileges for a specific space.
+  description: Returns the list of group privileges for a specific space.
   produces:
     - application/json
   responses:
@@ -48,6 +49,7 @@ put:
   x-onedata-module: spaces
   x-onedata-resource: upriv
   x-onedata-method: space_logic:set_privileges
+  summary: Adds specific privileges for a group in a space.
   description: Adds specific privileges for a group in a space.
   responses:
     '200':

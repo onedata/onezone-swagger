@@ -3,8 +3,8 @@ post:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: auth_logic:authenticate_user
-  description: >
-   Authenticates user using authentication token through Onezone web interface.
+  summary: Authenticates user using authentication token.
+  description: Authenticates user using authentication token through Onezone web interface.
   consumes:
     - application/json
   responses:

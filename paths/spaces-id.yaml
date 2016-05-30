@@ -4,6 +4,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:get_data
+  summary: Returns the information about a specific space.
   description: Returns the information about a specific space.
   produces:
     - application/json
@@ -42,6 +43,7 @@ patch:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:modify
+  summary: Updates the information about a space.
   description: Updates the information about a space.
   consumes:
     - application/json
@@ -86,7 +88,8 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:remove_space
-  description: Removes a specific space
+  summary: Removes a specific space.
+  description: Removes a specific space.
   responses:
     '200':
       description: The space has been removed successfully.

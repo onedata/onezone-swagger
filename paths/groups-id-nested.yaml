@@ -1,9 +1,10 @@
 get:
-  operationId: get_group_nested
+  operationId: get_nested_groups
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: nested_groups
   x-onedata-method: group_logic:get_nested_groups
+  summary: Returns the list of nested groups.
   description: Returns the list of nested groups.
   produces:
     - application/json

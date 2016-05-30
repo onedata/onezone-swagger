@@ -1,8 +1,9 @@
 get:
-  operationId: get_group
+  operationId: get_user_group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:get_data
+  summary: Returns information about a specific group.
   description: Returns information about a specific group.
   produces:
     - application/json
@@ -40,6 +41,7 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:remove_user
+  summary: Removes the users ownership or membership in a group.
   description: Removes the users ownership or membership in a group.
   produces:
     - application/json

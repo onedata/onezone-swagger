@@ -1,8 +1,9 @@
 get:
-  operationId: get_groups
+  operationId: get_user_groups
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_groups
+  summary: Returns the list of user's groups.
   description: Returns the list of user's groups.
   produces:
     - application/json
@@ -32,12 +33,12 @@ get:
 
 
 post:
-  operationId: create_group
+  operationId: create_group_for_user
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:create
-  description: >
-   Creates a new group whose administrator is currently authenticated user.
+  summary: Creates a new group for current user.
+  description: Creates a new group whose administrator is currently authenticated user.
   consumes:
     - application/json
   responses:

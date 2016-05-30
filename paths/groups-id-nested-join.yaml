@@ -1,11 +1,11 @@
 post:
-  operationId: get_group_nested_join
+  operationId: join_nested_group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: njoin
   x-onedata-method: group_logic:join_group
+  summary: Returns a token allowing to join a nested group.
   description: Returns a token allowing to join a nested group.
-
   responses:
     '200':
       description: User has successfully joined a group.

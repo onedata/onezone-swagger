@@ -1,8 +1,9 @@
 get:
-  operationId: get_merge_token
+  operationId: get_user_merge_token
   x-onedata-service: onezone
   x-onedata-module: token
   x-onedata-method: token_logic:create
+  summary: Creates a new account merge token.
   description: Creates a new account merge token.
   produces:
     - application/json

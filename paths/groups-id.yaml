@@ -4,6 +4,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:get_data
+  summary: Returns the information about a specific group.
   description: Returns the information about a specific group.
   produces:
     - application/json
@@ -42,6 +43,7 @@ patch:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:modify
+  summary: Updates the information about a group.
   description: Updates the information about a group.
   consumes:
     - application/json
@@ -81,11 +83,12 @@ patch:
 
 
 delete:
-  operationId: leave_group
+  operationId: remove_group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:remove_group
+  summary: Removes a specific group
   description: Removes a specific group
   responses:
     '200':

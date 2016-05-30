@@ -1,9 +1,10 @@
 get:
-  operationId: get_spaces
+  operationId: get_user_spaces
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_spaces
-  description: Returns the list of users spaces
+  summary: Returns the list of users spaces.
+  description: Returns the list of users spaces.
   produces:
     - application/json
   responses:
@@ -39,12 +40,12 @@ get:
 
 
 post:
-  operationId: create_space
+  operationId: create_user_space
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:create
-  description: >
-   Creates a new space.
+  summary: Creates a new space.
+  description: Creates a new space.
   consumes:
     - application/json
   responses:

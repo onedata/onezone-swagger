@@ -1,8 +1,9 @@
 get:
-  operationId: get_default_space
+  operationId: get_user_default_space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-method: user_logic:get_default_space
+  summary: Returns the default users space ID.
   description: Returns the default users space ID.
   produces:
     - application/json
@@ -30,12 +31,12 @@ get:
 
 
 put:
-  operationId: set_default_space
+  operationId: set_user_default_space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-method: user_logic:set_default_space
-  description: >
-   Selects a default user space.
+  summary: Selects a default user space.
+  description: Selects a default user space.
   consumes:
     - application/json
   responses:

@@ -7,4 +7,6 @@ properties:
   providerId:
     type: string
     description: Provider Id.
-
+example:
+  accountId: ASD879ASD-7SADASFSsa0831
+  providerId: 7YASBFLJ-123ASD870-ASDASD

@@ -4,6 +4,7 @@ get:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:get_data
+  summary: Returns the information about the Oneprovider running this service.
   description: Returns the information about the Oneprovider running this service.
   produces:
     - application/json
@@ -36,8 +37,8 @@ post:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:create
-  description: >
-   Allows to register a provider in Onezone service.
+  summary: Allows to register a provider in Onezone service.
+  description: Allows to register a provider in Onezone service.
   consumes:
     - application/json
   responses:
@@ -83,8 +84,8 @@ patch:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:modify
-  description: >
-   Updates user data.
+  summary: Updates user data.
+  description: Updates user data.
   consumes:
     - application/json
   responses:
@@ -121,8 +122,8 @@ delete:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:remove
-  description: >
-   Unregisters a provider.
+  summary: Unregisters a provider.
+  description: Unregisters a provider.
   consumes:
     - application/json
   responses:
@@ -153,5 +154,5 @@ delete:
       properties:
         providerId:
           type: string
-          description: The ID of the provider to remove../
+          description: The ID of the provider to remove.
     required: true

@@ -13,3 +13,8 @@ properties:
   message:
     description: Detailed error message.
     type: string
+example:
+  id: 7YASBFLJ-123ASD870-ASDASD
+  status: 404
+  title: Resource not found.
+  message: Space with the specified ID was not found.

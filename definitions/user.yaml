@@ -22,3 +22,15 @@ properties:
 required:
   - userId
   - name
+example:
+  userId: ALKJSDH77i79ASDKJA-ASDBAS9-87
+  name: Rudolf Lingens
+  connectedAccounts:
+    - accountId: ASD879ASD-7SADASFSsa0831
+      providerId: 7YASBFLJ-123ASD870-ASDASD
+    - accountId: QWESsD-7SADASFSsa0831
+      providerId: 7QWEJ-123ASD870-ASDASD
+  alias: John Doe
+  emailList:
+    - rudolf.linges@example.com
+    - john.doe@example.com

@@ -10,3 +10,6 @@ properties:
 required:
   - name
   - type
+example:
+  name: Test group
+  type: default

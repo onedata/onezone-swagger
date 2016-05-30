@@ -1,9 +1,10 @@
 get:
-  operationId: get_provider_spaces
+  operationId: get_supported_spaces
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: spaces
   x-onedata-method: provider_logic:get_spaces
+  summary: Returns the list of spaces managed by a provider.
   description: Returns the list of spaces managed by a provider.
   produces:
     - application/json
@@ -37,14 +38,14 @@ post:
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: spaces
-  x-onedata-method: spaces_rest_module:accept_resource
-  description: >
-   Creates a new space.
+  x-onedata-method: space_logic:create
+  summary: Creates a new space.
+  description: Creates a new space. This operation is an alias for "/spaces [POST]" call.
   consumes:
     - application/json
   responses:
     '201':
-      description: The ID of the created group returned in the response entity, i.e. 201 /provider/spaces/{id}
+      description: The ID of the created space returned in the response entity, i.e. 201 /provider/spaces/{id}
       schema:
         type: string
     '400':

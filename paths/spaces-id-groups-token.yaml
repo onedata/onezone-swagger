@@ -4,6 +4,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: ginvite
   x-onedata-method: token_logic:create
+  summary: Creates a token allowing to add a group to a specific space.
   description: Creates a token allowing to add a group to a specific space.
   produces:
     - application/json

@@ -1,10 +1,11 @@
 post:
-  operationId: group_spaces_join
+  operationId: group_join_space
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: sjoin
   x-onedata-method: space_logic:join
-  description: Joins the group to an existing space based on provide space invitation token.
+  summary: Joins the group to an existing space based on provided space invitation token.
+  description: Joins the group to an existing space based on provided space invitation token.
   consumes:
     - application/json
   responses:
