@@ -4,8 +4,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: user
   x-onedata-method: group_logic:get_user
-  summary: Returns the public information about a specific user in a group.
-  description: Returns the public information about a specific user in a group.
+  summary: Returns the public information about a user {uid} in group {id}.
+  description: Returns the public information about a user {uid} in group {id}.
   produces:
     - application/json
   responses:
@@ -41,19 +41,19 @@ get:
     type: string
     required: true
 
-put:
+delete:
   operationId: add_group_user
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: group
-  x-onedata-method: group_logic:add_user
-  summary: Adds user privileges for a group.
-  description: Adds user privileges for a group.
+  x-onedata-method: group_logic:remove_user
+  summary: Removes the user {uid} from a group {id} (the user will no longer have access to spaces accessible to the group).
+  description: Removes the user {uid} from a group {id} (the user will no longer have access to spaces accessible to the group).
   consumes:
     - application/json
   responses:
     '200':
-      description: The group privileges have been set successfully.
+      description: The user has been removed from the group.
     '400':
       description: Invalid request.
       schema:
@@ -81,10 +81,3 @@ put:
     description: User ID.
     type: string
     required: true
-  - name: data
-    in: body
-    description: An array of user privileges to be added to the group.
-    schema:
-      type: array
-      items:
-        type: string

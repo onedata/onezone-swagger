@@ -4,8 +4,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: ninvite
   x-onedata-method: token_logic:create
-  summary: Creates a token allowing new user to join a nested group.
-  description: Creates a token allowing new user to join a nested group.
+  summary: Creates a token that can be used to add a group as subgroup of group with {id}.
+  description: Creates a token that can be used to add a group as subgroup of group with {id}.
   produces:
     - application/json
   responses:

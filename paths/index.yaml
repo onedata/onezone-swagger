@@ -42,8 +42,6 @@
 /spaces/{id}/providers/{pid}:
   $ref: ./spaces-id-providers-pid.yaml
   
-        # {<<"/spaces/:id/providers/:pid">>, M, S#rstate{resource = provider, methods = [get, delete]}}
-
 
 /user:
   $ref: ./user.yaml
@@ -160,12 +158,10 @@
 /provider/spaces/{sid}:
   $ref: ./provider-spaces-sid.yaml
 
-/provider/token/{token}:
-  $ref: ./provider-token-token.yaml
+/provider/test/check_my_ip:
+  $ref: ./provider-test-check_my_ip.yaml
 
- # {<<"/provider/test/check_my_ip">>, M, S#rstate{resource = ip, methods = [get], noauth = [get]}},
- #   # {<<"/provider/test/check_my_ports">>, M, S#rstate{resource = ports, methods = [post], noauth = [post]}}
-
-
+/provider/test/check_my_ports:
+  $ref: ./provider-test-check_my_ports.yaml
 
 

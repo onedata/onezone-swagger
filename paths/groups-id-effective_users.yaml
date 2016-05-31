@@ -4,8 +4,10 @@ get:
   x-onedata-module: group
   x-onedata-resource: effective_users
   x-onedata-method: group_logic:get_effective_users
-  summary: Returns the information about a specific group.
-  description: Returns the information about a specific group.
+  summary: Returns the list of effective group users.
+  description: >
+    Returns the list of effective group users, which includes both who directly belong to the group,
+    as well as users who belong to the group indirectly through its parent groups.
   produces:
     - application/json
   responses:

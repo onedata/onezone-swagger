@@ -4,8 +4,8 @@ post:
   x-onedata-module: provider
   x-onedata-resource: ssupport
   x-onedata-method: space_logic:support
-  summary: Adds support for specific space within provider.
-  description: Adds support for specific space within provider.
+  summary: Adds support for specific space on behalf of the Oneprovider that performed the request. Space support token is required.
+  description: Adds support for specific space on behalf of the Oneprovider that performed the request. Space support token is required.
   produces:
     - application/json
   responses:

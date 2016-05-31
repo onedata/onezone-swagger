@@ -4,8 +4,8 @@ get:
   x-onedata-module: provider
   x-onedata-resource: spaces
   x-onedata-method: provider_logic:get_spaces
-  summary: Returns the list of spaces managed by a provider.
-  description: Returns the list of spaces managed by a provider.
+  summary: Returns the list of spaces managed by the Oneprovider that performed the request.
+  description: Returns the list of spaces managed by the Oneprovider that performed the request.
   produces:
     - application/json
   responses:
@@ -39,8 +39,8 @@ post:
   x-onedata-module: provider
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
-  summary: Creates a new space.
-  description: Creates a new space. This operation is an alias for "/spaces [POST]" call.
+  summary:  Creates a new space on behalf of the Oneprovider that performed the request.
+  description: Creates a new space on behalf of the Oneprovider that performed the request.
   consumes:
     - application/json
   responses:

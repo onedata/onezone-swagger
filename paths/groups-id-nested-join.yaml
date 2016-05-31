@@ -4,8 +4,11 @@ post:
   x-onedata-module: group
   x-onedata-resource: njoin
   x-onedata-method: group_logic:join_group
-  summary: Returns a token allowing to join a nested group.
-  description: Returns a token allowing to join a nested group.
+  summary: Adds given group as a subgroup of a specific group based on provided token.
+  description: > 
+    Adds given group as a subgroup of a specific group based on provided token. 
+    The parent group to which the group will be added is identified from the token 
+    (the token is issued in the context of a group).
   responses:
     '200':
       description: User has successfully joined a group.

@@ -48,8 +48,8 @@ delete:
   x-onedata-module: group
   x-onedata-resource: nested_group
   x-onedata-method: group_logic:remove_nested_group
-  summary: Removes a specific nested group.
-  description: Removes a specific nested group.
+  summary: Removes a specific subgroup with {nid} from parent group with {id}.
+  description: Removes a specific subgroup with {nid} from parent group with {id}.
   responses:
     '200':
       description: A nested group has been removed successfully.

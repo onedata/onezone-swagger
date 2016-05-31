@@ -1,0 +1,31 @@
+get:
+  operationId: check_my_ip
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-resource: ip
+  x-onedata-method: cowboy_req:peer
+  summary: Returns the IP of the request peer. Will return the external IP (as seen by the Onezone).
+  description: Returns the IP of the request peer. Will return the external IP (as seen by the Onezone).
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The IP of the requesting peer.
+      schema: 
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'

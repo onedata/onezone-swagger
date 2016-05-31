@@ -4,8 +4,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: space
   x-onedata-method: space_logic:get_data
-  summary: Returns information about a specific space belonging to a group.
-  description: Returns information about a specific space belonging to a group.
+  summary: Returns information about a specific space to which the group belongs.
+  description: Returns information about a specific space to which the group belongs.
   produces:
     - application/json
   responses:
@@ -48,11 +48,11 @@ delete:
   x-onedata-module: group
   x-onedata-resource: space
   x-onedata-method: space_logic:remove_group
-  summary: Removes a specific nested group.
-  description: Removes a specific nested group.
+  summary: Removes the group {id} from space {sid} (the group will no longer have access to space).
+  description: Removes the group {id} from space {sid} (the group will no longer have access to space).
   responses:
     '200':
-      description: A space has been removed from group.
+      description: A group has been removed from the space.
     '400':
       description: Invalid request.
       schema:

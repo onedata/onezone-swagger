@@ -49,8 +49,8 @@ put:
   x-onedata-module: group
   x-onedata-resource: upriv
   x-onedata-method: group_logic:set_privileges
-  summary: Adds specific privileges for a user in a group.
-  description: Adds specific privileges for a user in a group.
+  summary: Sets privileges for user {uid} in a group {id}.
+  description: Sets privileges for a user {uid} in a group {id}.
   responses:
     '200':
       description: The user privileges have been added.

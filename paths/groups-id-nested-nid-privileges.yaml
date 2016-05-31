@@ -49,8 +49,8 @@ put:
   x-onedata-module: group
   x-onedata-resource: npriv
   x-onedata-method: group_logic:set_nested_group_privileges
-  summary: Adds specific privileges for a nested group in a group.
-  description: Adds specific privileges for a nested group in a group.
+  summary: Sets privileges for a specific subgroup in a group.
+  description: Sets privileges for a specific subgroup in a group.
   responses:
     '200':
       description: The user privileges have been added.

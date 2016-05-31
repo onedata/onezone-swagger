@@ -108,34 +108,34 @@ patch:
     required: true
 
 
-delete:
-  operationId: delete_user
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:delete
-  summary: Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
-  description: Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
-  consumes:
-    - application/json
-  responses:
-    '200':
-      description: User deleted successfully.
-      schema:
-        type: string
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/error'
-    '403':
-      description: Forbidden request.
-      schema:
-        $ref: '#/definitions/error'
-    '404':
-      description: Onezone REST API unavailable at this URL.
-      schema:
-        $ref: '#/definitions/error'
-    '500':
-      description: Internal server error.
-      schema:
-        $ref: '#/definitions/error'
+# delete:
+#   operationId: delete_user
+#   x-onedata-service: onezone
+#   x-onedata-module: user
+#   x-onedata-method: user_logic:delete
+#   summary: Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
+#   description: Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
+#   consumes:
+#     - application/json
+#   responses:
+#     '200':
+#       description: User deleted successfully.
+#       schema:
+#         type: string
+#     '400':
+#       description: Invalid request.
+#       schema:
+#         $ref: '#/definitions/error'
+#     '403':
+#       description: Forbidden request.
+#       schema:
+#         $ref: '#/definitions/error'
+#     '404':
+#       description: Onezone REST API unavailable at this URL.
+#       schema:
+#         $ref: '#/definitions/error'
+#     '500':
+#       description: Internal server error.
+#       schema:
+#         $ref: '#/definitions/error'
 

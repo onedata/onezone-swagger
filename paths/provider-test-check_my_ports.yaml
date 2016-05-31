@@ -1,0 +1,43 @@
+post:
+  operationId: check_my_ports
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-resource: ip
+  x-onedata-method: provider_logic:test_connection
+  summary: Checks if all given ports are reachable from Onezone.
+  description: >
+    Checks if all given ports are reachable from Onezone. 
+    Ports is a list on form [URL:port, URL:port, ...], 
+    for example [https://provider1.com:80, https://provider1.com:443] 
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The ports are accessible.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/error'
+    '404':
+      description: Onezone REST API not available.
+      schema:
+        $ref: '#/definitions/error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/error'
+  parameters:
+  - name: ports
+    in: body
+    description: List of ports to check.
+    schema:
+      type: array
+      items:
+        type: string
+      example:
+        - 'https://provider1.com:80'
+        - 'https://provider1.com:443'

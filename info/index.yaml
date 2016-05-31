@@ -17,6 +17,15 @@ description: |
  may be possible. In particular, some operations depend on whether a particular request is initiated by a regular
  user or by another storage provider within a zone.
 
+ In case of Oneprovider API calls, the provider identification and authorization are based on
+ the SSL Peer Certificate that has been signed by this Onezone service during registration.
+ 
+ ## Effective users and effective groups
+ Onedata supports creation of arbitrary nested group tree structures. In order to allow identification
+ if a given user belongs to the group directly or indirectly by belonging to a subgroup of a group,
+ separate API calls are provided for getting information about group users (direct group members) and 
+ effective users (indirect group members).
+
  ## API structure
  Most operations are RESTful, i.e. paths reflect the actual resource mode and operations on them are mapped to
  most appropriate HTTP methods.
@@ -31,8 +40,10 @@ description: |
  adding and removing users from groups.
 
  ### Provider management
- TODO
- 
+ Provider specific calls enable for getting global information about the spaces managed by the provider,
+ and some administrative operations which can be used for monitoring or accounting.
+
+
 contact:
   name: Onedata support
   url: https://onedata.org/support
