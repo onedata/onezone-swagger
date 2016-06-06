@@ -12,17 +12,21 @@ get:
     '200':
       description: Returns the information about a group user.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/GroupPrivileges'
     '400':
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
     '403':
-      description: Forbidden request.
+      description: Authorization error.
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onezone REST API not available.
+      description: Resource not found.
       schema:
         $ref: '#/definitions/Error'
     '500':

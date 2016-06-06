@@ -41,4 +41,8 @@ AccountMergeToken:
 ConnectedAccount:
   $ref: ./connectedaccount.yaml
 
+SpacePrivileges:
+  $ref: ./spaceprivileges.yaml
 
+GroupPrivileges:
+  $ref: ./groupprivileges.yaml

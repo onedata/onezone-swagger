@@ -1,7 +1,7 @@
 type: object
 description: Provider properties.
 properties:
-  id:
+  providerId:
     type: string
     description: The provider ID.
   urls:

@@ -17,16 +17,20 @@ get:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
     '403':
-      description: Forbidden request.
+      description: Authorization error.
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onezone REST API not available.
+      description: Resource not found.
       schema:
         $ref: '#/definitions/Error'
     '500':
-      description: Internal server error.
+      description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
   parameters:
@@ -48,7 +52,7 @@ delete:
   x-onedata-module: group
   x-onedata-resource: space
   x-onedata-method: space_logic:remove_group
-  summary: Removes the group {id} from space {sid} (the group will no longer have access to space).
+  summary: Remove space from group.
   description: Removes the group {id} from space {sid} (the group will no longer have access to space).
   responses:
     '200':
@@ -57,16 +61,20 @@ delete:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
     '403':
-      description: Forbidden request.
+      description: Authorization error.
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onezone REST API not available.
+      description: Resource not found.
       schema:
         $ref: '#/definitions/Error'
     '500':
-      description: Internal server error.
+      description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
   parameters:

@@ -19,16 +19,20 @@ get:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
     '403':
-      description: Forbidden request.
+      description: Authorization error.
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onezone REST API not available.
+      description: Resource not found.
       schema:
         $ref: '#/definitions/Error'
     '500':
-      description: Internal server error.
+      description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
   parameters:

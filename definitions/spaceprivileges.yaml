@@ -1,0 +1,30 @@
+type: object
+description: The list of space privileges.
+properties:
+  privileges:
+    type: array
+    items:
+      type: string
+      enum:
+        - space_invite_user
+        - space_remove_user
+        - space_invite_group
+        - space_remove_group
+        - space_set_privileges
+        - space_remove
+        - space_add_provider
+        - space_remove_provider
+        - space_change_data
+        - space_view_data
+example:
+  privileges:
+    - space_invite_user
+    - space_remove_user
+    - space_invite_group
+    - space_remove_group
+    - space_set_privileges
+    - space_remove
+    - space_add_provider
+    - space_remove_provider
+    - space_change_data
+    - space_view_data 

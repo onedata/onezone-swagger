@@ -12,23 +12,25 @@ get:
     '200':
       description: The list of nested group privileges in a group.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/GroupPrivileges'
     '400':
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
     '403':
-      description: Forbidden request.
+      description: Authorization error.
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onezone REST API not available.
+      description: Resource not found.
       schema:
         $ref: '#/definitions/Error'
     '500':
-      description: Internal server error.
+      description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
   parameters:
@@ -58,16 +60,20 @@ put:
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
     '403':
-      description: Forbidden request.
+      description: Authorization error.
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Onezone REST API not available.
+      description: Resource not found.
       schema:
         $ref: '#/definitions/Error'
     '500':
-      description: Internal server error.
+      description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
   parameters:
@@ -78,15 +84,13 @@ put:
     required: true
   - name: nid
     in: path
-    description: Nested group ID.
+    description: Subgroup ID.
     type: string
     required: true
   - name: data
     in: body
     description: Nested group privileges.
     schema:
-      type: array
-      items:
-        type: string
+      $ref: '#/definitions/GroupPrivileges'
     required: true
 

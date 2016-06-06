@@ -1,6 +1,9 @@
 type: object
 description: Group details.
 properties:
+  groupId:
+    type: string
+    description: Unique group Id.
   name:
     type: string
     description: The name of the space.
