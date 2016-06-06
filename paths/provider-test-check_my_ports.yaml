@@ -13,7 +13,20 @@ post:
     - application/json
   responses:
     '200':
-      description: The ports are accessible.
+      description: Returns the list of ports (with URLs) and their status.
+      schema:
+        type: array
+        items:
+          type: array
+          items:
+            type: string
+        example:
+          -
+            - https://provider1.com:80
+            - ok
+          - 
+            - https://provider1.com:443
+            - error
     '400':
       description: Invalid request.
       schema:

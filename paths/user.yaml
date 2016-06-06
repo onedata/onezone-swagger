@@ -40,10 +40,8 @@ patch:
   consumes:
     - application/json
   responses:
-    '200':
+    '204':
       description: User information updated successfully.
-      schema:
-        type: string
     '400':
       description: Invalid request.
       schema:

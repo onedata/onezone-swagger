@@ -55,8 +55,8 @@ delete:
   summary: Remove subgroup.
   description: Removes a specific subgroup with {nid} from parent group with {id}.
   responses:
-    '200':
-      description: A nested group has been removed successfully.
+    '202':
+      description: A subgroup will be removed.
     '400':
       description: Invalid request.
       schema:

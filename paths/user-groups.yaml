@@ -49,9 +49,9 @@ post:
     - application/json
   responses:
     '201':
-      description: The ID of the created group returned in the response entity, i.e. 201 /user/groups/{id}
-      schema:
-        type: string
+      description: >
+        ID of the created group in the form /user/groups/{gid} is 
+        returned in the response `location` header. 
     '400':
       description: Invalid request.
       schema:

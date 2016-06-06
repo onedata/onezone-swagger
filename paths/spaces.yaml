@@ -13,9 +13,9 @@ post:
     - application/json
   responses:
     '201':
-      description: ID of the group created in the form /spaces/{id} is returned in the response entity.
-      schema:
-        type: string
+      description: >
+        ID of the created space in the form /spaces/{id} is 
+        returned in the response `location` header. 
     '400':
       description: Invalid request.
       schema:

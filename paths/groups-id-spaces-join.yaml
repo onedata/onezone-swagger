@@ -9,8 +9,10 @@ post:
   consumes:
     - application/json
   responses:
-    '200':
-      description: User has successfully joined a group.
+    '201':
+      description: >
+        ID of the joined space in the form /spaces/{id} is 
+        returned in the response `location` header.    
     '400':
       description: Invalid request.
       schema:

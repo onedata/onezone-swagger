@@ -58,8 +58,8 @@ delete:
   consumes:
     - application/json
   responses:
-    '200':
-      description: The user has been removed from the group.
+    '202':
+      description: The user will be removed from the group.
     '400':
       description: Invalid request.
       schema:

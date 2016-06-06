@@ -52,10 +52,8 @@ patch:
   consumes:
     - application/json
   responses:
-    '200':
-      description: Information about a group.
-      schema:
-        $ref: '#/definitions/Space'
+    '204':
+      description: Space has been updated successfully.
     '400':
       description: Invalid request.
       schema:

@@ -51,8 +51,8 @@ post:
   consumes:
     - application/json
   responses:
-    '201':
-      description: Provider added successfully - user id is returned as part of the response entity.
+    '200':
+      description: Provider registered successfully.
       schema:
         type: object
         properties:
@@ -102,8 +102,8 @@ patch:
   consumes:
     - application/json
   responses:
-    '200':
-      description: Provider information updated successfully.
+    '204':
+      description: Provider details updated successfully.
     '400':
       description: Invalid request.
       schema:
@@ -129,7 +129,7 @@ patch:
     in: body
     description: User data.
     schema:
-      $ref: '#/definitions/User'
+      $ref: '#/definitions/Provider'
     required: true
 
 
@@ -144,8 +144,8 @@ delete:
   consumes:
     - application/json
   responses:
-    '200':
-      description: Provider deleted successfully.
+    '202':
+      description: Provider will be unregistered.
     '400':
       description: Invalid request.
       schema:
@@ -175,5 +175,5 @@ delete:
       properties:
         providerId:
           type: string
-          description: The ID of the provider to remove.
+          description: The ID of the provider to unregister.
     required: true

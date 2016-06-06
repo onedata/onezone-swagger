@@ -73,6 +73,9 @@
 /user/groups/{gid}:
   $ref: ./user-groups-gid.yaml
 
+/user/client_token:
+  $ref: ./user-client_token.yaml
+  
 # /user/merge:
 #   $ref: ./user-merge.yaml
 

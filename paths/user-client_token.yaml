@@ -1,19 +1,18 @@
-post:
-  operationId: authenticate_user
+get:
+  operationId: get_client_token
   x-onedata-service: onezone
   x-onedata-module: user
-  x-onedata-method: auth_logic:authenticate_user
-  summary: Authenticate user.
-  description: >
-    Authorizes user with authentication token through Onezone web interface.
-    This interface is called only by providers.
-  consumes:
+  x-onedata-resource: utoken
+  x-onedata-method: token_logic:create
+  summary: Create user authorization token.
+  description: Creates a user authorization token that can be used in `oneclient` command line or via REST API.
+  produces:
     - application/json
   responses:
     '200':
-      description: User authorized successfully - the body contains a discharge macaroon.
+      description: The token for joining a specific group.
       schema:
-        type: string
+        $ref : '#/definitions/ClientToken'
     '400':
       description: Invalid request.
       schema:
@@ -34,10 +33,3 @@ post:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: data
-    in: body
-    description: User authentication token.
-    schema:
-      $ref: '#/definitions/AuthenticationToken'
-    required: true

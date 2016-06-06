@@ -48,14 +48,12 @@ patch:
   x-onedata-resource: group
   x-onedata-method: group_logic:modify
   summary: Modify group details.
-  description: Updates the information about a group.
+  description: Updates the details about a group.
   consumes:
     - application/json
   responses:
-    '200':
-      description: Information about a group.
-      schema:
-        $ref: '#/definitions/Group'
+    '204':
+      description: Group details modified.
     '400':
       description: Invalid request.
       schema:
@@ -99,8 +97,8 @@ delete:
   summary: Remove group.
   description: Removes a specific group.
   responses:
-    '200':
-      description: The group has been removed successfully.
+    '202':
+      description: The group will be removed.
     '400':
       description: Invalid request.
       schema:

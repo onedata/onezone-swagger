@@ -54,7 +54,9 @@ post:
     - application/json
   responses:
     '201':
-      description: The ID of the new space returned in the response entitiy, i.e. "201 /groups/ID/spaces/SID"
+      description: >
+        ID of the created space in the form /spaces/{id} is 
+        returned in the response `location` header.    
     '400':
       description: Invalid request.
       schema:

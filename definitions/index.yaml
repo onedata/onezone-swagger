@@ -20,6 +20,9 @@ Space:
 SpaceSupportToken:
   $ref: ./spacesupporttoken.yaml 
 
+ClientToken:
+  $ref: ./clienttoken.yaml 
+
 DefaultSpace:
   $ref: ./defaultspace.yaml 
 

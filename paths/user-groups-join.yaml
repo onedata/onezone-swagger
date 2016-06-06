@@ -9,9 +9,9 @@ post:
     - application/json
   responses:
     '201':
-      description: The ID of the group returned is returned as part of the response entity, i.e. 201 /user/groups/{id}
-      schema:
-        type: string
+      description: >
+        ID of the joined group in the form /user/groups/{id} is 
+        returned in the response `location` header. 
     '400':
       description: Invalid request.
       schema:
