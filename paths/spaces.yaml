@@ -4,8 +4,11 @@ post:
   x-onedata-module: spaces
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
-  summary: Creates new space on behalf of a group by provider or for a specific user.
-  description: Creates new space on behalf of a group by provider or for a specific user.
+  summary: Create new space.
+  description: |
+    When called by a regular user, creates a new space and creates the current user its owner.
+    
+    When called by a provider, creates a new spaces and automatically adds support for, based on the token provided in the request body.
   consumes:
     - application/json
   responses:
@@ -16,19 +19,19 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: name
     in: body

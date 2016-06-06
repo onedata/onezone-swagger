@@ -2,43 +2,43 @@
 # This file groups the type definitions for Onezone REST API
 #
 
-error:
+Error:
   $ref: ./error.yaml
 
-user:
+User:
   $ref: ./user.yaml 
 
-provider:
+Provider:
   $ref: ./provider.yaml
 
-authenticationtoken:
+AuthenticationToken:
   $ref: ./authenticationtoken.yaml 
 
-space:
+Space:
   $ref: ./space.yaml 
 
-spacesupporttoken:
+SpaceSupportToken:
   $ref: ./spacesupporttoken.yaml 
 
-defaultspace:
+DefaultSpace:
   $ref: ./defaultspace.yaml 
 
-spaceinvitetoken:
+SpaceInviteToken:
   $ref: ./spaceinvitetoken.yaml 
 
-spacecreatetoken:
+SpaceCreateToken:
   $ref: ./spacecreatetoken.yaml 
 
-group:
+Group:
   $ref: ./group.yaml
 
-groupinvitetoken:
+GroupInviteToken:
   $ref: ./groupinvitetoken.yaml
 
-accountmergetoken:
+AccountMergeToken:
   $ref: ./accountmergetoken.yaml
 
-connectedaccount:
+ConnectedAccount:
   $ref: ./connectedaccount.yaml
 
 

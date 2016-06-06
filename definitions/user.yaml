@@ -11,7 +11,7 @@ properties:
     type: array
     description: The list of accounts connected to this user.
     items:
-      $ref: '#/definitions/connectedaccount'
+      $ref: '#/definitions/ConnectedAccount'
   alias:
     type: string
     description: User alias

@@ -4,8 +4,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: nested_groups
   x-onedata-method: group_logic:get_nested_groups
-  summary: Returns the list of nested groups.
-  description: Returns the list of nested groups.
+  summary: Get subgroups.
+  description: Returns the list of subgroups of a specific group.
   produces:
     - application/json
   responses:
@@ -18,19 +18,19 @@ get:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

@@ -4,7 +4,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: ginvite
   x-onedata-method: token_logic:create
-  summary: Creates a token allowing to add a group to a specific space.
+  summary: Create space invite token for group.
   description: Creates a token allowing to add a group to a specific space.
   produces:
     - application/json
@@ -12,23 +12,23 @@ get:
     '200':
       description: The token for joining a specific group.
       schema:
-        $ref : '#/definitions/spaceinvitetoken'
+        $ref : '#/definitions/SpaceInviteToken'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

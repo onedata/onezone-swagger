@@ -4,31 +4,31 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:get_data
-  summary: Returns the information about a specific space.
-  description: Returns the information about a specific space.
+  summary: Get space details.
+  description: Returns the details about a specific space.
   produces:
     - application/json
   responses:
     '200':
       description: Information about a space.
       schema:
-        $ref: '#/definitions/space'
+        $ref: '#/definitions/Space'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -43,31 +43,31 @@ patch:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:modify
-  summary: Updates the information about a space.
-  description: Updates the information about a space.
+  summary: Modify space details.
+  description: Updates the details about a space.
   consumes:
     - application/json
   responses:
     '200':
       description: Information about a group.
       schema:
-        $ref: '#/definitions/space'
+        $ref: '#/definitions/Space'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -78,7 +78,7 @@ patch:
     in: body
     description: Space parameters
     schema:
-      $ref: '#/definitions/space'
+      $ref: '#/definitions/Space'
     required: true
 
 
@@ -88,7 +88,7 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:remove_space
-  summary: Removes a specific space.
+  summary: Remove space.
   description: Removes a specific space.
   responses:
     '200':
@@ -96,19 +96,19 @@ delete:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

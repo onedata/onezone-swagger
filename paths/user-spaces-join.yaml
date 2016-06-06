@@ -3,7 +3,7 @@ post:
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:join
-  summary: Join existing space using inivitation token.
+  summary: Join space.
   description: Join existing space using inivitation token.
   consumes:
     - application/json
@@ -15,23 +15,23 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: spaceinvitetoken
     in: body
     description: Token for joining a space.
     schema:
-      $ref: '#/definitions/spaceinvitetoken'
+      $ref: '#/definitions/SpaceInviteToken'
     required: true

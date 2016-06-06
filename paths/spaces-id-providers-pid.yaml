@@ -4,7 +4,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: provider
   x-onedata-method: space_logic:get_provider
-  summary: Returns information about a specific provider supporting the space.
+  summary: Get space provider details.
   description: Returns information about a specific provider supporting the space.
   produces:
     - application/json
@@ -12,23 +12,23 @@ get:
     '200':
       description: Information about a specific provider supporting a space.
       schema:
-        $ref: '#/definitions/space'
+        $ref: '#/definitions/Space'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -48,7 +48,7 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: provider
   x-onedata-method: space_logic:remove_provider
-  summary: Removes support from provider for a specific space.
+  summary: Remove space support.
   description: Removes support from provider for a specific space.
   responses:
     '200':
@@ -56,19 +56,19 @@ delete:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

@@ -3,31 +3,31 @@ get:
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-method: user_logic:get_default_space
-  summary: Returns the default users space ID.
-  description: Returns the default users space ID.
+  summary: Get default space.
+  description: Returns the ID of the default users space.
   produces:
     - application/json
   responses:
     '200':
       description: Returns the Id of the default user space or 'undefined' in case no space is selected as default.
       schema:
-        $ref: '#/definitions/defaultspace'
+        $ref: '#/definitions/DefaultSpace'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
 
 
 put:
@@ -35,8 +35,8 @@ put:
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-method: user_logic:set_default_space
-  summary: Selects a default user space.
-  description: Selects a default user space.
+  summary: Set default space.
+  description: Sets default space for current user.
   consumes:
     - application/json
   responses:
@@ -47,23 +47,23 @@ put:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: defaultspace
     in: body
     description: Default Space ID.
     schema:
-      $ref: '#/definitions/defaultspace'
+      $ref: '#/definitions/DefaultSpace'
     required: true

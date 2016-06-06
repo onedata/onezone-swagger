@@ -3,7 +3,7 @@ post:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: group_logic:join
-  summary: Join existing group using inivitation token.
+  summary: Join group.
   description: Join existing group using inivitation token.
   consumes:
     - application/json
@@ -15,23 +15,23 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: groupinvitetoken
     in: body
     description: Token for joining a group.
     schema:
-      $ref: '#/definitions/groupinvitetoken'
+      $ref: '#/definitions/GroupInviteToken'
     required: true

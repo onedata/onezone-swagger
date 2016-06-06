@@ -4,7 +4,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: effective_users
   x-onedata-method: group_logic:get_effective_users
-  summary: Returns the list of effective group users.
+  summary: Get effective group users.
   description: >
     Returns the list of effective group users, which includes both who directly belong to the group,
     as well as users who belong to the group indirectly through its parent groups.
@@ -20,19 +20,19 @@ get:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

@@ -4,31 +4,33 @@ get:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:get_data
-  summary: Returns information about the Oneprovider that performed the request.
-  description: Returns information about the Oneprovider that performed the request (based on provided Peer Certificate authorization).
+  summary: Get provider details.
+  description: >
+    Returns information about the Oneprovider that performed the request 
+    (based on provided Peer Certificate authorization).
   produces:
     - application/json
   responses:
     '200':
       description: Returns the information about Oneprovider.
       schema:
-        $ref: '#/definitions/provider'
+        $ref: '#/definitions/Provider'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
 
 
 post:
@@ -37,7 +39,7 @@ post:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:create
-  summary: Registers a Oneprovider in Onezone service. 
+  summary: Register provider.
   description: > 
     Registers a Oneprovider in Onezone service. 
     Requires a CSR and returns signed certificate that will must used by the Oneprovider 
@@ -59,25 +61,25 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: data
     in: body
     description: Provider properties.
     schema:
-      $ref: '#/definitions/provider'
+      $ref: '#/definitions/Provider'
     required: true
 
 
@@ -87,7 +89,7 @@ patch:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:modify
-  summary: Updates information about Oneprovider.
+  summary: Modify provider details.
   description: Updates information about Oneprovider.
   consumes:
     - application/json
@@ -97,25 +99,25 @@ patch:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: data
     in: body
     description: User data.
     schema:
-      $ref: '#/definitions/user'
+      $ref: '#/definitions/User'
     required: true
 
 
@@ -125,7 +127,7 @@ delete:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:remove
-  summary: Unregisters a Oneprovider from the Onezone service.
+  summary: Unregisters provider.
   description: Unregisters a Oneprovider from the nezone service.
   consumes:
     - application/json
@@ -135,19 +137,19 @@ delete:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: data
     in: body

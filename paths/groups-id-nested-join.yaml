@@ -4,7 +4,7 @@ post:
   x-onedata-module: group
   x-onedata-resource: njoin
   x-onedata-method: group_logic:join_group
-  summary: Adds given group as a subgroup of a specific group based on provided token.
+  summary: Add subgroup.
   description: > 
     Adds given group as a subgroup of a specific group based on provided token. 
     The parent group to which the group will be added is identified from the token 
@@ -15,19 +15,19 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -38,4 +38,4 @@ post:
     in: body
     description: Group join token.
     schema:
-      $ref: '#/definitions/groupinvitetoken'
+      $ref: '#/definitions/GroupInviteToken'

@@ -4,7 +4,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:get_data
-  summary: Returns the information about a specific group.
+  summary: Get group details.
   description: Returns the information about a specific group.
   produces:
     - application/json
@@ -12,23 +12,23 @@ get:
     '200':
       description: Information about a group.
       schema:
-        $ref: '#/definitions/group'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -43,7 +43,7 @@ patch:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:modify
-  summary: Updates the information about a group.
+  summary: Modify group details.
   description: Updates the information about a group.
   consumes:
     - application/json
@@ -51,23 +51,23 @@ patch:
     '200':
       description: Information about a group.
       schema:
-        $ref: '#/definitions/group'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -78,7 +78,7 @@ patch:
     in: body
     description: Group parameters
     schema:
-      $ref: '#/definitions/group'
+      $ref: '#/definitions/Group'
     required: true
 
 
@@ -88,27 +88,27 @@ delete:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:remove_group
-  summary: Removes a specific group
-  description: Removes a specific group
+  summary: Remove group.
+  description: Removes a specific group.
   responses:
     '200':
       description: The group has been removed successfully.
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

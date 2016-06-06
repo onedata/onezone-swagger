@@ -4,7 +4,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: eupriv
   x-onedata-method: group_logic:get_effective_privileges
-  summary: Returns the user privileges in a group.
+  summary: Get user group privileges.
   description: Returns the user privileges in a group.
   produces:
     - application/json
@@ -12,23 +12,23 @@ get:
     '200':
       description: Returns the information about a group user.
       schema:
-        $ref: '#/definitions/user'
+        $ref: '#/definitions/User'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
-      description: Internal server error.
+      description: Internal server Error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

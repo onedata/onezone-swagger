@@ -4,31 +4,33 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: pinvite
   x-onedata-method: token_logic:create
-  summary: Creates a token allowing to add get support from a provider.
-  description: Creates a token allowing to add get support from a provider.
+  summary: Create space support token.
+  description: >
+    Creates a token which can be submitted to a selected provider in order to 
+    add storage support for the space.
   produces:
     - application/json
   responses:
     '200':
       description: The token for getting space storage support from a provider.
       schema:
-        $ref : '#/definitions/spacesupporttoken'
+        $ref : '#/definitions/SpaceSupportToken'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

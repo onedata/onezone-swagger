@@ -4,8 +4,9 @@ get:
   x-onedata-module: provider
   x-onedata-resource: spaces
   x-onedata-method: provider_logic:get_spaces
-  summary: Returns the list of spaces managed by the Oneprovider that performed the request.
-  description: Returns the list of spaces managed by the Oneprovider that performed the request.
+  summary: Get spaces at provider.
+  description: >
+    Returns the list of spaces managed by the Oneprovider that performed the request.
   produces:
     - application/json
   responses:
@@ -18,19 +19,19 @@ get:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
 
 
 post:
@@ -39,8 +40,9 @@ post:
   x-onedata-module: provider
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
-  summary:  Creates a new space on behalf of the Oneprovider that performed the request.
-  description: Creates a new space on behalf of the Oneprovider that performed the request.
+  summary:  Create new space by provider.
+  description: >
+    Creates a new space on behalf of the Oneprovider that performed the request.
   consumes:
     - application/json
   responses:
@@ -51,24 +53,24 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: data
     in: body
     description: New space parameters.
     schema:
-      $ref: '#/definitions/space'
+      $ref: '#/definitions/Space'
     required: true
 

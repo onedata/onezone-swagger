@@ -4,7 +4,7 @@ get:
   x-onedata-module: provider
   x-onedata-resource: nprovider
   x-onedata-method: provider_logic:get_data
-  summary: Returns the information about a specific Oneprovider.
+  summary: Get provider details.
   description: Returns the information about a another Oneprovider service, which is connected to the current provider.
   produces:
     - application/json
@@ -12,23 +12,23 @@ get:
     '200':
       description: Information about a provider.
       schema:
-        $ref: '#/definitions/provider'
+        $ref: '#/definitions/Provider'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: pid
     in: path

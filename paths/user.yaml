@@ -3,70 +3,31 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_data
-  summary: Returns the information about currently authenticated user.
-  description: Returns the information about currently authenticated user.
+  summary: Get user details.
+  description: Returns details about currently authenticated user.
   produces:
     - application/json
   responses:
     '200':
       description: Returns the information about user.
       schema:
-        $ref: '#/definitions/user'
+        $ref: '#/definitions/User'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
-
-
-post:
-  operationId: create_user
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:create
-  summary: Creates user when new user authenticates.
-  description: Creates user when new user authenticates.
-  consumes:
-    - application/json
-  responses:
-    '201':
-      description: User added successfully - user id is returned as part of the response entity.
-      schema:
-        type: string
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/error'
-    '403':
-      description: Forbidden request.
-      schema:
-        $ref: '#/definitions/error'
-    '404':
-      description: Onezone REST API unavailable at this URL.
-      schema:
-        $ref: '#/definitions/error'
-    '500':
-      description: Internal server error.
-      schema:
-        $ref: '#/definitions/error'
-  parameters:
-  - name: data
-    in: body
-    description: User properties.
-    schema:
-      $ref: '#/definitions/user'
-    required: true
+        $ref: '#/definitions/Error'
 
 
 patch:
@@ -74,8 +35,8 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:modify
-  summary: Updates user data.
-  description: Updates user data.
+  summary: Modify user.
+  description: Modifies user account details based on information provided in the request body.
   consumes:
     - application/json
   responses:
@@ -86,56 +47,54 @@ patch:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: data
     in: body
     description: User data.
     schema:
-      $ref: '#/definitions/user'
+      $ref: '#/definitions/User'
     required: true
 
-
-# delete:
-#   operationId: delete_user
-#   x-onedata-service: onezone
-#   x-onedata-module: user
-#   x-onedata-method: user_logic:delete
-#   summary: Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
-#   description: Deletes the account of currently authenticated user. [NOT IMPLEMENTED YET].
-#   consumes:
-#     - application/json
-#   responses:
-#     '200':
-#       description: User deleted successfully.
-#       schema:
-#         type: string
-#     '400':
-#       description: Invalid request.
-#       schema:
-#         $ref: '#/definitions/error'
-#     '403':
-#       description: Forbidden request.
-#       schema:
-#         $ref: '#/definitions/error'
-#     '404':
-#       description: Onezone REST API unavailable at this URL.
-#       schema:
-#         $ref: '#/definitions/error'
-#     '500':
-#       description: Internal server error.
-#       schema:
-#         $ref: '#/definitions/error'
-
+delete:
+  operationId: remove_user
+  x-onedata-service: onezone
+  x-onedata-module: user
+  x-onedata-method: user_logic:remove
+  summary: Remove user.
+  description: Removes the account of currently authenticated user.
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: User removed successfully.
+      schema:
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Forbidden request.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Onezone REST API unavailable at this URL.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server error.
+      schema:
+        $ref: '#/definitions/Error'

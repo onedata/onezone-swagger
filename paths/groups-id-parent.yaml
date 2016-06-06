@@ -4,7 +4,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: parent_groups
   x-onedata-method: group_logic:get_parent_groups
-  summary: Returns the parent groups of a specific group.
+  summary: Get parent groups.
   description: Returns the parent groups of a specific group.
   produces:
     - application/json
@@ -18,19 +18,19 @@ get:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

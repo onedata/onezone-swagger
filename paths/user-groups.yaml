@@ -3,7 +3,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_groups
-  summary: Returns the list of user's groups.
+  summary: Get user groups.
   description: Returns the list of user's groups.
   produces:
     - application/json
@@ -13,23 +13,23 @@ get:
       schema:
         type: array
         items:
-          $ref: '#/definitions/group'
+          $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
 
 
 post:
@@ -37,8 +37,10 @@ post:
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:create
-  summary: Creates a new group for current user.
-  description: Creates a new group whose administrator is currently authenticated user.
+  summary: Create new group.
+  description: >
+    Creates a new group for the current user. 
+    The user automatically becomes a member of this group.
   consumes:
     - application/json
   responses:
@@ -49,24 +51,24 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: group
     in: body
     description: New group parameters.
     schema:
-      $ref: '#/definitions/group'
+      $ref: '#/definitions/Group'
     required: true
 

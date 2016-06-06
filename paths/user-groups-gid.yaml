@@ -3,31 +3,31 @@ get:
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:get_data
-  summary: Returns information about a specific group.
-  description: Returns information about a specific group.
+  summary: Get group details.
+  description: Returns information about a specific group to which the user belongs.
   produces:
     - application/json
   responses:
     '200':
       description: Returns the information about a specific group.
       schema:
-        $ref: '#/definitions/group'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: gid
     in: path
@@ -41,8 +41,8 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:remove_user
-  summary: Removes the users ownership or membership in a group.
-  description: Removes the users ownership or membership in a group.
+  summary: Leave group.
+  description: Removes the current user from a specific group.
   produces:
     - application/json
   responses:
@@ -51,19 +51,19 @@ delete:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: gid
     in: path

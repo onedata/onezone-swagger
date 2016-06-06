@@ -3,8 +3,10 @@ post:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: auth_logic:authenticate_user
-  summary: Authenticates user using authentication token.
-  description: Authenticates user using authentication token through Onezone web interface.
+  summary: Authenticate user.
+  description: >
+    Authenticates user with authentication token through Onezone web interface.
+    This interface is called only by providers.
   consumes:
     - application/json
   responses:
@@ -15,23 +17,23 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API unavailable at this URL.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: data
     in: body
     description: User authentication token.
     schema:
-      $ref: '#/definitions/authenticationtoken'
+      $ref: '#/definitions/AuthenticationToken'
     required: true

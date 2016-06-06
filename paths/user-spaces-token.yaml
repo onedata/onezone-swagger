@@ -3,28 +3,28 @@ get:
   x-onedata-service: onezone
   x-onedata-module: token
   x-onedata-method: token_logic:create
-  summary: Creates a new space token.
-  description: Creates a new space token.
+  summary: Create space invitation token.
+  description: Creates an invitation token which allows other users to join the space.
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the list of IDs of Oneprovider storage resources.
+      description: The space invitation token.
       schema:
-        $ref: '#/definitions/spacecreatetoken'
+        $ref: '#/definitions/SpaceInviteToken'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone service not available at this URL. 
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'

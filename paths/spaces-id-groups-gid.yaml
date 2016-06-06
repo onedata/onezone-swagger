@@ -4,31 +4,31 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: group
   x-onedata-method: space_logic:get_group
-  summary: Returns information about a specific group belonging to a space.
-  description: Returns information about a specific group belonging to a space.
+  summary: Get group details.
+  description: Returns details about a specific group in a space.
   produces:
     - application/json
   responses:
     '200':
-      description: Information about a specific group in a space.
+      description: Details of a specific group in a space.
       schema:
-        $ref: '#/definitions/group'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -48,7 +48,7 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: group
   x-onedata-method: space_logic:remove_group
-  summary: Removes a specific nested group.
+  summary: Remove subgroup.
   description: Removes a specific nested group.
   responses:
     '200':
@@ -56,19 +56,19 @@ delete:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

@@ -3,31 +3,33 @@ get:
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: space_logic:get_data
-  summary: Returns information about a specific space supported by the Oneprovider that performed the request.
-  description: Returns information about a specific space supported by the Oneprovider that performed the request.
+  summary: Get space details by provider.
+  description: >
+    Returns information about a specific space supported by the Oneprovider that 
+    performed the request.
   produces:
     - application/json
   responses:
     '200':
       description: Returns the information about a specific space.
       schema:
-        $ref: '#/definitions/space'
+        $ref: '#/definitions/Space'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: sid
     in: path
@@ -41,7 +43,7 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: space_logic:remove_provider
-  summary: Removes support for space from the Oneprovider that performed the request.
+  summary: Remove space support.
   description: Removes support for space from the Oneprovider that performed the request.
   produces:
     - application/json
@@ -51,19 +53,19 @@ delete:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: sid
     in: path

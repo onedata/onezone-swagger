@@ -27,7 +27,7 @@ example:
     - http://beta.onedata.org/provider1
     - http://beta.onedata.org/provider2
   redirectionPoint: http://beta.onedata.org/provider2
-  csr: >
+  csr: |
     -----BEGIN CERTIFICATE REQUEST-----
     MIIByjCCATMCAQAwgYkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlh
     MRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRMwEQYDVQQKEwpHb29nbGUgSW5jMR8w

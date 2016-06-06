@@ -4,7 +4,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: user
   x-onedata-method: group_logic:get_user
-  summary: Returns the public information about a user {uid} in group {id}.
+  summary: Get group user details.
   description: Returns the public information about a user {uid} in group {id}.
   produces:
     - application/json
@@ -12,23 +12,23 @@ get:
     '200':
       description: Information about a group user.
       schema:
-        $ref: '#/definitions/user'
+        $ref: '#/definitions/User'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -47,8 +47,10 @@ delete:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:remove_user
-  summary: Removes the user {uid} from a group {id} (the user will no longer have access to spaces accessible to the group).
-  description: Removes the user {uid} from a group {id} (the user will no longer have access to spaces accessible to the group).
+  summary: Remove user from group.
+  description: >
+    Removes the user {uid} from a group {id} (the user will no longer have access 
+    to spaces accessible to the group).
   consumes:
     - application/json
   responses:
@@ -57,19 +59,19 @@ delete:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

@@ -4,8 +4,10 @@ post:
   x-onedata-module: provider
   x-onedata-resource: ssupport
   x-onedata-method: space_logic:support
-  summary: Adds support for specific space on behalf of the Oneprovider that performed the request. Space support token is required.
-  description: Adds support for specific space on behalf of the Oneprovider that performed the request. Space support token is required.
+  summary: Add space storage support.
+  description: >
+    Adds support for specific space on behalf of the Oneprovider that performed the 
+    request. Space support token is required.
   produces:
     - application/json
   responses:
@@ -14,21 +16,21 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: pid
     in: body
     schema:
-      $ref: '#/definitions/spacesupporttoken'
+      $ref: '#/definitions/SpaceSupportToken'

@@ -1,15 +1,20 @@
 type: object
-description: Group parameters.
+description: Group details.
 properties:
   name:
     type: string
     description: The name of the space.
   type:
     type: string
-    description: Provider token.
+    description: The type of the group.
+    enum:
+      - organization
+      - unit
+      - team
+      - role
 required:
   - name
   - type
 example:
   name: Test group
-  type: default
+  type: role

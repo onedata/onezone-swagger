@@ -4,7 +4,7 @@ post:
   x-onedata-module: provider
   x-onedata-resource: ip
   x-onedata-method: provider_logic:test_connection
-  summary: Checks if all given ports are reachable from Onezone.
+  summary: Check ports availability.
   description: >
     Checks if all given ports are reachable from Onezone. 
     Ports is a list on form [URL:port, URL:port, ...], 
@@ -17,19 +17,19 @@ post:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: ports
     in: body

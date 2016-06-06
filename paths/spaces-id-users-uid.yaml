@@ -4,7 +4,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: user
   x-onedata-method: space_logic:get_user
-  summary: Returns the public information about a specific user in a space.
+  summary: Get space user details.
   description: Returns the public information about a specific user in a space.
   produces:
     - application/json
@@ -12,23 +12,23 @@ get:
     '200':
       description: Information about a space user.
       schema:
-        $ref: '#/definitions/user'
+        $ref: '#/definitions/User'
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -47,7 +47,7 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: user
   x-onedata-method: space_logic:remove_user
-  summary: Removes user from specific space.
+  summary: Remove user from space.
   description: Removes user from specific space.
   consumes:
     - application/json
@@ -57,19 +57,19 @@ delete:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

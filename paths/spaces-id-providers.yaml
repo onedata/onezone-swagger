@@ -4,7 +4,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: providers
   x-onedata-method: space_logic:get_providers
-  summary: Returns the list of providers supporting specific space.
+  summary: Get space providers.
   description: Returns the list of providers supporting specific space.
   produces:
     - application/json
@@ -18,19 +18,19 @@ get:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path

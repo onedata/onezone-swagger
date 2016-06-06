@@ -4,8 +4,8 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: gpriv
   x-onedata-method: space_logic:get_privileges
-  summary: Returns the list of group privileges for a specific space.
-  description: Returns the list of group privileges for a specific space.
+  summary: Get group privileges to space.
+  description: Returns privileges for a group to a specific space.
   produces:
     - application/json
   responses:
@@ -18,19 +18,19 @@ get:
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
@@ -49,27 +49,27 @@ put:
   x-onedata-module: spaces
   x-onedata-resource: upriv
   x-onedata-method: space_logic:set_privileges
-  summary: Adds specific privileges for a group in a space.
-  description: Adds specific privileges for a group in a space.
+  summary: Set group privileges to space.
+  description: Sets new privileges for a group to a specific space.
   responses:
     '200':
       description: The group privileges have been added.
     '400':
       description: Invalid request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '403':
       description: Forbidden request.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '404':
       description: Onezone REST API not available.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
     '500':
       description: Internal server error.
       schema:
-        $ref: '#/definitions/error'
+        $ref: '#/definitions/Error'
   parameters:
   - name: id
     in: path
