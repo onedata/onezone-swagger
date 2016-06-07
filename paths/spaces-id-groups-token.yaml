@@ -1,5 +1,7 @@
 get:
   operationId: get_space_group_token
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: ginvite

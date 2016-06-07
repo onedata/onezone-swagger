@@ -1,5 +1,7 @@
 get:
   operationId: get_space_user
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: user
@@ -47,6 +49,8 @@ get:
 
 delete:
   operationId: remove_space_user
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: user

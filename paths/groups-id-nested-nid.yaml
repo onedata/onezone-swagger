@@ -1,5 +1,7 @@
 get:
   operationId: get_nested_group
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: nested_group
@@ -48,6 +50,8 @@ get:
 
 delete:
   operationId: delete_nested_group
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: nested_group

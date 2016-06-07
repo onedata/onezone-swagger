@@ -1,5 +1,7 @@
 get:
   operationId: get_user_default_space
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-method: user_logic:get_default_space
@@ -36,6 +38,8 @@ get:
 
 put:
   operationId: set_user_default_space
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-method: user_logic:set_default_space

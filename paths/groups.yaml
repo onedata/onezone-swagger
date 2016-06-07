@@ -1,5 +1,7 @@
 post:
   operationId: create_group
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: groups

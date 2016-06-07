@@ -1,5 +1,7 @@
 post:
   operationId: user_merge_accounts
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:merge

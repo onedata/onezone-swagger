@@ -1,5 +1,7 @@
 get:
   operationId: check_my_ip
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: ip

@@ -1,5 +1,7 @@
 get:
   operationId: get_space_providers
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: providers

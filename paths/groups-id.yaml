@@ -1,5 +1,7 @@
 get:
   operationId: get_group
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: group
@@ -43,6 +45,8 @@ get:
 
 patch:
   operationId: modify_group
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: group
@@ -90,6 +94,8 @@ patch:
 
 delete:
   operationId: remove_group
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: group

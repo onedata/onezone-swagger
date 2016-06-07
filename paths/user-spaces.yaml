@@ -1,5 +1,7 @@
 get:
   operationId: get_user_spaces
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_spaces
@@ -46,6 +48,8 @@ get:
 
 post:
   operationId: create_user_space
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:create

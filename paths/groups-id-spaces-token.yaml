@@ -1,5 +1,7 @@
 get:
   operationId: create_group_spaces_token
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: screate

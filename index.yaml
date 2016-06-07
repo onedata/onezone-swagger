@@ -6,3 +6,17 @@ paths:
   $ref: ./paths/index.yaml
 definitions:
   $ref: ./definitions/index.yaml
+tags:
+  - name: Space
+    description: Space related operations
+  - name: Group
+    description: Group related operations
+  - name: User
+    description: User related operations
+  - name: Provider
+    description: Provider related operations
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: macaroon
+    in: header

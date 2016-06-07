@@ -1,5 +1,7 @@
 get:
   operationId: get_user
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_data
@@ -32,6 +34,8 @@ get:
 
 patch:
   operationId: modify_user
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:modify
@@ -72,6 +76,8 @@ patch:
 
 delete:
   operationId: remove_user
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:remove

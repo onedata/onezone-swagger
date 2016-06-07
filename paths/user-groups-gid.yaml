@@ -1,5 +1,7 @@
 get:
   operationId: get_user_group
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:get_data
@@ -42,6 +44,8 @@ get:
 
 delete:
   operationId: leave_group
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:remove_user

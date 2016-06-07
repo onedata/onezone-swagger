@@ -1,5 +1,7 @@
 post:
   operationId: provider_space_support
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: ssupport

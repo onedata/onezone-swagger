@@ -1,5 +1,7 @@
 post:
   operationId: check_my_ports
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: ip

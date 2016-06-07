@@ -11,7 +11,9 @@ description: |
 
  Currently this is supported through authentication token which can be generate using the Onedata user interface. 
  The token must be added to the request header:
-  - TODO
+  ```
+  macaroon: IAUYCGOUASGDJHASDJKVAHSDJHASDKJHABSDKJHBASKJHDBKJHASBDKJHBASDKJHBASD...
+  ```
 
  In addition please take into account, that depending on your account authorization rights, not all operations
  may be possible. In particular, some operations depend on whether a particular request is initiated by a regular
@@ -38,6 +40,10 @@ description: |
  ### Group management
  The group management operations allow for creation of user groups, assigning their authorization rights,
  adding and removing users from groups.
+
+ ### User management
+ The user management methods enable for creation of users, managing their authorization
+ credentials as well as space and group membership.
 
  ### Provider management
  Provider specific calls enable for getting global information about the spaces managed by the provider,

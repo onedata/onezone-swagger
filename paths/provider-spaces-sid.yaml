@@ -1,5 +1,7 @@
 get:
   operationId: get_supported_space
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: space_logic:get_data
@@ -44,6 +46,8 @@ get:
 
 delete:
   operationId: remove_space_support
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: space_logic:remove_provider

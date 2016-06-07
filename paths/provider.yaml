@@ -1,5 +1,7 @@
 get:
   operationId: get_provider
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: provider
@@ -39,6 +41,8 @@ get:
 
 post:
   operationId: register_provider
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: provider
@@ -93,6 +97,8 @@ post:
 
 patch:
   operationId: modify_provider
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: provider
@@ -135,6 +141,8 @@ patch:
 
 delete:
   operationId: delete_provider
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: provider

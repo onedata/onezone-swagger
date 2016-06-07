@@ -1,5 +1,7 @@
 post:
   operationId: join_group
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: group_logic:join

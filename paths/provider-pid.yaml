@@ -1,5 +1,7 @@
 get:
   operationId: get_other_provider
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: nprovider

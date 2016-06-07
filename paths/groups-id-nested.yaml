@@ -1,5 +1,7 @@
 get:
   operationId: get_nested_groups
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: nested_groups

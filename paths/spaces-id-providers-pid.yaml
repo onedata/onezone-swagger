@@ -1,5 +1,7 @@
 get:
   operationId: get_space_provider
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: provider
@@ -48,6 +50,8 @@ get:
 
 delete:
   operationId: remove_provider_supporting_space
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: provider

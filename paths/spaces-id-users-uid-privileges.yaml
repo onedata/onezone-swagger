@@ -1,5 +1,7 @@
 get:
   operationId: get_space_user_privileges
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: upriv
@@ -47,6 +49,8 @@ get:
 
 put:
   operationId: set_space_user_privileges
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: upriv

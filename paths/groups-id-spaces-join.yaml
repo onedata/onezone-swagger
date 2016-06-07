@@ -1,5 +1,7 @@
 post:
   operationId: group_join_space
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: sjoin

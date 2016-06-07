@@ -1,5 +1,7 @@
 get:
   operationId: get_space_group
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: group
@@ -48,6 +50,8 @@ get:
 
 delete:
   operationId: delete_space_group
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: group

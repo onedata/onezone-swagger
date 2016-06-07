@@ -1,5 +1,7 @@
 get:
   operationId: get_nested_group_privileges
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: npriv
@@ -47,6 +49,8 @@ get:
 
 put:
   operationId: set_group_nested_privileges
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: npriv

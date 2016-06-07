@@ -1,5 +1,7 @@
 post:
   operationId: join_space
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:join

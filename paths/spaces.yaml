@@ -1,5 +1,7 @@
 post:
   operationId: create_space
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: spaces

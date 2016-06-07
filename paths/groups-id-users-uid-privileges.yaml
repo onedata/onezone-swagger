@@ -1,5 +1,7 @@
 get:
   operationId: get_group_user_privileges
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: upriv
@@ -47,6 +49,8 @@ get:
 
 put:
   operationId: set_user_group_privileges
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: upriv

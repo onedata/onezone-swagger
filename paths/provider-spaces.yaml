@@ -1,5 +1,7 @@
 get:
   operationId: get_supported_spaces
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: spaces
@@ -40,6 +42,8 @@ get:
 
 post:
   operationId: create_provider_space
+  tags:
+    - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: spaces

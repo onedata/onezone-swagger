@@ -1,5 +1,7 @@
 get:
   operationId: get_space
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: space
@@ -43,6 +45,8 @@ get:
 
 patch:
   operationId: modify_space
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: space
@@ -90,6 +94,8 @@ patch:
 
 delete:
   operationId: remove_space
+  tags:
+    - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: space

@@ -1,5 +1,7 @@
 get:
   operationId: get_group_effective_users
+  tags:
+    - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: effective_users

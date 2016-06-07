@@ -1,5 +1,7 @@
 post:
   operationId: authenticate_user
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: auth_logic:authenticate_user

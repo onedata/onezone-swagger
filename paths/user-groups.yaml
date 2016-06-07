@@ -1,5 +1,7 @@
 get:
   operationId: get_user_groups
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_groups
@@ -38,6 +40,8 @@ get:
 
 post:
   operationId: create_group_for_user
+  tags:
+    - User
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:create
