@@ -49,3 +49,8 @@ SpacePrivileges:
 
 GroupPrivileges:
   $ref: ./groupprivileges.yaml
+
+OnezonePrivileges:
+  $ref: ./onezoneprivileges.yaml
+
+  

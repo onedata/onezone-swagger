@@ -75,7 +75,7 @@
 
 /user/client_token:
   $ref: ./user-client_token.yaml
-  
+
 # /user/merge:
 #   $ref: ./user-merge.yaml
 
@@ -164,5 +164,15 @@
 
 /provider/test/check_my_ports:
   $ref: ./provider-test-check_my_ports.yaml
+
+/providers:
+  $ref: ./providers.yaml
+  
+
+/privileges/users/{id}:
+  $ref: ./privileges-users-id.yaml
+
+/privileges/group/{id}: 
+  $ref: ./privileges-group-id.yaml
 
 

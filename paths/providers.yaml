@@ -1,24 +1,24 @@
 get:
-  operationId: get_other_provider
+  operationId: get_providers
   tags:
     - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
-  x-onedata-resource: nprovider
-  x-onedata-method: provider_logic:get_data
-  summary: Get provider details.
+  x-onedata-resource: providers
+  x-onedata-method: provider_logic:get_providers
+  summary: Get providers.
   description: >
-    Returns the information about a another Oneprovider service, which is 
-    connected to the current provider.
-    If called by other provider doesn't require any special privileges.
-    When called by a regular user, requires 'list_providers' privilege.
+    Returns the list of providers registered in the Onezone service.
+    Requires 'list_providers' Onezone privilege. 
   produces:
     - application/json
   responses:
     '200':
-      description: Information about a provider.
+      description: List of providers Id's.
       schema:
-        $ref: '#/definitions/Provider'
+        type: array
+        items:
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -39,9 +39,3 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: pid
-    in: path
-    description: Provider ID.
-    type: string
-    required: true

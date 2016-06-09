@@ -1,22 +1,20 @@
 get:
-  operationId: get_space
+  operationId: get_user_onezone_privileges
   tags:
-    - Space
+    - Privileges
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:get_data
-  summary: Get space details.
-  description: > 
-    Returns the details about a specific space.
-    If called by user who is not member of the space, requires 'list_spaces' privilege.
+  x-onedata-module: privileges
+  x-onedata-resource: upriv
+  x-onedata-method: onezone_logic:get_user_privileges
+  summary: Get user's Onezone privileges.
+  description: Returns the list of user privileges for Onezone.
   produces:
     - application/json
   responses:
     '200':
-      description: Information about a space.
+      description: The list of user privileges in Onezone.
       schema:
-        $ref: '#/definitions/Space'
+        $ref: '#/definitions/OnezonePrivileges'
     '400':
       description: Invalid request.
       schema:
@@ -40,26 +38,23 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: User ID.
     type: string
     required: true
 
-
-patch:
-  operationId: modify_space
+put:
+  operationId: set_user_onezone_privileges
   tags:
-    - Space
+    - Privileges
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:modify
-  summary: Modify space details.
-  description: Updates the details about a space.
-  consumes:
-    - application/json
+  x-onedata-module: onezone
+  x-onedata-resource: upriv
+  x-onedata-method: onezone_logic:set_privileges
+  summary: Set user's Onezone privileges.
+  description: Sets privileges for a user {id} for Onezone.
   responses:
-    '204':
-      description: Space has been updated successfully.
+    '200':
+      description: The user privileges have been added.
     '400':
       description: Invalid request.
       schema:
@@ -83,30 +78,29 @@ patch:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: User ID.
     type: string
     required: true
   - name: data
     in: body
-    description: Space parameters
+    description: User Onezone privileges.
     schema:
-      $ref: '#/definitions/Space'
-    required: true
+      $ref: '#/definitions/OnezonePrivileges'
 
 
 delete:
-  operationId: remove_space
+  operationId: remove_user_onezone_privileges
   tags:
-    - Space
+    - Privileges
   x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:remove_space
-  summary: Remove space.
-  description: Removes a specific space.
+  x-onedata-module: onezone
+  x-onedata-resource: upriv
+  x-onedata-method: onezone_logic:remoev_privileges
+  summary: Remove user's Onezone privileges.
+  description: Removes all privileges for a user {id} to Onezone.
   responses:
     '200':
-      description: The space has been removed successfully.
+      description: The user privileges have been added.
     '400':
       description: Invalid request.
       schema:
@@ -130,7 +124,6 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: User ID.
     type: string
     required: true
-

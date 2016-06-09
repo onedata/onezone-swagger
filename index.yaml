@@ -20,3 +20,6 @@ securityDefinitions:
     type: apiKey
     name: macaroon
     in: header
+  basic:
+    type: basic
+    

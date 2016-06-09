@@ -1,3 +1,46 @@
+get:
+  operationId: get_spaces
+  tags:
+    - Space
+  x-onedata-service: onezone
+  x-onedata-module: space
+  x-onedata-resource: spaces
+  x-onedata-method: space_logic:list_spaces
+  summary: List all spaces.
+  description: >
+    Returns the list of all spaces managed by the Onezone service.
+    Requires 'list_spaces' Onezone privilege. 
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: List of spaces Id's.
+      schema:
+        type: array
+        items:
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+
+
 post:
   operationId: create_space
   tags:
