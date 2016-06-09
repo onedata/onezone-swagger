@@ -7,7 +7,7 @@ RUN ["/bin/busybox","sh","/pub-artefact","/artefact","/usr/share/nginx/html/doc/
 
 ADD generated/static/onezone-static.html /artefact/generated/static/onezone-static.html
 
-RUN ["/bin/busybox","sh","/pub-artefact","/artefact/generated/static","/usr/share/nginx/html/doc/advanced/rest"]
+RUN ["/bin/busybox","sh","/pub-artefact","/artefact/generated/static","/usr/share/nginx/html/doc/advanced/rest/swagger-static-onezone"]
 
 #Otherwise docer-compose up fails randomly, seems to work with docker 1.10+
 CMD ["/bin/busybox","tail","-f","/dev/null"]
