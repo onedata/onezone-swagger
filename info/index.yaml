@@ -1,4 +1,4 @@
-version: 3.0.0
+version: 3.0.0-beta6
 title: Onezone
 description: |
  This is the RESTful API definition of Onezone component of Onedata data management system [http://www.onedata.org].
@@ -9,7 +9,7 @@ description: |
  ## Authentication
  In order to be able to use this API the REST client must be able to authenticate with the Onezone service.
 
- Currently this is supported through authentication token which can be generate using the Onedata user interface. 
+ Currently this is supported through access token which can be generate using the Onedata user interface. 
  The token must be added to the request header:
   ```
   macaroon: IAUYCGOUASGDJHASDJKVAHSDJHASDKJHABSDKJHBASKJHDBKJHASBDKJHBASDKJHBASD...
@@ -48,6 +48,11 @@ description: |
  ### Provider management
  Provider specific calls enable for getting global information about the spaces managed by the provider,
  and some administrative operations which can be used for monitoring or accounting.
+
+ ### Privileges management
+ Onezone allows any user to have selected administration privileges for the Onezone service itself,
+ enabling them to view and configure certain aspects of the system.
+
 
 
 contact:

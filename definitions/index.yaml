@@ -29,17 +29,15 @@ DefaultSpace:
 SpaceInviteToken:
   $ref: ./spaceinvitetoken.yaml 
 
-SpaceCreateToken:
-  $ref: ./spacecreatetoken.yaml 
+# Not used
+# SpaceCreateToken:
+#   $ref: ./spacecreatetoken.yaml 
 
 Group:
   $ref: ./group.yaml
 
 GroupInviteToken:
   $ref: ./groupinvitetoken.yaml
-
-AccountMergeToken:
-  $ref: ./accountmergetoken.yaml
 
 ConnectedAccount:
   $ref: ./connectedaccount.yaml

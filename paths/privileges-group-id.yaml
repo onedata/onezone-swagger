@@ -89,7 +89,7 @@ put:
 
 
 delete:
-  operationId: remove_user_onezone_privileges
+  operationId: remove_group_onezone_privileges
   tags:
     - Privileges
   x-onedata-service: onezone
