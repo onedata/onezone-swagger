@@ -16,4 +16,6 @@ docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen:1.2.0 ge
 docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-bootprint:1.1.0 swagger ./swagger.json generated/static
 
 #cp generated/static/index.html generated/static/onezone-static.html
-sed -n '/<body>/,/<\/body>/p' generated/static/index.html | sed -e '1s/.*<body>//' -e '$s/<\/body>.*//' > generated/static/onezone-static.html
+sed -n '/<body>/,/<\/body>/p' generated/static/index.html \
+  | sed -e '1s/.*<body>//' -e '$s/<\/body>.*//' -e 's/\/definitions\//definitions--/g' \
+  > generated/static/onezone-static.html
