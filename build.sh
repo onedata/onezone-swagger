@@ -17,5 +17,5 @@ docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swa
 
 #cp generated/static/index.html generated/static/onezone-static.html
 sed -n '/<body>/,/<\/body>/p' generated/static/index.html \
-  | sed -e '1s/.*<body>//' -e '$s/<\/body>.*//' -e 's/\/definitions\//definitions--/g' \
+  | sed -e '1s/.*<body>//' -e '$s/<\/body>.*//' -e 's/\/definitions\//definitions--/g' -e 's/<div class=\"container\"/<div class=\"container swagger\"/' \
   > generated/static/onezone-static.html
