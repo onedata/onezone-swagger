@@ -1,5 +1,10 @@
 ### 3.0.0-beta6-2
 
+* added extra path in dockerfile for publication with beta.onedata.org
+
+
+### 3.0.0-beta6-2
+
 * Updated summary fields for direct Markdown generation
 
 
