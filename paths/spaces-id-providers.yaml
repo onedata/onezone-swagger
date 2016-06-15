@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: providers
   x-onedata-method: space_logic:get_providers
-  summary: Get space providers.
+  summary: Get space providers
   description: >
     Returns the list of providers supporting specific space.
     This method is allowed for effective space members or users

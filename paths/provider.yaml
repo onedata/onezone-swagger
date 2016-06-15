@@ -6,7 +6,7 @@ get:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:get_data
-  summary: Get provider details.
+  summary: Get provider details
   description: >
     Returns information about the Oneprovider that performed the request 
     (based on provided Peer Certificate authorization).
@@ -47,7 +47,7 @@ post:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:create
-  summary: Register provider.
+  summary: Register provider
   description: > 
     Registers a Oneprovider in Onezone service. 
     Requires a CSR and returns signed certificate that will must used by the Oneprovider 
@@ -103,7 +103,7 @@ patch:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:modify
-  summary: Modify provider details.
+  summary: Modify provider details
   description: Updates information about Oneprovider.
   consumes:
     - application/json
@@ -147,7 +147,7 @@ delete:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:remove
-  summary: Unregisters provider.
+  summary: Unregisters provider
   description: Unregisters a Oneprovider from the nezone service.
   consumes:
     - application/json

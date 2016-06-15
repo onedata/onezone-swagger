@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: pinvite
   x-onedata-method: token_logic:create
-  summary: Create space support token.
+  summary: Create space support token
   description: >
     Creates a token which can be submitted to a selected provider in order to 
     add storage support for the space.

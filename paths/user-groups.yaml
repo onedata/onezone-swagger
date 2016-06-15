@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_groups
-  summary: Get user groups.
+  summary: Get user groups
   description: Returns the list of user's groups.
   produces:
     - application/json
@@ -45,7 +45,7 @@ post:
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:create
-  summary: Create new group.
+  summary: Create new group
   description: >
     Creates a new group for the current user. 
     The user automatically becomes a member of this group.

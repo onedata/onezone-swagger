@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_data
-  summary: Get user details.
+  summary: Get user details
   description: Returns details about currently authenticated user.
   produces:
     - application/json
@@ -39,7 +39,7 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:modify
-  summary: Modify user.
+  summary: Modify user
   description: Modifies user account details based on information provided in the request body.
   consumes:
     - application/json
@@ -81,7 +81,7 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:remove
-  summary: Remove user.
+  summary: Remove user
   description: Removes the account of currently authenticated user.
   consumes:
     - application/json

@@ -6,7 +6,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: user
   x-onedata-method: group_logic:get_user
-  summary: Get group user details.
+  summary: Get group user details
   description: Returns the public information about a user {uid} in group {id}.
   produces:
     - application/json
@@ -55,7 +55,7 @@ delete:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:remove_user
-  summary: Remove user from group.
+  summary: Remove user from group
   description: >
     Removes the user {uid} from a group {id} (the user will no longer have access 
     to spaces accessible to the group).

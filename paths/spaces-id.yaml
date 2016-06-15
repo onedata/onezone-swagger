@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:get_data
-  summary: Get space details.
+  summary: Get space details
   description: > 
     Returns the details about a specific space.
     If called by user who is not member of the space, requires 'list_spaces' privilege.
@@ -53,7 +53,7 @@ patch:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:modify
-  summary: Modify space details.
+  summary: Modify space details
   description: Updates the details about a space.
   consumes:
     - application/json
@@ -102,7 +102,7 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: space
   x-onedata-method: space_logic:remove_space
-  summary: Remove space.
+  summary: Remove space
   description: Removes a specific space.
   responses:
     '200':

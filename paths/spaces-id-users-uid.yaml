@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: user
   x-onedata-method: space_logic:get_user
-  summary: Get space user details.
+  summary: Get space user details
   description: Returns the public information about a specific user in a space.
   produces:
     - application/json
@@ -55,7 +55,7 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: user
   x-onedata-method: space_logic:remove_user
-  summary: Remove user from space.
+  summary: Remove user from space
   description: Removes user from specific space.
   consumes:
     - application/json

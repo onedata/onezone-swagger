@@ -6,7 +6,7 @@ get:
   x-onedata-module: privileges
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:get_group_privileges
-  summary: Get group's Onezone privileges.
+  summary: Get group's Onezone privileges
   description: Returns the list of group privileges for Onezone.
   produces:
     - application/json
@@ -50,7 +50,7 @@ put:
   x-onedata-module: onezone
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:set_privileges
-  summary: Set group's Onezone privileges.
+  summary: Set group's Onezone privileges
   description: Sets privileges for a user {id} for Onezone.
   responses:
     '200':
@@ -96,7 +96,7 @@ delete:
   x-onedata-module: onezone
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:remove_privileges
-  summary: Remove group's Onezone privileges.
+  summary: Remove group's Onezone privileges
   description: Removes all privileges for a group {id} to Onezone.
   responses:
     '200':

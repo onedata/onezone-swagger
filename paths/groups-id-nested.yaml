@@ -6,7 +6,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: nested_groups
   x-onedata-method: group_logic:get_nested_groups
-  summary: Get subgroups.
+  summary: Get subgroups
   description: Returns the list of subgroups of a specific group.
   produces:
     - application/json

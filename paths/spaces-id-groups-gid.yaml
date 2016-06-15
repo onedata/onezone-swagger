@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: group
   x-onedata-method: space_logic:get_group
-  summary: Get group details.
+  summary: Get group details
   description: Returns details about a specific group in a space.
   produces:
     - application/json
@@ -56,7 +56,7 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: group
   x-onedata-method: space_logic:remove_group
-  summary: Remove subgroup.
+  summary: Remove subgroup
   description: Removes a specific nested group.
   responses:
     '200':

@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: upriv
   x-onedata-method: space_logic:get_privileges
-  summary: Get user privileges to space.
+  summary: Get user privileges to space
   description: Returns privileges of a user belonging to the space.
   produces:
     - application/json
@@ -55,7 +55,7 @@ put:
   x-onedata-module: spaces
   x-onedata-resource: upriv
   x-onedata-method: space_logic:set_privileges
-  summary: Set user privileges to space.
+  summary: Set user privileges to space
   description: Adds specific privileges for a user in a space.
   responses:
     '200':

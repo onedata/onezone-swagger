@@ -6,7 +6,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: screate
   x-onedata-method: token_logic:create
-  summary: Create space creation token for group.
+  summary: Create space creation token for group
   description: >
     Creates a token that can be given to selected provider, 
     where it can be used to create a new space for the group and automatically support it.

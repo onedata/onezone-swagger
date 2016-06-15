@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: uinvite
   x-onedata-method: token_logic:create
-  summary: Create space invite token.
+  summary: Create space invite token
   description: Creates a token allowing new user to join a space.
   produces:
     - application/json

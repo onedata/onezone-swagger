@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: space_logic:get_data
-  summary: Get space details by provider.
+  summary: Get space details by provider
   description: >
     Returns information about a specific space supported by the Oneprovider that 
     performed the request.
@@ -51,7 +51,7 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: space_logic:remove_provider
-  summary: Remove space support.
+  summary: Remove space support
   description: Removes support for space from the Oneprovider that performed the request.
   produces:
     - application/json

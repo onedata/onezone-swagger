@@ -5,7 +5,7 @@ post:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:merge
-  summary: Merge user accounts.
+  summary: Merge user accounts
   description: Merge user accounts.
   consumes:
     - application/json

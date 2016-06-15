@@ -6,7 +6,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: upriv
   x-onedata-method: group_logic:get_privileges
-  summary: Get user's group privileges.
+  summary: Get user's group privileges
   description: Returns the list of user privileges in a specific group.
   produces:
     - application/json
@@ -55,7 +55,7 @@ put:
   x-onedata-module: group
   x-onedata-resource: upriv
   x-onedata-method: group_logic:set_privileges
-  summary: Set user's group privileges.
+  summary: Set user's group privileges
   description: Sets privileges for a user {uid} in a group {id}.
   responses:
     '200':

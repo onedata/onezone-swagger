@@ -6,7 +6,7 @@ post:
   x-onedata-module: group
   x-onedata-resource: groups
   x-onedata-method: group_logic:create
-  summary: Create new group.
+  summary: Create new group
   description: Creates a new group.
   consumes:
     - application/json

@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_spaces
-  summary: Get list of spaces.
+  summary: Get list of spaces
   description: Returns the list of users' spaces.
   produces:
     - application/json
@@ -53,7 +53,7 @@ post:
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:create
-  summary: Create a new space.
+  summary: Create a new space
   description: >
     Creates a new space as current user. The user automaticaly becomes 
     the spaces' member.

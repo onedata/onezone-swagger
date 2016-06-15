@@ -6,7 +6,7 @@ get:
   x-onedata-module: group
   x-onedata-resource: npriv
   x-onedata-method: group_logic:get_nested_group_privileges
-  summary: Get subgroup privileges.
+  summary: Get subgroup privileges
   description: Returns the list of nested group privileges in a specific group.
   produces:
     - application/json

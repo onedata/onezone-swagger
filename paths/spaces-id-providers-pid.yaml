@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: provider
   x-onedata-method: space_logic:get_provider
-  summary: Get space provider details.
+  summary: Get space provider details
   description: Returns details about a specific provider supporting the space.
   produces:
     - application/json
@@ -56,7 +56,7 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: provider
   x-onedata-method: space_logic:remove_provider
-  summary: Remove space support.
+  summary: Remove space support
   description: Removes support from provider for a specific space.
   responses:
     '200':

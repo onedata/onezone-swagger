@@ -6,7 +6,7 @@ get:
   x-onedata-module: provider
   x-onedata-resource: ip
   x-onedata-method: cowboy_req:peer
-  summary: Show client IP address.
+  summary: Show client IP address
   description: >
     Returns the IP of the request peer. Will return the external IP (as seen by the Onezone).
   produces:

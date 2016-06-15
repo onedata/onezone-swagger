@@ -6,7 +6,7 @@ get:
   x-onedata-module: provider
   x-onedata-resource: spaces
   x-onedata-method: provider_logic:get_spaces
-  summary: Get spaces at provider.
+  summary: Get spaces at provider
   description: >
     Returns the list of spaces managed by the Oneprovider that performed the request.
   produces:
@@ -48,7 +48,7 @@ post:
   x-onedata-module: provider
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
-  summary:  Create new space by provider.
+  summary:  Create new space by provider
   description: >
     Creates a new space on behalf of the Oneprovider that performed the request.
   consumes:

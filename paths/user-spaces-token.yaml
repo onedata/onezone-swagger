@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: token
   x-onedata-method: token_logic:create
-  summary: Create space invitation token.
+  summary: Create space invitation token
   description: Creates an invitation token which allows other users to join the space.
   produces:
     - application/json

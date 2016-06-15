@@ -14,7 +14,9 @@ tags:
   - name: User
     description: User related operations
   - name: Provider
-    description: Provider related operations
+    description: Provider related operations  
+  - name: Privileges
+    description: Operations on Onezone privileges
 securityDefinitions:
   api_key:
     type: apiKey

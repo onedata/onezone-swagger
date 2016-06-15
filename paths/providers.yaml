@@ -6,7 +6,7 @@ get:
   x-onedata-module: provider
   x-onedata-resource: providers
   x-onedata-method: provider_logic:get_providers
-  summary: Get providers.
+  summary: Get providers
   description: >
     Returns the list of providers registered in the Onezone service.
     Requires 'list_providers' Onezone privilege. 

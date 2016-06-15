@@ -6,7 +6,7 @@ get:
   x-onedata-module: user
   x-onedata-resource: utoken
   x-onedata-method: token_logic:create
-  summary: Create user authorization token.
+  summary: Create user authorization token
   description: Creates a user authorization token that can be used in `oneclient` command line or via REST API.
   produces:
     - application/json
