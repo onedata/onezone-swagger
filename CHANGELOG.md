@@ -1,3 +1,8 @@
+### 3.0.0-beta6-2
+
+* Updated summary fields for direct Markdown generation
+
+
 ### 3.0.0-beta6
 
 
