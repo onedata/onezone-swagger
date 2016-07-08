@@ -1,8 +1,7 @@
 #!/bin/bash
-source update_summary.sh 
 
 if [[ $# -lt 1 ]]; then
-  DOC_BRANCH="swagger-test"
+  DOC_BRANCH="develop"
 else
   DOC_BRANCH=$1
 fi
@@ -17,13 +16,14 @@ SUMMARY=${TMP_DIR}/SUMMARY.md
 SRC_GITBOOK=generated/gitbook
 PATH_IN_GITBOOK=${TMP_DIR}/doc/advanced/rest/onezone
 $git_c rm -r $PATH_IN_GITBOOK/*
-
 mkdir -p $PATH_IN_GITBOOK
-update_summary $SUMMARY ONEZONE_PATHS $SRC_GITBOOK/PATHS_TOC.md
-update_summary $SUMMARY ONEZONE_DEFINITIONS $SRC_GITBOOK/DEFINITIONS_TOC.md
-
 cp -r $SRC_GITBOOK/* $PATH_IN_GITBOOK/
-ls $PATH_IN_GITBOOK/
+
+SRC_SWAGGER=swagger.json
+PATH_IN_GITBOOK=${TMP_DIR}/doc/swagger/onezone
+$git_c rm -r $PATH_IN_GITBOOK/*
+mkdir -p $PATH_IN_GITBOOK
+
 $git_c add -A
 $git_c diff 
 $git_c commit -m "updated onezone swagger api"
