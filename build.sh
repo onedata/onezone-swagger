@@ -28,4 +28,4 @@ sed -n '/<body>/,/<\/body>/p' generated/static/index.html \
 
 # Generate Markdown for direct Gitbook integration
 # The output from generated/gitbook should be copied to onedata-documentation/doc/advanced/rest/onezone folder
-docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-gitbook:1.1.0 convert -i ./swagger.json -d ./generated/gitbook -c ./gitbook.properties
+docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-gitbook:1.4.1 convert -i ./swagger.json -d ./generated/gitbook -c ./gitbook.properties
