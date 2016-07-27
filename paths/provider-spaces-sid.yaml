@@ -6,9 +6,11 @@ get:
   x-onedata-module: provider
   x-onedata-method: space_logic:get_data
   summary: Get space details by provider
-  description: >
+  description: |
     Returns information about a specific space supported by the Oneprovider that 
     performed the request.
+
+    This operation requires peer certificate authentication.
   produces:
     - application/json
   responses:
@@ -52,7 +54,10 @@ delete:
   x-onedata-module: provider
   x-onedata-method: space_logic:remove_provider
   summary: Remove space support
-  description: Removes support for space from the Oneprovider that performed the request.
+  description: |
+    Removes support for space from the Oneprovider that performed the request.
+
+    This operation requires peer certificate authentication.
   produces:
     - application/json
   responses:

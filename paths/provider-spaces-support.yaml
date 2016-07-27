@@ -7,9 +7,11 @@ post:
   x-onedata-resource: ssupport
   x-onedata-method: space_logic:support
   summary: Add space storage support
-  description: >
+  description: |
     Adds support for specific space on behalf of the Oneprovider that performed the 
     request. Space support token is required.
+
+    This operation requires peer certificate authentication.
   produces:
     - application/json
   responses:

@@ -7,9 +7,11 @@ get:
   x-onedata-resource: provider
   x-onedata-method: provider_logic:get_data
   summary: Get provider details
-  description: >
+  description: |
     Returns information about the Oneprovider that performed the request 
-    (based on provided Peer Certificate authorization).
+    (based on provided Peer Certificate authentication).
+
+    This operation requires peer certificate authentication.
   produces:
     - application/json
   responses:
@@ -48,10 +50,12 @@ post:
   x-onedata-resource: provider
   x-onedata-method: provider_logic:create
   summary: Register provider
-  description: > 
+  description: |
     Registers a Oneprovider in Onezone service. 
-    Requires a CSR and returns signed certificate that will must used by the Oneprovider 
-    for authorization (SSL Peer Certificate).
+    Requires a a valid CSR in the bodyand returns signed 
+    certificate that will must used by the Oneprovider for authorization (SSL Peer Certificate).
+
+    This operation has public access.
   consumes:
     - application/json
   responses:

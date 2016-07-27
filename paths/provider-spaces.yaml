@@ -7,8 +7,10 @@ get:
   x-onedata-resource: spaces
   x-onedata-method: provider_logic:get_spaces
   summary: Get spaces at provider
-  description: >
+  description: |
     Returns the list of spaces managed by the Oneprovider that performed the request.
+
+    This operation requires peer certificate authentication.
   produces:
     - application/json
   responses:
@@ -49,8 +51,10 @@ post:
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
   summary:  Create new space by provider
-  description: >
+  description: |
     Creates a new space on behalf of the Oneprovider that performed the request.
+
+    This operation requires peer certificate authentication.
   consumes:
     - application/json
   responses:
