@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: user
   x-onedata-method: group_logic:get_user
+  x-onedata-permissions:
+    - group_view_data
   summary: Get group user details
   description: |
     Returns the public information about a user {uid} in group {id}.
@@ -58,6 +60,8 @@ delete:
   x-onedata-module: group
   x-onedata-resource: user
   x-onedata-method: group_logic:remove_user
+  x-onedata-permissions:
+    - group_remove_user
   summary: Remove user from group
   description: |
     Removes the user {uid} from a group {id} (the user will no longer have access 

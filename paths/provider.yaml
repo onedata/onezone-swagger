@@ -18,7 +18,7 @@ get:
     '200':
       description: Returns the information about Oneprovider.
       schema:
-        $ref: '#/definitions/Provider'
+        $ref: '#/definitions/ProviderDetails'
     '400':
       description: Invalid request.
       schema:
@@ -93,9 +93,9 @@ post:
   parameters:
   - name: data
     in: body
-    description: Provider properties.
+    description: Provider reqistration request including CSR.
     schema:
-      $ref: '#/definitions/Provider'
+      $ref: '#/definitions/ProviderRegistrationRequest'
     required: true
 
 
@@ -137,9 +137,9 @@ patch:
   parameters:
   - name: data
     in: body
-    description: User data.
+    description: Provider data.
     schema:
-      $ref: '#/definitions/Provider'
+      $ref: '#/definitions/ProviderDetails'
     required: true
 
 

@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: space
   x-onedata-method: space_logic:get_data
+  x-onedata-permissions:
+    - group_view_data
   summary: Get group's space details
   description: |
     Returns information about a specific space to which the group belongs.
@@ -59,6 +61,8 @@ delete:
   x-onedata-module: group
   x-onedata-resource: space
   x-onedata-method: space_logic:remove_group
+  x-onedata-permissions:
+    - group_leave_space
   summary: Remove space from group
   description: |
     Removes the group {id} from space {sid} (the group will no longer have access to space).

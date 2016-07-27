@@ -1,9 +1,6 @@
 type: object
-description: Provider properties.
+description: Provider reqistration request.
 properties:
-  providerId:
-    type: string
-    description: The provider ID.
   urls:
     type: array
     description: The list of urls where the provider can be reached.
@@ -14,15 +11,22 @@ properties:
     description: The redirection URL for the provider.
   csr:
     type: string
-    description: Certificate Signature Request - optional parameter used when registering a new provider.
+    description: Certificate Signature Request to generate new certificate for the provider.
   latitude:
     type: number
+    x-erlang-type: float
     description: The geographical latitude of the provider data center location.
   longitude:
     type: number
-    description: The geographical latitude of the provider data center location.
+    x-erlang-type: float
+    description: The geographical longitude of the provider data center location.
+required:
+  - urls
+  - redirectionPoint
+  - csr
+  - latitude
+  - longitude
 example:
-  id: LASDASJDBH89869ASD79869asd
   urls:
     - http://beta.onedata.org/provider1
     - http://beta.onedata.org/provider2

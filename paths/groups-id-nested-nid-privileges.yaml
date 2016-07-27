@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: npriv
   x-onedata-method: group_logic:get_nested_group_privileges
+  x-onedata-permissions:
+    - group_view_data
   summary: Get subgroup privileges
   description: |
     Returns the list of nested group privileges in a specific group.
@@ -58,6 +60,8 @@ put:
   x-onedata-module: group
   x-onedata-resource: npriv
   x-onedata-method: group_logic:set_nested_group_privileges
+  x-onedata-permissions:
+    - group_set_privileges
   summary: Set subgroup privileges.
   description: |
     Sets privileges for a specific subgroup in a group.

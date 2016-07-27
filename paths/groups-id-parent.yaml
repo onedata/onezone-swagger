@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: parent_groups
   x-onedata-method: group_logic:get_parent_groups
+  x-onedata-permissions:
+    - group_view_data
   summary: Get parent groups
   description: |
     Returns the parent groups of a specific group.

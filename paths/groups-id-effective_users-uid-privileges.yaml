@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: eupriv
   x-onedata-method: group_logic:get_effective_privileges
+  x-onedata-permissions:
+    - group_view_data
   summary: Get user group privileges
   description: |
     Returns the user privileges in a group.

@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: effective_users
   x-onedata-method: group_logic:get_effective_users
+  x-onedata-permissions:
+    - group_view_data
   summary: Get effective group users
   description: >
     Returns the list of effective group users, which includes both who directly belong to the group,

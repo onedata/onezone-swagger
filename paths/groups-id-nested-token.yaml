@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: ninvite
   x-onedata-method: token_logic:create
+  x-onedata-permissions:
+    - group_invite_group
   summary: Create subgroup invitation token
   description: |
     Creates a token that can be used to add a group as subgroup of group with {id}.

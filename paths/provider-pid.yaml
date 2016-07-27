@@ -21,7 +21,7 @@ get:
     '200':
       description: Information about a provider.
       schema:
-        $ref: '#/definitions/Provider'
+        $ref: '#/definitions/ProviderDetails'
     '400':
       description: Invalid request.
       schema:

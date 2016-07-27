@@ -6,6 +6,8 @@ post:
   x-onedata-module: group
   x-onedata-resource: njoin
   x-onedata-method: group_logic:join_group
+  x-onedata-permissions:
+    - group_join_group
   summary: Add subgroup
   description: > 
     Adds given group as a subgroup of a specific group based on provided token. 

@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: users
   x-onedata-method: group_logic:get_users
+  x-onedata-permissions:
+    - group_view_data
   summary: Get group users
   description: |
     Returns the list of users belonging to a specific group.

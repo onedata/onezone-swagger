@@ -8,8 +8,11 @@ Error:
 User:
   $ref: ./user.yaml 
 
-Provider:
-  $ref: ./provider.yaml
+ProviderRegistrationRequest:
+  $ref: ./providerregistrationrequest.yaml
+
+ProviderDetails:
+  $ref: ./providerdetails.yaml
 
 AuthenticationToken:
   $ref: ./authenticationtoken.yaml 
@@ -28,10 +31,6 @@ DefaultSpace:
 
 SpaceInviteToken:
   $ref: ./spaceinvitetoken.yaml 
-
-# Not used
-# SpaceCreateToken:
-#   $ref: ./spacecreatetoken.yaml 
 
 Group:
   $ref: ./group.yaml

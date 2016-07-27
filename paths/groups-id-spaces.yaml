@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: spaces
   x-onedata-method: group_logic:get_spaces
+  x-onedata-permissions:
+    - group_view_data
   summary: Get group's spaces
   description: |
     Returns the list of spaces to which the group has access.
@@ -55,6 +57,8 @@ post:
   x-onedata-module: group
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
+  x-onedata-permissions:
+    - group_set_privileges
   summary: Creates new space for group
   description: |
     Creates a new space on behalf of a specific group.

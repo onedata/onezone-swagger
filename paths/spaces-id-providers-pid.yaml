@@ -17,7 +17,7 @@ get:
     '200':
       description: Details about a specific provider supporting a space.
       schema:
-        $ref: '#/definitions/Provider'
+        $ref: '#/definitions/ProviderDetails'
     '400':
       description: Invalid request.
       schema:

@@ -6,6 +6,8 @@ get:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:get_data
+  x-onedata-permissions:
+    - group_view_data
   summary: Get group details
   description: |
     Returns the information about a specific group.
@@ -54,6 +56,8 @@ patch:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:modify
+  x-onedata-permissions:
+    - group_change_data
   summary: Modify group details
   description: | 
     Updates the details about a group.
@@ -106,6 +110,8 @@ delete:
   x-onedata-module: group
   x-onedata-resource: group
   x-onedata-method: group_logic:remove_group
+  x-onedata-permissions:
+    - group_remove
   summary: Remove group
   description: |
     Removes a specific group.
