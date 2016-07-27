@@ -7,7 +7,10 @@ get:
   x-onedata-resource: users
   x-onedata-method: space_logic:get_users
   summary: Get space users
-  description: Returns the list of users belonging to a specific space.
+  description: |
+    Returns the list of users belonging to a specific space.
+
+    This operation requires `space_view_data` privilege.
   produces:
     - application/json
   responses:

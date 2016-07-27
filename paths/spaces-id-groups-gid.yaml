@@ -7,7 +7,10 @@ get:
   x-onedata-resource: group
   x-onedata-method: space_logic:get_group
   summary: Get group details
-  description: Returns details about a specific group in a space.
+  description: |
+    Returns details about a specific group in a space.
+
+    This operation requires `space_view_data` privilege.
   produces:
     - application/json
   responses:
@@ -57,7 +60,10 @@ delete:
   x-onedata-resource: group
   x-onedata-method: space_logic:remove_group
   summary: Remove subgroup
-  description: Removes a specific nested group.
+  description: |
+    Removes a specific nested group.
+
+    This operation requires `space_remove_group` privilege.
   responses:
     '200':
       description: A space has been removed from group.

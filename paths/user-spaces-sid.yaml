@@ -6,7 +6,10 @@ get:
   x-onedata-module: space
   x-onedata-method: space_logic:get_data
   summary: Get space details
-  description: Returns the details of a specific space.
+  description: |
+    Returns the details of a specific space.
+
+    This operation can be invoked on behalf of current user only.
   produces:
     - application/json
   responses:
@@ -50,7 +53,10 @@ delete:
   x-onedata-module: space
   x-onedata-method: space_logic:remove_user
   summary: Leave space
-  description: Removes the users ownership or membership in a specific space.
+  description: |
+    Removes the users ownership or membership in a specific space.
+
+    This operation can be invoked on behalf of current user only.
   produces:
     - application/json
   responses:

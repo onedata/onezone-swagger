@@ -16,7 +16,11 @@ post:
     '201':
       description: >
         ID of the supported space in the form /spaces/{id} is 
-        returned in the response `location` header. 
+        returned in the response `Location` header. 
+      headers:
+        Location: 
+          description: ID of the supported space.
+          type: string
     '400':
       description: Invalid request.
       schema:

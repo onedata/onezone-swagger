@@ -17,7 +17,11 @@ post:
     '201':
       description: >
         ID of the joined group in the form /groups/{id} is 
-        returned in the response `location` header.
+        returned in the response `Location` header.
+      headers:
+        Location: 
+          description: ID of the joined group.
+          type: string
     '400':
       description: Invalid request.
       schema:

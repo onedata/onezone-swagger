@@ -7,7 +7,10 @@ get:
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:get_user_privileges
   summary: Get user's Onezone privileges
-  description: Returns the list of user privileges for Onezone.
+  description: |
+    Returns the list of user privileges for Onezone.
+
+    This operation requires `view_privileges` privilege.
   produces:
     - application/json
   responses:
@@ -51,7 +54,10 @@ put:
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:set_privileges
   summary: Set user's Onezone privileges
-  description: Sets privileges for a user {id} for Onezone.
+  description: |
+    Sets privileges for a user {id} for Onezone.
+
+    This operation requires `set_privileges` privilege.
   responses:
     '200':
       description: The user privileges have been added.
@@ -97,7 +103,10 @@ delete:
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:remoev_privileges
   summary: Remove user's Onezone privileges
-  description: Removes all privileges for a user {id} to Onezone.
+  description: |
+    Removes all privileges for a user {id} to Onezone.
+
+    This operation requires `set_privileges` privilege.
   responses:
     '200':
       description: The user privileges have been added.

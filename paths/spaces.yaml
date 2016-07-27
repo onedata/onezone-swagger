@@ -7,9 +7,10 @@ get:
   x-onedata-resource: spaces
   x-onedata-method: space_logic:list_spaces
   summary: List all spaces
-  description: >
+  description: |
     Returns the list of all spaces managed by the Onezone service.
-    Requires 'list_spaces' Onezone privilege. 
+    
+    This operation requires `list_spaces` privilege.
   produces:
     - application/json
   responses:
@@ -53,14 +54,21 @@ post:
   description: |
     When called by a regular user, creates a new space and creates the current user its owner.
     
-    When called by a provider, creates a new spaces and automatically adds support for, based on the token provided in the request body.
+    When called by a provider, creates a new spaces and automatically adds support for, 
+    based on the token provided in the request body.
+
+    This operation does not require any specific privileges.
   consumes:
     - application/json
   responses:
     '201':
       description: >
         ID of the created space in the form /spaces/{id} is 
-        returned in the response `location` header. 
+        returned in the response `Location` header. 
+      headers:
+        Location: 
+          description: ID of the created space.
+          type: string
     '400':
       description: Invalid request.
       schema:

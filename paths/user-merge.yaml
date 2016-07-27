@@ -6,7 +6,10 @@ post:
   x-onedata-module: user
   x-onedata-method: user_logic:merge
   summary: Merge user accounts
-  description: Merge user accounts.
+  description: |
+    Merge user accounts.
+
+    This operation can be invoked on behalf of current user only.
   consumes:
     - application/json
   responses:

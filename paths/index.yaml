@@ -76,12 +76,6 @@
 /user/client_token:
   $ref: ./user-client_token.yaml
 
-# /user/merge:
-#   $ref: ./user-merge.yaml
-
-# /user/merge/token:
-#   $ref: ./user-merge-token.yaml
-
 /groups:
   $ref: ./groups.yaml
 

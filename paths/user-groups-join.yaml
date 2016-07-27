@@ -6,14 +6,21 @@ post:
   x-onedata-module: user
   x-onedata-method: group_logic:join
   summary: Join group
-  description: Join existing group using inivitation token.
+  description: |
+    Join existing group using inivitation token.
+
+    This operation can be invoked on behalf of current user only.
   consumes:
     - application/json
   responses:
     '201':
       description: >
         ID of the joined group in the form /user/groups/{id} is 
-        returned in the response `location` header. 
+        returned in the response `Location` header. 
+      headers:
+        Location: 
+          description: ID of the joined group.
+          type: string
     '400':
       description: Invalid request.
       schema:

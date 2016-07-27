@@ -6,7 +6,10 @@ get:
   x-onedata-module: user
   x-onedata-method: user_logic:get_spaces
   summary: Get list of spaces
-  description: Returns the list of users' spaces.
+  description: |
+    Returns the list of users' spaces.
+
+    This operation can be invoked on behalf of current user only.
   produces:
     - application/json
   responses:
@@ -54,16 +57,22 @@ post:
   x-onedata-module: space
   x-onedata-method: space_logic:create
   summary: Create a new space
-  description: >
+  description: |
     Creates a new space as current user. The user automaticaly becomes 
     the spaces' member.
+
+    This operation can be invoked on behalf of current user only.
   consumes:
     - application/json
   responses:
     '201':
       description: >
         ID of the created space in the form /user/spaces/{id} is 
-        returned in the response `location` header. 
+        returned in the response `Location` header. 
+      headers:
+        Location: 
+          description: ID of the created space.
+          type: string
     '400':
       description: Invalid request.
       schema:

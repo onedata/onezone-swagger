@@ -7,8 +7,9 @@ get:
   x-onedata-resource: space
   x-onedata-method: space_logic:get_data
   summary: Get space details
-  description: > 
+  description: |
     Returns the details about a specific space.
+
     If called by user who is not member of the space, requires 'list_spaces' privilege.
   produces:
     - application/json

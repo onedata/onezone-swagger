@@ -7,7 +7,10 @@ get:
   x-onedata-resource: user
   x-onedata-method: space_logic:get_user
   summary: Get space user details
-  description: Returns the public information about a specific user in a space.
+  description: |
+    Returns the public information about a specific user in a space.
+
+    This operation requires `space_view_data` privilege.
   produces:
     - application/json
   responses:
@@ -47,6 +50,7 @@ get:
     type: string
     required: true
 
+
 delete:
   operationId: remove_space_user
   tags:
@@ -56,7 +60,10 @@ delete:
   x-onedata-resource: user
   x-onedata-method: space_logic:remove_user
   summary: Remove user from space
-  description: Removes user from specific space.
+  description: |
+    Removes user from specific space.
+
+    This operation requires `space_remove_user` privilege.
   consumes:
     - application/json
   responses:

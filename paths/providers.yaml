@@ -7,9 +7,10 @@ get:
   x-onedata-resource: providers
   x-onedata-method: provider_logic:get_providers
   summary: Get providers
-  description: >
+  description: |
     Returns the list of providers registered in the Onezone service.
-    Requires 'list_providers' Onezone privilege. 
+    
+    This operation requires `list_providers` privilege.
   produces:
     - application/json
   responses:

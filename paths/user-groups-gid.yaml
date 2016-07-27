@@ -6,7 +6,10 @@ get:
   x-onedata-module: group
   x-onedata-method: group_logic:get_data
   summary: Get group details
-  description: Returns information about a specific group to which the user belongs.
+  description: |
+    Returns information about a specific group to which the user belongs.
+
+    This operation can be invoked on behalf of current user only.
   produces:
     - application/json
   responses:
@@ -50,7 +53,10 @@ delete:
   x-onedata-module: group
   x-onedata-method: group_logic:remove_user
   summary: Leave group
-  description: Removes the current user from a specific group.
+  description: |
+    Removes the current user from a specific group.
+
+    This operation can be invoked on behalf of current user only.
   produces:
     - application/json
   responses:

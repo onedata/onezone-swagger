@@ -6,14 +6,21 @@ post:
   x-onedata-module: space
   x-onedata-method: space_logic:join
   summary: Join space
-  description: Join existing space using inivitation token.
+  description: |
+    Join existing space using inivitation token.
+
+    This operation can be invoked on behalf of current user only.
   consumes:
     - application/json
   responses:
     '201':
       description: >
         ID of the joined space in the form /user/spaces/{id} is 
-        returned in the response `location` header. 
+        returned in the response `Location` header. 
+      headers:
+        Location: 
+          description: ID of the joined space.
+          type: string
     '400':
       description: Invalid request.
       schema:

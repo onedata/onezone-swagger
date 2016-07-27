@@ -7,7 +7,10 @@ get:
   x-onedata-resource: ginvite
   x-onedata-method: token_logic:create
   summary: Create space invite token for group
-  description: Creates a token allowing to add a group to a specific space.
+  description: |
+    Creates a token allowing to add a group to a specific space.
+
+    This operation requires `space_invite_group` privilege.
   produces:
     - application/json
   responses:

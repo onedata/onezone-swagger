@@ -1,34 +1,70 @@
+%%%--------------------------------------------------------------------
+%%% This file has been automatically generated from Swagger
+%%% specification - DO NOT EDIT!
+%%%
+%%% @author Krzysztof Trzepla
+%%% @copyright (C) 2016 ACK CYFRONET AGH
+%%% This software is released under the MIT license
+%%% cited in 'LICENSE.txt'.
+%%% @end
+%%%--------------------------------------------------------------------
+%%% @doc Datatypes specification for Onezone REST API.
+%%% @end
+%%%--------------------------------------------------------------------
 -module(rest_model).
 
-%
-% Definitions of records for REST API
-%
+-export([
+    {{#models}}
+    {{#model}}
+    
+    {{classname}}_model/0,{{/model}}{{/models}}]).
 
 
 {{#models}}
 {{#model}}
-%
-% {{classname}}
-%
-% {{description}}
-%
--record({{classname}}, {
-{{#vars}}
-	% {{description}}
-    {{name}} :: {{datatype}}(), 
-{{/vars}} }).
-
-%
-% Record schema for validation of JSON strings received via REST API. 
-%
--{{classname}}_schema() ->
-	#{
-	{{#vars}}
-	<<"{{name}}">> => { {{datatypeWithEnum}}, {{#required}}true{{/required}}{{^required}}false{{/required}} },
-	{{/vars}}
-	}
-	.
-
-
+%%
+%% {{#description}}{{description}}{{/description}}
+%%
+{{classname}}_model() ->
+{{#vendorExtensions}}
+{{#x-erlang-oneof}}
+  {oneof, [{{#x-erlang-subclasses}}{{.}}_model(),{{/x-erlang-subclasses}}]}.
+{{/x-erlang-oneof}}
+{{^x-erlang-oneof}}
+{{#x-erlang-dictionary-value-type}}
+  #{ '_' => {{x-erlang-dictionary-value-type}}_model() }.
+{{/x-erlang-dictionary-value-type}}
+{{^x-erlang-dictionary-value-type}}
+  #{ {{#vars}} 
+      %% {{#description}}{{description}}{{/description}}
+      {{name}} => {{#vendorExtensions}}{{#x-discriminator}}{ equal, <<"{{classVarName}}">>}{{/x-discriminator}}{{^x-discriminator}}{{#required}}{{datatype}}{{/required}}{{^required}}{{#vendorExtensions}}{{#x-required}}{{datatype}}{{/x-required}}{{/vendorExtensions}}{ {{datatype}}, {{#vendorExtensions}}{{#x-erlang-default-value}} {optional, {{x-erlang-default-value}}{{!}}}{{/x-erlang-default-value}}{{^x-erlang-default-value}}optional{{/x-erlang-default-value}}{{/vendorExtensions}} }{{/required}}{{/x-discriminator}}{{/vendorExtensions}}{{#hasMore}},{{/hasMore}}{{/vars}} 
+   }.
+{{/x-erlang-dictionary-value-type}}
+{{/x-erlang-oneof}}
+{{/vendorExtensions}}
+   
 {{/model}}
 {{/models}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
