@@ -7,7 +7,10 @@ post:
   x-onedata-resource: groups
   x-onedata-method: group_logic:create
   summary: Create new group
-  description: Creates a new group.
+  description: |
+    Creates a new group.
+
+    This operation does require any specific privileges.
   consumes:
     - application/json
   responses:

@@ -7,7 +7,10 @@ get:
   x-onedata-resource: group
   x-onedata-method: group_logic:get_data
   summary: Get group details
-  description: Returns the information about a specific group.
+  description: |
+    Returns the information about a specific group.
+
+    This operation requires `group_view_data` privilege.
   produces:
     - application/json
   responses:
@@ -52,7 +55,10 @@ patch:
   x-onedata-resource: group
   x-onedata-method: group_logic:modify
   summary: Modify group details
-  description: Updates the details about a group.
+  description: | 
+    Updates the details about a group.
+
+    This operation requires `group_change_data` privilege.
   consumes:
     - application/json
   responses:
@@ -101,7 +107,10 @@ delete:
   x-onedata-resource: group
   x-onedata-method: group_logic:remove_group
   summary: Remove group
-  description: Removes a specific group.
+  description: |
+    Removes a specific group.
+
+    This operation requires `group_remove` privilege.
   responses:
     '202':
       description: The group will be removed.

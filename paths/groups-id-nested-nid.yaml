@@ -7,7 +7,10 @@ get:
   x-onedata-resource: nested_group
   x-onedata-method: group_logic:get_nested_group
   summary: Get subgroup details
-  description: Returns information about a specific nested group.
+  description: |
+    Returns information about a specific nested group.
+
+    This operation requires `group_view_data` privilege.
   produces:
     - application/json
   responses:
@@ -57,7 +60,10 @@ delete:
   x-onedata-resource: nested_group
   x-onedata-method: group_logic:remove_nested_group
   summary: Remove subgroup.
-  description: Removes a specific subgroup with {nid} from parent group with {id}.
+  description: |
+    Removes a specific subgroup with {nid} from parent group with {id}.
+
+    This operation requires `group_remove_group` privilege.
   responses:
     '202':
       description: A subgroup will be removed.

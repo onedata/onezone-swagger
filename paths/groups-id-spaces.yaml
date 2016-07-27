@@ -7,7 +7,10 @@ get:
   x-onedata-resource: spaces
   x-onedata-method: group_logic:get_spaces
   summary: Get group's spaces
-  description: Returns the list of spaces to which the group has access.
+  description: |
+    Returns the list of spaces to which the group has access.
+
+    This operation requires `group_view_data` privilege.
   produces:
     - application/json
   responses:
@@ -53,7 +56,10 @@ post:
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
   summary: Creates new space for group
-  description: Creates a new space on behalf of a specific group.
+  description: |
+    Creates a new space on behalf of a specific group.
+
+    This operation requires `group_set_privileges` privilege.
   produces:
     - application/json
   responses:

@@ -6,8 +6,11 @@ get:
   x-onedata-module: group
   x-onedata-resource: effective_user
   x-onedata-method: group_logic:get_effective_user
-  description: Get group user details
-  summary: Returns public information about a specific group user.
+  summary: Get group user details
+  description: |
+    Returns public information about a specific group user.
+
+    This operation requires `group_view_data` privilege.
   produces:
     - application/json
   responses:

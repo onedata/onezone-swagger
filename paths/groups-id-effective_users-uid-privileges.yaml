@@ -7,7 +7,10 @@ get:
   x-onedata-resource: eupriv
   x-onedata-method: group_logic:get_effective_privileges
   summary: Get user group privileges
-  description: Returns the user privileges in a group.
+  description: |
+    Returns the user privileges in a group.
+
+    This operation requires `group_view_data` privilege.
   produces:
     - application/json
   responses:

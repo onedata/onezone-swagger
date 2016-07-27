@@ -7,7 +7,10 @@ get:
   x-onedata-resource: nested_groups
   x-onedata-method: group_logic:get_nested_groups
   summary: Get subgroups
-  description: Returns the list of subgroups of a specific group.
+  description: |
+    Returns the list of subgroups of a specific group.
+
+    This operation requires `group_view_data` privilege.
   produces:
     - application/json
   responses:

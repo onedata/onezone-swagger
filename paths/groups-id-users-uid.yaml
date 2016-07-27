@@ -7,7 +7,10 @@ get:
   x-onedata-resource: user
   x-onedata-method: group_logic:get_user
   summary: Get group user details
-  description: Returns the public information about a user {uid} in group {id}.
+  description: |
+    Returns the public information about a user {uid} in group {id}.
+
+    This operation requires `group_view_data` privilege.
   produces:
     - application/json
   responses:
@@ -48,17 +51,19 @@ get:
     required: true
 
 delete:
-  operationId: add_group_user
+  operationId: remove_group_user
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
-  x-onedata-resource: group
+  x-onedata-resource: user
   x-onedata-method: group_logic:remove_user
   summary: Remove user from group
-  description: >
+  description: |
     Removes the user {uid} from a group {id} (the user will no longer have access 
     to spaces accessible to the group).
+
+    This operation requires `group_remove_user` privilege.
   consumes:
     - application/json
   responses:

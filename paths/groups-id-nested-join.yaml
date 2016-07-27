@@ -11,6 +11,8 @@ post:
     Adds given group as a subgroup of a specific group based on provided token. 
     The parent group to which the group will be added is identified from the token 
     (the token is issued in the context of a group).
+
+    This operation requires `group_join_group` privilege.
   responses:
     '201':
       description: >

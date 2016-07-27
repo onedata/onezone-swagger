@@ -7,7 +7,10 @@ post:
   x-onedata-resource: sjoin
   x-onedata-method: space_logic:join
   summary: Join space by group
-  description: Joins the group to an existing space based on provided space invitation token.
+  description: |
+    Joins the group to an existing space based on provided space invitation token.
+
+    This operation requires `group_join_space` privilege.
   consumes:
     - application/json
   responses:
