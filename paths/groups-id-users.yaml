@@ -48,3 +48,5 @@ get:
     description: Group ID.
     type: string
     required: true
+
+

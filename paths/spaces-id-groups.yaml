@@ -43,3 +43,58 @@ get:
     description: Space ID.
     type: string
     required: true
+
+
+put:
+  operationId: add_space_group
+  tags:
+    - Space
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-resource: groups
+  x-onedata-method: space_logic:add_group
+  summary: Add space group
+  description: |
+    Allows to add a group to any space. 
+
+    This operation requires `add_member_to_space` privilege.
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The group was added to the space.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  - name: groupId
+    in: body
+    schema:
+      type: object
+      properties:
+        groupId:
+          type: string
+          description: ID of the group to add to space.
+    required: true

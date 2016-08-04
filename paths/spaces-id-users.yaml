@@ -46,3 +46,59 @@ get:
     description: Space ID.
     type: string
     required: true
+
+
+put:
+  operationId: add_space_user
+  tags:
+    - Space
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-resource: users
+  x-onedata-method: space_logic:add_user
+  summary: Add space user
+  description: |
+    Allows to add a user to any space. 
+
+    This operation requires `add_member_to_space` privilege.
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The user was added to the space.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  - name: userId
+    in: body
+    schema:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: ID of the user to add to space.
+    required: true
+

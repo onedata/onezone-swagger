@@ -63,7 +63,8 @@ delete:
   description: |
     Removes a specific nested group.
 
-    This operation requires `space_remove_group` privilege.
+    This operation requires `space_remove_group` privilege or 
+    `remove_member_from_space` privilege.
   responses:
     '200':
       description: A space has been removed from group.

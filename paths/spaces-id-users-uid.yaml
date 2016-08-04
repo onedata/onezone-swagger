@@ -16,8 +16,7 @@ get:
   responses:
     '200':
       description: Information about a space user.
-      schema:
-        $ref: '#/definitions/User'
+
     '400':
       description: Invalid request.
       schema:
@@ -63,7 +62,8 @@ delete:
   description: |
     Removes user from specific space.
 
-    This operation requires `space_remove_user` privilege.
+    This operation requires `space_remove_user` or 
+    `remove_member_from_space` privilege.
   consumes:
     - application/json
   responses:
