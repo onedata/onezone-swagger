@@ -49,18 +49,19 @@ get:
 
 
 put:
-  operationId: add_space_user
+  operationId: add_user_to_space
   tags:
     - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: users
   x-onedata-method: space_logic:add_user
-  summary: Add space user
+  summary: Add user to space
   description: |
     Allows to add a user to any space. 
 
-    This operation requires `add_member_to_space` privilege.
+    This operation can be invoked by system administrators only
+    and requires `add_member_to_space` privilege.
   consumes:
     - application/json
   responses:
