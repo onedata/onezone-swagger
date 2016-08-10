@@ -152,8 +152,13 @@ delete:
   x-onedata-module: provider
   x-onedata-resource: provider
   x-onedata-method: provider_logic:remove
-  summary: Unregisters provider
-  description: Unregisters a Oneprovider from the nezone service.
+  summary: Unregister provider
+  description: |
+    Allows Oneprovider service to unregister from Onezone.
+
+    This operation allows a Oneprovider to unregister from a this Onezone, i.e. it can only be invoked
+    by Oneprovider which wants to unregister. It does't require any parameters, as the provider is
+    identified by the peer certificate used for this connection.
   consumes:
     - application/json
   responses:
@@ -179,14 +184,4 @@ delete:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: data
-    in: body
-    description: Provider ID.
-    schema:
-      type: object
-      properties:
-        providerId:
-          type: string
-          description: The ID of the provider to unregister.
-    required: true
+
