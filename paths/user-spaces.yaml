@@ -5,11 +5,24 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_spaces
-  summary: Get list of spaces
+  summary: Get user spaces
   description: |
     Returns the list of users' spaces.
 
     This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Get user spaces**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/user/spaces
+
+    {
+      "spaces": ["IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"],
+      "default": "undefined"
+    }
+    ```
   produces:
     - application/json
   responses:
@@ -56,12 +69,21 @@ post:
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:create
-  summary: Create a new space
+  summary: Create new user space
   description: |
     Creates a new space as current user. The user automaticaly becomes 
     the spaces' member.
 
     This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Create new user space**
+    ```bash
+    curl -k -u admin:password  -H "Content-type: application/json" -X POST \
+    -d '{ "name" : "test_space" , "token" : "JKAxNWxUgPCAxNDk2MTQwMTQ0v38YI0Z2",  "size" : "150" }'  
+    https://$HOST:8443/api/v3/onezone/user/spaces
+    ```
   consumes:
     - application/json
   responses:

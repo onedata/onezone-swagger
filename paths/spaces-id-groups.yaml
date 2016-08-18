@@ -7,7 +7,22 @@ get:
   x-onedata-resource: groups
   x-onedata-method: space_logic:get_groups
   summary: Get space groups
-  description: Returns the list of groups belonging to a specific space.
+  description: |
+    Returns the list of groups belonging to a specific space.
+
+    ***Example cURL requests***
+
+    **Get space groups**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/groups
+
+    {
+      "groups": [
+        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"]
+    }
+    ```
   produces:
     - application/json
   responses:
@@ -59,6 +74,15 @@ put:
 
     This operation can be invoked by system administrators only
     and requires `add_member_to_space` privilege.
+
+    ***Example cURL requests***
+
+    **Add group to space**
+    ```bash
+    curl -k -u username:password  -H "Content-type: application/json"\
+     -X PUT -d '{"groupId" : "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"}' \
+     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups
+    ```
   consumes:
     - application/json
   responses:

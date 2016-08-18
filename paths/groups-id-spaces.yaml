@@ -13,6 +13,14 @@ get:
     Returns the list of spaces to which the group has access.
 
     This operation requires `group_view_data` privilege.
+
+    ***Example cURL requests***
+
+    **Get group spaces**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces
+    ```
   produces:
     - application/json
   responses:
@@ -61,9 +69,18 @@ post:
     - group_set_privileges
   summary: Creates new space for group
   description: |
-    Creates a new space on behalf of a specific group.
+    Creates a new space for of a specific group.
 
-    This operation requires `group_set_privileges` privilege.
+    This operation requires `group_create_space` privilege.
+
+    ***Example cURL requests***
+
+    **Create new space for group**
+    ```bash
+    curl -k -u admin:password  -H "Content-type: application/json" \
+    -X POST -d '{"name": "new_space"}' \
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces
+    ```
   produces:
     - application/json
   responses:
@@ -97,3 +114,14 @@ post:
     description: Group ID.
     type: string
     required: true
+  - name: spaceName
+    in: body
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the new space.
+      required:
+        - name
+

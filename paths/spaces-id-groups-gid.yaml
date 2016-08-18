@@ -11,6 +11,20 @@ get:
     Returns details about a specific group in a space.
 
     This operation requires `space_view_data` privilege.
+
+    ***Example cURL requests***
+
+    **Get space group details**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+
+    {
+      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "name": "new_groupX",
+      "type": "role"
+    }
+    ```
   produces:
     - application/json
   responses:
@@ -59,12 +73,20 @@ delete:
   x-onedata-module: spaces
   x-onedata-resource: group
   x-onedata-method: space_logic:remove_group
-  summary: Remove subgroup
+  summary: Remove group from space
   description: |
-    Removes a specific nested group.
+    Removes a specific group from space.
 
     This operation requires `space_remove_group` privilege or 
     `remove_member_from_space` privilege.
+
+    ***Example cURL requests***
+
+    **Get space group details**
+    ```bash
+    curl -k -u username:password -X DELETE \
+    https://$HOST:8443/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
+    ```
   responses:
     '200':
       description: A space has been removed from group.

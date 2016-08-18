@@ -11,6 +11,18 @@ get:
     Returns the list of group privileges for Onezone.
 
     This operation requires `view_privileges` privilege.
+
+    ***Example cURL requests***
+
+    **Get groups privileges to Onezone service**
+    ```bash
+    curl -k -u admin:password -X GET \
+    https://$HOST:8443/api/v3/onezone/privileges/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+
+    {
+      "privileges": []
+    }
+    ```
   produces:
     - application/json
   responses:
@@ -45,7 +57,7 @@ get:
     type: string
     required: true
 
-put:
+patch:
   operationId: set_group_onezone_privileges
   tags:
     - Privileges
@@ -55,9 +67,18 @@ put:
   x-onedata-method: onezone_logic:set_privileges
   summary: Set group's Onezone privileges
   description: |
-    Sets privileges for a user {id} for Onezone.
+    Modifies privileges for a user {id} for Onezone.
 
     This operation requires `set_privileges` privilege.
+
+    ***Example cURL requests***
+
+    **Set groups privileges to Onezone service**
+    ```bash
+    curl -k -H "Content-type: application/json"  -X PUT \
+    -d '{"privileges": ["list_spaces"]}' \
+    https://$HOST:8443/api/v3/onezone/privileges/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    ```
   responses:
     '200':
       description: The group privileges have been added.
@@ -107,6 +128,14 @@ delete:
     Removes all privileges for a group {id} to Onezone.
 
     This operation requires `set_privileges` privilege.
+
+    ***Example cURL requests***
+
+    **Remove all groups privileges to Onezone service**
+    ```bash
+    curl -i -k -u username:password  -X DELETE  \
+    https://$HOST:8443/api/v3/onezone/privileges/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2
+    ```
   responses:
     '200':
       description: The group privileges have been added.
