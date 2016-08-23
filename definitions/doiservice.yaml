@@ -1,0 +1,68 @@
+description: |
+  The properties of a [DOI](http://doi.org) registration service.
+allOf:
+  - $ref: '#/definitions/HandleService'
+  - type: object
+    x-discriminator-value: DOI
+    properties:
+      name:
+        type: string
+        description: >
+          The user defined name of the service.
+      host:
+        type: string
+        description: >
+          The service host, including the protocol.
+      doiEndpoint:
+        type: string
+        description: >
+          DOI registration API endpoint relative to the host.
+      metadataEndpoint:
+        type: string
+        description: >
+          Metadata registration API endpoint relative to the host.
+      mediaEndpoint:
+        type: string
+        description: >
+          Media registration API endpoint relative to the host.
+      prefix:
+        type: string
+        description: >
+          The DOI prefix under which new DOI's can be minted using this account.
+      username:
+        type: string
+        description: >
+          The username for login to the DOI service.
+      password:
+        type: string
+        description: >
+          The password for login to the DOI service.
+      identifierTemplate:
+        type: string
+        description: >
+          The template for generation of new DOI's using this account.
+      allowTemplateOverride:
+        type: boolean
+        description: >
+          Specifies whether users can override the DOI suffix template for this account during registration of new DOI's.
+    required:
+    - name
+    - host
+    - doiEndpoint
+    - metadataEndpoint
+    - mediaEndpoint
+    - prefix
+    - username
+    - password
+example:
+  type: DOI
+  name: LifeWatch DataCite
+  host: https://mds.test.datacite.org
+  doiEndpoint: /doi
+  metadataEndpoint: /metadata
+  mediaEndpoint: /media
+  prefix: 10.572
+  username: alice
+  password: pa$$word
+  identifierTemplate: "{{space.name}}-{{space.guid}}"
+  allowTemplateOverride: false

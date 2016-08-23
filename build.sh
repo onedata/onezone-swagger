@@ -6,7 +6,7 @@ docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger docker.onedata.org/swagge
 # Validate the JSON
 output=$(docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger docker.onedata.org/swagger-cli:1.5.0 validate /swagger/swagger.json 2>&1)
 
-if [[ $output =~ .*Swagger\ schema\ validation\ failed.* ]]; then
+if [[ $output =~ .*SyntaxError.* ]] ; then
   echo "Generated swagger.json is not valid - check YAML sources:\n"
   echo $output
   exit 1

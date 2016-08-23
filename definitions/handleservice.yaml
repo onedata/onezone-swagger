@@ -1,0 +1,18 @@
+type: object
+description: |
+  The abtract type for [Handle](http://handle.net) identifier services.
+discriminator: type
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - doi
+  - pid
+properties:
+  type:
+    type: string
+    description: The type of identifier.
+    x-discriminator: true
+    enum:
+      - DOI
+      - PID
+required:
+  - type

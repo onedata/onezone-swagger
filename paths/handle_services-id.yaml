@@ -1,0 +1,185 @@
+get:
+  operationId: get_handle_service
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle_service
+  x-onedata-resource: handle_service
+  x-onedata-method: handle_logic:get_handle_service
+  x-onedata-permissions:
+    - view_handle_service
+  summary: Get handle service
+  description: |
+    Returns the properties of a specific handle service.
+
+    This operation requires `view_handle_service` privilege.
+
+    ***Example cURL requests***
+
+    **Get handle services**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
+
+    {
+      "type": "DOI",
+      "name": "LifeWatch DataCite",
+      "host": "https://mds.test.datacite.org",
+      "doiEndpoint": "/doi",
+      "metadataEndpoint": "/metadata",
+      "mediaEndpoint": "/media",
+      "prefix": "10.572",
+      "username": "alice",
+      "password": "lkASHDLAKSHDLKJ",
+      "identifierTemplate": "{{space.name}}-{{space.guid}}",
+      "allowTemplateOverride": false
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of identifiers of registered handle services.
+      schema:
+        type: array
+        items:
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+
+patch:
+  operationId: modify_handle_service
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle_service
+  x-onedata-resource: handle_service
+  x-onedata-method: handle_logic:modify_handle_services
+  x-onedata-permissions:
+    - modify_handle_service
+  summary: Modify handle service
+  description: |
+    Allows to update a registeed handle service.
+
+    This operation requires `modify_handle_services` privilege.
+
+    ***Example cURL requests***
+
+    **Modify handle service password**
+    ```bash
+    curl -k -u username:password -X PATCH -d '{"password": "new_password"}'\
+    https://$HOST:8443/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Update was successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    - name: handleService
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/HandleServiceUpdate'
+
+
+delete:
+  operationId: delete_handle_service
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle_service
+  x-onedata-resource: handle_service
+  x-onedata-method: handle_logic:delete_handle_services
+  x-onedata-permissions:
+    - delete_handle_service
+  summary: Unregister handle service
+  description: |
+    Allows to unregister a registeed handle service.
+
+    This operation requires `delete_handle_services` privilege.
+
+    ***Example cURL requests***
+
+    **Unregister handle service**
+    ```bash
+    curl -k -u username:password -X DELETE \
+    https://$HOST:8443/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Unregistration was successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      required: true
+      type: string

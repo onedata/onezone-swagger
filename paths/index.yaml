@@ -170,3 +170,28 @@
   $ref: ./privileges-group-id.yaml
 
 
+
+/handle_services:
+  $ref: ./handle_services.yaml
+
+/handle_services/{id}:
+  $ref: ./handle_services-id.yaml
+
+/handle_services/{id}/users:
+  $ref: ./handle_services-id-users.yaml
+
+/handle_services/{id}/users/{uid}:
+  $ref: ./handle_services-id-users-uid.yaml
+
+/handle_services/{id}/users/{uid}/privileges:
+  $ref: ./handle_services-id-users-uid-privileges.yaml
+
+/handle_services/{id}/groups:
+  $ref: ./handle_services-id-groups.yaml
+
+/handle_services/{id}/groups/{gid}:
+  $ref: ./handle_services-id-groups-gid.yaml
+
+/handle_services/{id}/groups/{gid}/privileges:
+  $ref: ./handle_services-id-groups-gid-privileges.yaml
+

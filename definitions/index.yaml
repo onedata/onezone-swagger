@@ -50,4 +50,22 @@ GroupPrivileges:
 OnezonePrivileges:
   $ref: ./onezoneprivileges.yaml
 
+
+# Handle definitions
+HandleService:
+  $ref: ./handleservice.yaml
+
+DOIService:
+  $ref: ./doiservice.yaml
+
+PIDService:
+  $ref: ./pidservice.yaml
   
+HandleServiceUpdate:
+  $ref: ./handleserviceupdate.yaml
+
+DOIServiceUpdate:
+  $ref: ./doiserviceupdate.yaml
+
+PIDServiceUpdate:
+  $ref: ./pidserviceupdate.yaml
