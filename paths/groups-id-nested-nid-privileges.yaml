@@ -74,7 +74,7 @@ put:
   x-onedata-method: group_logic:set_nested_group_privileges
   x-onedata-permissions:
     - group_set_privileges
-  summary: Set subgroup privileges.
+  summary: Set subgroup privileges
   description: |
     Sets privileges for a specific subgroup in a group.
 
@@ -83,6 +83,7 @@ put:
     ***Example cURL requests***
 
     **Get subgroup privileges in a group**
+    
     ```bash
     curl -k -u username:password  -H "Content-type: application/json" -X PUT \
     -d '{"privileges": ["group_view_data"]}' \

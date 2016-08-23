@@ -9,8 +9,9 @@ post:
   x-onedata-permissions:
     - group_join_group
   summary: Add subgroup
-  description: > 
+  description: |
     Adds given group as a subgroup of a specific group based on provided token. 
+    
     The parent group to which the group will be added is identified from the token 
     (the token is issued in the context of a group).
 
@@ -19,6 +20,7 @@ post:
     ***Example cURL requests***
 
     **Add subgroup**
+
     ```bash
     curl -k  -u admin:password -H "Content-type: application/json" -X POST \
     -d  '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW"}'  \

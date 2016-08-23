@@ -77,7 +77,7 @@ delete:
   x-onedata-method: group_logic:remove_nested_group
   x-onedata-permissions:
     - group_remove_group
-  summary: Remove subgroup.
+  summary: Remove subgroup
   description: |
     Removes a specific subgroup with {nid} from parent group with {id}.
 
