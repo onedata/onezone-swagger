@@ -60,7 +60,7 @@ get:
     required: true
 
 
-put:
+post:
   operationId: add_user_to_space
   tags:
     - Space
@@ -80,7 +80,7 @@ put:
     **Add user to space**
     ```bash
     curl -k -u username:password  -H "Content-type: application/json" \
-    -X PUT -d '{ "userId" : "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0" }' \
+    -X POST -d '{ "userId" : "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0" }' \
     https://$HOST:8443/api/v3/onezone//spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users
     ```
   consumes:
