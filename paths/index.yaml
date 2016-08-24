@@ -212,8 +212,14 @@
 /handles/{hndl}/users/{uid}:
   $ref: ./handles-hndl-users-uid.yaml
 
+/handles/{hndl}/users/{uid}/privileges:
+  $ref: ./handles-hndl-users-uid-privileges.yaml
+
 /handles/{hndl}/groups:
   $ref: ./handles-hndl-groups.yaml
 
 /handles/{hndl}/groups/{gid}:
   $ref: ./handles-hndl-groups-gid.yaml
+
+/handles/{hndl}/groups/{gid}/privileges:
+  $ref: ./handles-hndl-groups-gid-privileges.yaml
