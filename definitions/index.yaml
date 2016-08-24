@@ -69,3 +69,10 @@ DOIServiceUpdate:
 
 PIDServiceUpdate:
   $ref: ./pidserviceupdate.yaml
+
+Handle:
+  $ref: ./handle.yaml
+
+HandleRegistrationRequest:
+  $ref: ./handleregistrationrequest.yaml
+

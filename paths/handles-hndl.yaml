@@ -1,49 +1,40 @@
 get:
-  operationId: get_handle_service
+  operationId: get_handle
   tags:
     - Handle
   x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:get_handle
   x-onedata-permissions:
-    - view_handle_service
-  summary: Get handle service
+    - view_handle
+  summary: Get handle
   description: |
-    Returns the properties of a specific handle service.
+    Returns the properties of a specific handle.
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `view_handle` privilege.
 
     ***Example cURL requests***
 
-    **Get handle services**
+    **Get handle**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
+    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH
 
     {
-      "type": "DOI",
-      "name": "LifeWatch DataCite",
-      "host": "https://mds.test.datacite.org",
-      "doiEndpoint": "/doi",
-      "metadataEndpoint": "/metadata",
-      "mediaEndpoint": "/media",
-      "prefix": "10.572",
-      "username": "alice",
-      "password": "lkASHDLAKSHDLKJ",
-      "identifierTemplate": "{{space.name}}-{{space.guid}}",
-      "allowTemplateOverride": false
+      "handleId": "LAJHSDBASDlkjlksjd76876ashlkjHASD",
+      "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
+      "handle": "10.572/ABCD-asdakjsdak87587asdk-1234/8",
+      "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb"
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The list of identifiers of registered handle services.
+      description: The properties of a specific handle.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Handle'
     '400':
       description: Invalid request.
       schema:
@@ -65,34 +56,36 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: id
+    - name: hndl
       in: path
       required: true
       type: string
+      description: The handle ID (internal Onedata GUID) of the identifier.
 
 
 patch:
-  operationId: modify_handle_service
+  operationId: modify_handle
   tags:
     - Handle
   x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:modify_handle_services
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:modify_handle
   x-onedata-permissions:
-    - modify_handle_service
-  summary: Modify handle service
+    - modify_handle
+  summary: Modify handle
   description: |
-    Allows to update a registeed handle service.
+    Allows to update a registeed handle, for instance change the Onedata resource
+    to which it points to.
 
-    This operation requires `modify_handle_services` privilege.
+    This operation requires `modify_handle` privilege.
 
     ***Example cURL requests***
 
-    **Modify handle service password**
+    **Modify handle resource**
     ```bash
-    curl -k -u username:password -X PATCH -d '{"password": "new_password"}'\
-    https://$HOST:8443/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
+    curl -k -u username:password -X PATCH -d '{"resourceId": "jalkADKDGHKAJSdlkHDukjhassjd76876asdkb"}'\
+    https://$HOST:8443/api/v3/handles/LKHASDkkjhASDLHU70ASDn
     ```
   consumes:
     - application/json
@@ -120,39 +113,39 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: id
+    - name: hndl
       in: path
       required: true
       type: string
-    - name: handleService
+    - name: handle
       in: body
       required: true
       schema:
-        $ref: '#/definitions/HandleServiceUpdate'
+        $ref: '#/definitions/Handle'
 
 
 delete:
-  operationId: delete_handle_service
+  operationId: delete_handle
   tags:
     - Handle
   x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:delete_handle_services
+  x-onedata-module: handle
+  x-onedata-resource: handle_
+  x-onedata-method: handle_logic:delete_handle
   x-onedata-permissions:
-    - delete_handle_service
-  summary: Unregister handle service
+    - delete_handle
+  summary: Unregister handle
   description: |
-    Allows to unregister a registeed handle service.
+    Allows to unregister a registered handle.
 
-    This operation requires `delete_handle_services` privilege.
+    This operation requires `delete_handle` privilege.
 
     ***Example cURL requests***
 
-    **Unregister handle service**
+    **Unregister handle**
     ```bash
     curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
+    https://$HOST:8443/api/v3/handles/SDLLKHASDkSDLHU70ASDnHU70ASDnkjhA
     ```
   responses:
     '204':
@@ -178,7 +171,7 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: id
+    - name: hndl
       in: path
       required: true
       type: string

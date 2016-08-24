@@ -170,7 +170,9 @@
   $ref: ./privileges-group-id.yaml
 
 
-
+#
+# Handle service management
+#
 /handle_services:
   $ref: ./handle_services.yaml
 
@@ -195,3 +197,23 @@
 /handle_services/{id}/groups/{gid}/privileges:
   $ref: ./handle_services-id-groups-gid-privileges.yaml
 
+#
+# Handle registration
+#
+/handles:
+  $ref: ./handles.yaml
+
+/handles/{hndl}:
+  $ref: ./handles-hndl.yaml
+
+/handles/{hndl}/users:
+  $ref: ./handles-hndl-users.yaml
+
+/handles/{hndl}/users/{uid}:
+  $ref: ./handles-hndl-users-uid.yaml
+
+/handles/{hndl}/groups:
+  $ref: ./handles-hndl-groups.yaml
+
+/handles/{hndl}/groups/{gid}:
+  $ref: ./handles-hndl-groups-gid.yaml

@@ -1,0 +1,22 @@
+type: object
+description: |
+  This type contains attributes necessary to register a handle identifier
+  for some Onedata resource (e.g. share).
+properties:
+  handleServiceId:
+    type: string
+    description: The Onedata GUID of the handle service registered.
+  resourceType:
+    type: string
+    description: The type of resource to be registered.
+  resourceId:
+    type: string
+    description: The ID of the resource to be assigned a handle identifier.
+required:
+  - handleServiceId
+  - resourceType
+  - resourceId
+example:
+  handleServiceId: ALKJSDH77i79ASDKJA-ASDBAS9-87
+  resourceType: Share
+  resourceId: LKJAHSDA796IASDKBjkhaksjdk568787asdhjbasd
