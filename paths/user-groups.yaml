@@ -29,8 +29,9 @@ get:
       description: The list of groups.
       schema:
         type: object
-        groups:
-          type: string
+        properties:
+          groups:
+            type: string
     '400':
       description: Invalid request.
       schema:
