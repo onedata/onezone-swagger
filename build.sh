@@ -27,7 +27,7 @@ docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swa
 #
 # Generate C# stub to get all moustache tempalte keywords
 # This for debug purposes only.
-swagger-codegen-dbg generate -i ./swagger.json -l csharp -o ./generated/csharp -o tmp > model.json
+#swagger-codegen-dbg generate -i ./swagger.json -l csharp -o ./generated/csharp -o tmp > model.json
 
 #
 # Generate the static documentation
@@ -49,5 +49,6 @@ docker run --rm -v `pwd`:/swagger -t docker.onedata.org/swagger-gitbook:1.4.1 co
 # Build Python client using official latest version of swagger-codegen
 # in 'generated/python'
 #
-docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t swagger-codegen-official generate -i ./swagger.json -l python -o ./generated/python
+docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t docker.onedata.org/swagger-codegen-official:ID-507bde287c  generate -i ./swagger.json -l python -o ./generated/python -c python-config.json
 
+docker run --rm -e "CHOWNUID=${UID}" -v `pwd`/generated/python:/python -t python:2.7.12 /bin/bash -c "cd /python; python2 setup.py bdist_egg"
