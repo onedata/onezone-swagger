@@ -12,10 +12,7 @@ properties:
       The endpoint of the Handle service proxy, i.e. a service which implements
       logic specific for particular Handle service.
   serviceProperties:
-    description: >
-      The properties of the Handle service.
-    schema:
-      $ref: '#/definitions/HandleServiceProperties'
+    $ref: '#/definitions/HandleServiceProperties'
 required:
   - name
   - proxyEndpoint
