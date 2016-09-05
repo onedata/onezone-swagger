@@ -31,9 +31,7 @@ get:
     '200':
       description: The list of privileges of a group to a specific handle.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/HandlePrivileges'
     '400':
       description: Invalid request.
       schema:

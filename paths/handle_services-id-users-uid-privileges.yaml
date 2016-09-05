@@ -32,9 +32,7 @@ get:
     '200':
       description: The list of privileges of a user to a specific handle service.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/HandleServicePrivileges'
     '400':
       description: Invalid request.
       schema:
