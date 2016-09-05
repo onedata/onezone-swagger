@@ -1,18 +1,21 @@
 type: object
 description: |
-  The abtract type for [Handle](http://handle.net) identifier services update methods.
-discriminator: type
-x-onedata-oneof: true
-x-onedata-subclasses:
-  - doi
-  - pid
+  Handle service instance.
 properties:
-  type:
+  name:
     type: string
-    description: The type of identifier.
-    x-discriminator: true
-    enum:
-      - DOI
-      - PID
-required:
-  - type
+    description: >
+      The user defined name of the service.  
+  proxyEndpoint:
+    type: string
+    description: >
+      The endpoint of the Handle service proxy, i.e. a service which implements
+      logic specific for particular Handle service.
+  serviceProperties:
+    description: >
+      The properties of the Handle service.
+    schema:
+      $ref: '#/definitions/HandleServicePropertiesUpdate'
+example:
+  proxyEndpoint: https://newendpointdomain.com:17000/handle_proxy
+

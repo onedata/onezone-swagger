@@ -86,7 +86,7 @@ put:
 
     **Set handle user privileges**
     ```bash
-    curl -k -u username:password -X PUT -d '["view_handle"]' \
+    curl -k -u username:password -X PUT -d '{"privileges": ["handle_change_data"]}' \
     https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
@@ -125,4 +125,9 @@ put:
       description: The ID of the user of a handle.
       required: true
       type: string
-
+    - name: privileges
+      in: body
+      description: The list of user privileges to a specific handle.
+      required: true
+      schema:
+        $ref: '#/definitions/HandlePrivileges'

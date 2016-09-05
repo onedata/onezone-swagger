@@ -86,7 +86,7 @@ put:
 
     **Set handle service group privileges**
     ```bash
-    curl -k -u username:password -X PUT -d '["register_doi"]' \
+    curl -k -u username:password -X PUT -d '{"privileges": ["register_handle"]}' \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
@@ -125,4 +125,10 @@ put:
       description: The ID of the group of a handle service.
       required: true
       type: string
+    - name: privileges
+      in: body
+      description: The list of group privileges to specific handle service.
+      required: true
+      schema:
+        $ref: '#/definitions/HandleServicePrivileges'
 

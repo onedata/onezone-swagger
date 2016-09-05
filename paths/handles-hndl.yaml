@@ -22,7 +22,8 @@ get:
     https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH
 
     {
-      "handleId": "LAJHSDBASDlkjlksjd76876ashlkjHASD",
+      "handleId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+      "handleType": "DOI",
       "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
       "handle": "10.572/ABCD-asdakjsdak87587asdk-1234/8",
       "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb"

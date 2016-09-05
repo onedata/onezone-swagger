@@ -55,20 +55,26 @@ OnezonePrivileges:
 HandleService:
   $ref: ./handleservice.yaml
 
-DOIService:
-  $ref: ./doiservice.yaml
+HandleServiceProperties:
+  $ref: ./handleserviceproperties.yaml
 
-PIDService:
-  $ref: ./pidservice.yaml
+HandleServicePropertiesUpdate:
+  $ref: ./handleservicepropertiesupdate.yaml
+
+DOIServiceProperties:
+  $ref: ./doiserviceproperties.yaml
+
+PIDServiceProperties:
+  $ref: ./pidserviceproperties.yaml
   
 HandleServiceUpdate:
   $ref: ./handleserviceupdate.yaml
 
-DOIServiceUpdate:
-  $ref: ./doiserviceupdate.yaml
+DOIServicePropertiesUpdate:
+  $ref: ./doiservicepropertiesupdate.yaml
 
-PIDServiceUpdate:
-  $ref: ./pidserviceupdate.yaml
+PIDServicePropertiesUpdate:
+  $ref: ./pidservicepropertiesupdate.yaml
 
 Handle:
   $ref: ./handle.yaml
@@ -81,3 +87,4 @@ HandlePrivileges:
 
 HandleServicePrivileges:
   $ref: ./handleserviceprivileges.yaml
+
