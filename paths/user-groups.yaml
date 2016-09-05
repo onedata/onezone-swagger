@@ -28,9 +28,12 @@ get:
     '200':
       description: The list of groups.
       schema:
-        type: array
-        items:
-          $ref: '#/definitions/Group'
+        type: object
+        properties:
+          groups:
+            type: array
+            items:
+              type: string
     '400':
       description: Invalid request.
       schema:

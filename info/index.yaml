@@ -1,4 +1,4 @@
-version: 3.0.0-RC2
+version: 3.0.0-rc4
 title: Onezone
 description: |
  This is the RESTful API definition of Onezone component of Onedata data management system [onedata.org](http://www.onedata.org).
@@ -78,7 +78,7 @@ description: |
 
  **Generate new authentication token**
  ```bash
- curl -k -u bkryza:PaSSwoRd -X GET \
+ curl -k -u user:PaSSwoRd -X GET \
  https://beta.onedata.org:8443/api/v3/onezone/user/client_token
  ```
 
