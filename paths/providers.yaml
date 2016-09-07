@@ -16,7 +16,7 @@ get:
 
     **Get list of providers**
     ```bash
-    curl -k --cert ./etc/op_worker/certs/grpcert.pem -X GET  \
+    curl -Ssk -u username:password -X GET  \
     https://$HOST:8443/api/v3/onezone/providers
 
     {
@@ -29,9 +29,14 @@ get:
     '200':
       description: List of providers Id's.
       schema:
-        type: array
-        items:
-          type: string
+        type: object
+        properties:
+          providers:
+            type: array
+            items:
+              type: string
+        required:
+          - providers
     '400':
       description: Invalid request.
       schema:
