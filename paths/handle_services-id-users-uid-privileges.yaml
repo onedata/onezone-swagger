@@ -86,7 +86,8 @@ put:
 
     **Set handle service user privileges**
     ```bash
-    curl -k -u username:password -X PUT -d '{"privileges": ["register_handle"]}' \
+    curl -k -u username:password -X PUT  -H "Content-type: application/json" \
+    -d '{"privileges": ["register_handle"]}' \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:

@@ -58,6 +58,7 @@ put:
       required: true
       type: string
 
+
 delete:
   operationId: remove_handle_user
   tags:
@@ -82,7 +83,7 @@ delete:
     https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
-    '204':
+    '202':
       description: User removed successfully.
     '400':
       description: Invalid request.

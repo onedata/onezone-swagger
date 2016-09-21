@@ -12,14 +12,11 @@ get:
   description: |
     Returns the list of registered handle services.
 
-    This operation requires `list_handle_services` privilege.
-
     ***Example cURL requests***
 
     **Get handle services**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handle_services
+    curl -k -u username:password -X GET https://$HOST:8443/api/v3/handle_services
 
     [
       "SADHLKJhlkASHDLAKSHDLKJHJjLH", 
@@ -71,14 +68,12 @@ post:
   description: |
     Allows to register a new handle service.
 
-    This operation requires `list_handle_services` privilege.
-
     ***Example cURL requests***
 
     **Add handle services**
     ```bash
-    curl -k -u username:password -X POST -d '{ ... }'\
-    https://$HOST:8443/api/v3/handle_services
+    curl -k -u username:password -X POST  -H "Content-type: application/json" \
+    -d '{ ... }' https://$HOST:8443/api/v3/handle_services
     ```
   consumes:
     - application/json

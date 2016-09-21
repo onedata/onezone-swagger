@@ -82,7 +82,7 @@ delete:
     https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/groups/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
-    '204':
+    '202':
       description: Group removed successfully.
     '400':
       description: Invalid request.
