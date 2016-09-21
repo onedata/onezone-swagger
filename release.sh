@@ -14,8 +14,9 @@ Example usage:
 sr-publish -m "major changes!" -b master
 
 Options:
-  -h,--branch        branch name in a target repo
-  -m,--message       commit message that will be seen in a target repo
+  -h,--help          This help message
+  -b,--branch        Branch name in a target repo
+  -m,--message       Commit message that will be seen in a target repo
 EOF
 }
 
