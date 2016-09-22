@@ -16,6 +16,9 @@ properties:
   resourceId:
     type: integer
     description: The Onedata GUID of the resource to which the handle should be resolved.
+  metadata:
+    type: string
+    description: Dublin Core metadata for the resource encoded in XML.
 example:
   handleId: 2MTQwMTQ0CjAwMmZzaWduYXR1cmUg88
   handleType: DOI

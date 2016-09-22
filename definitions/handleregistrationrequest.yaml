@@ -12,6 +12,9 @@ properties:
   resourceId:
     type: string
     description: The ID of the resource to be assigned a handle identifier.
+  metadata:
+    type: string
+    description: Dublin Core metadata for the resource encoded in XML.
 required:
   - handleServiceId
   - resourceType
