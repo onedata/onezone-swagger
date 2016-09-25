@@ -50,4 +50,8 @@ GroupPrivileges:
 OnezonePrivileges:
   $ref: ./onezoneprivileges.yaml
 
-  
+Share:
+  $ref: ./share.yaml
+
+ShareUpdateRequest:
+  $ref: ./shareupdaterequest.yaml
