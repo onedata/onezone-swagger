@@ -18,7 +18,7 @@ required:
   - proxyEndpoint
   - serviceProperties
 example:
-  name: LifeWatch Handle service
+  name: MyCommunity Handle service
   proxyEndpoint: https://localhost:17000/handle_proxy
   serviceProperties:
     type: DOI

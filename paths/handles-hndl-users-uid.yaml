@@ -69,7 +69,7 @@ delete:
   x-onedata-method: handle_logic:remove_handle_user
   x-onedata-permissions:
     - modify_handle
-  summary: Add handle user
+  summary: Remove handle user
   description: |
     Allows to remove a user from access to a handle.
 

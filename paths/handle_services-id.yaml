@@ -22,18 +22,20 @@ get:
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
 
     {
-      "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-      "type": "DOI",
-      "name": "LifeWatch DataCite",
-      "host": "https://mds.test.datacite.org",
-      "doiEndpoint": "/doi",
-      "metadataEndpoint": "/metadata",
-      "mediaEndpoint": "/media",
-      "prefix": "10.572",
-      "username": "alice",
-      "password": "lkASHDLAKSHDLKJ",
-      "identifierTemplate": "{{space.name}}-{{space.guid}}",
-      "allowTemplateOverride": false
+        "name": "MyCommunity Handle service",
+        "proxyEndpoint": "https://localhost:17000/handle_proxy",
+        "serviceProperties": {
+            "allowTemplateOverride": false,
+            "doiEndpoint": "/doi",
+            "host": "https://mds.test.datacite.org",
+            "identifierTemplate": "{{space.name}}-{{space.guid}}",
+            "mediaEndpoint": "/media",
+            "metadataEndpoint": "/metadata",
+            "password": "pa$$word",
+            "prefix": 10.5072,
+            "type": "DOI",
+            "username": "alice"
+        }
     }
     ```
   produces:

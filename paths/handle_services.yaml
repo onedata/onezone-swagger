@@ -64,7 +64,7 @@ post:
   x-onedata-method: handle_logic:add_handle_service
   x-onedata-permissions:
     - list_handle_services
-  summary: Get handle services
+  summary: Add handle service
   description: |
     Allows to register a new handle service.
 

@@ -68,7 +68,7 @@ delete:
   x-onedata-method: handle_logic:remove_handle_service_user
   x-onedata-permissions:
     - modify_handle_service
-  summary: Add handle service user
+  summary: Remove handle service user
   description: |
     Allows to remove a user from access to a handle service.
 
