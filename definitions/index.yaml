@@ -50,4 +50,41 @@ GroupPrivileges:
 OnezonePrivileges:
   $ref: ./onezoneprivileges.yaml
 
+
+# Handle definitions
+HandleService:
+  $ref: ./handleservice.yaml
+
+HandleServiceProperties:
+  $ref: ./handleserviceproperties.yaml
+
+HandleServicePropertiesUpdate:
+  $ref: ./handleservicepropertiesupdate.yaml
+
+DOIServiceProperties:
+  $ref: ./doiserviceproperties.yaml
+
+PIDServiceProperties:
+  $ref: ./pidserviceproperties.yaml
   
+HandleServiceUpdate:
+  $ref: ./handleserviceupdate.yaml
+
+DOIServicePropertiesUpdate:
+  $ref: ./doiservicepropertiesupdate.yaml
+
+PIDServicePropertiesUpdate:
+  $ref: ./pidservicepropertiesupdate.yaml
+
+Handle:
+  $ref: ./handle.yaml
+
+HandleRegistrationRequest:
+  $ref: ./handleregistrationrequest.yaml
+
+HandlePrivileges:
+  $ref: ./handleprivileges.yaml
+
+HandleServicePrivileges:
+  $ref: ./handleserviceprivileges.yaml
+

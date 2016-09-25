@@ -1,0 +1,117 @@
+put:
+  operationId: add_handle_group
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:add_handle_group
+  x-onedata-permissions:
+    - modify_handle
+  summary: Add handle group
+  description: |
+    Allows to add a group to a handle.
+
+    This operation requires `modify_handle` privilege.
+
+    ***Example cURL requests***
+
+    **Add handle group**
+    ```bash
+    curl -k -u username:password -X PUT \
+    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Group added successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      description: The ID of the handle.
+      required: true
+      type: string
+    - name: gid
+      in: path
+      description: The ID of the group to add to handle.
+      required: true
+      type: string
+
+delete:
+  operationId: remove_handle_group
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:remove_handle_group
+  x-onedata-permissions:
+    - modify_handle
+  summary: Add handle group
+  description: |
+    Allows to remove a group from access to a handle.
+
+    This operation requires `modify_handle` privilege.
+
+    ***Example cURL requests***
+
+    **Remove handle service group**
+    ```bash
+    curl -k -u username:password -X DELETE \
+    https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/groups/JHJjLHADHLKJhDLAKSHDLK
+    ```
+  responses:
+    '202':
+      description: Group removed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      description: The ID of the handle.
+      required: true
+      type: string
+    - name: gid
+      in: path
+      description: The ID of the group to remove from handle.
+      required: true
+      type: string

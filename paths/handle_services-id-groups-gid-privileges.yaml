@@ -1,0 +1,135 @@
+get:
+  operationId: get_handle_service_group_privileges
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle_service
+  x-onedata-resource: handle_service
+  x-onedata-method: handle_logic:get_handle_service_group
+  x-onedata-permissions:
+    - view_handle_service
+  summary: Get handle service group privileges
+  description: |
+    Returns group privileges for accessing a handle service instance.
+
+    This operation requires `view_handle_service` privilege.
+
+    ***Example cURL requests***
+
+    **Get handle service group privileges**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+
+    [
+      "register_doi",
+      "view_handle_service"
+    ]
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of privileges of a group to a specific handle service.
+      schema:
+        $ref: '#/definitions/HandleServicePrivileges'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: The ID of the handle service.
+      required: true
+      type: string
+    - name: gid
+      in: path
+      description: The ID of the group of a handle service.
+      required: true
+      type: string
+
+
+put:
+  operationId: set_handle_service_group_privileges
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle_service
+  x-onedata-resource: handle_service
+  x-onedata-method: handle_logic:set_handle_service_group_privileges
+  x-onedata-permissions:
+    - modify_handle_service
+  summary: Set handle service groups privileges
+  description: |
+    Sets group privileges for accessing a handle service instance.
+
+    This operation requires `modify_handle_service` privilege.
+
+    ***Example cURL requests***
+
+    **Set handle service group privileges**
+    ```bash
+    curl -k -u username:password -X PUT  -H "Content-type: application/json" \
+    -d '{"privileges": ["register_handle"]}' \
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Group privileges updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: The ID of the handle service.
+      required: true
+      type: string
+    - name: gid
+      in: path
+      description: The ID of the group of a handle service.
+      required: true
+      type: string
+    - name: privileges
+      in: body
+      description: The list of group privileges to specific handle service.
+      required: true
+      schema:
+        $ref: '#/definitions/HandleServicePrivileges'
+

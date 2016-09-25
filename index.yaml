@@ -17,6 +17,8 @@ tags:
     description: Provider related operations  
   - name: Privileges
     description: Operations on Onezone privileges
+  - name: Handle
+    description: Operations for managing Handle system service and identifier generation.
 securityDefinitions:
   api_key:
     type: apiKey

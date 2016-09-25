@@ -1,0 +1,26 @@
+type: object
+description: The list of handle service privileges.
+properties:
+  privileges:
+    type: array
+    items:
+      type: string
+      enum:
+        - register_handle
+        - handle_service_remove
+        - handle_service_change_data
+        - handle_service_view_data
+        - handle_service_add_user
+        - handle_service_remove_user
+        - handle_service_add_group
+        - handle_service_remove_group
+example:
+  privileges:
+    - register_handle
+    - handle_service_remove
+    - handle_service_change_data
+    - handle_service_view_data
+    - handle_service_add_user
+    - handle_service_remove_user
+    - handle_service_add_group
+    - handle_service_remove_group

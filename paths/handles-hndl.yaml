@@ -1,0 +1,180 @@
+get:
+  operationId: get_handle
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:get_handle
+  x-onedata-permissions:
+    - view_handle
+  summary: Get handle
+  description: |
+    Returns the properties of a specific handle.
+
+    This operation requires `view_handle` privilege.
+
+    ***Example cURL requests***
+
+    **Get handle**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH
+
+    {
+      "handleId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+      "handleType": "DOI",
+      "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
+      "handle": "10.572/ABCD-asdakjsdak87587asdk-1234/8",
+      "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
+      "metadata": "..."
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The properties of a specific handle.
+      schema:
+        $ref: '#/definitions/Handle'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      required: true
+      type: string
+      description: The handle ID (internal Onedata GUID) of the identifier.
+
+
+patch:
+  operationId: modify_handle
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:modify_handle
+  x-onedata-permissions:
+    - modify_handle
+  summary: Modify handle
+  description: |
+    Allows to update a registeed handle, for instance change the Onedata resource
+    to which it points to.
+
+    This operation requires `modify_handle` privilege.
+
+    ***Example cURL requests***
+
+    **Modify handle resource**
+    ```bash
+    curl -k -u username:password -X PATCH  -H "Content-type: application/json" \
+    -d '{"resourceId": "jalkADKDGHKAJSdlkHDukjhassjd76876asdkb"}' \
+    https://$HOST:8443/api/v3/handles/LKHASDkkjhASDLHU70ASDn
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Update was successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      required: true
+      type: string
+    - name: handle
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/Handle'
+
+
+delete:
+  operationId: delete_handle
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:delete_handle
+  x-onedata-permissions:
+    - delete_handle
+  summary: Unregister handle
+  description: |
+    Allows to unregister a registered handle.
+
+    This operation requires `delete_handle` privilege.
+
+    ***Example cURL requests***
+
+    **Unregister handle**
+    ```bash
+    curl -k -u username:password -X DELETE \
+    https://$HOST:8443/api/v3/handles/SDLLKHASDkSDLHU70ASDnHU70ASDnkjhA
+    ```
+  responses:
+    '202':
+      description: Unregistration was successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      required: true
+      type: string

@@ -120,6 +120,7 @@ put:
   - name: data
     in: body
     description: User privileges.
+    required: true
     schema:
       $ref: '#/definitions/GroupPrivileges'
 

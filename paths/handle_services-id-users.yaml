@@ -1,0 +1,63 @@
+get:
+  operationId: list_handle_service_users
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle_service
+  x-onedata-resource: handle_service
+  x-onedata-method: handle_logic:get_handle_service_users
+  x-onedata-permissions:
+    - view_handle_service
+  summary: Get handle service users
+  description: |
+    Returns all users with access to a handle service instance
+
+    This operation requires `view_handle_service` privilege.
+
+    ***Example cURL requests***
+
+    **Get handle service users**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users
+
+    [
+      "LKJhlkASHDLAKSHDLKJHJjL",
+      "LAKSHDLKJHJjLLKJhlkASHD"
+    ]
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of identifiers of users with access to specific handle service.
+      schema:
+        type: array
+        items:
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: The ID of the handle service.
+      required: true
+      type: string
