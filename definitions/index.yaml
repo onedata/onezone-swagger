@@ -50,6 +50,7 @@ GroupPrivileges:
 OnezonePrivileges:
   $ref: ./onezoneprivileges.yaml
 
+<<<<<<< HEAD
 
 # Handle definitions
 HandleService:
@@ -88,3 +89,8 @@ HandlePrivileges:
 HandleServicePrivileges:
   $ref: ./handleserviceprivileges.yaml
 
+Share:
+  $ref: ./share.yaml
+
+ShareUpdateRequest:
+  $ref: ./shareupdaterequest.yaml

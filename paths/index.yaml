@@ -42,6 +42,15 @@
 /spaces/{id}/providers/{pid}:
   $ref: ./spaces-id-providers-pid.yaml
   
+/spaces/{id}/shares:
+  $ref: ./spaces-id-shares.yaml
+
+/spaces/{id}/shares/{sid}:
+  $ref: ./spaces-id-shares-sid.yaml
+
+/shares/{id}:
+  $ref: ./shares-id.yaml
+
 
 /user:
   $ref: ./user.yaml
