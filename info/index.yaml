@@ -1,4 +1,4 @@
-version: 3.0.0-rc7
+version: 3.0.0-rc9
 title: Onezone
 description: |
  This is the RESTful API definition of Onezone component of Onedata data management system [onedata.org](http://www.onedata.org).
