@@ -1,0 +1,10 @@
+{
+  "processMarkdown": true,
+  "curlOptions": "-sS --tlsv1.2",
+  "scriptName": "onezone-rest-cli",
+  "generateBashCompletion": true,
+  "generateZshCompletion": true,
+  "hostEnvironmentVariable": "ONEZONE_HOST",
+  "basicAuthEnvironmentVariable": "ONEZONE_BASIC_AUTH",
+  "apiKeyAuthEnvironmentVariable": "ONEZONE_API_KEY"
+}
