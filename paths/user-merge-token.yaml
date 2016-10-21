@@ -1,11 +1,15 @@
 get:
-  operationId: get_user_merge_token
+  operationId: get_account_merge_token
   tags:
     - User
   x-onedata-service: onezone
   x-onedata-module: token
   x-onedata-method: token_logic:create
   summary: Creates a new account merge token
+  x-bash-codegen-description: |
+    Creates a new account merge token.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Creates a new account merge token.
 
@@ -37,3 +41,6 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getAccountMergeToken"

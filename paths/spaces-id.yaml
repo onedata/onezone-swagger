@@ -7,10 +7,16 @@ get:
   x-onedata-resource: space
   x-onedata-method: space_logic:get_data
   summary: Get space details
+  x-bash-codegen-description: |
+    Returns the details about a specific space.
+
+    If called by user who is not member of the space, requires 'list_spaces' 
+    privilege.
   description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces' privilege.
+    If called by user who is not member of the space, requires 'list_spaces' 
+    privilege.
 
     ***Example cURL requests***
 
@@ -59,6 +65,9 @@ get:
     description: Space ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
 
 
 patch:
@@ -70,6 +79,8 @@ patch:
   x-onedata-resource: space
   x-onedata-method: space_logic:modify
   summary: Modify space details
+  x-bash-codegen-description: |
+    Updates the details about a space.
   description: |
     Updates the details about a space.
 
@@ -118,6 +129,9 @@ patch:
     schema:
       $ref: '#/definitions/Space'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifySpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name:=\"New Space Name\""
 
 
 delete:
@@ -129,6 +143,8 @@ delete:
   x-onedata-resource: space
   x-onedata-method: space_logic:remove_space
   summary: Remove space
+  x-bash-codegen-description: |
+    Removes a specific space.
   description: |
     Removes a specific space.
 
@@ -168,4 +184,7 @@ delete:
     description: Space ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
 

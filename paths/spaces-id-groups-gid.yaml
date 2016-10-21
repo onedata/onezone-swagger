@@ -7,6 +7,10 @@ get:
   x-onedata-resource: group
   x-onedata-method: space_logic:get_group
   summary: Get group details
+  x-bash-codegen-description: |
+    Returns details about a specific group in a space.
+
+    This operation requires `space_view_data` privilege.
   description: |
     Returns details about a specific group in a space.
 
@@ -63,6 +67,10 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+
 
 
 delete:
@@ -74,6 +82,11 @@ delete:
   x-onedata-resource: group
   x-onedata-method: space_logic:remove_group
   summary: Remove group from space
+  x-bash-codegen-description: |
+    Removes a specific group from space.
+
+    This operation requires `space_remove_group` privilege or 
+    `remove_member_from_space` privilege.
   description: |
     Removes a specific group from space.
 
@@ -121,4 +134,7 @@ delete:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli deleteSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 

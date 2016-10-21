@@ -6,6 +6,10 @@ post:
   x-onedata-module: user
   x-onedata-method: auth_logic:authenticate_user
   summary: Authenticate user
+  x-bash-codegen-description: |
+    Authorizes user with authentication token through Onezone web interface.
+    
+    This operation has public access.
   description: |
     Authorizes user with authentication token through Onezone web interface.
     
@@ -44,3 +48,6 @@ post:
     schema:
       $ref: '#/definitions/AuthenticationToken'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli authenticateUser token:=ASKDJHASKJDHLKAJASD785674ASDghjkoGLHJKASDJGHK7655I803ZirkUfdiWDd4W3"

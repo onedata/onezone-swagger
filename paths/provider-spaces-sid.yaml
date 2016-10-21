@@ -6,6 +6,11 @@ get:
   x-onedata-module: provider
   x-onedata-method: space_logic:get_data
   summary: Get space details by provider
+  x-bash-codegen-description: |
+    Returns information about a specific space supported by the Oneprovider that 
+    performed the request.
+
+    This operation requires peer certificate authentication.
   description: |
     Returns information about a specific space supported by the Oneprovider that 
     performed the request.
@@ -44,7 +49,9 @@ get:
     description: Space ID.
     type: string
     required: true
-
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSupportedSpace sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
 
 delete:
   operationId: remove_space_support
@@ -54,6 +61,10 @@ delete:
   x-onedata-module: provider
   x-onedata-method: space_logic:remove_provider
   summary: Remove space support
+  x-bash-codegen-description: |
+    Removes support for space from the Oneprovider that performed the request.
+
+    This operation requires peer certificate authentication.
   description: |
     Removes support for space from the Oneprovider that performed the request.
 
@@ -89,4 +100,6 @@ delete:
     description: Space ID.
     type: string
     required: true
-
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeSpaceSupport sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

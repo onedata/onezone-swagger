@@ -7,6 +7,10 @@ get:
   x-onedata-resource: spaces
   x-onedata-method: space_logic:list_spaces
   summary: List all spaces
+  x-bash-codegen-description: |
+    Returns the list of all spaces managed by the Onezone service.
+    
+    This operation requires `list_spaces` privilege.
   description: |
     Returns the list of all spaces managed by the Onezone service.
     
@@ -52,6 +56,9 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaces"
 
 
 post:
@@ -63,11 +70,20 @@ post:
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
   summary: Create new space
-  description: |
-    When called by a regular user, creates a new space and creates the current user its owner.
+  x-bash-codegen-description: |
+    When called by a regular user, creates a new space and creates the current 
+    user its owner.
     
-    When called by a provider, creates a new space and automatically adds support for it, 
-    based on the token provided in the request body.
+    When called by a provider, creates a new space and automatically adds 
+    support for it, based on the token provided in the request body.
+
+    This operation does not require any specific privileges.
+  description: |
+    When called by a regular user, creates a new space and creates the current 
+    user its owner.
+    
+    When called by a provider, creates a new space and automatically adds 
+    support for it, based on the token provided in the request body.
 
     This operation does not require any specific privileges.
 
@@ -123,4 +139,7 @@ post:
         token:
           type: string
           description: Space creation token (only for providers).
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createSpace name:=\"Space 1\" token:=ASLKJ1DHAKJS2DLKJAHS5DKJ4ASDKJ3HALSKJD3HLKAJSDHASD1O"
 

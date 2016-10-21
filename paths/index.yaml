@@ -85,6 +85,11 @@
 /user/client_token:
   $ref: ./user-client_token.yaml
 
+/users/{id}/privileges: 
+  $ref: ./users-id-privileges.yaml
+
+
+
 /groups:
   $ref: ./groups.yaml
 
@@ -145,13 +150,12 @@
 /groups/{id}/spaces/{sid}:
   $ref: ./groups-id-spaces-sid.yaml
 
+/groups/{id}/privileges: 
+  $ref: ./groups-id-privileges.yaml
 
 
 /provider:
   $ref: ./provider.yaml
-
-/provider/{pid}:
-  $ref: ./provider-pid.yaml
 
 /provider/spaces:
   $ref: ./provider-spaces.yaml
@@ -171,12 +175,15 @@
 /providers:
   $ref: ./providers.yaml
   
+/providers/{pid}:
+  $ref: ./providers-pid.yaml
+
 
 /privileges/users/{id}:
   $ref: ./privileges-users-id.yaml
 
-/privileges/group/{id}: 
-  $ref: ./privileges-group-id.yaml
+# /privileges/group/{id}: 
+#   $ref: ./privileges-group-id.yaml
 
 
 #

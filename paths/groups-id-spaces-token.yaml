@@ -9,6 +9,11 @@ get:
   x-onedata-permissions:
     - group_create_space_token
   summary: Create space creation token for group
+  x-bash-codegen-description: |
+    Creates a token that can be given to selected provider, where it can be used
+    to create a new space for the group and automatically support it.
+
+    This operation requires `group_create_space_token` privilege.
   description: |
     Creates a token that can be given to selected provider, 
     where it can be used to create a new space for the group and automatically support it.
@@ -57,3 +62,6 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createGroupSpacesToken id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"

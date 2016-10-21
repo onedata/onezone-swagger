@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - view_handle_groups
   summary: Get handle groups
+  x-bash-codegen-description: |
+    Returns all groups with access to a handle instance
+
+    This operation requires `view_handle` privilege.
   description: |
     Returns all groups with access to a handle instance
 
@@ -61,3 +65,6 @@ get:
       description: The ID of the handle service.
       required: true
       type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listHandleGroups hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"

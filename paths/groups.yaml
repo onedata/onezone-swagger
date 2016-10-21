@@ -7,6 +7,10 @@ post:
   x-onedata-resource: groups
   x-onedata-method: group_logic:create
   summary: Create new group
+  x-bash-codegen-description: |
+    Creates a new group.
+
+    This operation does require any specific privileges.
   description: |
     Creates a new group.
 
@@ -58,3 +62,6 @@ post:
     schema:
       $ref: '#/definitions/Group'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createGroup name:=Group2 type:=role "

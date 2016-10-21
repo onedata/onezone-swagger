@@ -7,6 +7,11 @@ get:
   x-onedata-resource: pinvite
   x-onedata-method: token_logic:create
   summary: Create space support token
+  x-bash-codegen-description: |
+    Creates a token which can be submitted to a selected provider in order to 
+    add storage support for the space.
+
+    This operation requires `space_add_provider` privilege.
   description: |
     Creates a token which can be submitted to a selected provider in order to 
     add storage support for the space.
@@ -55,3 +60,6 @@ get:
     description: Space ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceProviderToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

@@ -7,6 +7,8 @@ get:
   x-onedata-resource: share
   x-onedata-method: space_logic:get_share
   summary: Get share details
+  x-bash-codegen-description: |
+    Returns the details about a specific share.
   description: |
     Returns the details about a specific share.
 
@@ -58,6 +60,9 @@ get:
     description: Share ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
 
 
 patch:
@@ -69,6 +74,8 @@ patch:
   x-onedata-resource: share
   x-onedata-method: sharelogic:modify
   summary: Modify share details
+  x-bash-codegen-description: |
+    Updates the details about a share.
   description: |
     Updates the details about a share.
 
@@ -117,6 +124,9 @@ patch:
     schema:
       $ref: '#/definitions/ShareUpdateRequest'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name:=Share20 publicUrl:=\"http://oz.example.com/shares/sgAxi5I803ZirkUfdiWDd4W3\""
 
 
 delete:
@@ -128,6 +138,8 @@ delete:
   x-onedata-resource: share
   x-onedata-method: space_logic:remove_share
   summary: Remove share
+  x-bash-codegen-description: |
+    Removes a specific share.
   description: |
     Removes a specific share.
 
@@ -167,4 +179,7 @@ delete:
     description: Share ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeShare id=803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I"
 

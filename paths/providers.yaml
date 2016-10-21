@@ -7,6 +7,10 @@ get:
   x-onedata-resource: providers
   x-onedata-method: provider_logic:get_providers
   summary: Get providers
+  x-bash-codegen-description: |
+    Returns the list of providers registered in the Onezone service.
+    
+    This operation requires `list_providers` privilege.
   description: |
     Returns the list of providers registered in the Onezone service.
     
@@ -57,3 +61,6 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getProviders"

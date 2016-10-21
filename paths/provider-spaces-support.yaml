@@ -7,9 +7,14 @@ post:
   x-onedata-resource: ssupport
   x-onedata-method: space_logic:support
   summary: Add space storage support
+  x-bash-codegen-description: |
+    Adds support for specific space on behalf of the Oneprovider that 
+    performed the request. Space support token is required.
+
+    This operation requires peer certificate authentication.
   description: |
-    Adds support for specific space on behalf of the Oneprovider that performed the 
-    request. Space support token is required.
+    Adds support for specific space on behalf of the Oneprovider that 
+    performed the request. Space support token is required.
 
     This operation requires peer certificate authentication.
   produces:
@@ -48,3 +53,6 @@ post:
     in: body
     schema:
       $ref: '#/definitions/SpaceSupportToken'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli providerSpaceSupport token:=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

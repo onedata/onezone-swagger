@@ -6,6 +6,10 @@ get:
   x-onedata-module: token
   x-onedata-method: token_logic:create
   summary: Create space invitation token
+  x-bash-codegen-description: |
+    Creates an invitation token which allows other users to join the space.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Creates an invitation token which allows other users to join the space.
 
@@ -47,3 +51,7 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserSpaceToken"
+

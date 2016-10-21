@@ -9,6 +9,13 @@ post:
   x-onedata-permissions:
     - group_join_group
   summary: Add subgroup
+  x-bash-codegen-description: |
+    Adds given group as a subgroup of a specific group based on provided token. 
+    
+    The parent group to which the group will be added is identified from the
+    token (the token is issued in the context of a group).
+
+    This operation requires `group_join_group` privilege.
   description: |
     Adds given group as a subgroup of a specific group based on provided token. 
     
@@ -66,3 +73,6 @@ post:
     description: Group join token.
     schema:
       $ref: '#/definitions/GroupInviteToken'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli joinNestedGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 token:=AKLSHJHDKLJASHDJKHASKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"

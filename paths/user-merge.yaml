@@ -1,11 +1,15 @@
 post:
-  operationId: user_merge_accounts
+  operationId: merge_user_accounts
   tags:
     - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:merge
   summary: Merge user accounts
+  x-bash-codegen-description: |
+    Merge user accounts.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Merge user accounts.
 
@@ -44,3 +48,6 @@ post:
     schema:
       $ref: '#/definitions/AccountMergeToken'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli mergeUserAccounts token:=LLKJAHSDJH8898789ASDLKJASD8787asdKJGHASDJHAJKLSHDLJKASD"

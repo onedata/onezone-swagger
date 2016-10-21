@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get group details
+  x-bash-codegen-description: |
+    Returns the information about a specific group.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the information about a specific group.
 
@@ -60,6 +64,9 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
 
 
 patch:
@@ -73,6 +80,10 @@ patch:
   x-onedata-permissions:
     - group_change_data
   summary: Modify group details
+  x-bash-codegen-description: |
+    Updates the details about a group.
+
+    This operation requires `group_change_data` privilege.
   description: | 
     Updates the details about a group.
 
@@ -123,6 +134,9 @@ patch:
     schema:
       $ref: '#/definitions/Group'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifyGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name:=\"New Group Name\" type:=team"
 
 
 delete:
@@ -136,6 +150,10 @@ delete:
   x-onedata-permissions:
     - group_remove
   summary: Remove group
+  x-bash-codegen-description: |
+    Removes a specific group.
+
+    This operation requires `group_remove` privilege.
   description: |
     Removes a specific group.
 
@@ -177,4 +195,7 @@ delete:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
 

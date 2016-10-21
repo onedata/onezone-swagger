@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_invite_user
   summary: Create user invite token for group
+  x-bash-codegen-description: |
+    Creates a token allowing new user to join the group.
+
+    This operation requires `group_invite_user` privilege.
   description: |
     Creates a token allowing new user to join the group.
 
@@ -56,3 +60,6 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createUserGroupInviteToken id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"

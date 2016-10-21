@@ -7,6 +7,10 @@ get:
   x-onedata-resource: uinvite
   x-onedata-method: token_logic:create
   summary: Create space invite token
+  x-bash-codegen-description: |
+    Creates a token allowing new user to join a space.
+
+    This operation requires `space_invite_user` privilege.
   description: |
     Creates a token allowing new user to join a space.
 
@@ -54,3 +58,6 @@ get:
     description: Space ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceUserToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

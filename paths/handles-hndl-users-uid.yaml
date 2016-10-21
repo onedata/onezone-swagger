@@ -9,6 +9,10 @@ put:
   x-onedata-permissions:
     - modify_handle
   summary: Add handle user
+  x-bash-codegen-description: |
+    Allows to add a user to a handle.
+
+    This operation requires `modify_handle_service` privilege.
   description: |
     Allows to add a user to a handle.
 
@@ -57,6 +61,9 @@ put:
       description: The ID of the user to add to handle.
       required: true
       type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
 delete:
@@ -70,6 +77,10 @@ delete:
   x-onedata-permissions:
     - modify_handle
   summary: Remove handle user
+  x-bash-codegen-description: |
+    Allows to remove a user from access to a handle.
+
+    This operation requires `modify_handle` privilege.
   description: |
     Allows to remove a user from access to a handle.
 
@@ -116,3 +127,6 @@ delete:
       description: The ID of the user to remove from handle.
       required: true
       type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

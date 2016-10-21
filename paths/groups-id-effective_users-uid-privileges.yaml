@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get user group privileges
+  x-bash-codegen-description: |
+    Returns the user privileges in a group.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the user privileges in a group.
 
@@ -75,3 +79,6 @@ get:
     description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroupsUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

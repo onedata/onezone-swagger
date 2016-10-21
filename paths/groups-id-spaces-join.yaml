@@ -9,6 +9,10 @@ post:
   x-onedata-permissions:
     - group_join_space
   summary: Join space by group
+  x-bash-codegen-description: |
+    Joins the group to an existing space based on provided space invitation token.
+
+    This operation requires `group_join_space` privilege.
   description: |
     Joins the group to an existing space based on provided space invitation token.
 
@@ -64,3 +68,6 @@ post:
     description: Space join token.
     schema:
       $ref: '#/definitions/SpaceInviteToken'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli groupJoinSpace id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM token:=9ASDKJHAJKyvajsbd675OqgExw00RwaU2MXT51"

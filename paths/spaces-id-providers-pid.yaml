@@ -7,6 +7,10 @@ get:
   x-onedata-resource: provider
   x-onedata-method: space_logic:get_provider
   summary: Get space provider details
+  x-bash-codegen-description: |
+    Returns details about a specific provider supporting the space.
+
+    This operation requires `list_providers_of_space` privilege.
   description: |
     Returns details about a specific provider supporting the space.
 
@@ -66,6 +70,9 @@ get:
     description: Provider ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceProvider id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 pid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 
 
 delete:
@@ -77,6 +84,10 @@ delete:
   x-onedata-resource: provider
   x-onedata-method: space_logic:remove_provider
   summary: Remove space support
+  x-bash-codegen-description: |
+    Removes support from provider for a specific space.
+
+    This operation requires `space_remove_provider` privilege.
   description: |
     Removes support from provider for a specific space.
 
@@ -123,4 +134,7 @@ delete:
     description: Provider ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeProviderSupportingSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 pid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 

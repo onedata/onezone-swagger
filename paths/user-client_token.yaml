@@ -7,6 +7,11 @@ get:
   x-onedata-resource: utoken
   x-onedata-method: token_logic:create
   summary: Create user authorization token
+  x-bash-codegen-description: |
+    Creates a user access token that can be used in `oneclient` command 
+    line tool or via REST API.
+
+    This operation can be invoked on behalf of currently authenticated user only.
   description: |
     Creates a user access token that can be used in `oneclient` command 
     line tool or via REST API.
@@ -50,3 +55,6 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getClientToken"

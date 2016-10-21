@@ -7,6 +7,10 @@ get:
   x-onedata-resource: user
   x-onedata-method: space_logic:get_user
   summary: Get space user details
+  x-bash-codegen-description: |
+    Returns the public information about a specific user in a space.
+
+    This operation requires `space_view_data` privilege.
   description: |
     Returns the public information about a specific user in a space.
 
@@ -57,6 +61,9 @@ get:
     description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 
 
 delete:
@@ -68,6 +75,11 @@ delete:
   x-onedata-resource: user
   x-onedata-method: space_logic:remove_user
   summary: Remove user from space
+  x-bash-codegen-description: |
+    Removes user from specific space.
+
+    This operation requires `space_remove_user` or 
+    `remove_member_from_space` privilege.
   description: |
     Removes user from specific space.
 
@@ -117,4 +129,7 @@ delete:
     description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 

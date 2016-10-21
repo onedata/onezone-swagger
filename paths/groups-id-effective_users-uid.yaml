@@ -9,6 +9,10 @@ get:
   x-onedata-permissions: 
     - group_view_data
   summary: Get group effective user details
+  x-bash-codegen-description: |
+    Returns public information about a specific effective group user.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns public information about a specific effective group user.
 
@@ -65,3 +69,6 @@ get:
     description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroupsEffectiveUser id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

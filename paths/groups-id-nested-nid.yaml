@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get subgroup details
+  x-bash-codegen-description: |
+    Returns information about a specific nested group.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns information about a specific nested group.
 
@@ -65,6 +69,9 @@ get:
     description: Subgroup ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getNestedGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 nid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
 
 
 delete:
@@ -78,6 +85,10 @@ delete:
   x-onedata-permissions:
     - group_remove_group
   summary: Remove subgroup
+  x-bash-codegen-description: |
+    Removes a specific subgroup with {nid} from parent group with {id}.
+
+    This operation requires `group_remove_group` privilege.
   description: |
     Removes a specific subgroup with {nid} from parent group with {id}.
 
@@ -124,3 +135,6 @@ delete:
     description: Nested group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli deleteNestedGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 nid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"

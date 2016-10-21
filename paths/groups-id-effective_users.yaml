@@ -9,6 +9,13 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get effective group users
+  x-bash-codegen-description: |
+    Returns the list of effective group users, which includes both who directly 
+    belong to the group, as well as users who belong to the group indirectly 
+    through its parent groups.
+
+    This operation requires `group_view_data` privilege.
+
   description: |
     Returns the list of effective group users, which includes both who directly belong to the group,
     as well as users who belong to the group indirectly through its parent groups.
@@ -62,3 +69,6 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroupEffectiveUsers id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"

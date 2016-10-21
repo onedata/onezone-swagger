@@ -9,6 +9,8 @@ get:
   x-onedata-permissions:
     - list_handles
   summary: Get handles
+  x-bash-codegen-description: |
+    Returns the list of ID's of all handles accessible by the current user.
   description: |
     Returns the list of ID's of all handles accessible by the current user.
 
@@ -52,6 +54,9 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandles"
 
 
 post:
@@ -65,6 +70,12 @@ post:
   x-onedata-permissions:
     - register_handle
   summary: Register handle
+  x-bash-codegen-description: |
+    Allows to register a new handle identifier, using a specific handle service.
+
+    The handle service must be registered in Onedata separately.
+
+    This operation requires `register_handle` privilege.
   description: |
     Allows to register a new handle identifier, using a specific handle service.
 
@@ -116,4 +127,7 @@ post:
       required: true
       schema:
         $ref: '#/definitions/HandleRegistrationRequest'
+  x-code-samples:
+  - lang: Shell
+    source: "cat hndl_request.json | onezone-rest-cli registerHandle"
 

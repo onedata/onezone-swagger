@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get parent groups
+  x-bash-codegen-description: |
+    Returns the parent groups of a specific group.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the parent groups of a specific group.
 
@@ -60,3 +64,6 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getParentGroups id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM pid=9OqgExw00RwaU2MXT51"

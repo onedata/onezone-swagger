@@ -7,6 +7,10 @@ get:
   x-onedata-resource: upriv
   x-onedata-method: space_logic:get_privileges
   summary: Get user privileges to space
+  x-bash-codegen-description: |
+    Returns privileges of a user belonging to the space.
+
+    This operation requires `space_view_data` privilege.
   description: |
     Returns privileges of a user belonging to the space.
 
@@ -65,6 +69,9 @@ get:
     description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 
 
 put:
@@ -76,6 +83,10 @@ put:
   x-onedata-resource: upriv
   x-onedata-method: space_logic:set_privileges
   summary: Set user privileges to space
+  x-bash-codegen-description: |
+    Adds specific privileges for a user in a space.
+
+    This operation requires `space_set_privileges` privilege.
   description: |
     Adds specific privileges for a user in a space.
 
@@ -129,4 +140,7 @@ put:
     schema:
       $ref: '#/definitions/SpacePrivileges'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 

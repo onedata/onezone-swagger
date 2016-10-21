@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get subgroup privileges
+  x-bash-codegen-description: |
+    Returns the list of nested group privileges in a specific group.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the list of nested group privileges in a specific group.
 
@@ -63,9 +67,13 @@ get:
     description: Nested group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getNestedGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 nid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+
 
 put:
-  operationId: set_group_nested_privileges
+  operationId: set_nested_group_privileges
   tags:
     - Group
   x-onedata-service: onezone
@@ -74,7 +82,11 @@ put:
   x-onedata-method: group_logic:set_nested_group_privileges
   x-onedata-permissions:
     - group_set_privileges
-  summary: Set subgroup privileges
+  summary: Set subgroup privileges  
+  x-bash-codegen-description: |
+    Sets privileges for a specific subgroup in a group.
+
+    This operation requires `group_set_privileges` privilege.
   description: |
     Sets privileges for a specific subgroup in a group.
 
@@ -129,4 +141,7 @@ put:
     schema:
       $ref: '#/definitions/GroupPrivileges'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "echo '[\"group_change_data\", \"group_view_data\"]' | onezone-rest-cli setNestedGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 nid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
 

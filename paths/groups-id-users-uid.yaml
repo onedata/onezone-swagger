@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get group user details
+  x-bash-codegen-description: |
+    Returns the public information about a user {uid} in group {id}.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
@@ -65,6 +69,10 @@ get:
     description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+
 
 delete:
   operationId: remove_group_user
@@ -77,6 +85,11 @@ delete:
   x-onedata-permissions:
     - group_remove_user
   summary: Remove user from group
+  x-bash-codegen-description: |
+    Removes the user {uid} from a group {id} (the user will no longer have 
+    access to spaces accessible to the group).
+
+    This operation requires `group_remove_user` privilege.
   description: |
     Removes the user {uid} from a group {id} (the user will no longer have access 
     to spaces accessible to the group).
@@ -126,3 +139,6 @@ delete:
     description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

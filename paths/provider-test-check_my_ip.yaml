@@ -7,8 +7,14 @@ get:
   x-onedata-resource: ip
   x-onedata-method: cowboy_req:peer
   summary: Show client IP address
+  x-bash-codegen-description: |
+    Returns the IP of the request peer. Will return the external IP (as seen 
+    by the Onezone).
+
+    This operation has public access.
   description: |
-    Returns the IP of the request peer. Will return the external IP (as seen by the Onezone).
+    Returns the IP of the request peer. Will return the external IP (as seen 
+    by the Onezone).
 
     This operation has public access.
 
@@ -45,3 +51,6 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli checkMyIp"

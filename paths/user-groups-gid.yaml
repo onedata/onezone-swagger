@@ -6,6 +6,10 @@ get:
   x-onedata-module: group
   x-onedata-method: group_logic:get_data
   summary: Get group details
+  x-bash-codegen-description: |
+    Returns information about a specific group to which the user belongs.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Returns information about a specific group to which the user belongs.
 
@@ -16,10 +20,10 @@ get:
     **Get user groups**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/groups/admins
+    https://$HOST:8443/api/v3/onezone/user/groups/LKJGHASDJHAJKLSHDLJKASD
 
     {
-      "groupId": "admins",
+      "groupId": "LKJGHASDJHAJKLSHDLJKASD",
       "name": "admins",
       "type": "role"
     }
@@ -57,6 +61,9 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserGroup gid=LKJGHASDJHAJKLSHDLJKASD"
 
 
 delete:
@@ -67,6 +74,10 @@ delete:
   x-onedata-module: group
   x-onedata-method: group_logic:remove_user
   summary: Leave group
+  x-bash-codegen-description: |
+    Removes the current user from a specific group.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Removes the current user from a specific group.
 
@@ -110,4 +121,7 @@ delete:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli leaveGroup gid=LKJGHASDJHAJKLSHDLJKASD"
 

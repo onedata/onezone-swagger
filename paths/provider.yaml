@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider
+  operationId: get_provider_details
   tags:
     - Provider
   x-onedata-service: onezone
@@ -7,6 +7,11 @@ get:
   x-onedata-resource: provider
   x-onedata-method: provider_logic:get_data
   summary: Get provider details
+  x-bash-codegen-description: |
+    Returns information about the Oneprovider that performed the request 
+    (based on provided Peer Certificate authentication).
+
+    This operation requires peer certificate authentication.
   description: |
     Returns information about the Oneprovider that performed the request 
     (based on provided Peer Certificate authentication).
@@ -56,6 +61,9 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getProviderDetails"
 
 
 post:
@@ -67,11 +75,18 @@ post:
   x-onedata-resource: provider
   x-onedata-method: provider_logic:create
   summary: Register provider
+  x-bash-codegen-description: |
+    Registers a Oneprovider in Onezone service. 
+    
+    Requires a valid CSR in the bodyand returns signed certificate that will 
+    must used by the Oneprovider for authorization (SSL Peer Certificate).
+
+    This operation has public access.
   description: |
     Registers a Oneprovider in Onezone service. 
     
-    Requires a valid CSR in the bodyand returns signed 
-    certificate that will must used by the Oneprovider for authorization (SSL Peer Certificate).
+    Requires a valid CSR in the bodyand returns signed certificate that will 
+    must used by the Oneprovider for authorization (SSL Peer Certificate).
 
     This operation has public access.
   consumes:
@@ -115,6 +130,10 @@ post:
     schema:
       $ref: '#/definitions/ProviderRegistrationRequest'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "cat registration_request.json | onezone-rest-cli registerProvider"
+
 
 
 patch:
@@ -126,6 +145,9 @@ patch:
   x-onedata-resource: provider
   x-onedata-method: provider_logic:modify
   summary: Modify provider details
+  x-bash-codegen-description: |
+    Updates information about the Oneprovider identified by the
+    peer certificate used for the request.
   description: |
     Updates information about the Oneprovider identified by the
     peer certificate used for the request.
@@ -170,10 +192,13 @@ patch:
     schema:
       $ref: '#/definitions/ProviderDetails'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "cat provider_details.json | onezone-rest-cli modifyProvider"
 
 
 delete:
-  operationId: delete_provider
+  operationId: unregister_provider
   tags:
     - Provider
   x-onedata-service: onezone
@@ -181,12 +206,20 @@ delete:
   x-onedata-resource: provider
   x-onedata-method: provider_logic:remove
   summary: Unregister provider
+  x-bash-codegen-description: |
+    Allows Oneprovider service to unregister from Onezone.
+
+    This operation allows a Oneprovider to unregister from a this Onezone, i.e. 
+    it can only be invoked by Oneprovider which wants to unregister. It does't 
+    require any parameters, as the provider is identified by the peer 
+    certificate used for this connection.
   description: |
     Allows Oneprovider service to unregister from Onezone.
 
-    This operation allows a Oneprovider to unregister from a this Onezone, i.e. it can only be invoked
-    by Oneprovider which wants to unregister. It does't require any parameters, as the provider is
-    identified by the peer certificate used for this connection.
+    This operation allows a Oneprovider to unregister from a this Onezone, i.e. 
+    it can only be invoked by Oneprovider which wants to unregister. It does't 
+    require any parameters, as the provider is identified by the peer 
+    certificate used for this connection.
 
     ***Example cURL requests***
 
@@ -220,4 +253,7 @@ delete:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli unregisterProvider"
 

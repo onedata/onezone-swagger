@@ -14,15 +14,13 @@ tags:
   - name: User
     description: User related operations
   - name: Provider
-    description: Provider related operations  
-  - name: Privileges
-    description: Operations on Onezone privileges
+    description: Provider related operations
   - name: Handle
     description: Operations for managing Handle system service and identifier generation.
 securityDefinitions:
   api_key:
     type: apiKey
-    name: macaroon
+    name: X-Auth-Token
     in: header
   basic:
     type: basic

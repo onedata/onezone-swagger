@@ -7,8 +7,14 @@ get:
   x-onedata-resource: spaces
   x-onedata-method: provider_logic:get_spaces
   summary: Get spaces at provider
+  x-bash-codegen-description: |
+    Returns the list of spaces managed by the Oneprovider that performed the 
+    request.
+
+    This operation requires peer certificate authentication.
   description: |
-    Returns the list of spaces managed by the Oneprovider that performed the request.
+    Returns the list of spaces managed by the Oneprovider that performed the 
+    request.
 
     This operation requires peer certificate authentication.
 
@@ -52,6 +58,9 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSupportedSpaces"
 
 
 post:
@@ -63,6 +72,10 @@ post:
   x-onedata-resource: spaces
   x-onedata-method: space_logic:create
   summary:  Create new space by provider
+  x-bash-codegen-description: |
+    Creates a new space on behalf of the Oneprovider that performed the request.
+
+    This operation requires peer certificate authentication.
   description: |
     Creates a new space on behalf of the Oneprovider that performed the request.
 
@@ -105,4 +118,6 @@ post:
     schema:
       $ref: '#/definitions/Space'
     required: true
-
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createProviderSpace name:=\"My Space\" token:=KAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFS size+=1024"

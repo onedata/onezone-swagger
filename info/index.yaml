@@ -1,5 +1,67 @@
-version: 3.0.0-rc9
+version: 3.0.0-rc10
 title: Onezone
+x-bash-codegen-description: |
+ This is the RESTful API definition of Onezone component of Onedata data 
+ management system [onedata.org].
+
+ This API allows control and configuration of local Onezone service deployment, 
+ in particular management of users, spaces, groups and providers.
+
+
+ REST API operations from the permissions perspective in Onezone service can 
+ be divided into 2 groups, depending on the actor making the request:
+ **User requests**
+ regular end user requests are authenticated based on the `macaroon` header, 
+ which must include valid client access token, and authorization is made based 
+ on the privileges assigned to the user in the system. Each operation in this 
+ API that is available to end users, has a list of required privileges, except 
+ for the operations which are related to user account management, i.e.each user 
+ can perform any operation on his account, the `X-Auth-Token` header example:
+  ```
+    X-Auth-Token:IAUYCGOUASGDJHASDJKVAHSDJHASDKJHABSDKJHBASKJHJHBASD...
+  ```
+ **Provider requests**
+ When a Oneprovider service needs to request some action from the Onezone 
+ service, it must authenticate using the peer certificate which was assigned to 
+ this provider when registering in the Onezone service. 
+
+
+ ## Effective users and effective groups
+ Onedata supports creation of arbitrary nested group tree structures. In order 
+ to allow identification if a given user belongs to the group directly or 
+ indirectly by belonging to a subgroup of a group, separate API calls are 
+ provided for getting information about group users (direct group members) and 
+ effective users (indirect group members).
+
+ ## API structure
+ Most operations are RESTful, i.e. paths reflect the actual resource mode and 
+ operations on them are mapped to most appropriate HTTP methods.
+
+ ## Space management
+ The space management operations of this API provide means for accessing 
+ information about spaces and their management.
+ 
+ ## Group management
+ The group management operations allow for creation of user groups, assigning 
+ their authorization rights, adding and removing users from groups.
+
+ ## User management
+ The user management methods enable for creation of users, managing their 
+ authorization credentials as well as space and group membership.
+
+ ## Provider management
+ Provider specific calls enable for getting global information about the 
+ spaces managed by the provider, and some administrative operations which can
+ be used for monitoring or accounting.
+
+ ## Handle API
+ Onezone provides extensive support for integration with Handle system 
+ registration services, including support for DOI and PID identifier assignment 
+ services. The API provides methods for adding new Handle services to the 
+ system, managing which users can use which registration services and complete 
+ API for registering identifiers to users data sets which are made public.
+
+
 description: |
  This is the RESTful API definition of Onezone component of Onedata data management system [onedata.org](http://www.onedata.org).
 
@@ -69,10 +131,6 @@ description: |
  **Provider management**
  Provider specific calls enable for getting global information about the spaces managed by the provider,
  and some administrative operations which can be used for monitoring or accounting.
-
- **Privileges management**
- Onezone allows any user to have selected administration privileges for the Onezone service itself,
- enabling them to view and configure certain aspects of the system.
 
  **Handle API**
  Onezone provides extensive support for integration with Handle system registration

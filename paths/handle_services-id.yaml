@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - view_handle_service
   summary: Get handle service
+  x-bash-codegen-description: |
+    Returns the properties of a specific handle service.
+
+    This operation requires `view_handle_service` privilege.
   description: |
     Returns the properties of a specific handle service.
 
@@ -72,6 +76,9 @@ get:
       in: path
       required: true
       type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
 
 
 patch:
@@ -85,6 +92,10 @@ patch:
   x-onedata-permissions:
     - modify_handle_service
   summary: Modify handle service
+  x-bash-codegen-description: |
+    Allows to update a registeed handle service.
+
+    This operation requires `modify_handle_services` privilege.
   description: |
     Allows to update a registeed handle service.
 
@@ -133,10 +144,13 @@ patch:
       required: true
       schema:
         $ref: '#/definitions/HandleServiceUpdate'
+  x-code-samples:
+  - lang: Shell
+    source: "cat hndl_service.json | onezone-rest-cli modifyHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
 
 
 delete:
-  operationId: delete_handle_service
+  operationId: remove_handle_service
   tags:
     - Handle
   x-onedata-service: onezone
@@ -146,6 +160,10 @@ delete:
   x-onedata-permissions:
     - delete_handle_service
   summary: Unregister handle service
+  x-bash-codegen-description: |
+    Allows to unregister a registeed handle service.
+
+    This operation requires `delete_handle_services` privilege.
   description: |
     Allows to unregister a registeed handle service.
 
@@ -186,3 +204,7 @@ delete:
       in: path
       required: true
       type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+

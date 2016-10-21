@@ -6,6 +6,10 @@ post:
   x-onedata-module: user
   x-onedata-method: group_logic:join
   summary: Join group
+  x-bash-codegen-description: |
+    Join existing group using inivitation token.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Join existing group using inivitation token.
 
@@ -48,3 +52,6 @@ post:
     schema:
       $ref: '#/definitions/GroupInviteToken'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli joinGroup token:=LKJGH6785678asdASDKhj879asdLKJHASDASDJHAJKLSHDLJKASD"

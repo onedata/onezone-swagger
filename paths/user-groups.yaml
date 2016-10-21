@@ -6,6 +6,10 @@ get:
   x-onedata-module: user
   x-onedata-method: user_logic:get_groups
   summary: Get user groups
+  x-bash-codegen-description: |
+    Returns the list of user's groups.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Returns the list of user's groups.
 
@@ -54,6 +58,9 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserGroups"
 
 
 post:
@@ -64,6 +71,11 @@ post:
   x-onedata-module: group
   x-onedata-method: group_logic:create
   summary: Create new group
+  x-bash-codegen-description: |
+    Creates a new group for the current user. 
+    The user automatically becomes a member of this group.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Creates a new group for the current user. 
     The user automatically becomes a member of this group.
@@ -116,4 +128,7 @@ post:
     schema:
       $ref: '#/definitions/Group'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createGroupForUser name:=Group1 type:=team"
 

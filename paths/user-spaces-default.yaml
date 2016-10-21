@@ -6,6 +6,10 @@ get:
   x-onedata-module: spaces
   x-onedata-method: user_logic:get_default_space
   summary: Get default space
+  x-bash-codegen-description: |
+    Returns the ID of the default users space.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Returns the ID of the default users space.
 
@@ -49,6 +53,9 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserDefaultSpace"
 
 
 put:
@@ -59,6 +66,10 @@ put:
   x-onedata-module: spaces
   x-onedata-method: user_logic:set_default_space
   summary: Set default space
+  x-bash-codegen-description: |
+    Sets default space for current user.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Sets default space for current user.
 
@@ -106,3 +117,6 @@ put:
     schema:
       $ref: '#/definitions/DefaultSpace'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli setUserDefaultSpace spaceId:=LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"

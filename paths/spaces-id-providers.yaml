@@ -7,6 +7,10 @@ get:
   x-onedata-resource: providers
   x-onedata-method: space_logic:get_providers
   summary: Get space providers
+  x-bash-codegen-description: |
+    Returns the list of providers supporting specific space.
+
+    This operation requires `list_providers_of_space` privilege.
   description: |
     Returns the list of providers supporting specific space.
 
@@ -58,3 +62,6 @@ get:
     description: Space ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceProviders id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

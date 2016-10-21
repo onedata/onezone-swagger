@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - view_handle_service
   summary: Get handle service group privileges
+  x-bash-codegen-description: |
+    Returns group privileges for accessing a handle service instance.
+
+    This operation requires `view_handle_service` privilege.
   description: |
     Returns group privileges for accessing a handle service instance.
 
@@ -64,6 +68,9 @@ get:
       description: The ID of the group of a handle service.
       required: true
       type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
 put:
@@ -77,6 +84,10 @@ put:
   x-onedata-permissions:
     - modify_handle_service
   summary: Set handle service groups privileges
+  x-bash-codegen-description: |
+    Sets group privileges for accessing a handle service instance.
+
+    This operation requires `modify_handle_service` privilege.
   description: |
     Sets group privileges for accessing a handle service instance.
 
@@ -132,4 +143,7 @@ put:
       required: true
       schema:
         $ref: '#/definitions/HandleServicePrivileges'
+  x-code-samples:
+  - lang: Shell
+    source: "echo '[\"register_handle\"]' | onezone-rest-cli setHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 

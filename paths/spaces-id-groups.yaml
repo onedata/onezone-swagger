@@ -7,6 +7,8 @@ get:
   x-onedata-resource: groups
   x-onedata-method: space_logic:get_groups
   summary: Get space groups
+  x-bash-codegen-description: |
+    Returns the list of groups belonging to a specific space.
   description: |
     Returns the list of groups belonging to a specific space.
 
@@ -58,6 +60,9 @@ get:
     description: Space ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceGroups id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
 
 
 post:
@@ -69,6 +74,11 @@ post:
   x-onedata-resource: groups
   x-onedata-method: space_logic:add_group
   summary: Add group to space
+  x-bash-codegen-description: |
+    Allows to add a group to any space. 
+
+    This operation can be invoked by system administrators only
+    and requires `add_member_to_space` privilege.
   description: |
     Allows to add a group to any space. 
 
@@ -123,3 +133,6 @@ post:
           type: string
           description: ID of the group to add to space.
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addGroupToSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 groupId:=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

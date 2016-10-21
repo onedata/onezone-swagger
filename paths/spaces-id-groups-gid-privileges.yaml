@@ -7,6 +7,10 @@ get:
   x-onedata-resource: gpriv
   x-onedata-method: space_logic:get_privileges
   summary: Get group privileges to space
+  x-bash-codegen-description: |
+    Returns privileges for a group to a specific space.
+
+    This operation requires `space_view_data` privilege.
   description: |
     Returns privileges for a group to a specific space.
 
@@ -61,6 +65,10 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceGroupPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+
 
 put:
   operationId: set_space_group_privileges
@@ -71,6 +79,10 @@ put:
   x-onedata-resource: upriv
   x-onedata-method: space_logic:set_privileges
   summary: Set group privileges to space
+  x-bash-codegen-description: |
+    Sets new privileges for a group to a specific space.
+
+    This operation requires `space_set_privileges` privilege.
   description: |
     Sets new privileges for a group to a specific space.
 
@@ -122,6 +134,9 @@ put:
     in: body
     description: Space privileges.
     schema:
-      $ref: '#/definitions/GroupPrivileges'
+      $ref: '#/definitions/SpacePrivileges'
+  x-code-samples:
+  - lang: Shell
+    source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceGroupPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
 
 

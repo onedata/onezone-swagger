@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get group users
+  x-bash-codegen-description: |
+    Returns the list of users belonging to a specific group.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the list of users belonging to a specific group.
 
@@ -60,5 +64,6 @@ get:
     description: Group ID.
     type: string
     required: true
-
-
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroupUsers id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"

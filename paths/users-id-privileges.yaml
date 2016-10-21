@@ -1,27 +1,27 @@
 get:
-  operationId: get_group_onezone_privileges
+  operationId: get_user_onezone_privileges
   tags:
     - Privileges
   x-onedata-service: onezone
   x-onedata-module: privileges
   x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_group_privileges
-  summary: Get group's Onezone privileges
+  x-onedata-method: onezone_logic:get_user_privileges
+  summary: Get user's Onezone privileges
   x-bash-codegen-description: |
-    Returns the list of group privileges for Onezone.
+    Returns the list of user privileges for Onezone.
 
     This operation requires `view_privileges` privilege.
   description: |
-    Returns the list of group privileges for Onezone.
+    Returns the list of user privileges for Onezone.
 
     This operation requires `view_privileges` privilege.
 
     ***Example cURL requests***
 
-    **Get groups privileges to Onezone service**
+    **Get users privileges to Onezone service**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/privileges/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    curl -k -u username:password -X GET  \
+    https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/privileges
 
     {
       "privileges": []
@@ -31,7 +31,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of group privileges in Onezone.
+      description: The list of user privileges in Onezone.
       schema:
         $ref: '#/definitions/OnezonePrivileges'
     '400':
@@ -57,19 +57,23 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+
 
 patch:
-  operationId: set_group_onezone_privileges
+  operationId: set_user_onezone_privileges
   tags:
     - Privileges
   x-onedata-service: onezone
   x-onedata-module: onezone
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:set_privileges
-  summary: Set group's Onezone privileges
+  summary: Set user's Onezone privileges
   x-bash-codegen-description: |
     Modifies privileges for a user {id} for Onezone.
 
@@ -81,15 +85,15 @@ patch:
 
     ***Example cURL requests***
 
-    **Set groups privileges to Onezone service**
+    **Modifies users privileges to Onezone service**
     ```bash
-    curl -k -H "Content-type: application/json"  -X PUT \
-    -d '{"privileges": ["list_spaces"]}' \
-    https://$HOST:8443/api/v3/onezone/privileges/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    curl -k -u username:password  -H "Content-type: application/json"  -X PUT \
+    -d '{"privileges":["list_spaces"]}' \
+    https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmPj3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
   responses:
     '200':
-      description: The group privileges have been added.
+      description: The user privileges have been added.
     '400':
       description: Invalid request.
       schema:
@@ -113,7 +117,7 @@ patch:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: User ID.
     type: string
     required: true
   - name: data
@@ -121,36 +125,39 @@ patch:
     description: User Onezone privileges.
     schema:
       $ref: '#/definitions/OnezonePrivileges'
+  x-code-samples:
+  - lang: Shell
+    source: "echo '[\"list_spaces\", \"list_spaces\"]' | onezone-rest-cli setUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 
 
 delete:
-  operationId: remove_group_onezone_privileges
+  operationId: remove_user_onezone_privileges
   tags:
     - Privileges
   x-onedata-service: onezone
   x-onedata-module: onezone
   x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:remove_privileges
-  summary: Remove group's Onezone privileges
+  x-onedata-method: onezone_logic:remoev_privileges
+  summary: Remove user's Onezone privileges
   x-bash-codegen-description: |
-    Removes all privileges for a group {id} to Onezone.
+    Removes all privileges for a user {id} to Onezone.
 
     This operation requires `set_privileges` privilege.
   description: |
-    Removes all privileges for a group {id} to Onezone.
+    Removes all privileges for a user {id} to Onezone.
 
     This operation requires `set_privileges` privilege.
 
     ***Example cURL requests***
 
-    **Remove all groups privileges to Onezone service**
+    **Delete all user privileges to Onezone service**
     ```bash
-    curl -i -k -u username:password  -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/privileges/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2
+    curl -k -u username:password  -X DELETE  \
+    https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
   responses:
     '200':
-      description: The group privileges have been added.
+      description: The user privileges have been added.
     '400':
       description: Invalid request.
       schema:
@@ -174,6 +181,10 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: User ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+

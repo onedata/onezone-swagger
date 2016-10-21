@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - view_handle
   summary: Get handle user privileges
+  x-bash-codegen-description: |
+    Returns user privileges for accessing a handle instance.
+
+    This operation requires `view_handle` privilege.
   description: |
     Returns user privileges for accessing a handle instance.
 
@@ -64,6 +68,9 @@ get:
       description: The ID of the user of a handle service.
       required: true
       type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleUserPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
 put:
@@ -77,6 +84,10 @@ put:
   x-onedata-permissions:
     - modify_handle
   summary: Set handle user privileges
+  x-bash-codegen-description: |
+    Sets user privileges for accessing a handle instance.
+
+    This operation requires `modify_handle` privilege.
   description: |
     Sets user privileges for accessing a handle instance.
 
@@ -132,3 +143,7 @@ put:
       required: true
       schema:
         $ref: '#/definitions/HandlePrivileges'
+  x-code-samples:
+  - lang: Shell
+    source: "echo '[\"handle_view_data\"]' | onezone-rest-cli setHandleUserPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+

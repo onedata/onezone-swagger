@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - view_handle
   summary: Get handle
+  x-bash-codegen-description: |
+    Returns the properties of a specific handle.
+
+    This operation requires `view_handle` privilege.
   description: |
     Returns the properties of a specific handle.
 
@@ -27,7 +31,8 @@ get:
       "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
       "handle": "10.572/ABCD-asdakjsdak87587asdk-1234/8",
       "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
-      "metadata": "..."
+      "metadata": "...",
+      "timestamp": "1997-07-16T19:20"
     }
     ```
   produces:
@@ -63,6 +68,9 @@ get:
       required: true
       type: string
       description: The handle ID (internal Onedata GUID) of the identifier.
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
 
 
 patch:
@@ -76,6 +84,11 @@ patch:
   x-onedata-permissions:
     - modify_handle
   summary: Modify handle
+  x-bash-codegen-description: |
+    Allows to update a registeed handle, for instance change the Onedata resource
+    to which it points to.
+
+    This operation requires `modify_handle` privilege.
   description: |
     Allows to update a registeed handle, for instance change the Onedata resource
     to which it points to.
@@ -125,6 +138,9 @@ patch:
       required: true
       schema:
         $ref: '#/definitions/Handle'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH resourceId:=RsNk1CVHZTU3Z0OThwcHAhRN1NPawowMDFhY2lkIHRpbWUgPC"
 
 
 delete:
@@ -138,6 +154,10 @@ delete:
   x-onedata-permissions:
     - delete_handle
   summary: Unregister handle
+  x-bash-codegen-description: |
+    Allows to unregister a registered handle.
+
+    This operation requires `delete_handle` privilege.
   description: |
     Allows to unregister a registered handle.
 
@@ -178,3 +198,6 @@ delete:
       in: path
       required: true
       type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli deleteHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"

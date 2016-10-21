@@ -6,6 +6,10 @@ post:
   x-onedata-module: space
   x-onedata-method: space_logic:join
   summary: Join space
+  x-bash-codegen-description: |
+    Join existing space using inivitation token.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Join existing space using inivitation token.
 
@@ -57,3 +61,6 @@ post:
     schema:
       $ref: '#/definitions/SpaceInviteToken'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli joinSpace token:=ASDKLJHASD868&ASDJKJKHasjhdaASD89798asdaA"

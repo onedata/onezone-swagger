@@ -6,6 +6,10 @@ get:
   x-onedata-module: user
   x-onedata-method: user_logic:get_data
   summary: Get user details
+  x-bash-codegen-description: |
+    Returns details about currently authenticated user.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Returns details about currently authenticated user.
 
@@ -49,6 +53,10 @@ get:
       description: Internal server error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUser"
+
 
 
 patch:
@@ -59,6 +67,10 @@ patch:
   x-onedata-module: user
   x-onedata-method: user_logic:modify
   summary: Modify user
+  x-bash-codegen-description: |
+    Modifies user account details based on information provided in the request body.
+
+    This operation can be invoked on behalf of current user only.
   description: |
     Modifies user account details based on information provided in the request body.
 
@@ -104,6 +116,10 @@ patch:
     schema:
       $ref: '#/definitions/User'
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifyUser name:=new_name"
+
 
 delete:
   operationId: remove_user
@@ -113,6 +129,8 @@ delete:
   x-onedata-module: user
   x-onedata-method: user_logic:remove
   summary: Remove user
+  x-bash-codegen-description: |
+    Removes the account of currently authenticated user.
   description: |
     Removes the account of currently authenticated user.
 
@@ -148,3 +166,7 @@ delete:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeUser"
+

@@ -6,9 +6,19 @@ get:
   x-onedata-module: provider
   x-onedata-resource: nprovider
   x-onedata-method: provider_logic:get_data
-  summary: Get provider details
+  summary: Get other provider details
+  x-bash-codegen-description: |
+    Returns the information about another Oneprovider service, which is 
+    connected to the onezone.
+    
+    If called by other provider doesn't require any special privileges. 
+
+    When called by a regular user, requires 'list_providers' privilege.
+
+    This operation requires `list_providers` privilege.
   description: |
-    Returns the information about another Oneprovider service, which is connected to the onezone.
+    Returns the information about another Oneprovider service, which is 
+    connected to the onezone.
     
     If called by other provider doesn't require any special privileges. 
 
@@ -21,7 +31,7 @@ get:
     **Get specific provider details**
     ```bash
     curl -k --cert ./etc/op_worker/certs/grpcert.pem -X GET  \
-    https://$HOST:8443/api/v3/onezone/provider/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
+    https://$HOST:8443/api/v3/onezone/providers/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
     ```
   produces:
     - application/json
@@ -56,3 +66,6 @@ get:
     description: Provider ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getOtherProvider pid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

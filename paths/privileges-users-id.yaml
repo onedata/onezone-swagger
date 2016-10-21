@@ -7,6 +7,10 @@ get:
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:get_user_privileges
   summary: Get user's Onezone privileges
+  x-bash-codegen-description: |
+    Returns the list of user privileges for Onezone.
+
+    This operation requires `view_privileges` privilege.
   description: |
     Returns the list of user privileges for Onezone.
 
@@ -66,6 +70,10 @@ patch:
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:set_privileges
   summary: Set user's Onezone privileges
+  x-bash-codegen-description: |
+    Modifies privileges for a user {id} for Onezone.
+
+    This operation requires `set_privileges` privilege.
   description: |
     Modifies privileges for a user {id} for Onezone.
 
@@ -124,6 +132,10 @@ delete:
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:remoev_privileges
   summary: Remove user's Onezone privileges
+  x-bash-codegen-description: |
+    Removes all privileges for a user {id} to Onezone.
+
+    This operation requires `set_privileges` privilege.
   description: |
     Removes all privileges for a user {id} to Onezone.
 

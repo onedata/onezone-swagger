@@ -9,6 +9,10 @@ get:
   x-onedata-permissions:
     - group_view_data
   summary: Get group's spaces
+  x-bash-codegen-description: |
+    Returns the list of spaces to which the group has access.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the list of spaces to which the group has access.
 
@@ -56,6 +60,10 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroupSpaces id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+
 
 post:
   operationId: create_space_for_group
@@ -68,6 +76,10 @@ post:
   x-onedata-permissions:
     - group_set_privileges
   summary: Creates new space for group
+  x-bash-codegen-description: |
+    Creates a new space for of a specific group.
+
+    This operation requires `group_create_space` privilege.
   description: |
     Creates a new space for of a specific group.
 
@@ -124,4 +136,6 @@ post:
           description: Name of the new space.
       required:
         - name
-
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createSpaceForGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name:=\"New space name\""
