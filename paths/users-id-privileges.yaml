@@ -1,7 +1,7 @@
 get:
   operationId: get_user_onezone_privileges
   tags:
-    - Privileges
+    - User
   x-onedata-service: onezone
   x-onedata-module: privileges
   x-onedata-resource: upriv
@@ -68,7 +68,7 @@ get:
 patch:
   operationId: set_user_onezone_privileges
   tags:
-    - Privileges
+    - User
   x-onedata-service: onezone
   x-onedata-module: onezone
   x-onedata-resource: upriv
@@ -133,7 +133,7 @@ patch:
 delete:
   operationId: remove_user_onezone_privileges
   tags:
-    - Privileges
+    - User
   x-onedata-service: onezone
   x-onedata-module: onezone
   x-onedata-resource: upriv

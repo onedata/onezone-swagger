@@ -178,14 +178,6 @@
 /providers/{pid}:
   $ref: ./providers-pid.yaml
 
-
-/privileges/users/{id}:
-  $ref: ./privileges-users-id.yaml
-
-# /privileges/group/{id}: 
-#   $ref: ./privileges-group-id.yaml
-
-
 #
 # Handle service management
 #
