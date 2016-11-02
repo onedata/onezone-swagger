@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_data
-  summary: Get user details
+  summary: Get current user details
   x-bash-codegen-description: |
     Returns details about currently authenticated user.
 

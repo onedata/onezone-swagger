@@ -76,7 +76,7 @@ delete:
   x-onedata-method: handle_logic:remove_handle_service_group
   x-onedata-permissions:
     - modify_handle_service
-  summary: Add handle service group
+  summary: Remove handle service group
   x-bash-codegen-description: |
     Allows to remove a group from access to a handle service.
 
