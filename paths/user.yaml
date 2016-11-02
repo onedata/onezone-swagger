@@ -1,5 +1,5 @@
 get:
-  operationId: get_user
+  operationId: get_current_user
   tags:
     - User
   x-onedata-service: onezone

@@ -85,6 +85,12 @@
 /user/client_token:
   $ref: ./user-client_token.yaml
 
+/users:
+  $ref: ./users.yaml
+
+/users/{id}:
+  $ref: ./users-id.yaml
+
 /users/{id}/privileges: 
   $ref: ./users-id-privileges.yaml
 
@@ -177,6 +183,24 @@
   
 /providers/{pid}:
   $ref: ./providers-pid.yaml
+
+/providers/{pid}/spaces:
+  $ref: ./providers-pid-spaces.yaml
+
+/providers/{pid}/spaces/{sid}:
+  $ref: ./providers-pid-spaces-sid.yaml
+
+/providers/{pid}/users:
+  $ref: ./providers-pid-users.yaml
+
+/providers/{pid}/users/{uid}:
+  $ref: ./providers-pid-users-uid.yaml
+
+/providers/{pid}/groups:
+  $ref: ./providers-pid-groups.yaml
+
+/providers/{pid}/groups/{gid}:
+  $ref: ./providers-pid-groups-gid.yaml
 
 #
 # Handle service management

@@ -1,0 +1,60 @@
+get:
+  operationId: list_users
+  tags:
+    - User
+  x-onedata-service: onezone
+  x-onedata-module: user
+  x-onedata-resource: users
+  x-onedata-method: user_logic:list
+  summary: List all users
+  x-bash-codegen-description: |
+    Returns the list of all users in the system.
+
+    Requires `list_users` privilege.
+  description: |
+    Returns the list of all users in the system.
+
+    Requires `list_users` privilege.
+
+    ***Example cURL requests***
+
+    **List all users in the system**
+    ```bash
+     curl -k -u username:password -X GET https://$HOST:8443/api/v3/onezone/users
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        The list of user ID's registered within the Onezone service.
+      schema:
+        type: object
+        properties:
+          users:
+            type: array
+            items: 
+              type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listUsers"

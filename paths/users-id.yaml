@@ -1,0 +1,73 @@
+get:
+  operationId: get_user
+  tags:
+    - User
+  x-onedata-service: onezone
+  x-onedata-module: user
+  x-onedata-resource: user
+  x-onedata-method: user_logic:get_data
+  x-onedata-permissions:
+    - user_view_data
+    - list_users
+  summary: Get user details
+  x-bash-codegen-description: |
+    Returns the information about a specific user.
+
+    This operation requires `list_users` privilege.
+  description: |
+    Returns the information about a specific group.
+
+    This operation requires `list_users` privilege.
+
+    ***Example cURL requests***
+
+    **Get user details**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    
+    {
+      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
+      "login": "admin",
+      "name": "admin",
+      "connectedAccounts": [],
+      "alias": "",
+      "emailList": []
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a user.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUser id=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

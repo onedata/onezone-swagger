@@ -1,3 +1,65 @@
+get:
+  operationId: list_groups
+  tags:
+    - Group
+  x-onedata-service: onezone
+  x-onedata-module: group
+  x-onedata-resource: groups
+  x-onedata-method: group_logic:create
+  summary: List all groups
+  x-bash-codegen-description: |
+    Returns the list of all groups in the system.
+
+    Requires `list_groups` privilege.
+  description: |
+    Returns the list of all groups in the system.
+
+    Requires `list_groups` privilege.
+
+    ***Example cURL requests***
+
+    **List all groups in the system**
+    ```bash
+     curl -k -u username:password -X GET https://$HOST:8443/api/v3/onezone/groups
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        The list of group ID's created within the Onezone service.
+      schema:
+        type: object
+        properties:
+          groups:
+            type: array
+            items: 
+              type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listGroups"
+
+
 post:
   operationId: create_group
   tags:

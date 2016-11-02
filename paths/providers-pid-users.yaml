@@ -1,0 +1,73 @@
+get:
+  operationId: list_provider_users
+  tags:
+    - Provider
+  x-onedata-service: onezone
+  x-onedata-module: providers
+  x-onedata-resource: users
+  x-onedata-method: provider_logic:get_users
+  summary: Get users of provider
+  x-bash-codegen-description: |
+    Returns the list of users of a specific provider.
+
+    This operation requires `list_users_of_provider` privilege.
+  description: |
+    Returns the list of users of a specific provider.
+
+    This operation requires `list_users_of_provider` privilege.
+
+    ***Example cURL requests***
+
+    **List users of a provider**
+    ```bash
+    curl -ksS -u username:password -X GET  \
+    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/users
+
+    {
+      "users": [
+        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk", 
+        "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of user ID's.
+      schema:
+        type: object
+        properties:
+          users:
+            type: array
+            items: 
+              type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'  
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: pid
+      description: Provider ID.
+      type: string
+      in: path
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listProviderUsers"
