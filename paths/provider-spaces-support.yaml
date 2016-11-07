@@ -55,4 +55,4 @@ post:
       $ref: '#/definitions/SpaceSupportToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli providerSpaceSupport token:=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli providerSpaceSupport token==WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

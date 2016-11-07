@@ -131,7 +131,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifySpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name:=\"New Space Name\""
+    source: "onezone-rest-cli modifySpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name==\"New Space Name\""
 
 
 delete:

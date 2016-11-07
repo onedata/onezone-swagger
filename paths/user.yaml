@@ -118,7 +118,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyUser name:=new_name"
+    source: "onezone-rest-cli modifyUser name==new_name"
 
 
 delete:

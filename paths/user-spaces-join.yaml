@@ -63,4 +63,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinSpace token:=ASDKLJHASD868&ASDJKJKHasjhdaASD89798asdaA"
+    source: "onezone-rest-cli joinSpace token==ASDKLJHASD868&ASDJKJKHasjhdaASD89798asdaA"

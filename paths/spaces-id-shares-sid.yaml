@@ -74,5 +74,5 @@ put:
       $ref: '#/definitions/ShareUpdateRequest'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc name:=my_share rootFileId:=DC21sY1KucueUeoZA6KXxNgzlvqmmrbzqE_B"
+    source: "onezone-rest-cli createShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc name==my_share rootFileId:=DC21sY1KucueUeoZA6KXxNgzlvqmmrbzqE_B"
 

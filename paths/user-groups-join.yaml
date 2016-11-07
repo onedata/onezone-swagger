@@ -54,4 +54,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinGroup token:=LKJGH6785678asdASDKhj879asdLKJHASDASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli joinGroup token==LKJGH6785678asdASDKhj879asdLKJHASDASDJHAJKLSHDLJKASD"

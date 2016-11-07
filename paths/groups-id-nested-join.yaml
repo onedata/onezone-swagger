@@ -75,4 +75,4 @@ post:
       $ref: '#/definitions/GroupInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinNestedGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 token:=AKLSHJHDKLJASHDJKHASKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli joinNestedGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 token==AKLSHJHDKLJASHDJKHASKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"

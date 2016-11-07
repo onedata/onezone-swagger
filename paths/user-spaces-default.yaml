@@ -119,4 +119,4 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli setUserDefaultSpace spaceId:=LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli setUserDefaultSpace spaceId==LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"

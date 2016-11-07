@@ -126,4 +126,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroup name:=Group2 type:=role "
+    source: "onezone-rest-cli createGroup name==Group2 type==role "

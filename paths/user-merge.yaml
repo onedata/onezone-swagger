@@ -50,4 +50,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli mergeUserAccounts token:=LLKJAHSDJH8898789ASDLKJASD8787asdKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli mergeUserAccounts token==LLKJAHSDJH8898789ASDLKJASD8787asdKJGHASDJHAJKLSHDLJKASD"

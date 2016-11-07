@@ -144,5 +144,5 @@ post:
           description: Space creation token (only for providers).
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createSpace name:=\"Space 1\" token:=ASLKJ1DHAKJS2DLKJAHS5DKJ4ASDKJ3HALSKJD3HLKAJSDHASD1O"
+    source: "onezone-rest-cli createSpace name:=\"Space 1\" token==ASLKJ1DHAKJS2DLKJAHS5DKJ4ASDKJ3HALSKJD3HLKAJSDHASD1O"
 

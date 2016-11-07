@@ -140,7 +140,7 @@ patch:
         $ref: '#/definitions/Handle'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH resourceId:=RsNk1CVHZTU3Z0OThwcHAhRN1NPawowMDFhY2lkIHRpbWUgPC"
+    source: "onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH resourceId==RsNk1CVHZTU3Z0OThwcHAhRN1NPawowMDFhY2lkIHRpbWUgPC"
 
 
 delete:

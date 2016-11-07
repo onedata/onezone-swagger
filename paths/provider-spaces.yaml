@@ -120,4 +120,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createProviderSpace name:=\"My Space\" token:=KAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFS size+=1024"
+    source: "onezone-rest-cli createProviderSpace name==\"My Space\" token==KAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFS size:=1024"

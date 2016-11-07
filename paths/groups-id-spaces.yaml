@@ -138,4 +138,4 @@ post:
         - name
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createSpaceForGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name:=\"New space name\""
+    source: "onezone-rest-cli createSpaceForGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name==\"New space name\""
