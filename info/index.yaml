@@ -1,4 +1,4 @@
-version: 3.0.0-rc10
+version: 3.0.0-rc11
 title: Onezone
 x-bash-codegen-description: |
  This is the RESTful API definition of Onezone component of Onedata data 
