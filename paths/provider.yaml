@@ -8,12 +8,12 @@ get:
   x-onedata-method: provider_logic:get_data
   summary: Get provider details
   x-bash-codegen-description: |
-    Returns information about the Oneprovider that performed the request 
+    Returns information about the Oneprovider that performed the request
     (based on provided Peer Certificate authentication).
 
     This operation requires peer certificate authentication.
   description: |
-    Returns information about the Oneprovider that performed the request 
+    Returns information about the Oneprovider that performed the request
     (based on provided Peer Certificate authentication).
 
     This operation requires peer certificate authentication.
@@ -48,7 +48,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -76,16 +76,16 @@ post:
   x-onedata-method: provider_logic:create
   summary: Register provider
   x-bash-codegen-description: |
-    Registers a Oneprovider in Onezone service. 
-    
-    Requires a valid CSR in the bodyand returns signed certificate that will 
+    Registers a Oneprovider in Onezone service.
+
+    Requires a valid CSR in the bodyand returns signed certificate that will
     must used by the Oneprovider for authorization (SSL Peer Certificate).
 
     This operation has public access.
   description: |
-    Registers a Oneprovider in Onezone service. 
+    Registers a Oneprovider in Onezone service.
     
-    Requires a valid CSR in the bodyand returns signed certificate that will 
+    Requires a valid CSR in the bodyand returns signed certificate that will
     must used by the Oneprovider for authorization (SSL Peer Certificate).
 
     This operation has public access.
@@ -97,7 +97,7 @@ post:
       schema:
         type: object
         properties:
-          id: 
+          id:
             description: The ID of the registered provider
             type: string
           cert:
@@ -110,7 +110,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -132,7 +132,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "cat registration_request.json | onezone-rest-cli registerProvider"
+    source: "cat registration_request.json | onezone-rest-cli registerProvider -"
 
 
 
@@ -172,7 +172,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -194,7 +194,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "cat provider_details.json | onezone-rest-cli modifyProvider"
+    source: "cat provider_details.json | onezone-rest-cli modifyProvider -"
 
 
 delete:
@@ -209,16 +209,16 @@ delete:
   x-bash-codegen-description: |
     Allows Oneprovider service to unregister from Onezone.
 
-    This operation allows a Oneprovider to unregister from a this Onezone, i.e. 
-    it can only be invoked by Oneprovider which wants to unregister. It does't 
-    require any parameters, as the provider is identified by the peer 
+    This operation allows a Oneprovider to unregister from a this Onezone, i.e.
+    it can only be invoked by Oneprovider which wants to unregister. It does't
+    require any parameters, as the provider is identified by the peer
     certificate used for this connection.
   description: |
     Allows Oneprovider service to unregister from Onezone.
 
-    This operation allows a Oneprovider to unregister from a this Onezone, i.e. 
-    it can only be invoked by Oneprovider which wants to unregister. It does't 
-    require any parameters, as the provider is identified by the peer 
+    This operation allows a Oneprovider to unregister from a this Onezone, i.e.
+    it can only be invoked by Oneprovider which wants to unregister. It does't
+    require any parameters, as the provider is identified by the peer
     certificate used for this connection.
 
     ***Example cURL requests***
@@ -240,7 +240,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

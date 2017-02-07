@@ -48,7 +48,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -74,4 +74,4 @@ post:
         - 'https://provider1.com:443'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"https://provider1.com:80\", \"https://provider1.com:443\"]' | onezone-rest-cli checkMyPorts"
+    source: "echo '[\"https://provider1.com:80\", \"https://provider1.com:443\"]' | onezone-rest-cli checkMyPorts -"

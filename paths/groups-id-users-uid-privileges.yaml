@@ -105,7 +105,7 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -137,6 +137,6 @@ put:
       $ref: '#/definitions/GroupPrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"group_view_data\"]' | onezone-rest-cli setUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "echo '[\"group_view_data\"]' | onezone-rest-cli setUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
 
 

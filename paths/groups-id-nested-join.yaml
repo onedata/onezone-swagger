@@ -10,16 +10,16 @@ post:
     - group_join_group
   summary: Add subgroup
   x-bash-codegen-description: |
-    Adds given group as a subgroup of a specific group based on provided token. 
-    
+    Adds given group as a subgroup of a specific group based on provided token.
+
     The parent group to which the group will be added is identified from the
     token (the token is issued in the context of a group).
 
     This operation requires `group_join_group` privilege.
   description: |
-    Adds given group as a subgroup of a specific group based on provided token. 
-    
-    The parent group to which the group will be added is identified from the token 
+    Adds given group as a subgroup of a specific group based on provided token.
+
+    The parent group to which the group will be added is identified from the token
     (the token is issued in the context of a group).
 
     This operation requires `group_join_group` privilege.
@@ -36,10 +36,10 @@ post:
   responses:
     '201':
       description: >
-        ID of the joined group in the form /groups/{id} is 
+        ID of the joined group in the form /groups/{id} is
         returned in the response `Location` header.
       headers:
-        Location: 
+        Location:
           description: ID of the joined group.
           type: string
     '400':
@@ -49,7 +49,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

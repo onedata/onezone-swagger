@@ -113,7 +113,7 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -145,5 +145,5 @@ put:
         $ref: '#/definitions/HandleServicePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"handle_change_data\"]' | onezone-rest-cli setHandleServiceUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "echo '[\"handle_change_data\"]' | onezone-rest-cli setHandleServiceUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"
 

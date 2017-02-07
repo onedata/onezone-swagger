@@ -106,7 +106,7 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -137,6 +137,6 @@ put:
       $ref: '#/definitions/SpacePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceGroupPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceGroupPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 -"
 
 

@@ -10,8 +10,8 @@ get:
     - group_view_data
   summary: Get effective group users
   x-bash-codegen-description: |
-    Returns the list of effective group users, which includes both who directly 
-    belong to the group, as well as users who belong to the group indirectly 
+    Returns the list of effective group users, which includes both who directly
+    belong to the group, as well as users who belong to the group indirectly
     through its parent groups.
 
     This operation requires `group_view_data` privilege.
@@ -41,7 +41,7 @@ get:
       description: The list of effective user ID's that belong to a specific group
       schema:
         type: array
-        items: 
+        items:
           type: string
     '400':
       description: Invalid request.
@@ -50,7 +50,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

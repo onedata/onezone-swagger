@@ -108,7 +108,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -129,5 +129,5 @@ post:
         $ref: '#/definitions/HandleRegistrationRequest'
   x-code-samples:
   - lang: Shell
-    source: "cat hndl_request.json | onezone-rest-cli registerHandle"
+    source: "cat hndl_request.json | onezone-rest-cli registerHandle -"
 

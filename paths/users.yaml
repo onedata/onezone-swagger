@@ -33,7 +33,7 @@ get:
         properties:
           users:
             type: array
-            items: 
+            items:
               type: string
     '400':
       description: Invalid request.
@@ -42,7 +42,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

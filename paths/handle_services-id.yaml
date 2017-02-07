@@ -146,7 +146,7 @@ patch:
         $ref: '#/definitions/HandleServiceUpdate'
   x-code-samples:
   - lang: Shell
-    source: "cat hndl_service.json | onezone-rest-cli modifyHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "cat hndl_service.json | onezone-rest-cli modifyHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 -"
 
 
 delete:

@@ -1,4 +1,4 @@
-version: 3.0.0-rc11
+version: 3.0.0-rc12
 title: Onezone
 x-bash-codegen-description: |
  This is the RESTful API definition of Onezone component of Onedata data
@@ -163,5 +163,5 @@ license:
   name: Apache 2.0
   url: http://www.apache.org/licenses/LICENSE-2.0.html
 x-logo:
-  url: https://onedata.org/docs/doc/img/onezone-icon.png
+  url: https://onedata.org/assets/images/api/onezone-logo.svg
   backgroundColor: "#FFFFFF"

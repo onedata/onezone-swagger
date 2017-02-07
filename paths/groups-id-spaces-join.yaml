@@ -31,11 +31,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the joined space in the form /spaces/{id} is 
-        returned in the response `Location` header.  
+        ID of the joined space in the form /spaces/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
-          description: ID of the joined space.  
+        Location:
+          description: ID of the joined space.
           type: string
     '400':
       description: Invalid request.
@@ -44,7 +44,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

@@ -1,6 +1,6 @@
 get:
   operationId: get_groups_user_privileges
-  tags: 
+  tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
@@ -55,7 +55,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
