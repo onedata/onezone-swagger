@@ -1,0 +1,66 @@
+get:
+  operationId: get_handleservice_handles
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:get_handles
+  x-onedata-permissions:
+    - list_handles
+  summary: Get handle service handles
+  x-bash-codegen-description: |
+    Returns the list of ID's of all handles registered by handle service.
+  description: |
+    Returns the list of ID's of all handles registered by handle service.
+
+    ***Example cURL requests***
+
+    **Get handle services handles**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/handle_services/LKJASHDLKJHASD/handles
+
+    [
+      "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+      "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+    ]
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of handle identifiers (Onedata internal GUID's).
+      schema:
+        type: array
+        items:
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: The ID of the handle service.
+    required: true
+    type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleServicesHandles id=KLJAHSDKLJHASDhjhjgasd6asdjkASD"

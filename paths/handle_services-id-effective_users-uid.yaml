@@ -1,44 +1,41 @@
 get:
-  operationId: list_handle_service_groups
+  operationId: get_effective_handle_service_user
   tags:
     - Handle
   x-onedata-service: onezone
   x-onedata-module: handle_service
   x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service_groups
+  x-onedata-method: handle_logic:add_handle_service_user
   x-onedata-permissions:
-    - view_handle_service
-  summary: Get handle service groups
+    - get_handle_service
+  summary: Get effective handle service user
   x-bash-codegen-description: |
-    Returns all groups with access to a handle service instance
+    Allows to get a user to a handle service.
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `modify_handle_service` privilege.
   description: |
-    Returns all groups with access to a handle service instance
+    Allows to get a user to a handle service.
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `modify_handle_service` privilege.
 
     ***Example cURL requests***
 
-    **Get handle service groups**
+    **Get effective handle service user**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/DLAKSHDLKJHJjLHADHLKJh
 
-    [
-      "LKJhlkASHDLAKSHDLKJHJjL",
-      "LAKSHDLKJHJjLLKJhlkASHD"
-    ]
+    {
+
+    }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The list of identifiers of groups with access to specific handle service.
+      description: User added successfully.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/User'
     '400':
       description: Invalid request.
       schema:
@@ -65,6 +62,11 @@ get:
       description: The ID of the handle service.
       required: true
       type: string
+    - name: uid
+      in: path
+      description: The ID of the user to add to handle service.
+      required: true
+      type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleServiceGroups id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli getEffectiveHandleServiceUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

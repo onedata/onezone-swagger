@@ -1,0 +1,68 @@
+get:
+  operationId: get_effective_handle_service_group
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle_service
+  x-onedata-resource: handle_service
+  x-onedata-method: handle_logic:get_handle_service_group
+  x-onedata-permissions:
+    - modify_handle_service
+  summary: Get effective handle service group
+  x-bash-codegen-description: |
+    Get details of a handle service owned by an effective group.
+
+    This operation requires `modify_handle_service` privilege.
+  description: |
+    Get details of a handle service owned by an effective group.
+
+    This operation requires `modify_handle_service` privilege.
+
+    ***Example cURL requests***
+
+    **Get effective group handle service**
+    ```bash
+    curl -u username:password -X PUT \
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_groups/DLAKSHDLKJHJjLHADHLKJh
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Handle service details returned.
+      schema:
+        $ref: '#/definitions/HandleService'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: The ID of the handle service.
+      required: true
+      type: string
+    - name: gid
+      in: path
+      description: The ID of the group to add to handle service.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

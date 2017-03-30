@@ -359,6 +359,16 @@
 /handle_services/{id}/users/{uid}/privileges:
   $ref: ./handle_services-id-users-uid-privileges.yaml
 
+/handle_services/{id}/effective_users:
+  $ref: ./handle_services-id-effective_users.yaml
+
+/handle_services/{id}/effective_users/{uid}:
+  $ref: ./handle_services-id-effective_users-uid.yaml
+
+/handle_services/{id}/effective_users/{uid}/privileges:
+  $ref: ./handle_services-id-effective_users-uid-privileges.yaml
+
+
 /handle_services/{id}/groups:
   $ref: ./handle_services-id-groups.yaml
 
@@ -367,6 +377,21 @@
 
 /handle_services/{id}/groups/{gid}/privileges:
   $ref: ./handle_services-id-groups-gid-privileges.yaml
+
+/handle_services/{id}/effective_groups:
+  $ref: ./handle_services-id-effective_groups.yaml
+
+/handle_services/{id}/effective_groups/{gid}:
+  $ref: ./handle_services-id-effective_groups-gid.yaml
+
+/handle_services/{id}/effective_groups/{gid}/privileges:
+  $ref: ./handle_services-id-effective_groups-gid-privileges.yaml
+
+/handle_services/{id}/handles:
+  $ref: ./handle_services-id-handles.yaml
+
+/handle_services/{id}/handles/{hid}:
+  $ref: ./handle_services-id-handles-hid.yaml
 
 #
 # Handle registration

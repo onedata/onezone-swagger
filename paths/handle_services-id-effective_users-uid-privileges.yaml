@@ -1,44 +1,42 @@
 get:
-  operationId: list_handle_service_groups
+  operationId: get_effective_handle_service_user_privileges
   tags:
     - Handle
   x-onedata-service: onezone
   x-onedata-module: handle_service
   x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service_groups
+  x-onedata-method: handle_logic:get_handle_service_users
   x-onedata-permissions:
     - view_handle_service
-  summary: Get handle service groups
+  summary: Get effective handle service user privileges
   x-bash-codegen-description: |
-    Returns all groups with access to a handle service instance
+    Returns user privileges for accessing a handle service instance.
 
     This operation requires `view_handle_service` privilege.
   description: |
-    Returns all groups with access to a handle service instance
+    Returns user privileges for accessing a handle service instance.
 
     This operation requires `view_handle_service` privilege.
 
     ***Example cURL requests***
 
-    **Get handle service groups**
+    **Get effective handle service user privileges**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     [
-      "LKJhlkASHDLAKSHDLKJHJjL",
-      "LAKSHDLKJHJjLLKJhlkASHD"
+      "register_doi",
+      "view_handle_service"
     ]
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The list of identifiers of groups with access to specific handle service.
+      description: The list of privileges of a user to a specific handle service.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/HandleServicePrivileges'
     '400':
       description: Invalid request.
       schema:
@@ -65,6 +63,11 @@ get:
       description: The ID of the handle service.
       required: true
       type: string
+    - name: uid
+      in: path
+      description: The ID of the user of a handle service.
+      required: true
+      type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleServiceGroups id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli getEffectiveHandleServiceUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

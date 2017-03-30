@@ -22,7 +22,7 @@ get:
 
     **Get handle service group privileges**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     [
@@ -44,7 +44,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -73,7 +73,7 @@ get:
     source: "onezone-rest-cli getHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
-put:
+patch:
   operationId: set_handle_service_group_privileges
   tags:
     - Handle
@@ -97,7 +97,7 @@ put:
 
     **Set handle service group privileges**
     ```bash
-    curl -k -u username:password -X PUT  -H "Content-type: application/json" \
+    curl -u username:password -X PUT  -H "Content-type: application/json" \
     -d '{"privileges": ["register_handle"]}' \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
@@ -146,4 +146,3 @@ put:
   x-code-samples:
   - lang: Shell
     source: "echo '[\"register_handle\"]' | onezone-rest-cli setHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"
-
