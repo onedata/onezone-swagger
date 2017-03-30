@@ -1,5 +1,6 @@
 get:
-  operationId: create_user_group_invite_token
+  operationId: get_user_group_invite_token
+  deprecated: true
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,13 +9,13 @@ get:
   x-onedata-method: token_logic:create
   x-onedata-permissions:
     - group_invite_user
-  summary: Create user invite token for group
+  summary: Get user invite token for group
   x-bash-codegen-description: |
-    Creates a token allowing new user to join the group.
+    Get a token allowing new user to join the group.
 
     This operation requires `group_invite_user` privilege.
   description: |
-    Creates a token allowing new user to join the group.
+    Get a token allowing new user to join the group.
 
     This operation requires `group_invite_user` privilege.
 
@@ -41,7 +42,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -60,6 +61,80 @@ get:
     description: Group ID.
     type: string
     required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserGroupInviteToken id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+
+
+post:
+  operationId: create_user_group_invite_token
+  tags:
+    - Group
+  x-onedata-service: onezone
+  x-onedata-module: group
+  x-onedata-resource: uinvite
+  x-onedata-method: token_logic:create
+  x-onedata-permissions:
+    - group_invite_user
+  summary: Create user invite token for group
+  x-bash-codegen-description: |
+    Creates a token allowing new user to join the group.
+
+    This operation requires `group_invite_user` privilege.
+  description: |
+    Creates a token allowing new user to join the group.
+
+    This operation requires `group_invite_user` privilege.
+
+    ***Example cURL requests***
+
+    **Generate user group invite token**
+    ```bash
+    curl -k -u username:password -X POST \
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/token
+
+    {"token":"MDAxNmxvY2F00aW9uIHJlZlFTUbnZpdGVthHo8xmai4RqqBO2MZM00mrYGgo"}
+    ```
+  consumes:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The token for joining a specific group.
+      schema:
+        $ref : '#/definitions/GroupInviteToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Group invite token attributes.
+    schema:
+      $ref: '#/definitions/GroupInviteTokenRequest'
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createUserGroupInviteToken id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"

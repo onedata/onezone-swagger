@@ -1,39 +1,39 @@
 get:
-  operationId: get_group_users
+  operationId: get_children_groups
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
-  x-onedata-resource: users
-  x-onedata-method: group_logic:get_users
+  x-onedata-resource: children_groups
+  x-onedata-method: group_logic:get_children_groups
   x-onedata-permissions:
     - group_view_data
-  summary: Get group users
+  summary: Get subgroups
   x-bash-codegen-description: |
-    Returns the list of users belonging to a specific group.
+    Returns the list of subgroups of a specific group.
 
     This operation requires `group_view_data` privilege.
   description: |
-    Returns the list of users belonging to a specific group.
+    Returns the list of subgroups of a specific group.
 
     This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 
-    **Get group users**
+    **Get subgroups**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users
+    curl -k -u admin:password -X GET \
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children
 
     {
-      "users": ["lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"]
+      "nested_groups": []
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The list of all user ID's that belong to a specific group
+      description: The list of subgroup ID's.
       schema:
         type: array
         items:
@@ -66,4 +66,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupUsers id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli getChildGroups id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"

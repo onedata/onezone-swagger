@@ -1,37 +1,39 @@
 get:
-  operationId: list_groups
+  operationId: get_group_handles
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
-  x-onedata-resource: groups
-  x-onedata-method: group_logic:create
-  summary: List all groups
+  x-onedata-method: group_logic:get_handles
+  summary: Get group handles
   x-bash-codegen-description: |
-    Returns the list of all groups in the system.
+    Returns the list of groups' handles.
 
-    Requires `list_groups` privilege.
   description: |
-    Returns the list of all groups in the system.
-
-    Requires `list_groups` privilege.
+    Returns the list of groups' handles.
 
     ***Example cURL requests***
 
-    **List all groups in the system**
+    **Get group handles**
     ```bash
-     curl -u username:password -X GET https://$HOST:8443/api/v3/onezone/groups
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/handles
+
+    {
+      "handles": ["IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"]
+    }
     ```
   produces:
     - application/json
   responses:
     '200':
       description: >
-        The list of group ID's created within the Onezone service.
+        Returns the list of group handles.
       schema:
         type: object
         properties:
-          groups:
+          handles:
+            description: The list of all group handles ID's.
             type: array
             items:
               type: string
@@ -55,47 +57,49 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listGroups"
+    source: "onezone-rest-cli getGroupHandles id=LKJAHGSDLKJHALSDkjashdasdk"
 
 
 post:
-  operationId: create_group
+  operationId: create_user_handle
   tags:
     - Group
   x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: groups
-  x-onedata-method: group_logic:create
-  summary: Create new group
+  x-onedata-module: handle
+  x-onedata-method: handle_logic:create
+  summary: Create new user handle
   x-bash-codegen-description: |
-    Creates a new group.
+    Creates a new handle as current group.
 
-    This operation does require any specific privileges.
   description: |
-    Creates a new group.
-
-    This operation does require any specific privileges.
+    Creates a new handle as current group.
 
     ***Example cURL requests***
 
-    **Create new group of type `role`**
+    **Create new group handle**
     ```bash
-     curl -u username:password  -H "Content-type: application/json" \
-     -X POST -d '{ "name":"new_group" , "type":"role" }' \
-     https://$HOST:8443/api/v3/onezone/groups/
+    curl -u admin:password  -H "Content-type: application/json" -X POST \
+    -d '{ ... }'
+    https://$HOST:8443/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/handles
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        ID of the group created in the form /groups/{id} is
+        ID of the created space in the form /groups/{id}/spaces/{sid} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created group.
+          description: ID of the created handle.
           type: string
     '400':
       description: Invalid request.
@@ -118,12 +122,17 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: data
+  - name: handle
     in: body
-    description: Group properties.
+    description: New space parameters.
     schema:
-      $ref: '#/definitions/Group'
+      $ref: '#/definitions/Handle'
+    required: true
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroup name==Group2 type==role "
+    source: "onezone-rest-cli createGroupSpace name==\"New Space\""

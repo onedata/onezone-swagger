@@ -33,4 +33,4 @@ example:
     - group_create_space_token
     - group_join_group
     - group_invite_group
-    - group_remove_group  
+    - group_remove_group

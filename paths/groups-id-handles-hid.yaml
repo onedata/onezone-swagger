@@ -1,26 +1,23 @@
 get:
-  operationId: get_user_handle_service
+  operationId: get_group_handle
   tags:
-    - User
+    - Group
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
-  summary: Get space details
+  x-onedata-module: handle
+  x-onedata-method: handle_logic:get_data
+  summary: Get group handle details
   x-bash-codegen-description: |
-    Returns the details of a specific handle service.
+    Returns the details of a specific handle.
 
-    This operation can be invoked on behalf of current user only.
   description: |
-    Returns the details of a specific handle service.
-
-    This operation can be invoked on behalf of current user only.
+    Returns the details of a specific handle.
 
     ***Example cURL requests***
 
-    **Get handle service details**
+    **Get handle details**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST:8443/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
 
@@ -30,9 +27,9 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the details of a specific handle service.
+      description: Returns the details of a specific handle.
       schema:
-        $ref: '#/definitions/HandleService'
+        $ref: '#/definitions/Handle'
     '400':
       description: Invalid request.
       schema:
@@ -54,45 +51,47 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: hsid
+  - name: id
     in: path
-    description: Handle service ID.
+    description: Group ID.
+    type: string
+    required: true
+  - name: hid
+    in: path
+    description: Handle ID.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
 
 
 delete:
-  operationId: delete_user_handle_service
+  operationId: delete_group_handle
   tags:
-    - User
+    - Group
   x-onedata-service: onezone
   x-onedata-module: space
-  x-onedata-method: space_logic:remove_user
-  summary: Remove user handle service
+  x-onedata-method: space_logic:remove_group
+  summary: Remove group handle
   x-bash-codegen-description: |
-    Removes the users ownership or membership in a specific handle service.
+    Removes the groups ownership or membership in a specific space.
 
-    This operation can be invoked on behalf of current user only.
   description: |
-    Removes the users ownership or membership in a specific handle service.
-
-    This operation can be invoked on behalf of current user only.
+    Removes the groups ownership or membership in a specific space.
 
     ***Example cURL requests***
 
-    **Delete user handle service**
+    **Delete user space**
     ```bash
     curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/user/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST:8443/api/v3/onezone/groups/AKSDKJLHASDJKjhjaksdLKJASD/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The handle service was deleted successfuly.
+      description: The space was deleted successfuly.
     '400':
       description: Invalid request.
       schema:
@@ -114,11 +113,16 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: hsid
+  - name: id
     in: path
-    description: Handle service Id.
+    description: Group ID.
+    type: string
+    required: true
+  - name: hid
+    in: path
+    description: Handle Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteUserHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli deleteGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

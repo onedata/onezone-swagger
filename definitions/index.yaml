@@ -29,6 +29,9 @@ ClientToken:
 ClientTokens:
   $ref: ./clienttokens.yaml
 
+ChildGroups:
+  $ref: ./childgroups.yaml
+
 DefaultSpace:
   $ref: ./defaultspace.yaml
 
@@ -43,6 +46,9 @@ Group:
 
 GroupInviteToken:
   $ref: ./groupinvitetoken.yaml
+
+GroupInviteTokenRequest:
+  $ref: ./groupinvitetokenrequest.yaml
 
 ConnectedAccount:
   $ref: ./connectedaccount.yaml
@@ -104,3 +110,9 @@ Share:
 
 ShareUpdateRequest:
   $ref: ./shareupdaterequest.yaml
+
+Spaces:
+  $ref: ./spaces.yaml
+
+Providers:
+  $ref: ./providers.yaml

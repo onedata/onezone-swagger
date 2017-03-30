@@ -1,24 +1,24 @@
 get:
-  operationId: get_user_handle_services
+  operationId: get_group_handle_services
   tags:
-    - Handle
+    - Group
   x-onedata-service: onezone
   x-onedata-module: handle_service
   x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_user_handle_services
+  x-onedata-method: handle_logic:get_group_handle_services
   x-onedata-permissions:
     - list_handle_services
-  summary: Get user handle services
+  summary: Get group handle services
   x-bash-codegen-description: |
-    Returns the list of registered user handle services.
+    Returns the list of registered group handle services.
   description: |
-    Returns the list of registered user handle services.
+    Returns the list of registered group handle services.
 
     ***Example cURL requests***
 
-    **Get user handle services**
+    **Get group handle services**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/user/handle_services
+    curl -k -u username:password -X GET https://$HOST:8443/api/v3/group/ASLKDJHAKLJSDHJKASD/handle_services
 
     {
       "handle_services": [
@@ -54,33 +54,39 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Group ID.
+      type: string
+      required: true
   x-code-samples:
-  - lang: Shell
-    source: "onezone-rest-cli getUserHandleServices"
+    - lang: Shell
+      source: "onezone-rest-cli getGroupHandleServices"
 
 
 post:
-  operationId: add_user_handle_service
+  operationId: add_group_handle_service
   tags:
-    - Handle
+    - Group
   x-onedata-service: onezone
   x-onedata-module: handle_service
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:add_handle_service
   x-onedata-permissions:
     - add_handle_services
-  summary: Add user handle service
+  summary: Add group handle service
   x-bash-codegen-description: |
-    Allows to register a new handle service.
+    Allows to register a new handle service for group.
   description: |
-    Allows to register a new handle service.
+    Allows to register a new handle service for group.
 
     ***Example cURL requests***
 
-    **Add user handle services**
+    **Add group handle services**
     ```bash
     curl -k -u username:password -X POST  -H "Content-type: application/json" \
-    -d '{ ... }' https://$HOST:8443/api/v3/user/handle_services
+    -d '{ ... }' https://$HOST:8443/api/v3/groups/ASASDLKALKSD/handle_services
     ```
   consumes:
     - application/json
@@ -118,6 +124,11 @@ post:
       required: true
       schema:
         $ref: '#/definitions/HandleService'
+    - name: id
+      in: path
+      description: Group ID.
+      type: string
+      required: true
   x-code-samples:
   - lang: Shell
-    source: "cat hndl_service.json | onezone-rest-cli addUserHandleService -"
+    source: "cat hndl_service.json | onezone-rest-cli addGroupHandleService -"

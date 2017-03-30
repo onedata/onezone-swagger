@@ -1,43 +1,35 @@
 get:
-  operationId: get_group_users
+  operationId: get_effective_group_handle
   tags:
     - Group
   x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: users
-  x-onedata-method: group_logic:get_users
-  x-onedata-permissions:
-    - group_view_data
-  summary: Get group users
+  x-onedata-module: handle
+  x-onedata-method: handle_logic:get_data
+  summary: Get effective group handle details
   x-bash-codegen-description: |
-    Returns the list of users belonging to a specific group.
+    Returns the details of a specific effective handle.
 
-    This operation requires `group_view_data` privilege.
   description: |
-    Returns the list of users belonging to a specific group.
-
-    This operation requires `group_view_data` privilege.
+    Returns the details of a specific effective handle.
 
     ***Example cURL requests***
 
-    **Get group users**
+    **Get effective handle details**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users
+    https://$HOST:8443/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/effective_effective handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-      "users": ["lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"]
+
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The list of all user ID's that belong to a specific group
+      description: Returns the details of a specific effective handle.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Handle'
     '400':
       description: Invalid request.
       schema:
@@ -64,6 +56,11 @@ get:
     description: Group ID.
     type: string
     required: true
+  - name: hid
+    in: path
+    description: Handle ID.
+    type: string
+    required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupUsers id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli getEffectiveGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

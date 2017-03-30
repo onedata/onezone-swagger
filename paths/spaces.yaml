@@ -9,11 +9,11 @@ get:
   summary: List all spaces
   x-bash-codegen-description: |
     Returns the list of all spaces managed by the Onezone service.
-    
+
     This operation requires `list_spaces` privilege.
   description: |
     Returns the list of all spaces managed by the Onezone service.
-    
+
     This operation requires `list_spaces` privilege.
 
     ***Example cURL requests***
@@ -33,12 +33,7 @@ get:
     '200':
       description: List of spaces Id's.
       schema:
-        type: object
-        properties:
-          spaces:
-            type: array
-            items: 
-              type: string
+        $ref: '#/definitions/Spaces'
     '400':
       description: Invalid request.
       schema:
@@ -46,7 +41,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -74,18 +69,18 @@ post:
   x-onedata-method: space_logic:create
   summary: Create new space
   x-bash-codegen-description: |
-    When called by a regular user, creates a new space and creates the current 
+    When called by a regular user, creates a new space and creates the current
     user its owner.
-    
-    When called by a provider, creates a new space and automatically adds 
+
+    When called by a provider, creates a new space and automatically adds
     support for it, based on the token provided in the request body.
 
     This operation does not require any specific privileges.
   description: |
-    When called by a regular user, creates a new space and creates the current 
+    When called by a regular user, creates a new space and creates the current
     user its owner.
-    
-    When called by a provider, creates a new space and automatically adds 
+
+    When called by a provider, creates a new space and automatically adds
     support for it, based on the token provided in the request body.
 
     This operation does not require any specific privileges.
@@ -103,10 +98,10 @@ post:
   responses:
     '201':
       description: >
-        ID of the created space in the form /spaces/{id} is 
-        returned in the response `Location` header. 
+        ID of the created space in the form /spaces/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
+        Location:
           description: ID of the created space.
           type: string
     '400':
@@ -116,7 +111,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -136,7 +131,7 @@ post:
     schema:
       type: object
       properties:
-        name: 
+        name:
           type: string
           description: The name of the space
         token:
@@ -145,4 +140,3 @@ post:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createSpace name:=\"Space 1\" token==ASLKJ1DHAKJS2DLKJAHS5DKJ4ASDKJ3HALSKJD3HLKAJSDHASD1O"
-

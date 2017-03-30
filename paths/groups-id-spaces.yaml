@@ -22,7 +22,7 @@ get:
 
     **Get group spaces**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces
     ```
   produces:
@@ -32,7 +32,7 @@ get:
       description: The list of space ID's for which the group has access.
       schema:
         type: array
-        items: 
+        items:
           type: string
     '400':
       description: Invalid request.
@@ -41,7 +41,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -98,10 +98,10 @@ post:
   responses:
     '201':
       description: >
-        ID of the created space in the form /spaces/{id} is 
-        returned in the response `Location` header.   
+        ID of the created space in the form /spaces/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
+        Location:
           description: ID of the created space.
           type: string
     '400':

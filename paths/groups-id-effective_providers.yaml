@@ -1,43 +1,37 @@
 get:
-  operationId: get_group_users
+  operationId: get_effective_group_providers
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
-  x-onedata-resource: users
-  x-onedata-method: group_logic:get_users
+  x-onedata-resource: providers
+  x-onedata-method: group_logic:get_effective_group_providers
   x-onedata-permissions:
     - group_view_data
-  summary: Get group users
+  summary: Get effective group's providers
   x-bash-codegen-description: |
-    Returns the list of users belonging to a specific group.
+    Returns the effective list of providers supporting group spaces.
 
     This operation requires `group_view_data` privilege.
   description: |
-    Returns the list of users belonging to a specific group.
+    Returns the effective list of providers supporting group spaces.
 
     This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 
-    **Get group users**
+    **Get group effective providers**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users
-
-    {
-      "users": ["lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"]
-    }
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The list of all user ID's that belong to a specific group
+      description: The effective list of providers supporting group spaces.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Providers'
     '400':
       description: Invalid request.
       schema:
@@ -66,4 +60,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupUsers id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli getEffectiveGroupProviders id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"

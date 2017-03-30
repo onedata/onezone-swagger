@@ -1,43 +1,44 @@
 get:
-  operationId: get_groups_effective_user
+  operationId: get_effective_group_provider
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
-  x-onedata-resource: effective_user
-  x-onedata-method: group_logic:get_effective_user
+  x-onedata-resource: provider
+  x-onedata-method: space_logic:get_data
   x-onedata-permissions:
     - group_view_data
-  summary: Get group effective user details
+  summary: Get group's effective provider details
   x-bash-codegen-description: |
-    Returns public information about a specific effective group user.
+    Returns information about a specific effective provider supporting groups spaces.
 
     This operation requires `group_view_data` privilege.
   description: |
-    Returns public information about a specific effective group user.
+    Returns information about a specific effective provider supporting groups spaces.
 
     This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 
-    **Get group user details**
+    **Get group's effective provider details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8/effective_users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5d2JDQ6YvB7a0
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
 
     {
-      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "login": "username",
-      "name": "user1"
+      "providerId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
+      "redirectionPoint": "http://beta.onedata.org/provider2",
+      "latitude": 50.0647,
+      "longitude": 19.9450
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about a group user.
+      description: Information about a specific providing groups spaces.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/ProviderDetails'
     '400':
       description: Invalid request.
       schema:
@@ -64,11 +65,11 @@ get:
     description: Group ID.
     type: string
     required: true
-  - name: uid
+  - name: pid
     in: path
-    description: User ID.
+    description: Effective space ID.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupsEffectiveUser id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getEffectiveGroupProvider id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 pid=HUUPOMNGzikwiLXHaFYcE8"

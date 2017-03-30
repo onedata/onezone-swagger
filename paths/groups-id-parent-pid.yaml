@@ -24,6 +24,11 @@ get:
     ```bash
     curl -k -u admin:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/parent/9OqgExw00RwaU2MXT51
+
+    {
+      "name": "Group1",
+      "type": "organization"
+    }
     ```
   produces:
     - application/json
@@ -65,4 +70,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getParentGroups id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM pid=9OqgExw00RwaU2MXT51"
+    source: "onezone-rest-cli getParentGroup id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM pid=9OqgExw00RwaU2MXT51"

@@ -1,0 +1,78 @@
+post:
+  operationId: join_group
+  tags:
+    - Group
+  x-onedata-service: onezone
+  x-onedata-module: group
+  x-onedata-resource: njoin
+  x-onedata-method: group_logic:join_group
+  x-onedata-permissions:
+    - group_join_group
+  summary: Join group
+  x-bash-codegen-description: |
+    Adds given group as a subgroup of a specific group based on provided token.
+
+    The parent group to which the group will be added is identified from the
+    token (the token is issued in the context of a group).
+
+    This operation requires `group_join_group` privilege.
+  description: |
+    Adds given group as a subgroup of a specific group based on provided token.
+
+    The parent group to which the group will be added is identified from the token
+    (the token is issued in the context of a group).
+
+    This operation requires `group_join_group` privilege.
+
+    ***Example cURL requests***
+
+    **Add subgroup**
+
+    ```bash
+    curl -k  -u admin:password -H "Content-type: application/json" -X POST \
+    -d  '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW"}'  \
+    https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122o
+    ```
+  responses:
+    '201':
+      description: >
+        ID of the joined group in the form /groups/{id} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: ID of the joined group.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Group join token.
+    schema:
+      $ref: '#/definitions/GroupInviteToken'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli joinGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 token==AKLSHJHDKLJASHDJKHASKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"

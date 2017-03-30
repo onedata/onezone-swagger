@@ -26,7 +26,7 @@ get:
 
     **Get effective group users**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users
 
 

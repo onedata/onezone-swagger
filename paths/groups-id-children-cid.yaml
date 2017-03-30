@@ -1,43 +1,43 @@
 get:
-  operationId: get_group_user
+  operationId: get_child_group
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:get_user
+  x-onedata-resource: child_group
+  x-onedata-method: group_logic:get_child_group
   x-onedata-permissions:
     - group_view_data
-  summary: Get group user details
+  summary: Get subgroup details
   x-bash-codegen-description: |
-    Returns the public information about a user {uid} in group {id}.
+    Returns information about a specific child group.
 
     This operation requires `group_view_data` privilege.
   description: |
-    Returns the public information about a user {uid} in group {id}.
+    Returns information about a specific child group.
 
     This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 
-    **Generate user group invite token**
+    **Get child details**
     ```bash
-    curl -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
 
     {
-      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "login":"username",
-      "name":"admin"
+      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "name": "new_group1",
+      "type": "role"
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Information about a group user.
+      description: Information about a specific child group.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
@@ -64,50 +64,56 @@ get:
     description: Group ID.
     type: string
     required: true
-  - name: uid
+  - name: cid
     in: path
-    description: User ID.
+    description: Child group ID.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
 
 
 put:
-  operationId: add_group_user
+  operationId: add_child_group
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:add_user
+  x-onedata-resource: child_group
+  x-onedata-method: group_logic:add_child_group
   x-onedata-permissions:
-    - oz_groups_add_members
-  summary: Get group user details
+    - group_view_data
+  summary: Add child group
   x-bash-codegen-description: |
-    Returns the public information about a user {uid} in group {id}.
+    Adds group {cid} as child group of {id}.
 
-    This operation requires `oz_groups_add_members` privilege.
+    This operation requires `group_view_data` privilege.
   description: |
-    Returns the public information about a user {uid} in group {id}.
+    Adds group {cid} as child group of {id}.
 
-    This operation requires `oz_groups_add_members` privilege.
+    This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 
-    **Generate user group invite token**
+    **Get child details**
     ```bash
-    curl -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    curl -u username:password -X PUT \
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+
+    {
+      "privileges": [
+        "group_view_data"
+      ]
+    }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Information about a group user.
+      description: Information about a specific child group.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/GroupPrivileges'
     '400':
       description: Invalid request.
       schema:
@@ -134,56 +140,46 @@ put:
     description: Group ID.
     type: string
     required: true
-  - name: uid
+  - name: cid
     in: path
-    description: User ID.
+    description: Child group ID.
     type: string
     required: true
-  - name: privileges
-    in: body
-    required: false
-    description: The list of privileges for the
-    schema:
-      $ref: '#/definitions/GroupPrivileges'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli addChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
 
 
 delete:
-  operationId: remove_group_user
+  operationId: delete_child_group
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:remove_user
+  x-onedata-resource: child_group
+  x-onedata-method: group_logic:remove_child_group
   x-onedata-permissions:
-    - group_remove_user
-  summary: Remove user from group
+    - group_remove_group
+  summary: Remove subgroup
   x-bash-codegen-description: |
-    Removes the user {uid} from a group {id} (the user will no longer have
-    access to spaces accessible to the group).
+    Removes a specific child with {cid} from parent group with {id}.
 
-    This operation requires `group_remove_user` privilege.
+    This operation requires `group_remove_group` privilege.
   description: |
-    Removes the user {uid} from a group {id} (the user will no longer have access
-    to spaces accessible to the group).
+    Removes a specific child with {cid} from parent group with {id}.
 
-    This operation requires `group_remove_user` privilege.
+    This operation requires `group_remove_group` privilege.
 
     ***Example cURL requests***
 
-    **Remove user from group**
+    **Remove child group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/groups/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
+    https://$HOST:8443/api/v3/onezone/groups/KoiO-QKqmYZRjPVdtR30FrdIEA1JF9f3TznAr9BDjA4/children/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50
     ```
-  consumes:
-    - application/json
   responses:
     '202':
-      description: The user will be removed from the group.
+      description: A subgroup will be removed.
     '400':
       description: Invalid request.
       schema:
@@ -210,11 +206,11 @@ delete:
     description: Group ID.
     type: string
     required: true
-  - name: uid
+  - name: cid
     in: path
-    description: User ID.
+    description: Child group ID.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli deleteChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"

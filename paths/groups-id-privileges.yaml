@@ -20,7 +20,7 @@ get:
 
     **Get groups privileges to Onezone service**
     ```bash
-    curl -k -u admin:password -X GET \
+    curl -u admin:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
 
     {
@@ -152,7 +152,7 @@ delete:
 
     **Remove all groups privileges to Onezone service**
     ```bash
-    curl -i -k -u username:password  -X DELETE  \
+    curl -i -u username:password  -X DELETE  \
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2/privileges
     ```
   responses:
@@ -187,4 +187,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli removeGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
-
