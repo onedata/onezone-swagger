@@ -1,47 +1,38 @@
 get:
-  operationId: get_user
+  operationId: get_user_handle
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: user
-  x-onedata-method: user_logic:get
-  x-onedata-permissions:
-    - user_view_data
-    - list_users
-  summary: Get user details
+  x-onedata-module: handle
+  x-onedata-method: handle_logic:get_data
+  summary: Get handle details
   x-bash-codegen-description: |
-    Returns the information about a specific user.
+    Returns the details of a specific handle.
 
-    This operation requires `list_users` privilege.
+    This operation can be invoked on behalf of current user only.
   description: |
-    Returns the information about a specific group.
+    Returns the details of a specific handle.
 
-    This operation requires `list_users` privilege.
+    This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Get user details**
+    **Get handle details**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST:8443/api/v3/onezone/user/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "login": "admin",
-      "name": "admin",
-      "connectedAccounts": [],
-      "alias": "",
-      "emailList": []
+
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Information about a user.
+      description: Returns the details of a specific handle.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/Handle'
     '400':
       description: Invalid request.
       schema:
@@ -63,46 +54,45 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: id
+  - name: hid
     in: path
-    description: User ID.
+    description: Handle ID.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUser id=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getUserHandle hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
 
 
 delete:
-  operationId: remove_user
+  operationId: delete_user_handle
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: user
-  x-onedata-method: user_logic:delete
-  x-onedata-permissions:
-    - user_remove
-  summary: Remove user
+  x-onedata-module: space
+  x-onedata-method: space_logic:remove_user
+  summary: Remove handle
   x-bash-codegen-description: |
-    Removes a specific user.
+    Removes the users ownership or membership in a specific space.
 
-    This operation requires `user_remove` privilege.
+    This operation can be invoked on behalf of current user only.
   description: |
-    Removes a specific user.
+    Removes the users ownership or membership in a specific space.
 
-    This operation requires `user_remove` privilege.
+    This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Remove user**
+    **Delete user space**
     ```bash
-    curl -u admin:password -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/users/LT88rteQ4KMSYXMWO0Oibiqn7X5nUD51NTsCqgDN8e4
+    curl -k -u username:password -X DELETE \
+    https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
+  produces:
+    - application/json
   responses:
-    '202':
-      description: The user will be removed.
+    '200':
+      description: The space was deleted successfuly.
     '400':
       description: Invalid request.
       schema:
@@ -124,11 +114,11 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: id
+  - name: hid
     in: path
-    description: User ID.
+    description: Handle Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli deleteUserHandle hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

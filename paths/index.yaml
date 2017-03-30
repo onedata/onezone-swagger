@@ -41,7 +41,7 @@
 
 /spaces/{id}/providers/{pid}:
   $ref: ./spaces-id-providers-pid.yaml
-  
+
 /spaces/{id}/shares:
   $ref: ./spaces-id-shares.yaml
 
@@ -73,6 +73,9 @@
 /user/spaces/{sid}:
   $ref: ./user-spaces-sid.yaml
 
+/user/spaces/{sid}/alias:
+  $ref: ./user-spaces-sid-alias.yaml
+
 /user/groups:
   $ref: ./user-groups.yaml
 
@@ -82,8 +85,65 @@
 /user/groups/{gid}:
   $ref: ./user-groups-gid.yaml
 
-/user/client_token:
-  $ref: ./user-client_token.yaml
+/user/client_tokens:
+  $ref: ./user-client_tokens.yaml
+
+/user/client_tokens/{tid}:
+  $ref: ./user-client_tokens-tid.yaml
+
+/user/privileges:
+  $ref: ./user-privileges.yaml
+
+/user/effective_privileges:
+  $ref: ./user-effective_privileges.yaml
+
+/user/default_space:
+  $ref: ./user-default_space.yaml
+
+/user/default_provider:
+  $ref: ./user-default_provider.yaml
+
+/user/effective_groups:
+  $ref: ./user-effective_groups.yaml
+
+/user/effective_groups/{gid}:
+  $ref: ./user-effective_groups-gid.yaml
+
+/user/effective_spaces:
+  $ref: ./user-effective_spaces.yaml
+
+/user/effective_spaces/{sid}:
+  $ref: ./user-effective_spaces-sid.yaml
+
+/user/effective_providers:
+  $ref: ./user-effective_providers.yaml
+
+/user/effective_providers/{pid}:
+  $ref: ./user-effective_providers-pid.yaml
+
+/user/handle_services:
+  $ref: ./user-handle_services.yaml
+
+/user/handle_services/{hsid}:
+  $ref: ./user-handle_services-hsid.yaml
+
+/user/effective_handle_services:
+  $ref: ./user-effective_handle_services.yaml
+
+/user/effective_handle_services/{hsid}:
+  $ref: ./user-effective_handle_services-hsid.yaml
+
+/user/handles:
+  $ref: ./user-handles.yaml
+
+/user/handles/{hid}:
+  $ref: ./user-handles-hid.yaml
+
+/user/effective_handles:
+  $ref: ./user-effective_handles.yaml
+
+/user/effective_handles/{hid}:
+  $ref: ./user-effective_handles-hid.yaml
 
 /users:
   $ref: ./users.yaml
@@ -91,9 +151,11 @@
 /users/{id}:
   $ref: ./users-id.yaml
 
-/users/{id}/privileges: 
+/users/{id}/privileges:
   $ref: ./users-id-privileges.yaml
 
+/users/{id}/effective_privileges:
+  $ref: ./users-id-effective_privileges.yaml
 
 
 /groups:
@@ -156,7 +218,7 @@
 /groups/{id}/spaces/{sid}:
   $ref: ./groups-id-spaces-sid.yaml
 
-/groups/{id}/privileges: 
+/groups/{id}/privileges:
   $ref: ./groups-id-privileges.yaml
 
 
@@ -180,7 +242,7 @@
 
 /providers:
   $ref: ./providers.yaml
-  
+
 /providers/{pid}:
   $ref: ./providers-pid.yaml
 

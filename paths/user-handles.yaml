@@ -1,40 +1,45 @@
 get:
-  operationId: get_user_group
+  operationId: get_user_handles
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:get_data
-  summary: Get group details
+  x-onedata-module: user
+  x-onedata-method: user_logic:get_handles
+  summary: Get user handles
   x-bash-codegen-description: |
-    Returns information about a specific group to which the user belongs.
+    Returns the list of users' handles.
 
     This operation can be invoked on behalf of current user only.
   description: |
-    Returns information about a specific group to which the user belongs.
+    Returns the list of users' handles.
 
     This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Get user groups**
+    **Get user handles**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/groups/LKJGHASDJHAJKLSHDLJKASD
+    https://$HOST:8443/api/v3/onezone/user/handles
 
     {
-      "groupId": "LKJGHASDJHAJKLSHDLJKASD",
-      "name": "admins",
-      "type": "role"
+      "handles": ["IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"]
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about a specific group.
+      description: >
+        Returns the list of user spaces, including information which space is default.
       schema:
-        $ref: '#/definitions/Group'
+        type: object
+        properties:
+          handles:
+            description: The list of all user handles ID's.
+            type: array
+            items:
+              type: string
     '400':
       description: Invalid request.
       schema:
@@ -55,46 +60,47 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: gid
-    in: path
-    description: Group ID.
-    type: string
-    required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserGroup gid=LKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli getUserHandles"
 
 
-delete:
-  operationId: leave_group
+post:
+  operationId: create_user_handle
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:remove_user
-  summary: Leave group
+  x-onedata-module: handle
+  x-onedata-method: handle_logic:create
+  summary: Create new user handle
   x-bash-codegen-description: |
-    Removes the current user from a specific group.
+    Creates a new handle as current user.
 
     This operation can be invoked on behalf of current user only.
   description: |
-    Removes the current user from a specific group.
+    Creates a new handle as current user.
 
     This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Leave group**
+    **Create new user handle**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/user/groups/qScCV0Tt3NiTLYbx_DGzJFnQxDYQNqNxk6o5YANWRo8
+    curl -k -u admin:password  -H "Content-type: application/json" -X POST \
+    -d '{ ... }'
+    https://$HOST:8443/api/v3/onezone/user/handles
     ```
-  produces:
+  consumes:
     - application/json
   responses:
-    '200':
-      description: The user left the group successfully.
+    '201':
+      description: >
+        ID of the created space in the form /user/spaces/{id} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: ID of the created space.
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -116,11 +122,12 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: gid
-    in: path
-    description: Group ID.
-    type: string
+  - name: handle
+    in: body
+    description: New space parameters.
+    schema:
+      $ref: '#/definitions/Handle'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli leaveGroup gid=LKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli createUserSpace name==\"New Space\""

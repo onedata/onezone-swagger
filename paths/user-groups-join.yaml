@@ -19,10 +19,10 @@ post:
   responses:
     '201':
       description: >
-        ID of the joined group in the form /user/groups/{id} is 
-        returned in the response `Location` header. 
+        ID of the joined group in the form /user/groups/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
+        Location:
           description: ID of the joined group.
           type: string
     '400':
@@ -32,7 +32,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

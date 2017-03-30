@@ -19,19 +19,19 @@ post:
 
     **Join existing space**
     ```bash
-    curl -k -u admin:password  -H "Content-type: application/json" -X PUT \
+    curl -u admin:password  -H "Content-type: application/json" -X PUT \
     -d '{ "token" : "MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcmLciFsOgyUkPI3f02le6PM01IX8go" }'  \
-    https://$HOST:8443/api/v3/onezone/user/spaces/default
+    https://$HOST:8443/api/v3/onezone/user/spaces/join
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        ID of the joined space in the form /user/spaces/{id} is 
-        returned in the response `Location` header. 
+        ID of the joined space in the form /user/spaces/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
+        Location:
           description: ID of the joined space.
           type: string
     '400':
@@ -41,7 +41,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

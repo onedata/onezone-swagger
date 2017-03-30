@@ -1,93 +1,93 @@
 get:
-  operationId: get_current_user
+  operationId: get_default_provider
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_data
-  summary: Get current user details
+  x-onedata-module: spaces
+  x-onedata-method: user_logic:get_default_provider
+  summary: Get default provider
   x-bash-codegen-description: |
-    Returns details about currently authenticated user.
+    Returns the ID of the default provider.
 
     This operation can be invoked on behalf of current user only.
   description: |
-    Returns details about currently authenticated user.
+    Returns the ID of the default provider.
 
     This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Get user details**
+    **Get user default provider**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/onezone/user
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/user/default_provider
 
     {
-      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "login": "admin",
-      "name": "admin",
-      "connectedAccounts": [],
-      "alias": "",
-      "emailList": []
+      "providerId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about user.
+      description: Returns the Id of the default user provider or '404'.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/DefaultProvider'
     '400':
       description: Invalid request.
       schema:
         $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
     '403':
-      description: Forbidden request.
+      description: Authorization error.
       schema:
         $ref: '#/definitions/Error'
     '404':
-      description: Resource not found..
+      description: Resource not found.
       schema:
         $ref: '#/definitions/Error'
     '500':
-      description: Internal server error.
+      description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getCurrentUser"
+    source: "onezone-rest-cli getDefaultProvider"
 
 
-patch:
-  operationId: modify_current_user
+put:
+  operationId: set_default_provider
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:modify
-  summary: Modify current user
+  x-onedata-module: spaces
+  x-onedata-method: user_logic:set_default_provider
+  summary: Set default provider
   x-bash-codegen-description: |
-    Modifies user account details based on information provided in the request body.
+    Sets default provider for current user.
 
     This operation can be invoked on behalf of current user only.
   description: |
-    Modifies user account details based on information provided in the request body.
+    Sets default provider for current user.
 
     This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Change user name**
+    **Set user default provider**
     ```bash
-    curl -k -u username:password  -H "Content-type: application/json" -X PATCH  \
-    -d '{"name": "new_name"}' \
-    https://$HOST:8443/api/v3/onezone/user
+    curl -u username:password  -H "Content-type: application/json" -X PUT \
+    -d '{ "providerId" : "S0Y9FSeSrVTXCTmCpgqfH4-_Dw3Uc9TFJFFzzLtBEs8" }' \
+    https://$HOST:8443/api/v3/onezone/user/default_provider
     ```
   consumes:
     - application/json
   responses:
-    '204':
-      description: User information updated successfully.
+    '200':
+      description: Default provider set successfully.
     '400':
       description: Invalid request.
       schema:
@@ -109,42 +109,46 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: data
+  - name: defaultprovider
     in: body
-    description: User data.
+    description: Default provider ID.
     schema:
-      $ref: '#/definitions/User'
+      $ref: '#/definitions/DefaultProvider'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyCurrentUser name==new_name"
+    source: "onezone-rest-cli setDefaultProvider providerId==LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"
 
 
 delete:
-  operationId: remove_current_user
+  operationId: remove_default_provider
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:remove
-  summary: Remove current user
+  x-onedata-module: spaces
+  x-onedata-method: user_logic:set_default_provider
+  summary: Set default space
   x-bash-codegen-description: |
-    Removes the account of currently authenticated user.
+    Removes default provider setting for current user.
+
+    This operation can be invoked on behalf of current user only.
   description: |
-    Removes the account of currently authenticated user.
+    Removes default provider setting for current user.
+
+    This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Remove user account**
+    **Set user default space**
     ```bash
-    curl -k -u username:password -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/user
+    curl -u username:password  -X DELETE \
+    https://$HOST:8443/api/v3/onezone/user/default_provider
     ```
+  consumes:
+    - application/json
   responses:
     '200':
-      description: User removed successfully.
-      schema:
-        type: string
+      description: Default provider removed successfully.
     '400':
       description: Invalid request.
       schema:
@@ -167,4 +171,4 @@ delete:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeCurrentUser"
+    source: "onezone-rest-cli removeDefaultProvider"

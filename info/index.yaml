@@ -1,4 +1,4 @@
-version: 3.0.0-rc12
+version: 3.0.0-rc13
 title: Onezone
 x-bash-codegen-description: |
  This is the RESTful API definition of Onezone component of Onedata data
@@ -145,8 +145,8 @@ description: |
 
  **Generate new authentication token**
  ```bash
- curl -k -u user:PaSSwoRd -X GET \
- https://beta.onedata.org:8443/api/v3/onezone/user/client_token
+ curl -k -u user:password -X GET \
+ https://beta.onedata.org:8443/api/v3/onezone/user/client_tokens
  ```
 
  **Get user details**

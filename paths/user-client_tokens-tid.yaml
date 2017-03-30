@@ -1,36 +1,32 @@
-get:
-  operationId: get_user_space_token
+delete:
+  operationId: delete_client_token
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: token
-  x-onedata-method: token_logic:create
-  summary: Create space invitation token
+  x-onedata-module: user
+  x-onedata-method: user_logic:remove_token
+  summary: Delete access token
   x-bash-codegen-description: |
-    Creates an invitation token which allows other users to join the space.
+    Removes a specific access token.
 
     This operation can be invoked on behalf of current user only.
   description: |
-    Creates an invitation token which allows other users to join the space.
+    Removes a specific access token.
 
     This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Generate space join token**
+    **Delete user space**
     ```bash
-    curl -i -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/spaces/token
-
-    {"token":"MDAxNmxvY2F00aW95SnhyNGo00VDR6dI3f02le6PM01IX8go"}
+    curl -k -u username:password -X DELETE \
+    https://$HOST:8443/api/v3/onezone/user/client_tokens/PMPs42mROSS7Rg7z7BwU9JYpSof4SvIW5v14uQY8X08
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The space invitation token.
-      schema:
-        $ref: '#/definitions/SpaceInviteToken'
+      description: The token was deleted successfuly.
     '400':
       description: Invalid request.
       schema:
@@ -51,6 +47,12 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+  - name: tid
+    in: path
+    description: Token.
+    type: string
+    required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserSpaceToken"
+    source: "onezone-rest-cli deleteClientSpace tid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"

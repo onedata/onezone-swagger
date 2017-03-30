@@ -1,29 +1,31 @@
 get:
-  operationId: get_handle_services
+  operationId: get_user_handle_services
   tags:
     - Handle
   x-onedata-service: onezone
   x-onedata-module: handle_service
   x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_services
+  x-onedata-method: handle_logic:get_user_handle_services
   x-onedata-permissions:
     - list_handle_services
-  summary: Get handle services
+  summary: Get user handle services
   x-bash-codegen-description: |
-    Returns the list of registered handle services.
+    Returns the list of registered user handle services.
   description: |
-    Returns the list of registered handle services.
+    Returns the list of registered user handle services.
 
     ***Example cURL requests***
 
-    **Get handle services**
+    **Get user handle services**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/handle_services
+    curl -k -u username:password -X GET https://$HOST:8443/api/v3/user/handle_services
 
-    [
-      "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-      "LAKSHDLKJHJjLHSADHLKJhlkASHD"
-    ]
+    {
+      "handle_services": [
+        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -31,9 +33,7 @@ get:
     '200':
       description: The list of identifiers of registered handle services.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/HandleServices'
     '400':
       description: Invalid request.
       schema:
@@ -60,7 +60,7 @@ get:
 
 
 post:
-  operationId: add_handle_service
+  operationId: add_user_handle_service
   tags:
     - Handle
   x-onedata-service: onezone
@@ -68,8 +68,8 @@ post:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:add_handle_service
   x-onedata-permissions:
-    - list_handle_services
-  summary: Add handle service
+    - add_handle_services
+  summary: Add user handle service
   x-bash-codegen-description: |
     Allows to register a new handle service.
   description: |
@@ -77,10 +77,10 @@ post:
 
     ***Example cURL requests***
 
-    **Add handle services**
+    **Add user handle services**
     ```bash
     curl -k -u username:password -X POST  -H "Content-type: application/json" \
-    -d '{ ... }' https://$HOST:8443/api/v3/handle_services
+    -d '{ ... }' https://$HOST:8443/api/v3/user/handle_services
     ```
   consumes:
     - application/json

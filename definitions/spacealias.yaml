@@ -1,0 +1,10 @@
+type: object
+description: Space alias.
+properties:
+  alias:
+    type: string
+    description: Unique ID of the space.
+required:
+  - alias
+example:
+  alias: Another name.

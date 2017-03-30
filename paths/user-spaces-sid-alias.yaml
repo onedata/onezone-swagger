@@ -1,0 +1,193 @@
+get:
+  operationId: get_user_space_alias
+  tags:
+    - User
+  x-onedata-service: onezone
+  x-onedata-module: space
+  x-onedata-method: space_logic:get_data
+  summary: Get space alias
+  x-bash-codegen-description: |
+    Returns the alias of a specific space.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Returns the alias of a specific space.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Get space alias**
+    ```bash
+    curl -k -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
+
+    {
+      "alias": "Test space 2"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the details of a specific space.
+      schema:
+        $ref: '#/definitions/SpaceAlias'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+
+
+put:
+  operationId: get_user_space_alias
+  tags:
+    - User
+  x-onedata-service: onezone
+  x-onedata-module: space
+  x-onedata-method: space_logic:get_data
+  summary: Get space alias
+  x-bash-codegen-description: |
+    Sets the alias of a specific space.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Sets the alias of a specific space.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Set space alias**
+    ```bash
+    curl -u username:password -X POST -d '{"alias": "Space alias"}' \
+    -H 'Content-type: application/json' \
+    https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Space alias has been successfully set.
+      schema:
+        $ref: '#/definitions/Space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: New space alias.
+    schema:
+      $ref: '#/definitions/SpaceAlias'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onezone-rest-cli setUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY alias=="Space alias"
+
+
+delete:
+  operationId: delete_user_space_alias
+  tags:
+    - User
+  x-onedata-service: onezone
+  x-onedata-module: space
+  x-onedata-method: space_logic:remove_space_alias
+  summary: Remove space alias
+  x-bash-codegen-description: |
+    Removes the space alias.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Removes the space alias.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Remove user space alias**
+    ```bash
+    curl -k -u username:password -X DELETE \
+    https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The space was deleted successfuly.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli deleteUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

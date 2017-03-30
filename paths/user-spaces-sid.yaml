@@ -17,13 +17,15 @@ get:
 
     ***Example cURL requests***
 
-    **Generate space join token**
+    **Get space details**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/spaces/IkHB1CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p00Y8
+    https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-
+      "spaceId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+      "providersSupports": {},
+      "name": "Test space 1"
     }
     ```
   produces:
@@ -40,7 +42,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -61,7 +63,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserSpace sid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"
+    source: "onezone-rest-cli getUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
 
 
 delete:
@@ -86,7 +88,7 @@ delete:
     **Delete user space**
     ```bash
     curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/user/spaces/PMPs42mROSS7Rg7z7BwU9JYpSof4SvIW5v14uQY8X08
+    https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:
     - application/json
@@ -100,7 +102,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -121,6 +123,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteUserSpace sid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"
-
-
+    source: "onezone-rest-cli deleteUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

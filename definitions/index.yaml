@@ -6,7 +6,7 @@ Error:
   $ref: ./error.yaml
 
 User:
-  $ref: ./user.yaml 
+  $ref: ./user.yaml
 
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
@@ -15,22 +15,28 @@ ProviderDetails:
   $ref: ./providerdetails.yaml
 
 AuthenticationToken:
-  $ref: ./authenticationtoken.yaml 
+  $ref: ./authenticationtoken.yaml
 
 Space:
-  $ref: ./space.yaml 
+  $ref: ./space.yaml
 
 SpaceSupportToken:
-  $ref: ./spacesupporttoken.yaml 
+  $ref: ./spacesupporttoken.yaml
 
 ClientToken:
-  $ref: ./clienttoken.yaml 
+  $ref: ./clienttoken.yaml
+
+ClientTokens:
+  $ref: ./clienttokens.yaml
 
 DefaultSpace:
-  $ref: ./defaultspace.yaml 
+  $ref: ./defaultspace.yaml
+
+DefaultProvider:
+  $ref: ./defaultprovider.yaml
 
 SpaceInviteToken:
-  $ref: ./spaceinvitetoken.yaml 
+  $ref: ./spaceinvitetoken.yaml
 
 Group:
   $ref: ./group.yaml
@@ -43,6 +49,9 @@ ConnectedAccount:
 
 SpacePrivileges:
   $ref: ./spaceprivileges.yaml
+
+SpaceAlias:
+  $ref: ./spacealias.yaml
 
 GroupPrivileges:
   $ref: ./groupprivileges.yaml
@@ -65,7 +74,7 @@ DOIServiceProperties:
 
 PIDServiceProperties:
   $ref: ./pidserviceproperties.yaml
-  
+
 HandleServiceUpdate:
   $ref: ./handleserviceupdate.yaml
 
@@ -83,6 +92,9 @@ HandleRegistrationRequest:
 
 HandlePrivileges:
   $ref: ./handleprivileges.yaml
+
+HandleServices:
+  $ref: ./handleservices.yaml
 
 HandleServicePrivileges:
   $ref: ./handleserviceprivileges.yaml

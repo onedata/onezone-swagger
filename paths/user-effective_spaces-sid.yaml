@@ -1,0 +1,66 @@
+get:
+  operationId: get_user_effective_space
+  tags:
+    - User
+  x-onedata-service: onezone
+  x-onedata-module: space
+  x-onedata-method: space_logic:get_effective_space
+  summary: Get effective space details
+  x-bash-codegen-description: |
+    Returns information about a specific effective space to which the user belongs.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Returns information about a specific effective space to which the user belongs.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Get user effective space**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/user/effective_spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+
+    {
+      "spaceId":"oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+      "providersSupports":{},
+      "name": "My test space"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the information about a specific effective space.
+      schema:
+        $ref: '#/definitions/Space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserEffectiveSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

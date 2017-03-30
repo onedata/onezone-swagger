@@ -1,36 +1,40 @@
 get:
-  operationId: get_user_space_token
+  operationId: get_user_effective_group
   tags:
     - User
   x-onedata-service: onezone
-  x-onedata-module: token
-  x-onedata-method: token_logic:create
-  summary: Create space invitation token
+  x-onedata-module: group
+  x-onedata-method: group_logic:get_effective_group
+  summary: Get effective group details
   x-bash-codegen-description: |
-    Creates an invitation token which allows other users to join the space.
+    Returns information about a specific effective group to which the user belongs.
 
     This operation can be invoked on behalf of current user only.
   description: |
-    Creates an invitation token which allows other users to join the space.
+    Returns information about a specific effective group to which the user belongs.
 
     This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Generate space join token**
+    **Get user effective group**
     ```bash
-    curl -i -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/spaces/token
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/user/effective_groups/LKJGHASDJHAJKLSHDLJKASD
 
-    {"token":"MDAxNmxvY2F00aW95SnhyNGo00VDR6dI3f02le6PM01IX8go"}
+    {
+      "groupId": "LKJGHASDJHAJKLSHDLJKASD",
+      "name": "admins",
+      "type": "role"
+    }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The space invitation token.
+      description: Returns the information about a specific effective group.
       schema:
-        $ref: '#/definitions/SpaceInviteToken'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
@@ -51,6 +55,12 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+  - name: gid
+    in: path
+    description: Group ID.
+    type: string
+    required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserSpaceToken"
+    source: "onezone-rest-cli getUserEffectiveGroup gid=LKJGHASDJHAJKLSHDLJKASD"

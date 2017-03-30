@@ -1,6 +1,5 @@
 get:
-  operationId: get_user_default_space
-  deprecated: true
+  operationId: get_default_space
   tags:
     - User
   x-onedata-service: onezone
@@ -20,8 +19,8 @@ get:
 
     **Get user default space**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/spaces/default
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/user/default_space
 
     {
       "spaceId": "undefined"
@@ -56,12 +55,11 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserDefaultSpace"
+    source: "onezone-rest-cli getDefaultSpace"
 
 
 put:
-  operationId: set_user_default_space
-  deprecated: true
+  operationId: set_default_space
   tags:
     - User
   x-onedata-service: onezone
@@ -81,17 +79,15 @@ put:
 
     **Set user default space**
     ```bash
-    curl -k -u username:password  -H "Content-type: application/json" -X PUT \
+    curl -u username:password  -H "Content-type: application/json" -X PUT \
     -d '{ "spaceId" : "S0Y9FSeSrVTXCTmCpgqfH4-_Dw3Uc9TFJFFzzLtBEs8" }' \
-    https://$HOST:8443/api/v3/onezone/user/spaces/default
+    https://$HOST:8443/api/v3/onezone/user/default_space
     ```
   consumes:
     - application/json
   responses:
     '200':
-      description: Space created successfully.
-      schema:
-        type: string
+      description: Default space set successfully.
     '400':
       description: Invalid request.
       schema:
@@ -121,4 +117,58 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli setUserDefaultSpace spaceId==LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli setDefaultSpace spaceId==LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"
+
+
+delete:
+  operationId: remove_default_space
+  tags:
+    - User
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-method: user_logic:set_default_space
+  summary: Set default space
+  x-bash-codegen-description: |
+    Removes default space setting for current user.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Removes default space setting for current user.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Set user default space**
+    ```bash
+    curl -u username:password  -X DELETE \
+    https://$HOST:8443/api/v3/onezone/user/default_space
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Default space removed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeDefaultSpace"
