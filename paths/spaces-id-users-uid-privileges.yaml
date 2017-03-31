@@ -8,11 +8,11 @@ get:
   x-onedata-method: space_logic:get_privileges
   summary: Get user privileges to space
   x-bash-codegen-description: |
-    Returns privileges of a user belonging to the space.
+    Returns privileges of a user to a specific space.
 
     This operation requires `space_view_data` privilege.
   description: |
-    Returns privileges of a user belonging to the space.
+    Returns privileges of a user to a specific space.
 
     This operation requires `space_view_data` privilege.
 
@@ -20,9 +20,9 @@ get:
 
     **Get user privileges to space**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
-    
+
     {
       "privileges": [
         "space_add_provider",
@@ -45,7 +45,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -74,7 +74,7 @@ get:
     source: "onezone-rest-cli getSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 
 
-put:
+patch:
   operationId: set_space_user_privileges
   tags:
     - Space
@@ -84,11 +84,11 @@ put:
   x-onedata-method: space_logic:set_privileges
   summary: Set user privileges to space
   x-bash-codegen-description: |
-    Adds specific privileges for a user in a space.
+    Sets privileges for a user to a space.
 
     This operation requires `space_set_privileges` privilege.
   description: |
-    Adds specific privileges for a user in a space.
+    Sets privileges for a user to a space.
 
     This operation requires `space_set_privileges` privilege.
 
@@ -110,7 +110,7 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -143,4 +143,3 @@ put:
   x-code-samples:
   - lang: Shell
     source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
-

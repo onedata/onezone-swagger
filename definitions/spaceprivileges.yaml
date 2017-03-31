@@ -27,4 +27,4 @@ example:
     - space_add_provider
     - space_remove_provider
     - space_change_data
-    - space_view_data 
+    - space_view_data

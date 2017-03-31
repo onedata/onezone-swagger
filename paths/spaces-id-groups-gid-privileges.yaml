@@ -20,9 +20,9 @@ get:
 
     **Get space group privileges**
     ```bash
-    curl -k -u admin:password -X GET \
+    curl -u admin:password -X GET \
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
-    
+
     {
       "privileges": ["space_view_data"]
     }
@@ -41,7 +41,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -70,7 +70,7 @@ get:
     source: "onezone-rest-cli getSpaceGroupPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
 
 
-put:
+patch:
   operationId: set_space_group_privileges
   tags:
     - Space
@@ -92,8 +92,8 @@ put:
 
     **Set space group privileges**
     ```bash
-    curl -k -u username:password  -H "Content-type: application/json" \
-    -X PUT -d '{"privileges": ["space_change_data"]}' \
+    curl -u username:password  -H "Content-type: application/json" \
+    -X PATCH -d '{"privileges": ["space_change_data"]}' \
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
@@ -137,6 +137,4 @@ put:
       $ref: '#/definitions/SpacePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceGroupPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 -"
-
-
+    source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceGroupPrivileges id=SPACE_ID gid=GROUP_ID -"

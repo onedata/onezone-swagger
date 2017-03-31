@@ -8,6 +8,15 @@ Error:
 User:
   $ref: ./user.yaml
 
+Users:
+  $ref: ./users.yaml
+
+Groups:
+  $ref: ./groups.yaml
+
+Shares:
+  $ref: ./shares.yaml
+
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
 

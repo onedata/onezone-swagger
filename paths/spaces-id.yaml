@@ -10,19 +10,19 @@ get:
   x-bash-codegen-description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces' 
+    If called by user who is not member of the space, requires 'list_spaces'
     privilege.
   description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces' 
+    If called by user who is not member of the space, requires 'list_spaces'
     privilege.
 
     ***Example cURL requests***
 
     **Get space details**
     ```bash
-    curl -k -u admin:password -X GET \
+    curl -u admin:password -X GET \
     https://$HOST:8443/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
 
     {
@@ -46,7 +46,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -88,7 +88,7 @@ patch:
 
     **Change space name**
     ```bash
-    curl -k -u username:password -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_space12"}' \
     https://$HOST:8443/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
     ```
@@ -104,7 +104,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -152,7 +152,7 @@ delete:
 
     **Remove space**
     ```bash
-    curl -k -u admin:password -X DELETE \
+    curl -u admin:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
@@ -165,7 +165,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -187,4 +187,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli removeSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
-

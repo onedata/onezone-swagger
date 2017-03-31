@@ -1,27 +1,28 @@
 get:
-  operationId: get_space_shares
+  operationId: get_effective_space_groups
   tags:
     - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
-  x-onedata-resource: shares
-  x-onedata-method: space_logic:get_shares
-  summary: Get space shares
+  x-onedata-resource: groups
+  x-onedata-method: space_logic:get_groups
+  summary: Get effective space groups
   x-bash-codegen-description: |
-    Returns the list of shares from specific space.
+    Returns the effective list of groups belonging to a specific space.
   description: |
-    Returns the list of shares from specific space.
+    Returns the effective list of groups belonging to a specific space.
 
     ***Example cURL requests***
 
-    **List space shares**
+    **Get space groups**
     ```bash
-    curl -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/shares
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/effective_groups
 
     {
-      "shares": [
-        "MDAxNmxvYZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"
+      "groups": [
+        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"
       ]
     }
     ```
@@ -29,9 +30,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of all share ID's that have been created in specific space.
+      description: The list of effective group ID's that belong to a specific space.
       schema:
-        $ref: '#/definitions/Shares'
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -60,4 +61,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceShares id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli getEffectiveSpaceGroups id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

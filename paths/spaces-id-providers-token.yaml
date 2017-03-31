@@ -1,5 +1,5 @@
-get:
-  operationId: get_space_provider_token
+post:
+  operationId: create_space_provider_token
   tags:
     - Space
   x-onedata-service: onezone
@@ -8,12 +8,12 @@ get:
   x-onedata-method: token_logic:create
   summary: Create space support token
   x-bash-codegen-description: |
-    Creates a token which can be submitted to a selected provider in order to 
+    Creates a token which can be submitted to a selected provider in order to
     add storage support for the space.
 
     This operation requires `space_add_provider` privilege.
   description: |
-    Creates a token which can be submitted to a selected provider in order to 
+    Creates a token which can be submitted to a selected provider in order to
     add storage support for the space.
 
     This operation requires `space_add_provider` privilege.
@@ -22,10 +22,12 @@ get:
 
     **Get space support token**
     ```bash
-    curl -k -u admin:password -X GET \
+    curl -u admin:password -X POST \
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/providers/token
 
-    {"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIHZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"}
+    {
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIHZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"
+    }
     ```
   produces:
     - application/json
@@ -41,7 +43,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

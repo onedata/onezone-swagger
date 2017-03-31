@@ -24,14 +24,23 @@
 /spaces/{id}/groups:
   $ref: ./spaces-id-groups.yaml
 
+/spaces/{id}/effective_groups:
+  $ref: ./spaces-id-effective_groups.yaml
+
 /spaces/{id}/groups/token:
   $ref: ./spaces-id-groups-token.yaml
 
 /spaces/{id}/groups/{gid}:
   $ref: ./spaces-id-groups-gid.yaml
 
+/spaces/{id}/effective_groups/{gid}:
+  $ref: ./spaces-id-effective_groups-gid.yaml
+
 /spaces/{id}/groups/{gid}/privileges:
   $ref: ./spaces-id-groups-gid-privileges.yaml
+
+/spaces/{id}/effective_groups/{gid}/privileges:
+  $ref: ./spaces-id-effective_groups-gid-privileges.yaml
 
 /spaces/{id}/providers:
   $ref: ./spaces-id-providers.yaml

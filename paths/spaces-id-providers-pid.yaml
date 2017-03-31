@@ -20,16 +20,18 @@ get:
 
     **Get space provider details**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0__-upGkf9tk
-    
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
+
     {
+      "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk",
       "clientName": "example",
-      "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0__-upGkf9tk",
-      "urls": ["195.216.97.151"],
+      "urls": [
+        "195.216.97.151"
+      ],
       "redirectionPoint": "https://195.216.97.151",
       "latitude": 50.068968,
-      "longitude":19.909444
+      "longitude": 19.909444
     }
     ```
   produces:
@@ -46,7 +48,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -97,8 +99,8 @@ delete:
 
     **Remove space support**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0__-upGkf9tk
+    curl -u username:password -X DELETE \
+    https://$HOST:8443/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
     ```
   responses:
     '200':
@@ -110,7 +112,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -137,4 +139,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli removeProviderSupportingSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 pid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
-

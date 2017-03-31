@@ -20,11 +20,14 @@ get:
 
     **List all spaces**
     ```bash
-    curl -k -u admin:password -X GET \
+    curl -u admin:password -X GET \
     https://$HOST:8443/api/v3/onezone/spaces
 
     {
-      "spaces": ["S0Y9FSe9TFJFFzzLtBEs8","IkHBv8CoAFmbFU4fj26"]
+      "spaces": [
+        "S0Y9FSe9TFJFFzzLtBEs8",
+        "IkHBv8CoAFmbFU4fj26"
+      ]
     }
     ```
   produces:
@@ -69,16 +72,16 @@ post:
   x-onedata-method: space_logic:create
   summary: Create new space
   x-bash-codegen-description: |
-    When called by a regular user, creates a new space and creates the current
-    user its owner.
+    When called by a regular user, creates a new space and sets the current
+    user as its owner.
 
     When called by a provider, creates a new space and automatically adds
     support for it, based on the token provided in the request body.
 
     This operation does not require any specific privileges.
   description: |
-    When called by a regular user, creates a new space and creates the current
-    user its owner.
+    When called by a regular user, creates a new space and sets the current
+    user as its owner.
 
     When called by a provider, creates a new space and automatically adds
     support for it, based on the token provided in the request body.
@@ -89,7 +92,7 @@ post:
 
     **Create new space**
     ```bash
-    curl -k -u username:password  -H "Content-type: application/json" \
+    curl -u username:password  -H "Content-type: application/json" \
     -X POST -d '{ "name" : "new_space" }' \
     https://$HOST:8443/api/v3/onezone/spaces
     ```
@@ -139,4 +142,4 @@ post:
           description: Space creation token (only for providers).
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createSpace name:=\"Space 1\" token==ASLKJ1DHAKJS2DLKJAHS5DKJ4ASDKJ3HALSKJD3HLKAJSDHASD1O"
+    source: "onezone-rest-cli createSpace name==\"Space 1\" token==ASLKJ1DHAKJS2DLKJAHS5DKJ4ASDKJ3HALSKJD3HLKAJSDHASD1O"

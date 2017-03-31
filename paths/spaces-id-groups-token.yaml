@@ -1,5 +1,5 @@
-get:
-  operationId: get_space_group_token
+post:
+  operationId: create_space_group_token
   tags:
     - Space
   x-onedata-service: onezone
@@ -20,11 +20,12 @@ get:
 
     **Create space invitation token for group**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/groups/token
 
-
-    {"token":"MDAxNmxvY0cGUgKWsjcpnrLE00RtOd2F00cGUgKWsjcpnrLE00RtOdhmnQycSICwMsugo"}
+    {
+      "token": "MDAxNmxvY0cGUgKWsjcpnrLE00RtOd2F00cGUgKWsjcpnrLE00RtOdhmnQycSICwMsugo"
+    }
     ```
   produces:
     - application/json
@@ -40,7 +41,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -61,4 +62,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceGroupToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli createSpaceGroupToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
