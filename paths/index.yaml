@@ -57,6 +57,10 @@
 /spaces/{id}/shares/{sid}:
   $ref: ./spaces-id-shares-sid.yaml
 
+
+/shares:
+  $ref: ./shares.yaml
+
 /shares/{id}:
   $ref: ./shares-id.yaml
 

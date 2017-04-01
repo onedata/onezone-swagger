@@ -17,7 +17,7 @@ properties:
     type: string
     description: The ID of the space in which the share was created.
 example:
-  shareId: 
+  shareId:
   name: MyNewShare
   publicUrl: https://onedata.org/shares/ASDLKJH8asdkjasd89898asd89asdlbKJSBDikjab89-asdmASD
   rootFileId: ASDkjlkkasdjoiwnafldnacbaasd8879a8sdkjb
