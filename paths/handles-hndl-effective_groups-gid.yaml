@@ -1,0 +1,68 @@
+get:
+  operationId: get_effective_handle_group
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:get_handle_group
+  x-onedata-permissions:
+    - read_handle
+  summary: Get effective handle group
+  x-bash-codegen-description: |
+    Returns the details of an effective group with access to handle.
+
+    This operation requires `modify_handle` privilege.
+  description: |
+    Returns the details of an effective group with access to handle.
+
+    This operation requires `modify_handle` privilege.
+
+    ***Example cURL requests***
+
+    **Get effective handle group**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_groups/DLAKSHDLKJHJjLHADHLKJh
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Group details returned successfully.
+      schema:
+        $ref: '#/definitions/Group'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      description: The ID of the handle.
+      required: true
+      type: string
+    - name: gid
+      in: path
+      description: The ID of the group to add to handle.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveHandleGroup hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"

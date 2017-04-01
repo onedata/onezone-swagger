@@ -18,12 +18,14 @@ get:
 
     **Get handles**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/handles
+    curl -u username:password -X GET https://$HOST:8443/api/v3/handles
 
-    [
-      "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-      "LAKSHDLKJHJjLHSADHLKJhlkASHD"
-    ]
+    {
+      "handles": [
+        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -31,9 +33,7 @@ get:
     '200':
       description: The list of handle identifiers (Onedata internal GUID's).
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Handles'
     '400':
       description: Invalid request.
       schema:
@@ -87,7 +87,7 @@ post:
 
     **Register handle**
     ```bash
-    curl -k -u username:password -X POST -H "Content-type: application/json" \
+    curl -u username:password -X POST -H "Content-type: application/json" \
     -d '{"handleServiceId": "AFSASDARAWD32aasfASSD", "resourceType": "Share", "resourceId": "LKJGLSAKDGASGD34234JKAHSD", "metadata": "..." }' \
     https://$HOST:8443/api/v3/handles
     ```

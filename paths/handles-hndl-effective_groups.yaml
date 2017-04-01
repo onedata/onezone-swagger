@@ -1,34 +1,34 @@
 get:
-  operationId: list_handle_users
+  operationId: list_effective_handle_groups
   tags:
     - Handle
   x-onedata-service: onezone
   x-onedata-module: handle
   x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_users
+  x-onedata-method: handle_logic:get_handle_groups
   x-onedata-permissions:
-    - view_handle_users
-  summary: Get handle users
+    - view_handle_groups
+  summary: Get effective handle groups
   x-bash-codegen-description: |
-    Returns all users with access to a handle instance
+    Returns effective groups with access to a handle instance.
 
     This operation requires `view_handle` privilege.
   description: |
-    Returns all users with access to a handle instance
+    Returns effective groups with access to a handle instance.
 
     This operation requires `view_handle` privilege.
 
     ***Example cURL requests***
 
-    **Get handle users**
+    **Get handle groups**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_groups
 
     {
-      "users": [
-        "LAKSHDLKLKJhlkASHDJHJjL",
-        "HDLKJHJjLLKLAKSJhlkASHD"
+      "groups": [
+        "LKLKJhlkASHDJLAKSHDHJjL",
+        "KJHJjLHDLLKLAKSJhlkASHD"
       ]
     }
     ```
@@ -36,9 +36,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of identifiers of users with access to specific handle.
+      description: The effective list of identifiers of groups with access to specific handle.
       schema:
-        $ref: '#/definitions/Users'
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -67,4 +67,4 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleUsers hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
+    source: "onezone-rest-cli listEffectiveHandleGroups hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"

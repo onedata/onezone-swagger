@@ -1,5 +1,5 @@
 get:
-  operationId: list_handle_users
+  operationId: get_effective_handle_user_privileges
   tags:
     - Handle
   x-onedata-service: onezone
@@ -7,28 +7,28 @@ get:
   x-onedata-resource: handle
   x-onedata-method: handle_logic:get_handle_users
   x-onedata-permissions:
-    - view_handle_users
-  summary: Get handle users
+    - view_handle
+  summary: Get effective handle user privileges
   x-bash-codegen-description: |
-    Returns all users with access to a handle instance
+    Returns effective user privileges for accessing a handle instance.
 
     This operation requires `view_handle` privilege.
   description: |
-    Returns all users with access to a handle instance
+    Returns effective user privileges for accessing a handle instance.
 
     This operation requires `view_handle` privilege.
 
     ***Example cURL requests***
 
-    **Get handle users**
+    **Get effective handle user privileges**
     ```bash
     curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users
+    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     {
-      "users": [
-        "LAKSHDLKLKJhlkASHDJHJjL",
-        "HDLKJHJjLLKLAKSJhlkASHD"
+      "privileges": [
+        "modify_handle",
+        "view_handle"
       ]
     }
     ```
@@ -36,9 +36,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of identifiers of users with access to specific handle.
+      description: The effective list of privileges of a user to a specific handle.
       schema:
-        $ref: '#/definitions/Users'
+        $ref: '#/definitions/HandlePrivileges'
     '400':
       description: Invalid request.
       schema:
@@ -65,6 +65,11 @@ get:
       description: The ID of the handle service.
       required: true
       type: string
+    - name: uid
+      in: path
+      description: The ID of the user of a handle service.
+      required: true
+      type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleUsers hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
+    source: "onezone-rest-cli getEffectiveHandleUserPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

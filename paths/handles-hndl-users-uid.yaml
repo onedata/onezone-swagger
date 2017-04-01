@@ -1,3 +1,73 @@
+get:
+  operationId: get_handle_user
+  tags:
+    - Handle
+  x-onedata-service: onezone
+  x-onedata-module: handle
+  x-onedata-resource: handle
+  x-onedata-method: handle_logic:get_handle_user
+  x-onedata-permissions:
+    - read_handle
+  summary: Get handle user
+  x-bash-codegen-description: |
+    Allows to add a user to a handle.
+
+    This operation requires `read_handle` privilege.
+  description: |
+    Allows to add a user to a handle.
+
+    This operation requires `read_handle` privilege.
+
+    ***Example cURL requests***
+
+    **Get handle user**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: User details return successfully.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      description: The ID of the handle.
+      required: true
+      type: string
+    - name: uid
+      in: path
+      description: The ID of the user to add to handle.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+
+
 put:
   operationId: add_handle_user
   tags:
@@ -12,17 +82,17 @@ put:
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `modify_handle` privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `modify_handle` privilege.
 
     ***Example cURL requests***
 
     **Add handle user**
     ```bash
-    curl -k -u username:password -X PUT \
+    curl -u username:password -X PUT \
     https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
     ```
   produces:
@@ -37,7 +107,7 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -78,11 +148,11 @@ delete:
     - modify_handle
   summary: Remove handle user
   x-bash-codegen-description: |
-    Allows to remove a user from access to a handle.
+    Allows to revoke users access to a handle.
 
     This operation requires `modify_handle` privilege.
   description: |
-    Allows to remove a user from access to a handle.
+    Allows to revoke users access to a handle.
 
     This operation requires `modify_handle` privilege.
 
@@ -90,7 +160,7 @@ delete:
 
     **Remove handle service user**
     ```bash
-    curl -k -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
@@ -103,7 +173,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

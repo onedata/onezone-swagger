@@ -12,14 +12,14 @@
 /spaces/{id}/users:
   $ref: ./spaces-id-users.yaml
 
-/spaces/{id}/users/token:
-  $ref: ./spaces-id-users-token.yaml
-
 /spaces/{id}/users/{uid}:
   $ref: ./spaces-id-users-uid.yaml
 
 /spaces/{id}/users/{uid}/privileges:
   $ref: ./spaces-id-users-uid-privileges.yaml
+
+/spaces/{id}/users/token:
+  $ref: ./spaces-id-users-token.yaml
 
 /spaces/{id}/groups:
   $ref: ./spaces-id-groups.yaml
@@ -424,6 +424,15 @@
 /handles/{hndl}/users/{uid}/privileges:
   $ref: ./handles-hndl-users-uid-privileges.yaml
 
+/handles/{hndl}/effective_users:
+  $ref: ./handles-hndl-effective_users.yaml
+
+/handles/{hndl}/effective_users/{uid}:
+  $ref: ./handles-hndl-effective_users-uid.yaml
+
+/handles/{hndl}/effective_users/{uid}/privileges:
+  $ref: ./handles-hndl-effective_users-uid-privileges.yaml
+
 /handles/{hndl}/groups:
   $ref: ./handles-hndl-groups.yaml
 
@@ -432,3 +441,12 @@
 
 /handles/{hndl}/groups/{gid}/privileges:
   $ref: ./handles-hndl-groups-gid-privileges.yaml
+
+/handles/{hndl}/effective_groups:
+  $ref: ./handles-hndl-effective_groups.yaml
+
+/handles/{hndl}/effective_groups/{gid}:
+  $ref: ./handles-hndl-effective_groups-gid.yaml
+
+/handles/{hndl}/effective_groups/{gid}/privileges:
+  $ref: ./handles-hndl-effective_groups-gid-privileges.yaml
