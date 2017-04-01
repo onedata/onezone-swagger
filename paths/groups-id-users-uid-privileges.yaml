@@ -75,10 +75,8 @@ get:
   - lang: Shell
     source: "onezone-rest-cli getUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 
-
-put:
+patch:
   operationId: set_user_group_privileges
-  deprecated: true
   tags:
     - Group
   x-onedata-service: onezone
@@ -132,74 +130,10 @@ put:
     required: true
   - name: data
     in: body
-    description: User privileges.
-    required: true
-    schema:
-      $ref: '#/definitions/GroupPrivileges'
-  x-code-samples:
-  - lang: Shell
-    source: "echo '[\"group_view_data\"]' | onezone-rest-cli setUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
-
-
-patch:
-  operationId: change_user_group_privileges
-  tags:
-    - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: upriv
-  x-onedata-method: group_logic:set_privileges
-  x-onedata-permissions:
-    - group_set_privileges
-  summary: Change user's group privileges
-  x-bash-codegen-description: |
-    Sets privileges for a user {uid} in a group {id}.
-
-    This operation requires `group_set_privileges` privilege.
-  description: |
-    Sets privileges for a user {uid} in a group {id}.
-
-    This operation requires `group_set_privileges` privilege.
-  responses:
-    '200':
-      description: The user privileges have been added.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '401':
-      description: Authentication error.
-      schema:
-        $ref: '#/definitions/Error'
-    '403':
-      description: Authorization error.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Resource not found.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server Error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-  - name: id
-    in: path
-    description: Group ID.
-    type: string
-    required: true
-  - name: uid
-    in: path
-    description: User ID.
-    type: string
-    required: true
-  - name: data
-    in: body
     description: User privileges in the group.
     required: true
     schema:
       $ref: '#/definitions/GroupPrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"group_view_data\"]' | onezone-rest-cli changeUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
+    source: "echo '[\"group_view_data\"]' | onezone-rest-cli setUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"

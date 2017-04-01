@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider_details
+  operationId: get_current_provider_details
   tags:
     - Provider
   x-onedata-service: onezone
@@ -63,7 +63,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getProviderDetails"
+    source: "onezone-rest-cli getCurrentProviderDetails"
 
 
 post:

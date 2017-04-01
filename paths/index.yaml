@@ -74,9 +74,6 @@
 /user/spaces:
   $ref: ./user-spaces.yaml
 
-/user/spaces/default:
-  $ref: ./user-spaces-default.yaml
-
 /user/spaces/join:
   $ref: ./user-spaces-join.yaml
 
@@ -198,12 +195,6 @@
 /groups/{id}/users/{uid}/privileges:
   $ref: ./groups-id-users-uid-privileges.yaml
 
-/groups/{id}/parent:
-  $ref: ./groups-id-parent.yaml
-
-/groups/{id}/parent/{pid}:
-  $ref: ./groups-id-parent-pid.yaml
-
 /groups/{id}/parents:
   $ref: ./groups-id-parents.yaml
 
@@ -245,22 +236,6 @@
 
 /groups/{id}/effective_providers/{pid}:
   $ref: ./groups-id-effective_providers-pid.yaml
-
-
-/groups/{id}/nested:
-  $ref: ./groups-id-nested.yaml
-
-/groups/{id}/nested/token:
-  $ref: ./groups-id-nested-token.yaml
-
-/groups/{id}/nested/join:
-  $ref: ./groups-id-nested-join.yaml
-
-/groups/{id}/nested/{nid}:
-  $ref: ./groups-id-nested-nid.yaml
-
-/groups/{id}/nested/{nid}/privileges:
-  $ref: ./groups-id-nested-nid-privileges.yaml
 
 /groups/{id}/spaces:
   $ref: ./groups-id-spaces.yaml
