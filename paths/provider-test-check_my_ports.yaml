@@ -8,11 +8,11 @@ post:
   x-onedata-method: provider_logic:test_connection
   summary: Check ports availability
   x-bash-codegen-description: |
-    Checks if all given ports are reachable from Onezone. 
+    Checks if all given ports are reachable from Onezone.
 
     This operation has public access.
   description: |
-    Checks if all given ports are reachable from Onezone. 
+    Checks if all given ports are reachable from Onezone.
 
     This operation has public access.
 
@@ -38,7 +38,7 @@ post:
           -
             - https://provider1.com:80
             - ok
-          - 
+          -
             - https://provider1.com:443
             - error
     '400':

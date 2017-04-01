@@ -9,11 +9,11 @@ get:
   summary: Get providers
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.
-    
+
     This operation requires `list_providers` privilege.
   description: |
     Returns the list of providers registered in the Onezone service.
-    
+
     This operation requires `list_providers` privilege.
 
     ***Example cURL requests***
@@ -24,7 +24,9 @@ get:
     https://$HOST:8443/api/v3/onezone/providers
 
     {
-      "providers": ["WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"]
+      "providers": [
+        "WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+      ]
     }
     ```
   produces:
@@ -33,14 +35,7 @@ get:
     '200':
       description: List of providers Id's.
       schema:
-        type: object
-        properties:
-          providers:
-            type: array
-            items:
-              type: string
-        required:
-          - providers
+        $ref: '#/definitions/Providers'
     '400':
       description: Invalid request.
       schema:
@@ -48,7 +43,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

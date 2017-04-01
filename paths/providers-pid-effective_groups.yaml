@@ -1,30 +1,30 @@
 get:
-  operationId: list_provider_spaces
+  operationId: list_effective_provider_groups
   tags:
     - Provider
   x-onedata-service: onezone
   x-onedata-module: providers
-  x-onedata-resource: spaces
-  x-onedata-method: provider_logic:get_spaces
-  summary: Get spaces supported by provider
+  x-onedata-resource: groups
+  x-onedata-method: provider_logic:get_groups
+  summary: Get effective groups of provider
   x-bash-codegen-description: |
-    Returns the list of spaces supported by specific provider.
+    Returns the effective list of groups of a specific provider.
 
-    This operation requires `list_spaces_of_provider` privilege.
+    This operation requires `list_groups_of_provider` privilege.
   description: |
-    Returns the list of spaces supported by specific provider.
+    Returns the effective list of groups of a specific provider.
 
-    This operation requires `list_spaces_of_provider` privilege.
+    This operation requires `list_groups_of_provider` privilege.
 
     ***Example cURL requests***
 
-    **List spaces supported by provider**
+    **List groups of a provider**
     ```bash
-    curl -ksS -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces
+    curl -u username:password -X GET  \
+    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/groups
 
     {
-      "spaces": [
+      "groups": [
         "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk",
         "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
       ]
@@ -34,9 +34,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of space ID's.
+      description: The list of group ID's.
       schema:
-        $ref: '#/definitions/Spaces'
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -65,4 +65,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listProviderSpaces pid=ASKLDJKAJHSD765-asdAA"
+    source: "onezone-rest-cli listEffectiveProviderGroups pid=ASKLJDHLAKJSHDASHD76ASDJKL1"

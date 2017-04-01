@@ -7,12 +7,12 @@ get:
   x-onedata-method: space_logic:get_data
   summary: Get space details by provider
   x-bash-codegen-description: |
-    Returns information about a specific space supported by the Oneprovider that 
+    Returns information about a specific space supported by the Oneprovider that
     performed the request.
 
     This operation requires peer certificate authentication.
   description: |
-    Returns information about a specific space supported by the Oneprovider that 
+    Returns information about a specific space supported by the Oneprovider that
     performed the request.
 
     This operation requires peer certificate authentication.
@@ -30,7 +30,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -53,6 +53,59 @@ get:
   - lang: Shell
     source: "onezone-rest-cli getSupportedSpace sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
 
+
+patch:
+  operationId: modify_supported_space
+  tags:
+    - Provider
+  x-onedata-service: onezone
+  x-onedata-module: provider
+  x-onedata-method: space_logic:get_data
+  summary: Modify supported space
+  x-bash-codegen-description: |
+    Modifies supported space parameters.
+
+    This operation requires peer certificate authentication.
+  description: |
+    Modifies supported space parameters.
+
+    This operation requires peer certificate authentication.
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Space modified successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSupportedSpace sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+
+
 delete:
   operationId: remove_space_support
   tags:
@@ -72,7 +125,7 @@ delete:
   produces:
     - application/json
   responses:
-    '200':
+    '204':
       description: The space support has ended.
     '400':
       description: Invalid request.
@@ -81,7 +134,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

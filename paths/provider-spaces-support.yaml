@@ -8,12 +8,12 @@ post:
   x-onedata-method: space_logic:support
   summary: Add space storage support
   x-bash-codegen-description: |
-    Adds support for specific space on behalf of the Oneprovider that 
+    Adds support for specific space on behalf of the Oneprovider that
     performed the request. Space support token is required.
 
     This operation requires peer certificate authentication.
   description: |
-    Adds support for specific space on behalf of the Oneprovider that 
+    Adds support for specific space on behalf of the Oneprovider that
     performed the request. Space support token is required.
 
     This operation requires peer certificate authentication.
@@ -22,10 +22,10 @@ post:
   responses:
     '201':
       description: >
-        ID of the supported space in the form /spaces/{id} is 
-        returned in the response `Location` header. 
+        ID of the supported space in the form /spaces/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
+        Location:
           description: ID of the supported space.
           type: string
     '400':
@@ -35,7 +35,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -49,8 +49,9 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: pid
+  - name: token
     in: body
+    description: The space support token.
     schema:
       $ref: '#/definitions/SpaceSupportToken'
   x-code-samples:

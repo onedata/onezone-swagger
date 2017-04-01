@@ -20,6 +20,9 @@ Shares:
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
 
+ProviderRegistrationResponse:
+  $ref: ./providerregistrationresponse.yaml
+
 ProviderDetails:
   $ref: ./providerdetails.yaml
 

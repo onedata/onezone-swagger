@@ -1,31 +1,31 @@
 get:
-  operationId: list_provider_groups
+  operationId: list_effective_provider_users
   tags:
     - Provider
   x-onedata-service: onezone
   x-onedata-module: providers
-  x-onedata-resource: groups
-  x-onedata-method: provider_logic:get_groups
-  summary: Get groups of provider
+  x-onedata-resource: users
+  x-onedata-method: provider_logic:get_users
+  summary: Get effective users of provider
   x-bash-codegen-description: |
-    Returns the list of groups of a specific provider.
+    Returns the list of effective users of a specific provider.
 
-    This operation requires `list_groups_of_provider` privilege.
+    This operation requires `list_users_of_provider` privilege.
   description: |
-    Returns the list of groups of a specific provider.
+    Returns the list of effective users of a specific provider.
 
-    This operation requires `list_groups_of_provider` privilege.
+    This operation requires `list_users_of_provider` privilege.
 
     ***Example cURL requests***
 
-    **List groups of a provider**
+    **List effective users of a provider**
     ```bash
-    curl -ksS -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/groups
+    curl -u username:password -X GET  \
+    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/users
 
     {
-      "groups": [
-        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk", 
+      "users": [
+        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk",
         "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
       ]
     }
@@ -34,14 +34,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of group ID's.
+      description: The list of effective user ID's.
       schema:
-        type: object
-        properties:
-          groups:
-            type: array
-            items: 
-              type: string
+        $ref: '#/definitions/Users'
     '400':
       description: Invalid request.
       schema:
@@ -49,7 +44,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -70,4 +65,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listProviderGroups"
+    source: "onezone-rest-cli listEffectiveProviderUsers pid=AKLSJDHALKJSHD89asdASD12"

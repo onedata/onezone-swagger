@@ -22,7 +22,7 @@ get:
 
     **Get information about provider**
     ```bash
-    curl -k --cert ozp_cert.pem --key ozp_key.pem \
+    curl --cert ozp_cert.pem --key ozp_key.pem \
     https://$HOST:8443/api/v3/onezone/provider
 
     {
@@ -84,8 +84,8 @@ post:
     This operation has public access.
   description: |
     Registers a Oneprovider in Onezone service.
-    
-    Requires a valid CSR in the bodyand returns signed certificate that will
+
+    Requires a valid CSR in the body and returns signed certificate that will
     must used by the Oneprovider for authorization (SSL Peer Certificate).
 
     This operation has public access.
@@ -95,14 +95,7 @@ post:
     '200':
       description: Provider registered successfully.
       schema:
-        type: object
-        properties:
-          id:
-            description: The ID of the registered provider
-            type: string
-          cert:
-            description: The signed certificate to be used when connecting to Onezone services.
-            type: string
+        $ref: '#/definitions/ProviderRegistrationResponse'
     '400':
       description: Invalid request.
       schema:
@@ -135,7 +128,6 @@ post:
     source: "cat registration_request.json | onezone-rest-cli registerProvider -"
 
 
-
 patch:
   operationId: modify_provider
   tags:
@@ -156,7 +148,7 @@ patch:
 
     **Update provider geo location**
     ```bash
-    curl -k --cert ozp_cert.pem --key ozp_key.pem -X PATCH \
+    curl --cert ozp_cert.pem --key ozp_key.pem -X PATCH \
     -d '{"latitude":50.068968,"longitude":20.909444}'  \
     https://$HOST:8443/api/v3/onezone/provider
     ```
@@ -225,7 +217,7 @@ delete:
 
     **Unregister provider from Onezone**
     ```bash
-    curl -k --cert ozp_cert.pem --key ozp_key.pem -X DELETE  \
+    curl --cert ozp_cert.pem --key ozp_key.pem -X DELETE  \
     https://$HOST:8443/api/v3/onezone/provider
     ```
   consumes:
@@ -256,4 +248,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli unregisterProvider"
-

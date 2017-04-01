@@ -342,17 +342,17 @@
 /providers/{pid}/spaces/{sid}:
   $ref: ./providers-pid-spaces-sid.yaml
 
-/providers/{pid}/users:
-  $ref: ./providers-pid-users.yaml
+/providers/{pid}/effective_users:
+  $ref: ./providers-pid-effective_users.yaml
 
-/providers/{pid}/users/{uid}:
-  $ref: ./providers-pid-users-uid.yaml
+/providers/{pid}/effective_users/{uid}:
+  $ref: ./providers-pid-effective_users-uid.yaml
 
-/providers/{pid}/groups:
-  $ref: ./providers-pid-groups.yaml
+/providers/{pid}/effective_groups:
+  $ref: ./providers-pid-effective_groups.yaml
 
-/providers/{pid}/groups/{gid}:
-  $ref: ./providers-pid-groups-gid.yaml
+/providers/{pid}/effective_groups/{gid}:
+  $ref: ./providers-pid-effective_groups-gid.yaml
 
 #
 # Handle service management

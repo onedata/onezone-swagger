@@ -1,5 +1,5 @@
 get:
-  operationId: get_provider_group
+  operationId: get_effective_provider_group
   tags:
     - Provider
   x-onedata-service: onezone
@@ -8,11 +8,11 @@ get:
   x-onedata-method: provider_logic:get_user
   summary: Get group of provider
   x-bash-codegen-description: |
-    Returns the details of a group of a specific provider.
+    Returns the details of an effective group of a specific provider.
 
     This operation requires `list_groups_of_provider` privilege.
   description: |
-    Returns the details of a group of a specific provider.
+    Returns the details of an effective group of a specific provider.
 
     This operation requires `list_groups_of_provider` privilege.
 
@@ -20,7 +20,7 @@ get:
 
     **Get group of a provider**
     ```bash
-    curl -ksS -u username:password -X GET  \
+    curl -u username:password -X GET  \
     https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/groups/KJHAGSDJKHGASJKHDGAKJHSDGKHJASD
 
     {
@@ -43,7 +43,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -69,4 +69,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getProviderGroup pid=ASDJKHASDASD5465asdvASDasd gid=KJHAGSDJKHGASJKHDGAKJHSDGKHJASD"
+    source: "onezone-rest-cli getEffectiveProviderGroup pid=ASDJKHASDASD5465asdvASDasd gid=KJHAGSDJKHGASJKHDGAKJHSDGKHJASD"

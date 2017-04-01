@@ -68,16 +68,16 @@ post:
   x-onedata-method: sharelogic:create
   summary: Create share
   x-bash-codegen-description: |
-    Updates the details about a share.
+    Creates a new share.
   description: |
-    Updates the details about a share.
+    Creates a new share.
 
     ***Example cURL requests***
 
-    **Change share name**
+    **Create share**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
-    -X PATCH -d '{"name": "new_share_name"}' \
+    -X POST -d '{"name": "new_share_name"}' \
     https://$HOST:8443/api/v3/onezone/shares/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
     ```
   consumes:
