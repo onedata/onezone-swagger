@@ -1,5 +1,5 @@
 get:
-  operationId: get_parent_effective_group
+  operationId: get_effective_parent_group
   tags:
     - Group
   x-onedata-service: onezone

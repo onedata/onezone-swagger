@@ -8,12 +8,12 @@ get:
   x-onedata-method: cowboy_req:peer
   summary: Show client IP address
   x-bash-codegen-description: |
-    Returns the IP of the request peer. Will return the external IP (as seen 
+    Returns the IP of the request peer. Will return the external IP (as seen
     by the Onezone).
 
     This operation has public access.
   description: |
-    Returns the IP of the request peer. Will return the external IP (as seen 
+    Returns the IP of the request peer. Will return the external IP (as seen
     by the Onezone).
 
     This operation has public access.
@@ -29,7 +29,7 @@ get:
   responses:
     '200':
       description: The IP of the requesting peer.
-      schema: 
+      schema:
         type: string
     '400':
       description: Invalid request.
@@ -38,7 +38,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

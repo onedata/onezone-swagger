@@ -69,4 +69,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc"
+    source: "onezone-rest-cli getSpaceShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc"

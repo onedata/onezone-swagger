@@ -1,5 +1,5 @@
 get:
-  operationId: get_groups_effective_user
+  operationId: get_effective_group_user
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,13 +8,13 @@ get:
   x-onedata-method: group_logic:get_effective_user
   x-onedata-permissions:
     - group_view_data
-  summary: Get group effective user details
+  summary: Get effective group user details
   x-bash-codegen-description: |
-    Returns public information about a specific effective group user.
+    Returns information about a specific effective group user.
 
     This operation requires `group_view_data` privilege.
   description: |
-    Returns public information about a specific effective group user.
+    Returns information about a specific effective group user.
 
     This operation requires `group_view_data` privilege.
 
@@ -71,4 +71,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupsEffectiveUser id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getEffectiveGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

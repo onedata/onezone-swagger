@@ -11,14 +11,14 @@ x-bash-codegen-description: |
  REST API operations from the permissions perspective in Onezone service can
  be divided into 2 groups, depending on the actor making the request:
  **User requests**
- regular end user requests are authenticated based on the `X-Auth-Token` header,
+ Regular end user requests are authenticated based on the `X-Auth-Token` header,
  which must include valid client access token, and authorization is made based
  on the privileges assigned to the user in the system. Each operation in this
  API that is available to end users, has a list of required privileges, except
  for the operations which are related to user account management, i.e.each user
  can perform any operation on his account, the `X-Auth-Token` header example:
   ```
-    X-Auth-Token:IAUYCGOUASGDJHASDJKVAHSDJHASDKJHABSDKJHBASKJHJHBASD...
+    X-Auth-Token: IAUYCGOUASGDJHASDJKVAHSDJHASDKJHABSDKJHBASKJHJHBASD...
   ```
  **Provider requests**
  When a Oneprovider service needs to request some action from the Onezone
@@ -145,14 +145,14 @@ description: |
 
  **Generate new authentication token**
  ```bash
- curl -k -u user:password -X GET \
+ curl -u user:password -X POST -H 'Content-type: application/json' -d '{}' \
  https://beta.onedata.org:8443/api/v3/onezone/user/client_tokens
  ```
 
  **Get user details**
  ```bash
- curl -k https://beta.onedata.org:8443/api/v3/onezone/user \
- -H 'X-Auth-Token:MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlk'
+ curl -H 'X-Auth-Token: MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlk' -X GET \
+ https://beta.onedata.org:8443/api/v3/onezone/user \
  ```
 
 contact:

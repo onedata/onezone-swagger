@@ -137,7 +137,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name:=\"New Group Name\" type:=team"
+    source: "onezone-rest-cli modifyGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name==\"New Group Name\" type==team"
 
 
 delete:

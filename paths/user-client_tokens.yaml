@@ -1,12 +1,12 @@
 get:
-  operationId: get_client_tokens
+  operationId: list_client_tokens
   tags:
     - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-resource: utoken
   x-onedata-method: token_logic:get
-  summary: Get user access tokens
+  summary: List user access tokens
   x-bash-codegen-description: |
     Returns the list of user tokens.
 
@@ -20,7 +20,7 @@ get:
 
     **Add user to space**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/onezone/user/client_tokens
+    curl -u username:password -X GET https://$HOST:8443/api/v3/onezone/user/client_tokens
 
     {
       "tokens: [
@@ -57,7 +57,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getClientTokens"
+    source: "onezone-rest-cli listClientTokens"
 
 
 post:
@@ -68,7 +68,7 @@ post:
   x-onedata-module: user
   x-onedata-resource: utoken
   x-onedata-method: token_logic:create
-  summary: Generate user access tokens
+  summary: Generate user access token
   x-bash-codegen-description: |
     Creates new user token.
 
@@ -82,7 +82,7 @@ post:
 
     **Generate user token**
     ```bash
-    curl -k -u username:password -X POST -d '' -H 'content-type: application/json' \
+    curl -u username:password -X POST -d '' -H 'content-type: application/json' \
       https://$HOST:8443/api/v3/onezone/user/client_tokens
 
     {

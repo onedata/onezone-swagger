@@ -1,5 +1,5 @@
 get:
-  operationId: get_user_handle_services
+  operationId: list_user_handle_services
   tags:
     - Handle
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_user_handle_services
   x-onedata-permissions:
     - list_handle_services
-  summary: Get user handle services
+  summary: List user handle services
   x-bash-codegen-description: |
     Returns the list of registered user handle services.
   description: |
@@ -18,7 +18,7 @@ get:
 
     **Get user handle services**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/user/handle_services
+    curl -u username:password -X GET https://$HOST:8443/api/v3/user/handle_services
 
     {
       "handle_services": [
@@ -56,7 +56,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserHandleServices"
+    source: "onezone-rest-cli listUserHandleServices"
 
 
 post:
@@ -79,7 +79,7 @@ post:
 
     **Add user handle services**
     ```bash
-    curl -k -u username:password -X POST  -H "Content-type: application/json" \
+    curl -u username:password -X POST  -H "Content-type: application/json" \
     -d '{ ... }' https://$HOST:8443/api/v3/user/handle_services
     ```
   consumes:

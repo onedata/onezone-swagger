@@ -6,7 +6,7 @@ get:
   x-onedata-module: providers
   x-onedata-resource: users
   x-onedata-method: provider_logic:get_users
-  summary: Get effective users of provider
+  summary: List effective users of provider
   x-bash-codegen-description: |
     Returns the list of effective users of a specific provider.
 

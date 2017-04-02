@@ -1,5 +1,5 @@
 get:
-  operationId: get_group_handle_services
+  operationId: list_group_handle_services
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_group_handle_services
   x-onedata-permissions:
     - list_handle_services
-  summary: Get group handle services
+  summary: List group handle services
   x-bash-codegen-description: |
     Returns the list of registered group handle services.
   description: |
@@ -18,7 +18,7 @@ get:
 
     **Get group handle services**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/group/ASLKDJHAKLJSDHJKASD/handle_services
+    curl -u username:password -X GET https://$HOST:8443/api/v3/group/ASLKDJHAKLJSDHJKASD/handle_services
 
     {
       "handle_services": [
@@ -62,7 +62,7 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getGroupHandleServices"
+      source: "onezone-rest-cli listGroupHandleServices id=ASLKDJHAKLJSDHJKASD"
 
 
 post:
@@ -85,7 +85,7 @@ post:
 
     **Add group handle services**
     ```bash
-    curl -k -u username:password -X POST  -H "Content-type: application/json" \
+    curl -u username:password -X POST  -H "Content-type: application/json" \
     -d '{ ... }' https://$HOST:8443/api/v3/groups/ASASDLKALKSD/handle_services
     ```
   consumes:
@@ -131,4 +131,4 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "cat hndl_service.json | onezone-rest-cli addGroupHandleService -"
+    source: "cat hndl_service.json | onezone-rest-cli addGroupHandleService id=ASASDLKALKSD -"

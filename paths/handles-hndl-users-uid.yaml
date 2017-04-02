@@ -29,7 +29,7 @@ get:
     - application/json
   responses:
     '200':
-      description: User details return successfully.
+      description: User details returned successfully.
       schema:
         $ref: '#/definitions/User'
     '400':
@@ -164,7 +164,7 @@ delete:
     https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
-    '202':
+    '204':
       description: User removed successfully.
     '400':
       description: Invalid request.

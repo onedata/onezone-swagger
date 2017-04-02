@@ -19,7 +19,7 @@ get:
 
     **Get space alias**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
 
     {
@@ -154,7 +154,7 @@ delete:
 
     **Remove user space alias**
     ```bash
-    curl -k -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
     ```
   produces:

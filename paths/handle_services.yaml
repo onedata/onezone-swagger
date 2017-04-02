@@ -1,5 +1,5 @@
 get:
-  operationId: get_handle_services
+  operationId: list_handle_services
   tags:
     - Handle
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_handle_services
   x-onedata-permissions:
     - list_handle_services
-  summary: Get handle services
+  summary: List handle services
   x-bash-codegen-description: |
     Returns the list of registered handle services.
   description: |
@@ -18,12 +18,14 @@ get:
 
     **Get handle services**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/handle_services
+    curl -u username:password -X GET https://$HOST:8443/api/v3/handle_services
 
-    [
-      "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-      "LAKSHDLKJHJjLHSADHLKJhlkASHD"
-    ]
+    {
+      "handle_services": [
+        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -31,9 +33,7 @@ get:
     '200':
       description: The list of identifiers of registered handle services.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/HandleServices'
     '400':
       description: Invalid request.
       schema:
@@ -68,7 +68,7 @@ post:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:add_handle_service
   x-onedata-permissions:
-    - list_handle_services
+    - add_handle_services
   summary: Add handle service
   x-bash-codegen-description: |
     Allows to register a new handle service.
@@ -79,7 +79,7 @@ post:
 
     **Add handle services**
     ```bash
-    curl -k -u username:password -X POST  -H "Content-type: application/json" \
+    curl -u username:password -X POST  -H "Content-type: application/json" \
     -d '{ ... }' https://$HOST:8443/api/v3/handle_services
     ```
   consumes:

@@ -1,12 +1,12 @@
 get:
-  operationId: get_current_user_effective_privileges
+  operationId: list_current_user_effective_privileges
   tags:
     - User
   x-onedata-service: onezone
   x-onedata-module: privileges
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:get_user_effective_privileges
-  summary: Get current user effective privileges
+  summary: List current user effective privileges
   x-bash-codegen-description: |
     Returns the list of currently authenticated user effective privileges for Onezone.
 
@@ -56,4 +56,4 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getCurrentUserEffectivePrivileges"
+    source: "onezone-rest-cli listCurrentUserEffectivePrivileges"

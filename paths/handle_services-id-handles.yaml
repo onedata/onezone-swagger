@@ -1,5 +1,5 @@
 get:
-  operationId: get_handleservice_handles
+  operationId: list_handleservice_handles
   tags:
     - Handle
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_handles
   x-onedata-permissions:
     - list_handles
-  summary: Get handle service handles
+  summary: List handle service handles
   x-bash-codegen-description: |
     Returns the list of ID's of all handles registered by handle service.
   description: |
@@ -18,13 +18,15 @@ get:
 
     **Get handle services handles**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/handle_services/LKJASHDLKJHASD/handles
 
-    [
-      "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-      "LAKSHDLKJHJjLHSADHLKJhlkASHD"
-    ]
+    {
+      "handles": [
+        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -32,9 +34,7 @@ get:
     '200':
       description: The list of handle identifiers (Onedata internal GUID's).
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/handles'
     '400':
       description: Invalid request.
       schema:

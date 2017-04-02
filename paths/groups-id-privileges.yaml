@@ -1,12 +1,12 @@
 get:
-  operationId: get_group_onezone_privileges
+  operationId: list_group_onezone_privileges
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: privileges
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:get_group_privileges
-  summary: Get group's Onezone privileges
+  summary: List group's Onezone privileges
   x-bash-codegen-description: |
     Returns the list of group privileges for Onezone.
 
@@ -62,7 +62,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 
 
 patch:
@@ -87,7 +87,7 @@ patch:
 
     **Set groups privileges to Onezone service**
     ```bash
-    curl -k -H "Content-type: application/json"  -X PUT \
+    curl -H "Content-type: application/json"  -X PUT \
     -d '{"privileges": ["list_spaces"]}' \
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
@@ -127,7 +127,7 @@ patch:
       $ref: '#/definitions/OnezonePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"list_spaces\", \"list_spaces\"]' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
+    source: "echo '{"privileges": [\"list_spaces\", \"add_spaces\"]}' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
 
 
 delete:
@@ -152,7 +152,7 @@ delete:
 
     **Remove all groups privileges to Onezone service**
     ```bash
-    curl -i -u username:password  -X DELETE  \
+    curl -i -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2/privileges
     ```
   responses:

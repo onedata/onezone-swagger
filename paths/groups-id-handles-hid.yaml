@@ -16,7 +16,7 @@ get:
 
     **Get handle details**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
@@ -71,8 +71,8 @@ delete:
   tags:
     - Group
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_group
+  x-onedata-module: handle
+  x-onedata-method: handle_logic:remove_group
   summary: Remove group handle
   x-bash-codegen-description: |
     Removes the groups ownership or membership in a specific space.
@@ -84,7 +84,7 @@ delete:
 
     **Delete user space**
     ```bash
-    curl -k -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/groups/AKSDKJLHASDJKjhjaksdLKJASD/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:

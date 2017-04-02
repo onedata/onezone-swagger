@@ -1,12 +1,12 @@
 get:
-  operationId: get_effective_space_groups
+  operationId: list_effective_space_groups
   tags:
     - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: groups
   x-onedata-method: space_logic:get_groups
-  summary: Get effective space groups
+  summary: list effective space groups
   x-bash-codegen-description: |
     Returns the effective list of groups belonging to a specific space.
   description: |
@@ -61,4 +61,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveSpaceGroups id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listEffectiveSpaceGroups id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

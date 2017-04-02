@@ -20,7 +20,7 @@ get:
 
     **List all users in the system**
     ```bash
-     curl -k -u username:password -X GET https://$HOST:8443/api/v3/onezone/users
+     curl -u username:password -X GET https://$HOST:8443/api/v3/onezone/users
     ```
   produces:
     - application/json
@@ -29,12 +29,7 @@ get:
       description: >
         The list of user ID's registered within the Onezone service.
       schema:
-        type: object
-        properties:
-          users:
-            type: array
-            items:
-              type: string
+        $ref: '#/definitions/Users'
     '400':
       description: Invalid request.
       schema:

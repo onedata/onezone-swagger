@@ -1,5 +1,5 @@
 get:
-  operationId: get_child_group_privileges
+  operationId: list_child_group_privileges
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: group_logic:get_child_group_privileges
   x-onedata-permissions:
     - group_view_data
-  summary: Get child group privileges
+  summary: List child group privileges
   x-bash-codegen-description: |
     Returns the list of child group privileges in a specific group.
 
@@ -20,13 +20,15 @@ get:
 
     ***Example cURL requests***
 
-    **Get subgroup privileges in a group**
+    **Get child group privileges in a group**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/groups/GROUP_ID/children/CHILD_GROUP_ID/privileges
 
     {
-      "privileges": ["group_view_data"]
+      "privileges": [
+        "group_view_data"
+      ]
     }
     ```
   produces:
@@ -69,7 +71,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli listChildGroupPrivileges id=$GROUP_ID cid=$CHILD_GROUP_ID"
 
 
 patch:
@@ -143,4 +145,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"group_change_data\", \"group_view_data\"]' | onezone-rest-cli setChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG -"
+    source: "echo '{\"privileges\": [\"group_change_data\", \"group_view_data\"]}' | onezone-rest-cli setChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG -"

@@ -1,12 +1,12 @@
 get:
-  operationId: get_space_shares
+  operationId: list_space_shares
   tags:
     - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: shares
   x-onedata-method: space_logic:get_shares
-  summary: Get space shares
+  summary: List space shares
   x-bash-codegen-description: |
     Returns the list of shares from specific space.
   description: |
@@ -60,4 +60,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceShares id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listSpaceShares id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

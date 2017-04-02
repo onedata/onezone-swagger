@@ -1,11 +1,11 @@
 get:
-  operationId: get_user_spaces
+  operationId: list_user_spaces
   tags:
     - User
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_spaces
-  summary: Get user spaces
+  summary: List user spaces
   x-bash-codegen-description: |
     Returns the list of users' spaces.
 
@@ -19,11 +19,13 @@ get:
 
     **Get user spaces**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/user/spaces
 
     {
-      "spaces": ["IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"],
+      "spaces": [
+        "IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"
+      ],
       "default": "undefined"
     }
     ```
@@ -66,7 +68,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserSpaces"
+    source: "onezone-rest-cli listUserSpaces"
 
 
 post:
@@ -92,7 +94,7 @@ post:
 
     **Create new user space**
     ```bash
-    curl -k -u admin:password  -H "Content-type: application/json" -X POST \
+    curl -u admin:password  -H "Content-type: application/json" -X POST \
     -d '{ "name" : "test_space" , "token" : "JKAxNWxUgPCAxNDk2MTQwMTQ0v38YI0Z2",  "size" : "150" }'
     https://$HOST:8443/api/v3/onezone/user/spaces
     ```
@@ -136,4 +138,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createUserSpace name==\"New Space\""
+    source: "onezone-rest-cli createUserSpace name==test_space token==JKAxNWxUgPCAxNDk2MTQwMTQ0v38YI0Z2 size:=1024"

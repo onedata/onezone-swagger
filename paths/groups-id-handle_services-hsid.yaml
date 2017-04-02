@@ -3,9 +3,9 @@ get:
   tags:
     - Group
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
-  summary: Get group space details
+  x-onedata-module: handle
+  x-onedata-method: handle_logic:get_data
+  summary: Get group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific handle service.
 
@@ -16,7 +16,7 @@ get:
 
     **Get handle service details**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/ALASDLKJALKSDJKLASD/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
@@ -71,8 +71,8 @@ delete:
   tags:
     - Group
   x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_group
+  x-onedata-module: handle
+  x-onedata-method: handle_logic:remove_group
   summary: Remove group handle service
   x-bash-codegen-description: |
     Removes the group ownership or membership in a specific handle service.
@@ -84,7 +84,7 @@ delete:
 
     **Delete user handle service**
     ```bash
-    curl -k -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/groups/AJKLASHJKDHKAJSHD/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:

@@ -19,7 +19,7 @@ get:
 
     **Get user groups**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/user/groups/LKJGHASDJHAJKLSHDLJKASD
 
     {
@@ -87,7 +87,7 @@ delete:
 
     **Leave group**
     ```bash
-    curl -k -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/user/groups/qScCV0Tt3NiTLYbx_DGzJFnQxDYQNqNxk6o5YANWRo8
     ```
   produces:

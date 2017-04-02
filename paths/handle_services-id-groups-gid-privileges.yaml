@@ -1,5 +1,5 @@
 get:
-  operationId: get_handle_service_group_privileges
+  operationId: list_handle_service_group_privileges
   tags:
     - Handle
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_handle_service_group
   x-onedata-permissions:
     - view_handle_service
-  summary: Get handle service group privileges
+  summary: List handle service group privileges
   x-bash-codegen-description: |
     Returns group privileges for accessing a handle service instance.
 
@@ -25,10 +25,12 @@ get:
     curl -u username:password -X GET \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
-    [
-      "register_doi",
-      "view_handle_service"
-    ]
+    {
+      "privileges": [
+        "register_doi",
+        "view_handle_service"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -70,7 +72,7 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli listHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
 patch:
@@ -145,4 +147,4 @@ patch:
         $ref: '#/definitions/HandleServicePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"register_handle\"]' | onezone-rest-cli setHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"
+    source: "echo '{\"privileges\": [\"register_handle\"]}' | onezone-rest-cli setHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"

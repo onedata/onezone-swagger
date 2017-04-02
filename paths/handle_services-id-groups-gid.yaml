@@ -92,7 +92,7 @@ put:
 
     **Add handle service user**
     ```bash
-    curl -k -u username:password -X PUT \
+    curl -u username:password -X PUT \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
     ```
   consumes:
@@ -137,7 +137,7 @@ put:
 
 
 delete:
-  operationId: remove_handle_service_group
+  operationId: delete_handle_service_group
   tags:
     - Handle
   x-onedata-service: onezone
@@ -160,7 +160,7 @@ delete:
 
     **Remove handle service group**
     ```bash
-    curl -k -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/DLAKSHDLKJHJjLHADHLKJh
     ```
   responses:
@@ -199,4 +199,4 @@ delete:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli deleteHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

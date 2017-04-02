@@ -19,11 +19,17 @@ get:
 
     **Get handle details**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/user/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-
+      "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+      "handleType": "DOI",
+      "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
+      "handle": "10.572/ABCD-asdakjsdak87587asdk-1234/8",
+      "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
+      "metadata": "...",
+      "timestamp": "1997-07-16T19:20"
     }
     ```
   produces:
@@ -85,7 +91,7 @@ delete:
 
     **Delete user space**
     ```bash
-    curl -k -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:

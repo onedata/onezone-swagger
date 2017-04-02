@@ -23,7 +23,20 @@ get:
     https://$HOST:8443/api/v3/onezone/user/effective_handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-
+        "name": "MyCommunity Handle service",
+        "proxyEndpoint": "https://localhost:17000/handle_proxy",
+        "serviceProperties": {
+            "allowTemplateOverride": false,
+            "doiEndpoint": "/doi",
+            "host": "https://mds.test.datacite.org",
+            "identifierTemplate": "{{space.name}}-{{space.guid}}",
+            "mediaEndpoint": "/media",
+            "metadataEndpoint": "/metadata",
+            "password": "pa$$word",
+            "prefix": 10.5072,
+            "type": "DOI",
+            "username": "alice"
+        }
     }
     ```
   produces:

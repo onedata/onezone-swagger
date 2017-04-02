@@ -1,5 +1,5 @@
 get:
-  operationId: get_effective_group_spaces
+  operationId: list_effective_group_spaces
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: group_logic:get_effective_group_spaces
   x-onedata-permissions:
     - group_view_data
-  summary: Get effective group's spaces
+  summary: List effective group's spaces
   x-bash-codegen-description: |
     Returns the effective list of spaces to which the group has access.
 
@@ -60,4 +60,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveGroupSpaces id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listEffectiveGroupSpaces id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"

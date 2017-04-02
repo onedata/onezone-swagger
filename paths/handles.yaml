@@ -1,5 +1,5 @@
 get:
-  operationId: get_handles
+  operationId: list_handles
   tags:
     - Handle
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_handles
   x-onedata-permissions:
     - list_handles
-  summary: Get handles
+  summary: List handles
   x-bash-codegen-description: |
     Returns the list of ID's of all handles accessible by the current user.
   description: |
@@ -56,7 +56,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandles"
+    source: "onezone-rest-cli listHandles"
 
 
 post:

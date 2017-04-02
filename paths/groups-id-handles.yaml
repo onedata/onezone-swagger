@@ -1,16 +1,16 @@
 get:
-  operationId: get_group_handles
+  operationId: list_group_handles
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-method: group_logic:get_handles
-  summary: Get group handles
+  summary: List group handles
   x-bash-codegen-description: |
-    Returns the list of groups' handles.
+    Returns the list of groups handles.
 
   description: |
-    Returns the list of groups' handles.
+    Returns the list of groups handles.
 
     ***Example cURL requests***
 
@@ -20,7 +20,9 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/handles
 
     {
-      "handles": ["IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"]
+      "handles": [
+        "IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"
+      ]
     }
     ```
   produces:
@@ -30,13 +32,7 @@ get:
       description: >
         Returns the list of group handles.
       schema:
-        type: object
-        properties:
-          handles:
-            description: The list of all group handles ID's.
-            type: array
-            items:
-              type: string
+        $ref: '#/definitions/Handles'
     '400':
       description: Invalid request.
       schema:
@@ -65,17 +61,17 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupHandles id=LKJAHGSDLKJHALSDkjashdasdk"
+    source: "onezone-rest-cli listGroupHandles id=LKJAHGSDLKJHALSDkjashdasdk"
 
 
 post:
-  operationId: create_user_handle
+  operationId: create_group_handle
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: handle
   x-onedata-method: handle_logic:create
-  summary: Create new user handle
+  summary: Create new group handle
   x-bash-codegen-description: |
     Creates a new handle as current group.
 
@@ -124,7 +120,7 @@ post:
   parameters:
   - name: handle
     in: body
-    description: New space parameters.
+    description: New handle parameters.
     schema:
       $ref: '#/definitions/Handle'
     required: true
@@ -135,4 +131,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroupSpace name==\"New Space\""
+    source: "cat handle.json onezone-rest-cli createGroupHandle id=LKJAHGSDLKJHALSDkjashdasdk"

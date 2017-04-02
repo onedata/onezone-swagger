@@ -66,7 +66,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getGroupSpaceAlias id=KLJASDFJKHASDASER3ewdas sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
 
 
 put:
@@ -97,10 +97,8 @@ put:
   consumes:
     - application/json
   responses:
-    '200':
+    '204':
       description: Space alias has been successfully set.
-      schema:
-        $ref: '#/definitions/SpaceAlias'
     '400':
       description: Invalid request.
       schema:
@@ -170,8 +168,8 @@ delete:
   produces:
     - application/json
   responses:
-    '200':
-      description: The space was deleted successfuly.
+    '204':
+      description: The space alias was deleted successfuly.
     '400':
       description: Invalid request.
       schema:

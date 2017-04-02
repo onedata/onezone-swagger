@@ -19,11 +19,24 @@ get:
 
     **Get handle service details**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/user/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-
+        "name": "MyCommunity Handle service",
+        "proxyEndpoint": "https://localhost:17000/handle_proxy",
+        "serviceProperties": {
+            "allowTemplateOverride": false,
+            "doiEndpoint": "/doi",
+            "host": "https://mds.test.datacite.org",
+            "identifierTemplate": "{{space.name}}-{{space.guid}}",
+            "mediaEndpoint": "/media",
+            "metadataEndpoint": "/metadata",
+            "password": "pa$$word",
+            "prefix": 10.5072,
+            "type": "DOI",
+            "username": "alice"
+        }
     }
     ```
   produces:
@@ -85,7 +98,7 @@ delete:
 
     **Delete user handle service**
     ```bash
-    curl -k -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/user/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:

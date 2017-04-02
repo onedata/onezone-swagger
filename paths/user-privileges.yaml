@@ -1,12 +1,12 @@
 get:
-  operationId: get_current_user_privileges
+  operationId: list_current_user_privileges
   tags:
     - User
   x-onedata-service: onezone
   x-onedata-module: privileges
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:get_user_privileges
-  summary: Get current user privileges
+  summary: List current user privileges
   x-bash-codegen-description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
@@ -56,7 +56,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getCurrentUserPrivileges"
+    source: "onezone-rest-cli listCurrentUserPrivileges"
 
 
 patch:

@@ -1,5 +1,5 @@
 get:
-  operationId: get_spaces
+  operationId: list_spaces
   tags:
     - Space
   x-onedata-service: onezone
@@ -59,7 +59,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaces"
+    source: "onezone-rest-cli listSpaces"
 
 
 post:

@@ -1,5 +1,5 @@
 get:
-  operationId: get_effective_group_providers
+  operationId: list_effective_group_providers
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: group_logic:get_effective_group_providers
   x-onedata-permissions:
     - group_view_data
-  summary: Get effective group's providers
+  summary: List effective group's providers
   x-bash-codegen-description: |
     Returns the effective list of providers supporting group spaces.
 
@@ -60,4 +60,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveGroupProviders id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listEffectiveGroupProviders id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"

@@ -1,5 +1,5 @@
 get:
-  operationId: get_effective_parent_groups
+  operationId: list_effective_parent_groups
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,13 +8,13 @@ get:
   x-onedata-method: group_logic:get_parent_groups
   x-onedata-permissions:
     - group_view_data
-  summary: Get parent groups
+  summary: List effective parent groups
   x-bash-codegen-description: |
-    Returns the parent groups of a specific group.
+    Returns the effective parent groups of a specific group.
 
     This operation requires `group_view_data` privilege.
   description: |
-    Returns the parent groups of a specific group.
+    Returns the effective parent groups of a specific group.
 
     This operation requires `group_view_data` privilege.
 
@@ -26,7 +26,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_parents
 
     {
-      "parent_groups": []
+      "groups": []
     }
     ```
   produces:
@@ -35,9 +35,7 @@ get:
     '200':
       description: The list of effective parent group ID's.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -66,4 +64,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveParentGroups id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listEffectiveParentGroups id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

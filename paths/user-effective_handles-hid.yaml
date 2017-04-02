@@ -23,7 +23,13 @@ get:
     https://$HOST:8443/api/v3/onezone/user/effective_handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-
+      "handleId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+      "handleType": "DOI",
+      "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
+      "handle": "10.572/ABCD-asdakjsdak87587asdk-1234/8",
+      "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
+      "metadata": "...",
+      "timestamp": "1997-07-16T19:20"
     }
     ```
   produces:
@@ -32,7 +38,7 @@ get:
     '200':
       description: Returns the information about a specific effective handle.
       schema:
-        $ref: '#/definitions/Space'
+        $ref: '#/definitions/Handle'
     '400':
       description: Invalid request.
       schema:

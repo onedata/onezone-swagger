@@ -1,5 +1,5 @@
 get:
-  operationId: get_user_group_privileges
+  operationId: list_user_group_privileges
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: group_logic:get_privileges
   x-onedata-permissions:
     - group_view_data
-  summary: Get user's group privileges
+  summary: List user's group privileges
   x-bash-codegen-description: |
     Returns the list of user privileges in a specific group.
 
@@ -22,7 +22,7 @@ get:
 
     **Get group users**
     ```bash
-    curl -k -u username:password -X GET
+    curl -u username:password -X GET
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
 
     {
@@ -73,7 +73,8 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+
 
 patch:
   operationId: set_user_group_privileges
@@ -136,4 +137,4 @@ patch:
       $ref: '#/definitions/GroupPrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"group_view_data\"]' | onezone-rest-cli setUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
+    source: "echo '{\"privileges\": [\"group_view_data\"]}' | onezone-rest-cli setUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"

@@ -97,7 +97,7 @@ put:
     **Add group to space**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups
+     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz
     ```
   consumes:
     - application/json
@@ -139,7 +139,7 @@ put:
     in: body
     schema:
       $ref: '#/definitions/SpacePrivileges'
-    required: true
+    required: false
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli addGroupToSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

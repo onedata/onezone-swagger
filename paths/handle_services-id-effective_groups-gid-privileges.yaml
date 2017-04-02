@@ -25,10 +25,12 @@ get:
     curl -u username:password -X GET \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
-    [
-      "register_doi",
-      "view_handle_service"
-    ]
+    {
+      "privileges": [
+        "register_doi",
+        "view_handle_service"
+      ]
+    }
     ```
   produces:
     - application/json

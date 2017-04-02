@@ -1,12 +1,12 @@
 get:
-  operationId: get_space_user_privileges
+  operationId: list_space_user_privileges
   tags:
     - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: upriv
   x-onedata-method: space_logic:get_privileges
-  summary: Get user privileges to space
+  summary: List user privileges to space
   x-bash-codegen-description: |
     Returns privileges of a user to a specific space.
 
@@ -71,7 +71,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 
 
 patch:

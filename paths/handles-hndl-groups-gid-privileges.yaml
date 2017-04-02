@@ -1,5 +1,5 @@
 get:
-  operationId: get_handle_group_privileges
+  operationId: list_handle_group_privileges
   tags:
     - Handle
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_handle_group
   x-onedata-permissions:
     - view_handle
-  summary: Get handle group privileges
+  summary: List handle group privileges
   x-bash-codegen-description: |
     Returns group privileges for accessing a handle instance.
 
@@ -71,7 +71,7 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleGroupPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
+    source: "onezone-rest-cli listHandleGroupPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
 
 
 patch:

@@ -1,12 +1,12 @@
 get:
-  operationId: get_user_onezone_effective_privileges
+  operationId: list_user_onezone_effective_privileges
   tags:
     - User
   x-onedata-service: onezone
   x-onedata-module: privileges
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:get_user_privileges
-  summary: Get user's Onezone privileges
+  summary: List user's Onezone privileges
   x-bash-codegen-description: |
     Returns the list of user privileges for Onezone.
 
@@ -62,4 +62,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserOnezoneEffectivePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listUserOnezoneEffectivePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

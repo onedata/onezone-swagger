@@ -22,13 +22,15 @@ get:
 
     **Get handle service users**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users
 
-    [
-      "LKJhlkASHDLAKSHDLKJHJjL",
-      "LAKSHDLKJHJjLLKJhlkASHD"
-    ]
+    {
+      "users": [
+        "LKJhlkASHDLAKSHDLKJHJjL",
+        "LAKSHDLKJHJjLLKJhlkASHD"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -36,9 +38,7 @@ get:
     '200':
       description: The list of identifiers of users with access to specific handle service.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Users'
     '400':
       description: Invalid request.
       schema:

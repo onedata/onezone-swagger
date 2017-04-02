@@ -1,5 +1,5 @@
 post:
-  operationId: create_space_provider_token
+  operationId: create_space_support_token
   tags:
     - Space
   x-onedata-service: onezone
@@ -20,7 +20,7 @@ post:
 
     ***Example cURL requests***
 
-    **Get space support token**
+    **Create space support token**
     ```bash
     curl -u admin:password -X POST \
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/providers/token
@@ -64,4 +64,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceProviderToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli createSpaceSupportToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

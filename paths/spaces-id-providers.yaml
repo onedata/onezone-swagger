@@ -1,12 +1,12 @@
 get:
-  operationId: get_space_providers
+  operationId: list_space_providers
   tags:
     - Space
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: providers
   x-onedata-method: space_logic:get_providers
-  summary: Get space providers
+  summary: List space providers
   x-bash-codegen-description: |
     Returns the list of providers supporting specific space.
 
@@ -64,4 +64,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceProviders id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listSpaceProviders id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

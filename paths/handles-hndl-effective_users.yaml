@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_handle_users
   x-onedata-permissions:
     - view_handle_users
-  summary: Get effective handle users
+  summary: List effective handle users
   x-bash-codegen-description: |
     Returns effective list of users with access to a handle instance.
 

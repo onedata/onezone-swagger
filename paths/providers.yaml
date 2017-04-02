@@ -1,12 +1,12 @@
 get:
-  operationId: get_providers
+  operationId: list_providers
   tags:
     - Provider
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-resource: providers
   x-onedata-method: provider_logic:get_providers
-  summary: Get providers
+  summary: List providers
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.
 
@@ -58,4 +58,4 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getProviders"
+    source: "onezone-rest-cli listProviders"

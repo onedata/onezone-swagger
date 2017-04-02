@@ -20,7 +20,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get child details**
+    **Get child group details**
     ```bash
     curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
@@ -83,29 +83,23 @@ put:
   x-onedata-resource: child_group
   x-onedata-method: group_logic:add_child_group
   x-onedata-permissions:
-    - group_view_data
+    - group_change_data
   summary: Add child group
   x-bash-codegen-description: |
     Adds group {cid} as child group of {id}.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_change_data` privilege.
   description: |
     Adds group {cid} as child group of {id}.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_change_data` privilege.
 
     ***Example cURL requests***
 
-    **Get child details**
+    **Add child group**
     ```bash
     curl -u username:password -X PUT \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
-
-    {
-      "privileges": [
-        "group_view_data"
-      ]
-    }
     ```
   produces:
     - application/json

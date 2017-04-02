@@ -1,5 +1,5 @@
 get:
-  operationId: get_user_effective_provider
+  operationId: get_effective_user_provider
   tags:
     - User
   x-onedata-service: onezone
@@ -68,4 +68,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserEffectiveProvider pid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getEffectiveUserProvider pid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

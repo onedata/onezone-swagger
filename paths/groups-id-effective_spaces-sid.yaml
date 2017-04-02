@@ -8,7 +8,7 @@ get:
   x-onedata-method: space_logic:get_data
   x-onedata-permissions:
     - group_view_data
-  summary: Get group's effective space details
+  summary: Get effective group space details
   x-bash-codegen-description: |
     Returns information about a specific effective space to which the group belongs.
 

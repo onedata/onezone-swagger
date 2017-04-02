@@ -1,5 +1,5 @@
 get:
-  operationId: get_groups_user_privileges
+  operationId: list_groups_user_privileges
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,13 +8,13 @@ get:
   x-onedata-method: group_logic:get_effective_privileges
   x-onedata-permissions:
     - group_view_data
-  summary: Get user group privileges
+  summary: List user group privileges
   x-bash-codegen-description: |
-    Returns the user privileges in a group.
+    Returns the effective user privileges in a group.
 
     This operation requires `group_view_data` privilege.
   description: |
-    Returns the user privileges in a group.
+    Returns the effective user privileges in a group.
 
     This operation requires `group_view_data` privilege.
 
@@ -83,4 +83,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupsUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listGroupsUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

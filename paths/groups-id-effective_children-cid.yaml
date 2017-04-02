@@ -14,7 +14,7 @@ get:
 
     This operation requires `group_view_data` privilege.
   description: |
-    Returns information about a specific child group.
+    Returns information about a specific effective child group.
 
     This operation requires `group_view_data` privilege.
 

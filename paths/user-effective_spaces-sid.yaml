@@ -1,5 +1,5 @@
 get:
-  operationId: get_user_effective_space
+  operationId: get_effective_user_space
   tags:
     - User
   x-onedata-service: onezone
@@ -63,4 +63,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserEffectiveSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getEffectiveUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

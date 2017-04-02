@@ -6,7 +6,7 @@ get:
   x-onedata-module: providers
   x-onedata-resource: users
   x-onedata-method: provider_logic:get_users
-  summary: Get users of provider
+  summary: List provider users
   x-bash-codegen-description: |
     Returns the list of users of a specific provider.
 
@@ -20,12 +20,12 @@ get:
 
     **List users of a provider**
     ```bash
-    curl -ksS -u username:password -X GET  \
+    curlsS -u username:password -X GET  \
     https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/users
 
     {
       "users": [
-        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk", 
+        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk",
         "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
       ]
     }
@@ -36,12 +36,7 @@ get:
     '200':
       description: The list of user ID's.
       schema:
-        type: object
-        properties:
-          users:
-            type: array
-            items: 
-              type: string
+        $ref: '#/definitions/Users'
     '400':
       description: Invalid request.
       schema:
@@ -49,7 +44,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

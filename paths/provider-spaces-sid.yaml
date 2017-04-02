@@ -103,7 +103,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSupportedSpace sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli modifySupportedSpace sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc name==\"New space name\""
 
 
 delete:

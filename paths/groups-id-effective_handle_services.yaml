@@ -1,5 +1,5 @@
 get:
-  operationId: get_group_effective_handle_services
+  operationId: list_effective_group_handle_services
   tags:
     - Group
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_group_handle_services
   x-onedata-permissions:
     - list_handle_services
-  summary: Get group effective handle services
+  summary: List effective group handle services
   x-bash-codegen-description: |
     Returns the list of registered group effective handle services.
   description: |
@@ -18,12 +18,12 @@ get:
 
     **Get group effective handle services**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/group/ASLKDJHAKLJSDHJKASD/effective_handle_services
+    curl -u username:password -X GET https://$HOST:8443/api/v3/group/ASLKDJHAKLJSDHJKASD/effective_handle_services
 
     {
       "handle_services": [
-        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+        "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+        "NxuhxyQMUnrYzjAnKiyAYoOVFPKrO1P6rpA0LFgNVI8"
       ]
     }
     ```
@@ -62,4 +62,4 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getGroupEffectiveHandleServices"
+      source: "onezone-rest-cli listGroupEffectiveHandleServices"

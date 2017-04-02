@@ -1,14 +1,14 @@
 post:
-  operationId: join_group
+  operationId: join_parent_group
   tags:
     - Group
   x-onedata-service: onezone
   x-onedata-module: group
   x-onedata-resource: njoin
-  x-onedata-method: group_logic:join_group
+  x-onedata-method: group_logic:join_parent_group
   x-onedata-permissions:
     - group_join_group
-  summary: Join group
+  summary: Join parent group
   x-bash-codegen-description: |
     Adds given group as a subgroup of a specific group based on provided token.
 
@@ -26,10 +26,10 @@ post:
 
     ***Example cURL requests***
 
-    **Add subgroup**
+    **Join parent group**
 
     ```bash
-    curl -k  -u admin:password -H "Content-type: application/json" -X POST \
+    curl  -u admin:password -H "Content-type: application/json" -X POST \
     -d  '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW"}'  \
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122o
     ```
@@ -75,4 +75,4 @@ post:
       $ref: '#/definitions/GroupInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 token==AKLSHJHDKLJASHDJKHASKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli joinParentGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 token==AKLSHJHDKLJASHDJKHASKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"

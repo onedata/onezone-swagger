@@ -22,14 +22,16 @@ post:
 
     **Generate user group invite token**
     ```bash
-    curl -k -u username:password -X POST \
+    curl -u username:password -X POST \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/token
 
-    {"token":"MDAxNmxvY2F00aW9uIHJlZlFTUbnZpdGVthHo8xmai4RqqBO2MZM00mrYGgo"}
+    {
+      "token": "MDAxNmxvY2F00aW9uIHJlZlFTUbnZpdGVthHo8xmai4RqqBO2MZM00mrYGgo"
+    }
     ```
   consumes:
     - application/json
-  consumes:
+  produces:
     - application/json
   responses:
     '200':

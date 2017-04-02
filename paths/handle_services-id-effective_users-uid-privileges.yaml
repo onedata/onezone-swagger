@@ -1,5 +1,5 @@
 get:
-  operationId: get_effective_handle_service_user_privileges
+  operationId: list_effective_handle_service_user_privileges
   tags:
     - Handle
   x-onedata-service: onezone
@@ -8,7 +8,7 @@ get:
   x-onedata-method: handle_logic:get_handle_service_users
   x-onedata-permissions:
     - view_handle_service
-  summary: Get effective handle service user privileges
+  summary: List effective handle service user privileges
   x-bash-codegen-description: |
     Returns user privileges for accessing a handle service instance.
 
@@ -22,13 +22,15 @@ get:
 
     **Get effective handle service user privileges**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
-    [
-      "register_doi",
-      "view_handle_service"
-    ]
+    {
+      "users": [
+        "register_doi",
+        "view_handle_service"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -70,4 +72,4 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveHandleServiceUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli listEffectiveHandleServiceUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

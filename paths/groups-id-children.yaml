@@ -1,5 +1,5 @@
 get:
-  operationId: get_children_groups
+  operationId: list_child_groups
   tags:
     - Group
   x-onedata-service: onezone
@@ -22,7 +22,7 @@ get:
 
     **Get subgroups**
     ```bash
-    curl -k -u admin:password -X GET \
+    curl -u admin:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children
 
     {
@@ -35,9 +35,7 @@ get:
     '200':
       description: The list of subgroup ID's.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/ChildGroups'
     '400':
       description: Invalid request.
       schema:
@@ -66,4 +64,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getChildGroups id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listChildGroups id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"

@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:get_data
-  summary: Get group space details
+  summary: Get effective group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific effective  handle service.
 
@@ -16,7 +16,7 @@ get:
 
     **Get effective handle service details**
     ```bash
-    curl -k -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/ALASDLKJALKSDJKLASD/effective_handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
@@ -27,7 +27,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the details of a specific handle service.
+      description: The handle service details have been returned successfully.
       schema:
         $ref: '#/definitions/HandleService'
     '400':
