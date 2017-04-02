@@ -6,11 +6,11 @@ properties:
     items:
       type: string
       enum:
-        - unregister_handle
-        - handle_change_data
-        - handle_view_data
+        - view_handle
+        - modify_handle
+        - delete_handle
 example:
   privileges:
-    - unregister_handle
-    - handle_change_data
-    - handle_view_data
+    - view_handle
+    - modify_handle
+    - delete_handle

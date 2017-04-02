@@ -137,7 +137,7 @@ put:
 
 
 delete:
-  operationId: delete_handle_service_group
+  operationId: remove_handle_service_group
   tags:
     - Handle
   x-onedata-service: onezone
@@ -199,4 +199,4 @@ delete:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli removeHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

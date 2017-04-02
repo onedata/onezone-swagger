@@ -142,7 +142,7 @@ put:
 
 
 delete:
-  operationId: delete_group_space_alias
+  operationId: remove_group_space_alias
   tags:
     - Group
   x-onedata-service: onezone
@@ -203,4 +203,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteGroupSpaceAlias id=ASDHAKLJSHDLKASHD8asd sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli removeGroupSpaceAlias id=ASDHAKLJSHDLKASHD8asd sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

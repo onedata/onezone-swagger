@@ -144,7 +144,7 @@ patch:
 
 
 delete:
-  operationId: delete_handle
+  operationId: remove_handle
   tags:
     - Handle
   x-onedata-service: onezone
@@ -200,4 +200,4 @@ delete:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
+    source: "onezone-rest-cli removeHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"

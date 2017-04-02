@@ -77,9 +77,6 @@
 /user/spaces/join:
   $ref: ./user-spaces-join.yaml
 
-/user/spaces/token:
-  $ref: ./user-spaces-token.yaml
-
 /user/spaces/{sid}:
   $ref: ./user-spaces-sid.yaml
 

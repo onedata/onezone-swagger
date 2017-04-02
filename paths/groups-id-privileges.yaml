@@ -127,7 +127,7 @@ patch:
       $ref: '#/definitions/OnezonePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '{"privileges": [\"list_spaces\", \"add_spaces\"]}' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
+    source: "echo '{\"privileges\": [\"list_spaces\", \"add_spaces\"]}' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
 
 
 delete:

@@ -1,5 +1,5 @@
 delete:
-  operationId: delete_client_token
+  operationId: remove_client_token
   tags:
     - User
   x-onedata-service: onezone
@@ -55,4 +55,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteClientSpace tid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"
+    source: "onezone-rest-cli removeClientSpace tid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"

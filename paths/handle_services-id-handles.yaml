@@ -34,7 +34,7 @@ get:
     '200':
       description: The list of handle identifiers (Onedata internal GUID's).
       schema:
-        $ref: '#/definitions/handles'
+        $ref: '#/definitions/Handles'
     '400':
       description: Invalid request.
       schema:

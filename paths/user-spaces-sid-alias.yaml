@@ -134,7 +134,7 @@ put:
 
 
 delete:
-  operationId: delete_user_space_alias
+  operationId: remove_user_space_alias
   tags:
     - User
   x-onedata-service: onezone
@@ -190,4 +190,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli removeUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

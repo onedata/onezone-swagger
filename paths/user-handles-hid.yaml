@@ -71,7 +71,7 @@ get:
 
 
 delete:
-  operationId: delete_user_handle
+  operationId: remove_user_handle
   tags:
     - User
   x-onedata-service: onezone
@@ -127,4 +127,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteUserHandle hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli removeUserHandle hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

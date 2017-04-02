@@ -67,7 +67,7 @@ get:
 
 
 delete:
-  operationId: delete_user_space
+  operationId: remove_user_space
   tags:
     - User
   x-onedata-service: onezone
@@ -123,4 +123,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli removeUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

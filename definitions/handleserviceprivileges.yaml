@@ -6,21 +6,15 @@ properties:
     items:
       type: string
       enum:
+        - view_handle_service
+        - modify_handle_service
+        - delete_handle_service
         - register_handle
-        - handle_service_remove
-        - handle_service_change_data
-        - handle_service_view_data
-        - handle_service_add_user
-        - handle_service_remove_user
-        - handle_service_add_group
-        - handle_service_remove_group
+        - handle_service_list_handles
 example:
   privileges:
+    - view_handle_service
+    - modify_handle_service
+    - delete_handle_service
     - register_handle
-    - handle_service_remove
-    - handle_service_change_data
-    - handle_service_view_data
-    - handle_service_add_user
-    - handle_service_remove_user
-    - handle_service_add_group
-    - handle_service_remove_group
+    - handle_service_list_handles
