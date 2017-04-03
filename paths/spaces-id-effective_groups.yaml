@@ -6,7 +6,7 @@ get:
   x-onedata-module: spaces
   x-onedata-resource: groups
   x-onedata-method: space_logic:get_groups
-  summary: list effective space groups
+  summary: List effective space groups
   x-bash-codegen-description: |
     Returns the effective list of groups belonging to a specific space.
   description: |
