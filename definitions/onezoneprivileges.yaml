@@ -19,9 +19,9 @@ properties:
         - oz_groups_list_groups
         - oz_groups_list_users
         - oz_groups_remove_members
-        - oz_handles_list
         - oz_handle_services_create
         - oz_handle_services_list
+        - oz_handles_list
         - oz_providers_delete
         - oz_shares_list
         - oz_spaces_list_groups
