@@ -92,6 +92,13 @@ description: |
   ```
     X-Auth-Token: IAUYCGOUASGDJHASDJKVAHSDJHASDKJHABSDKJHBASKJHDBKJHASBDKJHBASDKJHBASD...
   ```
+ In case the Onezone deployment supports authentication delegation other IdP's,
+ the `X-Auth-Token` field can contain token from such IdP with appropriate prefix,
+ as configured by Onezone administrators, e.g.:
+  ```
+    X-Auth-Token: github:GST5aasdA7asdAASFG7asdasaAS
+  ```
+
   * **Provider requests** - when a Oneprovider service needs to request some action from the Onezone service,
   it must authenticate using the peer certificate which was assigned to this provider when registering
   in the Onezone service. In such case the `X-Auth-Token` header is not necessary.
