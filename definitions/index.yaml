@@ -56,6 +56,9 @@ SpaceInviteToken:
 Group:
   $ref: ./group.yaml
 
+GroupCreateRequest:
+  $ref: ./groupcreaterequest.yaml
+
 GroupInviteToken:
   $ref: ./groupinvitetoken.yaml
 

@@ -29,12 +29,7 @@ get:
       description: >
         The list of group ID's created within the Onezone service.
       schema:
-        type: object
-        properties:
-          groups:
-            type: array
-            items:
-              type: string
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -122,8 +117,8 @@ post:
     in: body
     description: Group properties.
     schema:
-      $ref: '#/definitions/Group'
+      $ref: '#/definitions/GroupCreateRequest'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroup name==Group2 type==role "
+    source: "onezone-rest-cli createGroup name==Group2 type==role"
