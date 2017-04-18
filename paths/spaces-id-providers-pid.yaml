@@ -10,11 +10,17 @@ get:
   x-bash-codegen-description: |
     Returns details about a specific provider supporting the space.
 
+    For users who are members of space it requires `view_space_data`.
+    For administrators who do not have to be members of this space,
+    `list_providers_of_space` privilege is required.
+
     This operation requires `list_providers_of_space` privilege.
   description: |
     Returns details about a specific provider supporting the space.
 
-    This operation requires `list_providers_of_space` privilege.
+    For users who are members of space it requires `view_space_data`.
+    For administrators who do not have to be members of this space,
+    `list_providers_of_space` privilege is required.
 
     ***Example cURL requests***
 
