@@ -23,7 +23,7 @@ required:
   - rootFileId
   - parentSpace
 example:
-  shareId:
+  shareId: 8asd89asdlbKJSBD79a8sdkLKJH8asdkjasd8989
   name: MyNewShare
   publicUrl: https://onedata.org/shares/ASDLKJH8asdkjasd89898asd89asdlbKJSBDikjab89-asdmASD
   rootFileId: ASDkjlkkasdjoiwnafldnacbaasd8879a8sdkjb
