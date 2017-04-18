@@ -75,11 +75,11 @@ patch:
   x-onedata-method: onezone_logic:set_privileges
   summary: Set group's Onezone privileges
   x-bash-codegen-description: |
-    Modifies privileges for a user {id} for Onezone.
+    Modifies privileges for a group {id} for Onezone.
 
     This operation requires `set_privileges` privilege.
   description: |
-    Modifies privileges for a user {id} for Onezone.
+    Modifies privileges for a group {id} for Onezone.
 
     This operation requires `set_privileges` privilege.
 
