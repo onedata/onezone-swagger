@@ -35,6 +35,9 @@ AuthenticationToken:
 Space:
   $ref: ./space.yaml
 
+SpaceCreateRequest:
+  $ref: ./spacecreaterequest.yaml
+
 SpaceSupportToken:
   $ref: ./spacesupporttoken.yaml
 

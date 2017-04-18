@@ -1,0 +1,10 @@
+type: object
+description: New space parameters.
+properties:
+  name:
+    type: string
+    description: The name of the space.
+required:
+  - name
+example:
+  name: My Private space
