@@ -77,22 +77,26 @@ patch:
   summary: Modify share details
   x-bash-codegen-description: |
     Updates the details about a share.
+
+    Currently this operation allows only to change the name of the share.
   description: |
     Updates the details about a share.
+
+    Currently this operation allows only to change the name of the share.
 
     ***Example cURL requests***
 
     **Change share name**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
-    -X PATCH -d '{"name": "new_share_name"}' \
+    -X PATCH -d '{"name": "NewShareName"}' \
     https://$HOST:8443/api/v3/onezone/shares/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: Share has been updated successfully.
+      description: Share will be updated.
     '400':
       description: Invalid request.
       schema:
@@ -123,7 +127,11 @@ patch:
     in: body
     description: Share parameters
     schema:
-      $ref: '#/definitions/ShareUpdateRequest'
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the share.
     required: true
   x-code-samples:
   - lang: Shell
