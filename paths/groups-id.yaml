@@ -133,7 +133,7 @@ patch:
     in: body
     description: Group parameters
     schema:
-      $ref: '#/definitions/Group'
+      $ref: '#/definitions/GroupUpdateRequest'
     required: true
   x-code-samples:
   - lang: Shell

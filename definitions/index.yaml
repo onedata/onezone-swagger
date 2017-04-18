@@ -59,6 +59,9 @@ Group:
 GroupCreateRequest:
   $ref: ./groupcreaterequest.yaml
 
+GroupUpdateRequest:
+  $ref: ./groupupdaterequest.yaml
+
 GroupInviteToken:
   $ref: ./groupinvitetoken.yaml
 
