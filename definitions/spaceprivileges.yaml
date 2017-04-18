@@ -1,6 +1,18 @@
 type: object
 description: The list of space privileges.
 properties:
+  operation:
+    type: string
+    default: set
+    description: >
+      This field determines how the included privileges are
+      handled ('set' - resets to the specified list,
+      'grant' - adds the specified privileges to existing ones
+      and 'revoke' - removes the listed privileges).
+    enum:
+      - set
+      - grant
+      - revoke
   privileges:
     type: array
     items:
@@ -18,7 +30,11 @@ properties:
         - space_set_privileges
         - space_view_data
         - space_write_files
+required:
+    - privileges
 example:
+  operation:
+    - set
   privileges:
     - space_add_provider
     - space_change_data

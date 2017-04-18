@@ -1,6 +1,18 @@
 type: object
 description: The list of Onezone privileges.
 properties:
+  operation:
+    type: string
+    default: set
+    description: >
+      This field determines how the included privileges are
+      handled ('set' - resets to the specified list,
+      'grant' - adds the specified privileges to existing ones
+      and 'revoke' - removes the listed privileges).
+    enum:
+      - set
+      - grant
+      - revoke
   privileges:
     type: array
     items:
@@ -30,8 +42,11 @@ properties:
         - remove_member_from_space
         - set_privileges
         - view_privileges
-
+required:
+  - privileges
 example:
+  operation:
+    - set
   privileges:
     - add_member_to_space
     - list_groups
