@@ -75,16 +75,10 @@ post:
     When called by a regular user, creates a new space and sets the current
     user as its owner.
 
-    When called by a provider, creates a new space and automatically adds
-    support for it, based on the token provided in the request body.
-
     This operation does not require any specific privileges.
   description: |
     When called by a regular user, creates a new space and sets the current
     user as its owner.
-
-    When called by a provider, creates a new space and automatically adds
-    support for it, based on the token provided in the request body.
 
     This operation does not require any specific privileges.
 
@@ -136,10 +130,7 @@ post:
       properties:
         name:
           type: string
-          description: The name of the space
-        token:
-          type: string
-          description: Space creation token (only for providers).
+          description: The name of the new space.
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createSpace name==\"Space 1\" token==ASLKJ1DHAKJS2DLKJAHS5DKJ4ASDKJ3HALSKJD3HLKAJSDHASD1O"
+    source: "onezone-rest-cli createSpace name==\"Space 1\""
