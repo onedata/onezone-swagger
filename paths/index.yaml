@@ -249,9 +249,6 @@
 /groups/{id}/effective_spaces/{sid}:
   $ref: ./groups-id-effective_spaces-sid.yaml
 
-/groups/{id}/spaces/{sid}/alias:
-  $ref: ./groups-id-spaces-sid-alias.yaml
-
 /groups/{id}/privileges:
   $ref: ./groups-id-privileges.yaml
 
