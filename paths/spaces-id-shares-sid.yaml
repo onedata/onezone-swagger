@@ -30,7 +30,7 @@ get:
       "name": "MyNewShare",
       "publicUrl": "https://onedata.org/shares/ASDLKJH8asdkjasd89898asd89asdlbKJSBDikjab89-asdmASD",
       "rootFileId": "ASDkjlkkasdjoiwnafldnacbaasd8879a8sdkjb",
-      "parentSpace": "LKJH8asdkjasd89898asd89asdlbKJSBD79a8sdk"
+      "spaceId": "9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc"
     }
     ```
   consumes:

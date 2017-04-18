@@ -118,4 +118,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name==Share20 parentSpace==ASKJLDHAJKSDH767ASDHJK"
+    source: "onezone-rest-cli createShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name==Share20 spaceId==ASKJLDHAJKSDH767ASDHJK"
