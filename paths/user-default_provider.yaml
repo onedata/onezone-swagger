@@ -127,7 +127,7 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-method: user_logic:set_default_provider
-  summary: Set default space
+  summary: Unset default provider
   x-bash-codegen-description: |
     Removes default provider setting for current user.
 

@@ -127,7 +127,7 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-method: user_logic:set_default_space
-  summary: Set default space
+  summary: Unset default space
   x-bash-codegen-description: |
     Removes default space setting for current user.
 
