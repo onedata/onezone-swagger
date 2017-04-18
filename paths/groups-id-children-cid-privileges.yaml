@@ -104,7 +104,7 @@ patch:
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
-    '200':
+    '204':
       description: The group privileges have been added.
     '400':
       description: Invalid request.

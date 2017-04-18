@@ -99,8 +99,8 @@ patch:
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
-    '200':
-      description: The group privileges have been added.
+    '204':
+      description: The group privileges have been updated.
     '400':
       description: Invalid request.
       schema:

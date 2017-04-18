@@ -92,8 +92,8 @@ patch:
     https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmPj3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been added.
+    '204':
+      description: The user privileges have been updated.
     '400':
       description: Invalid request.
       schema:
