@@ -8,13 +8,13 @@ get:
   x-onedata-method: handle_logic:get_handle_service_group
   x-onedata-permissions:
     - modify_handle_service
-  summary: Get handle service group
+  summary: Get handle service group details
   x-bash-codegen-description: |
-    Get details of a handle service owned by group.
+    Get details of a group with access to handle service.
 
     This operation requires `modify_handle_service` privilege.
   description: |
-    Get details of a handle service owned by group.
+    Get details of a group with access to handle service.
 
     This operation requires `modify_handle_service` privilege.
 
@@ -22,8 +22,14 @@ get:
 
     **Get group handle service**
     ```bash
-    curl -u username:password -X PUT \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8
+
+    {
+      "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
+      "name":"Group name",
+      "type":"role"
+    }
     ```
   produces:
     - application/json
