@@ -1,0 +1,25 @@
+type: object
+description: Provider settings update request.
+properties:
+  name:
+    type: string
+    description: Provider name.
+  urls:
+    type: array
+    description: The list of urls where the provider can be reached.
+    items:
+      type: string
+  redirectionPoint:
+    type: string
+    description: The redirection URL for the provider.
+  latitude:
+    type: number
+    x-erlang-type: float
+    description: The geographical latitude of the provider data center location.
+  longitude:
+    type: number
+    x-erlang-type: float
+    description: The geographical longitude of the provider data center location.
+example:
+  name: Example provider
+  redirectionPoint: http://beta.onedata.org/provider2

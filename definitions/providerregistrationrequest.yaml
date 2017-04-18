@@ -1,6 +1,9 @@
 type: object
-description: Provider reqistration request.
+description: Provider registration request.
 properties:
+  name:
+    type: string
+    description: Provider name.
   urls:
     type: array
     description: The list of urls where the provider can be reached.
@@ -21,12 +24,12 @@ properties:
     x-erlang-type: float
     description: The geographical longitude of the provider data center location.
 required:
+  - name
   - urls
   - redirectionPoint
   - csr
-  - latitude
-  - longitude
 example:
+  name: Example provider
   urls:
     - http://beta.onedata.org/provider1
     - http://beta.onedata.org/provider2
