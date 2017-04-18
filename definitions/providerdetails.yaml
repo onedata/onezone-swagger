@@ -4,6 +4,9 @@ properties:
   providerId:
     type: string
     description: The provider ID.
+  name:
+    type: string
+    description: Provider name.
   urls:
     type: array
     description: The list of urls where the provider can be reached.
@@ -19,7 +22,8 @@ properties:
     type: number
     description: The geographical longitude of the provider data center location.
 example:
-  providerId: LASDASJDBH89869ASD79869asd
+  name: Example provider
+  providerId: H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk
   urls:
     - http://beta.onedata.org/provider1
     - http://beta.onedata.org/provider2
