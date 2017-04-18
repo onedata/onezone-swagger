@@ -162,11 +162,11 @@ delete:
   x-bash-codegen-description: |
     Allows to unregister a registeed handle service.
 
-    This operation requires `delete_handle_services` privilege.
+    This operation requires `delete_handle_service` privilege.
   description: |
     Allows to unregister a registeed handle service.
 
-    This operation requires `delete_handle_services` privilege.
+    This operation requires `delete_handle_service` privilege.
 
     ***Example cURL requests***
 
