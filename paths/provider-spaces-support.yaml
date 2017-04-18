@@ -53,7 +53,7 @@ post:
     in: body
     description: The space support token.
     schema:
-      $ref: '#/definitions/SpaceSupportToken'
+      $ref: '#/definitions/SpaceSupportRequest'
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli providerSpaceSupport token==WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
