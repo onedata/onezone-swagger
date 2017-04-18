@@ -113,7 +113,7 @@ patch:
     in: body
     description: User data.
     schema:
-      $ref: '#/definitions/User'
+      $ref: '#/definitions/UserUpdateRequest'
     required: true
   x-code-samples:
   - lang: Shell

@@ -8,6 +8,9 @@ Error:
 User:
   $ref: ./user.yaml
 
+UserUpdateRequest:
+  $ref: ./userupdaterequest.yaml
+
 Users:
   $ref: ./users.yaml
 
