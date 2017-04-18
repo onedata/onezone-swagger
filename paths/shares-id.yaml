@@ -22,9 +22,10 @@ get:
     {
       "shareId": "bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
       "name": "MyShare",
-      "public_url": "http://onedata.org/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
-      "root_file_id": "",
-      "parent_space": "UIsgAxi5I803ZirkUfdiWDd4W3bI4QaPBog_0kCdUdd"
+      "publicUrl": "http://onedata.org/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
+      "rootFileId": "I4QaPBog0kCdUPBog0kCdUdd",
+      "spaceId": "UIsgAxi5I803ZirkUfdiWDd4W3bI4QaPBog_0kCdUdd",
+      "handleId": "doi:10.15911/MyShares.726855"
     }
     ```
   produces:
