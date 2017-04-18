@@ -10,9 +10,9 @@ get:
     - list_handles
   summary: List handles
   x-bash-codegen-description: |
-    Returns the list of ID's of all handles accessible by the current user.
+    Returns the list of ID's of all handles registered in Onezone.
   description: |
-    Returns the list of ID's of all handles accessible by the current user.
+    Returns the list of ID's of all handles registered in Onezone.
 
     ***Example cURL requests***
 
