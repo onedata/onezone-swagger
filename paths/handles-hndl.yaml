@@ -94,13 +94,13 @@ patch:
     - modify_handle
   summary: Modify handle
   x-bash-codegen-description: |
-    Allows to update a registeed handle, for instance change the Onedata resource
-    to which it points to.
+    Allows to update a registered handle, currently it only allows
+    to modify the handle metadata property.
 
     This operation requires `modify_handle` privilege.
   description: |
-    Allows to update a registeed handle, for instance change the Onedata resource
-    to which it points to.
+    Allows to update a registered handle, currently it only allows
+    to modify the handle metadata property.
 
     This operation requires `modify_handle` privilege.
 
@@ -109,7 +109,7 @@ patch:
     **Modify handle resource**
     ```bash
     curl -u username:password -X PATCH  -H "Content-type: application/json" \
-    -d '{"resourceId": "jalkADKDGHKAJSdlkHDukjhassjd76876asdkb"}' \
+    -d '{"metadata": "<?xml..."}' \
     https://$HOST:8443/api/v3/handles/LKHASDkkjhASDLHU70ASDn
     ```
   consumes:
@@ -146,10 +146,14 @@ patch:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/Handle'
+        type: object
+        properties:
+          metadata:
+            type: string
+            description: Dublin Core metadata in XML for the handle.
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH resourceId==RsNk1CVHZTU3Z0OThwcHAhRN1NPawowMDFhY2lkIHRpbWUgPC"
+    source: "cat handl_metadata.json | onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
 
 
 delete:
