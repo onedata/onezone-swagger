@@ -6,7 +6,7 @@ get:
   x-onedata-module: privileges
   x-onedata-resource: upriv
   x-onedata-method: onezone_logic:get_user_privileges
-  summary: List user's Onezone privileges
+  summary: List user's effective Onezone privileges
   x-bash-codegen-description: |
     Returns the list of user privileges for Onezone.
 
