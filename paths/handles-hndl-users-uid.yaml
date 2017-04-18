@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `read_handle` privilege.
+    This operation requires `view_handle` privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `read_handle` privilege.
+    This operation requires `view_handle` privilege.
 
     ***Example cURL requests***
 
