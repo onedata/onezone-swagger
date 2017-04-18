@@ -126,7 +126,11 @@ patch:
     in: body
     description: Space parameters
     schema:
-      $ref: '#/definitions/Space'
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the new space.
     required: true
   x-code-samples:
   - lang: Shell
