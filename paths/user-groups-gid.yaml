@@ -93,8 +93,8 @@ delete:
   produces:
     - application/json
   responses:
-    '200':
-      description: The user left the group successfully.
+    '202':
+      description: The user will be removed from group.
     '400':
       description: Invalid request.
       schema:

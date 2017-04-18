@@ -175,8 +175,8 @@ delete:
     https://$HOST:8443/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
     ```
   responses:
-    '204':
-      description: Unregistration was successful.
+    '202':
+      description: Handle service will be unregistered.
     '400':
       description: Invalid request.
       schema:

@@ -97,8 +97,8 @@ delete:
   produces:
     - application/json
   responses:
-    '200':
-      description: The space was deleted successfuly.
+    '202':
+      description: The handle will be deleted.
     '400':
       description: Invalid request.
       schema:

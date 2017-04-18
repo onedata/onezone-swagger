@@ -156,8 +156,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2/privileges
     ```
   responses:
-    '200':
-      description: The group privileges have been added.
+    '202':
+      description: The group privileges will be removed.
     '400':
       description: Invalid request.
       schema:

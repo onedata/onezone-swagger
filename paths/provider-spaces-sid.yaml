@@ -125,8 +125,8 @@ delete:
   produces:
     - application/json
   responses:
-    '204':
-      description: The space support has ended.
+    '202':
+      description: Support for space will be removed.
     '400':
       description: Invalid request.
       schema:

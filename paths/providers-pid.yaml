@@ -107,8 +107,8 @@ delete:
   produces:
     - application/json
   responses:
-    '204':
-      description: Provider unregistered successfully
+    '202':
+      description: Provider will be unregistered.
     '400':
       description: Invalid request.
       schema:

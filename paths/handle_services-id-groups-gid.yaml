@@ -165,7 +165,7 @@ delete:
     ```
   responses:
     '202':
-      description: Group removed successfully.
+      description: Group will be removed.
     '400':
       description: Invalid request.
       schema:

@@ -147,7 +147,7 @@ delete:
   consumes:
     - application/json
   responses:
-    '200':
+    '202':
       description: Default provider removed successfully.
     '400':
       description: Invalid request.

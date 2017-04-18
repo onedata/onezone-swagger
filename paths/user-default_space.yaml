@@ -147,8 +147,8 @@ delete:
   consumes:
     - application/json
   responses:
-    '200':
-      description: Default space removed successfully.
+    '202':
+      description: Default space will be removed.
     '400':
       description: Invalid request.
       schema:

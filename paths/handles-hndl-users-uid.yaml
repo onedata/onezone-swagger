@@ -164,8 +164,8 @@ delete:
     https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
-    '204':
-      description: User removed successfully.
+    '202':
+      description: User will be removed.
     '400':
       description: Invalid request.
       schema:

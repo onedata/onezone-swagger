@@ -103,8 +103,8 @@ delete:
   produces:
     - application/json
   responses:
-    '200':
-      description: The handle service was deleted successfuly.
+    '202':
+      description: The handle service will be deleted.
     '400':
       description: Invalid request.
       schema:

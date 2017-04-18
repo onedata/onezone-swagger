@@ -156,8 +156,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been removed.
+    '202':
+      description: The user privileges will be removed.
     '400':
       description: Invalid request.
       schema:

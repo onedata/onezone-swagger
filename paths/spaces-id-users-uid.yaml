@@ -170,8 +170,8 @@ delete:
   consumes:
     - application/json
   responses:
-    '200':
-      description: User has been removed from space successfully.
+    '202':
+      description: User will be removed from space.
     '400':
       description: Invalid request.
       schema:

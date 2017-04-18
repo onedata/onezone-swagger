@@ -103,7 +103,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
     ```
   responses:
-    '200':
+    '202':
       description: A space is no longer supported by this provider.
     '400':
       description: Invalid request.

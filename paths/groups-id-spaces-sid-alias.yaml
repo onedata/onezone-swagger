@@ -168,8 +168,8 @@ delete:
   produces:
     - application/json
   responses:
-    '204':
-      description: The space alias was deleted successfuly.
+    '202':
+      description: The space will be removed from group.
     '400':
       description: Invalid request.
       schema:
