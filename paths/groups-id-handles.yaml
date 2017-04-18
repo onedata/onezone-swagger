@@ -73,17 +73,17 @@ post:
   x-onedata-method: handle_logic:create
   summary: Create new group handle
   x-bash-codegen-description: |
-    Creates a new handle as current group.
+    Creates a new handle on behalf of a group.
 
   description: |
-    Creates a new handle as current group.
+    Creates a new handle on behalf of a group.
 
     ***Example cURL requests***
 
     **Create new group handle**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
-    -d '{ ... }'
+    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "space", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }'
     https://$HOST:8443/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/handles
     ```
   consumes:
@@ -131,4 +131,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "cat handle.json onezone-rest-cli createGroupHandle id=LKJAHGSDLKJHALSDkjashdasdk"
+    source: "cat handle.json | onezone-rest-cli createGroupHandle id=LKJAHGSDLKJHALSDkjashdasdk"

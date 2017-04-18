@@ -20,7 +20,22 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-
+      "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+      "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
+      "resourceType": "Share",
+      "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
+      "metadata": "<?xml version=\"1.0\"?>
+          <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
+          <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
+                   xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+            <rdf:Description rdf:about=\"http://example.com/resouces/1\">
+              <dc:title>Example Resource</dc:title>
+              <dc:creator>John Doe</dc:creator>
+              <dc:publisher>MIT</dc:publisher>
+              <dc:date>2000-06-06</dc:date>
+            </rdf:Description>
+          </rdf:RDF>",
+      "timestamp": "1997-07-16T19:20"
     }
     ```
   produces:

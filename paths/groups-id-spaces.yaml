@@ -79,7 +79,7 @@ post:
   x-onedata-method: space_logic:create
   x-onedata-permissions:
     - group_create_space
-  summary: Creates new space for group
+  summary: Create new space for group
   x-bash-codegen-description: |
     Creates a new space for of a specific group.
 
