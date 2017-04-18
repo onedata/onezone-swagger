@@ -82,7 +82,9 @@ put:
     This operation can be invoked by system administrators only
     and requires `add_member_to_space` privilege.
   description: |
-    Allows to add a user to any space.
+    Allows to add a user to any space. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for user in this space.
 
     This operation can be invoked by system administrators only
     and requires `add_member_to_space` privilege.
