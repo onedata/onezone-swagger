@@ -27,8 +27,11 @@ get:
 
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "login": "username",
-      "name": "admin"
+      "login": "admin",
+      "name": "admin",
+      "connectedAccounts": [],
+      "alias": "",
+      "emailList": []
     }
     ```
   produces:
@@ -84,13 +87,19 @@ put:
   x-onedata-method: group_logic:add_user
   x-onedata-permissions:
     - oz_groups_add_members
-  summary: Get group user details
+  summary: Add user to group
   x-bash-codegen-description: |
     Returns the public information about a user {uid} in group {id}.
+
+    Optionally, user privileges in this gropu can be specified
+    in the request body.
 
     This operation requires `oz_groups_add_members` privilege.
   description: |
     Returns the public information about a user {uid} in group {id}.
+
+    Optionally, user privileges in this gropu can be specified
+    in the request body.
 
     This operation requires `oz_groups_add_members` privilege.
 
