@@ -16,22 +16,12 @@ properties:
       type: integer
       description: |
         Size of storage provisioned for this space by provider.
-  shares:
-    type: array
-    description: The list of shares created from this space.
-    items:
-      type: string
-      description: Share Id.
 required:
   - spaceId
   - name
   - providersSupports
-  - shares
 example:
   spaceId: Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
   name: My Private space
   providersSupports:
     hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE: 5368709120
-  shares:
-    - RsI0W3rNs1nfMwqnYXnp1JVpWfL82stHJgct76AFALj
-    - s1nfMwqnYXnp1JVpWfL82stHJgct76AFALjXRsI0W3r
