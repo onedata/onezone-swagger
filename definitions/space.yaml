@@ -25,7 +25,7 @@ properties:
 required:
   - spaceId
   - name
-  - providerSupports
+  - providersSupports
   - shares
 example:
   spaceId: Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY

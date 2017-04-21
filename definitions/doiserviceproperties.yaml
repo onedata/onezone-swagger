@@ -42,7 +42,6 @@ allOf:
         description: >
           Specifies whether users can override the DOI suffix template for this account during registration of new DOI's.
     required:
-    - name
     - host
     - doiEndpoint
     - metadataEndpoint

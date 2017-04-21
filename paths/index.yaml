@@ -27,6 +27,9 @@
 /spaces/{id}/effective_groups:
   $ref: ./spaces-id-effective_groups.yaml
 
+/spaces/{id}/effective_users:
+  $ref: ./spaces-id-effective_users.yaml
+
 /spaces/{id}/groups/token:
   $ref: ./spaces-id-groups-token.yaml
 
@@ -36,11 +39,17 @@
 /spaces/{id}/effective_groups/{gid}:
   $ref: ./spaces-id-effective_groups-gid.yaml
 
+/spaces/{id}/effective_users/{uid}:
+  $ref: ./spaces-id-effective_users-gid.yaml
+
 /spaces/{id}/groups/{gid}/privileges:
   $ref: ./spaces-id-groups-gid-privileges.yaml
 
 /spaces/{id}/effective_groups/{gid}/privileges:
   $ref: ./spaces-id-effective_groups-gid-privileges.yaml
+
+/spaces/{id}/effective_users/{uid}/privileges:
+  $ref: ./spaces-id-effective_users-gid-privileges.yaml
 
 /spaces/{id}/providers:
   $ref: ./spaces-id-providers.yaml

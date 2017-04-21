@@ -1,0 +1,75 @@
+get:
+  operationId: get_effective_space_user
+  tags:
+    - Space
+  x-onedata-service: onezone
+  x-onedata-module: spaces
+  x-onedata-resource: user
+  x-onedata-method: space_logic:get_user
+  summary: Get effective space user details
+  x-bash-codegen-description: |
+    Returns details about a specific effective user in a space.
+
+    This operation requires `space_view_data` privilege.
+  description: |
+    Returns details about a specific effective user in a space.
+
+    This operation requires `space_view_data` privilege.
+
+    ***Example cURL requests***
+
+    **Get effective space user details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_users/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+
+    {
+      "userId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "login": "username",
+      "name": "John Doe",
+      "connectedAccounts": [],
+      "alias": "",
+      "emailList": []
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of a specific user in a space.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

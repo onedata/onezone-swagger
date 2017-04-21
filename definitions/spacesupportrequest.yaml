@@ -4,6 +4,9 @@ properties:
   token:
     type: string
     description: The token for supporting a space.
+  size:
+    type: integer
+    description: The size of requested supports in bytes.
 required:
   - token
   - size
