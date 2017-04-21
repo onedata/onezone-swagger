@@ -17,7 +17,7 @@ properties:
     description: User alias
   emailList:
     type: array
-    items: 
+    items:
       type: string
 required:
   - userId

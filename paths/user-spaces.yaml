@@ -134,7 +134,7 @@ post:
     in: body
     description: New space parameters.
     schema:
-      $ref: '#/definitions/Space'
+      $ref: '#/definitions/SpaceCreateRequest'
     required: true
   x-code-samples:
   - lang: Shell

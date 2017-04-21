@@ -1,7 +1,7 @@
 get:
   operationId: get_user
   tags:
-    - User
+    - Users
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-resource: user
@@ -87,11 +87,11 @@ delete:
   x-bash-codegen-description: |
     Removes a specific user.
 
-    This operation requires `user_remove` privilege.
+    This operation requires `oz_users_delete` privilege.
   description: |
     Removes a specific user.
 
-    This operation requires `user_remove` privilege.
+    This operation requires `oz_users_delete` privilege.
 
     ***Example cURL requests***
 

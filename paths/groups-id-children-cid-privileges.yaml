@@ -23,7 +23,7 @@ get:
     **Get child group privileges in a group**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/GROUP_ID/children/CHILD_GROUP_ID/privileges
+    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/FX2GVC8lKEasj4q253sptVqF8HwUpk8jrwxKOe45uzL/privileges
 
     {
       "privileges": [
@@ -71,7 +71,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listChildGroupPrivileges id=$GROUP_ID cid=$CHILD_GROUP_ID"
+    source: "onezone-rest-cli listChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 cid=FX2GVC8lKEasj4q253sptVqF8HwUpk8jrwxKOe45uzL"
 
 
 patch:
@@ -104,7 +104,7 @@ patch:
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
-    '200':
+    '204':
       description: The group privileges have been added.
     '400':
       description: Invalid request.

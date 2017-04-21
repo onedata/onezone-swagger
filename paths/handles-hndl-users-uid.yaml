@@ -12,18 +12,27 @@ get:
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `read_handle` privilege.
+    This operation requires `view_handle` administrator privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `read_handle` privilege.
+    This operation requires `view_handle` administrator privilege.
 
     ***Example cURL requests***
 
     **Get handle user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+
+    {
+       "name" : "John Doe",
+       "alias" : "",
+       "login" : "username",
+       "connectedAccounts" : [],
+       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
+       "emailList" : []
+    }
     ```
   produces:
     - application/json
@@ -164,8 +173,8 @@ delete:
     https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
-    '204':
-      description: User removed successfully.
+    '202':
+      description: User will be removed.
     '400':
       description: Invalid request.
       schema:

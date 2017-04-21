@@ -10,9 +10,13 @@ get:
     - list_handles
   summary: List handles
   x-bash-codegen-description: |
-    Returns the list of ID's of all handles accessible by the current user.
+    Returns the list of ID's of all handles registered in Onezone.
+
+    This operation requires `oz_handles_list` administrator privilege.
   description: |
-    Returns the list of ID's of all handles accessible by the current user.
+    Returns the list of ID's of all handles registered in Onezone.
+
+    This operation requires `oz_handles_list` administrator privilege.
 
     ***Example cURL requests***
 
@@ -75,20 +79,22 @@ post:
 
     The handle service must be registered in Onedata separately.
 
-    This operation requires `register_handle` privilege.
+    This operation requires `register_handle` privilege, which needs to
+    be assigned to a specific handle service.
   description: |
     Allows to register a new handle identifier, using a specific handle service.
 
     The handle service must be registered in Onedata separately.
 
-    This operation requires `register_handle` privilege.
+    This operation requires `register_handle` privilege, which needs to
+    be assigned to a specific handle service.
 
     ***Example cURL requests***
 
     **Register handle**
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
-    -d '{"handleServiceId": "AFSASDARAWD32aasfASSD", "resourceType": "Share", "resourceId": "LKJGLSAKDGASGD34234JKAHSD", "metadata": "..." }' \
+    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }' \
     https://$HOST:8443/api/v3/handles
     ```
   consumes:

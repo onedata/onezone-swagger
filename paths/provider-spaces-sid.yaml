@@ -16,6 +16,22 @@ get:
     performed the request.
 
     This operation requires peer certificate authentication.
+
+    ***Example cURL requests***
+
+    **Get space details**
+    ```bash
+    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X GET \
+    https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+
+    {
+      "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "name": "new_space1",
+      "providersSupports": {
+        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+      }
+    }
+    ```
   produces:
     - application/json
   responses:
@@ -70,6 +86,15 @@ patch:
     Modifies supported space parameters.
 
     This operation requires peer certificate authentication.
+
+    ***Example cURL requests***
+
+    **Change supported size**
+    ```bash
+    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X PATCH \
+    -d '{"size": 1024000}' \
+    https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    ```
   produces:
     - application/json
   responses:
@@ -122,11 +147,19 @@ delete:
     Removes support for space from the Oneprovider that performed the request.
 
     This operation requires peer certificate authentication.
+
+    ***Example cURL requests***
+
+    **Revoke space support**
+    ```bash
+    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X DELETE \
+    https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    ```
   produces:
     - application/json
   responses:
-    '204':
-      description: The space support has ended.
+    '202':
+      description: Support for space will be revoked.
     '400':
       description: Invalid request.
       schema:

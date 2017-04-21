@@ -25,8 +25,8 @@ delete:
   produces:
     - application/json
   responses:
-    '200':
-      description: The token was deleted successfuly.
+    '202':
+      description: The token will be deleted.
     '400':
       description: Invalid request.
       schema:

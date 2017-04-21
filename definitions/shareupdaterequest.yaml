@@ -1,24 +1,8 @@
 type: object
 description: Share parameters.
 properties:
-  shareId:
-    type: string
-    description: Share ID.
   name:
     type: string
     description: The user defined name for the share.
-  publicUrl:
-    type: string
-    description: The publicly accessible URL for the share.
-  rootFileId:
-    type: string
-    description: The ID of the shared file or folder.
-  parentSpace:
-    type: string
-    description: The ID of the space in which the share was created.
 example:
-  shareId:
   name: MyNewShare
-  publicUrl: https://onedata.org/shares/ASDLKJH8asdkjasd89898asd89asdlbKJSBDikjab89-asdmASD
-  rootFileId: ASDkjlkkasdjoiwnafldnacbaasd8879a8sdkjb
-  parentSpace: LKJH8asdkjasd89898asd89asdlbKJSBD79a8sdk

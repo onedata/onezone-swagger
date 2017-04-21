@@ -11,8 +11,12 @@ get:
   summary: List group handle services
   x-bash-codegen-description: |
     Returns the list of registered group handle services.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the list of registered group handle services.
+
+    This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 
@@ -78,8 +82,15 @@ post:
   summary: Add group handle service
   x-bash-codegen-description: |
     Allows to register a new handle service for group.
+
+    For administrator who do not need to be members of this group
+    `oz_handle_services_create` privilege is required.
   description: |
     Allows to register a new handle service for group.
+
+    For administrator who do not need to be members of this group
+    `oz_handle_services_create` privilege is required.
+
 
     ***Example cURL requests***
 

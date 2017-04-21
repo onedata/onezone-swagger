@@ -27,7 +27,7 @@ get:
 
     {
       "privileges": [
-        "register_doi",
+        "delete_handle_service",
         "view_handle_service"
       ]
     }

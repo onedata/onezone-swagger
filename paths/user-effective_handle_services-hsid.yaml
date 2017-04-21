@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: provider
   x-onedata-method: provider_logic:get_effective_handle_service
-  summary: Get effective provider details
+  summary: Get effective handle service details
   x-bash-codegen-description: |
     Returns information about a specific effective handle service for the user.
 

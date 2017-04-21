@@ -21,13 +21,14 @@ get:
     **Get space supported by provider**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces/KJHAGSDJKHGASJKHDGAKJHSDGKHJASD
+    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
 
     {
-      "spaceId": "KJHAGSDJKHGASJKHDGAKJHSDGKHJASD",
-      "name": "new_space1",
-      "canonicalName": "new_space1",
-      "providersSupports": []
+       "providersSupports" : {
+          "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+       },
+       "spaceId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+       "name" : "Test"
     }
     ```
   produces:

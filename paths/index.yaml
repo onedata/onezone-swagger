@@ -3,422 +3,1241 @@
 # defined in separate files for each path
 #
 
-/spaces:
-  $ref: ./spaces.yaml
+###############################################################################
+# Users
+###############################################################################
 
-/spaces/{id}:
-  $ref: ./spaces-id.yaml
-
-/spaces/{id}/users:
-  $ref: ./spaces-id-users.yaml
-
-/spaces/{id}/users/{uid}:
-  $ref: ./spaces-id-users-uid.yaml
-
-/spaces/{id}/users/{uid}/privileges:
-  $ref: ./spaces-id-users-uid-privileges.yaml
-
-/spaces/{id}/users/token:
-  $ref: ./spaces-id-users-token.yaml
-
-/spaces/{id}/groups:
-  $ref: ./spaces-id-groups.yaml
-
-/spaces/{id}/effective_groups:
-  $ref: ./spaces-id-effective_groups.yaml
-
-/spaces/{id}/groups/token:
-  $ref: ./spaces-id-groups-token.yaml
-
-/spaces/{id}/groups/{gid}:
-  $ref: ./spaces-id-groups-gid.yaml
-
-/spaces/{id}/effective_groups/{gid}:
-  $ref: ./spaces-id-effective_groups-gid.yaml
-
-/spaces/{id}/groups/{gid}/privileges:
-  $ref: ./spaces-id-groups-gid-privileges.yaml
-
-/spaces/{id}/effective_groups/{gid}/privileges:
-  $ref: ./spaces-id-effective_groups-gid-privileges.yaml
-
-/spaces/{id}/providers:
-  $ref: ./spaces-id-providers.yaml
-
-/spaces/{id}/providers/token:
-  $ref: ./spaces-id-providers-token.yaml
-
-/spaces/{id}/providers/{pid}:
-  $ref: ./spaces-id-providers-pid.yaml
-
-/spaces/{id}/shares:
-  $ref: ./spaces-id-shares.yaml
-
-/spaces/{id}/shares/{sid}:
-  $ref: ./spaces-id-shares-sid.yaml
-
-
-/shares:
-  $ref: ./shares.yaml
-
-/shares/{id}:
-  $ref: ./shares-id.yaml
-
-
-/user:
-  $ref: ./user.yaml
-
-/user/authorize:
-  $ref: ./user-authorize.yaml
-
-/user/spaces:
-  $ref: ./user-spaces.yaml
-
-/user/spaces/join:
-  $ref: ./user-spaces-join.yaml
-
-/user/spaces/{sid}:
-  $ref: ./user-spaces-sid.yaml
-
-/user/spaces/{sid}/alias:
-  $ref: ./user-spaces-sid-alias.yaml
-
-/user/groups:
-  $ref: ./user-groups.yaml
-
-/user/groups/join:
-  $ref: ./user-groups-join.yaml
-
-/user/groups/{gid}:
-  $ref: ./user-groups-gid.yaml
-
-/user/client_tokens:
-  $ref: ./user-client_tokens.yaml
-
-/user/client_tokens/{tid}:
-  $ref: ./user-client_tokens-tid.yaml
-
-/user/privileges:
-  $ref: ./user-privileges.yaml
-
-/user/effective_privileges:
-  $ref: ./user-effective_privileges.yaml
-
-/user/default_space:
-  $ref: ./user-default_space.yaml
-
-/user/default_provider:
-  $ref: ./user-default_provider.yaml
-
-/user/effective_groups:
-  $ref: ./user-effective_groups.yaml
-
-/user/effective_groups/{gid}:
-  $ref: ./user-effective_groups-gid.yaml
-
-/user/effective_spaces:
-  $ref: ./user-effective_spaces.yaml
-
-/user/effective_spaces/{sid}:
-  $ref: ./user-effective_spaces-sid.yaml
-
-/user/effective_providers:
-  $ref: ./user-effective_providers.yaml
-
-/user/effective_providers/{pid}:
-  $ref: ./user-effective_providers-pid.yaml
-
-/user/handle_services:
-  $ref: ./user-handle_services.yaml
-
-/user/handle_services/{hsid}:
-  $ref: ./user-handle_services-hsid.yaml
-
-/user/effective_handle_services:
-  $ref: ./user-effective_handle_services.yaml
-
-/user/effective_handle_services/{hsid}:
-  $ref: ./user-effective_handle_services-hsid.yaml
-
-/user/handles:
-  $ref: ./user-handles.yaml
-
-/user/handles/{hid}:
-  $ref: ./user-handles-hid.yaml
-
-/user/effective_handles:
-  $ref: ./user-effective_handles.yaml
-
-/user/effective_handles/{hid}:
-  $ref: ./user-effective_handles-hid.yaml
-
+# {<<"/users">>, R#rest_req{
+#     method = get, entity_id = undefined, resource = list
+# }},
 /users:
   $ref: ./users.yaml
 
+
+# {<<"/users/:id">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = data
+# }},
+# {<<"/users/:id">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = entity
+# }},
 /users/{id}:
   $ref: ./users-id.yaml
 
+
+# {<<"/users/:id/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = oz_privileges
+# }},
+# {<<"/users/:id/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = oz_privileges
+# }},
+# {<<"/users/:id/privileges">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = oz_privileges
+# }},
 /users/{id}/privileges:
   $ref: ./users-id-privileges.yaml
 
+
+# {<<"/users/:id/effective_privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_oz_privileges
+# }},
 /users/{id}/effective_privileges:
   $ref: ./users-id-effective_privileges.yaml
 
 
+
+###############################################################################
+# User
+###############################################################################
+
+
+# {<<"/user">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = data
+# }},
+# {<<"/user">>, R#rest_req{
+#     method = patch, entity_id = ?CLIENT_ID, resource = entity
+# }},
+# {<<"/user">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = entity
+# }},
+/user:
+  $ref: ./user.yaml
+
+
+# {<<"/user/authorize">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = authorize
+# }},
+/user/authorize:
+  $ref: ./user-authorize.yaml
+
+
+# {<<"/user/privileges">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = oz_privileges
+# }},
+# {<<"/user/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?CLIENT_ID, resource = oz_privileges
+# }},
+# {<<"/user/privileges">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = oz_privileges
+# }},
+/user/privileges:
+  $ref: ./user-privileges.yaml
+
+
+# {<<"/user/effective_privileges">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = eff_oz_privileges
+# }},
+/user/effective_privileges:
+  $ref: ./user-effective_privileges.yaml
+
+
+# {<<"/user/client_tokens">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = client_tokens
+# }},
+# {<<"/user/client_tokens">>, R#rest_req{
+#     method = post, entity_id = ?CLIENT_ID, resource = client_tokens
+# }},
+/user/client_tokens:
+  $ref: ./user-client_tokens.yaml
+
+
+# {<<"/user/client_tokens/:tid">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {client_token, ?BINDING(tid)}
+# }},
+/user/client_tokens/{tid}:
+  $ref: ./user-client_tokens-tid.yaml
+
+
+# {<<"/user/default_space">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {default_space, ?CLIENT_ID}
+# }},
+# {<<"/user/default_space">>, R#rest_req{
+#     method = put, entity_id = ?CLIENT_ID, resource = {default_space, ?CLIENT_ID}
+# }},
+# {<<"/user/default_space">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {default_space, ?CLIENT_ID}
+# }},
+/user/default_space:
+  $ref: ./user-default_space.yaml
+
+
+# {<<"/user/default_provider">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {default_provider, ?CLIENT_ID}
+# }},
+# {<<"/user/default_provider">>, R#rest_req{
+#     method = put, entity_id = ?CLIENT_ID, resource = {default_provider, ?CLIENT_ID}
+# }},
+# {<<"/user/default_provider">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {default_provider, ?CLIENT_ID}
+# }},
+/user/default_provider:
+  $ref: ./user-default_provider.yaml
+
+
+# {<<"/user/groups">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = groups
+# }},
+# {<<"/user/groups">>, R#rest_req{
+#     method = post, entity_id = ?CLIENT_ID, resource = create_group
+# }},
+/user/groups:
+  $ref: ./user-groups.yaml
+
+
+# {<<"/user/groups/join">>, R#rest_req{
+#     method = post, entity_id = ?CLIENT_ID, resource = join_group
+# }},
+/user/groups/join:
+  $ref: ./user-groups-join.yaml
+
+
+# {<<"/user/groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {group, ?BINDING(gid)}
+# }},
+# {<<"/user/groups/:gid">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {group, ?BINDING(gid)}
+# }},
+/user/groups/{gid}:
+  $ref: ./user-groups-gid.yaml
+
+
+# {<<"/user/effective_groups">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = eff_groups
+# }},
+/user/effective_groups:
+  $ref: ./user-effective_groups.yaml
+
+
+# {<<"/user/effective_groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {eff_group, ?BINDING(gid)}
+# }},
+/user/effective_groups/{gid}:
+  $ref: ./user-effective_groups-gid.yaml
+
+
+# {<<"/user/spaces">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = spaces
+# }},
+# {<<"/user/spaces">>, R#rest_req{
+#     method = post, entity_id = ?CLIENT_ID, resource = create_space
+# }},
+/user/spaces:
+  $ref: ./user-spaces.yaml
+
+
+# {<<"/user/spaces/join">>, R#rest_req{
+#     method = post, entity_id = ?CLIENT_ID, resource = join_space
+# }},
+/user/spaces/join:
+  $ref: ./user-spaces-join.yaml
+
+
+# {<<"/user/spaces/:sid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {space, ?BINDING(sid)}
+# }},
+# {<<"/user/spaces/:sid">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {space, ?BINDING(sid)}
+# }},
+/user/spaces/{sid}:
+  $ref: ./user-spaces-sid.yaml
+
+
+# {<<"/user/spaces/:sid/alias">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {space_alias, ?BINDING(sid)}
+# }},
+# {<<"/user/spaces/:sid/alias">>, R#rest_req{
+#     method = put, entity_id = ?CLIENT_ID, resource = {space_alias, ?BINDING(sid)}
+# }},
+# {<<"/user/spaces/:sid/alias">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {space_alias, ?BINDING(sid)}
+# }},
+/user/spaces/{sid}/alias:
+  $ref: ./user-spaces-sid-alias.yaml
+
+
+# {<<"/user/effective_spaces">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = eff_spaces
+# }},
+/user/effective_spaces:
+  $ref: ./user-effective_spaces.yaml
+
+
+# {<<"/user/effective_spaces/:sid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {eff_space, ?BINDING(sid)}
+# }},
+/user/effective_spaces/{sid}:
+  $ref: ./user-effective_spaces-sid.yaml
+
+
+# {<<"/user/effective_providers">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = eff_providers
+# }},
+/user/effective_providers:
+  $ref: ./user-effective_providers.yaml
+
+
+# {<<"/user/effective_providers/:pid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {eff_provider, ?BINDING(pid)}
+# }},
+/user/effective_providers/{pid}:
+  $ref: ./user-effective_providers-pid.yaml
+
+
+# {<<"/user/handle_services">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = handle_services
+# }},
+# {<<"/user/handle_services">>, R#rest_req{
+#     method = post, entity_id = ?CLIENT_ID, resource = create_handle_service
+# }},
+/user/handle_services:
+  $ref: ./user-handle_services.yaml
+
+
+# {<<"/user/handle_services/:hsid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {handle_service, ?BINDING(hsid)}
+# }},
+# {<<"/user/handle_services/:hsid">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {handle_service, ?BINDING(hsid)}
+# }},
+/user/handle_services/{hsid}:
+  $ref: ./user-handle_services-hsid.yaml
+
+
+# {<<"/user/effective_handle_services">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = eff_handle_services
+# }},
+/user/effective_handle_services:
+  $ref: ./user-effective_handle_services.yaml
+
+
+# {<<"/user/effective_handle_services/:hsid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {eff_handle_service, ?BINDING(hsid)}
+# }},
+/user/effective_handle_services/{hsid}:
+  $ref: ./user-effective_handle_services-hsid.yaml
+
+
+# {<<"/user/handles">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = handles
+# }},
+# {<<"/user/handles">>, R#rest_req{
+#     method = post, entity_id = ?CLIENT_ID, resource = create_handle
+# }},
+/user/handles:
+  $ref: ./user-handles.yaml
+
+
+# {<<"/user/handles/:hid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {handle, ?BINDING(hid)}
+# }},
+# {<<"/user/handles/:hid">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {handle, ?BINDING(hid)}
+# }},
+/user/handles/{hid}:
+  $ref: ./user-handles-hid.yaml
+
+
+# {<<"/user/effective_handles">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = eff_handles
+# }},
+/user/effective_handles:
+  $ref: ./user-effective_handles.yaml
+
+
+# {<<"/user/effective_handles/:hid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {eff_handle, ?BINDING(hid)}
+# }}
+/user/effective_handles/{hid}:
+  $ref: ./user-effective_handles-hid.yaml
+
+
+
+
+###############################################################################
+# Groups
+###############################################################################
+
+# {<<"/groups">>, R#rest_req{
+#     method = get, entity_id = undefined, resource = list
+# }},
+# {<<"/groups">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = entity
+# }},
 /groups:
   $ref: ./groups.yaml
 
+
+# {<<"/groups/:id">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = data
+# }},
+# {<<"/groups/:id">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = entity
+# }},
+# {<<"/groups/:id">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = entity
+# }},
 /groups/{id}:
   $ref: ./groups-id.yaml
 
-/groups/{id}/effective_users:
-  $ref: ./groups-id-effective_users.yaml
 
-/groups/{id}/effective_users/{uid}:
-  $ref: ./groups-id-effective_users-uid.yaml
-
-/groups/{id}/effective_users/{uid}/privileges:
-  $ref: ./groups-id-effective_users-uid-privileges.yaml
-
-/groups/{id}/users:
-  $ref: ./groups-id-users.yaml
-
-/groups/{id}/users/token:
-  $ref: ./groups-id-users-token.yaml
-
-/groups/{id}/users/{uid}:
-  $ref: ./groups-id-users-uid.yaml
-
-/groups/{id}/users/{uid}/privileges:
-  $ref: ./groups-id-users-uid-privileges.yaml
-
-/groups/{id}/parents:
-  $ref: ./groups-id-parents.yaml
-
-/groups/{id}/parents/{pid}:
-  $ref: ./groups-id-parents-pid.yaml
-
-/groups/{id}/effective_parents:
-  $ref: ./groups-id-effective_parents.yaml
-
-/groups/{id}/effective_parents/{pid}:
-  $ref: ./groups-id-effective_parents-pid.yaml
-
-/groups/{id}/parents/join:
-  $ref: ./groups-id-parents-join.yaml
-
-/groups/{id}/children:
-  $ref: ./groups-id-children.yaml
-
-/groups/{id}/children/token:
-  $ref: ./groups-id-children-token.yaml
-
-/groups/{id}/children/{cid}:
-  $ref: ./groups-id-children-cid.yaml
-
-/groups/{id}/children/{cid}/privileges:
-  $ref: ./groups-id-children-cid-privileges.yaml
-
-/groups/{id}/effective_children:
-  $ref: ./groups-id-effective_children.yaml
-
-/groups/{id}/effective_children/{cid}:
-  $ref: ./groups-id-effective_children-cid.yaml
-
-/groups/{id}/effective_children/{cid}/privileges:
-  $ref: ./groups-id-effective_children-cid-privileges.yaml
-
-/groups/{id}/effective_providers:
-  $ref: ./groups-id-effective_providers.yaml
-
-/groups/{id}/effective_providers/{pid}:
-  $ref: ./groups-id-effective_providers-pid.yaml
-
-/groups/{id}/spaces:
-  $ref: ./groups-id-spaces.yaml
-
-/groups/{id}/effective_spaces:
-  $ref: ./groups-id-effective_spaces.yaml
-
-/groups/{id}/spaces/join:
-  $ref: ./groups-id-spaces-join.yaml
-
-# /groups/{id}/spaces/token:
-#   $ref: ./groups-id-spaces-token.yaml
-
-/groups/{id}/effective_spaces/{sid}:
-  $ref: ./groups-id-effective_spaces-sid.yaml
-
-/groups/{id}/spaces/{sid}/alias:
-  $ref: ./groups-id-spaces-sid-alias.yaml
-
+# {<<"/groups/:id/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = oz_privileges
+# }},
+# {<<"/groups/:id/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = oz_privileges
+# }},
+# {<<"/groups/:id/privileges">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = oz_privileges
+# }},
 /groups/{id}/privileges:
   $ref: ./groups-id-privileges.yaml
 
+
+# {<<"/groups/:id/effective_privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_oz_privileges
+# }},
 /groups/{id}/effective_privileges:
   $ref: ./groups-id-effective_privileges.yaml
 
+
+# {<<"/groups/:id/users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = users
+# }},
+/groups/{id}/users:
+  $ref: ./groups-id-users.yaml
+
+
+# {<<"/groups/:id/users/token">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = invite_user_token
+# }},
+/groups/{id}/users/token:
+  $ref: ./groups-id-users-token.yaml
+
+
+# {<<"/groups/:id/users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+# {<<"/groups/:id/users/:uid">>, R#rest_req{
+#     method = put, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+# {<<"/groups/:id/users/:uid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+/groups/{id}/users/{uid}:
+  $ref: ./groups-id-users-uid.yaml
+
+
+# {<<"/groups/:id/users/:uid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {user_privileges, ?BINDING(uid)}
+# }},
+# {<<"/groups/:id/users/:uid/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = {user_privileges, ?BINDING(uid)}
+# }},
+/groups/{id}/users/{uid}/privileges:
+  $ref: ./groups-id-users-uid-privileges.yaml
+
+
+# {<<"/groups/:id/effective_users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_users
+# }},
+/groups/{id}/effective_users:
+  $ref: ./groups-id-effective_users.yaml
+
+
+# {<<"/groups/:id/effective_users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user, ?BINDING(uid)}
+# }},
+/groups/{id}/effective_users/{uid}:
+  $ref: ./groups-id-effective_users-uid.yaml
+
+
+# {<<"/groups/:id/effective_users/:uid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user_privileges, ?BINDING(uid)}
+# }},
+/groups/{id}/effective_users/{uid}/privileges:
+  $ref: ./groups-id-effective_users-uid-privileges.yaml
+
+
+# {<<"/groups/:id/parents">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = parents
+# }},
+/groups/{id}/parents:
+  $ref: ./groups-id-parents.yaml
+
+
+# {<<"/groups/:id/parents/join">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = join_group
+# }},
+/groups/{id}/parents/join:
+  $ref: ./groups-id-parents-join.yaml
+
+
+# {<<"/groups/:id/parents/:pid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {parent, ?BINDING(pid)}
+# }},
+/groups/{id}/parents/{pid}:
+  $ref: ./groups-id-parents-pid.yaml
+
+
+# {<<"/groups/:id/effective_parents">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_parents
+# }},
+/groups/{id}/effective_parents:
+  $ref: ./groups-id-effective_parents.yaml
+
+
+# {<<"/groups/:id/effective_parents/:pid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_parent, ?BINDING(pid)}
+# }},
+/groups/{id}/effective_parents/{pid}:
+  $ref: ./groups-id-effective_parents-pid.yaml
+
+
+# {<<"/groups/:id/children">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = children
+# }},
+/groups/{id}/children:
+  $ref: ./groups-id-children.yaml
+
+
+# {<<"/groups/:id/children/token">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = invite_group_token
+# }},
+/groups/{id}/children/token:
+  $ref: ./groups-id-children-token.yaml
+
+
+# {<<"/groups/:id/children/:chid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {child, ?BINDING(chid)}
+# }},
+# {<<"/groups/:id/children/:chid">>, R#rest_req{
+#     method = put, entity_id = ?BINDING(id), resource = {child, ?BINDING(chid)}
+# }},
+# {<<"/groups/:id/children/:chid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {child, ?BINDING(chid)}
+# }},
+/groups/{id}/children/{cid}:
+  $ref: ./groups-id-children-cid.yaml
+
+
+# {<<"/groups/:id/children/:chid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {child_privileges, ?BINDING(chid)}
+# }},
+# {<<"/groups/:id/children/:chid/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = {child_privileges, ?BINDING(chid)}
+# }},
+/groups/{id}/children/{cid}/privileges:
+  $ref: ./groups-id-children-cid-privileges.yaml
+
+
+# {<<"/groups/:id/effective_children">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_children
+# }},
+/groups/{id}/effective_children:
+  $ref: ./groups-id-effective_children.yaml
+
+
+# {<<"/groups/:id/effective_children/:chid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_child, ?BINDING(chid)}
+# }},
+/groups/{id}/effective_children/{cid}:
+  $ref: ./groups-id-effective_children-cid.yaml
+
+
+# {<<"/groups/:id/effective_children/:chid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_child_privileges, ?BINDING(chid)}
+# }},
+/groups/{id}/effective_children/{cid}/privileges:
+  $ref: ./groups-id-effective_children-cid-privileges.yaml
+
+
+# {<<"/groups/:id/spaces">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = spaces
+# }},
+# {<<"/groups/:id/spaces">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = create_space
+# }},
+/groups/{id}/spaces:
+  $ref: ./groups-id-spaces.yaml
+
+
+# {<<"/groups/:id/spaces/join">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = join_space
+# }},
+/groups/{id}/spaces/join:
+  $ref: ./groups-id-spaces-join.yaml
+
+
+# {<<"/groups/:id/spaces/:sid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {space, ?BINDING(sid)}
+# }},
+# {<<"/groups/:id/spaces/:sid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {space, ?BINDING(sid)}
+# }},
+# {<<"/groups/:id/effective_spaces">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_spaces
+# }},
+/groups/{id}/effective_spaces:
+  $ref: ./groups-id-effective_spaces.yaml
+
+
+# {<<"/groups/:id/effective_spaces/:sid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_space, ?BINDING(sid)}
+# }},
+/groups/{id}/effective_spaces/{sid}:
+  $ref: ./groups-id-effective_spaces-sid.yaml
+
+
+# {<<"/groups/:id/effective_providers">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_providers
+# }},
+/groups/{id}/effective_providers:
+  $ref: ./groups-id-effective_providers.yaml
+
+
+# {<<"/groups/:id/effective_providers/:pid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_provider, ?BINDING(pid)}
+# }},
+/groups/{id}/effective_providers/{pid}:
+  $ref: ./groups-id-effective_providers-pid.yaml
+
+
+# {<<"/groups/:id/handle_services">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = handle_services
+# }},
+# {<<"/groups/:id/handle_services">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = create_handle_service
+# }},
 /groups/{id}/handle_services:
   $ref: ./groups-id-handle_services.yaml
 
+
+# {<<"/groups/:id/handle_services/:hsid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {handle_service, ?BINDING(hsid)}
+# }},
+# {<<"/groups/:id/handle_services/:hsid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {handle_service, ?BINDING(hsid)}
+# }},
 /groups/{id}/handle_services/{hsid}:
   $ref: ./groups-id-handle_services-hsid.yaml
 
+
+# {<<"/groups/:id/effective_handle_services">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_handle_services
+# }},
 /groups/{id}/effective_handle_services:
   $ref: ./groups-id-effective_handle_services.yaml
 
+
+# {<<"/groups/:id/effective_handle_services/:hsid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_handle_service, ?BINDING(hsid)}
+# }},
 /groups/{id}/effective_handle_services/{hsid}:
   $ref: ./groups-id-effective_handle_services-hsid.yaml
 
+
+# {<<"/groups/:id/handles">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = handles
+# }},
+# {<<"/groups/:id/handles">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = create_handle
+# }},
 /groups/{id}/handles:
   $ref: ./groups-id-handles.yaml
 
+
+# {<<"/groups/:id/handles/:hid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {handle, ?BINDING(hid)}
+# }},
+# {<<"/groups/:id/handles/:hid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {handle, ?BINDING(hid)}
+# }},
 /groups/{id}/handles/{hid}:
   $ref: ./groups-id-handles-hid.yaml
 
+
+# {<<"/groups/:id/effective_handles">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_handles
+# }},
 /groups/{id}/effective_handles:
   $ref: ./groups-id-effective_handles.yaml
 
+
+# {<<"/groups/:id/effective_handles/:hid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_handle, ?BINDING(hid)}
+# }}
 /groups/{id}/effective_handles/{hid}:
   $ref: ./groups-id-effective_handles-hid.yaml
 
 
 
-/provider:
-  $ref: ./provider.yaml
+###############################################################################
+# Spaces
+###############################################################################
 
-/provider/spaces:
-  $ref: ./provider-spaces.yaml
+# {<<"/spaces">>, R#rest_req{
+#     method = get, entity_id = undefined, resource = list
+# }},
+# {<<"/spaces">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = entity
+# }},
+/spaces:
+  $ref: ./spaces.yaml
 
-/provider/spaces/support:
-  $ref: ./provider-spaces-support.yaml
 
-/provider/spaces/{sid}:
-  $ref: ./provider-spaces-sid.yaml
+# {<<"/spaces/:id">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = data
+# }},
+# {<<"/spaces/:id">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = entity
+# }},
+# {<<"/spaces/:id">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = entity
+# }},
+/spaces/{id}:
+  $ref: ./spaces-id.yaml
 
-/provider/test/check_my_ip:
-  $ref: ./provider-test-check_my_ip.yaml
 
-/provider/test/check_my_ports:
-  $ref: ./provider-test-check_my_ports.yaml
+# {<<"/spaces/:id/users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = users
+# }},
+/spaces/{id}/users:
+  $ref: ./spaces-id-users.yaml
 
+
+# {<<"/spaces/:id/users/token">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = invite_user_token
+# }},
+/spaces/{id}/users/token:
+  $ref: ./spaces-id-users-token.yaml
+
+
+# {<<"/spaces/:id/users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+# {<<"/spaces/:id/users/:uid">>, R#rest_req{
+#     method = put, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+# {<<"/spaces/:id/users/:uid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+/spaces/{id}/users/{uid}:
+  $ref: ./spaces-id-users-uid.yaml
+
+
+# {<<"/spaces/:id/users/:uid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {user_privileges, ?BINDING(uid)}
+# }},
+# {<<"/spaces/:id/users/:uid/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = {user_privileges, ?BINDING(uid)}
+# }},
+/spaces/{id}/users/{uid}/privileges:
+  $ref: ./spaces-id-users-uid-privileges.yaml
+
+
+# {<<"/spaces/:id/effective_users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_users
+# }},
+/spaces/{id}/effective_users:
+  $ref: ./spaces-id-effective_users.yaml
+
+
+# {<<"/spaces/:id/effective_users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user, ?BINDING(uid)}
+# }},
+/spaces/{id}/effective_users/{uid}:
+  $ref: ./spaces-id-effective_users-gid.yaml
+
+
+# {<<"/spaces/:id/effective_users/:uid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user_privileges, ?BINDING(uid)}
+# }},
+/spaces/{id}/effective_users/{uid}/privileges:
+  $ref: ./spaces-id-effective_users-gid-privileges.yaml
+
+
+# {<<"/spaces/:id/groups">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = groups
+# }},
+/spaces/{id}/groups:
+  $ref: ./spaces-id-groups.yaml
+
+
+# {<<"/spaces/:id/groups/token">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = invite_group_token
+# }},
+/spaces/{id}/groups/token:
+  $ref: ./spaces-id-groups-token.yaml
+
+
+# {<<"/spaces/:id/groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
+# {<<"/spaces/:id/groups/:gid">>, R#rest_req{
+#     method = put, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
+# {<<"/spaces/:id/groups/:gid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
+/spaces/{id}/groups/{gid}:
+  $ref: ./spaces-id-groups-gid.yaml
+
+
+# {<<"/spaces/:id/groups/:gid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {group_privileges, ?BINDING(gid)}
+# }},
+# {<<"/spaces/:id/groups/:gid/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = {group_privileges, ?BINDING(gid)}
+# }},
+/spaces/{id}/groups/{gid}/privileges:
+  $ref: ./spaces-id-groups-gid-privileges.yaml
+
+
+# {<<"/spaces/:id/effective_groups">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_groups
+# }},
+/spaces/{id}/effective_groups:
+  $ref: ./spaces-id-effective_groups.yaml
+
+
+# {<<"/spaces/:id/effective_groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_group, ?BINDING(gid)}
+# }},
+/spaces/{id}/effective_groups/{gid}:
+  $ref: ./spaces-id-effective_groups-gid.yaml
+
+
+# {<<"/spaces/:id/effective_groups/:gid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_group_privileges, ?BINDING(gid)}
+# }},
+/spaces/{id}/effective_groups/{gid}/privileges:
+  $ref: ./spaces-id-effective_groups-gid-privileges.yaml
+
+
+# {<<"/spaces/:id/shares">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = shares
+# }},
+/spaces/{id}/shares:
+  $ref: ./spaces-id-shares.yaml
+
+
+# {<<"/spaces/:id/shares/:shid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {shares, ?BINDING(shid)}
+# }},
+/spaces/{id}/shares/{sid}:
+  $ref: ./spaces-id-shares-sid.yaml
+
+
+# {<<"/spaces/:id/providers">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = providers
+# }},
+/spaces/{id}/providers:
+  $ref: ./spaces-id-providers.yaml
+
+
+# {<<"/spaces/:id/providers/token">>, R#rest_req{
+#     method = post, entity_id = ?BINDING(id), resource = invite_provider_token
+# }},
+/spaces/{id}/providers/token:
+  $ref: ./spaces-id-providers-token.yaml
+
+
+# {<<"/spaces/:id/providers/:pid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {provider, ?BINDING(pid)}
+# }},
+# {<<"/spaces/:id/providers/:pid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {provider, ?BINDING(pid)}
+# }}
+/spaces/{id}/providers/{pid}:
+  $ref: ./spaces-id-providers-pid.yaml
+
+
+
+###############################################################################
+# Shares
+###############################################################################
+
+# {<<"/shares">>, R#rest_req{
+#     method = get, entity_id = undefined, resource = list
+# }},
+# {<<"/shares">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = entity
+# }},
+/shares:
+  $ref: ./shares.yaml
+
+
+# {<<"/shares/:id">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = data
+# }},
+# {<<"/shares/:id">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = entity
+# }},
+# {<<"/shares/:id">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = entity
+# }}
+/shares/{id}:
+  $ref: ./shares-id.yaml
+
+
+###############################################################################
+# Providers
+###############################################################################
+
+# {<<"/providers">>, R#rest_req{
+#     method = get, entity_id = undefined, resource = list
+# }},
 /providers:
   $ref: ./providers.yaml
 
+
+# {<<"/providers/:id">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = data
+# }},
+# {<<"/providers/:id">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = entity
+# }},
 /providers/{pid}:
   $ref: ./providers-pid.yaml
 
-/providers/{pid}/spaces:
-  $ref: ./providers-pid-spaces.yaml
 
-/providers/{pid}/spaces/{sid}:
-  $ref: ./providers-pid-spaces-sid.yaml
-
+# {<<"/providers/:id/effective_users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_users
+# }},
 /providers/{pid}/effective_users:
   $ref: ./providers-pid-effective_users.yaml
 
+
+# {<<"/providers/:id/effective_users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user, ?BINDING(uid)}
+# }},
 /providers/{pid}/effective_users/{uid}:
   $ref: ./providers-pid-effective_users-uid.yaml
 
+
+# {<<"/providers/:id/effective_groups">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_groups
+# }},
 /providers/{pid}/effective_groups:
   $ref: ./providers-pid-effective_groups.yaml
 
+
+# {<<"/providers/:id/effective_groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_group, ?BINDING(gid)}
+# }},
 /providers/{pid}/effective_groups/{gid}:
   $ref: ./providers-pid-effective_groups-gid.yaml
 
-#
-# Handle service management
-#
+
+# {<<"/providers/:id/spaces">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = spaces
+# }},
+/providers/{pid}/spaces:
+  $ref: ./providers-pid-spaces.yaml
+
+
+# {<<"/providers/:id/spaces/:sid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {space, ?BINDING(sid)}
+# }},
+/providers/{pid}/spaces/{sid}:
+  $ref: ./providers-pid-spaces-sid.yaml
+
+
+
+###############################################################################
+# Provider
+###############################################################################
+
+# {<<"/provider">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = entity
+# }},
+# {<<"/provider">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = data
+# }},
+# {<<"/provider">>, R#rest_req{
+#     method = patch, entity_id = ?CLIENT_ID, resource = entity
+# }},
+# {<<"/provider">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = entity
+# }},
+/provider:
+  $ref: ./provider.yaml
+
+
+# {<<"/provider_dev">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = entity_dev
+# }},
+
+# {<<"/provider/spaces">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = spaces
+# }},
+/provider/spaces:
+  $ref: ./provider-spaces.yaml
+
+
+# {<<"/provider/spaces/support">>, R#rest_req{
+#     method = post, entity_id = ?CLIENT_ID, resource = support
+# }},
+/provider/spaces/support:
+  $ref: ./provider-spaces-support.yaml
+
+
+# {<<"/provider/spaces/:sid">>, R#rest_req{
+#     method = get, entity_id = ?CLIENT_ID, resource = {space, ?BINDING(sid)}
+# }},
+# {<<"/provider/spaces/:sid">>, R#rest_req{
+#     method = patch, entity_id = ?CLIENT_ID, resource = {space, ?BINDING(sid)}
+# }},
+# {<<"/provider/spaces/:sid">>, R#rest_req{
+#     method = delete, entity_id = ?CLIENT_ID, resource = {space, ?BINDING(sid)}
+# }},
+/provider/spaces/{sid}:
+  $ref: ./provider-spaces-sid.yaml
+
+
+# {<<"/provider/test/check_my_ip">>, R#rest_req{
+#     method = get, entity_id = undefined, resource = {check_my_ip, ?COWBOY_REQ}
+# }},
+/provider/test/check_my_ip:
+  $ref: ./provider-test-check_my_ip.yaml
+
+
+# {<<"/provider/test/check_my_ports">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = check_my_ports
+# }}
+/provider/test/check_my_ports:
+  $ref: ./provider-test-check_my_ports.yaml
+
+
+
+###############################################################################
+# Handle services
+###############################################################################
+
+
+# {<<"/handle_services">>, R#rest_req{
+#     method = get, entity_id = undefined, resource = list
+# }},
+# {<<"/handle_services">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = entity
+# }},
 /handle_services:
   $ref: ./handle_services.yaml
 
+
+# {<<"/handle_services/:id">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = data
+# }},
+# {<<"/handle_services/:id">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = entity
+# }},
+# {<<"/handle_services/:id">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = entity
+# }},
 /handle_services/{id}:
   $ref: ./handle_services-id.yaml
 
+
+# {<<"/handle_services/:id/users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = users
+# }},
 /handle_services/{id}/users:
   $ref: ./handle_services-id-users.yaml
 
+
+# {<<"/handle_services/:id/users/:uid">>, R#rest_req{
+#     method = put, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+# {<<"/handle_services/:id/users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+# {<<"/handle_services/:id/users/:uid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
 /handle_services/{id}/users/{uid}:
   $ref: ./handle_services-id-users-uid.yaml
 
+
+# {<<"/handle_services/:id/users/:uid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {user_privileges, ?BINDING(uid)}
+# }},
+# {<<"/handle_services/:id/users/:uid/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = {user_privileges, ?BINDING(uid)}
+# }},
 /handle_services/{id}/users/{uid}/privileges:
   $ref: ./handle_services-id-users-uid-privileges.yaml
 
+
+# {<<"/handle_services/:id/effective_users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_users
+# }},
 /handle_services/{id}/effective_users:
   $ref: ./handle_services-id-effective_users.yaml
 
+
+# {<<"/handle_services/:id/effective_users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user, ?BINDING(uid)}
+# }},
 /handle_services/{id}/effective_users/{uid}:
   $ref: ./handle_services-id-effective_users-uid.yaml
 
+
+# {<<"/handle_services/:id/effective_users/:uid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user_privileges, ?BINDING(uid)}
+# }},
 /handle_services/{id}/effective_users/{uid}/privileges:
   $ref: ./handle_services-id-effective_users-uid-privileges.yaml
 
 
+# {<<"/handle_services/:id/groups">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = groups
+# }},
 /handle_services/{id}/groups:
   $ref: ./handle_services-id-groups.yaml
 
+
+# {<<"/handle_services/:id/groups/:gid">>, R#rest_req{
+#     method = put, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
+# {<<"/handle_services/:id/groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
+# {<<"/handle_services/:id/groups/:gid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
 /handle_services/{id}/groups/{gid}:
   $ref: ./handle_services-id-groups-gid.yaml
 
+
+# {<<"/handle_services/:id/groups/:gid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {group_privileges, ?BINDING(gid)}
+# }},
+# {<<"/handle_services/:id/groups/:gid/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = {group_privileges, ?BINDING(gid)}
+# }},
 /handle_services/{id}/groups/{gid}/privileges:
   $ref: ./handle_services-id-groups-gid-privileges.yaml
 
+
+# {<<"/handle_services/:id/effective_groups">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_groups
+# }},
 /handle_services/{id}/effective_groups:
   $ref: ./handle_services-id-effective_groups.yaml
 
+
+# {<<"/handle_services/:id/effective_groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_group, ?BINDING(gid)}
+# }},
 /handle_services/{id}/effective_groups/{gid}:
   $ref: ./handle_services-id-effective_groups-gid.yaml
 
+
+# {<<"/handle_services/:id/effective_groups/:gid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_group_privileges, ?BINDING(gid)}
+# }},
 /handle_services/{id}/effective_groups/{gid}/privileges:
   $ref: ./handle_services-id-effective_groups-gid-privileges.yaml
 
+
+# {<<"/handle_services/:id/handles">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = handles
+# }},
 /handle_services/{id}/handles:
   $ref: ./handle_services-id-handles.yaml
 
+
+# {<<"/handle_services/:id/handles/:hid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {handle, ?BINDING(hid)}
+# }}
 /handle_services/{id}/handles/{hid}:
   $ref: ./handle_services-id-handles-hid.yaml
 
-#
-# Handle registration
-#
+
+
+###############################################################################
+# Handle services
+###############################################################################
+
+# {<<"/handles">>, R#rest_req{
+#     method = get, entity_id = undefined, resource = list
+# }},
+# {<<"/handles">>, R#rest_req{
+#     method = post, entity_id = undefined, resource = entity
+# }},
 /handles:
   $ref: ./handles.yaml
 
+
+# {<<"/handles/:id">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = data
+# }},
+# {<<"/handles/:id">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = entity
+# }},
+# {<<"/handles/:id">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = entity
+# }},
 /handles/{hndl}:
   $ref: ./handles-hndl.yaml
 
+
+# {<<"/handles/:id/users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = users
+# }},
 /handles/{hndl}/users:
   $ref: ./handles-hndl-users.yaml
 
+
+# {<<"/handles/:id/users/:uid">>, R#rest_req{
+#     method = put, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+# {<<"/handles/:id/users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
+# {<<"/handles/:id/users/:uid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {user, ?BINDING(uid)}
+# }},
 /handles/{hndl}/users/{uid}:
   $ref: ./handles-hndl-users-uid.yaml
 
+
+# {<<"/handles/:id/users/:uid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {user_privileges, ?BINDING(uid)}
+# }},
+# {<<"/handles/:id/users/:uid/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = {user_privileges, ?BINDING(uid)}
+# }},
 /handles/{hndl}/users/{uid}/privileges:
   $ref: ./handles-hndl-users-uid-privileges.yaml
 
+
+# {<<"/handles/:id/effective_users">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_users
+# }},
 /handles/{hndl}/effective_users:
   $ref: ./handles-hndl-effective_users.yaml
 
+
+# {<<"/handles/:id/effective_users/:uid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user, ?BINDING(uid)}
+# }},
 /handles/{hndl}/effective_users/{uid}:
   $ref: ./handles-hndl-effective_users-uid.yaml
 
+
+# {<<"/handles/:id/effective_users/:uid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_user_privileges, ?BINDING(uid)}
+# }},
 /handles/{hndl}/effective_users/{uid}/privileges:
   $ref: ./handles-hndl-effective_users-uid-privileges.yaml
 
+
+# {<<"/handles/:id/groups">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = groups
+# }},
 /handles/{hndl}/groups:
   $ref: ./handles-hndl-groups.yaml
 
+
+# {<<"/handles/:id/groups/:gid">>, R#rest_req{
+#     method = put, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
+# {<<"/handles/:id/groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
+# {<<"/handles/:id/groups/:gid">>, R#rest_req{
+#     method = delete, entity_id = ?BINDING(id), resource = {group, ?BINDING(gid)}
+# }},
 /handles/{hndl}/groups/{gid}:
   $ref: ./handles-hndl-groups-gid.yaml
 
+
+# {<<"/handles/:id/groups/:gid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {group_privileges, ?BINDING(gid)}
+# }},
+# {<<"/handles/:id/groups/:gid/privileges">>, R#rest_req{
+#     method = patch, entity_id = ?BINDING(id), resource = {group_privileges, ?BINDING(gid)}
+# }},
 /handles/{hndl}/groups/{gid}/privileges:
   $ref: ./handles-hndl-groups-gid-privileges.yaml
 
+
+# {<<"/handles/:id/effective_groups">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = eff_groups
+# }},
 /handles/{hndl}/effective_groups:
   $ref: ./handles-hndl-effective_groups.yaml
 
+
+# {<<"/handles/:id/effective_groups/:gid">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_group, ?BINDING(gid)}
+# }},
 /handles/{hndl}/effective_groups/{gid}:
   $ref: ./handles-hndl-effective_groups-gid.yaml
 
+
+# {<<"/handles/:id/effective_groups/:gid/privileges">>, R#rest_req{
+#     method = get, entity_id = ?BINDING(id), resource = {eff_group_privileges, ?BINDING(gid)}
+# }}
 /handles/{hndl}/effective_groups/{gid}/privileges:
   $ref: ./handles-hndl-effective_groups-gid-privileges.yaml

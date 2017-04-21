@@ -11,18 +11,30 @@ get:
     Returns the public information about a specific user in a space.
 
     This operation requires `space_view_data` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_list_users` privilege is required.
   description: |
     Returns the public information about a specific user in a space.
 
     This operation requires `space_view_data` privilege.
-
+    For administrators who do not have to be members of this space,
+    `oz_spaces_list_users` privilege is required.
 
     ***Example cURL requests***
 
     **Get space user data**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+
+    {
+       "name" : "John Doe",
+       "alias" : "",
+       "login" : "username",
+       "connectedAccounts" : [],
+       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
+       "emailList" : []
+    }
     ```
   produces:
     - application/json
@@ -82,7 +94,9 @@ put:
     This operation can be invoked by system administrators only
     and requires `add_member_to_space` privilege.
   description: |
-    Allows to add a user to any space.
+    Allows to add a user to any space. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for user in this space.
 
     This operation can be invoked by system administrators only
     and requires `add_member_to_space` privilege.
@@ -170,8 +184,8 @@ delete:
   consumes:
     - application/json
   responses:
-    '200':
-      description: User has been removed from space successfully.
+    '202':
+      description: User will be removed from space.
     '400':
       description: Invalid request.
       schema:

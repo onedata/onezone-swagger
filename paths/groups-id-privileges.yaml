@@ -75,11 +75,11 @@ patch:
   x-onedata-method: onezone_logic:set_privileges
   summary: Set group's Onezone privileges
   x-bash-codegen-description: |
-    Modifies privileges for a user {id} for Onezone.
+    Modifies privileges for a group {id} for Onezone.
 
     This operation requires `set_privileges` privilege.
   description: |
-    Modifies privileges for a user {id} for Onezone.
+    Modifies privileges for a group {id} for Onezone.
 
     This operation requires `set_privileges` privilege.
 
@@ -92,7 +92,7 @@ patch:
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
-    '200':
+    '204':
       description: The group privileges have been added.
     '400':
       description: Invalid request.
@@ -156,8 +156,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2/privileges
     ```
   responses:
-    '200':
-      description: The group privileges have been added.
+    '202':
+      description: The group privileges will be removed.
     '400':
       description: Invalid request.
       schema:

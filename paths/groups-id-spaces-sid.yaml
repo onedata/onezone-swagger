@@ -28,8 +28,9 @@ get:
     {
       "spaceId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
       "name": "a",
-      "canonicalName": "a",
-      "providersSupports": []
+      "providersSupports": {
+        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+      }
     }
     ```
   produces:
@@ -102,8 +103,8 @@ delete:
     curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
     ```
-  responses:
-    '204':
+  resposes:
+    '202':
       description: A group will be removed from the space.
     '400':
       description: Invalid request.

@@ -7,16 +7,37 @@ paths:
 definitions:
   $ref: ./definitions/index.yaml
 tags:
-  - name: Space
-    description: Space related operations
-  - name: Group
-    description: Group related operations
   - name: User
-    description: User related operations
+    description: Regular user operations
+  - name: Users
+    description: User management operations
+  - name: Group
+    description: Group management operations
+  - name: Space
+    description: Space management operations
   - name: Provider
-    description: Provider related operations
+    description: Provider management operations
   - name: Handle
     description: Operations for managing Handle system service and identifier generation.
+x-tagGroups:
+  - name: Regular user operations
+    tags:
+      - User
+  - name: User administration
+    tags:
+      - Users
+  - name: Group management
+    tags:
+      - Group
+  - name: Space management
+    tags:
+      - Space
+  - name: Provider management
+    tags:
+      - Provider
+  - name: Handle (DOI, PID) management
+    tags:
+      - Handle
 securityDefinitions:
   api_key:
     type: apiKey
@@ -24,4 +45,6 @@ securityDefinitions:
     in: header
   basic:
     type: basic
-    
+security:
+  - basic: []
+  - api_key: []

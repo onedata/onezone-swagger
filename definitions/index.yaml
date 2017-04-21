@@ -8,6 +8,9 @@ Error:
 User:
   $ref: ./user.yaml
 
+UserUpdateRequest:
+  $ref: ./userupdaterequest.yaml
+
 Users:
   $ref: ./users.yaml
 
@@ -19,6 +22,9 @@ Shares:
 
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
+
+ProviderUpdateRequest:
+  $ref: ./providerupdaterequest.yaml
 
 ProviderRegistrationResponse:
   $ref: ./providerregistrationresponse.yaml
@@ -32,8 +38,14 @@ AuthenticationToken:
 Space:
   $ref: ./space.yaml
 
+SpaceCreateRequest:
+  $ref: ./spacecreaterequest.yaml
+
 SpaceSupportToken:
   $ref: ./spacesupporttoken.yaml
+
+SpaceSupportRequest:
+  $ref: ./spacesupportrequest.yaml
 
 ClientToken:
   $ref: ./clienttoken.yaml
@@ -55,6 +67,12 @@ SpaceInviteToken:
 
 Group:
   $ref: ./group.yaml
+
+GroupCreateRequest:
+  $ref: ./groupcreaterequest.yaml
+
+GroupUpdateRequest:
+  $ref: ./groupupdaterequest.yaml
 
 GroupInviteToken:
   $ref: ./groupinvitetoken.yaml

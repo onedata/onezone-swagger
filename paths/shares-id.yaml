@@ -22,9 +22,10 @@ get:
     {
       "shareId": "bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
       "name": "MyShare",
-      "public_url": "http://onedata.org/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
-      "root_file_id": "",
-      "parent_space": "UIsgAxi5I803ZirkUfdiWDd4W3bI4QaPBog_0kCdUdd"
+      "publicUrl": "http://onedata.org/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
+      "rootFileId": "I4QaPBog0kCdUPBog0kCdUdd",
+      "spaceId": "UIsgAxi5I803ZirkUfdiWDd4W3bI4QaPBog_0kCdUdd",
+      "handleId": "doi:10.15911/MyShares.726855"
     }
     ```
   produces:
@@ -76,22 +77,32 @@ patch:
   summary: Modify share details
   x-bash-codegen-description: |
     Updates the details about a share.
+
+    Currently this operation allows only to change the name of the share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
   description: |
     Updates the details about a share.
+
+    Currently this operation allows only to change the name of the share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
 
     ***Example cURL requests***
 
     **Change share name**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
-    -X PATCH -d '{"name": "new_share_name"}' \
+    -X PATCH -d '{"name": "NewShareName"}' \
     https://$HOST:8443/api/v3/onezone/shares/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: Share has been updated successfully.
+      description: Share will be updated.
     '400':
       description: Invalid request.
       schema:
@@ -122,7 +133,11 @@ patch:
     in: body
     description: Share parameters
     schema:
-      $ref: '#/definitions/ShareUpdateRequest'
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the share.
     required: true
   x-code-samples:
   - lang: Shell
@@ -140,8 +155,14 @@ delete:
   summary: Remove share
   x-bash-codegen-description: |
     Removes a specific share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
   description: |
     Removes a specific share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
 
     ***Example cURL requests***
 
@@ -151,8 +172,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/shares/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
-    '200':
-      description: The share has been removed successfully.
+    '202':
+      description: The share will been removed.
     '400':
       description: Invalid request.
       schema:

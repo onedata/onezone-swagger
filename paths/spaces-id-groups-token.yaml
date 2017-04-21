@@ -60,12 +60,6 @@ post:
     description: Space ID.
     type: string
     required: true
-  - name: privileges
-    in: body
-    description: Optional privileges for group in space.
-    schema:
-      $ref: '#/definitions/SpacePrivileges'
-    required: false
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createSpaceGroupToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

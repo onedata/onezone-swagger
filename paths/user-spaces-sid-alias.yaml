@@ -5,7 +5,7 @@ get:
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:get_data
-  summary: Get space alias
+  summary: Get user space alias
   x-bash-codegen-description: |
     Returns the alias of a specific space.
 
@@ -71,7 +71,7 @@ put:
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-method: space_logic:get_data
-  summary: Get space alias
+  summary: Set user space alias
   x-bash-codegen-description: |
     Sets the alias of a specific space.
 
@@ -160,8 +160,8 @@ delete:
   produces:
     - application/json
   responses:
-    '200':
-      description: The space was deleted successfuly.
+    '202':
+      description: The space alias will be removed.
     '400':
       description: Invalid request.
       schema:

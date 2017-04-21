@@ -83,7 +83,7 @@ post:
     **Create new user handle**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
-    -d '{ ... }'
+    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }'
     https://$HOST:8443/api/v3/onezone/user/handles
     ```
   consumes:
@@ -120,9 +120,9 @@ post:
   parameters:
   - name: handle
     in: body
-    description: New space parameters.
+    description: New handle parameters.
     schema:
-      $ref: '#/definitions/Handle'
+      $ref: '#/definitions/HandleRegistrationRequest'
     required: true
   x-code-samples:
   - lang: Shell

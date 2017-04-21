@@ -4,24 +4,38 @@ properties:
   handleId:
     type: string
     description: Unique ID the handle (internal to Onedata).
-  handleType:
-    type: string
-    description: Type of Handle (e.g. DOI, PID).
   handleServiceId:
     type: string
     description: ID of the service where the handle was registered.
-  handle:
+  resourceType:
     type: string
-    description: The globally unique handle.
+    description: The type of resource to be registered.
+    enum:
+      - Share
   resourceId:
     type: integer
     description: The Onedata GUID of the resource to which the handle should be resolved.
   metadata:
     type: string
     description: Dublin Core metadata for the resource encoded in XML.
+  timestamp:
+    type: string
+    description: Handle registration timestamp.
 example:
-  handleId: 2MTQwMTQ0CjAwMmZzaWduYXR1cmUg88
-  handleType: DOI
-  handle: 10.572/test-handle-G9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEh/123
+  handleId: 10.572/test-handle-G9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEh/123
+  resourceType: Share
   resourceId: RsNk1CVHZTU3Z0OThwcHAhRN1NPawowMDFhY2lkIHRpbWUgPC
   handleServiceId: JKAxNWxvY2F0aW9uImSEFSSGdrbHFCa1pWST2OTQ4cz
+  metadata: >
+    <?xml version=\"1.0\"?>
+    <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
+    <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
+             xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+      <rdf:Description rdf:about=\"http://example.com/resouces/1\">
+        <dc:title>Example Resource</dc:title>
+        <dc:creator>John Doe</dc:creator>
+        <dc:publisher>MIT</dc:publisher>
+        <dc:date>2000-06-06</dc:date>
+      </rdf:Description>
+    </rdf:RDF>
+  timestamp: 2016-07-16T19:20:30.45+01:00

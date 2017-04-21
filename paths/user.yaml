@@ -113,7 +113,7 @@ patch:
     in: body
     description: User data.
     schema:
-      $ref: '#/definitions/User'
+      $ref: '#/definitions/UserUpdateRequest'
     required: true
   x-code-samples:
   - lang: Shell
@@ -141,10 +141,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/user
     ```
   responses:
-    '200':
-      description: User removed successfully.
-      schema:
-        type: string
+    '202':
+      description: User will be removed.
     '400':
       description: Invalid request.
       schema:

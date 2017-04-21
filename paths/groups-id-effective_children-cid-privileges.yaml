@@ -84,7 +84,7 @@ patch:
   x-onedata-method: group_logic:set_child_group_privileges
   x-onedata-permissions:
     - group_set_privileges
-  summary: List effective child group privileges
+  summary: Set effective child group privileges
   x-bash-codegen-description: |
     Sets new child group privileges within a group.
 

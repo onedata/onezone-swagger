@@ -16,8 +16,10 @@ properties:
       - team
       - role
 required:
+  - groupId
   - name
   - type
 example:
+  groupId: ALSKDHLASD8ASDNjasd99
   name: Test group
   type: role

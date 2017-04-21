@@ -11,10 +11,14 @@ get:
     Returns the list of currently authenticated user privileges for Onezone.
 
     This operation can be invoked on behalf of current user only.
+
+    This operation requires `get_privileges` administrator privilege.
   description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
     This operation can be invoked on behalf of current user only.
+
+    This operation requires `get_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -72,10 +76,14 @@ patch:
     Modifies privileges for a user for Onezone.
 
     This operation can be invoked on behalf of current user only.
+
+    This operation requires `set_privileges` administrator privilege.
   description: |
     Modifies privileges for a user for Onezone.
 
     This operation can be invoked on behalf of current user only.
+
+    This operation requires `set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -86,8 +94,8 @@ patch:
     https://$HOST:8443/api/v3/onezone/user/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been added.
+    '204':
+      description: The user privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -132,10 +140,14 @@ delete:
     Removes all privileges for a user to Onezone.
 
     This operation can be invoked on behalf of current user only.
+
+    This operation requires `set_privileges` administrator privilege.
   description: |
     Removes all privileges for a user to Onezone.
 
     This operation can be invoked on behalf of current user only.
+
+    This operation requires `set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -145,8 +157,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/users/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been removed.
+    '202':
+      description: The user privileges will be cleared.
     '400':
       description: Invalid request.
       schema:

@@ -10,11 +10,17 @@ get:
   x-bash-codegen-description: |
     Returns details about a specific provider supporting the space.
 
+    For users who are members of space it requires `space_view_data`.
+    For administrators who do not have to be members of this space,
+    `list_providers_of_space` privilege is required.
+
     This operation requires `list_providers_of_space` privilege.
   description: |
     Returns details about a specific provider supporting the space.
 
-    This operation requires `list_providers_of_space` privilege.
+    For users who are members of space it requires `space_view_data`.
+    For administrators who do not have to be members of this space,
+    `list_providers_of_space` privilege is required.
 
     ***Example cURL requests***
 
@@ -25,7 +31,7 @@ get:
 
     {
       "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk",
-      "clientName": "example",
+      "name": "example",
       "urls": [
         "195.216.97.151"
       ],
@@ -103,7 +109,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
     ```
   responses:
-    '200':
+    '202':
       description: A space is no longer supported by this provider.
     '400':
       description: Invalid request.

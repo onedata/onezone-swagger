@@ -96,7 +96,7 @@ patch:
 
     This operation requires `group_set_privileges` privilege.
   responses:
-    '200':
+    '204':
       description: The user privileges have been added.
     '400':
       description: Invalid request.

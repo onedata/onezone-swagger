@@ -23,15 +23,24 @@ get:
     **Get handle**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH
+    https://$HOST:8443/api/v3/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-      "handleId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-      "handleType": "DOI",
+      "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
       "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
-      "handle": "10.572/ABCD-asdakjsdak87587asdk-1234/8",
+      "resourceType": "Share",
       "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
-      "metadata": "...",
+      "metadata": "<?xml version=\"1.0\"?>
+          <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
+          <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
+                   xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+            <rdf:Description rdf:about=\"http://example.com/resouces/1\">
+              <dc:title>Example Resource</dc:title>
+              <dc:creator>John Doe</dc:creator>
+              <dc:publisher>MIT</dc:publisher>
+              <dc:date>2000-06-06</dc:date>
+            </rdf:Description>
+          </rdf:RDF>",
       "timestamp": "1997-07-16T19:20"
     }
     ```
@@ -85,13 +94,13 @@ patch:
     - modify_handle
   summary: Modify handle
   x-bash-codegen-description: |
-    Allows to update a registeed handle, for instance change the Onedata resource
-    to which it points to.
+    Allows to update a registered handle, currently it only allows
+    to modify the handle metadata property.
 
     This operation requires `modify_handle` privilege.
   description: |
-    Allows to update a registeed handle, for instance change the Onedata resource
-    to which it points to.
+    Allows to update a registered handle, currently it only allows
+    to modify the handle metadata property.
 
     This operation requires `modify_handle` privilege.
 
@@ -100,7 +109,7 @@ patch:
     **Modify handle resource**
     ```bash
     curl -u username:password -X PATCH  -H "Content-type: application/json" \
-    -d '{"resourceId": "jalkADKDGHKAJSdlkHDukjhassjd76876asdkb"}' \
+    -d '{"metadata": "<?xml..."}' \
     https://$HOST:8443/api/v3/handles/LKHASDkkjhASDLHU70ASDn
     ```
   consumes:
@@ -137,10 +146,14 @@ patch:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/Handle'
+        type: object
+        properties:
+          metadata:
+            type: string
+            description: Dublin Core metadata in XML for the handle.
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH resourceId==RsNk1CVHZTU3Z0OThwcHAhRN1NPawowMDFhY2lkIHRpbWUgPC"
+    source: "cat handl_metadata.json | onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
 
 
 delete:
@@ -172,7 +185,7 @@ delete:
     ```
   responses:
     '202':
-      description: Unregistration was successful.
+      description: Handle will be removed.
     '400':
       description: Invalid request.
       schema:

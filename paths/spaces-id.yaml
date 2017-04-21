@@ -10,12 +10,12 @@ get:
   x-bash-codegen-description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces'
+    If called by user who is not member of the space, requires `list_spaces`
     privilege.
   description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces'
+    If called by user who is not member of the space, requires `list_spaces`
     privilege.
 
     ***Example cURL requests***
@@ -28,8 +28,9 @@ get:
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
-      "canonicalName": "new_space1",
-      "providersSupports": []
+      "providersSupports": {
+        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+      }
     }
     ```
   produces:
@@ -81,8 +82,14 @@ patch:
   summary: Modify space details
   x-bash-codegen-description: |
     Updates the details about a space.
+
+    If called by user who is not member of the space, requires `space_change_data`
+    privilege.
   description: |
     Updates the details about a space.
+
+    If called by user who is not member of the space, requires `space_change_data`
+    privilege.
 
     ***Example cURL requests***
 
@@ -127,7 +134,11 @@ patch:
     in: body
     description: Space parameters
     schema:
-      $ref: '#/definitions/Space'
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the new space.
     required: true
   x-code-samples:
   - lang: Shell
@@ -145,8 +156,14 @@ delete:
   summary: Remove space
   x-bash-codegen-description: |
     Removes a specific space.
+
+    If called by user who is not member of the space, requires `space_remove`
+    privilege.
   description: |
     Removes a specific space.
+
+    If called by user who is not member of the space, requires `space_remove`
+    privilege.
 
     ***Example cURL requests***
 
@@ -156,8 +173,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
-    '200':
-      description: The space has been removed successfully.
+    '202':
+      description: The space will be removed.
     '400':
       description: Invalid request.
       schema:

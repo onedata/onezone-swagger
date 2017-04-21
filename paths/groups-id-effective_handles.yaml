@@ -9,8 +9,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of effective groups' handles.
 
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the list of effective groups' handles.
+
+    This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 

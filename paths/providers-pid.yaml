@@ -85,17 +85,13 @@ delete:
 
     If called by other provider doesn't require any special privileges.
 
-    When called by a regular user, requires `remove_provider` privilege.
-
-    This operation requires `remove_provider` privilege.
+    This operation requires `remove_provider` administrator privilege.
   description: |
     Removes specific Oneprovider from this zone.
 
     If called by other provider doesn't require any special privileges.
 
-    When called by a regular user, requires 'list_providers' privilege.
-
-    This operation requires `list_providers` privilege.
+    This operation requires `remove_provider` administrator privilege.
 
     ***Example cURL requests***
 
@@ -107,8 +103,8 @@ delete:
   produces:
     - application/json
   responses:
-    '204':
-      description: Provider unregistered successfully
+    '202':
+      description: Provider will be unregistered.
     '400':
       description: Invalid request.
       schema:

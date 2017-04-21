@@ -1,7 +1,7 @@
 get:
   operationId: list_user_onezone_privileges
   tags:
-    - User
+    - Users
   x-onedata-service: onezone
   x-onedata-module: privileges
   x-onedata-resource: upriv
@@ -92,8 +92,8 @@ patch:
     https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmPj3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been added.
+    '204':
+      description: The user privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -156,8 +156,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been removed.
+    '202':
+      description: The user privileges will be removed.
     '400':
       description: Invalid request.
       schema:

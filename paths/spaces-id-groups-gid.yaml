@@ -11,10 +11,14 @@ get:
     Returns details about a specific group in a space.
 
     This operation requires `space_view_data` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_list_groups` privilege is required.
   description: |
     Returns details about a specific group in a space.
 
     This operation requires `space_view_data` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_list_groups` privilege is required.
 
     ***Example cURL requests***
 
@@ -87,7 +91,9 @@ put:
     This operation can be invoked by system administrators only
     and requires `add_member_to_space` privilege.
   description: |
-    Allows to add a group to any space.
+    Allows to add a group to any space. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for group in this space.
 
     This operation can be invoked by system administrators only
     and requires `add_member_to_space` privilege.
@@ -157,13 +163,22 @@ delete:
   x-bash-codegen-description: |
     Removes a specific group from space.
 
+    For regular users, who belong to this space it requires
+    `space_remove_group` privilege to remove a group from this space.
+
+    For administrators, who are not members of this space,
+    `remove_member_from_space` privilege is required.
+
     This operation requires `space_remove_group` privilege or
     `remove_member_from_space` privilege.
   description: |
     Removes a specific group from space.
 
-    This operation requires `space_remove_group` privilege or
-    `remove_member_from_space` privilege.
+    For regular users, who belong to this space it requires
+    `space_remove_group` privilege to remove a group from this space.
+
+    For administrators, who are not members of this space,
+    `remove_member_from_space` privilege is required.
 
     ***Example cURL requests***
 
@@ -173,8 +188,8 @@ delete:
     https://$HOST:8443/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
     ```
   responses:
-    '200':
-      description: A space has been removed from group.
+    '202':
+      description: A group will be removed from space.
     '400':
       description: Invalid request.
       schema:
