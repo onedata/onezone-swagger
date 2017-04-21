@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `oz_handle_services_list` administrator privilege.
   description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `oz_handle_services_list` administrator privilege.
 
     ***Example cURL requests***
 

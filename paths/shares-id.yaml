@@ -79,10 +79,16 @@ patch:
     Updates the details about a share.
 
     Currently this operation allows only to change the name of the share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
   description: |
     Updates the details about a share.
 
     Currently this operation allows only to change the name of the share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
 
     ***Example cURL requests***
 
@@ -149,8 +155,14 @@ delete:
   summary: Remove share
   x-bash-codegen-description: |
     Removes a specific share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
   description: |
     Removes a specific share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
 
     ***Example cURL requests***
 

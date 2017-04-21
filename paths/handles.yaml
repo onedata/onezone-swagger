@@ -11,8 +11,12 @@ get:
   summary: List handles
   x-bash-codegen-description: |
     Returns the list of ID's of all handles registered in Onezone.
+
+    This operation requires `oz_handles_list` administrator privilege.
   description: |
     Returns the list of ID's of all handles registered in Onezone.
+
+    This operation requires `oz_handles_list` administrator privilege.
 
     ***Example cURL requests***
 

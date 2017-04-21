@@ -11,8 +11,13 @@ get:
   summary: List handle services
   x-bash-codegen-description: |
     Returns the list of registered handle services.
+
+    This operation requires `oz_handle_services_list` administrator privilege.
   description: |
     Returns the list of registered handle services.
+
+    This operation requires `oz_handle_services_list` administrator privilege.
+
 
     ***Example cURL requests***
 
@@ -72,8 +77,12 @@ post:
   summary: Add handle service
   x-bash-codegen-description: |
     Allows to register a new handle service.
+
+    This operation requires `oz_handle_services_create` administrator privilege.
   description: |
     Allows to register a new handle service.
+
+    This operation requires `oz_handle_services_create` administrator privilege.
 
     ***Example cURL requests***
 

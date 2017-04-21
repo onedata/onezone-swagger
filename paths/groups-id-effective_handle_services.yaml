@@ -11,8 +11,12 @@ get:
   summary: List effective group handle services
   x-bash-codegen-description: |
     Returns the list of registered group effective handle services.
+
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the list of registered group effective handle services.
+
+    This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 

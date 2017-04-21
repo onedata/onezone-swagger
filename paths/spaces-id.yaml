@@ -10,12 +10,12 @@ get:
   x-bash-codegen-description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces'
+    If called by user who is not member of the space, requires `list_spaces`
     privilege.
   description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces'
+    If called by user who is not member of the space, requires `list_spaces`
     privilege.
 
     ***Example cURL requests***
@@ -82,8 +82,14 @@ patch:
   summary: Modify space details
   x-bash-codegen-description: |
     Updates the details about a space.
+
+    If called by user who is not member of the space, requires `space_change_data`
+    privilege.
   description: |
     Updates the details about a space.
+
+    If called by user who is not member of the space, requires `space_change_data`
+    privilege.
 
     ***Example cURL requests***
 
@@ -150,8 +156,14 @@ delete:
   summary: Remove space
   x-bash-codegen-description: |
     Removes a specific space.
+
+    If called by user who is not member of the space, requires `space_remove`
+    privilege.
   description: |
     Removes a specific space.
+
+    If called by user who is not member of the space, requires `space_remove`
+    privilege.
 
     ***Example cURL requests***
 

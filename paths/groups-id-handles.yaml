@@ -9,8 +9,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of groups handles.
 
+    This operation requires `group_view_data` privilege.
   description: |
     Returns the list of groups handles.
+
+    This operation requires `group_view_data` privilege.
 
     ***Example cURL requests***
 
@@ -75,8 +78,14 @@ post:
   x-bash-codegen-description: |
     Creates a new handle on behalf of a group.
 
+    This operation requires `register_handle` privilege, for the handle service
+    specified in the `handleServiceId` field.
   description: |
     Creates a new handle on behalf of a group.
+
+    This operation requires `register_handle` privilege, for the handle service
+    specified in the `handleServiceId` field.
+
 
     ***Example cURL requests***
 

@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Get details of a handle service owned by an effective group.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `view_handle_service` administrator privilege.
   description: |
     Get details of a handle service owned by an effective group.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `view_handle_service` administrator privilege.
 
     ***Example cURL requests***
 

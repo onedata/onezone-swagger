@@ -13,10 +13,15 @@ get:
     Returns the public information about a user {uid} in group {id}.
 
     This operation requires `group_view_data` privilege.
+    For administrator who do not need to be members of this group
+    `oz_groups_list_users` privilege is required.
+
   description: |
     Returns the public information about a user {uid} in group {id}.
 
     This operation requires `group_view_data` privilege.
+    For administrator who do not need to be members of this group
+    `oz_groups_list_users` privilege is required.
 
     ***Example cURL requests***
 
@@ -175,11 +180,15 @@ delete:
     access to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
+    For administrator who do not need to be members of this group
+    `oz_groups_remove_members` privilege is required.
   description: |
     Removes the user {uid} from a group {id} (the user will no longer have access
     to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
+    For administrator who do not need to be members of this group
+    `oz_groups_remove_members` privilege is required.
 
     ***Example cURL requests***
 
