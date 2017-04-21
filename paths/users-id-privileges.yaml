@@ -1,7 +1,7 @@
 get:
   operationId: list_user_onezone_privileges
   tags:
-    - User
+    - Users
   x-onedata-service: onezone
   x-onedata-module: privileges
   x-onedata-resource: upriv

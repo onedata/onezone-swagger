@@ -1,7 +1,7 @@
 get:
   operationId: get_user
   tags:
-    - User
+    - Users
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-resource: user
