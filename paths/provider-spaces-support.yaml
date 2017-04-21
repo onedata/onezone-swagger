@@ -17,6 +17,15 @@ post:
     performed the request. Space support token is required.
 
     This operation requires peer certificate authentication.
+
+    ***Example cURL requests***
+
+    **Add support for specific space**
+    ```bash
+    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X POST \
+    -d '{"size": 1024000, "token": "Ko1SDKLJASHDkjjkjashdkjahsdkk655a8sdkgkasdASD"}' \
+    https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    ```
   produces:
     - application/json
   responses:
