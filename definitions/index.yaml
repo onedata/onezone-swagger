@@ -123,8 +123,8 @@ PIDServicePropertiesUpdate:
 Handle:
   $ref: ./handle.yaml
 
-# Handles:
-#   $ref: ./handles.yaml
+Handles:
+  $ref: ./handles.yaml
 
 HandleRegistrationRequest:
   $ref: ./handleregistrationrequest.yaml
