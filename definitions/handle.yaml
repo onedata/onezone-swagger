@@ -10,6 +10,8 @@ properties:
   resourceType:
     type: string
     description: The type of resource to be registered.
+    enum:
+      - Share
   resourceId:
     type: integer
     description: The Onedata GUID of the resource to which the handle should be resolved.
