@@ -18,7 +18,7 @@ get:
 
     ***Example cURL requests***
 
-    **Add user to space**
+    **Get user tokens**
     ```bash
     curl -u username:password -X GET https://$HOST:8443/api/v3/onezone/user/client_tokens
 
@@ -91,6 +91,8 @@ post:
     ```
   produces:
     - application/json
+  consumes:
+    - application/json
   responses:
     '200':
       description: The token has been successfully created.
@@ -116,6 +118,13 @@ post:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
+  parameters:
+  - name: options
+    description: Optional token parameters
+    in: body
+    required: false
+    schema:
+      type: string
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli generateClientToken"
