@@ -67,7 +67,8 @@ post:
   - name: body
     in: body
     description: Token parameters.
-    type: string
+    schema:
+      type: string
     required: false
   x-code-samples:
   - lang: Shell
