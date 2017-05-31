@@ -1,4 +1,4 @@
-get:
+post:
   operationId: create_group_space_creation_token
   tags:
     - Group
@@ -24,7 +24,7 @@ get:
 
     **Generate group space creation token**
     ```bash
-    curl -u admin:password -X GET \
+    curl -u admin:password -X POST \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/token
 
     {
@@ -33,11 +33,13 @@ get:
     ```
   produces:
     - application/json
+  consumes:
+    - application/json
   responses:
     '200':
-      description: The token for joining a specific space.
+      description: The token for creating a group space.
       schema:
-        $ref : '#/definitions/SpaceInviteToken'
+        $ref : '#/definitions/SpaceCreateToken'
     '400':
       description: Invalid request.
       schema:
@@ -64,6 +66,12 @@ get:
     description: Group ID.
     type: string
     required: true
+  - name: body
+    in: body
+    description: Group token request.
+    schema:
+      $ref: '#/definitions/GroupInviteTokenRequest'
+    required: false
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createGroupSpaceCreationToken id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
