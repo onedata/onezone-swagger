@@ -29,6 +29,8 @@ post:
     ```
   produces:
     - application/json
+  consumes:
+    - application/json
   responses:
     '200':
       description: The token for joining a specific group.
@@ -60,6 +62,12 @@ post:
     description: Space ID.
     type: string
     required: true
+  - name: options
+    description: Optional token parameters.
+    in: body
+    required: false
+    schema:
+      type: string
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createSpaceUserInviteToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
