@@ -9,7 +9,8 @@ releases["release/3.0.0-rc9"]="3.0.0-rc9"
 releases["release/3.0.0-rc10"]="3.0.0-rc10"
 releases["release/3.0.0-rc11"]="3.0.0-rc11"
 releases["release/3.0.0-rc14"]="3.0.0-rc14"
-releases["release/3.0.0-rc14"]="3.0.0-rc15"
+releases["release/3.0.0-rc15"]="3.0.0-rc15"
+releases["release/3.0.0-rc16"]="3.0.0-rc16"
 
 rm -rf packages
 for release_branch in "${!releases[@]}"; do
