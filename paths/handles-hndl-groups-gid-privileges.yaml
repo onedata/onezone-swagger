@@ -7,16 +7,16 @@ get:
   x-onedata-resource: handle
   x-onedata-method: handle_logic:get_handle_group
   x-onedata-permissions:
-    - view_handle
+    - handle_view
   summary: List handle group privileges
   x-bash-codegen-description: |
     Returns group privileges for accessing a handle instance.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns group privileges for accessing a handle instance.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
@@ -27,7 +27,7 @@ get:
 
     {
       "privileges": [
-        "view_handle"
+        "handle_view"
       ]
     }
     ```
@@ -83,16 +83,16 @@ patch:
   x-onedata-resource: handle
   x-onedata-method: handle_logic:set_handle_group_privileges
   x-onedata-permissions:
-    - modify_handle
+    - handle_update
   summary: Set handle groups privileges
   x-bash-codegen-description: |
     Sets group privileges for accessing a handle instance.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
   description: |
     Sets group privileges for accessing a handle instance.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
 
     ***Example cURL requests***
 

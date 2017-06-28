@@ -18,15 +18,15 @@ properties:
     items:
       type: string
       enum:
-        - add_member_to_space
+        - oz_spaces_add_members
         - list_groups
-        - list_groups_of_provider
-        - list_providers
-        - list_providers_of_space
-        - list_spaces
-        - list_spaces_of_provider
-        - list_users
-        - list_users_of_provider
+        - oz_providers_list_groups
+        - oz_providers_list
+        - oz_spaces_list_providers
+        - oz_spaces_list
+        - oz_providers_list_spaces
+        - oz_users_list
+        - oz_providers_list_users
         - oz_groups_add_members
         - oz_groups_list_groups
         - oz_groups_list_users
@@ -39,24 +39,24 @@ properties:
         - oz_spaces_list_groups
         - oz_spaces_list_users
         - oz_users_delete
-        - remove_member_from_space
-        - set_privileges
-        - view_privileges
+        - oz_spaces_remove_members
+        - oz_set_privileges
+        - oz_view_privileges
 required:
   - privileges
 example:
   operation:
     - set
   privileges:
-    - add_member_to_space
+    - oz_spaces_add_members
     - list_groups
-    - list_groups_of_provider
-    - list_providers
-    - list_providers_of_space
-    - list_spaces
-    - list_spaces_of_provider
-    - list_users
-    - list_users_of_provider
+    - oz_providers_list_groups
+    - oz_providers_list
+    - oz_spaces_list_providers
+    - oz_spaces_list
+    - oz_providers_list_spaces
+    - oz_users_list
+    - oz_providers_list_users
     - oz_groups_add_members
     - oz_groups_list_groups
     - oz_groups_list_users
@@ -69,6 +69,6 @@ example:
     - oz_spaces_list_groups
     - oz_spaces_list_users
     - oz_users_delete
-    - remove_member_from_space
-    - set_privileges
-    - view_privileges
+    - oz_spaces_remove_members
+    - oz_set_privileges
+    - oz_view_privileges

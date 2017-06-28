@@ -7,16 +7,16 @@ get:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:get_handle_service_users
   x-onedata-permissions:
-    - view_handle_service
+    - handle_service_view
   summary: Get handle service users
   x-bash-codegen-description: |
     Returns all users with access to a handle service instance
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `handle_service_view` privilege.
   description: |
     Returns all users with access to a handle service instance
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `handle_service_view` privilege.
 
     ***Example cURL requests***
 

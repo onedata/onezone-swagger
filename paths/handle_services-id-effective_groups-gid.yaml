@@ -7,16 +7,16 @@ get:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:get_handle_service_group
   x-onedata-permissions:
-    - modify_handle_service
+    - handle_service_update
   summary: Get effective handle service group
   x-bash-codegen-description: |
     Get details of a handle service owned by an effective group.
 
-    This operation requires `view_handle_service` administrator privilege.
+    This operation requires `handle_service_view` administrator privilege.
   description: |
     Get details of a handle service owned by an effective group.
 
-    This operation requires `view_handle_service` administrator privilege.
+    This operation requires `handle_service_view` administrator privilege.
 
     ***Example cURL requests***
 

@@ -1,5 +1,5 @@
 get:
-  operationId: list_providers
+  operationId: oz_providers_list
   tags:
     - Provider
   x-onedata-service: onezone
@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.
 
-    This operation requires `list_providers` privilege.
+    This operation requires `oz_providers_list` privilege.
   description: |
     Returns the list of providers registered in the Onezone service.
 
-    This operation requires `list_providers` privilege.
+    This operation requires `oz_providers_list` privilege.
 
     ***Example cURL requests***
 

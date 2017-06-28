@@ -7,16 +7,16 @@ get:
   x-onedata-resource: handle
   x-onedata-method: handle_logic:get_handle_users
   x-onedata-permissions:
-    - view_handle
+    - handle_view
   summary: List effective handle user privileges
   x-bash-codegen-description: |
     Returns effective user privileges for accessing a handle instance.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns effective user privileges for accessing a handle instance.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
@@ -27,8 +27,8 @@ get:
 
     {
       "privileges": [
-        "modify_handle",
-        "view_handle"
+        "handle_update",
+        "handle_view"
       ]
     }
     ```

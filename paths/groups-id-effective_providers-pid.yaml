@@ -7,16 +7,16 @@ get:
   x-onedata-resource: provider
   x-onedata-method: space_logic:get_data
   x-onedata-permissions:
-    - group_view_data
+    - group_view
   summary: Get effective group's provider details
   x-bash-codegen-description: |
     Returns information about a specific effective provider supporting groups spaces.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
   description: |
     Returns information about a specific effective provider supporting groups spaces.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 

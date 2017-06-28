@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns privileges of a user to a specific space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
   description: |
     Returns privileges of a user to a specific space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
 
     ***Example cURL requests***
 
@@ -25,8 +25,8 @@ get:
 
     {
       "privileges": [
-        "space_add_provider",
-        "space_change_data",
+        "space_invite_provider",
+        "space_update",
         "space_invite_group"
         ]
     }
@@ -81,7 +81,7 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: upriv
-  x-onedata-method: space_logic:set_privileges
+  x-onedata-method: space_logic:oz_set_privileges
   summary: Set user privileges to space
   x-bash-codegen-description: |
     Sets privileges for a user to a space.
@@ -97,7 +97,7 @@ patch:
     **Set user privileges to space**
     ```bash
     curl -i -k -u admin:password -X PUT \
-    -d '{"privileges":["space_add_provider","space_change_data"]}' \
+    -d '{"privileges":["space_invite_provider","space_update"]}' \
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
     ```
   responses:
@@ -142,4 +142,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
+    source: "echo '[\"space_view\"]' | onezone-rest-cli setSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"

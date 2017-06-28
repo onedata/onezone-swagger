@@ -1,20 +1,20 @@
 get:
-  operationId: list_spaces
+  operationId: oz_spaces_list
   tags:
     - Space
   x-onedata-service: onezone
   x-onedata-module: space
   x-onedata-resource: spaces
-  x-onedata-method: space_logic:list_spaces
+  x-onedata-method: space_logic:oz_spaces_list
   summary: List all spaces
   x-bash-codegen-description: |
     Returns the list of all spaces managed by the Onezone service.
 
-    This operation requires `list_spaces` privilege.
+    This operation requires `oz_spaces_list` privilege.
   description: |
     Returns the list of all spaces managed by the Onezone service.
 
-    This operation requires `list_spaces` privilege.
+    This operation requires `oz_spaces_list` privilege.
 
     ***Example cURL requests***
 

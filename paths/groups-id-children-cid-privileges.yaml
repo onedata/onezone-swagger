@@ -7,16 +7,16 @@ get:
   x-onedata-resource: npriv
   x-onedata-method: group_logic:get_child_group_privileges
   x-onedata-permissions:
-    - group_view_data
+    - group_view
   summary: List child group privileges
   x-bash-codegen-description: |
     Returns the list of child group privileges in a specific group.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
   description: |
     Returns the list of child group privileges in a specific group.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 
@@ -27,7 +27,7 @@ get:
 
     {
       "privileges": [
-        "group_view_data"
+        "group_view"
       ]
     }
     ```
@@ -100,7 +100,7 @@ patch:
 
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-    -d '{"privileges": ["group_view_data"]}' \
+    -d '{"privileges": ["group_view"]}' \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
@@ -145,4 +145,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"privileges\": [\"group_change_data\", \"group_view_data\"]}' | onezone-rest-cli setChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG -"
+    source: "echo '{\"privileges\": [\"group_update\", \"group_view\"]}' | onezone-rest-cli setChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG -"

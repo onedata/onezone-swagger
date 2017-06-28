@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns privileges for a group to a specific space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
   description: |
     Returns privileges for a group to a specific space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
 
     ***Example cURL requests***
 
@@ -25,7 +25,7 @@ get:
 
     {
       "privileges": [
-        "space_view_data"
+        "space_view"
       ]
     }
     ```
@@ -79,7 +79,7 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: spaces
   x-onedata-resource: upriv
-  x-onedata-method: space_logic:set_privileges
+  x-onedata-method: space_logic:oz_set_privileges
   summary: Set group privileges to space
   x-bash-codegen-description: |
     Sets new privileges for a group to a specific space.
@@ -95,7 +95,7 @@ patch:
     **Set space group privileges**
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
-    -X PATCH -d '{"privileges": ["space_change_data"]}' \
+    -X PATCH -d '{"privileges": ["space_update"]}' \
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
@@ -139,4 +139,4 @@ patch:
       $ref: '#/definitions/SpacePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"privileges\": [\"space_change_data\"]}' | onezone-rest-cli setSpaceGroupPrivileges id=SPACE_ID gid=GROUP_ID -"
+    source: "echo '{\"privileges\": [\"space_update\"]}' | onezone-rest-cli setSpaceGroupPrivileges id=SPACE_ID gid=GROUP_ID -"

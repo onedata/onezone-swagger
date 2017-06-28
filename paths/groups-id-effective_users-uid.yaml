@@ -7,16 +7,16 @@ get:
   x-onedata-resource: effective_user
   x-onedata-method: group_logic:get_effective_user
   x-onedata-permissions:
-    - group_view_data
+    - group_view
   summary: Get effective group user details
   x-bash-codegen-description: |
     Returns information about a specific effective group user.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
   description: |
     Returns information about a specific effective group user.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 

@@ -7,16 +7,16 @@ get:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:get_handle_service_group
   x-onedata-permissions:
-    - modify_handle_service
+    - handle_service_update
   summary: Get handle service group details
   x-bash-codegen-description: |
     Get details of a group with access to handle service.
 
-    This operation requires `view_handle_service` administrator privilege.
+    This operation requires `handle_service_view` administrator privilege.
   description: |
     Get details of a group with access to handle service.
 
-    This operation requires `view_handle_service` administrator privilege.
+    This operation requires `handle_service_view` administrator privilege.
 
     ***Example cURL requests***
 
@@ -83,16 +83,16 @@ put:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:add_handle_service_group
   x-onedata-permissions:
-    - modify_handle_service
+    - handle_service_update
   summary: Add handle service group
   x-bash-codegen-description: |
     Allows to add a group to a handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
   description: |
     Allows to add a group to a handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
 
     ***Example cURL requests***
 
@@ -151,16 +151,16 @@ delete:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:remove_handle_service_group
   x-onedata-permissions:
-    - modify_handle_service
+    - handle_service_update
   summary: Remove handle service group
   x-bash-codegen-description: |
     Allows to remove a group from access to a handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
   description: |
     Allows to remove a group from access to a handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
 
     ***Example cURL requests***
 

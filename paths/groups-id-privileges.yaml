@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of group privileges for Onezone.
 
-    This operation requires `view_privileges` privilege.
+    This operation requires `oz_view_privileges` privilege.
   description: |
     Returns the list of group privileges for Onezone.
 
-    This operation requires `view_privileges` privilege.
+    This operation requires `oz_view_privileges` privilege.
 
     ***Example cURL requests***
 
@@ -72,23 +72,23 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: onezone
   x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:set_privileges
+  x-onedata-method: onezone_logic:oz_set_privileges
   summary: Set group's Onezone privileges
   x-bash-codegen-description: |
     Modifies privileges for a group {id} for Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` privilege.
   description: |
     Modifies privileges for a group {id} for Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` privilege.
 
     ***Example cURL requests***
 
     **Set groups privileges to Onezone service**
     ```bash
     curl -H "Content-type: application/json"  -X PUT \
-    -d '{"privileges": ["list_spaces"]}' \
+    -d '{"privileges": ["oz_spaces_list"]}' \
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
@@ -127,7 +127,7 @@ patch:
       $ref: '#/definitions/OnezonePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"privileges\": [\"list_spaces\", \"add_spaces\"]}' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
+    source: "echo '{\"privileges\": [\"oz_spaces_list\", \"add_spaces\"]}' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
 
 
 delete:
@@ -142,11 +142,11 @@ delete:
   x-bash-codegen-description: |
     Removes all privileges for a group {id} to Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` privilege.
   description: |
     Removes all privileges for a group {id} to Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` privilege.
 
     ***Example cURL requests***
 

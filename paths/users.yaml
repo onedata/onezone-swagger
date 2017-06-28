@@ -1,5 +1,5 @@
 get:
-  operationId: list_users
+  operationId: oz_users_list
   tags:
     - Users
   x-onedata-service: onezone
@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of all users in the system.
 
-    Requires `list_users` privilege.
+    Requires `oz_users_list` privilege.
   description: |
     Returns the list of all users in the system.
 
-    Requires `list_users` privilege.
+    Requires `oz_users_list` privilege.
 
     ***Example cURL requests***
 

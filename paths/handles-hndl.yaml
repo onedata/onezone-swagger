@@ -7,16 +7,16 @@ get:
   x-onedata-resource: handle
   x-onedata-method: handle_logic:get_handle
   x-onedata-permissions:
-    - view_handle
+    - handle_view
   summary: Get handle
   x-bash-codegen-description: |
     Returns the properties of a specific handle.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns the properties of a specific handle.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
@@ -83,26 +83,26 @@ get:
 
 
 patch:
-  operationId: modify_handle
+  operationId: handle_update
   tags:
     - Handle
   x-onedata-service: onezone
   x-onedata-module: handle
   x-onedata-resource: handle
-  x-onedata-method: handle_logic:modify_handle
+  x-onedata-method: handle_logic:handle_update
   x-onedata-permissions:
-    - modify_handle
+    - handle_update
   summary: Modify handle
   x-bash-codegen-description: |
     Allows to update a registered handle, currently it only allows
     to modify the handle metadata property.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
   description: |
     Allows to update a registered handle, currently it only allows
     to modify the handle metadata property.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
 
     ***Example cURL requests***
 
@@ -163,18 +163,18 @@ delete:
   x-onedata-service: onezone
   x-onedata-module: handle
   x-onedata-resource: handle
-  x-onedata-method: handle_logic:delete_handle
+  x-onedata-method: handle_logic:handle_delete
   x-onedata-permissions:
-    - delete_handle
+    - handle_delete
   summary: Unregister handle
   x-bash-codegen-description: |
     Allows to unregister a registered handle.
 
-    This operation requires `delete_handle` privilege.
+    This operation requires `handle_delete` privilege.
   description: |
     Allows to unregister a registered handle.
 
-    This operation requires `delete_handle` privilege.
+    This operation requires `handle_delete` privilege.
 
     ***Example cURL requests***
 

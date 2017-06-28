@@ -18,15 +18,15 @@ properties:
     items:
       type: string
       enum:
-        - delete_handle
-        - modify_handle
-        - view_handle
+        - handle_delete
+        - handle_update
+        - handle_view
 required:
   - privileges
 example:
   operation:
     - grant
   privileges:
-    - delete_handle
-    - modify_handle
-    - view_handle
+    - handle_delete
+    - handle_update
+    - handle_view

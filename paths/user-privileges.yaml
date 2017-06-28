@@ -70,27 +70,27 @@ patch:
   x-onedata-service: onezone
   x-onedata-module: onezone
   x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:set_privileges
+  x-onedata-method: onezone_logic:oz_set_privileges
   summary: Set current user privileges
   x-bash-codegen-description: |
     Modifies privileges for a user for Onezone.
 
     This operation can be invoked on behalf of current user only.
 
-    This operation requires `set_privileges` administrator privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
   description: |
     Modifies privileges for a user for Onezone.
 
     This operation can be invoked on behalf of current user only.
 
-    This operation requires `set_privileges` administrator privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Modifies users privileges to Onezone service**
     ```bash
     curl -u username:password  -H "Content-type: application/json"  -X PUT \
-    -d '{"privileges":["list_spaces"]}' \
+    -d '{"privileges":["oz_spaces_list"]}' \
     https://$HOST:8443/api/v3/onezone/user/privileges
     ```
   responses:
@@ -124,7 +124,7 @@ patch:
       $ref: '#/definitions/OnezonePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"list_spaces\", \"list_spaces\"]' | onezone-rest-cli setCurrentUserPrivileges -"
+    source: "echo '[\"oz_spaces_list\", \"oz_spaces_list\"]' | onezone-rest-cli setCurrentUserPrivileges -"
 
 
 delete:
@@ -141,13 +141,13 @@ delete:
 
     This operation can be invoked on behalf of current user only.
 
-    This operation requires `set_privileges` administrator privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
   description: |
     Removes all privileges for a user to Onezone.
 
     This operation can be invoked on behalf of current user only.
 
-    This operation requires `set_privileges` administrator privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 

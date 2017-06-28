@@ -7,7 +7,7 @@ get:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:get_handle_service
   x-onedata-permissions:
-    - view_handle_service
+    - handle_service_view
   summary: Get handle service
   x-bash-codegen-description: |
     Returns the properties of a specific handle service.
@@ -81,7 +81,7 @@ get:
 
 
 patch:
-  operationId: modify_handle_service
+  operationId: handle_service_update
   tags:
     - Handle
   x-onedata-service: onezone
@@ -89,16 +89,16 @@ patch:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:modify_handle_services
   x-onedata-permissions:
-    - modify_handle_service
+    - handle_service_update
   summary: Modify handle service
   x-bash-codegen-description: |
     Allows to update a registered handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
   description: |
     Allows to update a registered handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
 
     ***Example cURL requests***
 
@@ -157,16 +157,16 @@ delete:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:delete_handle_services
   x-onedata-permissions:
-    - delete_handle_service
+    - handle_service_delete
   summary: Unregister handle service
   x-bash-codegen-description: |
     Allows to unregister a registeed handle service.
 
-    This operation requires `delete_handle_service` privilege.
+    This operation requires `handle_service_delete` privilege.
   description: |
     Allows to unregister a registeed handle service.
 
-    This operation requires `delete_handle_service` privilege.
+    This operation requires `handle_service_delete` privilege.
 
     ***Example cURL requests***
 

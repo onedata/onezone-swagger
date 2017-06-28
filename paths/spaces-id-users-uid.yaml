@@ -10,13 +10,13 @@ get:
   x-bash-codegen-description: |
     Returns the public information about a specific user in a space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
     `oz_spaces_list_users` privilege is required.
   description: |
     Returns the public information about a specific user in a space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
     `oz_spaces_list_users` privilege is required.
 
@@ -92,14 +92,14 @@ put:
     Allows to add a user to any space.
 
     This operation can be invoked by system administrators only
-    and requires `add_member_to_space` privilege.
+    and requires `oz_spaces_add_members` privilege.
   description: |
     Allows to add a user to any space. Optional privileges
     can be passed in the request body, otherwise default
     privileges will be set for user in this space.
 
     This operation can be invoked by system administrators only
-    and requires `add_member_to_space` privilege.
+    and requires `oz_spaces_add_members` privilege.
 
     ***Example cURL requests***
 
@@ -167,12 +167,12 @@ delete:
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    `remove_member_from_space` privilege.
+    `oz_spaces_remove_members` privilege.
   description: |
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    `remove_member_from_space` privilege.
+    `oz_spaces_remove_members` privilege.
 
     ***Example cURL requests***
 

@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Returns effective groups with access to a handle instance.
 
-    This operation requires `view_handle` administrator privilege.
+    This operation requires `handle_view` administrator privilege.
   description: |
     Returns effective groups with access to a handle instance.
 
-    This operation requires `view_handle` administrator privilege.
+    This operation requires `handle_view` administrator privilege.
 
     ***Example cURL requests***
 

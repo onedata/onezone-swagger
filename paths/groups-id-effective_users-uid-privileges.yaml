@@ -7,16 +7,16 @@ get:
   x-onedata-resource: eupriv
   x-onedata-method: group_logic:get_effective_privileges
   x-onedata-permissions:
-    - group_view_data
+    - group_view
   summary: List user group privileges
   x-bash-codegen-description: |
     Returns the effective user privileges in a group.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
   description: |
     Returns the effective user privileges in a group.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 
@@ -27,7 +27,7 @@ get:
 
     {
       "privileges": [
-        "group_change_data",
+        "group_update",
         "group_create_space",
         "group_create_space_token",
         "group_invite_group",
@@ -35,11 +35,11 @@ get:
         "group_join_group",
         "group_join_space",
         "group_leave_space",
-        "group_remove",
+        "group_delete",
         "group_remove_group",
         "group_remove_user",
         "group_set_privileges",
-        "group_view_data"
+        "group_view"
       ]
     }
     ```

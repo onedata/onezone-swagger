@@ -8,16 +8,16 @@ get:
   x-onedata-method: user_logic:get
   x-onedata-permissions:
     - user_view_data
-    - list_users
+    - oz_users_list
   summary: Get user details
   x-bash-codegen-description: |
     Returns the information about a specific user.
 
-    This operation requires `list_users` privilege.
+    This operation requires `oz_users_list` privilege.
   description: |
     Returns the information about a specific group.
 
-    This operation requires `list_users` privilege.
+    This operation requires `oz_users_list` privilege.
 
     ***Example cURL requests***
 

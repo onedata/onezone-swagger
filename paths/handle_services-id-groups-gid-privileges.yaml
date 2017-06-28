@@ -7,16 +7,16 @@ get:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:get_handle_service_group
   x-onedata-permissions:
-    - view_handle_service
+    - handle_service_view
   summary: List handle service group privileges
   x-bash-codegen-description: |
     Returns group privileges for accessing a handle service instance.
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `handle_service_view` privilege.
   description: |
     Returns group privileges for accessing a handle service instance.
 
-    This operation requires `view_handle_service` privilege.
+    This operation requires `handle_service_view` privilege.
 
     ***Example cURL requests***
 
@@ -27,8 +27,8 @@ get:
 
     {
       "privileges": [
-        "delete_handle_service",
-        "view_handle_service"
+        "handle_service_delete",
+        "handle_service_view"
       ]
     }
     ```
@@ -84,23 +84,23 @@ patch:
   x-onedata-resource: handle_service
   x-onedata-method: handle_logic:set_handle_service_group_privileges
   x-onedata-permissions:
-    - modify_handle_service
+    - handle_service_update
   summary: Set handle service groups privileges
   x-bash-codegen-description: |
     Sets group privileges for accessing a handle service instance.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
   description: |
     Sets group privileges for accessing a handle service instance.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
 
     ***Example cURL requests***
 
     **Set handle service group privileges**
     ```bash
     curl -u username:password -X PUT  -H "Content-type: application/json" \
-    -d '{"privileges": ["register_handle"]}' \
+    -d '{"privileges": ["handle_service_register_handle"]}' \
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
@@ -147,4 +147,4 @@ patch:
         $ref: '#/definitions/HandleServicePrivileges'
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"privileges\": [\"register_handle\"]}' | onezone-rest-cli setHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"
+    source: "echo '{\"privileges\": [\"handle_service_register_handle\"]}' | onezone-rest-cli setHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"

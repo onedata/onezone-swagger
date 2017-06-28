@@ -7,16 +7,16 @@ get:
   x-onedata-resource: space
   x-onedata-method: space_logic:get_data
   x-onedata-permissions:
-    - group_view_data
+    - group_view
   summary: Get group's space details
   x-bash-codegen-description: |
     Returns information about a specific space to which the group belongs.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
   description: |
     Returns information about a specific space to which the group belongs.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 

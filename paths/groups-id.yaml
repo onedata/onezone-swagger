@@ -7,17 +7,17 @@ get:
   x-onedata-resource: group
   x-onedata-method: group_logic:get_data
   x-onedata-permissions:
-    - group_view_data
+    - group_view
     - list_groups
   summary: Get group details
   x-bash-codegen-description: |
     Returns the information about a specific group.
 
-    This operation requires `group_view_data` or `list_groups` privilege.
+    This operation requires `group_view` or `list_groups` privilege.
   description: |
     Returns the information about a specific group.
 
-    This operation requires `group_view_data` or `list_groups` privilege.
+    This operation requires `group_view` or `list_groups` privilege.
 
     ***Example cURL requests***
 
@@ -79,16 +79,16 @@ patch:
   x-onedata-resource: group
   x-onedata-method: group_logic:modify
   x-onedata-permissions:
-    - group_change_data
+    - group_update
   summary: Modify group details
   x-bash-codegen-description: |
     Updates the details about a group.
 
-    This operation requires `group_change_data` privilege.
+    This operation requires `group_update` privilege.
   description: |
     Updates the details about a group.
 
-    This operation requires `group_change_data` privilege.
+    This operation requires `group_update` privilege.
 
     ***Example cURL requests***
 
@@ -149,16 +149,16 @@ delete:
   x-onedata-resource: group
   x-onedata-method: group_logic:remove_group
   x-onedata-permissions:
-    - group_remove
+    - group_delete
   summary: Remove group
   x-bash-codegen-description: |
     Removes a specific group.
 
-    This operation requires `group_remove` privilege.
+    This operation requires `group_delete` privilege.
   description: |
     Removes a specific group.
 
-    This operation requires `group_remove` privilege.
+    This operation requires `group_delete` privilege.
 
     ***Example cURL requests***
 

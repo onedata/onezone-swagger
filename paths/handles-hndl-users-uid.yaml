@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `view_handle` administrator privilege.
+    This operation requires `handle_view` administrator privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `view_handle` administrator privilege.
+    This operation requires `handle_view` administrator privilege.
 
     ***Example cURL requests***
 
@@ -86,16 +86,16 @@ put:
   x-onedata-resource: handle
   x-onedata-method: handle_logic:add_handle_user
   x-onedata-permissions:
-    - modify_handle
+    - handle_update
   summary: Add handle user
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
 
     ***Example cURL requests***
 
@@ -154,16 +154,16 @@ delete:
   x-onedata-resource: handle
   x-onedata-method: handle_logic:remove_handle_user
   x-onedata-permissions:
-    - modify_handle
+    - handle_update
   summary: Remove handle user
   x-bash-codegen-description: |
     Allows to revoke users access to a handle.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
   description: |
     Allows to revoke users access to a handle.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
 
     ***Example cURL requests***
 

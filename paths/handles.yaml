@@ -64,7 +64,7 @@ get:
 
 
 post:
-  operationId: register_handle
+  operationId: handle_service_register_handle
   tags:
     - Handle
   x-onedata-service: onezone
@@ -72,21 +72,21 @@ post:
   x-onedata-resource: handle
   x-onedata-method: handle_logic:add_handle
   x-onedata-permissions:
-    - register_handle
+    - handle_service_register_handle
   summary: Register handle
   x-bash-codegen-description: |
     Allows to register a new handle identifier, using a specific handle service.
 
     The handle service must be registered in Onedata separately.
 
-    This operation requires `register_handle` privilege, which needs to
+    This operation requires `handle_service_register_handle` privilege, which needs to
     be assigned to a specific handle service.
   description: |
     Allows to register a new handle identifier, using a specific handle service.
 
     The handle service must be registered in Onedata separately.
 
-    This operation requires `register_handle` privilege, which needs to
+    This operation requires `handle_service_register_handle` privilege, which needs to
     be assigned to a specific handle service.
 
     ***Example cURL requests***

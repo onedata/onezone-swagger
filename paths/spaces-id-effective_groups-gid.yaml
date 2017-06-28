@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns details about a specific effective group in a space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
   description: |
     Returns details about a specific effective group in a space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
 
     ***Example cURL requests***
 

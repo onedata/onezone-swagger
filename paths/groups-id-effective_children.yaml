@@ -7,16 +7,16 @@ get:
   x-onedata-resource: children_groups
   x-onedata-method: group_logic:get_effective_children_groups
   x-onedata-permissions:
-    - group_view_data
+    - group_view
   summary: Get effective child groups
   x-bash-codegen-description: |
     Returns the list of effective child groups of a specific group.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
   description: |
     Returns the list of effective child groups of a specific group.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 
