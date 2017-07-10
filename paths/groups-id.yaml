@@ -8,16 +8,16 @@ get:
   x-onedata-method: group_logic:get_data
   x-onedata-permissions:
     - group_view
-    - list_groups
+    - oz_groups_list
   summary: Get group details
   x-bash-codegen-description: |
     Returns the information about a specific group.
 
-    This operation requires `group_view` or `list_groups` privilege.
+    This operation requires `group_view` or `oz_groups_list` privilege.
   description: |
     Returns the information about a specific group.
 
-    This operation requires `group_view` or `list_groups` privilege.
+    This operation requires `group_view` or `oz_groups_list` privilege.
 
     ***Example cURL requests***
 
