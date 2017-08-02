@@ -33,10 +33,15 @@ routes() ->
     {{#summary}}
         %% {{{summary}}}
     {{/summary}}
-        { <<"{{basePathWithoutHost}}{{path}}">>, rest_handler, #rstate{
+        { <<"{{path}}">>, #rest_req{
+            method = '{{httpMethod}}',
+            {{#vendorExtensions}}
+            {{#x-onedata-gri}}
+            gri = gri#{type = {{type}}, scope = {{scope}} }
+            {{/x-onedata-gri}}
+            {{/vendorExtensions}}
             version = {{#vendorExtensions}}{{x-onedata-version}}{{/vendorExtensions}},
             module = {{#vendorExtensions}}{{x-onedata-module}}{{/vendorExtensions}},
-            resource = {{#vendorExtensions}}{{x-onedata-resource}}{{/vendorExtensions}},
             methods = [#rmethod{
                 type='{{httpMethod}}',
         {{#hasBodyParam}}

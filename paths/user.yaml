@@ -5,6 +5,11 @@ get:
   x-onedata-service: onezone
   x-onedata-module: user
   x-onedata-method: user_logic:get_data
+  x-onedata-gri:
+    type: od_user
+    scope: private
+    id: ?BINDING(id)
+  x-heh: {deprecated_user_privileges, ?BINDING(uid)}
   summary: Get current user details
   x-bash-codegen-description: |
     Returns details about currently authenticated user.
