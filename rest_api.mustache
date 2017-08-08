@@ -48,16 +48,18 @@ routes() -> [
             {{#vendorExtensions}}
             {{#x-onedata-gri}}
             gri = gri#{type = {{type}},
-                       id = {{id}}{{^id}}undefined{{/id}},
-                       aspect = {{#aspect.size}}{ {{#aspect}}{{.}}{{^-last}}, {{/-last}}{{/aspect}} }{{/aspect.size}}{{^aspect.size}}{{aspect}}{{/aspect.size}},
-                       {{#scope}}scope = {{scope}}{{/scope}}
+                       id = {{{id}}}{{^id}}undefined{{/id}},
+                       aspect = {{{aspect}}},
+                       {{#scope}}
+                       scope = {{scope}}
+                       {{/scope}}
             },
             {{/x-onedata-gri}}
             {{#x-onedata-auth-hint}}
             auth_hint = {{x-onedata-auth-hint}}
             {{/x-onedata-auth-hint}}
             {{/vendorExtensions}}
-        }{{#hasMore}},{{/hasMore}}
+        },
     {{/operation}}
 {{/operations}}
     ].
