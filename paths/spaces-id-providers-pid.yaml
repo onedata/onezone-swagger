@@ -2,10 +2,12 @@ get:
   operationId: get_space_provider
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: provider
-  x-onedata-method: space_logic:get_provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   summary: Get space provider details
   x-bash-codegen-description: |
     Returns details about a specific provider supporting the space.
@@ -87,10 +89,10 @@ delete:
   operationId: remove_provider_supporting_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: provider
-  x-onedata-method: space_logic:remove_provider
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{provider, ?BINDING(pid)}"
   summary: Remove space support
   x-bash-codegen-description: |
     Removes support from provider for a specific space.

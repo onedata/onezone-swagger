@@ -2,10 +2,10 @@ post:
   operationId: create_space_user_invite_token
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: uinvite
-  x-onedata-method: token_logic:create
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: invite_user_token
   summary: Create space user invite token
   x-bash-codegen-description: |
     Creates a token allowing new user to join a space.

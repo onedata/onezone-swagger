@@ -2,10 +2,12 @@ get:
   operationId: get_space_group
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: group
-  x-onedata-method: space_logic:get_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   summary: Get group details
   x-bash-codegen-description: |
     Returns details about a specific group in a space.
@@ -80,10 +82,10 @@ put:
   operationId: add_group_to_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: groups
-  x-onedata-method: space_logic:add_group
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
   summary: Add group to space
   x-bash-codegen-description: |
     Allows to add a group to any space.
@@ -155,10 +157,10 @@ delete:
   operationId: remove_space_group
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: group
-  x-onedata-method: space_logic:remove_group
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
   summary: Remove group from space
   x-bash-codegen-description: |
     Removes a specific group from space.

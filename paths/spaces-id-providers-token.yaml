@@ -2,10 +2,10 @@ post:
   operationId: create_space_support_token
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: pinvite
-  x-onedata-method: token_logic:create
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: invite_provider_token
   summary: Create space support token
   x-bash-codegen-description: |
     Creates a token which can be submitted to a selected provider in order to

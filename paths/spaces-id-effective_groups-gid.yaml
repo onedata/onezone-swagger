@@ -2,10 +2,12 @@ get:
   operationId: get_effective_space_group
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: group
-  x-onedata-method: space_logic:get_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   summary: Get effective space group details
   x-bash-codegen-description: |
     Returns details about a specific effective group in a space.

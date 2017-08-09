@@ -2,10 +2,10 @@ get:
   operationId: list_effective_space_groups
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: groups
-  x-onedata-method: space_logic:get_groups
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: eff_groups
   summary: List effective space groups
   x-bash-codegen-description: |
     Returns the effective list of groups belonging to a specific space.

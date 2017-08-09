@@ -2,10 +2,9 @@ get:
   operationId: oz_spaces_list
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-resource: spaces
-  x-onedata-method: space_logic:oz_spaces_list
+  x-onedata-gri:
+    type: od_space
+    aspect: list
   summary: List all spaces
   x-bash-codegen-description: |
     Returns the list of all spaces managed by the Onezone service.
@@ -66,10 +65,10 @@ post:
   operationId: create_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: spaces
-  x-onedata-method: space_logic:create
+  x-onedata-gri:
+    type: od_space
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new space
   x-bash-codegen-description: |
     When called by a regular user, creates a new space and sets the current

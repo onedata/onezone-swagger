@@ -2,10 +2,11 @@ get:
   operationId: get_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
   summary: Get space details
   x-bash-codegen-description: |
     Returns the details about a specific space.
@@ -75,10 +76,10 @@ patch:
   operationId: modify_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:modify
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
   summary: Modify space details
   x-bash-codegen-description: |
     Updates the details about a space.
@@ -149,10 +150,10 @@ delete:
   operationId: remove_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:remove_space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
   summary: Remove space
   x-bash-codegen-description: |
     Removes a specific space.

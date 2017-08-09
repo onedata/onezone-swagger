@@ -1,11 +1,10 @@
 get:
   operationId: list_shares
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: share
-  x-onedata-method: space_logic:list_shares
+    - Share
+  x-onedata-gri:
+    type: od_share
+    aspect: list
   summary: List all shares
   x-bash-codegen-description: |
     Returns the list of shares.
@@ -65,11 +64,10 @@ get:
 post:
   operationId: create_share
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: shares
-  x-onedata-resource: share
-  x-onedata-method: sharelogic:create
+    - Share
+  x-onedata-gri:
+    type: od_share
+    aspect: instance
   summary: Create share
   x-bash-codegen-description: |
     Creates a new share.

@@ -709,14 +709,14 @@
 #     method = get, entity_id = ?BINDING(id), resource = {eff_user, ?BINDING(uid)}
 # }},
 /spaces/{id}/effective_users/{uid}:
-  $ref: ./spaces-id-effective_users-gid.yaml
+  $ref: ./spaces-id-effective_users-uid.yaml
 
 
 # {<<"/spaces/:id/effective_users/:uid/privileges">>, R#rest_req{
 #     method = get, entity_id = ?BINDING(id), resource = {eff_user_privileges, ?BINDING(uid)}
 # }},
 /spaces/{id}/effective_users/{uid}/privileges:
-  $ref: ./spaces-id-effective_users-gid-privileges.yaml
+  $ref: ./spaces-id-effective_users-uid-privileges.yaml
 
 
 # {<<"/spaces/:id/groups">>, R#rest_req{

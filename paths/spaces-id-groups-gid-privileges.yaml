@@ -2,10 +2,10 @@ get:
   operationId: list_space_group_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: gpriv
-  x-onedata-method: space_logic:get_privileges
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group_privileges, ?BINDING(gid)}"
   summary: List group privileges to space
   x-bash-codegen-description: |
     Returns privileges for a group to a specific space.
@@ -76,10 +76,10 @@ patch:
   operationId: set_space_group_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: upriv
-  x-onedata-method: space_logic:oz_set_privileges
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group_privileges, ?BINDING(gid)}"
   summary: Set group privileges to space
   x-bash-codegen-description: |
     Sets new privileges for a group to a specific space.

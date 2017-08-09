@@ -2,10 +2,12 @@ get:
   operationId: get_effective_space_user
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: user
-  x-onedata-method: space_logic:get_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   summary: Get effective space user details
   x-bash-codegen-description: |
     Returns details about a specific effective user in a space.

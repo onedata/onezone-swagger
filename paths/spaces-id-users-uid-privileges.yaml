@@ -2,10 +2,10 @@ get:
   operationId: list_space_user_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: upriv
-  x-onedata-method: space_logic:get_privileges
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   summary: List user privileges to space
   x-bash-codegen-description: |
     Returns privileges of a user to a specific space.
@@ -78,10 +78,10 @@ patch:
   operationId: set_space_user_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: upriv
-  x-onedata-method: space_logic:oz_set_privileges
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   summary: Set user privileges to space
   x-bash-codegen-description: |
     Sets privileges for a user to a space.
