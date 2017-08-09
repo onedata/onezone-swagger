@@ -2,10 +2,12 @@ get:
   operationId: list_current_user_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: privileges
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_user_privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
   summary: List current user privileges
   x-bash-codegen-description: |
     Returns the list of currently authenticated user privileges for Onezone.
@@ -67,10 +69,12 @@ patch:
   operationId: set_current_user_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:oz_set_privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Set current user privileges
   x-bash-codegen-description: |
     Modifies privileges for a user for Onezone.
@@ -131,10 +135,12 @@ delete:
   operationId: remove_current_user_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:remove_privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Remove current user privileges
   x-bash-codegen-description: |
     Removes all privileges for a user to Onezone.

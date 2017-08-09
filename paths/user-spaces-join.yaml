@@ -2,9 +2,10 @@ post:
   operationId: join_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:join
+  x-onedata-gri:
+    type: od_space
+    aspect: join
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Join space
   x-bash-codegen-description: |
     Join existing space using inivitation token.

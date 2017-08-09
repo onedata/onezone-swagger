@@ -1,13 +1,13 @@
 get:
   operationId: get_user
   tags:
-    - Users
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: user
-  x-onedata-method: user_logic:get
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
   x-onedata-permissions:
-    - user_view_data
     - oz_users_list
   summary: Get user details
   x-bash-codegen-description: |
@@ -77,12 +77,12 @@ delete:
   operationId: remove_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: user
-  x-onedata-method: user_logic:delete
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: instance
   x-onedata-permissions:
-    - user_remove
+    - oz_users_delete
   summary: Remove user
   x-bash-codegen-description: |
     Removes a specific user.

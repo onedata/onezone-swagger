@@ -2,9 +2,12 @@ get:
   operationId: get_user_handle
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:get_data
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Get handle details
   x-bash-codegen-description: |
     Returns the details of a specific handle.
@@ -83,9 +86,10 @@ delete:
   operationId: remove_user_handle
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_user
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{handle, ?BINDING(hid)}"
   summary: Remove handle
   x-bash-codegen-description: |
     Removes the users ownership or membership in a specific space.

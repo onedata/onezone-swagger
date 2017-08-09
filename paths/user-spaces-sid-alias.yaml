@@ -2,9 +2,10 @@ get:
   operationId: get_user_space_alias
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
   summary: Get user space alias
   x-bash-codegen-description: |
     Returns the alias of a specific space.
@@ -68,9 +69,10 @@ put:
   operationId: set_user_space_alias
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
   summary: Set user space alias
   x-bash-codegen-description: |
     Sets the alias of a specific space.
@@ -137,9 +139,10 @@ delete:
   operationId: remove_user_space_alias
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_space_alias
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
   summary: Remove space alias
   x-bash-codegen-description: |
     Removes the space alias.

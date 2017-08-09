@@ -2,9 +2,10 @@ delete:
   operationId: remove_client_token
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:remove_token
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{client_token, ?BINDING(tid)}"
   summary: Delete access token
   x-bash-codegen-description: |
     Removes a specific access token.

@@ -2,9 +2,9 @@ post:
   operationId: authorize_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: auth_logic:authenticate_user
+  x-onedata-gri:
+    type: od_user
+    aspect: authorize
   summary: Authenticate user
   x-bash-codegen-description: |
     Authorizes user with authentication token through Onezone web interface.

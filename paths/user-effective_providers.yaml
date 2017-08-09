@@ -2,9 +2,10 @@ get:
   operationId: list_effective_user_providers
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_effective_providers
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: eff_providers
   summary: List user effective providers
   x-bash-codegen-description: |
     Returns the list of user's effective providers.

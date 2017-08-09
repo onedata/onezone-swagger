@@ -2,9 +2,10 @@ post:
   operationId: join_group
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: group_logic:join
+  x-onedata-gri:
+    type: od_group
+    aspect: join
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Join group
   x-bash-codegen-description: |
     Join existing group using inivitation token.

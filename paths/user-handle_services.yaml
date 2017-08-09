@@ -2,12 +2,12 @@ get:
   operationId: list_user_handle_services
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_user_handle_services
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: handle_services
   x-onedata-permissions:
-    - list_handle_services
+    - handle_service_view
   summary: List user handle services
   x-bash-codegen-description: |
     Returns the list of registered user handle services.
@@ -63,12 +63,12 @@ post:
   operationId: add_user_handle_service
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service
+  x-onedata-gri:
+    type: od_handle_service
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
-    - add_handle_services
+    - handle_service_register_handle
   summary: Add user handle service
   x-bash-codegen-description: |
     Allows to register a new handle service.

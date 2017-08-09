@@ -2,9 +2,10 @@ get:
   operationId: get_default_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:get_default_space
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_space
   summary: Get default space
   x-bash-codegen-description: |
     Returns the ID of the default users space.
@@ -62,9 +63,10 @@ put:
   operationId: set_default_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:set_default_space
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_space
   summary: Set default space
   x-bash-codegen-description: |
     Sets default space for current user.
@@ -124,9 +126,10 @@ delete:
   operationId: remove_default_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:set_default_space
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_space
   summary: Unset default space
   x-bash-codegen-description: |
     Removes default space setting for current user.

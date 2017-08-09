@@ -1,11 +1,12 @@
 get:
   operationId: oz_users_list
   tags:
-    - Users
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: users
-  x-onedata-method: user_logic:list
+    - User
+  x-onedata-gri:
+    type: od_user
+    aspect: list
+  x-onedata-permissions:
+    - oz_users_list
   summary: List all users
   x-bash-codegen-description: |
     Returns the list of all users in the system.

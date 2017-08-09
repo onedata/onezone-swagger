@@ -2,9 +2,12 @@ get:
   operationId: get_user_group
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:get_data
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Get group details
   x-bash-codegen-description: |
     Returns information about a specific group to which the user belongs.
@@ -70,9 +73,10 @@ delete:
   operationId: leave_group
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:remove_user
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{group, ?BINDING(gid)}"
   summary: Leave group
   x-bash-codegen-description: |
     Removes the current user from a specific group.

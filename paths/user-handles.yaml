@@ -2,9 +2,10 @@ get:
   operationId: list_user_handles
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_handles
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: handles
   summary: List user handles
   x-bash-codegen-description: |
     Returns the list of users' handles.
@@ -65,9 +66,10 @@ post:
   operationId: create_user_handle
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:create
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new user handle
   x-bash-codegen-description: |
     Creates a new handle as current user.

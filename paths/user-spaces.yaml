@@ -2,9 +2,10 @@ get:
   operationId: list_user_spaces
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_spaces
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: spaces
   summary: List user spaces
   x-bash-codegen-description: |
     Returns the list of users' spaces.
@@ -75,9 +76,10 @@ post:
   operationId: create_user_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:create
+  x-onedata-gri:
+    type: od_space
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new user space
   x-bash-codegen-description: |
     Creates a new space as current user. The user automaticaly becomes

@@ -2,9 +2,12 @@ get:
   operationId: get_user_effective_handle
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_effective_handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Get effective handle details
   x-bash-codegen-description: |
     Returns information about a specific effective handle to which the user belongs.

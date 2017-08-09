@@ -2,14 +2,11 @@ get:
   operationId: get_current_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_data
   x-onedata-gri:
     type: od_user
-    scope: private
-    id: ?BINDING(id)
-  x-heh: {deprecated_user_privileges, ?BINDING(uid)}
+    id: ?CLIENT_ID
+    aspect: instance
+    scope: protected
   summary: Get current user details
   x-bash-codegen-description: |
     Returns details about currently authenticated user.
@@ -67,9 +64,10 @@ patch:
   operationId: modify_current_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:modify
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: instance
   summary: Modify current user
   x-bash-codegen-description: |
     Modifies user account details based on information provided in the request body.
@@ -129,9 +127,10 @@ delete:
   operationId: remove_current_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:remove
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: instance
   summary: Remove current user
   x-bash-codegen-description: |
     Removes the account of currently authenticated user.

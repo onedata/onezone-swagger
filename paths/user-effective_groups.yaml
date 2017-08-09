@@ -2,9 +2,10 @@ get:
   operationId: list_effective_user_groups
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_effective_groups
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: eff_groups
   summary: List effective user groups
   x-bash-codegen-description: |
     Returns the list of user's effective groups.
