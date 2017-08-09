@@ -28,38 +28,38 @@
 -spec routes() -> [{binary(), #rest_req{}}].
 routes() -> [
 {{#operations}}
-    {{#operation}}
-    {{#summary}}
-        %% {{{summary}}}
+{{#operation}}
+{{#summary}}
+    %% {{{summary}}}
+    {{#vendorExtensions}}
+    {{#x-onedata-permissions.size}}
+    %% This operation require one of the following privileges:
+    {{#x-onedata-permissions}}
+    %% - {{.}}
+    {{/x-onedata-permissions}}
+    {{/x-onedata-permissions.size}}
+    {{^x-onedata-permissions.size}}
+    %% This operation does not require any specific privileges.
+    {{/x-onedata-permissions.size}}
+    {{/vendorExtensions}}
+{{/summary}}
+    {<<"{{path}}">>, #rest_req{
+        method = '{{httpMethod}}',
         {{#vendorExtensions}}
-        {{#x-onedata-permissions.size}}
-        %% This operation require one of the following privileges:
-        {{#x-onedata-permissions}}
-        %% - {{.}}
-        {{/x-onedata-permissions}}
-        {{/x-onedata-permissions.size}}
-        {{^x-onedata-permissions.size}}
-        %% This operation does not require any specific privileges.
-        {{/x-onedata-permissions.size}}
-        {{/vendorExtensions}}
-    {{/summary}}
-        {<<"{{path}}">>, #rest_req{
-            method = '{{httpMethod}}',
-            {{#vendorExtensions}}
-            {{#x-onedata-gri}}
-            gri = gri#{type = {{type}},
-                       id = {{{id}}}{{^id}}undefined{{/id}},
-                       aspect = {{{aspect}}},
-                       {{#scope}}
-                       scope = {{scope}}
-                       {{/scope}}
-            },
-            {{/x-onedata-gri}}
-            {{#x-onedata-auth-hint}}
-            auth_hint = {{x-onedata-auth-hint}}
-            {{/x-onedata-auth-hint}}
-            {{/vendorExtensions}}
+        {{#x-onedata-gri}}
+        gri = #gri{type = {{type}},
+                   id = {{{id}}}{{^id}}undefined{{/id}},
+                   aspect = {{{aspect}}},
+                   {{#scope}}
+                   scope = {{scope}}
+                   {{/scope}}
         },
-    {{/operation}}
+        {{/x-onedata-gri}}
+        {{#x-onedata-auth-hint}}
+        auth_hint = {{x-onedata-auth-hint}}
+        {{/x-onedata-auth-hint}}
+        {{/vendorExtensions}}
+    }},
+{{/operation}}
 {{/operations}}
-    ].
+].
