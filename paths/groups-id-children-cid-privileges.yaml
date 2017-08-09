@@ -2,10 +2,10 @@ get:
   operationId: list_child_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: npriv
-  x-onedata-method: group_logic:get_child_group_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{child_privileges, ?BINDING(cid)}"
   x-onedata-permissions:
     - group_view
   summary: List child group privileges
@@ -78,10 +78,10 @@ patch:
   operationId: set_child_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: npriv
-  x-onedata-method: group_logic:set_child_group_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{child_privileges, ?BINDING(cid)}"
   x-onedata-permissions:
     - group_set_privileges
   summary: Set subgroup privileges

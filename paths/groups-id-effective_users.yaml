@@ -2,10 +2,10 @@ get:
   operationId: list_effective_group_users
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: effective_users
-  x-onedata-method: group_logic:get_effective_users
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_users
   x-onedata-permissions:
     - group_view
   summary: List effective group users

@@ -2,12 +2,13 @@ get:
   operationId: list_group_users
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: users
-  x-onedata-method: group_logic:get_users
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: users
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_users
   summary: List group users
   x-bash-codegen-description: |
     Returns the list of users belonging to a specific group.

@@ -2,10 +2,12 @@ get:
   operationId: get_effective_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: effective_user
-  x-onedata-method: group_logic:get_effective_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
   summary: Get effective group user details

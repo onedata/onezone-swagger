@@ -2,12 +2,15 @@ get:
   operationId: get_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:get_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
-    - group_view
+    - group_view,
+    - oz_groups_list_users
   summary: Get group user details
   x-bash-codegen-description: |
     Returns the public information about a user {uid} in group {id}.
@@ -86,10 +89,10 @@ put:
   operationId: add_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:add_user
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - oz_groups_add_members
   summary: Add user to group
@@ -168,12 +171,13 @@ delete:
   operationId: remove_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:remove_user
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - group_remove_user
+    - group_remove_user,
+    - oz_groups_remove_members
   summary: Remove user from group
   x-bash-codegen-description: |
     Removes the user {uid} from a group {id} (the user will no longer have

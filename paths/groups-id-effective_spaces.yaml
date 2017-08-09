@@ -2,10 +2,10 @@ get:
   operationId: list_effective_group_spaces
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: spaces
-  x-onedata-method: group_logic:get_effective_group_spaces
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_spaces
   x-onedata-permissions:
     - group_view
   summary: List effective group's spaces

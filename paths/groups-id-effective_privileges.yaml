@@ -2,10 +2,12 @@ get:
   operationId: list_effective_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: privileges
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_group_effective_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
   summary: List group's effective privileges
   x-bash-codegen-description: |
     Returns the list of group effective privileges for Onezone.

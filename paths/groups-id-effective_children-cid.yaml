@@ -2,10 +2,12 @@ get:
   operationId: get_effective_child_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: child_group
-  x-onedata-method: group_logic:get_effective_child_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(cid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
   summary: Get effective child group details

@@ -2,9 +2,12 @@ get:
   operationId: get_group_effective_handle_service
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(hsid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   summary: Get effective group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific effective  handle service.

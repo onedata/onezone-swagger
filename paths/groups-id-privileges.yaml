@@ -2,10 +2,12 @@ get:
   operationId: list_group_onezone_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: privileges
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_group_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
   summary: List group's Onezone privileges
   x-bash-codegen-description: |
     Returns the list of group privileges for Onezone.
@@ -69,10 +71,12 @@ patch:
   operationId: set_group_onezone_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:oz_set_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Set group's Onezone privileges
   x-bash-codegen-description: |
     Modifies privileges for a group {id} for Onezone.
@@ -134,10 +138,12 @@ delete:
   operationId: remove_group_onezone_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:remove_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Remove group's Onezone privileges
   x-bash-codegen-description: |
     Removes all privileges for a group {id} to Onezone.

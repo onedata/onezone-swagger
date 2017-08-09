@@ -2,10 +2,10 @@ get:
   operationId: list_group_handle_services
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_group_handle_services
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: handle_services
   x-onedata-permissions:
     - list_handle_services
   summary: List group handle services
@@ -73,10 +73,10 @@ post:
   operationId: add_group_handle_service
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service
+  x-onedata-gri:
+    type: od_handle_service
+    aspect: instance
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
     - add_handle_services
   summary: Add group handle service

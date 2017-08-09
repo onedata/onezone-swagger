@@ -2,9 +2,12 @@ get:
   operationId: get_group_handle_service
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:get_data
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(hsid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   summary: Get group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific handle service.
@@ -83,9 +86,10 @@ delete:
   operationId: remove_group_handle_service
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:remove_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{handle_service, ?BINDING(hsid)}"
   summary: Remove group handle service
   x-bash-codegen-description: |
     Removes the group ownership or membership in a specific handle service.

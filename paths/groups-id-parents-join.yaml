@@ -2,10 +2,10 @@ post:
   operationId: join_parent_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: njoin
-  x-onedata-method: group_logic:join_parent_group
+  x-onedata-gri:
+    type: od_group
+    aspect: join
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_join_group
   summary: Join parent group

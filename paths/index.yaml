@@ -533,6 +533,10 @@
 # {<<"/groups/:id/spaces/:sid">>, R#rest_req{
 #     method = delete, entity_id = ?BINDING(id), resource = {space, ?BINDING(sid)}
 # }},
+/groups/{id}/spaces/{sid}:
+  $ref: ./groups-id-spaces-sid.yaml
+
+
 # {<<"/groups/:id/effective_spaces">>, R#rest_req{
 #     method = get, entity_id = ?BINDING(id), resource = eff_spaces
 # }},

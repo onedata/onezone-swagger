@@ -2,10 +2,12 @@ get:
   operationId: get_group_space
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
   summary: Get group's space details
@@ -80,10 +82,10 @@ delete:
   operationId: remove_group_from_space
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: space
-  x-onedata-method: space_logic:remove_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{space, ?BINDING(sid)}"
   x-onedata-permissions:
     - group_leave_space
   summary: Remove group from space

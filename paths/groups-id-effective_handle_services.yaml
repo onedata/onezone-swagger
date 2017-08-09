@@ -2,10 +2,10 @@ get:
   operationId: list_effective_group_handle_services
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_group_handle_services
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_handle_services
   x-onedata-permissions:
     - list_handle_services
   summary: List effective group handle services

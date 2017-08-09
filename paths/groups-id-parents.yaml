@@ -2,10 +2,10 @@ get:
   operationId: list_parent_groups
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: parent_groups
-  x-onedata-method: group_logic:get_parent_groups
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: parents
   x-onedata-permissions:
     - group_view
   summary: List parent groups

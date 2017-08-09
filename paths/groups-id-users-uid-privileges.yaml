@@ -2,10 +2,10 @@ get:
   operationId: list_user_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: upriv
-  x-onedata-method: group_logic:get_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - group_view
   summary: List user's group privileges
@@ -80,10 +80,10 @@ patch:
   operationId: set_user_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: upriv
-  x-onedata-method: group_logic:oz_set_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - group_set_privileges
   summary: Set user's group privileges

@@ -2,9 +2,10 @@ get:
   operationId: list_group_handles
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:get_handles
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: handles
   summary: List group handles
   x-bash-codegen-description: |
     Returns the list of groups handles.
@@ -71,9 +72,10 @@ post:
   operationId: create_group_handle
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:create
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   summary: Create new group handle
   x-bash-codegen-description: |
     Creates a new handle on behalf of a group.

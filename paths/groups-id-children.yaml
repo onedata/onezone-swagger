@@ -2,12 +2,13 @@ get:
   operationId: list_child_groups
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: children_groups
-  x-onedata-method: group_logic:get_children_groups
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: children
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_groups
   summary: Get subgroups
   x-bash-codegen-description: |
     Returns the list of subgroups of a specific group.

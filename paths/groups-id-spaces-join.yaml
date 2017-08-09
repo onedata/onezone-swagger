@@ -2,10 +2,10 @@ post:
   operationId: group_join_space
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: sjoin
-  x-onedata-method: space_logic:join
+  x-onedata-gri:
+    type: od_space
+    aspect: join
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_join_space
   summary: Join space by group

@@ -2,9 +2,12 @@ get:
   operationId: get_effective_group_handle
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:get_data
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   summary: Get effective group handle details
   x-bash-codegen-description: |
     Returns the details of a specific effective handle.

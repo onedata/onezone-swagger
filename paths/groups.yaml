@@ -2,10 +2,11 @@ get:
   operationId: list_groups
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: groups
-  x-onedata-method: group_logic:create
+  x-onedata-gri:
+    type: od_group
+    aspect: list
+  x-onedata-permissions:
+    - oz_groups_list
   summary: List all groups
   x-bash-codegen-description: |
     Returns the list of all groups in the system.
@@ -59,10 +60,10 @@ post:
   operationId: create_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: groups
-  x-onedata-method: group_logic:create
+  x-onedata-gri:
+    type: od_group
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new group
   x-bash-codegen-description: |
     Creates a new group.
