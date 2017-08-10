@@ -2,10 +2,12 @@ get:
   operationId: get_effective_handle_group
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
     - read_handle
   summary: Get effective handle group

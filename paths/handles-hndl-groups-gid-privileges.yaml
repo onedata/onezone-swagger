@@ -2,10 +2,10 @@ get:
   operationId: list_handle_group_privileges
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_group
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_view
   summary: List handle group privileges
@@ -78,10 +78,10 @@ patch:
   operationId: set_handle_group_privileges
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:set_handle_group_privileges
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_update
   summary: Set handle groups privileges

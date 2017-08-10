@@ -2,10 +2,9 @@ get:
   operationId: list_handles
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handles
+  x-onedata-gri:
+    type: od_handle
+    aspect: list
   x-onedata-permissions:
     - list_handles
   summary: List handles
@@ -67,10 +66,10 @@ post:
   operationId: handle_service_register_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:add_handle
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - handle_service_register_handle
   summary: Register handle

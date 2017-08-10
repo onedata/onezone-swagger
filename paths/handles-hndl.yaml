@@ -2,10 +2,11 @@ get:
   operationId: get_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
+    scope: protected
   x-onedata-permissions:
     - handle_view
   summary: Get handle
@@ -86,10 +87,10 @@ patch:
   operationId: handle_update
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:handle_update
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
   x-onedata-permissions:
     - handle_update
   summary: Modify handle
@@ -160,10 +161,10 @@ delete:
   operationId: remove_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:handle_delete
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
   x-onedata-permissions:
     - handle_delete
   summary: Unregister handle

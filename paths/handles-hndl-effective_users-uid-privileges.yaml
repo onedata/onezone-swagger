@@ -2,10 +2,10 @@ get:
   operationId: list_effective_handle_user_privileges
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_users
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{eff_user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_view
   summary: List effective handle user privileges

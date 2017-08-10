@@ -2,10 +2,12 @@ get:
   operationId: get_handle_group
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
     - read_handle
   summary: Get handle group
@@ -78,10 +80,10 @@ put:
   operationId: add_handle_group
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:add_handle_group
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_update
   summary: Add handle group
@@ -146,10 +148,10 @@ delete:
   operationId: remove_handle_group
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:remove_handle_group
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_update
   summary: Remove handle group
