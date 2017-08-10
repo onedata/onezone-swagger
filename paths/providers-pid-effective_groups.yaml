@@ -2,10 +2,10 @@ get:
   operationId: list_effective_provider_groups
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: providers
-  x-onedata-resource: groups
-  x-onedata-method: provider_logic:get_groups
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: eff_groups
   summary: List effective groups of provider
   x-bash-codegen-description: |
     Returns the effective list of groups of a specific provider.

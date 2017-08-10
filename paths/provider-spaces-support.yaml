@@ -2,10 +2,10 @@ post:
   operationId: provider_space_support
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: ssupport
-  x-onedata-method: space_logic:support
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: support
   summary: Add space storage support
   x-bash-codegen-description: |
     Adds support for specific space on behalf of the Oneprovider that

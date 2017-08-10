@@ -1,11 +1,11 @@
 get:
   operationId: get_handle_service_user_privileges
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service_users
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_view
   summary: List handle service user privileges
@@ -78,11 +78,11 @@ get:
 patch:
   operationId: set_handle_service_user_privileges
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:set_handle_service_users
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
   summary: Set handle service user privileges

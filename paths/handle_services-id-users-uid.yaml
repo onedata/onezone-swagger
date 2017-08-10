@@ -1,11 +1,13 @@
 get:
   operationId: get_handle_service_user
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service_user
+    - Handle Service
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
     - get_handle_service
   summary: Get handle service user
@@ -80,11 +82,11 @@ get:
 put:
   operationId: add_handle_service_user
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service_user
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
   summary: Add handle service user
@@ -148,11 +150,11 @@ put:
 delete:
   operationId: remove_handle_service_user
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:remove_handle_service_user
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
   summary: Remove handle service user

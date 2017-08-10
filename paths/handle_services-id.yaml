@@ -1,11 +1,12 @@
 get:
   operationId: get_handle_service
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
   x-onedata-permissions:
     - handle_service_view
   summary: Get handle service
@@ -83,11 +84,11 @@ get:
 patch:
   operationId: handle_service_update
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:modify_handle_services
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: instance
   x-onedata-permissions:
     - handle_service_update
   summary: Modify handle service
@@ -151,11 +152,11 @@ patch:
 delete:
   operationId: remove_handle_service
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:delete_handle_services
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: instance
   x-onedata-permissions:
     - handle_service_delete
   summary: Unregister handle service

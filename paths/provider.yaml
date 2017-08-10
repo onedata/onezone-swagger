@@ -2,10 +2,11 @@ get:
   operationId: get_current_provider_details
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: provider
-  x-onedata-method: provider_logic:get_data
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: instance
+    scope: protected
   summary: Get provider details
   x-bash-codegen-description: |
     Returns information about the Oneprovider that performed the request
@@ -72,10 +73,9 @@ post:
   operationId: register_provider
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: provider
-  x-onedata-method: provider_logic:create
+  x-onedata-gri:
+    type: od_provider
+    aspect: instance
   summary: Register provider
   x-bash-codegen-description: |
     Registers a Oneprovider in Onezone service.
@@ -134,10 +134,10 @@ patch:
   operationId: modify_provider
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: provider
-  x-onedata-method: provider_logic:modify
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: instance
   summary: Modify provider details
   x-bash-codegen-description: |
     Updates information about the Oneprovider identified by the
@@ -195,10 +195,10 @@ delete:
   operationId: unregister_provider
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: provider
-  x-onedata-method: provider_logic:remove
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: instance
   summary: Unregister provider
   x-bash-codegen-description: |
     Allows Oneprovider service to unregister from Onezone.

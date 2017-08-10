@@ -2,10 +2,10 @@ get:
   operationId: list_provider_spaces
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: providers
-  x-onedata-resource: spaces
-  x-onedata-method: provider_logic:get_spaces
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: spaces
   summary: List spaces supported by provider
   x-bash-codegen-description: |
     Returns the list of spaces supported by specific provider.

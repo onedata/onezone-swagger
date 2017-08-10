@@ -1,11 +1,13 @@
 get:
   operationId: get_handle_service_handle
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handles
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
     - list_handles
   summary: Get handle from handle service

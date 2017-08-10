@@ -2,10 +2,11 @@ get:
   operationId: get_provider_details
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: nprovider
-  x-onedata-method: provider_logic:get_data
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
   summary: Get provider details
   x-bash-codegen-description: |
     Returns the information about a specific Oneprovider service, which is
@@ -75,10 +76,10 @@ delete:
   operationId: remove_provider
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: nprovider
-  x-onedata-method: provider_logic:get_data
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
   summary: Remove provider
   x-bash-codegen-description: |
     Removes specific Oneprovider from this zone.

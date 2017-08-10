@@ -1,11 +1,11 @@
 get:
   operationId: get_effective_handle_service_group_privileges
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service_group
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{eff_group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_view
   summary: Get effective handle service group privileges

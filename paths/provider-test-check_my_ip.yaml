@@ -2,10 +2,9 @@ get:
   operationId: check_my_ip
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: ip
-  x-onedata-method: cowboy_req:peer
+  x-onedata-gri:
+    type: od_provider
+    aspect: "{check_my_ip, ?COWBOY_REQ}"
   summary: Show client IP address
   x-bash-codegen-description: |
     Returns the IP of the request peer. Will return the external IP (as seen
