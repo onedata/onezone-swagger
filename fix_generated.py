@@ -5,7 +5,7 @@ import os
 import re
 
 
-GENERATED_FILES_DIR = '../generated/cowboy'
+GENERATED_FILES_DIR = 'generated/cowboy'
 PATHS_INDEX_FILE = 'paths/index.yaml'
 
 OPERATIONS_RE = re.compile(r'(?<=(\[|,)\n)'
