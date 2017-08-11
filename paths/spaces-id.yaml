@@ -7,6 +7,8 @@ get:
     id: ?BINDING(id)
     aspect: instance
     scope: protected
+  x-onedata-permissions:
+    - oz_spaces_list
   summary: Get space details
   x-bash-codegen-description: |
     Returns the details about a specific space.
@@ -80,6 +82,8 @@ patch:
     type: od_space
     id: ?BINDING(id)
     aspect: instance
+  x-onedata-permissions:
+    - space_update
   summary: Modify space details
   x-bash-codegen-description: |
     Updates the details about a space.
@@ -154,6 +158,8 @@ delete:
     type: od_space
     id: ?BINDING(id)
     aspect: instance
+  x-onedata-permissions:
+    - space_delete
   summary: Remove space
   x-bash-codegen-description: |
     Removes a specific space.

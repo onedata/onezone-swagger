@@ -8,8 +8,6 @@ get:
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
-  x-onedata-permissions:
-    - list_handles
   summary: Get handle from handle service
   x-bash-codegen-description: |
     Returns the details of a specific handle registered by handle service.

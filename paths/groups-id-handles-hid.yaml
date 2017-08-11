@@ -8,6 +8,8 @@ get:
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
   summary: Get group handle details
   x-bash-codegen-description: |
     Returns the details of a specific handle.
@@ -95,6 +97,8 @@ delete:
     type: od_group
     id: ?BINDING(id)
     aspect: "{handle, ?BINDING(hid)}"
+  x-onedata-permissions:
+    - group_update
   summary: Remove group handle
   x-bash-codegen-description: |
     Removes the groups ownership or membership in a specific space.

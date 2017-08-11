@@ -5,6 +5,8 @@ get:
   x-onedata-gri:
     type: od_provider
     aspect: list
+  x-onedata-permissions:
+    - oz_providers_list
   summary: List providers
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.

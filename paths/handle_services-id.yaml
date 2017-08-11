@@ -8,7 +8,7 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - handle_service_view
+    - oz_handle_services_list
   summary: Get handle service
   x-bash-codegen-description: |
     Returns the properties of a specific handle service.

@@ -7,7 +7,7 @@ get:
     id: ?BINDING(hndl)
     aspect: groups
   x-onedata-permissions:
-    - view_handle_groups
+    - handle_view
   summary: List handle groups
   x-bash-codegen-description: |
     Returns all groups with access to a handle instance

@@ -8,6 +8,9 @@ get:
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_providers
   summary: Get space provider details
   x-bash-codegen-description: |
     Returns details about a specific provider supporting the space.
@@ -93,6 +96,8 @@ delete:
     type: od_space
     id: ?BINDING(id)
     aspect: "{provider, ?BINDING(pid)}"
+  x-onedata-permissions:
+    - space_remove_provider
   summary: Remove space support
   x-bash-codegen-description: |
     Removes support from provider for a specific space.

@@ -6,6 +6,8 @@ get:
     type: od_group
     id: ?BINDING(id)
     aspect: eff_handles
+  x-onedata-permissions:
+    - group_view
   summary: List effective group handles
   x-bash-codegen-description: |
     Returns the list of effective groups' handles.

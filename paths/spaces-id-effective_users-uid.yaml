@@ -8,6 +8,8 @@ get:
     aspect: instance
     scope: shared
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
   summary: Get effective space user details
   x-bash-codegen-description: |
     Returns details about a specific effective user in a space.

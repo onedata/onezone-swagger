@@ -75,6 +75,8 @@ patch:
     type: od_share
     id: ?BINDING(id)
     aspect: instance
+  x-onedata-permissions:
+    - space_manage_shares
   summary: Modify share details
   x-bash-codegen-description: |
     Updates the details about a share.
@@ -153,6 +155,8 @@ delete:
     type: od_share
     id: ?BINDING(id)
     aspect: instance
+  x-onedata-permissions:
+    - space_manage_shares
   summary: Remove share
   x-bash-codegen-description: |
     Removes a specific share.

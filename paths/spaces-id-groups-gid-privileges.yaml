@@ -6,6 +6,8 @@ get:
     type: od_space
     id: ?BINDING(id)
     aspect: "{group_privileges, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - space_view
   summary: List group privileges to space
   x-bash-codegen-description: |
     Returns privileges for a group to a specific space.
@@ -80,6 +82,8 @@ patch:
     type: od_space
     id: ?BINDING(id)
     aspect: "{group_privileges, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - space_set_privileges
   summary: Set group privileges to space
   x-bash-codegen-description: |
     Sets new privileges for a group to a specific space.

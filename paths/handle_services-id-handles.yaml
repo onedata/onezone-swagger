@@ -7,7 +7,7 @@ get:
     id: ?BINDING(id)
     aspect: handles
   x-onedata-permissions:
-    - list_handles
+    - handle_service_list_handles
   summary: List handle service handles
   x-bash-codegen-description: |
     Returns the list of ID's of all handles registered by handle service.

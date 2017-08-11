@@ -6,6 +6,8 @@ get:
     type: od_provider
     id: ?BINDING(pid)
     aspect: eff_users
+  x-onedata-permissions:
+    - oz_providers_list_users
   summary: List effective users of provider
   x-bash-codegen-description: |
     Returns the list of effective users of a specific provider.

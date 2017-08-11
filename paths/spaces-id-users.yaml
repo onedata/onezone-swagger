@@ -6,6 +6,9 @@ get:
     type: od_space
     id: ?BINDING(id)
     aspect: users
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_users
   summary: List space users
   x-bash-codegen-description: |
     Returns the list of users belonging to a specific space.

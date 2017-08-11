@@ -7,7 +7,7 @@ get:
     id: ?BINDING(hndl)
     aspect: eff_groups
   x-onedata-permissions:
-    - view_handle_groups
+    - handle_view
   summary: Get effective handle groups
   x-bash-codegen-description: |
     Returns effective groups with access to a handle instance.

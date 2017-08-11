@@ -6,6 +6,8 @@ get:
     type: od_space
     id: ?BINDING(id)
     aspect: eff_groups
+  x-onedata-permissions:
+    - space_view
   summary: List effective space groups
   x-bash-codegen-description: |
     Returns the effective list of groups belonging to a specific space.

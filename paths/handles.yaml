@@ -6,7 +6,7 @@ get:
     type: od_handle
     aspect: list
   x-onedata-permissions:
-    - list_handles
+    - oz_handles_list
   summary: List handles
   x-bash-codegen-description: |
     Returns the list of ID's of all handles registered in Onezone.

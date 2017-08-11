@@ -5,6 +5,8 @@ get:
   x-onedata-gri:
     type: od_space
     aspect: list
+  x-onedata-permissions:
+    - oz_spaces_list
   summary: List all spaces
   x-bash-codegen-description: |
     Returns the list of all spaces managed by the Onezone service.

@@ -7,6 +7,8 @@ get:
     id: ?BINDING(pid)
     aspect: instance
     scope: protected
+  x-onedata-permissions:
+    - oz_providers_list
   summary: Get provider details
   x-bash-codegen-description: |
     Returns the information about a specific Oneprovider service, which is
@@ -81,18 +83,20 @@ delete:
     id: ?BINDING(pid)
     aspect: instance
   summary: Remove provider
+  x-onedata-permissions:
+    - oz_providers_delete
   x-bash-codegen-description: |
     Removes specific Oneprovider from this zone.
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `remove_provider` administrator privilege.
+    This operation requires `oz_providers_delete` administrator privilege.
   description: |
     Removes specific Oneprovider from this zone.
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `remove_provider` administrator privilege.
+    This operation requires `oz_providers_delete` administrator privilege.
 
     ***Example cURL requests***
 

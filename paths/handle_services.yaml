@@ -6,7 +6,7 @@ get:
     type: od_handle_service
     aspect: list
   x-onedata-permissions:
-    - list_handle_services
+    - oz_handle_services_list
   summary: List handle services
   x-bash-codegen-description: |
     Returns the list of registered handle services.
@@ -72,7 +72,7 @@ post:
     aspect: instance
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
-    - add_handle_services
+    - oz_handle_services_create
   summary: Add handle service
   x-bash-codegen-description: |
     Allows to register a new handle service.

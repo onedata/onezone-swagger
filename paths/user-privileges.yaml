@@ -14,13 +14,13 @@ get:
 
     This operation can be invoked on behalf of current user only.
 
-    This operation requires `get_privileges` administrator privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
     This operation can be invoked on behalf of current user only.
 
-    This operation requires `get_privileges` administrator privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 

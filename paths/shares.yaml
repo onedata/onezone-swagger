@@ -6,6 +6,8 @@ get:
     type: od_share
     aspect: list
   summary: List all shares
+  x-onedata-permissions:
+    - oz_shares_list
   x-bash-codegen-description: |
     Returns the list of shares.
 
@@ -69,6 +71,8 @@ post:
     type: od_share
     aspect: instance
   summary: Create share
+  x-onedata-permissions:
+    - space_manage_shares
   x-bash-codegen-description: |
     Creates a new share.
 

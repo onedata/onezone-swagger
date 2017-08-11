@@ -7,6 +7,8 @@ get:
     id: ?BINDING(id)
     aspect: groups
   summary: List space groups
+  x-onedata-permissions:
+    - space_view
   x-bash-codegen-description: |
     Returns the list of groups belonging to a specific space.
 

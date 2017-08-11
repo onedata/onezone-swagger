@@ -7,7 +7,7 @@ get:
     id: ?BINDING(hndl)
     aspect: eff_users
   x-onedata-permissions:
-    - view_handle_users
+    - handle_view
   summary: List effective handle users
   x-bash-codegen-description: |
     Returns effective list of users with access to a handle instance.

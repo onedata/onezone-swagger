@@ -6,6 +6,9 @@ get:
     type: od_space
     id: ?BINDING(id)
     aspect: providers
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_providers
   summary: List space providers
   x-bash-codegen-description: |
     Returns the list of providers supporting specific space.

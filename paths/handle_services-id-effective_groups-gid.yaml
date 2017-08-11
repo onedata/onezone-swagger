@@ -9,7 +9,7 @@ get:
     scope: shared
   x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
-    - handle_service_update
+    - handle_service_view
   summary: Get effective handle service group
   x-bash-codegen-description: |
     Get details of a handle service owned by an effective group.

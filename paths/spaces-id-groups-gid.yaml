@@ -8,6 +8,9 @@ get:
     aspect: instance
     scope: shared
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_groups
   summary: Get group details
   x-bash-codegen-description: |
     Returns details about a specific group in a space.
@@ -86,6 +89,8 @@ put:
     type: od_space
     id: ?BINDING(id)
     aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - oz_spaces_add_members
   summary: Add group to space
   x-bash-codegen-description: |
     Allows to add a group to any space.
@@ -161,6 +166,9 @@ delete:
     type: od_space
     id: ?BINDING(id)
     aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - space_remove_group
+    - oz_spaces_remove_members
   summary: Remove group from space
   x-bash-codegen-description: |
     Removes a specific group from space.

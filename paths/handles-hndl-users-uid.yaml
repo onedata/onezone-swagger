@@ -9,7 +9,7 @@ get:
     scope: shared
   x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
-    - read_handle
+    - handle_view
   summary: Get handle user
   x-bash-codegen-description: |
     Allows to add a user to a handle.

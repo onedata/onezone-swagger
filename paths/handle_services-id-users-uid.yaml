@@ -9,7 +9,7 @@ get:
     scope: shared
   x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
-    - get_handle_service
+    - handle_service_update
   summary: Get handle service user
   x-bash-codegen-description: |
     Allows to get a user to a handle service.

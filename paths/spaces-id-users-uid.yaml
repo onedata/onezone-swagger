@@ -8,6 +8,9 @@ get:
     aspect: instance
     scope: shared
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_users
   summary: Get space user details
   x-bash-codegen-description: |
     Returns the public information about a specific user in a space.
@@ -89,6 +92,8 @@ put:
     type: od_space
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - oz_spaces_add_members
   summary: Add user to space
   x-bash-codegen-description: |
     Allows to add a user to any space.
@@ -164,6 +169,9 @@ delete:
     type: od_space
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - space_remove_user
+    - oz_spaces_remove_members
   summary: Remove user from space
   x-bash-codegen-description: |
     Removes user from specific space.

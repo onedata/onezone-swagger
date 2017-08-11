@@ -7,7 +7,7 @@ get:
     id: ?BINDING(id)
     aspect: eff_handle_services
   x-onedata-permissions:
-    - list_handle_services
+    - group_view
   summary: List effective group handle services
   x-bash-codegen-description: |
     Returns the list of registered group effective handle services.
