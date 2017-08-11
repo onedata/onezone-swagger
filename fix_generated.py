@@ -23,6 +23,8 @@ with open(PATHS_INDEX_FILE, "r") as f:
 
 
 for n in os.listdir(GENERATED_FILES_DIR):
+    if n.startswith('.'):
+        continue
     with open(os.path.join(GENERATED_FILES_DIR, n), "r+") as f:
         # Fix multiline comments.
         lines = f.readlines()
