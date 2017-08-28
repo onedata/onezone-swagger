@@ -105,7 +105,7 @@ delete:
     curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
     ```
-  resposes:
+  responses:
     '202':
       description: A group will be removed from the space.
     '400':
