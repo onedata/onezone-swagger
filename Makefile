@@ -1,3 +1,4 @@
+SHELL = /bin/bash
 UID = $(shell id -u)
 
 SWAGGER_AGGREGATOR_IMAGE    ?= docker.onedata.org/swagger-aggregator:1.5.0
@@ -24,7 +25,7 @@ validate: swagger.json
 		echo "$$RESULT";\
 		exit 1;\
 	else\
-		echo "swagger.json is valid.\n";\
+		echo "swagger.json is valid.";\
 	fi
 
 cowboy-server: validate
