@@ -4,14 +4,23 @@ properties:
   name:
     type: string
     description: Provider name.
-  urls:
-    type: array
-    description: The list of urls where the provider can be reached.
-    items:
-      type: string
-  redirectionPoint:
+  subdomainDelegation:
+    type: boolean
+    description: >
+      If enabled, the storage provider will be assigned a subdomain in onezone's domain
+      and 'subdomain' property must be provided. If disabled, 'domain' property
+      should be provided.
+  subdomain:
     type: string
-    description: The redirection URL for the provider.
+    description: >
+      Unique subdomain in onezone's domain for the storage provider. Required if
+      subdomain delegation is enabled.
+  domain:
+    type: string
+    description: >
+      The fully qualified domain name of the storage provider or its IP address (only for
+      single-node deployments or clusters with a reverse proxy). Required if
+      subdomain delegation is disabled.
   csr:
     type: string
     description: Certificate Signature Request to generate new certificate for the provider.
@@ -25,15 +34,12 @@ properties:
     description: The geographical longitude of the provider data center location.
 required:
   - name
-  - urls
-  - redirectionPoint
+  - subdomainDelegation
+  - domain
   - csr
 example:
   name: Example provider
-  urls:
-    - http://beta.onedata.org/provider1
-    - http://beta.onedata.org/provider2
-  redirectionPoint: http://beta.onedata.org/provider2
+  domain: provider2.beta.onedata.org
   csr: |
     -----BEGIN CERTIFICATE REQUEST-----
     MIIByjCCATMCAQAwgYkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlh
