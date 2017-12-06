@@ -35,7 +35,6 @@ properties:
 required:
   - name
   - subdomainDelegation
-  - domain
   - csr
 example:
   name: Example provider
