@@ -28,10 +28,8 @@ get:
     {
       "name": "example",
       "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk",
-      "urls": [
-        "195.216.97.151"
-      ],
-      "redirectionPoint": "https://195.216.97.151",
+      "subdomainDelegation": false,
+      "domain": "195.216.97.151",
       "latitude": 50.068968,
       "longitude": 19.909444
     }
@@ -81,14 +79,14 @@ post:
     Registers a Oneprovider in Onezone service.
 
     Requires a valid CSR in the bodyand returns signed certificate that will
-    must used by the Oneprovider for authorization (SSL Peer Certificate).
+    be used by the Oneprovider for authorization (SSL Peer Certificate).
 
     This operation has public access.
   description: |
     Registers a Oneprovider in Onezone service.
 
     Requires a valid CSR in the body and returns signed certificate that will
-    must used by the Oneprovider for authorization (SSL Peer Certificate).
+    be used by the Oneprovider for authorization (SSL Peer Certificate).
 
     This operation has public access.
   consumes:

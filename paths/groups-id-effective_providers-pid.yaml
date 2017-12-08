@@ -27,7 +27,7 @@ get:
 
     {
       "providerId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
-      "redirectionPoint": "http://beta.onedata.org/provider2",
+      "domain": "provider1.beta.onedata.org",
       "latitude": 50.0647,
       "longitude": 19.9450
     }
