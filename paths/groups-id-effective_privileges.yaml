@@ -64,4 +64,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listGroupOnezoneEffectivePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listEffectiveGroupPrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

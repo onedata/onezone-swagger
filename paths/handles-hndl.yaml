@@ -27,6 +27,7 @@ get:
     https://$HOST:8443/api/v3/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
+      "handle": "10.5072/w95Zlng"
       "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
       "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
       "resourceType": "Share",

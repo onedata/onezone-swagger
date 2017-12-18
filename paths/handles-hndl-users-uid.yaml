@@ -14,11 +14,11 @@ get:
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
@@ -31,9 +31,7 @@ get:
        "name" : "John Doe",
        "alias" : "",
        "login" : "username",
-       "connectedAccounts" : [],
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "emailList" : []
+       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo"
     }
     ```
   produces:
@@ -109,8 +107,14 @@ put:
   produces:
     - application/json
   responses:
-    '204':
-      description: User added successfully.
+    '201':
+      description: >
+        ID of the added user in the form /handles/{hndl}/users/{uid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: ID of the added user.
+          type: string
     '400':
       description: Invalid request.
       schema:

@@ -7,7 +7,7 @@ get:
     id: ?BINDING(sid)
     aspect: instance
     scope: protected
-  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
   summary: Get effective group space details

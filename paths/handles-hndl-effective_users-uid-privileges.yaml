@@ -67,7 +67,7 @@ get:
       type: string
     - name: uid
       in: path
-      description: The ID of the user of a handle service.
+      description: The ID of the effective user of a handle.
       required: true
       type: string
   x-code-samples:

@@ -6,7 +6,7 @@ get:
     type: od_share
     id: ?BINDING(id)
     aspect: instance
-    scope: protected
+    scope: private
   summary: Get share details
   x-bash-codegen-description: |
     Returns the details about a specific share.

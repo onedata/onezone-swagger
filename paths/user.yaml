@@ -38,7 +38,7 @@ get:
     '200':
       description: Returns the information about user.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/UserProtectedInfo'
     '400':
       description: Invalid request.
       schema:

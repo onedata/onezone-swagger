@@ -12,20 +12,17 @@ get:
   x-bash-codegen-description: |
     Returns the list of currently authenticated user effective privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_view_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of currently authenticated user effective privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_view_privileges` administrator privilege.
-
+    This operation can be invoked on behalf of current user only and requires
+    `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
-    **Get users privileges to Onezone service**
+    **Get users effective privileges to Onezone service**
     ```bash
     curl -u username:password -X GET  \
     https://$HOST:8443/api/v3/onezone/user/effective_privileges

@@ -22,7 +22,7 @@ get:
 
     **Get group handle services**
     ```bash
-    curl -u username:password -X GET https://$HOST:8443/api/v3/group/ASLKDJHAKLJSDHJKASD/handle_services
+    curl -u username:password -X GET https://$HOST:8443/api/v3/groups/ASLKDJHAKLJSDHJKASD/handle_services
 
     {
       "handle_services": [
@@ -88,8 +88,7 @@ post:
   description: |
     Allows to register a new handle service for group.
 
-    For administrator who do not need to be members of this group
-    `oz_handle_services_create` privilege is required.
+    Effective `oz_handle_services_create` privilege is required.
 
 
     ***Example cURL requests***
@@ -102,8 +101,10 @@ post:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request successful.
+    '201':
+      description:
+        ID of the created space in the form /groups/{id}/handle_services/{sid} is
+        returned in the response `Location` header.
       headers:
         Location:
           type: string
@@ -134,7 +135,7 @@ post:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/HandleService'
+        $ref: '#/definitions/HandleServiceCreateRequest'
     - name: id
       in: path
       description: Group ID.

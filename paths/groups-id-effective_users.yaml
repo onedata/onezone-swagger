@@ -8,6 +8,7 @@ get:
     aspect: eff_users
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_users
   summary: List effective group users
   x-bash-codegen-description: |
     Returns the list of effective group users, which includes both who directly
@@ -15,13 +16,16 @@ get:
     through its parent groups.
 
     This operation requires `group_view` privilege.
-
+    For administrator who do not need to be members of this group
+    `oz_groups_list_users` privilege is required.
   description: |
     Returns the list of effective group users, which includes both who directly
     belong to the group, as well as users who belong to the group indirectly
     through its parent groups.
 
     This operation requires `group_view` privilege.
+    For administrator who do not need to be members of this group
+    `oz_groups_list_users` privilege is required.
 
     ***Example cURL requests***
 
@@ -29,7 +33,6 @@ get:
     ```bash
     curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users
-
 
     {
       "users":  [

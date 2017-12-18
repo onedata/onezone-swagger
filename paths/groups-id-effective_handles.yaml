@@ -35,7 +35,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the list of group handles.
+      description: Returns the list of group effective handles.
       schema:
         $ref: '#/definitions/Handles'
     '400':

@@ -37,9 +37,9 @@ get:
     - application/json
   responses:
     '200':
-      description: Handle service details returned.
+      description: Group details returned.
       schema:
-        $ref: '#/definitions/HandleService'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
@@ -68,7 +68,7 @@ get:
       type: string
     - name: gid
       in: path
-      description: The ID of the group to add to handle service.
+      description: The ID of the group to return information about.
       required: true
       type: string
   x-code-samples:
@@ -106,8 +106,14 @@ put:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Group added successfully.
+    '201':
+      description: >
+        ID of the added group in the form /handle_services/{id}/groups/{gid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: ID of the added group.
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -169,7 +175,7 @@ delete:
     **Remove handle service group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
     ```
   responses:
     '202':

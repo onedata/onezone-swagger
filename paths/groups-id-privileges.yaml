@@ -91,7 +91,7 @@ patch:
 
     **Set groups privileges to Onezone service**
     ```bash
-    curl -H "Content-type: application/json"  -X PUT \
+    curl -H "Content-type: application/json"  -X PATCH \
     -d '{"privileges": ["oz_spaces_list"]}' \
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
@@ -126,7 +126,7 @@ patch:
     required: true
   - name: data
     in: body
-    description: User Onezone privileges.
+    description: Onezone privileges update request.
     schema:
       $ref: '#/definitions/OnezonePrivilegesUpdate'
   x-code-samples:

@@ -7,7 +7,7 @@ get:
     id: ?BINDING(pid)
     aspect: instance
     scope: protected
-  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
   summary: Get effective parent group details
@@ -28,6 +28,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/effective_parents/9OqgExw00RwaU2MXT51
 
     {
+      "groupId": "9OqgExw00RwaU2MXT51",
       "name": "Group1",
       "type": "organization"
     }

@@ -69,7 +69,7 @@ post:
     type: od_group
     aspect: instance
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
-  summary: Create new group
+  summary: Create new group for the current user
   x-bash-codegen-description: |
     Creates a new group for the current user.
     The user automatically becomes a member of this group.

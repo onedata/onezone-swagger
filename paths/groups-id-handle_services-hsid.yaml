@@ -7,7 +7,7 @@ get:
     id: ?BINDING(hsid)
     aspect: instance
     scope: protected
-  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   summary: Get group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific handle service.
@@ -24,6 +24,7 @@ get:
 
     {
         "name": "MyCommunity Handle service",
+        "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
         "proxyEndpoint": "https://localhost:17000/handle_proxy",
         "serviceProperties": {
             "allowTemplateOverride": false,
@@ -91,11 +92,16 @@ delete:
     id: ?BINDING(id)
     aspect: "{handle_service, ?BINDING(hsid)}"
   summary: Remove group handle service
+  x-onedata-permissions:
+    - group_update
   x-bash-codegen-description: |
     Removes the group ownership or membership in a specific handle service.
 
+    This operation requires `group_update` privilege.
   description: |
     Removes the group ownership or membership in a specific handle service.
+
+    This operation requires `group_update` privilege.
 
     ***Example cURL requests***
 
@@ -142,4 +148,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli removeGroupHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

@@ -1,0 +1,5 @@
+type: object
+description: Handle privileges update request.
+allOf:
+  - $ref: '#/definitions/PrivilegesUpdateOperation'
+  - $ref: '#/definitions/HandlePrivileges'

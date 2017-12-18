@@ -7,12 +7,12 @@ get:
     id: ?BINDING(hsid)
     aspect: instance
     scope: protected
-  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
   summary: Get effective group handle service details
   x-bash-codegen-description: |
-    Returns the details of a specific effective  handle service.
+    Returns the details of a specific effective handle service.
 
     This operation requires `group_view` privilege.
   description: |

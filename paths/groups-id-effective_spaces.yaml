@@ -24,6 +24,12 @@ get:
     ```bash
     curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_spaces
+
+    {
+      "spaces": [
+        "GVC8lKEasj4q253sptVqF8HwUpk8jrwxKOe45uzLFX2"
+      ]
+    }
     ```
   produces:
     - application/json

@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of ID's of all handles registered by handle service.
 
-    This operation requires `handle_service_list_handles` administrator privilege.
+    This operation requires `handle_service_list_handles` privilege.
   description: |
     Returns the list of ID's of all handles registered by handle service.
 
-    This operation requires `handle_service_list_handles` administrator privilege.
+    This operation requires `handle_service_list_handles` privilege.
 
     ***Example cURL requests***
 

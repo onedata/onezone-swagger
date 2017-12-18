@@ -70,15 +70,21 @@ post:
     type: od_handle
     aspect: instance
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - handle_service_register_handle
   summary: Create new user handle
   x-bash-codegen-description: |
     Creates a new handle as current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of current user only and requires
+    `handle_service_register_handle` privilege of user to handle service used
+    for handle registering.
   description: |
     Creates a new handle as current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of current user only and requires
+    `handle_service_register_handle` privilege of user to handle service used
+    for handle registering.
 
     ***Example cURL requests***
 
@@ -93,11 +99,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the created space in the form /user/spaces/{id} is
+        ID of the created space in the form /user/handles/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created space.
+          description: ID of the created handle.
           type: string
     '400':
       description: Invalid request.

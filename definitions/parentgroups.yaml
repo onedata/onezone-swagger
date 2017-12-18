@@ -1,11 +1,11 @@
 type: object
-description: The list of child groups.
+description: The list of parent groups.
 properties:
-  children:
+  parents:
     type: array
     items:
       type: string
 example:
-  children:
+  parents:
     - JKLHASGDFJLHGASDHJGLAHJSD
     - ASDkjasdaksdKASDkajsdKAJS

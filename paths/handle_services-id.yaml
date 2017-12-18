@@ -13,11 +13,13 @@ get:
   x-bash-codegen-description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_list` administrator privilege.
+    This operation requires `oz_handle_services_list` administrator privilege or
+    handle service membership.
   description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_list` administrator privilege.
+    This operation requires `oz_handle_services_list` administrator privilege or
+    handle service membership.
 
     ***Example cURL requests***
 
@@ -74,6 +76,7 @@ get:
   parameters:
     - name: id
       in: path
+      description: The ID of the handle service.
       required: true
       type: string
   x-code-samples:
@@ -137,6 +140,7 @@ patch:
   parameters:
     - name: id
       in: path
+      description: The ID of the handle service.
       required: true
       type: string
     - name: handleService
@@ -202,6 +206,7 @@ delete:
   parameters:
     - name: id
       in: path
+      description: The ID of the handle service.
       required: true
       type: string
   x-code-samples:

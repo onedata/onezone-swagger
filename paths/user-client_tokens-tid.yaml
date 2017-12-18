@@ -18,7 +18,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Delete user space**
+    **Delete user access token**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/user/client_tokens/PMPs42mROSS7Rg7z7BwU9JYpSof4SvIW5v14uQY8X08
@@ -56,4 +56,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeClientSpace tid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"
+    source: "onezone-rest-cli removeClientToken tid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"

@@ -1,10 +1,7 @@
 type: object
 description: |
-  Handle service instance.
+  Handle service create request.
 properties:
-  handleServiceId:
-    type: string
-    description: Handle service Id.
   name:
     type: string
     description: >
@@ -17,12 +14,10 @@ properties:
   serviceProperties:
     $ref: '#/definitions/HandleServiceProperties'
 required:
-  - handleServiceId
   - name
   - proxyEndpoint
   - serviceProperties
 example:
-  handleServiceId: SADHLKJhlkASHDLAKSHDLKJHJjLH
   name: MyCommunity Handle service
   proxyEndpoint: https://localhost:17000/handle_proxy
   serviceProperties:

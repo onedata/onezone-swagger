@@ -7,7 +7,7 @@ get:
     id: ?BINDING(gid)
     aspect: instance
     scope: protected
-  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get effective group details
   x-bash-codegen-description: |
     Returns information about a specific effective group to which the user belongs.

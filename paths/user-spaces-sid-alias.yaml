@@ -87,14 +87,14 @@ put:
 
     **Set space alias**
     ```bash
-    curl -u username:password -X POST -d '{"alias": "Space alias"}' \
+    curl -u username:password -X PUT -d '{"alias": "Space alias"}' \
     -H 'Content-type: application/json' \
     https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
     ```
   consumes:
     - application/json
   responses:
-    '200':
+    '204':
       description: Space alias has been successfully set.
       schema:
         $ref: '#/definitions/SpaceAlias'

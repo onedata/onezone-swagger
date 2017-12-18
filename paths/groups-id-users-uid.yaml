@@ -37,9 +37,7 @@ get:
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
       "login": "admin",
       "name": "admin",
-      "connectedAccounts": [],
-      "alias": "",
-      "emailList": []
+      "alias": ""
     }
     ```
   produces:
@@ -99,14 +97,14 @@ put:
   x-bash-codegen-description: |
     Returns the public information about a user {uid} in group {id}.
 
-    Optionally, user privileges in this gropu can be specified
+    Optionally, user privileges in this group can be specified
     in the request body.
 
     This operation requires `oz_groups_add_members` privilege.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
-    Optionally, user privileges in this gropu can be specified
+    Optionally, user privileges in this group can be specified
     in the request body.
 
     This operation requires `oz_groups_add_members` privilege.
@@ -115,16 +113,20 @@ put:
 
     **Generate user group invite token**
     ```bash
-    curl -u admin:password -X GET \
+    curl -u admin:password -X PUT \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
     ```
   produces:
     - application/json
   responses:
-    '200':
-      description: Information about a group user.
-      schema:
-        $ref: '#/definitions/User'
+    '201':
+      description: >
+        ID of the added user in the form /groups/{id}/users/{uid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: ID of the added user.
+          type: string
     '400':
       description: Invalid request.
       schema:

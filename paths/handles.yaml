@@ -99,13 +99,14 @@ post:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request successful.
+    '201':
+      description: >
+        ID of the created handle in the form /handles/{id} is
+        returned in the response `Location` header.
       headers:
         Location:
+          description: ID of the created handle.
           type: string
-          description: |
-            The endpoint of the new handle resource including the generated GUID.
     '400':
       description: Invalid request.
       schema:

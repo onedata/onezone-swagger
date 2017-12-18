@@ -90,7 +90,6 @@ put:
     id: ?BINDING(id)
     aspect: "{child, ?BINDING(cid)}"
   x-onedata-permissions:
-    - group_update
     - oz_groups_add_members
   summary: Add child group
   x-bash-codegen-description: |
@@ -114,10 +113,14 @@ put:
   produces:
     - application/json
   responses:
-    '200':
-      description: Information about a specific child group.
-      schema:
-        $ref: '#/definitions/GroupPrivileges'
+    '201':
+      description: >
+        ID of the added group in the form /groups/{id}/children/{cid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: ID of the created group.
+          type: string
     '400':
       description: Invalid request.
       schema:

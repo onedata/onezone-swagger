@@ -81,11 +81,11 @@ post:
     - group_create_space
   summary: Create new space for group
   x-bash-codegen-description: |
-    Creates a new space for of a specific group.
+    Creates a new space for a specific group.
 
     This operation requires `group_create_space` privilege.
   description: |
-    Creates a new space for of a specific group.
+    Creates a new space for a specific group.
 
     This operation requires `group_create_space` privilege.
 
@@ -102,7 +102,7 @@ post:
   responses:
     '204':
       description: >
-        ID of the created space in the form /spaces/{id} is
+        ID of the created space in the form /groups/{id}/spaces/{sid} is
         returned in the response `Location` header.
       headers:
         Location:

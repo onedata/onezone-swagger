@@ -12,15 +12,13 @@ get:
   x-bash-codegen-description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_view_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_view_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -79,21 +77,19 @@ patch:
   x-bash-codegen-description: |
     Modifies privileges for a user for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_set_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_set_privileges` administrator privilege.
   description: |
     Modifies privileges for a user for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_set_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Modifies users privileges to Onezone service**
     ```bash
-    curl -u username:password  -H "Content-type: application/json"  -X PUT \
+    curl -u username:password  -H "Content-type: application/json"  -X PATCH \
     -d '{"privileges":["oz_spaces_list"]}' \
     https://$HOST:8443/api/v3/onezone/user/privileges
     ```
@@ -125,7 +121,7 @@ patch:
     in: body
     description: User Onezone privileges.
     schema:
-      $ref: '#/definitions/OnezonePrivileges'
+      $ref: '#/definitions/OnezonePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
     source: "echo '[\"oz_spaces_list\", \"oz_spaces_list\"]' | onezone-rest-cli setCurrentUserPrivileges -"
@@ -145,15 +141,13 @@ delete:
   x-bash-codegen-description: |
     Removes all privileges for a user to Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_set_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_set_privileges` administrator privilege.
   description: |
     Removes all privileges for a user to Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_set_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 

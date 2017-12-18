@@ -15,7 +15,7 @@ get:
 
     This operation requires `oz_users_list` privilege.
   description: |
-    Returns the information about a specific group.
+    Returns the information about a specific user.
 
     This operation requires `oz_users_list` privilege.
 
@@ -41,7 +41,7 @@ get:
     '200':
       description: Information about a user.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/UserProtectedInfo'
     '400':
       description: Invalid request.
       schema:

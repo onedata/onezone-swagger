@@ -12,13 +12,13 @@ get:
     - handle_service_view
   summary: Get effective handle service group
   x-bash-codegen-description: |
-    Get details of a handle service owned by an effective group.
+    Get details of a group with effective access to handle service.
 
-    This operation requires `handle_service_view` administrator privilege.
+    This operation requires `handle_service_view` privilege.
   description: |
-    Get details of a handle service owned by an effective group.
+    Get details of a group with effective access to handle service.
 
-    This operation requires `handle_service_view` administrator privilege.
+    This operation requires `handle_service_view` privilege.
 
     ***Example cURL requests***
 
@@ -37,9 +37,9 @@ get:
     - application/json
   responses:
     '200':
-      description: Handle service details returned.
+      description: Group details returned.
       schema:
-        $ref: '#/definitions/HandleService'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
@@ -68,7 +68,7 @@ get:
       type: string
     - name: gid
       in: path
-      description: The ID of the group to add to handle service.
+      description: The ID of the group to return information about.
       required: true
       type: string
   x-code-samples:

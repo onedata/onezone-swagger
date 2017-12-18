@@ -106,7 +106,7 @@ post:
   responses:
     '201':
       description: >
-        ID of the created space in the form /groups/{id}/spaces/{sid} is
+        ID of the created space in the form /groups/{id}/handles/{sid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -137,7 +137,7 @@ post:
     in: body
     description: New handle parameters.
     schema:
-      $ref: '#/definitions/Handle'
+      $ref: '#/definitions/HandleRegistrationRequest'
     required: true
   - name: id
     in: path

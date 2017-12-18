@@ -9,16 +9,16 @@ get:
     scope: shared
   x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
-    - handle_update
+    - handle_view
   summary: Get effective handle group
   x-bash-codegen-description: |
     Returns the details of an effective group with access to handle.
 
-    This operation requires `handle_update` privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns the details of an effective group with access to handle.
 
-    This operation requires `handle_update` privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 

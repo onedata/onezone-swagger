@@ -47,7 +47,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the information about a group user.
+      description: Returns the information about a group user privileges.
       schema:
         $ref: '#/definitions/GroupPrivileges'
     '400':

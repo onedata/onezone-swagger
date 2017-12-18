@@ -1,0 +1,20 @@
+type: object
+description: Share parameters.
+properties:
+  name:
+    type: string
+    description: The user defined name for the share.
+  shareId:
+    type: string
+    description: The user defined ID for the share.
+  spaceId:
+    type: string
+    description: ID of space which files will be shared.
+  rootFileId:
+    type: string
+    description: ID of file to share.
+example:
+  name: MyNewShare
+  shareId: AIOD8979asui2788ASD
+  spaceId: kluYUSDYTF892uuHDUS
+  rootFileId: OIUYQWREBxmcv876789

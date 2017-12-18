@@ -100,7 +100,7 @@ patch:
     **Set handle user privileges**
     ```bash
     curl -u username:password -X PATCH -H "Content-type: application/json" \
-    -d '{"privileges": ["handle_change_data"]}' \
+    -d '{"privileges": ["handle_update"]}' \
     https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
@@ -144,7 +144,7 @@ patch:
       description: The list of user privileges to a specific handle.
       required: true
       schema:
-        $ref: '#/definitions/HandlePrivileges'
+        $ref: '#/definitions/HandlePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"privileges\": [\"handle_view_data\"]}' | onezone-rest-cli setHandleUserPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"
+    source: "echo '{\"privileges\": [\"handle_update\"]}' | onezone-rest-cli setHandleUserPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"

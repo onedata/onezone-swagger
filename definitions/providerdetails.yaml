@@ -7,9 +7,6 @@ properties:
   name:
     type: string
     description: Provider name.
-  clientName:
-    type: string
-    description: Provider name.
   domain:
     type: string
     description: >
@@ -22,7 +19,6 @@ properties:
     description: The geographical longitude of the provider data center location.
 example:
   name: Example provider
-  clientName: Example provider
   providerId: H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk
   domain: provider1.beta.onedata.org
   latitude: 50.0647

@@ -28,7 +28,6 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
 
     {
-      "clientName": "provider1",
       "name": "provider1",
       "providerId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
       "domain": "provider1.beta.onedata.org",
@@ -40,7 +39,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Information about a specific providing groups spaces.
+      description: Information about a specific provider supporting groups spaces.
       schema:
         $ref: '#/definitions/ProviderDetails'
     '400':
@@ -71,7 +70,7 @@ get:
     required: true
   - name: pid
     in: path
-    description: Effective space ID.
+    description: Effective provider ID.
     type: string
     required: true
   x-code-samples:

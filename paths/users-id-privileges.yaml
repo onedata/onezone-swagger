@@ -91,7 +91,7 @@ patch:
 
     **Modifies users privileges to Onezone service**
     ```bash
-    curl -u username:password  -H "Content-type: application/json"  -X PUT \
+    curl -u username:password  -H "Content-type: application/json" -X PATCH \
     -d '{"privileges":["oz_spaces_list"]}' \
     https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmPj3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
@@ -128,7 +128,7 @@ patch:
     in: body
     description: User Onezone privileges.
     schema:
-      $ref: '#/definitions/OnezonePrivileges'
+      $ref: '#/definitions/OnezonePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
     source: "echo '[\"oz_spaces_list\", \"oz_spaces_list\"]' | onezone-rest-cli setUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"

@@ -58,4 +58,4 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listUserEffectiveProviders"
+    source: "onezone-rest-cli listEffectiveUserProviders"

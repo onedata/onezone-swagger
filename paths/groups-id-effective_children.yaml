@@ -8,15 +8,20 @@ get:
     aspect: eff_children
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_groups
   summary: Get effective child groups
   x-bash-codegen-description: |
     Returns the list of effective child groups of a specific group.
 
     This operation requires `group_view` privilege.
+    For administrator who do not need to be members of this group
+    `oz_groups_list_groups` privilege is required.
   description: |
     Returns the list of effective child groups of a specific group.
 
     This operation requires `group_view` privilege.
+    For administrator who do not need to be members of this group
+    `oz_groups_list_groups` privilege is required.
 
     ***Example cURL requests***
 
@@ -26,7 +31,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_children
 
     {
-      "nested_groups": []
+      "children": []
     }
     ```
   produces:

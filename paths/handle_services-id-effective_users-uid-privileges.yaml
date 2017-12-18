@@ -26,7 +26,7 @@ get:
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     {
-      "users": [
+      "privileges": [
         "handle_service_delete",
         "handle_service_view"
       ]

@@ -93,13 +93,14 @@ post:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request successful.
+    '201':
+      description: >
+        ID of the created handle service in the form /handle_services/{id} is
+        returned in the response `Location` header.
       headers:
         Location:
+          description: ID of the created handle service.
           type: string
-          description: |
-            The endpoint of the new handle service resource including the generated GUID.
     '400':
       description: Invalid request.
       schema:
