@@ -8,13 +8,12 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - group_view
     - oz_groups_list
   summary: Get group details
   x-bash-codegen-description: |
     Returns the information about a specific group.
 
-    This operation requires `group_view` or `oz_groups_list` privilege.
+    This operation requires `oz_groups_list` privilege or group membership.
   description: |
     Returns the information about a specific group.
 
