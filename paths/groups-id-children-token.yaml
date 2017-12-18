@@ -22,7 +22,7 @@ post:
 
     **Create invitation token for subgroup**
     ```bash
-    curl -u username:password -X GET \
+    curl -u username:password -X POST \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVq
 
     {

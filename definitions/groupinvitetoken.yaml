@@ -1,5 +1,5 @@
 type: object
-description: Group invitation token for user.
+description: Group invitation token.
 properties:
   token:
     type: string

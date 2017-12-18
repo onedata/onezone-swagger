@@ -68,7 +68,7 @@ post:
   x-bash-codegen-description: |
     Creates a new group.
 
-    This operation does require any specific privileges.
+    This operation does not require any specific privileges.
   description: |
     Creates a new group.
 

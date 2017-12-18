@@ -128,7 +128,7 @@ patch:
     in: body
     description: User Onezone privileges.
     schema:
-      $ref: '#/definitions/OnezonePrivileges'
+      $ref: '#/definitions/OnezonePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
     source: "echo '{\"privileges\": [\"oz_spaces_list\", \"add_spaces\"]}' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"

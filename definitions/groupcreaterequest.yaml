@@ -3,7 +3,7 @@ description: Group create request.
 properties:
   name:
     type: string
-    description: The name of the space.
+    description: The name of the group.
   type:
     type: string
     description: The type of the group. If not specified, `role` is assumed.

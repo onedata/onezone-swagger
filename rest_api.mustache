@@ -47,16 +47,10 @@ routes() -> [
         method = '{{httpMethod}}',
         {{#vendorExtensions}}
         {{#x-onedata-gri}}
-        gri = #gri{type = {{type}},
-                   id = {{{id}}}{{^id}}undefined{{/id}},
-                   aspect = {{{aspect}}},
-                   {{#scope}}
-                   scope = {{scope}}
-                   {{/scope}}
-        },
+        b_gri = #b_gri{type = {{type}}, id = {{{id}}}{{^id}}undefined{{/id}}, aspect = {{{aspect}}},{{#scope}} scope = {{scope}}{{/scope}}},
         {{/x-onedata-gri}}
         {{#x-onedata-auth-hint}}
-        auth_hint = {{x-onedata-auth-hint}}
+        b_auth_hint = {{x-onedata-auth-hint}}
         {{/x-onedata-auth-hint}}
         {{/vendorExtensions}}
     }},

@@ -95,6 +95,9 @@ GroupPrivileges:
 OnezonePrivileges:
   $ref: ./onezoneprivileges.yaml
 
+OnezonePrivilegesUpdate:
+  $ref: ./onezoneprivilegesupdate.yaml
+
 # Handle definitions
 HandleService:
   $ref: ./handleservice.yaml
