@@ -23,7 +23,7 @@ get:
 
     **Get information about provider**
     ```bash
-    curl --cert ozp_cert.pem --key ozp_key.pem \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." \
     https://$HOST:8443/api/v3/onezone/provider
 
     {
@@ -67,67 +67,6 @@ get:
     source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem getCurrentProviderDetails"
 
 
-post:
-  operationId: register_provider
-  tags:
-    - Provider
-  x-onedata-gri:
-    type: od_provider
-    aspect: instance
-  summary: Register provider
-  x-bash-codegen-description: |
-    Registers a Oneprovider in Onezone service.
-
-    Requires a valid CSR in the bodyand returns signed certificate that will
-    be used by the Oneprovider for authorization (SSL Peer Certificate).
-
-    This operation has public access.
-  description: |
-    Registers a Oneprovider in Onezone service.
-
-    Requires a valid CSR in the body and returns signed certificate that will
-    be used by the Oneprovider for authorization (SSL Peer Certificate).
-
-    This operation has public access.
-  consumes:
-    - application/json
-  responses:
-    '200':
-      description: Provider registered successfully.
-      schema:
-        $ref: '#/definitions/ProviderRegistrationResponse'
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '401':
-      description: Authentication error.
-      schema:
-        $ref: '#/definitions/Error'
-    '403':
-      description: Authorization error.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Resource not found.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server Error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-  - name: data
-    in: body
-    description: Provider reqistration request including CSR.
-    schema:
-      $ref: '#/definitions/ProviderRegistrationRequest'
-    required: true
-  x-code-samples:
-  - lang: Shell
-    source: "cat registration_request.json | onezone-rest-cli registerProvider -"
-
-
 patch:
   operationId: modify_provider
   tags:
@@ -148,7 +87,7 @@ patch:
 
     **Update provider geo location**
     ```bash
-    curl --cert ozp_cert.pem --key ozp_key.pem -X PATCH \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X PATCH \
     -d '{"latitude": 50.068968,"longitude": 20.909444}'  \
     https://$HOST:8443/api/v3/onezone/provider
     ```
@@ -182,7 +121,7 @@ patch:
     in: body
     description: Provider data.
     schema:
-      $ref: '#/definitions/ProviderDetails'
+      $ref: '#/definitions/ProviderUpdateRequest'
     required: true
   x-code-samples:
   - lang: Shell
@@ -217,7 +156,7 @@ delete:
 
     **Unregister provider from Onezone**
     ```bash
-    curl --cert ozp_cert.pem --key ozp_key.pem -X DELETE  \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE  \
     https://$HOST:8443/api/v3/onezone/provider
     ```
   consumes:

@@ -22,7 +22,7 @@ post:
 
     **Add support for specific space**
     ```bash
-    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X POST \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X POST \
     -d '{"size": 1024000, "token": "Ko1SDKLJASHDkjjkjashdkjahsdkk655a8sdkgkasdASD"}' \
     https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
@@ -31,7 +31,7 @@ post:
   responses:
     '201':
       description: >
-        ID of the supported space in the form /spaces/{id} is
+        ID of the supported space in the form /provider/spaces/{id} is
         returned in the response `Location` header.
       headers:
         Location:

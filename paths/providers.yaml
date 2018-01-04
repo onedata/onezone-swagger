@@ -60,3 +60,64 @@ get:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli listProviders"
+
+
+post:
+  operationId: register_provider
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: instance
+  summary: Register provider
+  x-bash-codegen-description: |
+    Registers a Oneprovider in Onezone service.
+
+    Requires a valid CSR in the bodyand returns signed certificate that will
+    be used by the Oneprovider for authorization (SSL Peer Certificate).
+
+    This operation has public access.
+  description: |
+    Registers a Oneprovider in Onezone service.
+
+    Requires a valid CSR in the body and returns signed certificate that will
+    be used by the Oneprovider for authorization (SSL Peer Certificate).
+
+    This operation has public access.
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Provider registered successfully.
+      schema:
+        $ref: '#/definitions/ProviderRegistrationResponse'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: data
+    in: body
+    description: Provider reqistration request including CSR.
+    schema:
+      $ref: '#/definitions/ProviderRegistrationRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "cat registration_request.json | onezone-rest-cli registerProvider -"

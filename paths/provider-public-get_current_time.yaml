@@ -1,19 +1,19 @@
 get:
-  operationId: check_my_ip
+  operationId: check_current_time
   tags:
     - Provider
   x-onedata-gri:
     type: od_provider
-    aspect: "{check_my_ip, ?COWBOY_REQ}"
-  summary: Show client IP address
+    aspect: current_time
+  summary: Show current clock time
   x-bash-codegen-description: |
-    Returns the IP of the request peer. Will return the external IP (as seen
-    by the Onezone).
+    Returns current clock time of this OneZone instance,
+    in milliseconds since epoch.
 
     This operation has public access.
   description: |
-    Returns the IP of the request peer. Will return the external IP (as seen
-    by the Onezone).
+    Returns current clock time of this OneZone instance,
+    in milliseconds since epoch.
 
     This operation has public access.
 
@@ -21,15 +21,15 @@ get:
 
     **Check provider IP**
     ```bash
-    curl --tlsv1.2 -X GET https://beta.onedata.org:8443/api/v3/onezone/provider/test/check_my_ip
+    curl --tlsv1.2 -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET https://beta.onedata.org:8443/api/v3/onezone/provider/public/get_current_time
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The IP of the requesting peer.
+      description: The current clock time of this Onezone.
       schema:
-        type: string
+        type: integer
     '400':
       description: Invalid request.
       schema:
@@ -52,4 +52,4 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli checkMyIp"
+    source: "onezone-rest-cli checkCurrentTime"

@@ -462,12 +462,24 @@
   $ref: ./provider-spaces-sid.yaml
 
 
-/provider/test/check_my_ip:
-  $ref: ./provider-test-check_my_ip.yaml
+/provider/public/check_my_ip:
+  $ref: ./provider-public-check_my_ip.yaml
 
 
-/provider/test/check_my_ports:
-  $ref: ./provider-test-check_my_ports.yaml
+/provider/public/check_my_ports:
+  $ref: ./provider-public-check_my_ports.yaml
+
+
+/provider/public/get_current_time:
+  $ref: ./provider-public-get_current_time.yaml
+
+
+/provider/public/map_idp_group:
+  $ref: ./provider-public-map_idp_group.yaml
+
+
+/provider/public/verify_provider_identity:
+  $ref: ./provider-public-verify_provider_identity.yaml
 
 
 

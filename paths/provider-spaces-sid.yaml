@@ -24,7 +24,7 @@ get:
 
     **Get space details**
     ```bash
-    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X GET \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET \
     https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
 
     {
@@ -95,8 +95,7 @@ patch:
 
     **Change supported size**
     ```bash
-    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X PATCH \
-    -d '{"size": 1024000}' \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X PATCH -d '{"size": 1024000}' \
     https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   produces:
@@ -157,7 +156,7 @@ delete:
 
     **Revoke space support**
     ```bash
-    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X DELETE \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE \
     https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   produces:
