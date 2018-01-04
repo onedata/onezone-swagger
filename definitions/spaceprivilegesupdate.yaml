@@ -1,0 +1,5 @@
+type: object
+description: Spaces privileges update request.
+allOf:
+  - $ref: '#/definitions/PrivilegesUpdateOperation'
+  - $ref: '#/definitions/SpacePrivileges'

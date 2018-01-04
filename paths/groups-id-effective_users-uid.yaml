@@ -16,14 +16,14 @@ get:
     Returns information about a specific effective group user.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_users` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
   description: |
     Returns information about a specific effective group user.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_users` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
 
     ***Example cURL requests***
 
@@ -35,8 +35,7 @@ get:
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
       "login": "admin",
-      "name": "admin",
-      "alias": ""
+      "name": "admin"
     }
     ```
   produces:

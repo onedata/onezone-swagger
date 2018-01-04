@@ -7,9 +7,6 @@ properties:
   name:
     type: string
     description: The user friendly name of storage resource.
-  alias:
-    type: string
-    description: User alias
   login:
     type: string
     description: User login
@@ -20,4 +17,3 @@ example:
   userId: ALKJSDH77i79ASDKJA-ASDBAS9-87
   name: Rudolf Lingens
   login: Rudolf Lingens
-  alias: John Doe

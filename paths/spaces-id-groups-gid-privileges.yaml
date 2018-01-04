@@ -140,7 +140,7 @@ patch:
     in: body
     description: Space privileges.
     schema:
-      $ref: '#/definitions/SpacePrivileges'
+      $ref: '#/definitions/SpacePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
     source: "echo '{\"privileges\": [\"space_update\"]}' | onezone-rest-cli setSpaceGroupPrivileges id=SPACE_ID gid=GROUP_ID -"

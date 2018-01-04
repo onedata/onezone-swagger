@@ -17,8 +17,6 @@ get:
 
     For administrators who do not have to be members of this space,
     `oz_spaces_list_providers` privilege is required.
-
-    This operation requires `oz_spaces_list_providers` privilege.
   description: |
     Returns the list of providers supporting specific space.
 

@@ -18,8 +18,6 @@ get:
     For users who are members of space it requires `space_view`.
     For administrators who do not have to be members of this space,
     `oz_spaces_list_providers` privilege is required.
-
-    This operation requires `oz_spaces_list_providers` privilege.
   description: |
     Returns details about a specific provider supporting the space.
 

@@ -30,10 +30,7 @@ get:
     {
       "userId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
       "login": "username",
-      "name": "John Doe",
-      "connectedAccounts": [],
-      "alias": "",
-      "emailList": []
+      "name": "John Doe"
     }
     ```
   produces:

@@ -77,14 +77,14 @@ post:
     Creates a new handle as current user.
 
     This operation can be invoked on behalf of current user only and requires
-    `handle_service_register_handle` privilege of user to handle service used
-    for handle registering.
+    'handle_service_register_handle' privilege in the handle service
+    where the new handle is to be registered
   description: |
     Creates a new handle as current user.
 
     This operation can be invoked on behalf of current user only and requires
-    `handle_service_register_handle` privilege of user to handle service used
-    for handle registering.
+    'handle_service_register_handle' privilege in the handle service
+    where the new handle is to be registered
 
     ***Example cURL requests***
 

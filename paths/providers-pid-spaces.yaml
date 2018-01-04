@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `oz_providers_list_spaces` privilege.
+    This operation requires `oz_providers_list_spaces` administrator privilege.
   description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `oz_providers_list_spaces` privilege.
+    This operation requires `oz_providers_list_spaces` administrator privilege.
 
     ***Example cURL requests***
 

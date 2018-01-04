@@ -14,15 +14,14 @@ get:
     Returns the list of subgroups of a specific group.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_groups` privilege is required.
-
+    For administrator who does not belong to this group
+    'oz_groups_list_groups' privilege is required.
   description: |
     Returns the list of subgroups of a specific group.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_groups` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_list_groups' privilege is required.
 
     ***Example cURL requests***
 

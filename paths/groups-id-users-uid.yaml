@@ -16,15 +16,14 @@ get:
     Returns the public information about a user {uid} in group {id}.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_users` privilege is required.
-
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_users` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
 
     ***Example cURL requests***
 
@@ -36,8 +35,7 @@ get:
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
       "login": "admin",
-      "name": "admin",
-      "alias": ""
+      "name": "admin"
     }
     ```
   produces:
@@ -100,14 +98,14 @@ put:
     Optionally, user privileges in this group can be specified
     in the request body.
 
-    This operation requires `oz_groups_add_members` privilege.
+    This operation requires `oz_groups_add_members` administrator privilege.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
     Optionally, user privileges in this group can be specified
     in the request body.
 
-    This operation requires `oz_groups_add_members` privilege.
+    This operation requires `oz_groups_add_members` administrator privilege.
 
     ***Example cURL requests***
 
@@ -186,15 +184,15 @@ delete:
     access to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_remove_members` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_remove_members' privilege is required.
   description: |
     Removes the user {uid} from a group {id} (the user will no longer have access
     to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_remove_members` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_remove_members' privilege is required.
 
     ***Example cURL requests***
 

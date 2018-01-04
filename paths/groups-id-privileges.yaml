@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of group privileges for Onezone.
 
-    This operation requires `oz_view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of group privileges for Onezone.
 
-    This operation requires `oz_view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -81,11 +81,11 @@ patch:
   x-bash-codegen-description: |
     Modifies privileges for a group {id} for Onezone.
 
-    This operation requires `oz_set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
   description: |
     Modifies privileges for a group {id} for Onezone.
 
-    This operation requires `oz_set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -148,11 +148,11 @@ delete:
   x-bash-codegen-description: |
     Removes all privileges for a group {id} to Onezone.
 
-    This operation requires `oz_set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
   description: |
     Removes all privileges for a group {id} to Onezone.
 
-    This operation requires `oz_set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 

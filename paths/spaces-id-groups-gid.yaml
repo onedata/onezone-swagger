@@ -178,9 +178,6 @@ delete:
 
     For administrators, who are not members of this space,
     `oz_spaces_remove_members` privilege is required.
-
-    This operation requires `space_remove_group` privilege or
-    `oz_spaces_remove_members` privilege.
   description: |
     Removes a specific group from space.
 

@@ -12,9 +12,6 @@ properties:
     description: The list of accounts connected to this user.
     items:
       $ref: '#/definitions/ConnectedAccount'
-  alias:
-    type: string
-    description: User alias
   login:
     type: string
     description: User login
@@ -34,7 +31,6 @@ example:
       providerId: 7YASBFLJ-123ASD870-ASDASD
     - accountId: QWESsD-7SADASFSsa0831
       providerId: 7QWEJ-123ASD870-ASDASD
-  alias: John Doe
   emailList:
     - rudolf.linges@example.com
     - john.doe@example.com

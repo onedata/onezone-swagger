@@ -16,16 +16,16 @@ get:
     through its parent groups.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_users` privilege is required.
+    For administrator who does not belong to this group
+     'oz_groups_list_users' privilege is required.
   description: |
     Returns the list of effective group users, which includes both who directly
     belong to the group, as well as users who belong to the group indirectly
     through its parent groups.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_users` privilege is required.
+    For administrator who does not belong to this group
+     'oz_groups_list_users' privilege is required.
 
     ***Example cURL requests***
 

@@ -88,13 +88,11 @@ patch:
   x-bash-codegen-description: |
     Updates the details about a space.
 
-    If called by user who is not member of the space, requires `space_update`
-    privilege.
+    This operation requires `space_update` privilege.
   description: |
     Updates the details about a space.
 
-    If called by user who is not member of the space, requires `space_update`
-    privilege.
+    This operation requires `space_update` privilege.
 
     ***Example cURL requests***
 
@@ -143,7 +141,7 @@ patch:
       properties:
         name:
           type: string
-          description: The name of the new space.
+          description: The new name of the space.
     required: true
   x-code-samples:
   - lang: Shell
@@ -164,13 +162,11 @@ delete:
   x-bash-codegen-description: |
     Removes a specific space.
 
-    If called by user who is not member of the space, requires `space_delete`
-    privilege.
+    This operation requires `space_delete` privilege.
   description: |
     Removes a specific space.
 
-    If called by user who is not member of the space, requires `space_delete`
-    privilege.
+    This operation requires `space_delete` privilege.
 
     ***Example cURL requests***
 

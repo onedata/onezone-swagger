@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Returns the effective list of groups of a specific provider.
 
-    This operation requires `oz_providers_list_groups` privilege.
+    This operation requires `oz_providers_list_groups` administrator privilege.
   description: |
     Returns the effective list of groups of a specific provider.
 
-    This operation requires `oz_providers_list_groups` privilege.
+    This operation requires `oz_providers_list_groups` administrator privilege.
 
     ***Example cURL requests***
 

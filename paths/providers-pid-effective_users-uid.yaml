@@ -14,11 +14,11 @@ get:
   x-bash-codegen-description: |
     Returns the details of an effective user of a specific provider.
 
-    This operation requires `oz_providers_list_users` privilege.
+    This operation requires `oz_providers_list_users` administrator privilege.
   description: |
     Returns the details of an effective user of a specific provider.
 
-    This operation requires `oz_providers_list_users` privilege.
+    This operation requires `oz_providers_list_users` administrator privilege.
 
     ***Example cURL requests***
 
@@ -29,7 +29,6 @@ get:
 
     {
        "name" : "John Doe",
-       "alias" : "",
        "login" : "username",
        "connectedAccounts" : [],
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",

@@ -4,9 +4,5 @@ properties:
   name:
     type: string
     description: The user friendly name of storage resource.
-  alias:
-    type: string
-    description: User alias
 example:
   name: Rudolf Lingens
-  alias: John Doe

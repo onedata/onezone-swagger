@@ -6,7 +6,7 @@ get:
     type: od_share
     id: ?BINDING(sid)
     aspect: instance
-    scope: protected
+    scope: private
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   summary: Get space share
   x-bash-codegen-description: |

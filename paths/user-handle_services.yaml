@@ -72,12 +72,12 @@ post:
     Allows to register a new handle service.
 
     This operation can be invoked on behalf of current user only and requires
-    `oz_handle_service_create` privilege.
+    `oz_handle_service_create` administrator privilege.
   description: |
     Allows to register a new handle service.
 
     This operation can be invoked on behalf of current user only and requires
-    `oz_handle_service_create` privilege.
+    `oz_handle_service_create` administrator privilege.
 
     ***Example cURL requests***
 

@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of user privileges for Onezone.
 
-    This operation requires `oz_view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of user privileges for Onezone.
 
-    This operation requires `oz_view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 

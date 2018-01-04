@@ -28,7 +28,6 @@ get:
       "login": "admin",
       "name": "admin",
       "connectedAccounts": [],
-      "alias": "",
       "emailList": []
     }
     ```
