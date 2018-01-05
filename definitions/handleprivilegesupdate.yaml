@@ -3,3 +3,8 @@ description: Handle privileges update request.
 allOf:
   - $ref: '#/definitions/PrivilegesUpdateOperation'
   - $ref: '#/definitions/HandlePrivileges'
+example:
+  operation: update
+  privileges:
+    - handle_delete
+    - handle_update

@@ -14,5 +14,4 @@ properties:
       - revoke
       - set
 example:
-  operation:
-    - update
+  operation: update
