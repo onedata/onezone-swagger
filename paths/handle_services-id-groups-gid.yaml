@@ -108,11 +108,11 @@ put:
   responses:
     '201':
       description: >
-        ID of the added group in the form /handle_services/{id}/groups/{gid} is
+        URI of the added group in form https://onezone.domain/api/onezone/v3/handle_services/{id}/groups/{gid} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the added group.
+          description: URI of the added group.
           type: string
     '400':
       description: Invalid request.

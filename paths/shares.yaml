@@ -97,11 +97,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the created share in the form /shares/{id} is
+        URI of the created share in form https://onezone.domain/api/onezone/v3/shares/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created share.
+          description: URI of the created share.
           type: string
     '400':
       description: Invalid request.

@@ -31,11 +31,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the joined space in the form /groups/{id}/spaces/{sid} is
+        URI of the joined space in form https://onezone.domain/api/onezone/v3/groups/{id}/spaces/{sid} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the joined space.
+          description: URI of the joined space.
           type: string
     '400':
       description: Invalid request.

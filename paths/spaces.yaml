@@ -96,11 +96,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the created space in the form /spaces/{id} is
+        URI of the created space in the form https://onezone.domain/api/onezone/v3/user/spaces/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created space.
+          description: URI of the created space.
           type: string
     '400':
       description: Invalid request.
