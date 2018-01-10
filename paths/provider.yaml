@@ -162,7 +162,7 @@ delete:
   consumes:
     - application/json
   responses:
-    '202':
+    '204':
       description: Provider will be unregistered.
     '400':
       description: Invalid request.

@@ -177,7 +177,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/shares/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
-    '202':
+    '204':
       description: The share will been removed.
     '400':
       description: Invalid request.

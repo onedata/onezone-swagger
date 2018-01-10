@@ -31,7 +31,7 @@ get:
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
-      "providersSupports": {
+      "providers": {
         "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
       }
     }
@@ -176,7 +176,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
-    '202':
+    '204':
       description: The space will be removed.
     '400':
       description: Invalid request.

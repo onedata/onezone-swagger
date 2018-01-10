@@ -191,7 +191,7 @@ delete:
   consumes:
     - application/json
   responses:
-    '202':
+    '204':
       description: User will be removed from space.
     '400':
       description: Invalid request.

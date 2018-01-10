@@ -31,7 +31,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children
 
     {
-      "children": []
+      "groups": []
     }
     ```
   produces:
@@ -40,7 +40,7 @@ get:
     '200':
       description: The list of subgroup ID's.
       schema:
-        $ref: '#/definitions/ChildGroups'
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:

@@ -105,7 +105,7 @@ delete:
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: The group membership will be revoked.
     '400':
       description: Invalid request.

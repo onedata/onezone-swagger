@@ -56,12 +56,6 @@ ClientToken:
 ClientTokens:
   $ref: ./clienttokens.yaml
 
-ChildGroups:
-  $ref: ./childgroups.yaml
-
-ParentGroups:
-  $ref: ./parentgroups.yaml
-
 DefaultSpace:
   $ref: ./defaultspace.yaml
 

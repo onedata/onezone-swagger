@@ -186,7 +186,7 @@ delete:
     https://$HOST:8443/api/v3/handles/SDLLKHASDkSDLHU70ASDnHU70ASDnkjhA
     ```
   responses:
-    '202':
+    '204':
       description: Handle will be removed.
     '400':
       description: Invalid request.

@@ -190,7 +190,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/groups/KoiO-QKqmYZRjPVdtR30FrdIEA1JF9f3TznAr9BDjA4/children/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50
     ```
   responses:
-    '202':
+    '204':
       description: A subgroup will be removed.
     '400':
       description: Invalid request.

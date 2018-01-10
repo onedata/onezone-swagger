@@ -26,7 +26,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_parents
 
     {
-      "parents": []
+      "groups": []
     }
     ```
   produces:
@@ -35,7 +35,7 @@ get:
     '200':
       description: The list of effective parent group ID's.
       schema:
-        $ref: '#/definitions/ParentGroups'
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:

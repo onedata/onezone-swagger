@@ -111,7 +111,7 @@ delete:
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: The handle will be deleted.
     '400':
       description: Invalid request.

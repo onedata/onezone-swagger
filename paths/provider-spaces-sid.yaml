@@ -30,7 +30,7 @@ get:
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
-      "providersSupports": {
+      "providers": {
         "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
       }
     }
@@ -162,7 +162,7 @@ delete:
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: Support for space will be revoked.
     '400':
       description: Invalid request.

@@ -204,7 +204,7 @@ delete:
   consumes:
     - application/json
   responses:
-    '202':
+    '204':
       description: The user will be removed from the group.
     '400':
       description: Invalid request.
