@@ -2,21 +2,23 @@ get:
   operationId: get_handle_user
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
-    - read_handle
+    - handle_view
   summary: Get handle user
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
@@ -27,11 +29,8 @@ get:
 
     {
        "name" : "John Doe",
-       "alias" : "",
        "login" : "username",
-       "connectedAccounts" : [],
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "emailList" : []
+       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo"
     }
     ```
   produces:
@@ -81,10 +80,10 @@ put:
   operationId: add_handle_user
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:add_handle_user
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_update
   summary: Add handle user
@@ -107,8 +106,14 @@ put:
   produces:
     - application/json
   responses:
-    '204':
-      description: User added successfully.
+    '201':
+      description: >
+        URI of the added user in form https://onezone.domain/api/onezone/v3/handles/{hndl}/users/{uid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the added user.
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -149,10 +154,10 @@ delete:
   operationId: remove_handle_user
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:remove_handle_user
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_update
   summary: Remove handle user
@@ -173,7 +178,7 @@ delete:
     https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
-    '202':
+    '204':
       description: User will be removed.
     '400':
       description: Invalid request.

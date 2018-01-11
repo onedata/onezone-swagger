@@ -2,10 +2,10 @@ get:
   operationId: list_effective_space_users
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: users
-  x-onedata-method: space_logic:get_users
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: eff_users
   summary: List effective space users
   x-bash-codegen-description: |
     Returns the effective list of users belonging to a specific space.

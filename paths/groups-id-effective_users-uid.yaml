@@ -2,21 +2,28 @@ get:
   operationId: get_effective_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: effective_user
-  x-onedata-method: group_logic:get_effective_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
+    - oz_group_list_users
   summary: Get effective group user details
   x-bash-codegen-description: |
     Returns information about a specific effective group user.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
   description: |
     Returns information about a specific effective group user.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
 
     ***Example cURL requests***
 
@@ -28,10 +35,7 @@ get:
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
       "login": "admin",
-      "name": "admin",
-      "connectedAccounts": [],
-      "alias": "",
-      "emailList": []
+      "name": "admin"
     }
     ```
   produces:

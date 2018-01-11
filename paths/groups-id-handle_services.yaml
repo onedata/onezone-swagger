@@ -2,12 +2,12 @@ get:
   operationId: list_group_handle_services
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_group_handle_services
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: handle_services
   x-onedata-permissions:
-    - list_handle_services
+    - group_view
   summary: List group handle services
   x-bash-codegen-description: |
     Returns the list of registered group handle services.
@@ -22,7 +22,7 @@ get:
 
     **Get group handle services**
     ```bash
-    curl -u username:password -X GET https://$HOST:8443/api/v3/group/ASLKDJHAKLJSDHJKASD/handle_services
+    curl -u username:password -X GET https://$HOST:8443/api/v3/groups/ASLKDJHAKLJSDHJKASD/handle_services
 
     {
       "handle_services": [
@@ -73,24 +73,23 @@ post:
   operationId: add_group_handle_service
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service
+  x-onedata-gri:
+    type: od_handle_service
+    aspect: instance
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
-    - add_handle_services
+    - oz_handle_services_create
   summary: Add group handle service
   x-bash-codegen-description: |
     Allows to register a new handle service for group.
 
-    For administrator who do not need to be members of this group
-    `oz_handle_services_create` privilege is required.
+    For administrator who does not belong to this group
+    'oz_handle_services_create' privilege is required.
   description: |
     Allows to register a new handle service for group.
 
-    For administrator who do not need to be members of this group
-    `oz_handle_services_create` privilege is required.
-
+    For administrator who does not belong to this group
+    'oz_handle_services_create' privilege is required.
 
     ***Example cURL requests***
 
@@ -102,8 +101,10 @@ post:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request successful.
+    '201':
+      description:
+        URI of the created space in form https://onezone.domain/api/onezone/v3/groups/{id}/handle_services/{sid} is
+        returned in the response `Location` header.
       headers:
         Location:
           type: string
@@ -134,7 +135,7 @@ post:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/HandleService'
+        $ref: '#/definitions/HandleServiceCreateRequest'
     - name: id
       in: path
       description: Group ID.

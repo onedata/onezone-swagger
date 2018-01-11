@@ -1,18 +1,24 @@
 get:
   operationId: get_handle_service_handle
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handles
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
-    - list_handles
+    - handle_service_view
   summary: Get handle from handle service
   x-bash-codegen-description: |
     Returns the details of a specific handle registered by handle service.
+
+    This operation requires `handle_service_view` privilege.
   description: |
     Returns the details of a specific handle registered by handle service.
+
+    This operation requires `handle_service_view` privilege.
 
     ***Example cURL requests***
 

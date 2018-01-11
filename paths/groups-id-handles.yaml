@@ -2,9 +2,12 @@ get:
   operationId: list_group_handles
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:get_handles
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: handles
+  x-onedata-permissions:
+    - group_view
   summary: List group handles
   x-bash-codegen-description: |
     Returns the list of groups handles.
@@ -71,9 +74,12 @@ post:
   operationId: create_group_handle
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:create
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - handle_service_register_handle
   summary: Create new group handle
   x-bash-codegen-description: |
     Creates a new handle on behalf of a group.
@@ -100,11 +106,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the created space in the form /groups/{id}/spaces/{sid} is
+        URI of the created space in form https://onezone.domain/api/onezone/v3/groups/{id}/handles/{sid} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created handle.
+          description: URI of the created handle.
           type: string
     '400':
       description: Invalid request.
@@ -131,7 +137,7 @@ post:
     in: body
     description: New handle parameters.
     schema:
-      $ref: '#/definitions/Handle'
+      $ref: '#/definitions/HandleRegistrationRequest'
     required: true
   - name: id
     in: path

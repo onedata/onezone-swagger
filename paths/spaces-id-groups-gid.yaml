@@ -2,10 +2,15 @@ get:
   operationId: get_space_group
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: group
-  x-onedata-method: space_logic:get_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_groups
   summary: Get group details
   x-bash-codegen-description: |
     Returns details about a specific group in a space.
@@ -80,10 +85,12 @@ put:
   operationId: add_group_to_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: groups
-  x-onedata-method: space_logic:add_group
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - oz_spaces_add_members
   summary: Add group to space
   x-bash-codegen-description: |
     Allows to add a group to any space.
@@ -155,10 +162,13 @@ delete:
   operationId: remove_space_group
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: group
-  x-onedata-method: space_logic:remove_group
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - space_remove_group
+    - oz_spaces_remove_members
   summary: Remove group from space
   x-bash-codegen-description: |
     Removes a specific group from space.
@@ -168,9 +178,6 @@ delete:
 
     For administrators, who are not members of this space,
     `oz_spaces_remove_members` privilege is required.
-
-    This operation requires `space_remove_group` privilege or
-    `oz_spaces_remove_members` privilege.
   description: |
     Removes a specific group from space.
 
@@ -188,7 +195,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
     ```
   responses:
-    '202':
+    '204':
       description: A group will be removed from space.
     '400':
       description: Invalid request.

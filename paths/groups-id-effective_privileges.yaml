@@ -2,19 +2,21 @@ get:
   operationId: list_effective_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: privileges
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_group_effective_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
   summary: List group's effective privileges
   x-bash-codegen-description: |
     Returns the list of group effective privileges for Onezone.
 
-    This operation requires `oz_view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of group effective privileges for Onezone.
 
-    This operation requires `oz_view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -62,4 +64,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listGroupOnezoneEffectivePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listEffectiveGroupPrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

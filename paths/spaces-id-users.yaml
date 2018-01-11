@@ -2,10 +2,13 @@ get:
   operationId: list_space_users
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: users
-  x-onedata-method: space_logic:get_users
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: users
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_users
   summary: List space users
   x-bash-codegen-description: |
     Returns the list of users belonging to a specific space.
@@ -13,7 +16,6 @@ get:
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
     `oz_spaces_list_users` privilege is required.
-
   description: |
     Returns the list of users belonging to a specific space.
 

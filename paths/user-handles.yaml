@@ -2,9 +2,10 @@ get:
   operationId: list_user_handles
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_handles
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: handles
   summary: List user handles
   x-bash-codegen-description: |
     Returns the list of users' handles.
@@ -65,18 +66,25 @@ post:
   operationId: create_user_handle
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:create
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - handle_service_register_handle
   summary: Create new user handle
   x-bash-codegen-description: |
     Creates a new handle as current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of current user only and requires
+    'handle_service_register_handle' privilege in the handle service
+    where the new handle is to be registered
   description: |
     Creates a new handle as current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of current user only and requires
+    'handle_service_register_handle' privilege in the handle service
+    where the new handle is to be registered
 
     ***Example cURL requests***
 
@@ -91,11 +99,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the created space in the form /user/spaces/{id} is
+        URI of the created space in form https://onezone.domain/api/onezone/v3/user/handles/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created space.
+          description: URI of the created handle.
           type: string
     '400':
       description: Invalid request.

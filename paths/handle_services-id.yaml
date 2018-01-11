@@ -1,22 +1,25 @@
 get:
   operationId: get_handle_service
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
   x-onedata-permissions:
-    - handle_service_view
+    - oz_handle_services_list
   summary: Get handle service
   x-bash-codegen-description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_list` administrator privilege.
+    This operation requires `oz_handle_services_list` administrator privilege or
+    handle service membership.
   description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_list` administrator privilege.
+    This operation requires `oz_handle_services_list` administrator privilege or
+    handle service membership.
 
     ***Example cURL requests***
 
@@ -73,6 +76,7 @@ get:
   parameters:
     - name: id
       in: path
+      description: The ID of the handle service.
       required: true
       type: string
   x-code-samples:
@@ -83,11 +87,11 @@ get:
 patch:
   operationId: handle_service_update
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:modify_handle_services
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: instance
   x-onedata-permissions:
     - handle_service_update
   summary: Modify handle service
@@ -136,6 +140,7 @@ patch:
   parameters:
     - name: id
       in: path
+      description: The ID of the handle service.
       required: true
       type: string
     - name: handleService
@@ -151,11 +156,11 @@ patch:
 delete:
   operationId: remove_handle_service
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:delete_handle_services
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: instance
   x-onedata-permissions:
     - handle_service_delete
   summary: Unregister handle service
@@ -176,7 +181,7 @@ delete:
     https://$HOST:8443/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
     ```
   responses:
-    '202':
+    '204':
       description: Handle service will be unregistered.
     '400':
       description: Invalid request.
@@ -201,6 +206,7 @@ delete:
   parameters:
     - name: id
       in: path
+      description: The ID of the handle service.
       required: true
       type: string
   x-code-samples:

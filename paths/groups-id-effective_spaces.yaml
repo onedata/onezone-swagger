@@ -2,10 +2,10 @@ get:
   operationId: list_effective_group_spaces
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: spaces
-  x-onedata-method: group_logic:get_effective_group_spaces
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_spaces
   x-onedata-permissions:
     - group_view
   summary: List effective group's spaces
@@ -24,6 +24,12 @@ get:
     ```bash
     curl -u username:password -X GET \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_spaces
+
+    {
+      "spaces": [
+        "GVC8lKEasj4q253sptVqF8HwUpk8jrwxKOe45uzLFX2"
+      ]
+    }
     ```
   produces:
     - application/json

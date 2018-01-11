@@ -2,19 +2,21 @@ get:
   operationId: list_effective_provider_users
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: providers
-  x-onedata-resource: users
-  x-onedata-method: provider_logic:get_users
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: eff_users
+  x-onedata-permissions:
+    - oz_providers_list_users
   summary: List effective users of provider
   x-bash-codegen-description: |
     Returns the list of effective users of a specific provider.
 
-    This operation requires `oz_providers_list_users` privilege.
+    This operation requires `oz_providers_list_users` administrator privilege.
   description: |
     Returns the list of effective users of a specific provider.
 
-    This operation requires `oz_providers_list_users` privilege.
+    This operation requires `oz_providers_list_users` administrator privilege.
 
     ***Example cURL requests***
 

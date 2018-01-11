@@ -2,10 +2,10 @@ get:
   operationId: list_effective_handle_group_privileges
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_group
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{eff_group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_view
   summary: List effective handle group privileges

@@ -2,10 +2,13 @@ get:
   operationId: get_provider_details
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: nprovider
-  x-onedata-method: provider_logic:get_data
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_providers_list
   summary: Get provider details
   x-bash-codegen-description: |
     Returns the information about a specific Oneprovider service, which is
@@ -13,24 +16,22 @@ get:
 
     If called by other provider doesn't require any special privileges.
 
-    When called by a regular user, requires 'oz_providers_list' privilege.
-
-    This operation requires `oz_providers_list` privilege.
+    This operation requires `oz_providers_list` administrator privilege or
+    effective membership in space supported by that provider.
   description: |
     Returns the information about a specific Oneprovider service, which is
     connected to the onezone.
 
     If called by other provider doesn't require any special privileges.
 
-    When called by a regular user, requires 'oz_providers_list' privilege.
-
-    This operation requires `oz_providers_list` privilege.
+    This operation requires `oz_providers_list` administrator privilege or
+    effective membership in space supported by that provider.
 
     ***Example cURL requests***
 
     **Get specific provider details**
     ```bash
-    curl --cert ozp_cert.pem --key ozp_key.pem -X GET  \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET  \
     https://$HOST:8443/api/v3/onezone/providers/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
     ```
   produces:
@@ -75,35 +76,37 @@ delete:
   operationId: remove_provider
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: nprovider
-  x-onedata-method: provider_logic:get_data
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
   summary: Remove provider
+  x-onedata-permissions:
+    - oz_providers_delete
   x-bash-codegen-description: |
     Removes specific Oneprovider from this zone.
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `remove_provider` administrator privilege.
+    This operation requires `oz_providers_delete` administrator privilege.
   description: |
     Removes specific Oneprovider from this zone.
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `remove_provider` administrator privilege.
+    This operation requires `oz_providers_delete` administrator privilege.
 
     ***Example cURL requests***
 
     **Get specific provider details**
     ```bash
-    curl --cert ozp_cert.pem --key ozp_key.pem -X DELETE  \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE  \
     https://$HOST:8443/api/v3/onezone/providers/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
     ```
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: Provider will be unregistered.
     '400':
       description: Invalid request.

@@ -2,9 +2,10 @@ get:
   operationId: get_default_provider
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:get_default_provider
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_provider
   summary: Get default provider
   x-bash-codegen-description: |
     Returns the ID of the default provider.
@@ -62,9 +63,10 @@ put:
   operationId: set_default_provider
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:set_default_provider
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_provider
   summary: Set default provider
   x-bash-codegen-description: |
     Sets default provider for current user.
@@ -86,7 +88,7 @@ put:
   consumes:
     - application/json
   responses:
-    '200':
+    '204':
       description: Default provider set successfully.
     '400':
       description: Invalid request.
@@ -124,9 +126,10 @@ delete:
   operationId: remove_default_provider
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-method: user_logic:set_default_provider
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_provider
   summary: Unset default provider
   x-bash-codegen-description: |
     Removes default provider setting for current user.
@@ -147,7 +150,7 @@ delete:
   consumes:
     - application/json
   responses:
-    '202':
+    '204':
       description: Default provider removed successfully.
     '400':
       description: Invalid request.

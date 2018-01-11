@@ -1,22 +1,24 @@
 get:
   operationId: get_handle_service_user
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service_user
+    - Handle Service
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
-    - get_handle_service
+    - handle_service_view
   summary: Get handle service user
   x-bash-codegen-description: |
     Allows to get a user to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_view` privilege.
   description: |
     Allows to get a user to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_view` privilege.
 
     ***Example cURL requests***
 
@@ -26,19 +28,16 @@ get:
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
 
     {
-       "name" : "John Doe",
-       "alias" : "",
-       "login" : "username",
-       "connectedAccounts" : [],
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "emailList" : []
+       "name" : "John Doe",
+       "login" : "username"
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: User added successfully.
+      description: User details returned.
       schema:
         $ref: '#/definitions/User'
     '400':
@@ -69,7 +68,7 @@ get:
       type: string
     - name: uid
       in: path
-      description: The ID of the user to add to handle service.
+      description: The ID of the user to return information about.
       required: true
       type: string
   x-code-samples:
@@ -80,11 +79,11 @@ get:
 put:
   operationId: add_handle_service_user
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service_user
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
   summary: Add handle service user
@@ -148,11 +147,11 @@ put:
 delete:
   operationId: remove_handle_service_user
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:remove_handle_service_user
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
   summary: Remove handle service user
@@ -173,7 +172,7 @@ delete:
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
     ```
   responses:
-    '202':
+    '204':
       description: User will be removed from handle service.
     '400':
       description: Invalid request.

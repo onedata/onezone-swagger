@@ -2,10 +2,10 @@ get:
   operationId: list_child_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: npriv
-  x-onedata-method: group_logic:get_child_group_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{child_privileges, ?BINDING(cid)}"
   x-onedata-permissions:
     - group_view
   summary: List child group privileges
@@ -78,10 +78,10 @@ patch:
   operationId: set_child_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: npriv
-  x-onedata-method: group_logic:set_child_group_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{child_privileges, ?BINDING(cid)}"
   x-onedata-permissions:
     - group_set_privileges
   summary: Set subgroup privileges
@@ -96,16 +96,16 @@ patch:
 
     ***Example cURL requests***
 
-    **Get subgroup privileges in a group**
+    **Set subgroup privileges in a group**
 
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X PUT \
+    curl -u username:password  -H "Content-type: application/json" -X PATCH \
     -d '{"privileges": ["group_view"]}' \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
     '204':
-      description: The group privileges have been added.
+      description: The group privileges have been set.
     '400':
       description: Invalid request.
       schema:
@@ -141,7 +141,7 @@ patch:
     in: body
     description: Child group privileges.
     schema:
-      $ref: '#/definitions/GroupPrivileges'
+      $ref: '#/definitions/GroupPrivilegesUpdate'
     required: true
   x-code-samples:
   - lang: Shell

@@ -2,12 +2,11 @@ get:
   operationId: list_handles
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handles
+  x-onedata-gri:
+    type: od_handle
+    aspect: list
   x-onedata-permissions:
-    - list_handles
+    - oz_handles_list
   summary: List handles
   x-bash-codegen-description: |
     Returns the list of ID's of all handles registered in Onezone.
@@ -67,10 +66,10 @@ post:
   operationId: handle_service_register_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:add_handle
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - handle_service_register_handle
   summary: Register handle
@@ -100,13 +99,14 @@ post:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request successful.
+    '201':
+      description: >
+        URI of the created handle in form https://onezone.domain/api/onezone/v3/user/handles/{id} is
+        returned in the response `Location` header.
       headers:
         Location:
+          description: URI of the created handle.
           type: string
-          description: |
-            The endpoint of the new handle resource including the generated GUID.
     '400':
       description: Invalid request.
       schema:

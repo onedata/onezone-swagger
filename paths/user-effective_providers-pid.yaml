@@ -2,9 +2,12 @@ get:
   operationId: get_effective_user_provider
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-method: provider_logic:get_effective_provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get effective provider details
   x-bash-codegen-description: |
     Returns information about a specific effective provider for the user.
@@ -24,6 +27,7 @@ get:
 
     {
       "providerId":"oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+      "name": "provider2",
       "domain": "provider2.beta.onedata.org",
       "latitude": 50.0647,
       "longitude": 19.9450

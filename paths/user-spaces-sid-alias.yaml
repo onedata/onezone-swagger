@@ -2,9 +2,10 @@ get:
   operationId: get_user_space_alias
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
   summary: Get user space alias
   x-bash-codegen-description: |
     Returns the alias of a specific space.
@@ -68,9 +69,10 @@ put:
   operationId: set_user_space_alias
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
   summary: Set user space alias
   x-bash-codegen-description: |
     Sets the alias of a specific space.
@@ -85,14 +87,14 @@ put:
 
     **Set space alias**
     ```bash
-    curl -u username:password -X POST -d '{"alias": "Space alias"}' \
+    curl -u username:password -X PUT -d '{"alias": "Space alias"}' \
     -H 'Content-type: application/json' \
     https://$HOST:8443/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
     ```
   consumes:
     - application/json
   responses:
-    '200':
+    '204':
       description: Space alias has been successfully set.
       schema:
         $ref: '#/definitions/SpaceAlias'
@@ -137,9 +139,10 @@ delete:
   operationId: remove_user_space_alias
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_space_alias
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
   summary: Remove space alias
   x-bash-codegen-description: |
     Removes the space alias.
@@ -160,7 +163,7 @@ delete:
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: The space alias will be removed.
     '400':
       description: Invalid request.

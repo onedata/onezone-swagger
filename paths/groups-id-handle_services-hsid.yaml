@@ -2,9 +2,12 @@ get:
   operationId: get_group_handle_service
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:get_data
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(hsid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   summary: Get group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific handle service.
@@ -21,6 +24,7 @@ get:
 
     {
         "name": "MyCommunity Handle service",
+        "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
         "proxyEndpoint": "https://localhost:17000/handle_proxy",
         "serviceProperties": {
             "allowTemplateOverride": false,
@@ -83,15 +87,21 @@ delete:
   operationId: remove_group_handle_service
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:remove_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{handle_service, ?BINDING(hsid)}"
   summary: Remove group handle service
+  x-onedata-permissions:
+    - group_update
   x-bash-codegen-description: |
     Removes the group ownership or membership in a specific handle service.
 
+    This operation requires `group_update` privilege.
   description: |
     Removes the group ownership or membership in a specific handle service.
+
+    This operation requires `group_update` privilege.
 
     ***Example cURL requests***
 
@@ -103,7 +113,7 @@ delete:
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: The handle service will be deleted.
     '400':
       description: Invalid request.
@@ -138,4 +148,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli removeGroupHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

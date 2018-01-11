@@ -1,11 +1,11 @@
 get:
   operationId: list_handle_service_groups
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service_groups
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: groups
   x-onedata-permissions:
     - handle_service_view
   summary: List handle service groups

@@ -2,10 +2,12 @@ get:
   operationId: list_effective_space_group_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: gpriv
-  x-onedata-method: space_logic:get_privileges
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{eff_group_privileges, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - space_view
   summary: List effective group privileges to space
   x-bash-codegen-description: |
     Returns privileges for an effective group to a specific space.

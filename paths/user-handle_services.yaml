@@ -2,12 +2,10 @@ get:
   operationId: list_user_handle_services
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_user_handle_services
-  x-onedata-permissions:
-    - list_handle_services
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: handle_services
   summary: List user handle services
   x-bash-codegen-description: |
     Returns the list of registered user handle services.
@@ -63,17 +61,23 @@ post:
   operationId: add_user_handle_service
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service
+  x-onedata-gri:
+    type: od_handle_service
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
-    - add_handle_services
+    - oz_handle_service_create
   summary: Add user handle service
   x-bash-codegen-description: |
     Allows to register a new handle service.
+
+    This operation can be invoked on behalf of current user only and requires
+    `oz_handle_service_create` administrator privilege.
   description: |
     Allows to register a new handle service.
+
+    This operation can be invoked on behalf of current user only and requires
+    `oz_handle_service_create` administrator privilege.
 
     ***Example cURL requests***
 
@@ -85,13 +89,14 @@ post:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request successful.
+    '201':
+      description: >
+        URI of the created handle service in form https://onezone.domain/api/onezone/v3/user/handle_services/{id}
+        is returned in the response `Location` header.
       headers:
         Location:
+          description: URI of the created handle service.
           type: string
-          description: |
-            The endpoint of the new handle service resource including the generated GUID.
     '400':
       description: Invalid request.
       schema:

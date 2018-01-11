@@ -2,10 +2,12 @@ get:
   operationId: get_effective_parent_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: parent_group
-  x-onedata-method: group_logic:get_parent_effective_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
   summary: Get effective parent group details
@@ -26,6 +28,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/effective_parents/9OqgExw00RwaU2MXT51
 
     {
+      "groupId": "9OqgExw00RwaU2MXT51",
       "name": "Group1",
       "type": "organization"
     }

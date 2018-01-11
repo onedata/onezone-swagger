@@ -2,9 +2,12 @@ get:
   operationId: get_effective_group_handle
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:get_data
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   summary: Get effective group handle details
   x-bash-codegen-description: |
     Returns the details of a specific effective handle.
@@ -20,6 +23,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/effective_handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
+      "handle": "10.5072/w95Zlng"
       "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
       "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
       "resourceType": "Share",

@@ -2,9 +2,10 @@ get:
   operationId: list_user_effective_handle_services
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_effective_handle_services
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: eff_handle_services
   summary: List user effective handle services
   x-bash-codegen-description: |
     Returns the list of user's effective handle services.

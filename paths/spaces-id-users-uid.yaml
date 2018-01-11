@@ -2,10 +2,15 @@ get:
   operationId: get_space_user
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: user
-  x-onedata-method: space_logic:get_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_users
   summary: Get space user details
   x-bash-codegen-description: |
     Returns the public information about a specific user in a space.
@@ -28,12 +33,9 @@ get:
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
 
     {
-       "name" : "John Doe",
-       "alias" : "",
-       "login" : "username",
-       "connectedAccounts" : [],
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "emailList" : []
+       "name" : "John Doe",
+       "login" : "username"
     }
     ```
   produces:
@@ -83,10 +85,12 @@ put:
   operationId: add_user_to_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: users
-  x-onedata-method: space_logic:add_user
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - oz_spaces_add_members
   summary: Add user to space
   x-bash-codegen-description: |
     Allows to add a user to any space.
@@ -158,21 +162,24 @@ delete:
   operationId: remove_space_user
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: user
-  x-onedata-method: space_logic:remove_user
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - space_remove_user
+    - oz_spaces_remove_members
   summary: Remove user from space
   x-bash-codegen-description: |
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    `oz_spaces_remove_members` privilege.
+    `oz_spaces_remove_members` administrator privilege.
   description: |
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    `oz_spaces_remove_members` privilege.
+    `oz_spaces_remove_members` administrator privilege.
 
     ***Example cURL requests***
 
@@ -184,7 +191,7 @@ delete:
   consumes:
     - application/json
   responses:
-    '202':
+    '204':
       description: User will be removed from space.
     '400':
       description: Invalid request.

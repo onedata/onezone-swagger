@@ -2,9 +2,14 @@ get:
   operationId: get_group_handle
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:get_data
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
   summary: Get group handle details
   x-bash-codegen-description: |
     Returns the details of a specific handle.
@@ -23,6 +28,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
+      "handle": "10.5072/w95Zlng"
       "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
       "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
       "resourceType": "Share",
@@ -88,16 +94,19 @@ delete:
   operationId: remove_group_handle
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-method: handle_logic:remove_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{handle, ?BINDING(hid)}"
+  x-onedata-permissions:
+    - group_update
   summary: Remove group handle
   x-bash-codegen-description: |
-    Removes the groups ownership or membership in a specific space.
+    Removes the groups ownership or membership in a specific handle.
 
     This operation requires `group_update` privilege.
   description: |
-    Removes the groups ownership or membership in a specific space.
+    Removes the groups ownership or membership in a specific handle.
 
     This operation requires `group_update` privilege.
 
@@ -106,12 +115,12 @@ delete:
     **Delete user space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/groups/AKSDKJLHASDJKjhjaksdLKJASD/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST:8443/api/v3/onezone/groups/AKSDKJLHASDJKjhjaksdLKJASD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: The handle will be removed from group.
     '400':
       description: Invalid request.

@@ -1,11 +1,12 @@
 get:
   operationId: get_share
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: share
-  x-onedata-method: space_logic:get_share
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(id)
+    aspect: instance
+    scope: private
   summary: Get share details
   x-bash-codegen-description: |
     Returns the details about a specific share.
@@ -69,11 +70,13 @@ get:
 patch:
   operationId: modify_share
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: shares
-  x-onedata-resource: share
-  x-onedata-method: sharelogic:modify
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_manage_shares
   summary: Modify share details
   x-bash-codegen-description: |
     Updates the details about a share.
@@ -147,11 +150,13 @@ patch:
 delete:
   operationId: remove_share
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: share
-  x-onedata-method: space_logic:remove_share
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_manage_shares
   summary: Remove share
   x-bash-codegen-description: |
     Removes a specific share.
@@ -172,7 +177,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/shares/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
-    '202':
+    '204':
       description: The share will been removed.
     '400':
       description: Invalid request.

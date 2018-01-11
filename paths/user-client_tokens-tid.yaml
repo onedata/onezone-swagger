@@ -2,9 +2,10 @@ delete:
   operationId: remove_client_token
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:remove_token
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{client_token, ?BINDING(tid)}"
   summary: Delete access token
   x-bash-codegen-description: |
     Removes a specific access token.
@@ -17,7 +18,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Delete user space**
+    **Delete user access token**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/user/client_tokens/PMPs42mROSS7Rg7z7BwU9JYpSof4SvIW5v14uQY8X08
@@ -25,7 +26,7 @@ delete:
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: The token will be deleted.
     '400':
       description: Invalid request.
@@ -55,4 +56,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeClientSpace tid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"
+    source: "onezone-rest-cli removeClientToken tid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"

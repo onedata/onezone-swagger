@@ -2,10 +2,10 @@ get:
   operationId: list_client_tokens
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: utoken
-  x-onedata-method: token_logic:get
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: client_tokens
   summary: List user access tokens
   x-bash-codegen-description: |
     Returns the list of user tokens.
@@ -64,10 +64,10 @@ post:
   operationId: create_client_token
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: utoken
-  x-onedata-method: token_logic:create
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: client_tokens
   summary: Generate user access token
   x-bash-codegen-description: |
     Creates new user token.

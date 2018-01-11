@@ -2,21 +2,21 @@ get:
   operationId: list_effective_handle_groups
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_groups
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: eff_groups
   x-onedata-permissions:
-    - view_handle_groups
+    - handle_view
   summary: Get effective handle groups
   x-bash-codegen-description: |
     Returns effective groups with access to a handle instance.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns effective groups with access to a handle instance.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 

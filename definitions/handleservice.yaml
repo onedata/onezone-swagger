@@ -17,6 +17,7 @@ properties:
   serviceProperties:
     $ref: '#/definitions/HandleServiceProperties'
 required:
+  - handleServiceId
   - name
   - proxyEndpoint
   - serviceProperties

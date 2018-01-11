@@ -7,7 +7,7 @@ properties:
   name:
     type: string
     description: The name of the space.
-  providersSupports:
+  providers:
     type: object
     description: >
       The map of providers Ids supporting this space
@@ -19,9 +19,9 @@ properties:
 required:
   - spaceId
   - name
-  - providersSupports
+  - providers
 example:
   spaceId: Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
   name: My Private space
-  providersSupports:
+  providers:
     hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE: 5368709120

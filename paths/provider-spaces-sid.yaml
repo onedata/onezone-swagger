@@ -2,9 +2,12 @@ get:
   operationId: get_supported_space
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_PROVIDER(?CLIENT_ID)
   summary: Get space details by provider
   x-bash-codegen-description: |
     Returns information about a specific space supported by the Oneprovider that
@@ -21,13 +24,13 @@ get:
 
     **Get space details**
     ```bash
-    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X GET \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET \
     https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
 
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
-      "providersSupports": {
+      "providers": {
         "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
       }
     }
@@ -74,9 +77,10 @@ patch:
   operationId: modify_supported_space
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: "{space, ?BINDING(sid)}"
   summary: Modify supported space
   x-bash-codegen-description: |
     Modifies supported space parameters.
@@ -91,8 +95,7 @@ patch:
 
     **Change supported size**
     ```bash
-    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X PATCH \
-    -d '{"size": 1024000}' \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X PATCH -d '{"size": 1024000}' \
     https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   produces:
@@ -135,9 +138,10 @@ delete:
   operationId: remove_space_support
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-method: space_logic:remove_provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: "{space, ?BINDING(sid)}"
   summary: Remove space support
   x-bash-codegen-description: |
     Removes support for space from the Oneprovider that performed the request.
@@ -152,13 +156,13 @@ delete:
 
     **Revoke space support**
     ```bash
-    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X DELETE \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE \
     https://$HOST:8443/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   produces:
     - application/json
   responses:
-    '202':
+    '204':
       description: Support for space will be revoked.
     '400':
       description: Invalid request.

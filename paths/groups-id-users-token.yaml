@@ -2,10 +2,10 @@ post:
   operationId: create_user_group_invite_token
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: uinvite
-  x-onedata-method: token_logic:create
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: invite_user_token
   x-onedata-permissions:
     - group_invite_user
   summary: Create user invite token for group

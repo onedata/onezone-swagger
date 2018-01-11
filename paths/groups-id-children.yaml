@@ -2,26 +2,26 @@ get:
   operationId: list_child_groups
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: children_groups
-  x-onedata-method: group_logic:get_children_groups
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: children
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_groups
   summary: Get subgroups
   x-bash-codegen-description: |
     Returns the list of subgroups of a specific group.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_groups` privilege is required.
-
+    For administrator who does not belong to this group
+    'oz_groups_list_groups' privilege is required.
   description: |
     Returns the list of subgroups of a specific group.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_groups` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_list_groups' privilege is required.
 
     ***Example cURL requests***
 
@@ -31,7 +31,7 @@ get:
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children
 
     {
-      "nested_groups": []
+      "groups": []
     }
     ```
   produces:
@@ -40,7 +40,7 @@ get:
     '200':
       description: The list of subgroup ID's.
       schema:
-        $ref: '#/definitions/ChildGroups'
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:

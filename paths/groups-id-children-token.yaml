@@ -2,10 +2,10 @@ post:
   operationId: create_child_group_token
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: ninvite
-  x-onedata-method: token_logic:create
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: invite_group_token
   x-onedata-permissions:
     - group_invite_group
   summary: Create child group invitation token
@@ -22,7 +22,7 @@ post:
 
     **Create invitation token for subgroup**
     ```bash
-    curl -u username:password -X GET \
+    curl -u username:password -X POST \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVq
 
     {

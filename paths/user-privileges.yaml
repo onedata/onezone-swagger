@@ -2,23 +2,23 @@ get:
   operationId: list_current_user_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: privileges
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_user_privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
   summary: List current user privileges
   x-bash-codegen-description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `get_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `get_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -67,29 +67,29 @@ patch:
   operationId: set_current_user_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:oz_set_privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Set current user privileges
   x-bash-codegen-description: |
     Modifies privileges for a user for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_set_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_set_privileges` administrator privilege.
   description: |
     Modifies privileges for a user for Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_set_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Modifies users privileges to Onezone service**
     ```bash
-    curl -u username:password  -H "Content-type: application/json"  -X PUT \
+    curl -u username:password  -H "Content-type: application/json"  -X PATCH \
     -d '{"privileges":["oz_spaces_list"]}' \
     https://$HOST:8443/api/v3/onezone/user/privileges
     ```
@@ -121,7 +121,7 @@ patch:
     in: body
     description: User Onezone privileges.
     schema:
-      $ref: '#/definitions/OnezonePrivileges'
+      $ref: '#/definitions/OnezonePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
     source: "echo '[\"oz_spaces_list\", \"oz_spaces_list\"]' | onezone-rest-cli setCurrentUserPrivileges -"
@@ -131,23 +131,23 @@ delete:
   operationId: remove_current_user_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:remove_privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Remove current user privileges
   x-bash-codegen-description: |
     Removes all privileges for a user to Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_set_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_set_privileges` administrator privilege.
   description: |
     Removes all privileges for a user to Onezone.
 
-    This operation can be invoked on behalf of current user only.
-
-    This operation requires `oz_set_privileges` administrator privilege.
+    This operation can be invoked on behalf of current user only and requires
+    `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -157,7 +157,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/users/privileges
     ```
   responses:
-    '202':
+    '204':
       description: The user privileges will be cleared.
     '400':
       description: Invalid request.

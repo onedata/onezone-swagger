@@ -1,41 +1,45 @@
 get:
-  operationId: list_effective_space_user_privileges
+  operationId: get_effective_space_user
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: gpriv
-  x-onedata-method: space_logic:get_privileges
-  summary: List effective user privileges to space
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+  summary: Get effective space user details
   x-bash-codegen-description: |
-    Returns privileges for an effective user to a specific space.
+    Returns details about a specific effective user in a space.
 
     This operation requires `space_view` privilege.
   description: |
-    Returns privileges for an effective user to a specific space.
+    Returns details about a specific effective user in a space.
 
     This operation requires `space_view` privilege.
 
     ***Example cURL requests***
 
-    **Get effective space user privileges**
+    **Get effective space user details**
     ```bash
-    curl -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_users/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
+    curl -u username:password -X GET \
+    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_users/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
 
     {
-      "privileges": [
-        "space_view"
-      ]
+      "userId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "login": "username",
+      "name": "John Doe"
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The list of user privileges in a space.
+      description: Details of a specific user in a space.
       schema:
-        $ref: '#/definitions/SpacePrivileges'
+        $ref: '#/definitions/User'
     '400':
       description: Invalid request.
       schema:
@@ -69,4 +73,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli getEffectiveSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

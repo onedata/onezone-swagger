@@ -2,9 +2,10 @@ get:
   operationId: list_user_spaces
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_spaces
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: spaces
   summary: List user spaces
   x-bash-codegen-description: |
     Returns the list of users' spaces.
@@ -75,9 +76,10 @@ post:
   operationId: create_user_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:create
+  x-onedata-gri:
+    type: od_space
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new user space
   x-bash-codegen-description: |
     Creates a new space as current user. The user automaticaly becomes
@@ -95,19 +97,18 @@ post:
     **Create new user space**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
-    -d '{ "name" : "test_space" , "token" : "JKAxNWxUgPCAxNDk2MTQwMTQ0v38YI0Z2",  "size" : "150" }'
-    https://$HOST:8443/api/v3/onezone/user/spaces
+    -d '{ "name" : "test_space"}' https://$HOST:8443/api/v3/onezone/user/spaces
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        ID of the created space in the form /user/spaces/{id} is
+        URI of the created space in form https://onezone.domain/api/onezone/v3/user/spaces/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created space.
+          description: URI of the created space.
           type: string
     '400':
       description: Invalid request.

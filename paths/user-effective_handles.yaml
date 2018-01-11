@@ -2,9 +2,10 @@ get:
   operationId: list_user_effective_handles
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_effective_spaces
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: eff_handles
   summary: Get user effective handles
   x-bash-codegen-description: |
     Returns the list of user's effective handles.

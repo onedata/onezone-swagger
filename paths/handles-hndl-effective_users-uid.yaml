@@ -2,21 +2,23 @@ get:
   operationId: get_effective_handle_user
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
-    - read_handle
+    - handle_view
   summary: Get effective handle user
   x-bash-codegen-description: |
     Returns effective handle user details.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns effective handle user details.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
@@ -27,11 +29,8 @@ get:
 
     {
        "name" : "John Doe",
-       "alias" : "",
        "login" : "username",
-       "connectedAccounts" : [],
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "emailList" : []
+       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo"
     }
     ```
   produces:

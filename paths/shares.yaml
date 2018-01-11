@@ -1,12 +1,13 @@
 get:
   operationId: list_shares
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: share
-  x-onedata-method: space_logic:list_shares
+    - Share
+  x-onedata-gri:
+    type: od_share
+    aspect: list
   summary: List all shares
+  x-onedata-permissions:
+    - oz_shares_list
   x-bash-codegen-description: |
     Returns the list of shares.
 
@@ -65,12 +66,13 @@ get:
 post:
   operationId: create_share
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: shares
-  x-onedata-resource: share
-  x-onedata-method: sharelogic:create
+    - Share
+  x-onedata-gri:
+    type: od_share
+    aspect: instance
   summary: Create share
+  x-onedata-permissions:
+    - space_manage_shares
   x-bash-codegen-description: |
     Creates a new share.
 
@@ -93,8 +95,14 @@ post:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Share has been updated successfully.
+    '201':
+      description: >
+        URI of the created share in form https://onezone.domain/api/onezone/v3/shares/{id} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created share.
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -120,7 +128,7 @@ post:
     in: body
     description: Share parameters
     schema:
-      $ref: '#/definitions/ShareUpdateRequest'
+      $ref: '#/definitions/ShareCreateRequest'
     required: true
   x-code-samples:
   - lang: Shell

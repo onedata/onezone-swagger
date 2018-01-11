@@ -2,10 +2,12 @@ get:
   operationId: get_space_share
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: shares
-  x-onedata-method: space_logic:create_share
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: private
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   summary: Get space share
   x-bash-codegen-description: |
     Get share from specific space.

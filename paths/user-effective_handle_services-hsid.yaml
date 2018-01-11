@@ -2,9 +2,12 @@ get:
   operationId: get_user_effective_handle_service
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-method: provider_logic:get_effective_handle_service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(hsid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get effective handle service details
   x-bash-codegen-description: |
     Returns information about a specific effective handle service for the user.

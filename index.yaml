@@ -8,36 +8,41 @@ definitions:
   $ref: ./definitions/index.yaml
 tags:
   - name: User
-    description: Regular user operations
-  - name: Users
     description: User management operations
   - name: Group
     description: Group management operations
   - name: Space
     description: Space management operations
+  - name: Share
+    description: Share management operations
   - name: Provider
     description: Provider management operations
   - name: Handle
     description: Operations for managing Handle system service and identifier generation.
+  - name: Handle Service
+    description: Handle service management operations.
 x-tagGroups:
-  - name: Regular user operations
+  - name: User management
     tags:
       - User
-  - name: User administration
-    tags:
-      - Users
   - name: Group management
     tags:
       - Group
   - name: Space management
     tags:
       - Space
+  - name: Share management
+    tags:
+      - Share
   - name: Provider management
     tags:
       - Provider
   - name: Handle (DOI, PID) management
     tags:
       - Handle
+  - name: Handle service management
+    tags:
+      - Handle Service
 securityDefinitions:
   api_key:
     type: apiKey

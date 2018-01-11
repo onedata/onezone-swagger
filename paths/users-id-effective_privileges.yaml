@@ -1,24 +1,26 @@
 get:
   operationId: list_user_onezone_effective_privileges
   tags:
-    - Users
-  x-onedata-service: onezone
-  x-onedata-module: privileges
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_user_privileges
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: eff_oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
   summary: List user's effective Onezone privileges
   x-bash-codegen-description: |
     Returns the list of user privileges for Onezone.
 
-    This operation requires `oz_view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of user privileges for Onezone.
 
-    This operation requires `oz_view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
-    **Get users privileges to Onezone service**
+    **Get users effective privileges to Onezone service**
     ```bash
     curl -u username:password -X GET  \
     https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/effective_privileges

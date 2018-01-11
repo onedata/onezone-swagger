@@ -2,12 +2,12 @@ get:
   operationId: list_handle_groups
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_groups
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: groups
   x-onedata-permissions:
-    - view_handle_groups
+    - handle_view
   summary: List handle groups
   x-bash-codegen-description: |
     Returns all groups with access to a handle instance

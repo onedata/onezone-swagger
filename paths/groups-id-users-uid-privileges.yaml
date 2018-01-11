@@ -2,10 +2,10 @@ get:
   operationId: list_user_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: upriv
-  x-onedata-method: group_logic:get_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - group_view
   summary: List user's group privileges
@@ -30,7 +30,8 @@ get:
         "group_update",
         "group_create_space",
         "group_create_space_token",
-        "group_invite_group"]
+        "group_invite_group"
+      ]
     }
     ```
   produces:
@@ -80,10 +81,10 @@ patch:
   operationId: set_user_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: upriv
-  x-onedata-method: group_logic:oz_set_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - group_set_privileges
   summary: Set user's group privileges
@@ -95,6 +96,15 @@ patch:
     Sets privileges for a user {uid} in a group {id}.
 
     This operation requires `group_set_privileges` privilege.
+
+    ***Example cURL requests***
+
+    **Set groups privileges to member of this group**
+    ```bash
+    curl -H "Content-type: application/json"  -X PATCH \
+    -d '{"privileges": ["group_view", "group_create_space"]}' \
+    https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges/privileges
+    ```
   responses:
     '204':
       description: The user privileges have been added.

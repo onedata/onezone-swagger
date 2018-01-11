@@ -2,9 +2,12 @@ get:
   operationId: get_effective_user_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_effective_space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get effective space details
   x-bash-codegen-description: |
     Returns information about a specific effective space to which the user belongs.
@@ -23,7 +26,7 @@ get:
     https://$HOST:8443/api/v3/onezone/user/effective_spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
 
     {
-       "providersSupports" : {
+       "providers" : {
           "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
        },
        "spaceId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",

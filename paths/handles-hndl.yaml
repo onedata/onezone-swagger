@@ -2,10 +2,11 @@ get:
   operationId: get_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
+    scope: protected
   x-onedata-permissions:
     - handle_view
   summary: Get handle
@@ -26,6 +27,7 @@ get:
     https://$HOST:8443/api/v3/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
+      "handle": "10.5072/w95Zlng"
       "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
       "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
       "resourceType": "Share",
@@ -86,10 +88,10 @@ patch:
   operationId: handle_update
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:handle_update
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
   x-onedata-permissions:
     - handle_update
   summary: Modify handle
@@ -160,10 +162,10 @@ delete:
   operationId: remove_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:handle_delete
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
   x-onedata-permissions:
     - handle_delete
   summary: Unregister handle
@@ -184,7 +186,7 @@ delete:
     https://$HOST:8443/api/v3/handles/SDLLKHASDkSDLHU70ASDnHU70ASDnkjhA
     ```
   responses:
-    '202':
+    '204':
       description: Handle will be removed.
     '400':
       description: Invalid request.

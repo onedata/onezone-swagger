@@ -2,10 +2,10 @@ get:
   operationId: list_space_shares
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: shares
-  x-onedata-method: space_logic:get_shares
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: shares
   summary: List space shares
   x-bash-codegen-description: |
     Returns the list of shares from specific space.

@@ -1,11 +1,11 @@
 get:
   operationId: list_handle_service_group_privileges
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service_group
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_view
   summary: List handle service group privileges
@@ -23,7 +23,7 @@ get:
     **Get handle service group privileges**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     {
       "privileges": [
@@ -78,11 +78,11 @@ get:
 patch:
   operationId: set_handle_service_group_privileges
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:set_handle_service_group_privileges
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_update
   summary: Set handle service groups privileges
@@ -99,9 +99,9 @@ patch:
 
     **Set handle service group privileges**
     ```bash
-    curl -u username:password -X PUT  -H "Content-type: application/json" \
+    curl -u username:password -X PATCH  -H "Content-type: application/json" \
     -d '{"privileges": ["handle_service_register_handle"]}' \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
     - application/json
@@ -144,7 +144,7 @@ patch:
       description: The list of group privileges to specific handle service.
       required: true
       schema:
-        $ref: '#/definitions/HandleServicePrivileges'
+        $ref: '#/definitions/HandleServicePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
     source: "echo '{\"privileges\": [\"handle_service_register_handle\"]}' | onezone-rest-cli setHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"

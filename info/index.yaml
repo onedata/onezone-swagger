@@ -1,4 +1,4 @@
-version: 17.06.0-beta6
+version: 17.06.0-rc9
 title: Onezone
 x-bash-codegen-description: |
  This is the RESTful API definition of Onezone component of Onedata data
@@ -48,6 +48,10 @@ x-bash-codegen-description: |
  The space management operations of this API provide means for accessing
  information about spaces and their management.
 
+ ## Share management
+ The share management operations of this API provide means for accessing
+ information about shares and their management.
+
  ## Group management
  The group management operations allow for creation of user groups, assigning
  their authorization rights, adding and removing users from groups.
@@ -67,6 +71,10 @@ x-bash-codegen-description: |
  services. The API provides methods for adding new Handle services to the
  system, managing which users can use which registration services and complete
  API for registering identifiers to users data sets which are made public.
+
+ ## Handle service management
+ The handle service management operations of this API provide means for accessing
+ information about handle services and their management.
 
 
 description: |
@@ -129,6 +137,10 @@ description: |
  The space management operations of this API provide means for accessing information about spaces
  and their management.
 
+ **Share management**
+ The share management operations of this API provide means for accessing
+ information about shares and their management.
+
  **Group management**
  The group management operations allow for creation of user groups, assigning their authorization rights,
  adding and removing users from groups.
@@ -147,6 +159,10 @@ description: |
  provides methods for adding new Handle services to the system, managing which users
  can use which registration services and complete API for registering identifiers to
  users data sets which are made public.
+
+ **Handle service management**
+ The handle service management operations of this API provide means for accessing
+ information about handle services and their management.
 
  ## Using the API
  Onezone API is quite complex and thus it might be difficult to quickly figure out how

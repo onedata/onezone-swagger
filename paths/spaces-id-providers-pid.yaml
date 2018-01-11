@@ -2,10 +2,15 @@ get:
   operationId: get_space_provider
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: provider
-  x-onedata-method: space_logic:get_provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_providers
   summary: Get space provider details
   x-bash-codegen-description: |
     Returns details about a specific provider supporting the space.
@@ -13,8 +18,6 @@ get:
     For users who are members of space it requires `space_view`.
     For administrators who do not have to be members of this space,
     `oz_spaces_list_providers` privilege is required.
-
-    This operation requires `oz_spaces_list_providers` privilege.
   description: |
     Returns details about a specific provider supporting the space.
 
@@ -84,10 +87,12 @@ delete:
   operationId: remove_provider_supporting_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: provider
-  x-onedata-method: space_logic:remove_provider
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{provider, ?BINDING(pid)}"
+  x-onedata-permissions:
+    - space_remove_provider
   summary: Remove space support
   x-bash-codegen-description: |
     Removes support from provider for a specific space.
@@ -106,7 +111,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
     ```
   responses:
-    '202':
+    '204':
       description: A space is no longer supported by this provider.
     '400':
       description: Invalid request.

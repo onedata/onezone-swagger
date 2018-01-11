@@ -2,9 +2,12 @@ get:
   operationId: get_user_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get space details
   x-bash-codegen-description: |
     Returns the details of a specific space.
@@ -23,7 +26,7 @@ get:
     https://$HOST:8443/api/v3/onezone/user/spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
 
     {
-       "providersSupports" : {
+       "providers" : {
           "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
        },
        "spaceId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
@@ -72,9 +75,10 @@ delete:
   operationId: remove_user_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_user
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space, ?BINDING(sid)}"
   summary: Leave space
   x-bash-codegen-description: |
     Removes the users ownership or membership in a specific space.
@@ -95,7 +99,7 @@ delete:
   produces:
     - application/json
   responses:
-    '200':
+    '204':
       description: The space will be deleted.
     '400':
       description: Invalid request.

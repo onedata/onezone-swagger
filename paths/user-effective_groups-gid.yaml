@@ -2,9 +2,12 @@ get:
   operationId: get_user_effective_group
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:get_effective_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get effective group details
   x-bash-codegen-description: |
     Returns information about a specific effective group to which the user belongs.

@@ -2,10 +2,10 @@ get:
   operationId: list_supported_spaces
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: spaces
-  x-onedata-method: provider_logic:get_spaces
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: spaces
   summary: List spaces at provider
   x-bash-codegen-description: |
     Returns the list of spaces managed by the Oneprovider that performed the
@@ -22,7 +22,7 @@ get:
 
     **Get spaces supported by provider**
     ```bash
-    curl --key ./certs/ozp_key.pem --cert ./certs/ozp_cert.pem -X GET  \
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET  \
     https://$HOST:8443/api/v3/onezone/provider/spaces
 
     {

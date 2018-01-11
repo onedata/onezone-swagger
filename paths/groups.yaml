@@ -2,19 +2,20 @@ get:
   operationId: list_groups
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: groups
-  x-onedata-method: group_logic:create
+  x-onedata-gri:
+    type: od_group
+    aspect: list
+  x-onedata-permissions:
+    - oz_groups_list
   summary: List all groups
   x-bash-codegen-description: |
     Returns the list of all groups in the system.
 
-    Requires `oz_groups_list` privilege.
+    Requires `oz_groups_list` administrator privilege.
   description: |
     Returns the list of all groups in the system.
 
-    Requires `oz_groups_list` privilege.
+    Requires `oz_groups_list` administrator privilege.
 
     ***Example cURL requests***
 
@@ -59,15 +60,15 @@ post:
   operationId: create_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: groups
-  x-onedata-method: group_logic:create
+  x-onedata-gri:
+    type: od_group
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new group
   x-bash-codegen-description: |
     Creates a new group.
 
-    This operation does require any specific privileges.
+    This operation does not require any specific privileges.
   description: |
     Creates a new group.
 
@@ -86,11 +87,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the group created in the form /groups/{id} is
+        URI of the group created in form https://onezone.domain/api/onezone/v3/user/groups/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created group.
+          description: URI of the created group.
           type: string
     '400':
       description: Invalid request.

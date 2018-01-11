@@ -2,22 +2,22 @@ get:
   operationId: get_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: group
-  x-onedata-method: group_logic:get_data
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
   x-onedata-permissions:
-    - group_view
     - oz_groups_list
   summary: Get group details
   x-bash-codegen-description: |
     Returns the information about a specific group.
 
-    This operation requires `group_view` or `oz_groups_list` privilege.
+    This operation requires `oz_groups_list` administrator privilege or group membership.
   description: |
     Returns the information about a specific group.
 
-    This operation requires `group_view` or `oz_groups_list` privilege.
+    This operation requires `oz_groups_list` administrator privilege or group membership.
 
     ***Example cURL requests***
 
@@ -74,10 +74,10 @@ patch:
   operationId: modify_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: group
-  x-onedata-method: group_logic:modify
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: instance
   x-onedata-permissions:
     - group_update
   summary: Modify group details
@@ -144,10 +144,10 @@ delete:
   operationId: remove_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: group
-  x-onedata-method: group_logic:remove_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: instance
   x-onedata-permissions:
     - group_delete
   summary: Remove group
@@ -168,7 +168,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/user/groups/LT88rteQ4KMSYXMWO0Oibiqn7X5nUD51NTsCqgDN8e4
     ```
   responses:
-    '202':
+    '204':
       description: The group will be removed.
     '400':
       description: Invalid request.

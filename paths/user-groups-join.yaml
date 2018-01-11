@@ -2,9 +2,10 @@ post:
   operationId: join_group
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: group_logic:join
+  x-onedata-gri:
+    type: od_group
+    aspect: join
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Join group
   x-bash-codegen-description: |
     Join existing group using inivitation token.
@@ -29,11 +30,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the joined group in the form /user/groups/{id} is
+        URI of the joined group in form https://onezone.domain/api/onezone/v3/user/groups/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the joined group.
+          description: URI of the joined group.
           type: string
     '400':
       description: Invalid request.

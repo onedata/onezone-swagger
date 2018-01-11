@@ -2,10 +2,12 @@ get:
   operationId: get_group_space
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
   summary: Get group's space details
@@ -28,7 +30,7 @@ get:
     {
       "spaceId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
       "name": "a",
-      "providersSupports": {
+      "providers": {
         "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
       }
     }
@@ -80,10 +82,10 @@ delete:
   operationId: remove_group_from_space
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: space
-  x-onedata-method: space_logic:remove_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{space, ?BINDING(sid)}"
   x-onedata-permissions:
     - group_leave_space
   summary: Remove group from space
@@ -103,8 +105,8 @@ delete:
     curl -u username:password -X DELETE \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
     ```
-  resposes:
-    '202':
+  responses:
+    '204':
       description: A group will be removed from the space.
     '400':
       description: Invalid request.

@@ -1,13 +1,15 @@
 get:
   operationId: get_handle_service_group
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service_group
+    - Handle Service
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
-    - handle_service_update
+    - handle_service_view
   summary: Get handle service group details
   x-bash-codegen-description: |
     Get details of a group with access to handle service.
@@ -35,9 +37,9 @@ get:
     - application/json
   responses:
     '200':
-      description: Handle service details returned.
+      description: Group details returned.
       schema:
-        $ref: '#/definitions/HandleService'
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
@@ -66,7 +68,7 @@ get:
       type: string
     - name: gid
       in: path
-      description: The ID of the group to add to handle service.
+      description: The ID of the group to return information about.
       required: true
       type: string
   x-code-samples:
@@ -77,11 +79,11 @@ get:
 put:
   operationId: add_handle_service_group
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service_group
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_update
   summary: Add handle service group
@@ -104,8 +106,14 @@ put:
   consumes:
     - application/json
   responses:
-    '204':
-      description: Group added successfully.
+    '201':
+      description: >
+        URI of the added group in form https://onezone.domain/api/onezone/v3/handle_services/{id}/groups/{gid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the added group.
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -145,11 +153,11 @@ put:
 delete:
   operationId: remove_handle_service_group
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:remove_handle_service_group
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_update
   summary: Remove handle service group
@@ -167,10 +175,10 @@ delete:
     **Remove handle service group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
     ```
   responses:
-    '202':
+    '204':
       description: Group will be removed.
     '400':
       description: Invalid request.

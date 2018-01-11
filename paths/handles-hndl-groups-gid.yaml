@@ -2,21 +2,23 @@ get:
   operationId: get_handle_group
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
-    - read_handle
+    - handle_view
   summary: Get handle group
   x-bash-codegen-description: |
     Returns the details of a group with access to handle.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns the details of a group with access to handle.
 
-    This operation requires `handle_view` administrator privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
@@ -78,10 +80,10 @@ put:
   operationId: add_handle_group
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:add_handle_group
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_update
   summary: Add handle group
@@ -104,8 +106,14 @@ put:
   produces:
     - application/json
   responses:
-    '204':
-      description: Group added successfully.
+    '201':
+      description: >
+        URI of the added group in form https://onezone.domain/api/onezone/v3/handles/{hndl}/groups/{gid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the added group.
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -146,10 +154,10 @@ delete:
   operationId: remove_handle_group
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:remove_handle_group
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_update
   summary: Remove handle group
@@ -170,7 +178,7 @@ delete:
     https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/groups/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
-    '202':
+    '204':
       description: Group will be removed.
     '400':
       description: Invalid request.

@@ -2,19 +2,20 @@ get:
   operationId: oz_spaces_list
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-resource: spaces
-  x-onedata-method: space_logic:oz_spaces_list
+  x-onedata-gri:
+    type: od_space
+    aspect: list
+  x-onedata-permissions:
+    - oz_spaces_list
   summary: List all spaces
   x-bash-codegen-description: |
     Returns the list of all spaces managed by the Onezone service.
 
-    This operation requires `oz_spaces_list` privilege.
+    This operation requires `oz_spaces_list` administrator privilege.
   description: |
     Returns the list of all spaces managed by the Onezone service.
 
-    This operation requires `oz_spaces_list` privilege.
+    This operation requires `oz_spaces_list` administrator privilege.
 
     ***Example cURL requests***
 
@@ -66,10 +67,10 @@ post:
   operationId: create_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: spaces
-  x-onedata-method: space_logic:create
+  x-onedata-gri:
+    type: od_space
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new space
   x-bash-codegen-description: |
     When called by a regular user, creates a new space and sets the current
@@ -95,11 +96,11 @@ post:
   responses:
     '201':
       description: >
-        ID of the created space in the form /spaces/{id} is
+        URI of the created space in the form https://onezone.domain/api/onezone/v3/user/spaces/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created space.
+          description: URI of the created space.
           type: string
     '400':
       description: Invalid request.

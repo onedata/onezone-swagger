@@ -2,10 +2,13 @@ get:
   operationId: get_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_spaces_list
   summary: Get space details
   x-bash-codegen-description: |
     Returns the details about a specific space.
@@ -28,7 +31,7 @@ get:
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
-      "providersSupports": {
+      "providers": {
         "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
       }
     }
@@ -75,21 +78,21 @@ patch:
   operationId: modify_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:modify
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_update
   summary: Modify space details
   x-bash-codegen-description: |
     Updates the details about a space.
 
-    If called by user who is not member of the space, requires `space_update`
-    privilege.
+    This operation requires `space_update` privilege.
   description: |
     Updates the details about a space.
 
-    If called by user who is not member of the space, requires `space_update`
-    privilege.
+    This operation requires `space_update` privilege.
 
     ***Example cURL requests***
 
@@ -138,7 +141,7 @@ patch:
       properties:
         name:
           type: string
-          description: The name of the new space.
+          description: The new name of the space.
     required: true
   x-code-samples:
   - lang: Shell
@@ -149,21 +152,21 @@ delete:
   operationId: remove_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:remove_space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_delete
   summary: Remove space
   x-bash-codegen-description: |
     Removes a specific space.
 
-    If called by user who is not member of the space, requires `space_delete`
-    privilege.
+    This operation requires `space_delete` privilege.
   description: |
     Removes a specific space.
 
-    If called by user who is not member of the space, requires `space_delete`
-    privilege.
+    This operation requires `space_delete` privilege.
 
     ***Example cURL requests***
 
@@ -173,7 +176,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
-    '202':
+    '204':
       description: The space will be removed.
     '400':
       description: Invalid request.

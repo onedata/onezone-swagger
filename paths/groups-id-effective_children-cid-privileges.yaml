@@ -2,10 +2,10 @@ get:
   operationId: list_effective_child_group_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: npriv
-  x-onedata-method: group_logic:get_child_group_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{eff_child_privileges, ?BINDING(cid)}"
   x-onedata-permissions:
     - group_view
   summary: List effective child group privileges
@@ -72,72 +72,3 @@ get:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli listEffectiveChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
-
-
-patch:
-  operationId: set_effective_child_group_privileges
-  tags:
-    - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: npriv
-  x-onedata-method: group_logic:set_child_group_privileges
-  x-onedata-permissions:
-    - group_set_privileges
-  summary: Set effective child group privileges
-  x-bash-codegen-description: |
-    Sets new child group privileges within a group.
-
-    This operation requires `group_set_privileges` privilege.
-  description: |
-    Sets new child group privileges within a group.
-
-    This operation requires `group_set_privileges` privilege.
-
-    ***Example cURL requests***
-
-    **Set child group privileges in a group**
-    ```bash
-    curl -u username:password -X PATCH -H 'Content-type: application/json' \
-    -d '{"privileges": "group_view"}'
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
-    ```
-  produces:
-    - application/json
-  responses:
-    '204':
-      description: The child group privileges have been updated successfully.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '401':
-      description: Authentication error.
-      schema:
-        $ref: '#/definitions/Error'
-    '403':
-      description: Authorization error.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Resource not found.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server Error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-  - name: id
-    in: path
-    description: Group ID.
-    type: string
-    required: true
-  - name: cid
-    in: path
-    description: Effective child group ID.
-    type: string
-    required: true
-  x-code-samples:
-  - lang: Shell
-    source: "echo '{\"privileges\": \"group_view\"}' | onezone-rest-cli setEffectiveChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG -"

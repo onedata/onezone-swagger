@@ -2,11 +2,13 @@ get:
   operationId: list_space_groups
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: groups
-  x-onedata-method: space_logic:get_groups
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: groups
   summary: List space groups
+  x-onedata-permissions:
+    - space_view
   x-bash-codegen-description: |
     Returns the list of groups belonging to a specific space.
 

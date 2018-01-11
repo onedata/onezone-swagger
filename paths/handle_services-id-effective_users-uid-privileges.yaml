@@ -1,11 +1,11 @@
 get:
   operationId: list_effective_handle_service_user_privileges
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_service_users
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{eff_user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_view
   summary: List effective handle service user privileges
@@ -26,7 +26,7 @@ get:
     https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     {
-      "users": [
+      "privileges": [
         "handle_service_delete",
         "handle_service_view"
       ]

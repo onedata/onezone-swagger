@@ -1,22 +1,22 @@
 get:
   operationId: list_handleservice_handles
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handles
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: handles
   x-onedata-permissions:
-    - list_handles
+    - handle_service_list_handles
   summary: List handle service handles
   x-bash-codegen-description: |
     Returns the list of ID's of all handles registered by handle service.
 
-    This operation requires `handle_service_list_handles` administrator privilege.
+    This operation requires `handle_service_list_handles` privilege.
   description: |
     Returns the list of ID's of all handles registered by handle service.
 
-    This operation requires `handle_service_list_handles` administrator privilege.
+    This operation requires `handle_service_list_handles` privilege.
 
     ***Example cURL requests***
 

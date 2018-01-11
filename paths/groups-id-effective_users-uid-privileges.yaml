@@ -2,10 +2,10 @@ get:
   operationId: list_groups_user_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: eupriv
-  x-onedata-method: group_logic:get_effective_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{eff_user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - group_view
   summary: List user group privileges
@@ -47,7 +47,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the information about a group user.
+      description: Returns the information about a group user privileges.
       schema:
         $ref: '#/definitions/GroupPrivileges'
     '400':

@@ -1,23 +1,23 @@
 get:
   operationId: get_user
   tags:
-    - Users
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: user
-  x-onedata-method: user_logic:get
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
   x-onedata-permissions:
-    - user_view_data
     - oz_users_list
   summary: Get user details
   x-bash-codegen-description: |
     Returns the information about a specific user.
 
-    This operation requires `oz_users_list` privilege.
+    This operation requires `oz_users_list` administrator privilege.
   description: |
-    Returns the information about a specific group.
+    Returns the information about a specific user.
 
-    This operation requires `oz_users_list` privilege.
+    This operation requires `oz_users_list` administrator privilege.
 
     ***Example cURL requests***
 
@@ -30,8 +30,7 @@ get:
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
       "login": "admin",
       "name": "admin",
-      "connectedAccounts": [],
-      "alias": "",
+      "connectedAccounts": []
       "emailList": []
     }
     ```
@@ -41,7 +40,7 @@ get:
     '200':
       description: Information about a user.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/UserProtectedInfo'
     '400':
       description: Invalid request.
       schema:
@@ -77,21 +76,21 @@ delete:
   operationId: remove_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-resource: user
-  x-onedata-method: user_logic:delete
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: instance
   x-onedata-permissions:
-    - user_remove
+    - oz_users_delete
   summary: Remove user
   x-bash-codegen-description: |
     Removes a specific user.
 
-    This operation requires `oz_users_delete` privilege.
+    This operation requires `oz_users_delete` administrator privilege.
   description: |
     Removes a specific user.
 
-    This operation requires `oz_users_delete` privilege.
+    This operation requires `oz_users_delete` administrator privilege.
 
     ***Example cURL requests***
 
@@ -101,7 +100,7 @@ delete:
     https://$HOST:8443/api/v3/onezone/users/LT88rteQ4KMSYXMWO0Oibiqn7X5nUD51NTsCqgDN8e4
     ```
   responses:
-    '202':
+    '204':
       description: The user will be removed.
     '400':
       description: Invalid request.

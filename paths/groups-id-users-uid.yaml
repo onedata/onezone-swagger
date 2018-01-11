@@ -2,26 +2,28 @@ get:
   operationId: get_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:get_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
-    - group_view
+    - group_view,
+    - oz_groups_list_users
   summary: Get group user details
   x-bash-codegen-description: |
     Returns the public information about a user {uid} in group {id}.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_users` privilege is required.
-
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
     This operation requires `group_view` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_list_users` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
 
     ***Example cURL requests***
 
@@ -33,10 +35,7 @@ get:
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
       "login": "admin",
-      "name": "admin",
-      "connectedAccounts": [],
-      "alias": "",
-      "emailList": []
+      "name": "admin"
     }
     ```
   produces:
@@ -86,42 +85,46 @@ put:
   operationId: add_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:add_user
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - oz_groups_add_members
   summary: Add user to group
   x-bash-codegen-description: |
     Returns the public information about a user {uid} in group {id}.
 
-    Optionally, user privileges in this gropu can be specified
+    Optionally, user privileges in this group can be specified
     in the request body.
 
-    This operation requires `oz_groups_add_members` privilege.
+    This operation requires `oz_groups_add_members` administrator privilege.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
-    Optionally, user privileges in this gropu can be specified
+    Optionally, user privileges in this group can be specified
     in the request body.
 
-    This operation requires `oz_groups_add_members` privilege.
+    This operation requires `oz_groups_add_members` administrator privilege.
 
     ***Example cURL requests***
 
     **Generate user group invite token**
     ```bash
-    curl -u admin:password -X GET \
+    curl -u admin:password -X PUT \
     https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
     ```
   produces:
     - application/json
   responses:
-    '200':
-      description: Information about a group user.
-      schema:
-        $ref: '#/definitions/User'
+    '201':
+      description: >
+        URI of the added user in form https://onezone.domain/api/onezone/v3/groups/{id}/users/{uid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the added user.
+          type: string
     '400':
       description: Invalid request.
       schema:
@@ -168,27 +171,28 @@ delete:
   operationId: remove_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:remove_user
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - group_remove_user
+    - group_remove_user,
+    - oz_groups_remove_members
   summary: Remove user from group
   x-bash-codegen-description: |
     Removes the user {uid} from a group {id} (the user will no longer have
     access to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_remove_members` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_remove_members' privilege is required.
   description: |
     Removes the user {uid} from a group {id} (the user will no longer have access
     to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
-    For administrator who do not need to be members of this group
-    `oz_groups_remove_members` privilege is required.
+    For administrator who does not belong to this group
+    'oz_groups_remove_members' privilege is required.
 
     ***Example cURL requests***
 
@@ -200,7 +204,7 @@ delete:
   consumes:
     - application/json
   responses:
-    '202':
+    '204':
       description: The user will be removed from the group.
     '400':
       description: Invalid request.

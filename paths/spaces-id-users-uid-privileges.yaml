@@ -2,10 +2,12 @@ get:
   operationId: list_space_user_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: upriv
-  x-onedata-method: space_logic:get_privileges
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - space_view
   summary: List user privileges to space
   x-bash-codegen-description: |
     Returns privileges of a user to a specific space.
@@ -28,7 +30,7 @@ get:
         "space_invite_provider",
         "space_update",
         "space_invite_group"
-        ]
+      ]
     }
     ```
   produces:
@@ -78,10 +80,12 @@ patch:
   operationId: set_space_user_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: upriv
-  x-onedata-method: space_logic:oz_set_privileges
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - space_set_privileges
   summary: Set user privileges to space
   x-bash-codegen-description: |
     Sets privileges for a user to a space.
@@ -96,7 +100,7 @@ patch:
 
     **Set user privileges to space**
     ```bash
-    curl -i -k -u admin:password -X PUT \
+    curl -i -k -u admin:password -X PATCH \
     -d '{"privileges":["space_invite_provider","space_update"]}' \
     https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
     ```
@@ -136,9 +140,9 @@ patch:
     required: true
   - name: data
     in: body
-    description: User privileges.
+    description: Space privileges.
     schema:
-      $ref: '#/definitions/SpacePrivileges'
+      $ref: '#/definitions/SpacePrivilegesUpdate'
     required: true
   x-code-samples:
   - lang: Shell
