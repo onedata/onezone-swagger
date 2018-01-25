@@ -11,7 +11,7 @@ SWAGGER_BASH_CLIENT_IMAGE   ?= docker.onedata.org/swagger-codegen:ID-2fc8126ac8
 SWAGGER_REDOC_IMAGE         ?= docker.onedata.org/swagger-redoc:1.0.0
 
 .PHONY : all swagger.json
-all : cowboy-server python-client bash-client doc-static doc-markdown
+all: cowboy-server python-client bash-client doc-static doc-markdown
 
 clean:
 	@rm -rf generated packages swagger.json
@@ -59,6 +59,20 @@ bash-packages:
 		echo " Building Bash client release: $$release_branch";\
 		echo "#################################################";\
 		git checkout release/$$release_branch;\
+		rm -rf generated;\
+		docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_AGGREGATOR_IMAGE};\
+		docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_BASH_CLIENT_IMAGE} generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json;\
+		mkdir -p "packages/bash/$$release_branch";\
+		cp generated/bash/onezone-rest-cli "packages/bash/$$release_branch/";\
+		cp generated/bash/_onezone-rest-cli "packages/bash/$$release_branch/";\
+		cp generated/bash/onezone-rest-cli.bash-completion "packages/bash/$$release_branch/";\
+	done;\
+	custom_releases=( develop );\
+	for release_branch in $${custom_releases[@]}; do\
+		echo "#################################################";\
+		echo " Building Bash client release: $$release_branch";\
+		echo "#################################################";\
+		git checkout $$release_branch;\
 		rm -rf generated;\
 		docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_AGGREGATOR_IMAGE};\
 		docker run --rm -e "CHOWNUID=${UID}" -v `pwd`:/swagger -t ${SWAGGER_BASH_CLIENT_IMAGE} generate -i ./swagger.json -l bash -o ./generated/bash -c bash-config.json;\
