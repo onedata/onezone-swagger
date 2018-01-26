@@ -27,10 +27,10 @@ example:
   name: Rudolf Lingens
   login: Rudolf_Lingens
   linkedAccounts:
-    - accountId: ASD879ASD-7SADASFSsa0831
-      providerId: 7YASBFLJ-123ASD870-ASDASD
-    - accountId: QWESsD-7SADASFSsa0831
-      providerId: 7QWEJ-123ASD870-ASDASD
+    - userId: ASD879ASD-7SADASFSsa0831
+      idp: github
+    - userId: QWESsD-7SADASFSsa0831
+      idp: elixir
   emailList:
     - rudolf.linges@example.com
     - john.doe@example.com

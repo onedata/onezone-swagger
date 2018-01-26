@@ -1,12 +1,42 @@
 type: object
-description: Default space Id.
+description: User linked account.
 properties:
-  accountId:
+  idp:
     type: string
-    description: Account Id.
-  providerId:
+    description: ID of the identity provider.
+  userId:
     type: string
-    description: Provider Id.
+    description: User ID assigned in Onezone.
+  login:
+    type: string
+    description: User login name.
+  name:
+    type: string
+    description: User full name.
+  emailList:
+    type: array
+    description: The list of user email accounts.
+    items:
+      type: string
+  groups:
+    type: array
+    description: |
+      A list of strings denoting user group memberships as acquired from the
+      identity provider. Memberships are in Onedata normalized form.
+    items:
+      type: string
+required:
+  - idp
+  - userId
 example:
-  accountId: ASD879ASD-7SADASFSsa0831
-  providerId: 7YASBFLJ-123ASD870-ASDASD
+  idp: github
+  userId: ASDJH65675ASD765ASD890ASD6
+  login: user1
+  name: User One
+  emailList:
+    - user.1@example.com
+    - user.one@example.com
+    - user.i@example.com
+  groups:
+    - "vo:example-org.eu/tm:members/member"
+    - "vo:example-org.eu/rl:administration/admin"
