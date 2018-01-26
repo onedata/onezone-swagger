@@ -7,11 +7,11 @@ properties:
   name:
     type: string
     description: The user friendly name of storage resource.
-  connectedAccounts:
+  linkedAccounts:
     type: array
-    description: The list of accounts connected to this user.
+    description: The list of accounts linked to this user.
     items:
-      $ref: '#/definitions/ConnectedAccount'
+      $ref: '#/definitions/LinkedAccount'
   login:
     type: string
     description: User login
@@ -25,8 +25,8 @@ required:
 example:
   userId: ALKJSDH77i79ASDKJA-ASDBAS9-87
   name: Rudolf Lingens
-  login: Rudolf Lingens
-  connectedAccounts:
+  login: Rudolf_Lingens
+  linkedAccounts:
     - accountId: ASD879ASD-7SADASFSsa0831
       providerId: 7YASBFLJ-123ASD870-ASDASD
     - accountId: QWESsD-7SADASFSsa0831

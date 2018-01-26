@@ -27,7 +27,7 @@ get:
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
       "login": "admin",
       "name": "admin",
-      "connectedAccounts": [],
+      "linkedAccounts": [],
       "emailList": []
     }
     ```

@@ -30,7 +30,7 @@ get:
     {
        "name" : "John Doe",
        "login" : "username",
-       "connectedAccounts" : [],
+       "linkedAccounts" : [],
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
        "emailList" : []
     }

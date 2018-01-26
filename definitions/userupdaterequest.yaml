@@ -4,5 +4,8 @@ properties:
   name:
     type: string
     description: The user friendly name of storage resource.
+  login:
+    type: string
+    description: The user login.
 example:
   name: Rudolf Lingens
