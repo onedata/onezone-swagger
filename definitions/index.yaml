@@ -80,8 +80,8 @@ GroupInviteToken:
 GroupInviteTokenRequest:
   $ref: ./groupinvitetokenrequest.yaml
 
-ConnectedAccount:
-  $ref: ./connectedaccount.yaml
+LinkedAccount:
+  $ref: ./linkedaccount.yaml
 
 SpacePrivileges:
   $ref: ./spaceprivileges.yaml

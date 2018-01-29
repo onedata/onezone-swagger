@@ -3,6 +3,9 @@ description: User update request message.
 properties:
   name:
     type: string
-    description: The user friendly name of storage resource.
+    description: User full name.
+  login:
+    type: string
+    description: User login, must be unique.
 example:
   name: Rudolf Lingens
