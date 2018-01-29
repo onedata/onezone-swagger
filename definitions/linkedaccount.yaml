@@ -4,9 +4,9 @@ properties:
   idp:
     type: string
     description: ID of the identity provider.
-  userId:
+  subjectId:
     type: string
-    description: User ID assigned in Onezone.
+    description: User ID assigned in identity provider.
   login:
     type: string
     description: User login name.
@@ -27,10 +27,10 @@ properties:
       type: string
 required:
   - idp
-  - userId
+  - subjectId
 example:
   idp: github
-  userId: ASDJH65675ASD765ASD890ASD6
+  subjectId: ASDJH65675ASD765ASD890ASD6
   login: user1
   name: User One
   emailList:

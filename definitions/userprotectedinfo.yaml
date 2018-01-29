@@ -27,9 +27,9 @@ example:
   name: Rudolf Lingens
   login: Rudolf_Lingens
   linkedAccounts:
-    - userId: ASD879ASD-7SADASFSsa0831
+    - subjectId: ASD879ASD-7SADASFSsa0831
       idp: github
-    - userId: QWESsD-7SADASFSsa0831
+    - subjectId: QWESsD-7SADASFSsa0831
       idp: elixir
   emailList:
     - rudolf.linges@example.com
