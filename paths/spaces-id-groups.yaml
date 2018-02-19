@@ -25,7 +25,7 @@ get:
     **Get space groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/groups
+    https://$HOST/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/groups
 
     {
       "groups": [

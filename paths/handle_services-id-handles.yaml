@@ -23,7 +23,7 @@ get:
     **Get handle services handles**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handle_services/LKJASHDLKJHASD/handles
+    https://$HOST/api/v3/handle_services/LKJASHDLKJHASD/handles
 
     {
       "handles": [

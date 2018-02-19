@@ -21,7 +21,7 @@ get:
     **Get user effective handles**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/effective_handles
+    https://$HOST/api/v3/onezone/user/effective_handles
 
     {
       "handles": [

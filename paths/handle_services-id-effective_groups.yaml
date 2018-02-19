@@ -23,7 +23,7 @@ get:
     **Get effective handle service groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_groups
+    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_groups
 
     {
       "groups": [

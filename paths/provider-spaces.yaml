@@ -23,7 +23,7 @@ get:
     **Get spaces supported by provider**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET  \
-    https://$HOST:8443/api/v3/onezone/provider/spaces
+    https://$HOST/api/v3/onezone/provider/spaces
 
     {
       "spaces": [

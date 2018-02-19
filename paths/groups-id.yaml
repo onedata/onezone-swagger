@@ -24,7 +24,7 @@ get:
     **Get group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8
 
     {
       "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
@@ -96,7 +96,7 @@ patch:
     ```bash
     curl -i -u admin:password  -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_group_name"}' \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEqsj4q253sptVqF8
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEqsj4q253sptVqF8
     ```
   consumes:
     - application/json
@@ -165,7 +165,7 @@ delete:
     **Remove group**
     ```bash
     curl -u admin:password -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/user/groups/LT88rteQ4KMSYXMWO0Oibiqn7X5nUD51NTsCqgDN8e4
+    https://$HOST/api/v3/onezone/user/groups/LT88rteQ4KMSYXMWO0Oibiqn7X5nUD51NTsCqgDN8e4
     ```
   responses:
     '204':

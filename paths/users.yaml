@@ -21,7 +21,7 @@ get:
 
     **List all users in the system**
     ```bash
-     curl -u username:password -X GET https://$HOST:8443/api/v3/onezone/users
+     curl -u username:password -X GET https://$HOST/api/v3/onezone/users
     ```
   produces:
     - application/json

@@ -21,7 +21,7 @@ get:
 
     **List all groups in the system**
     ```bash
-     curl -u username:password -X GET https://$HOST:8443/api/v3/onezone/groups
+     curl -u username:password -X GET https://$HOST/api/v3/onezone/groups
     ```
   produces:
     - application/json
@@ -80,7 +80,7 @@ post:
     ```bash
      curl -u username:password  -H "Content-type: application/json" \
      -X POST -d '{ "name":"new_group" , "type":"role" }' \
-     https://$HOST:8443/api/v3/onezone/groups/
+     https://$HOST/api/v3/onezone/groups/
     ```
   consumes:
     - application/json

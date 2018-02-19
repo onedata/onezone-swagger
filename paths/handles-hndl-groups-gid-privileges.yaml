@@ -23,7 +23,7 @@ get:
     **Get handle group privileges**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/DLAKSHDLKJHJjSADHLKJhlkASHLH/groups/HJjLHSADHhlkASHDLAKSHDLKJLKJhlk/privileges
+    https://$HOST/api/v3/handles/DLAKSHDLKJHJjSADHLKJhlkASHLH/groups/HJjLHSADHhlkASHDLAKSHDLKJLKJhlk/privileges
 
     {
       "privileges": [
@@ -100,7 +100,7 @@ patch:
     ```bash
     curl -u username:password -X PATCH -H "Content-type: application/json" \
     -d '{"privileges": ["handle_view_data"]}' \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
     - application/json

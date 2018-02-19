@@ -25,7 +25,7 @@ get:
     **Get effective handle service details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/ALASDLKJALKSDJKLASD/effective_handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
+    https://$HOST/api/v3/onezone/groups/ALASDLKJALKSDJKLASD/effective_handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
 
     {
         "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",

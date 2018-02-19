@@ -21,7 +21,7 @@ get:
     **Get user default space**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/default_space
+    https://$HOST/api/v3/onezone/user/default_space
 
     {
       "spaceId": "undefined"
@@ -83,7 +83,7 @@ put:
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
     -d '{ "spaceId" : "S0Y9FSeSrVTXCTmCpgqfH4-_Dw3Uc9TFJFFzzLtBEs8" }' \
-    https://$HOST:8443/api/v3/onezone/user/default_space
+    https://$HOST/api/v3/onezone/user/default_space
     ```
   consumes:
     - application/json
@@ -145,7 +145,7 @@ delete:
     **Set user default space**
     ```bash
     curl -u username:password  -X DELETE \
-    https://$HOST:8443/api/v3/onezone/user/default_space
+    https://$HOST/api/v3/onezone/user/default_space
     ```
   consumes:
     - application/json

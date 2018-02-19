@@ -23,7 +23,7 @@ get:
     **Get handle group privileges**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/DLAKSHDLKJHJjSADHLKJhlkASHLH/effective_groups/HJjLHSADHhlkASHDLAKSHDLKJLKJhlk/privileges
+    https://$HOST/api/v3/handles/DLAKSHDLKJHJjSADHLKJhlkASHLH/effective_groups/HJjLHSADHhlkASHDLAKSHDLKJLKJhlk/privileges
 
     {
       "privileges": [

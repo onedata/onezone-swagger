@@ -21,7 +21,7 @@ get:
 
     **Get user details**
     ```bash
-    curl -u username:password -X GET https://$HOST:8443/api/v3/onezone/user
+    curl -u username:password -X GET https://$HOST/api/v3/onezone/user
 
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
@@ -83,7 +83,7 @@ patch:
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PATCH  \
     -d '{"name": "new_name"}' \
-    https://$HOST:8443/api/v3/onezone/user
+    https://$HOST/api/v3/onezone/user
     ```
   consumes:
     - application/json
@@ -141,7 +141,7 @@ delete:
     **Remove user account**
     ```bash
     curl -u username:password -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/user
+    https://$HOST/api/v3/onezone/user
     ```
   responses:
     '204':

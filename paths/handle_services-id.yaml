@@ -26,7 +26,7 @@ get:
     **Get handle services**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
+    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
 
     {
         "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
@@ -110,7 +110,7 @@ patch:
     ```bash
     curl -u username:password -X PATCH  -H "Content-type: application/json" \
     -d '{"name": "New handle service name"}' \
-    https://$HOST:8443/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
+    https://$HOST/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
     ```
   consumes:
     - application/json
@@ -178,7 +178,7 @@ delete:
     **Unregister handle service**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
+    https://$HOST/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
     ```
   responses:
     '204':

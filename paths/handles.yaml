@@ -21,7 +21,7 @@ get:
 
     **Get handles**
     ```bash
-    curl -u username:password -X GET https://$HOST:8443/api/v3/handles
+    curl -u username:password -X GET https://$HOST/api/v3/handles
 
     {
       "handles": [
@@ -94,7 +94,7 @@ post:
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
     -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }' \
-    https://$HOST:8443/api/v3/handles
+    https://$HOST/api/v3/handles
     ```
   consumes:
     - application/json

@@ -23,7 +23,7 @@ post:
     ```bash
     curl --tlsv1.2 -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." \
     -d '{"idp": "elixir", "groupId": "elixir:members"}' \
-    -X GET https://beta.onedata.org:8443/api/v3/onezone/provider/public/map_idp_group
+    -X GET https://beta.onedata.org/api/v3/onezone/provider/public/map_idp_group
 
     {
       "groupId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg"

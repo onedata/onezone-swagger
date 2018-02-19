@@ -22,7 +22,7 @@ get:
 
     **Get group handle services**
     ```bash
-    curl -u username:password -X GET https://$HOST:8443/api/v3/groups/ASLKDJHAKLJSDHJKASD/handle_services
+    curl -u username:password -X GET https://$HOST/api/v3/groups/ASLKDJHAKLJSDHJKASD/handle_services
 
     {
       "handle_services": [
@@ -96,7 +96,7 @@ post:
     **Add group handle services**
     ```bash
     curl -u username:password -X POST  -H "Content-type: application/json" \
-    -d '{ ... }' https://$HOST:8443/api/v3/groups/ASASDLKALKSD/handle_services
+    -d '{ ... }' https://$HOST/api/v3/groups/ASASDLKALKSD/handle_services
     ```
   consumes:
     - application/json

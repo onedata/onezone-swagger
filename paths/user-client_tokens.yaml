@@ -20,7 +20,7 @@ get:
 
     **Get user tokens**
     ```bash
-    curl -u username:password -X GET https://$HOST:8443/api/v3/onezone/user/client_tokens
+    curl -u username:password -X GET https://$HOST/api/v3/onezone/user/client_tokens
 
     {
       "tokens: [
@@ -83,7 +83,7 @@ post:
     **Generate user token**
     ```bash
     curl -u username:password -X POST -d '' -H 'content-type: application/json' \
-      https://$HOST:8443/api/v3/onezone/user/client_tokens
+      https://$HOST/api/v3/onezone/user/client_tokens
 
     {
       "token": "MDAxNWxvY2F00aW9uIG9uZXpvbmUKMDAzYmlkZW500aWZpZXIgSlVxNGFLVkJSTXVFN3FLbHNQVHlNX00lLeHpYZXNWdVFSMGNfMldpOXFZNAowMDFhY2lkIHRpbWUgPCAxNTIyMzU4MzMzCjAwMmZzaWduYXR1cmUgv02ByyOA9802H02rPMB7Y9mIhDVAjYDmjAUjtrMs13znukK"
