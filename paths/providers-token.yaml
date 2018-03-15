@@ -57,13 +57,6 @@ post:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: options
-    description: Optional token parameters.
-    in: body
-    required: false
-    schema:
-      type: string
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createProviderRegistrationToken"

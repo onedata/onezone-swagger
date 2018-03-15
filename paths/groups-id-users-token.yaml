@@ -64,11 +64,6 @@ post:
     description: Group ID.
     type: string
     required: true
-  - name: data
-    in: body
-    description: Group invite token attributes.
-    schema:
-      $ref: '#/definitions/GroupInviteTokenRequest'
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createUserGroupInviteToken id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
