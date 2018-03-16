@@ -413,6 +413,10 @@
   $ref: ./providers.yaml
 
 
+/providers/token:
+  $ref: ./providers-token.yaml
+
+
 /providers/{pid}:
   $ref: ./providers-pid.yaml
 

@@ -82,8 +82,7 @@ post:
 
     **Generate user token**
     ```bash
-    curl -u username:password -X POST -d '' -H 'content-type: application/json' \
-      https://$HOST:8443/api/v3/onezone/user/client_tokens
+    curl -u username:password -X POST https://$HOST:8443/api/v3/onezone/user/client_tokens
 
     {
       "token": "MDAxNWxvY2F00aW9uIG9uZXpvbmUKMDAzYmlkZW500aWZpZXIgSlVxNGFLVkJSTXVFN3FLbHNQVHlNX00lLeHpYZXNWdVFSMGNfMldpOXFZNAowMDFhY2lkIHRpbWUgPCAxNTIyMzU4MzMzCjAwMmZzaWduYXR1cmUgv02ByyOA9802H02rPMB7Y9mIhDVAjYDmjAUjtrMs13znukK"
@@ -118,13 +117,6 @@ post:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: options
-    description: Optional token parameters
-    in: body
-    required: false
-    schema:
-      type: string
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createClientToken"

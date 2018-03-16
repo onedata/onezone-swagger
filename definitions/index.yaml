@@ -77,9 +77,6 @@ GroupUpdateRequest:
 GroupInviteToken:
   $ref: ./groupinvitetoken.yaml
 
-GroupInviteTokenRequest:
-  $ref: ./groupinvitetokenrequest.yaml
-
 LinkedAccount:
   $ref: ./linkedaccount.yaml
 

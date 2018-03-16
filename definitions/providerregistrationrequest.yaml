@@ -4,6 +4,11 @@ properties:
   name:
     type: string
     description: Provider name.
+  token:
+    type: string
+    description: >
+      Token for registering provider. May be required depending on
+      provider registration policy in given Onezone.
   subdomainDelegation:
     type: boolean
     description: >
