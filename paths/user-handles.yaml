@@ -21,7 +21,7 @@ get:
     **Get user handles**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/handles
+    https://$HOST/api/v3/onezone/user/handles
 
     {
       "handles": [
@@ -92,7 +92,7 @@ post:
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
     -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }'
-    https://$HOST:8443/api/v3/onezone/user/handles
+    https://$HOST/api/v3/onezone/user/handles
     ```
   consumes:
     - application/json

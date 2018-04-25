@@ -22,7 +22,7 @@ get:
 
     **Get shares**
     ```bash
-    curl -u admin:password -X GET https://$HOST:8443/api/v3/onezone/shares
+    curl -u admin:password -X GET https://$HOST/api/v3/onezone/shares
 
     {
       "shares: [
@@ -90,7 +90,7 @@ post:
     ```bash
     curl -u username:password -H "Content-type: application/json" -X POST -d \
     '{"shareId": "LKJASD2123saa3", "name": "NewShare", "spaceId": "LKJASHDKLJHASDKJHASD876asd", "rootFileId": "LKAHSDJHuuasDASDasdjjasdAS"}' \
-    https://$HOST:8443/api/v3/onezone/shares
+    https://$HOST/api/v3/onezone/shares
     ```
   consumes:
     - application/json

@@ -30,7 +30,7 @@ get:
     **Get child group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
 
     {
       "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
@@ -108,7 +108,7 @@ put:
     **Add child group**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
     ```
   produces:
     - application/json
@@ -187,7 +187,7 @@ delete:
     **Remove child group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/groups/KoiO-QKqmYZRjPVdtR30FrdIEA1JF9f3TznAr9BDjA4/children/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50
+    https://$HOST/api/v3/onezone/groups/KoiO-QKqmYZRjPVdtR30FrdIEA1JF9f3TznAr9BDjA4/children/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50
     ```
   responses:
     '204':

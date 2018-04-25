@@ -24,7 +24,7 @@ get:
     **Get information about provider**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." \
-    https://$HOST:8443/api/v3/onezone/provider
+    https://$HOST/api/v3/onezone/provider
 
     {
       "name": "example",
@@ -89,7 +89,7 @@ patch:
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X PATCH \
     -d '{"latitude": 50.068968,"longitude": 20.909444}'  \
-    https://$HOST:8443/api/v3/onezone/provider
+    https://$HOST/api/v3/onezone/provider
     ```
   consumes:
     - application/json
@@ -157,7 +157,7 @@ delete:
     **Unregister provider from Onezone**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/provider
+    https://$HOST/api/v3/onezone/provider
     ```
   consumes:
     - application/json

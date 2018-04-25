@@ -21,7 +21,7 @@ get:
     **Get user spaces**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/spaces
+    https://$HOST/api/v3/onezone/user/spaces
 
     {
       "spaces": [
@@ -97,7 +97,7 @@ post:
     **Create new user space**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
-    -d '{ "name" : "test_space"}' https://$HOST:8443/api/v3/onezone/user/spaces
+    -d '{ "name" : "test_space"}' https://$HOST/api/v3/onezone/user/spaces
     ```
   consumes:
     - application/json

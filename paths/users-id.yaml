@@ -24,7 +24,7 @@ get:
     **Get user details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
 
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
@@ -97,7 +97,7 @@ delete:
     **Remove user**
     ```bash
     curl -u admin:password -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/users/LT88rteQ4KMSYXMWO0Oibiqn7X5nUD51NTsCqgDN8e4
+    https://$HOST/api/v3/onezone/users/LT88rteQ4KMSYXMWO0Oibiqn7X5nUD51NTsCqgDN8e4
     ```
   responses:
     '204':

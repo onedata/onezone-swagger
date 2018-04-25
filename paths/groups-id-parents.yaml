@@ -23,7 +23,7 @@ get:
     **Get parent groups**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/parents
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/parents
 
     {
       "groups": []
@@ -89,7 +89,7 @@ post:
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
     -X POST -d '{ "name" : "test_group" , "type" : "role" }' \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/parents
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/parents
     ```
   consumes:
     - application/json

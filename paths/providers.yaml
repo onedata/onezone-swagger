@@ -22,7 +22,7 @@ get:
     **Get list of providers**
     ```bash
     curl -Ssk -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers
+    https://$HOST/api/v3/onezone/providers
 
     {
       "providers": [

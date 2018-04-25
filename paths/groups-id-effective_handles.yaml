@@ -23,7 +23,7 @@ get:
     **List effective group handles**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/effective_handles
+    https://$HOST/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/effective_handles
 
     {
       "handles": [

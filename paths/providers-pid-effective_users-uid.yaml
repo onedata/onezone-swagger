@@ -25,7 +25,7 @@ get:
     **Get effective user of a provider**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/effective_users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/effective_users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
 
     {
        "name" : "John Doe",

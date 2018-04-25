@@ -24,7 +24,7 @@ get:
     **Get handle**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
       "handle": "10.5072/w95Zlng"
@@ -112,7 +112,7 @@ patch:
     ```bash
     curl -u username:password -X PATCH  -H "Content-type: application/json" \
     -d '{"metadata": "<?xml..."}' \
-    https://$HOST:8443/api/v3/handles/LKHASDkkjhASDLHU70ASDn
+    https://$HOST/api/v3/handles/LKHASDkkjhASDLHU70ASDn
     ```
   consumes:
     - application/json
@@ -183,7 +183,7 @@ delete:
     **Unregister handle**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/handles/SDLLKHASDkSDLHU70ASDnHU70ASDnkjhA
+    https://$HOST/api/v3/handles/SDLLKHASDkSDLHU70ASDnHU70ASDnkjhA
     ```
   responses:
     '204':

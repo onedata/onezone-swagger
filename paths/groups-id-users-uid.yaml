@@ -30,7 +30,7 @@ get:
     **Generate user group invite token**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
 
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
@@ -112,7 +112,7 @@ put:
     **Generate user group invite token**
     ```bash
     curl -u admin:password -X PUT \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
     ```
   produces:
     - application/json
@@ -176,7 +176,7 @@ delete:
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - group_remove_user,
+    - group_remove_user
     - oz_groups_remove_members
   summary: Remove user from group
   x-bash-codegen-description: |
@@ -199,7 +199,7 @@ delete:
     **Remove user from group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/groups/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
+    https://$HOST/api/v3/onezone/groups/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
     ```
   consumes:
     - application/json

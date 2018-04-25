@@ -1,4 +1,4 @@
-version: 17.06.0-rc9
+version: 18.02.0-beta1
 title: Onezone
 x-bash-codegen-description: |
  This is the RESTful API definition of Onezone component of Onedata data
@@ -183,7 +183,7 @@ description: |
  operations and attributes.
 
  ```
- docker run -it onedata/rest-cli:17.06.0-beta6
+ docker run -it onedata/rest-cli:18.02.0-beta1
  ```
 
  We have also prepared tutorials which show how to use this API in practice:
@@ -196,13 +196,13 @@ description: |
  **Generate new authentication token**
  ```bash
  curl -u user:password -X POST -H 'Content-type: application/json' -d '{}' \
- https://$ONEZONE_HOST:8443/api/v3/onezone/user/client_tokens
+ https://$ONEZONE_HOST/api/v3/onezone/user/client_tokens
  ```
 
  **Get user details**
  ```bash
  curl -H 'X-Auth-Token: MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlk' -X GET \
- https://$ONEZONE_HOST:8443/api/v3/onezone/user \
+ https://$ONEZONE_HOST/api/v3/onezone/user \
  ```
 
 contact:

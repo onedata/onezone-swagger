@@ -23,7 +23,7 @@ get:
     **Get handle details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
       "handle": "10.5072/w95Zlng",
@@ -106,7 +106,7 @@ delete:
     **Delete user space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/user/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:
     - application/json
