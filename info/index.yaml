@@ -1,4 +1,4 @@
-version: 18.02.0-rc1
+version: 18.02.0-rc2
 title: Onezone
 x-bash-codegen-description: |
  This is the RESTful API definition of Onezone component of Onedata data
@@ -183,7 +183,7 @@ description: |
  operations and attributes.
 
  ```
- docker run -it onedata/rest-cli:18.02.0-rc1
+ docker run -it onedata/rest-cli:18.02.0-rc2
  ```
 
  We have also prepared tutorials which show how to use this API in practice:
