@@ -78,18 +78,19 @@ post:
     aspect: instance
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
+    - group_create_handle_service
     - oz_handle_services_create
   summary: Add group handle service
   x-bash-codegen-description: |
-    Allows to register a new handle service for group.
+    Creates a new handle service for group.
 
-    For administrator who does not belong to this group
-    'oz_handle_services_create' privilege is required.
+    This operation requires `group_create_handle_service` privilege and
+    'oz_handle_services_create' administrator privilege.
   description: |
-    Allows to register a new handle service for group.
+    Creates a new handle service for group.
 
-    For administrator who does not belong to this group
-    'oz_handle_services_create' privilege is required.
+    This operation requires `group_create_handle_service` privilege and
+    'oz_handle_services_create' administrator privilege.
 
     ***Example cURL requests***
 

@@ -99,16 +99,16 @@ delete:
     id: ?BINDING(id)
     aspect: "{handle, ?BINDING(hid)}"
   x-onedata-permissions:
-    - group_update
+    - group_leave_handle
   summary: Remove group handle
   x-bash-codegen-description: |
     Removes the groups ownership or membership in a specific handle.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_handle` privilege.
   description: |
     Removes the groups ownership or membership in a specific handle.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_handle` privilege.
 
     ***Example cURL requests***
 

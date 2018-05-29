@@ -6,31 +6,45 @@ properties:
     items:
       type: string
       enum:
-        - group_create_space
+        - group_view
+        - group_update
         - group_delete
-        - group_invite_group
+        - group_set_privileges
         - group_invite_user
-        - group_join_group
+        - group_remove_user
+        - group_create_child
+        - group_invite_child
+        - group_remove_child
+        - group_create_parent
+        - group_join_parent
+        - group_leave_parent
+        - group_create_space
         - group_join_space
         - group_leave_space
-        - group_remove_group
-        - group_remove_user
-        - group_set_privileges
-        - group_update
-        - group_view
+        - group_create_handle_service
+        - group_leave_handle_service
+        - group_create_handle
+        - group_leave_handle
 required:
   - privileges
 example:
   privileges:
-    - group_create_space
+    - group_view
+    - group_update
     - group_delete
-    - group_invite_group
+    - group_set_privileges
     - group_invite_user
-    - group_join_group
+    - group_remove_user
+    - group_create_child
+    - group_invite_child
+    - group_remove_child
+    - group_create_parent
+    - group_join_parent
+    - group_leave_parent
+    - group_create_space
     - group_join_space
     - group_leave_space
-    - group_remove_group
-    - group_remove_user
-    - group_set_privileges
-    - group_update
-    - group_view
+    - group_create_handle_service
+    - group_leave_handle_service
+    - group_create_handle
+    - group_leave_handle
