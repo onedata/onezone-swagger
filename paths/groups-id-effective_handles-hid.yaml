@@ -8,12 +8,22 @@ get:
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_handles_view
   summary: Get effective group handle details
   x-bash-codegen-description: |
     Returns the details of a specific effective handle.
 
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handles_view` privilege is required.
   description: |
     Returns the details of a specific effective handle.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handles_view` privilege is required.
 
     ***Example cURL requests***
 

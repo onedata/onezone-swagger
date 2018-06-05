@@ -8,15 +8,15 @@ get:
     aspect: spaces
   summary: List spaces supported by provider
   x-onedata-permissions:
-    - oz_providers_list_spaces
+    - oz_providers_list_relationships
   x-bash-codegen-description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `oz_providers_list_spaces` administrator privilege.
+    This operation requires `oz_providers_list_relationships` administrator privilege.
   description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `oz_providers_list_spaces` administrator privilege.
+    This operation requires `oz_providers_list_relationships` administrator privilege.
 
     ***Example cURL requests***
 

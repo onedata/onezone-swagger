@@ -8,6 +8,7 @@ post:
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_join_parent
+    - oz_groups_add_relationships
   summary: Join parent group
   x-bash-codegen-description: |
     Adds given group as a subgroup of a specific group based on provided token.
@@ -16,6 +17,8 @@ post:
     token (the token is issued in the context of a group).
 
     This operation requires `group_join_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` privilege is required.
   description: |
     Adds given group as a subgroup of a specific group based on provided token.
 
@@ -23,6 +26,8 @@ post:
     (the token is issued in the context of a group).
 
     This operation requires `group_join_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` privilege is required.
 
     ***Example cURL requests***
 

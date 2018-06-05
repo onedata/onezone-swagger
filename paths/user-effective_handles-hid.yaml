@@ -12,15 +12,15 @@ get:
   x-bash-codegen-description: |
     Returns information about a specific effective handle to which the user belongs.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns information about a specific effective handle to which the user belongs.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Get user effective space**
+    **Get user effective handle**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/user/effective_handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY

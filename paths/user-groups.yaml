@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of user's groups.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the list of user's groups.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -69,17 +69,17 @@ post:
     type: od_group
     aspect: instance
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
-  summary: Create new group for the current user
+  summary: Create a new group for the current user
   x-bash-codegen-description: |
     Creates a new group for the current user.
     The user automatically becomes a member of this group.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Creates a new group for the current user.
     The user automatically becomes a member of this group.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

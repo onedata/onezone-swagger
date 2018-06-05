@@ -8,15 +8,20 @@ get:
     aspect: eff_spaces
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List effective group's spaces
   x-bash-codegen-description: |
     Returns the effective list of spaces to which the group has access.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the effective list of spaces to which the group has access.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 

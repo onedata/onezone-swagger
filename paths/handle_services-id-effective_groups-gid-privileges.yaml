@@ -8,15 +8,18 @@ get:
     aspect: "{eff_group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_view
+    - oz_handle_services_view_privileges
   summary: Get effective handle service group privileges
   x-bash-codegen-description: |
     Returns effective group privileges for accessing a handle service instance.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_view_privileges` administrator privilege.
   description: |
     Returns effective group privileges for accessing a handle service instance.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 

@@ -8,17 +8,17 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - oz_spaces_list
+    - oz_spaces_view
   summary: Get space details
   x-bash-codegen-description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires `oz_spaces_list`
+    If called by user who is not member of the space, requires `oz_spaces_view`
     privilege.
   description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires `oz_spaces_list`
+    If called by user who is not member of the space, requires `oz_spaces_view`
     privilege.
 
     ***Example cURL requests***
@@ -84,15 +84,18 @@ patch:
     aspect: instance
   x-onedata-permissions:
     - space_update
+    - oz_spaces_update
   summary: Modify space details
   x-bash-codegen-description: |
     Updates the details about a space.
 
-    This operation requires `space_update` privilege.
+    This operation requires `space_update` privilege
+    or `oz_spaces_update` administrator privilege.
   description: |
     Updates the details about a space.
 
-    This operation requires `space_update` privilege.
+    This operation requires `space_update` privilege
+    or `oz_spaces_update` administrator privilege.
 
     ***Example cURL requests***
 
@@ -158,15 +161,18 @@ delete:
     aspect: instance
   x-onedata-permissions:
     - space_delete
+    - oz_spaces_delete
   summary: Remove space
   x-bash-codegen-description: |
     Removes a specific space.
 
-    This operation requires `space_delete` privilege.
+    This operation requires `space_delete` privilege
+    or `oz_spaces_delete` administrator privilege.
   description: |
     Removes a specific space.
 
-    This operation requires `space_delete` privilege.
+    This operation requires `space_delete` privilege
+    or `oz_spaces_delete` administrator privilege.
 
     ***Example cURL requests***
 

@@ -8,15 +8,18 @@ get:
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_view
+    - oz_handle_services_view_privileges
   summary: List handle service user privileges
   x-bash-codegen-description: |
     Returns user privileges for accessing a handle service instance.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_view_privileges` administrator privilege.
   description: |
     Returns user privileges for accessing a handle service instance.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -85,15 +88,18 @@ patch:
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_set_privileges
   summary: Set handle service user privileges
   x-bash-codegen-description: |
     Sets user privileges for accessing a handle service instance.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_set_privileges` administrator privilege.
   description: |
     Sets user privileges for accessing a handle service instance.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 

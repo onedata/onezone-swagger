@@ -10,20 +10,20 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
-    - oz_groups_list_groups
+    - oz_groups_view
   summary: Get subgroup details
   x-bash-codegen-description: |
     Returns information about a specific child group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-     'oz_groups_list_groups' privilege is required.
+     `oz_groups_view` privilege is required.
   description: |
     Returns information about a specific child group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-     'oz_groups_list_groups' privilege is required.
+     `oz_groups_view` privilege is required.
 
     ***Example cURL requests***
 
@@ -90,18 +90,18 @@ put:
     id: ?BINDING(id)
     aspect: "{child, ?BINDING(cid)}"
   x-onedata-permissions:
-    - oz_groups_add_members
+    - oz_groups_add_relationships
   summary: Add child group
   x-bash-codegen-description: |
     Adds group {cid} as child group of {id}.
 
     For administrator who does not belong to this group
-    'oz_groups_add_members' privilege is required.
+    `oz_groups_add_relationships` privilege is required.
   description: |
     Adds group {cid} as child group of {id}.
 
     For administrator who does not belong to this group
-    'oz_groups_add_members' privilege is required.
+    `oz_groups_add_relationships` privilege is required.
 
     ***Example cURL requests***
 
@@ -167,20 +167,20 @@ delete:
     aspect: "{child, ?BINDING(cid)}"
   x-onedata-permissions:
     - group_remove_child
-    - oz_groups_remove_members
+    - oz_groups_remove_relationships
   summary: Remove subgroup
   x-bash-codegen-description: |
     Removes a specific child with {cid} from parent group with {id}.
 
     This operation requires `group_remove_child` privilege.
     For administrator who does not belong to this group
-    'oz_groups_remove_members' privilege is required.
+    `oz_groups_remove_relationships` privilege is required.
   description: |
     Removes a specific child with {cid} from parent group with {id}.
 
     This operation requires `group_remove_child` privilege.
     For administrator who does not belong to this group
-    'oz_groups_remove_members' privilege is required.
+    `oz_groups_remove_relationships` privilege is required.
 
     ***Example cURL requests***
 

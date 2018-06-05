@@ -7,16 +7,19 @@ get:
     id: ?BINDING(id)
     aspect: "{eff_user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
-    - space_view
+    - space_view_privileges
+    - oz_spaces_view_privileges
   summary: List effective user privileges to space
   x-bash-codegen-description: |
     Returns privileges for an effective user to a specific space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view_privileges` privilege
+    or `oz_spaces_view_privileges` administrator privilege.
   description: |
     Returns privileges for an effective user to a specific space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view_privileges` privilege
+    or `oz_spaces_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 

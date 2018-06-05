@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the ID of the default users space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the ID of the default users space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -69,13 +69,13 @@ put:
     aspect: default_space
   summary: Set default space
   x-bash-codegen-description: |
-    Sets default space for current user.
+    Sets default space for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Sets default space for current user.
+    Sets default space for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -132,13 +132,13 @@ delete:
     aspect: default_space
   summary: Unset default space
   x-bash-codegen-description: |
-    Removes default space setting for current user.
+    Removes default space setting for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Removes default space setting for current user.
+    Removes default space setting for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

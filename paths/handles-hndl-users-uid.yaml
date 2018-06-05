@@ -10,15 +10,18 @@ get:
   x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
     - handle_view
+    - oz_users_view
   summary: Get handle user
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `handle_view` privilege.
+    This operation requires `handle_view` privilege
+    or `oz_users_view` administrator privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `handle_view` privilege.
+    This operation requires `handle_view` privilege
+    or `oz_users_view` administrator privilege.
 
     ***Example cURL requests***
 
@@ -86,15 +89,19 @@ put:
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_update
+    - oz_handles_add_relationships
+    - oz_users_add_relationships
   summary: Add handle user
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `handle_update` privilege.
+    This operation requires `handle_update` privilege
+    or `oz_handles_add_relationships` and `oz_users_add_relationships` administrator privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `handle_update` privilege.
+    This operation requires `handle_update` privilege
+    or `oz_handles_add_relationships` and `oz_users_add_relationships` administrator privilege.
 
     ***Example cURL requests***
 
@@ -160,15 +167,19 @@ delete:
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_update
+    - oz_handles_remove_relationships
+    - oz_users_remove_relationships
   summary: Remove handle user
   x-bash-codegen-description: |
     Allows to revoke users access to a handle.
 
-    This operation requires `handle_update` privilege.
+    This operation requires `handle_update` privilege
+    or `oz_handles_remove_relationships` and `oz_users_remove_relationships` administrator privilege.
   description: |
     Allows to revoke users access to a handle.
 
-    This operation requires `handle_update` privilege.
+    This operation requires `handle_update` privilege
+    or `oz_handles_remove_relationships` and `oz_users_remove_relationships` administrator privilege.
 
     ***Example cURL requests***
 

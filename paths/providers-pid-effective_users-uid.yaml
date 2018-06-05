@@ -9,16 +9,16 @@ get:
     scope: protected
   x-onedata-auth-hint: ?THROUGH_PROVIDER(?BINDING(pid))
   x-onedata-permissions:
-    - oz_providers_list_users
+    - oz_users_view
   summary: Get effective user of provider
   x-bash-codegen-description: |
     Returns the details of an effective user of a specific provider.
 
-    This operation requires `oz_providers_list_users` administrator privilege.
+    This operation requires `oz_users_view` administrator privilege.
   description: |
     Returns the details of an effective user of a specific provider.
 
-    This operation requires `oz_providers_list_users` administrator privilege.
+    This operation requires `oz_users_view` administrator privilege.
 
     ***Example cURL requests***
 

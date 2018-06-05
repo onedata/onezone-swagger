@@ -8,20 +8,20 @@ get:
     aspect: users
   x-onedata-permissions:
     - group_view
-    - oz_groups_list_users
+    - oz_groups_list_relationships
   summary: List group users
   x-bash-codegen-description: |
     Returns the list of users belonging to a specific group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_users' privilege is required.
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the list of users belonging to a specific group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_users' privilege is required.
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 

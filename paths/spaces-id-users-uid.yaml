@@ -10,20 +10,20 @@ get:
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
-    - oz_spaces_list_users
+    - oz_users_view
   summary: Get space user details
   x-bash-codegen-description: |
     Returns the public information about a specific user in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_users` privilege is required.
+    `oz_users_view` privilege is required.
   description: |
     Returns the public information about a specific user in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_users` privilege is required.
+    `oz_users_view` privilege is required.
 
     ***Example cURL requests***
 
@@ -90,20 +90,21 @@ put:
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - oz_spaces_add_members
+    - oz_spaces_add_relationships
+    - oz_users_add_relationships
   summary: Add user to space
   x-bash-codegen-description: |
     Allows to add a user to any space.
 
     This operation can be invoked by system administrators only
-    and requires `oz_spaces_add_members` privilege.
+    and requires `oz_spaces_add_relationships` and `oz_users_add_relationships` privilege.
   description: |
     Allows to add a user to any space. Optional privileges
     can be passed in the request body, otherwise default
     privileges will be set for user in this space.
 
     This operation can be invoked by system administrators only
-    and requires `oz_spaces_add_members` privilege.
+    and requires `oz_spaces_add_relationships` and `oz_users_add_relationships` privilege.
 
     ***Example cURL requests***
 
@@ -168,18 +169,19 @@ delete:
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - space_remove_user
-    - oz_spaces_remove_members
+    - oz_spaces_remove_relationships
+    - oz_users_remove_relationships
   summary: Remove user from space
   x-bash-codegen-description: |
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    `oz_spaces_remove_members` administrator privilege.
+    requires `oz_spaces_add_relationships` and `oz_users_add_relationships` administrator privilege.
   description: |
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    `oz_spaces_remove_members` administrator privilege.
+    requires `oz_spaces_add_relationships` and `oz_users_add_relationships` administrator privilege.
 
     ***Example cURL requests***
 

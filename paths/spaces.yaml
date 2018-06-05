@@ -70,18 +70,21 @@ post:
   x-onedata-gri:
     type: od_space
     aspect: instance
-  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - oz_spaces_create
   summary: Create new space
   x-bash-codegen-description: |
-    When called by a regular user, creates a new space and sets the current
-    user as its owner.
+    Creates new space.
 
-    This operation does not require any specific privileges.
+    This operation requires `oz_spaces_create` administrator privilege.
   description: |
-    When called by a regular user, creates a new space and sets the current
-    user as its owner.
+    Creates new space.
 
-    This operation does not require any specific privileges.
+    This operation requires `oz_spaces_create` administrator privilege.
+    
+    See also:  
+    [Create a new space for the current user](#operation/create_user_space)  
+    [Create a new space for given group](#operation/create_space_for_group)  
 
     ***Example cURL requests***
 

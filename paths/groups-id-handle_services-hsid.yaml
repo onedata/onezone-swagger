@@ -8,12 +8,22 @@ get:
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_handle_services_view
   summary: Get group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific handle service.
 
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_view` privilege is required.
   description: |
     Returns the details of a specific handle service.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_view` privilege is required.
 
     ***Example cURL requests***
 
@@ -94,14 +104,20 @@ delete:
   summary: Remove group handle service
   x-onedata-permissions:
     - group_leave_handle_service
+    - oz_groups_remove_relationships
+    - oz_handle_services_remove_relationships
   x-bash-codegen-description: |
     Removes the group ownership or membership in a specific handle service.
 
     This operation requires `group_leave_handle_service` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_handle_services_remove_relationships` privilege is required.
   description: |
     Removes the group ownership or membership in a specific handle service.
 
     This operation requires `group_leave_handle_service` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_handle_services_remove_relationships` privilege is required.
 
     ***Example cURL requests***
 

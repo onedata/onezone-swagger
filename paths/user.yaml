@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns details about currently authenticated user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns details about currently authenticated user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -71,11 +71,11 @@ patch:
   x-bash-codegen-description: |
     Modifies user account details based on information provided in the request body.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Modifies user account details based on information provided in the request body.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

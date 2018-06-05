@@ -10,15 +10,20 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
+    - oz_handles_view
   summary: Get group handle details
   x-bash-codegen-description: |
     Returns the details of a specific handle.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handles_view` privilege is required.
   description: |
     Returns the details of a specific handle.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handles_view` privilege is required.
 
     ***Example cURL requests***
 
@@ -100,15 +105,21 @@ delete:
     aspect: "{handle, ?BINDING(hid)}"
   x-onedata-permissions:
     - group_leave_handle
+    - oz_groups_remove_relationships
+    - oz_handles_remove_relationships
   summary: Remove group handle
   x-bash-codegen-description: |
     Removes the groups ownership or membership in a specific handle.
 
     This operation requires `group_leave_handle` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_handles_remove_relationships` privileges are required.
   description: |
     Removes the groups ownership or membership in a specific handle.
 
     This operation requires `group_leave_handle` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_handles_remove_relationships` privileges are required.
 
     ***Example cURL requests***
 

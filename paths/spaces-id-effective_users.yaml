@@ -7,10 +7,19 @@ get:
     id: ?BINDING(id)
     aspect: eff_users
   summary: List effective space users
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_relationships
   x-bash-codegen-description: |
     Returns the effective list of users belonging to a specific space.
+
+    This operation requires `space_view` privilege
+    or `oz_spaces_list_relationships` administrator privilege.
   description: |
     Returns the effective list of users belonging to a specific space.
+
+    This operation requires `space_view` privilege
+    or `oz_spaces_list_relationships` administrator privilege.
 
     ***Example cURL requests***
 

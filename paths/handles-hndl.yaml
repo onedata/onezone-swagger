@@ -9,15 +9,18 @@ get:
     scope: protected
   x-onedata-permissions:
     - handle_view
+    - oz_handles_view
   summary: Get handle
   x-bash-codegen-description: |
     Returns the properties of a specific handle.
 
-    This operation requires `handle_view` privilege.
+    This operation requires `handle_view` privilege
+    or `oz_handles_view` administrator privilege.
   description: |
     Returns the properties of a specific handle.
 
-    This operation requires `handle_view` privilege.
+    This operation requires `handle_view` privilege
+    or `oz_handles_view` administrator privilege.
 
     ***Example cURL requests***
 
@@ -94,17 +97,20 @@ patch:
     aspect: instance
   x-onedata-permissions:
     - handle_update
+    - oz_handles_update
   summary: Modify handle
   x-bash-codegen-description: |
     Allows to update a registered handle, currently it only allows
     to modify the handle metadata property.
 
-    This operation requires `handle_update` privilege.
+    This operation requires `handle_update` privilege
+    or `oz_handles_update` administrator privilege.
   description: |
     Allows to update a registered handle, currently it only allows
     to modify the handle metadata property.
 
-    This operation requires `handle_update` privilege.
+    This operation requires `handle_update` privilege
+    or `oz_handles_update` administrator privilege.
 
     ***Example cURL requests***
 
@@ -168,15 +174,18 @@ delete:
     aspect: instance
   x-onedata-permissions:
     - handle_delete
+    - oz_handles_delete
   summary: Unregister handle
   x-bash-codegen-description: |
     Allows to unregister a registered handle.
 
-    This operation requires `handle_delete` privilege.
+    This operation requires `handle_delete` privilege
+    or `oz_handles_delete` administrator privilege.
   description: |
     Allows to unregister a registered handle.
 
-    This operation requires `handle_delete` privilege.
+    This operation requires `handle_delete` privilege
+    or `oz_handles_delete` administrator privilege.
 
     ***Example cURL requests***
 

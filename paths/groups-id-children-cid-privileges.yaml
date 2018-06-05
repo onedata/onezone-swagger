@@ -7,16 +7,21 @@ get:
     id: ?BINDING(id)
     aspect: "{child_privileges, ?BINDING(cid)}"
   x-onedata-permissions:
-    - group_view
+    - group_view_privileges
+    - oz_groups_view_privileges
   summary: List child group privileges
   x-bash-codegen-description: |
     Returns the list of child group privileges in a specific group.
 
-    This operation requires `group_view` privilege.
+    This operation requires `group_view_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view_privileges` privilege is required.
   description: |
     Returns the list of child group privileges in a specific group.
 
-    This operation requires `group_view` privilege.
+    This operation requires `group_view_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view_privileges` privilege is required.
 
     ***Example cURL requests***
 
@@ -84,15 +89,20 @@ patch:
     aspect: "{child_privileges, ?BINDING(cid)}"
   x-onedata-permissions:
     - group_set_privileges
+    - oz_groups_set_privileges
   summary: Set subgroup privileges
   x-bash-codegen-description: |
     Sets privileges for a specific subgroup in a group.
 
     This operation requires `group_set_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_set_privileges` privilege is required.
   description: |
     Sets privileges for a specific subgroup in a group.
 
     This operation requires `group_set_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_set_privileges` privilege is required.
 
     ***Example cURL requests***
 

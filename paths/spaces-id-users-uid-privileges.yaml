@@ -7,16 +7,21 @@ get:
     id: ?BINDING(id)
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
-    - space_view
+    - space_view_privileges
+    - oz_spaces_view_privileges
   summary: List user privileges to space
   x-bash-codegen-description: |
     Returns privileges of a user to a specific space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view_privileges` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_view_privileges` privilege is required.
   description: |
     Returns privileges of a user to a specific space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view_privileges` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_view_privileges` privilege is required.
 
     ***Example cURL requests***
 
@@ -86,15 +91,20 @@ patch:
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - space_set_privileges
+    - oz_set_privileges
   summary: Set user privileges to space
   x-bash-codegen-description: |
     Sets privileges for a user to a space.
 
     This operation requires `space_set_privileges` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_set_privileges` privilege is required.
   description: |
     Sets privileges for a user to a space.
 
     This operation requires `space_set_privileges` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_set_privileges` privilege is required.
 
     ***Example cURL requests***
 

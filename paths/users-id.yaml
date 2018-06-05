@@ -8,16 +8,16 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - oz_users_list
+    - oz_users_view
   summary: Get user details
   x-bash-codegen-description: |
     Returns the information about a specific user.
 
-    This operation requires `oz_users_list` administrator privilege.
+    This operation requires `oz_users_view` administrator privilege.
   description: |
     Returns the information about a specific user.
 
-    This operation requires `oz_users_list` administrator privilege.
+    This operation requires `oz_users_view` administrator privilege.
 
     ***Example cURL requests***
 

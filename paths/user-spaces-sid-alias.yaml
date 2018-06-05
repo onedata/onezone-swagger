@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the alias of a specific space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the alias of a specific space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -77,11 +77,11 @@ put:
   x-bash-codegen-description: |
     Sets the alias of a specific space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Sets the alias of a specific space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -147,11 +147,11 @@ delete:
   x-bash-codegen-description: |
     Removes the space alias.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Removes the space alias.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

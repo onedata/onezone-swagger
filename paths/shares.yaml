@@ -73,16 +73,17 @@ post:
   summary: Create share
   x-onedata-permissions:
     - space_manage_shares
+    - oz_shares_create
   x-bash-codegen-description: |
     Creates a new share.
 
     This operation requires privilege `space_manage_shares` in space
-    in which the share is created.
+    in which the share is created or `oz_shares_create` administrator privilege.
   description: |
     Creates a new share.
 
     This operation requires privilege `space_manage_shares` in space
-    in which the share is created.
+    in which the share is created or `oz_shares_create` administrator privilege.
 
     ***Example cURL requests***
 

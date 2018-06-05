@@ -8,15 +8,20 @@ get:
     aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_view
+    - oz_handle_services_view_privileges
   summary: List handle service group privileges
   x-bash-codegen-description: |
     Returns group privileges for accessing a handle service instance.
 
     This operation requires `handle_service_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_view_privileges` privilege is required.
   description: |
     Returns group privileges for accessing a handle service instance.
 
     This operation requires `handle_service_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_view_privileges` privilege is required.
 
     ***Example cURL requests***
 
@@ -85,15 +90,20 @@ patch:
     aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_set_privileges
   summary: Set handle service groups privileges
   x-bash-codegen-description: |
     Sets group privileges for accessing a handle service instance.
 
     This operation requires `handle_service_update` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_set_privileges` privilege is required.
   description: |
     Sets group privileges for accessing a handle service instance.
 
     This operation requires `handle_service_update` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_set_privileges` privilege is required.
 
     ***Example cURL requests***
 

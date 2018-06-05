@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of users' handles.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the list of users' handles.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -72,17 +72,17 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - handle_service_register_handle
-  summary: Create new user handle
+  summary: Create a new handle for the current user
   x-bash-codegen-description: |
     Creates a new handle as current user.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     'handle_service_register_handle' privilege in the handle service
     where the new handle is to be registered
   description: |
     Creates a new handle as current user.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     'handle_service_register_handle' privilege in the handle service
     where the new handle is to be registered
 

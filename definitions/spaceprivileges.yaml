@@ -14,6 +14,7 @@ properties:
         - space_remove_group
         - space_remove_provider
         - space_remove_user
+        - space_view_privileges
         - space_set_privileges
         - space_update
         - space_view

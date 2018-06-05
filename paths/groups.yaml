@@ -63,16 +63,21 @@ post:
   x-onedata-gri:
     type: od_group
     aspect: instance
-  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - oz_groups_create
   summary: Create new group
   x-bash-codegen-description: |
     Creates a new group.
 
-    This operation does not require any specific privileges.
+    This operation requires `oz_groups_create` privilege.
   description: |
     Creates a new group.
 
-    This operation does require any specific privileges.
+    This operation requires `oz_groups_create` privilege.  
+    
+    See also:  
+    [Create a new group for the current user](#operation/create_group_for_user)  
+    [Create a new parent group for given group](#operation/create_parent_group)  
 
     ***Example cURL requests***
 

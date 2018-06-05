@@ -7,16 +7,16 @@ get:
     id: ?BINDING(pid)
     aspect: eff_users
   x-onedata-permissions:
-    - oz_providers_list_users
+    - oz_providers_list_relationships
   summary: List effective users of provider
   x-bash-codegen-description: |
     Returns the list of effective users of a specific provider.
 
-    This operation requires `oz_providers_list_users` administrator privilege.
+    This operation requires `oz_providers_list_relationships` administrator privilege.
   description: |
     Returns the list of effective users of a specific provider.
 
-    This operation requires `oz_providers_list_users` administrator privilege.
+    This operation requires `oz_providers_list_relationships` administrator privilege.
 
     ***Example cURL requests***
 
