@@ -1,45 +1,42 @@
 get:
-  operationId: get_user_effective_provider
+  operationId: get_user_spaces_in_effective_provider
   tags:
     - User
   x-onedata-gri:
     type: od_provider
     id: ?BINDING(pid)
-    aspect: instance
-    scope: protected
-  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
-  summary: Get user's effective provider details
+    aspect: "{user_spaces, ?CLIENT_ID}"
+    scope: private
+  summary: Get user's spaces that are supported by given effective provider
   x-bash-codegen-description: |
-    Returns information about a specific effective provider for the user.
+    Returns the list of user's spaces that are supported by given effective provider.
 
     This operation can be invoked on behalf of current user only.
   description: |
-    Returns information about a specific effective provider for the user.
+    Returns the list of user's spaces that are supported by given effective provider.
 
     This operation can be invoked on behalf of current user only.
 
     ***Example cURL requests***
 
-    **Get user effective provider**
+    **Get user's spaces supported by effective provider**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_providers/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/effective_providers/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/spaces
 
     {
-      "providerId":"oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
-      "name": "provider2",
-      "domain": "provider2.beta.onedata.org",
-      "latitude": 50.0647,
-      "longitude": 19.9450
+      "spaces": [
+        "ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR"
+      ]
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Returns information about a specific effective provider for the user.
+      description: Returns the list of user's spaces that are supported by given effective provider.
       schema:
-        $ref: '#/definitions/ProviderDetails'
+        $ref: '#/definitions/Spaces'
     '400':
       description: Invalid request.
       schema:
@@ -68,4 +65,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserEffectiveProvider pid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserSpacesInEffectiveProvider pid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

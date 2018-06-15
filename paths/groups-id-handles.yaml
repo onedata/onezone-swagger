@@ -109,7 +109,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the created space in form https://onezone.domain/api/onezone/v3/groups/{id}/handles/{sid} is
+        URI of the created space in form https://$HOST/api/onezone/v3/groups/{id}/handles/{sid} is
         returned in the response `Location` header.
       headers:
         Location:

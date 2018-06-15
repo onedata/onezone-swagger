@@ -119,7 +119,7 @@ put:
   responses:
     '201':
       description: >
-        URI of the added user in form https://onezone.domain/api/onezone/v3/groups/{id}/users/{uid} is
+        URI of the added user in form https://$HOST/api/onezone/v3/groups/{id}/users/{uid} is
         returned in the response `Location` header.
       headers:
         Location:
