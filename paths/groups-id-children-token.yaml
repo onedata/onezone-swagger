@@ -7,16 +7,16 @@ post:
     id: ?BINDING(id)
     aspect: invite_group_token
   x-onedata-permissions:
-    - group_invite_group
+    - group_invite_child
   summary: Create child group invitation token
   x-bash-codegen-description: |
     Creates a token that can be used to add a group as subgroup of group with {id}.
 
-    This operation requires `group_invite_group` privilege.
+    This operation requires `group_invite_child` privilege.
   description: |
     Creates a token that can be used to add a group as subgroup of group with {id}.
 
-    This operation requires `group_invite_group` privilege.
+    This operation requires `group_invite_child` privilege.
 
     ***Example cURL requests***
 

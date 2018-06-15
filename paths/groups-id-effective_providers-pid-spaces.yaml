@@ -1,45 +1,42 @@
 get:
-  operationId: get_group_effective_provider
+  operationId: get_group_spaces_in_effective_provider
   tags:
     - Group
   x-onedata-gri:
     type: od_provider
     id: ?BINDING(pid)
-    aspect: instance
-    scope: protected
-  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+    aspect: "{group_spaces, ?BINDING(id)}"
+    scope: private
   x-onedata-permissions:
     - group_view
-  summary: Get group's effective provider details
+  summary: Get group's spaces that are supported by given effective provider
   x-bash-codegen-description: |
-    Returns information about a specific effective provider for the group.
+    Returns the list of group's spaces that are supported by given effective provider.
 
     This operation requires `group_view` privilege.
   description: |
-    Returns information about a specific effective provider for the group.
+    Returns the list of group's spaces that are supported by given effective provider.
 
     This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 
-    **Get group's effective provider details**
+    **Get groups's spaces supported by effective provider**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/spaces
 
     {
-      "name": "provider1",
-      "providerId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
-      "domain": "provider1.beta.onedata.org",
-      "latitude": 50.0647,
-      "longitude": 19.9450
+      "spaces": [
+        "ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR"
+      ]
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Returns information about a specific effective provider for the group.
+      description: Returns the list of group's spaces that are supported by given effective provider.
       schema:
         $ref: '#/definitions/ProviderDetails'
     '400':
@@ -75,4 +72,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupEffectiveProvider id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 pid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli getGroupSpacesInEffectiveProvider id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 pid=HUUPOMNGzikwiLXHaFYcE8"

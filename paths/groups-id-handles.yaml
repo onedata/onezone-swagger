@@ -79,18 +79,21 @@ post:
     aspect: instance
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
+    - group_create_handle
     - handle_service_register_handle
   summary: Create new group handle
   x-bash-codegen-description: |
     Creates a new handle on behalf of a group.
 
-    This operation requires `handle_service_register_handle` privilege, for the handle service
-    specified in the `handleServiceId` field.
+    This operation requires `group_create_handle` privilege in the group and
+    `handle_service_register_handle` privilege in the handle service specified
+    in the `handleServiceId` field.
   description: |
     Creates a new handle on behalf of a group.
 
-    This operation requires `handle_service_register_handle` privilege, for the handle service
-    specified in the `handleServiceId` field.
+    This operation requires `group_create_handle` privilege in the group and
+    `handle_service_register_handle` privilege in the handle service specified
+    in the `handleServiceId` field.
 
 
     ***Example cURL requests***
@@ -106,7 +109,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the created space in form https://onezone.domain/api/onezone/v3/groups/{id}/handles/{sid} is
+        URI of the created space in form https://$HOST/api/onezone/v3/groups/{id}/handles/{sid} is
         returned in the response `Location` header.
       headers:
         Location:

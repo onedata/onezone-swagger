@@ -70,3 +70,83 @@ get:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli listChildGroups id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"
+
+
+post:
+  operationId: create_child_group
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "child"
+  x-onedata-permissions:
+    - group_create_child
+    - oz_groups_add_members
+  summary: Create child group
+  x-bash-codegen-description: |
+    Creates a new child group belonging to the group of {id}.
+
+    This operation requires `group_create_child` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_add_members' privilege is required.
+  description: |
+    Creates a new child group belonging to the group of {id}.
+
+    This operation requires `group_create_child` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_add_members' privilege is required.
+
+    ***Example cURL requests***
+
+    **Create child group**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children
+    ```
+  produces:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the added group in form https://$HOST/api/onezone/v3/groups/{id}/children/{cid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created group.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Group properties.
+    schema:
+      $ref: '#/definitions/GroupCreateRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"

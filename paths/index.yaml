@@ -113,6 +113,10 @@
   $ref: ./user-effective_providers-pid.yaml
 
 
+/user/effective_providers/{pid}/spaces:
+  $ref: ./user-effective_providers-pid-spaces.yaml
+
+
 /user/handle_services:
   $ref: ./user-handle_services.yaml
 
@@ -269,6 +273,10 @@
 
 /groups/{id}/effective_providers/{pid}:
   $ref: ./groups-id-effective_providers-pid.yaml
+
+
+/groups/{id}/effective_providers/{pid}/spaces:
+  $ref: ./groups-id-effective_providers-pid-spaces.yaml
 
 
 /groups/{id}/handle_services:

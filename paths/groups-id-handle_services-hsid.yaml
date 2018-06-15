@@ -93,15 +93,15 @@ delete:
     aspect: "{handle_service, ?BINDING(hsid)}"
   summary: Remove group handle service
   x-onedata-permissions:
-    - group_update
+    - group_leave_handle_service
   x-bash-codegen-description: |
     Removes the group ownership or membership in a specific handle service.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_handle_service` privilege.
   description: |
     Removes the group ownership or membership in a specific handle service.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_handle_service` privilege.
 
     ***Example cURL requests***
 

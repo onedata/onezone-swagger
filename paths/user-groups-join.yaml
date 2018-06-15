@@ -30,7 +30,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the joined group in form https://onezone.domain/api/onezone/v3/user/groups/{id} is
+        URI of the joined group in form https://$HOST/api/onezone/v3/user/groups/{id} is
         returned in the response `Location` header.
       headers:
         Location:

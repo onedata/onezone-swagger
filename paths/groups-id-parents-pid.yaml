@@ -85,19 +85,19 @@ delete:
     aspect: "{parent, ?BINDING(pid)}"
   summary: Leave parent group
   x-onedata-permissions:
-    - group_update
+    - group_leave_parent
   x-bash-codegen-description: |
     Removes the group membership in a specific parent group.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_parent` privilege.
   description: |
     Removes the group membership in a specific parent group.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_parent` privilege.
 
     ***Example cURL requests***
 
-    **Delete user handle service**
+    **Leave parent group as group**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST/api/v3/onezone/groups/AJKLASHJKDHKAJSHD/parents/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY

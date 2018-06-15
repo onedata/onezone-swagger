@@ -68,20 +68,24 @@ get:
 
 
 post:
-  operationId: create_group_for_group
+  operationId: create_parent_group
   tags:
     - Group
   x-onedata-gri:
     type: od_group
     aspect: instance
+  x-onedata-permissions:
+    - group_create_parent
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
-  summary: Create new group for the current group
+  summary: Create new parent group for the current group
   x-bash-codegen-description: |
-    Creates a new group for the current group.
-    The group automatically becomes a member of this group.
+    Creates a new parent group for the current group.
+
+    This operation requires `group_create_parent` privilege.
   description: |
-    Creates a new group for the current group.
-    The group automatically becomes a member of this group.
+    Creates a new parent group for the current group.
+
+    This operation requires `group_create_parent` privilege.
 
     ***Example cURL requests***
 
@@ -96,7 +100,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the created group in form https://onezone.domain/api/onezone/v3/groups/{gid}/parents/{pid} is
+        URI of the created group in form https://$HOST/api/onezone/v3/groups/{gid}/parents/{pid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -136,4 +140,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroupForGroup name==Group1 type==team"
+    source: "onezone-rest-cli createParentGroup name==Group1 type==team"

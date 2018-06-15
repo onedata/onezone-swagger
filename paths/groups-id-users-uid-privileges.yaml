@@ -30,7 +30,7 @@ get:
         "group_update",
         "group_create_space",
         "group_create_space_token",
-        "group_invite_group"
+        "group_invite_child"
       ]
     }
     ```
