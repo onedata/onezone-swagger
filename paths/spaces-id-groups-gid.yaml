@@ -10,20 +10,20 @@ get:
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
-    - oz_spaces_list_groups
+    - oz_groups_view
   summary: Get group details
   x-bash-codegen-description: |
     Returns details about a specific group in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_groups` privilege is required.
+    `oz_groups_view` privilege is required.
   description: |
     Returns details about a specific group in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_groups` privilege is required.
+    `oz_groups_view` privilege is required.
 
     ***Example cURL requests***
 
@@ -90,20 +90,20 @@ put:
     id: ?BINDING(id)
     aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
-    - oz_spaces_add_members
+    - oz_spaces_add_relationships
   summary: Add group to space
   x-bash-codegen-description: |
     Allows to add a group to any space.
 
     This operation can be invoked by system administrators only
-    and requires `oz_spaces_add_members` privilege.
+    and requires `oz_spaces_add_relationships` privilege.
   description: |
     Allows to add a group to any space. Optional privileges
     can be passed in the request body, otherwise default
     privileges will be set for group in this space.
 
     This operation can be invoked by system administrators only
-    and requires `oz_spaces_add_members` privilege.
+    and requires `oz_spaces_add_relationships` privilege.
 
     ***Example cURL requests***
 
@@ -168,7 +168,7 @@ delete:
     aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - space_remove_group
-    - oz_spaces_remove_members
+    - oz_spaces_remove_relationships
   summary: Remove group from space
   x-bash-codegen-description: |
     Removes a specific group from space.
@@ -177,7 +177,7 @@ delete:
     `space_remove_group` privilege to remove a group from this space.
 
     For administrators, who are not members of this space,
-    `oz_spaces_remove_members` privilege is required.
+    `oz_spaces_remove_relationships` privilege is required.
   description: |
     Removes a specific group from space.
 
@@ -185,7 +185,7 @@ delete:
     `space_remove_group` privilege to remove a group from this space.
 
     For administrators, who are not members of this space,
-    `oz_spaces_remove_members` privilege is required.
+    `oz_spaces_remove_relationships` privilege is required.
 
     ***Example cURL requests***
 

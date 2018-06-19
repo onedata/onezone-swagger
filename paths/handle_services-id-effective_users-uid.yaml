@@ -10,15 +10,18 @@ get:
   x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
     - handle_service_view
+    - oz_users_view
   summary: Get effective handle service user
   x-bash-codegen-description: |
     Allows to get a user to a handle service.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_users_view` administrator privilege.
   description: |
     Allows to get a user to a handle service.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_users_view` administrator privilege.
 
     ***Example cURL requests***
 

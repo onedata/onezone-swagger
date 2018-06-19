@@ -9,16 +9,17 @@ get:
   summary: List space groups
   x-onedata-permissions:
     - space_view
+    - oz_spaces_list_relationships
   x-bash-codegen-description: |
     Returns the list of groups belonging to a specific space.
 
     If called by user who is not member of the space, requires `space_view`
-    privilege.
+    privilege or `oz_spaces_list_relationships` administrator privilege.
   description: |
     Returns the list of groups belonging to a specific space.
 
     If called by user who is not member of the space, requires `space_view`
-    privilege.
+    privilege or `oz_spaces_list_relationships` administrator privilege.
 
     ***Example cURL requests***
 

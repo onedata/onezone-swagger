@@ -8,16 +8,16 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - oz_groups_list
+    - oz_groups_view
   summary: Get group details
   x-bash-codegen-description: |
     Returns the information about a specific group.
 
-    This operation requires `oz_groups_list` administrator privilege or group membership.
+    This operation requires `oz_groups_view` administrator privilege or group membership.
   description: |
     Returns the information about a specific group.
 
-    This operation requires `oz_groups_list` administrator privilege or group membership.
+    This operation requires `oz_groups_view` administrator privilege or group membership.
 
     ***Example cURL requests***
 
@@ -80,15 +80,20 @@ patch:
     aspect: instance
   x-onedata-permissions:
     - group_update
+    - oz_groups_update
   summary: Modify group details
   x-bash-codegen-description: |
     Updates the details about a group.
 
     This operation requires `group_update` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_update` privilege is required.
   description: |
     Updates the details about a group.
 
     This operation requires `group_update` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_update` privilege is required.
 
     ***Example cURL requests***
 
@@ -150,15 +155,20 @@ delete:
     aspect: instance
   x-onedata-permissions:
     - group_delete
+    - oz_groups_delete
   summary: Remove group
   x-bash-codegen-description: |
     Removes a specific group.
 
     This operation requires `group_delete` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_delete` privilege is required.
   description: |
     Removes a specific group.
 
     This operation requires `group_delete` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_delete` privilege is required.
 
     ***Example cURL requests***
 

@@ -8,15 +8,20 @@ get:
     aspect: parents
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List parent groups
   x-bash-codegen-description: |
     Returns the parent groups of a specific group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the parent groups of a specific group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
@@ -74,18 +79,26 @@ post:
   x-onedata-gri:
     type: od_group
     aspect: instance
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_create_parent
-  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
-  summary: Create new parent group for the current group
+    - oz_groups_add_relationships
+    - oz_groups_create
+  summary: Create a new parent group for given group
   x-bash-codegen-description: |
-    Creates a new parent group for the current group.
-
+    Creates a new group for the current group.
+    The group automatically becomes a member of this group.
+    
     This operation requires `group_create_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` and `oz_groups_create` privileges are required.
   description: |
-    Creates a new parent group for the current group.
-
+    Creates a new group for the current group.
+    The group automatically becomes a member of this group.
+    
     This operation requires `group_create_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` and `oz_groups_create` privileges are required.
 
     ***Example cURL requests***
 

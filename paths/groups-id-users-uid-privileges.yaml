@@ -7,16 +7,21 @@ get:
     id: ?BINDING(id)
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
-    - group_view
+    - group_view_privileges
+    - oz_groups_view_privileges
   summary: List user's group privileges
   x-bash-codegen-description: |
     Returns the list of user privileges in a specific group.
 
-    This operation requires `group_view` privilege.
+    This operation requires `group_view_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view_privileges` privilege is required.
   description: |
     Returns the list of user privileges in a specific group.
 
-    This operation requires `group_view` privilege.
+    This operation requires `group_view_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view_privileges` privilege is required.
 
     ***Example cURL requests***
 
@@ -87,15 +92,20 @@ patch:
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - group_set_privileges
+    - oz_groups_set_privileges
   summary: Set user's group privileges
   x-bash-codegen-description: |
     Sets privileges for a user {uid} in a group {id}.
 
     This operation requires `group_set_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_set_privileges` privilege is required.
   description: |
     Sets privileges for a user {uid} in a group {id}.
 
     This operation requires `group_set_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_set_privileges` privilege is required.
 
     ***Example cURL requests***
 

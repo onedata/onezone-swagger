@@ -7,16 +7,19 @@ get:
     id: ?BINDING(id)
     aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
-    - space_view
+    - space_view_privileges
+    - oz_spaces_view_privileges
   summary: List group privileges to space
   x-bash-codegen-description: |
     Returns privileges for a group to a specific space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view_privileges` privilege
+    or `oz_spaces_view_privileges` administrator privilege.
   description: |
     Returns privileges for a group to a specific space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view_privileges` privilege
+    or `oz_spaces_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
@@ -84,15 +87,18 @@ patch:
     aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
     - space_set_privileges
+    - oz_spaces_set_privileges
   summary: Set group privileges to space
   x-bash-codegen-description: |
     Sets new privileges for a group to a specific space.
 
-    This operation requires `space_set_privileges` privilege.
+    This operation requires `space_set_privileges` privilege
+    or `oz_spaces_set_privileges` administrator privilege.
   description: |
     Sets new privileges for a group to a specific space.
 
-    This operation requires `space_set_privileges` privilege.
+    This operation requires `space_set_privileges` privilege
+    or `oz_spaces_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 

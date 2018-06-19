@@ -8,7 +8,7 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - oz_providers_list
+    - oz_providers_view
   summary: Get provider details
   x-bash-codegen-description: |
     Returns the information about a specific Oneprovider service, which is
@@ -16,7 +16,7 @@ get:
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `oz_providers_list` administrator privilege or
+    This operation requires `oz_providers_view` administrator privilege or
     effective membership in space supported by that provider.
   description: |
     Returns the information about a specific Oneprovider service, which is
@@ -24,7 +24,7 @@ get:
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `oz_providers_list` administrator privilege or
+    This operation requires `oz_providers_view` administrator privilege or
     effective membership in space supported by that provider.
 
     ***Example cURL requests***

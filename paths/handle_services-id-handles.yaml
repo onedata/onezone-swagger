@@ -8,15 +8,18 @@ get:
     aspect: handles
   x-onedata-permissions:
     - handle_service_list_handles
+    - oz_handle_services_list_relationships
   summary: List handle service handles
   x-bash-codegen-description: |
     Returns the list of ID's of all handles registered by handle service.
 
-    This operation requires `handle_service_list_handles` privilege.
+    This operation requires `handle_service_list_handles` privilege
+    or `oz_handle_services_list_relationships` administrator privilege.
   description: |
     Returns the list of ID's of all handles registered by handle service.
 
-    This operation requires `handle_service_list_handles` privilege.
+    This operation requires `handle_service_list_handles` privilege
+    or `oz_handle_services_list_relationships` administrator privilege.
 
     ***Example cURL requests***
 

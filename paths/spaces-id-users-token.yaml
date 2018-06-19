@@ -8,15 +8,20 @@ post:
     aspect: invite_user_token
   x-onedata-permissions:
     - space_invite_user
+    - oz_spaces_add_relationships
   summary: Create space user invite token
   x-bash-codegen-description: |
     Creates a token allowing new user to join a space.
 
     This operation requires `space_invite_user` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_add_relationships` privilege is required.
   description: |
     Creates a token allowing new user to join a space.
 
     This operation requires `space_invite_user` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_add_relationships` privilege is required.
 
     ***Example cURL requests***
 

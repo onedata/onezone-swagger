@@ -10,15 +10,18 @@ get:
   x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
     - handle_service_view
+    - oz_groups_view
   summary: Get handle service group details
   x-bash-codegen-description: |
     Get details of a group with access to handle service.
 
-    This operation requires `handle_service_view` administrator privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_groups_view` administrator privilege.
   description: |
     Get details of a group with access to handle service.
 
-    This operation requires `handle_service_view` administrator privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_groups_view` administrator privilege.
 
     ***Example cURL requests***
 
@@ -86,15 +89,19 @@ put:
     aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_add_relationships
+    - oz_groups_add_relationships
   summary: Add handle service group
   x-bash-codegen-description: |
     Allows to add a group to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_add_relationships` and `oz_groups_add_relationships` administrator privilege.
   description: |
     Allows to add a group to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_add_relationships` and `oz_groups_add_relationships` administrator privilege.
 
     ***Example cURL requests***
 
@@ -160,15 +167,19 @@ delete:
     aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_remove_relationships
+    - oz_users_remove_relationships
   summary: Remove handle service group
   x-bash-codegen-description: |
     Allows to remove a group from access to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_remove_relationships` and `oz_groups_remove_relationships` administrator privilege.
   description: |
     Allows to remove a group from access to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_remove_relationships` and `oz_groups_remove_relationships` administrator privilege.
 
     ***Example cURL requests***
 

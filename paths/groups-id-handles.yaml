@@ -8,15 +8,20 @@ get:
     aspect: handles
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List group handles
   x-bash-codegen-description: |
     Returns the list of groups handles.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the list of groups handles.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
@@ -81,19 +86,25 @@ post:
   x-onedata-permissions:
     - group_create_handle
     - handle_service_register_handle
-  summary: Create new group handle
+    - oz_handles_create
+    - oz_groups_add_relationships
+  summary: Create a new handle for given group
   x-bash-codegen-description: |
     Creates a new handle on behalf of a group.
 
     This operation requires `group_create_handle` privilege in the group and
     `handle_service_register_handle` privilege in the handle service specified
-    in the `handleServiceId` field.
+    in the `handleServiceId` field.  
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` and `oz_handles_create` privilege is required.
   description: |
     Creates a new handle on behalf of a group.
 
     This operation requires `group_create_handle` privilege in the group and
     `handle_service_register_handle` privilege in the handle service specified
-    in the `handleServiceId` field.
+    in the `handleServiceId` field.  
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` and `oz_handles_create` privilege is required.
 
 
     ***Example cURL requests***

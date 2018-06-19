@@ -10,11 +10,11 @@ delete:
   x-bash-codegen-description: |
     Removes a specific access token.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Removes a specific access token.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

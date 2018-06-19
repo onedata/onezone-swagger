@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the ID of the default provider.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the ID of the default provider.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -69,13 +69,13 @@ put:
     aspect: default_provider
   summary: Set default provider
   x-bash-codegen-description: |
-    Sets default provider for current user.
+    Sets default provider for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Sets default provider for current user.
+    Sets default provider for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -132,13 +132,13 @@ delete:
     aspect: default_provider
   summary: Unset default provider
   x-bash-codegen-description: |
-    Removes default provider setting for current user.
+    Removes default provider setting for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Removes default provider setting for current user.
+    Removes default provider setting for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

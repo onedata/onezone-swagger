@@ -8,20 +8,20 @@ get:
     aspect: users
   x-onedata-permissions:
     - space_view
-    - oz_spaces_list_users
+    - oz_spaces_list_relationships
   summary: List space users
   x-bash-codegen-description: |
     Returns the list of users belonging to a specific space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_users` privilege is required.
+    `oz_spaces_list_relationships` privilege is required.
   description: |
     Returns the list of users belonging to a specific space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_users` privilege is required.
+    `oz_spaces_list_relationships` privilege is required.
 
     ***Example cURL requests***
 

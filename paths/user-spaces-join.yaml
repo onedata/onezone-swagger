@@ -10,11 +10,11 @@ post:
   x-bash-codegen-description: |
     Join existing space using inivitation token.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Join existing space using inivitation token.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

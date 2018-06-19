@@ -9,6 +9,7 @@ properties:
         - group_view
         - group_update
         - group_delete
+        - group_view_privileges
         - group_set_privileges
         - group_invite_user
         - group_remove_user
@@ -32,6 +33,7 @@ example:
     - group_view
     - group_update
     - group_delete
+    - group_view_privileges
     - group_set_privileges
     - group_invite_user
     - group_remove_user

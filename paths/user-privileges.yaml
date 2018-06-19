@@ -6,19 +6,16 @@ get:
     type: od_user
     id: ?CLIENT_ID
     aspect: oz_privileges
-  x-onedata-permissions:
-    - oz_view_privileges
   summary: List current user privileges
   x-bash-codegen-description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of currently authenticated user privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only and requires
-    `oz_view_privileges` administrator privilege.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -77,12 +74,12 @@ patch:
   x-bash-codegen-description: |
     Modifies privileges for a user for Onezone.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     `oz_set_privileges` administrator privilege.
   description: |
     Modifies privileges for a user for Onezone.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
@@ -141,12 +138,12 @@ delete:
   x-bash-codegen-description: |
     Removes all privileges for a user to Onezone.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     `oz_set_privileges` administrator privilege.
   description: |
     Removes all privileges for a user to Onezone.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***

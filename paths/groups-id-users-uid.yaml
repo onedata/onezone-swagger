@@ -10,20 +10,20 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view,
-    - oz_groups_list_users
+    - oz_users_view
   summary: Get group user details
   x-bash-codegen-description: |
     Returns the public information about a user {uid} in group {id}.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_users' privilege is required.
+    `oz_users_view` privilege is required.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_users' privilege is required.
+    `oz_users_view` privilege is required.
 
     ***Example cURL requests***
 
@@ -90,7 +90,8 @@ put:
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - oz_groups_add_members
+    - oz_groups_add_relationships
+    - oz_users_add_relationships
   summary: Add user to group
   x-bash-codegen-description: |
     Returns the public information about a user {uid} in group {id}.
@@ -98,14 +99,14 @@ put:
     Optionally, user privileges in this group can be specified
     in the request body.
 
-    This operation requires `oz_groups_add_members` administrator privilege.
+    This operation requires `oz_groups_add_relationships` and `oz_users_add_relationships` administrator privileges.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
     Optionally, user privileges in this group can be specified
     in the request body.
 
-    This operation requires `oz_groups_add_members` administrator privilege.
+    This operation requires `oz_groups_add_relationships` administrator privilege.
 
     ***Example cURL requests***
 
@@ -177,7 +178,8 @@ delete:
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - group_remove_user
-    - oz_groups_remove_members
+    - oz_groups_remove_relationships
+    - oz_users_remove_relationships
   summary: Remove user from group
   x-bash-codegen-description: |
     Removes the user {uid} from a group {id} (the user will no longer have
@@ -185,14 +187,14 @@ delete:
 
     This operation requires `group_remove_user` privilege.
     For administrator who does not belong to this group
-    'oz_groups_remove_members' privilege is required.
+    `oz_groups_remove_relationships` and `oz_users_remove_relationships` privileges are required.
   description: |
     Removes the user {uid} from a group {id} (the user will no longer have access
     to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
     For administrator who does not belong to this group
-    'oz_groups_remove_members' privilege is required.
+    `oz_groups_remove_relationships` and `oz_users_remove_relationships` privileges are required.
 
     ***Example cURL requests***
 

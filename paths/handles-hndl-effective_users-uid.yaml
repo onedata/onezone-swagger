@@ -10,15 +10,18 @@ get:
   x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
     - handle_view
+    - oz_users_view
   summary: Get effective handle user
   x-bash-codegen-description: |
     Returns effective handle user details.
 
-    This operation requires `handle_view` privilege.
+    This operation requires `handle_view` privilege
+    or `oz_users_view` administrator privilege.
   description: |
     Returns effective handle user details.
 
-    This operation requires `handle_view` privilege.
+    This operation requires `handle_view` privilege
+    or `oz_users_view` administrator privilege.
 
     ***Example cURL requests***
 

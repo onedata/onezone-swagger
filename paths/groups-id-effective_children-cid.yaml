@@ -10,20 +10,20 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
-    - oz_group_list_groups
+    - oz_groups_view
   summary: Get effective child group details
   x-bash-codegen-description: |
     Returns information about a specific effective child group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_groups' privilege is required.
+    `oz_groups_view` privilege is required.
   description: |
     Returns information about a specific effective child group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_groups' privilege is required.
+    `oz_groups_view` privilege is required.
 
     ***Example cURL requests***
 

@@ -6,11 +6,22 @@ get:
     type: od_space
     id: ?BINDING(id)
     aspect: shares
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_relationships
   summary: List space shares
   x-bash-codegen-description: |
     Returns the list of shares from specific space.
+
+    This operation requires `space_view` privilege.
+    This operation requires membership of given space
+    or `oz_spaces_list_relationships` administrator privilege.
   description: |
     Returns the list of shares from specific space.
+
+    This operation requires `space_view` privilege.
+    This operation requires membership of given space
+    or `oz_spaces_list_relationships` administrator privilege.
 
     ***Example cURL requests***
 

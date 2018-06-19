@@ -8,20 +8,20 @@ get:
     aspect: children
   x-onedata-permissions:
     - group_view
-    - oz_groups_list_groups
+    - oz_groups_list_relationships
   summary: Get subgroups
   x-bash-codegen-description: |
     Returns the list of subgroups of a specific group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_groups' privilege is required.
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the list of subgroups of a specific group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_groups' privilege is required.
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
@@ -82,20 +82,20 @@ post:
     aspect: "child"
   x-onedata-permissions:
     - group_create_child
-    - oz_groups_add_members
+    - oz_groups_add_relationships
   summary: Create child group
   x-bash-codegen-description: |
     Creates a new child group belonging to the group of {id}.
 
     This operation requires `group_create_child` privilege.
     For administrator who does not belong to this group
-    'oz_groups_add_members' privilege is required.
+    'oz_groups_add_relationships' privilege is required.
   description: |
     Creates a new child group belonging to the group of {id}.
 
     This operation requires `group_create_child` privilege.
     For administrator who does not belong to this group
-    'oz_groups_add_members' privilege is required.
+    'oz_groups_add_relationships' privilege is required.
 
     ***Example cURL requests***
 

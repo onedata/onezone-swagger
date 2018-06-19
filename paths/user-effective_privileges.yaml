@@ -6,19 +6,15 @@ get:
     type: od_user
     id: ?CLIENT_ID
     aspect: eff_oz_privileges
-  x-onedata-permissions:
-    - oz_view_privileges
   summary: List current user effective privileges
   x-bash-codegen-description: |
     Returns the list of currently authenticated user effective privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only and requires
-    `oz_view_privileges` administrator privilege.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the list of currently authenticated user effective privileges for Onezone.
 
-    This operation can be invoked on behalf of current user only and requires
-    `oz_view_privileges` administrator privilege.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

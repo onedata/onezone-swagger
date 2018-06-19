@@ -10,15 +10,18 @@ get:
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
+    - oz_groups_view
   summary: Get effective space group details
   x-bash-codegen-description: |
     Returns details about a specific effective group in a space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view` privilege
+    or `oz_groups_view` administrator privilege.
   description: |
     Returns details about a specific effective group in a space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view` privilege
+    or `oz_groups_view` administrator privilege.
 
     ***Example cURL requests***
 

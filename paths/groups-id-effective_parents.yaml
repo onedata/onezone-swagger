@@ -8,15 +8,20 @@ get:
     aspect: eff_parents
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List effective parent groups
   x-bash-codegen-description: |
     Returns the effective parent groups of a specific group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the effective parent groups of a specific group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 

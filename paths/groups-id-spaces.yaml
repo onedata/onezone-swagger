@@ -8,15 +8,20 @@ get:
     aspect: spaces
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List group's spaces
   x-bash-codegen-description: |
     Returns the list of spaces to which the group has access.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the list of spaces to which the group has access.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
@@ -79,15 +84,21 @@ post:
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_create_space
-  summary: Create new space for group
+    - oz_groups_add_relationships
+    - oz_spaces_create
+  summary: Create a new space for given group
   x-bash-codegen-description: |
     Creates a new space for a specific group.
 
     This operation requires `group_create_space` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` and `oz_spaces_create` privileges are required.
   description: |
     Creates a new space for a specific group.
 
     This operation requires `group_create_space` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` and `oz_spaces_create` privileges are required.
 
     ***Example cURL requests***
 

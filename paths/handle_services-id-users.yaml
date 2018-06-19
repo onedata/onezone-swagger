@@ -8,15 +8,18 @@ get:
     aspect: users
   x-onedata-permissions:
     - handle_service_view
+    - oz_handle_services_list_relationships
   summary: Get handle service users
   x-bash-codegen-description: |
     Returns all users with access to a handle service instance
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_list_relationships` administrator privilege.
   description: |
     Returns all users with access to a handle service instance
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_list_relationships` administrator privilege.
 
     ***Example cURL requests***
 

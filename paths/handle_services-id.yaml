@@ -8,17 +8,17 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - oz_handle_services_list
+    - oz_handle_services_view
   summary: Get handle service
   x-bash-codegen-description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_list` administrator privilege or
+    This operation requires `oz_handle_services_view` administrator privilege or
     handle service membership.
   description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_list` administrator privilege or
+    This operation requires `oz_handle_services_view` administrator privilege or
     handle service membership.
 
     ***Example cURL requests***
@@ -94,15 +94,18 @@ patch:
     aspect: instance
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_update
   summary: Modify handle service
   x-bash-codegen-description: |
     Allows to update a registered handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege or
+    `oz_handle_services_update` administrator privilege.
   description: |
     Allows to update a registered handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege or
+    `oz_handle_services_update` administrator privilege.
 
     ***Example cURL requests***
 
@@ -163,15 +166,18 @@ delete:
     aspect: instance
   x-onedata-permissions:
     - handle_service_delete
+    - oz_handle_services_delete
   summary: Unregister handle service
   x-bash-codegen-description: |
     Allows to unregister a registeed handle service.
 
-    This operation requires `handle_service_delete` privilege.
+    This operation requires `handle_service_delete` privilege or
+    `oz_handle_services_delete` administrator privilege.
   description: |
     Allows to unregister a registeed handle service.
 
-    This operation requires `handle_service_delete` privilege.
+    This operation requires `handle_service_delete` privilege or
+    `oz_handle_services_delete` administrator privilege.
 
     ***Example cURL requests***
 

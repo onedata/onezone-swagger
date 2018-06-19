@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of user's spaces that are supported by given effective provider.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the list of user's spaces that are supported by given effective provider.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

@@ -8,15 +8,18 @@ get:
     aspect: eff_groups
   x-onedata-permissions:
     - space_view
+    - oz_spaces_list_relatiosnhips
   summary: List effective space groups
   x-bash-codegen-description: |
     Returns the effective list of groups belonging to a specific space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view` privilege
+    or `oz_spaces_list_relationships` administrator privilege.
   description: |
     Returns the effective list of groups belonging to a specific space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view` privilege
+    or `oz_spaces_list_relationships` administrator privilege.
 
     ***Example cURL requests***
 

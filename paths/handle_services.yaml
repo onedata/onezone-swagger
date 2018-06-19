@@ -70,7 +70,6 @@ post:
   x-onedata-gri:
     type: od_handle_service
     aspect: instance
-  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - oz_handle_services_create
   summary: Add handle service
@@ -82,6 +81,10 @@ post:
     Allows to register a new handle service.
 
     This operation requires `oz_handle_services_create` administrator privilege.
+    
+    See also:  
+    [Create a new handle service for the current user](#operation/add_user_handle_service)  
+    [Create a new handle service for given group](#operation/add_group_handle_service)  
 
     ***Example cURL requests***
 

@@ -8,15 +8,18 @@ get:
     aspect: "{eff_user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_view
+    - oz_handles_view_privileges
   summary: List effective handle user privileges
   x-bash-codegen-description: |
     Returns effective user privileges for accessing a handle instance.
 
-    This operation requires `handle_view` privilege.
+    This operation requires `handle_view` privilege
+    or `oz_handles_view_privileges` administrator privilege.
   description: |
     Returns effective user privileges for accessing a handle instance.
 
-    This operation requires `handle_view` privilege.
+    This operation requires `handle_view` privilege
+    or `oz_handles_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
