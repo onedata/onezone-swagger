@@ -7,18 +7,18 @@ post:
     id: ?BINDING(id)
     aspect: invite_group_token
   x-onedata-permissions:
-    - space_invite_group
+    - space_add_group
     - oz_spaces_add_relationships
   summary: Create space invite token for group
   x-bash-codegen-description: |
     Creates a token allowing to add a group to a specific space.
 
-    This operation requires `space_invite_group` privilege.
+    This operation requires `space_add_group` privilege.
     or `oz_spaces_add_relationships` administrator privilege.
   description: |
     Creates a token allowing to add a group to a specific space.
 
-    This operation requires `space_invite_group` privilege
+    This operation requires `space_add_group` privilege
     or `oz_spaces_add_relationships` administrator privilege.
 
     ***Example cURL requests***

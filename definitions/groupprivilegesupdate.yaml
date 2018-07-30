@@ -6,5 +6,5 @@ allOf:
 example:
   operation: update
   privileges:
-    - group_create_space
+    - group_add_space
     - group_delete

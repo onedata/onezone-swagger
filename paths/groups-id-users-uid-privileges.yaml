@@ -33,9 +33,8 @@ get:
     {
       "privileges": [
         "group_update",
-        "group_create_space",
-        "group_create_space_token",
-        "group_invite_child"
+        "group_add_space",
+        "group_add_child"
       ]
     }
     ```
@@ -112,7 +111,7 @@ patch:
     **Set groups privileges to member of this group**
     ```bash
     curl -H "Content-type: application/json"  -X PATCH \
-    -d '{"privileges": ["group_view", "group_create_space"]}' \
+    -d '{"privileges": ["group_view", "group_add_space"]}' \
     https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges/privileges
     ```
   responses:
