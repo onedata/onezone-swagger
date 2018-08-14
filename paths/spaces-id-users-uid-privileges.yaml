@@ -34,7 +34,7 @@ get:
       "privileges": [
         "space_invite_provider",
         "space_update",
-        "space_invite_group"
+        "space_add_group"
       ]
     }
     ```
