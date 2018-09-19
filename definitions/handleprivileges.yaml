@@ -1,20 +1,8 @@
-type: object
-description: The list of handle privileges.
-properties:
-  privileges:
-    type: array
-    items:
-      type: string
-      enum:
-        - handle_delete
-        - handle_update
-        - handle_view
-required:
-  - privileges
-example:
-  operation:
-    - grant
-  privileges:
+type: array
+description: A list of privileges in the handle.
+items:
+  type: string
+  enum:
     - handle_delete
     - handle_update
     - handle_view

@@ -14,12 +14,12 @@ get:
     Returns all groups with effective access to a handle service instance
 
     This operation requires `handle_service_view` privilege or
-    `oz_handle_services_list_relationships` administrator privilege.
+    `oz_handle_services_list_relationships` admin privilege.
   description: |
     Returns all groups with effective access to a handle service instance
 
     This operation requires `handle_service_view` privilege or
-    `oz_handle_services_list_relationships` administrator privilege.
+    `oz_handle_services_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -65,7 +65,7 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
   x-code-samples:

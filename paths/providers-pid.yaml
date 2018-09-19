@@ -16,7 +16,7 @@ get:
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `oz_providers_view` administrator privilege or
+    This operation requires `oz_providers_view` admin privilege or
     effective membership in space supported by that provider.
   description: |
     Returns the information about a specific Oneprovider service, which is
@@ -24,7 +24,7 @@ get:
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `oz_providers_view` administrator privilege or
+    This operation requires `oz_providers_view` admin privilege or
     effective membership in space supported by that provider.
 
     ***Example cURL requests***
@@ -64,7 +64,7 @@ get:
   parameters:
   - name: pid
     in: path
-    description: Provider ID.
+    description: Provider Id.
     type: string
     required: true
   x-code-samples:
@@ -88,13 +88,13 @@ delete:
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `oz_providers_delete` administrator privilege.
+    This operation requires `oz_providers_delete` admin privilege.
   description: |
     Removes specific Oneprovider from this zone.
 
     If called by other provider doesn't require any special privileges.
 
-    This operation requires `oz_providers_delete` administrator privilege.
+    This operation requires `oz_providers_delete` admin privilege.
 
     ***Example cURL requests***
 
@@ -131,7 +131,7 @@ delete:
   parameters:
   - name: pid
     in: path
-    description: Provider ID.
+    description: Provider Id.
     type: string
     required: true
   x-code-samples:

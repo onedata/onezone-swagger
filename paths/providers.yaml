@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.
 
-    This operation requires `oz_providers_list` administrator privilege.
+    This operation requires `oz_providers_list` admin privilege.
   description: |
     Returns the list of providers registered in the Onezone service.
 
-    This operation requires `oz_providers_list` administrator privilege.
+    This operation requires `oz_providers_list` admin privilege.
 
     ***Example cURL requests***
 
@@ -34,7 +34,7 @@ get:
     - application/json
   responses:
     '200':
-      description: List of providers Id's.
+      description: List of providers Ids.
       schema:
         $ref: '#/definitions/Providers'
     '400':

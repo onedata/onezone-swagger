@@ -3,7 +3,7 @@ description: Space alias.
 properties:
   alias:
     type: string
-    description: Unique ID of the space.
+    description: Unique Id of the space.
 required:
   - alias
 example:

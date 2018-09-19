@@ -14,12 +14,12 @@ get:
     Returns the effective list of groups belonging to a specific space.
 
     This operation requires `space_view` privilege
-    or `oz_spaces_list_relationships` administrator privilege.
+    or `oz_spaces_list_relationships` admin privilege.
   description: |
     Returns the effective list of groups belonging to a specific space.
 
     This operation requires `space_view` privilege
-    or `oz_spaces_list_relationships` administrator privilege.
+    or `oz_spaces_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -39,7 +39,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of effective group ID's that belong to a specific space.
+      description: The list of effective group Ids that belong to a specific space.
       schema:
         $ref: '#/definitions/Groups'
     '400':
@@ -65,7 +65,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:

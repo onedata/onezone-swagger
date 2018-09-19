@@ -70,12 +70,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: sid
     in: path
-    description: Effective space ID.
+    description: Effective space Id.
     type: string
     required: true
   x-code-samples:

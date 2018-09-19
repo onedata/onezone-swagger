@@ -13,12 +13,12 @@ get:
   x-bash-codegen-description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_view` administrator privilege or
+    This operation requires `oz_handle_services_view` admin privilege or
     handle service membership.
   description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_view` administrator privilege or
+    This operation requires `oz_handle_services_view` admin privilege or
     handle service membership.
 
     ***Example cURL requests***
@@ -76,7 +76,7 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
   x-code-samples:
@@ -100,12 +100,12 @@ patch:
     Allows to update a registered handle service.
 
     This operation requires `handle_service_update` privilege or
-    `oz_handle_services_update` administrator privilege.
+    `oz_handle_services_update` admin privilege.
   description: |
     Allows to update a registered handle service.
 
     This operation requires `handle_service_update` privilege or
-    `oz_handle_services_update` administrator privilege.
+    `oz_handle_services_update` admin privilege.
 
     ***Example cURL requests***
 
@@ -143,7 +143,7 @@ patch:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: handleService
@@ -172,12 +172,12 @@ delete:
     Allows to unregister a registeed handle service.
 
     This operation requires `handle_service_delete` privilege or
-    `oz_handle_services_delete` administrator privilege.
+    `oz_handle_services_delete` admin privilege.
   description: |
     Allows to unregister a registeed handle service.
 
     This operation requires `handle_service_delete` privilege or
-    `oz_handle_services_delete` administrator privilege.
+    `oz_handle_services_delete` admin privilege.
 
     ***Example cURL requests***
 
@@ -212,7 +212,7 @@ delete:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
   x-code-samples:

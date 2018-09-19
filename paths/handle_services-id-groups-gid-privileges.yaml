@@ -1,5 +1,5 @@
 get:
-  operationId: list_handle_service_group_privileges
+  operationId: list_group_handle_service_privileges
   tags:
     - Handle Service
   x-onedata-gri:
@@ -9,15 +9,15 @@ get:
   x-onedata-permissions:
     - handle_service_view
     - oz_handle_services_view_privileges
-  summary: List handle service group privileges
+  summary: List group's handle service privileges
   x-bash-codegen-description: |
-    Returns group privileges for accessing a handle service instance.
+    Returns the list of group's (`{gid}`) privileges in a handle service (`{id}`).
 
     This operation requires `handle_service_view` privilege.
     For administrator who does not belong to this group
     `oz_handle_services_view_privileges` privilege is required.
   description: |
-    Returns group privileges for accessing a handle service instance.
+    Returns the list of group's (`{gid}`) privileges in a handle service (`{id}`).
 
     This operation requires `handle_service_view` privilege.
     For administrator who does not belong to this group
@@ -25,14 +25,15 @@ get:
 
     ***Example cURL requests***
 
-    **Get handle service group privileges**
+    **Get group's privileges in a handle service**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     {
       "privileges": [
-        "handle_service_delete",
+        "handle_service_register_handle",
+        "handle_service_update",
         "handle_service_view"
       ]
     }
@@ -41,9 +42,16 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of privileges of a group to a specific handle service.
+      description: The list of group's privileges in the handle service.
       schema:
-        $ref: '#/definitions/HandleServicePrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/HandleServicePrivileges'
+        example:
+          privileges:
+          - handle_service_register_handle
+          - handle_service_update
+          - handle_service_view
     '400':
       description: Invalid request.
       schema:
@@ -67,21 +75,21 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
-      required: true
+      description: Handle service Id.
       type: string
+      required: true
     - name: gid
       in: path
-      description: The ID of the group of a handle service.
-      required: true
+      description: Effective group Id.
       type: string
+      required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli listGroupHandleServicePrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
 patch:
-  operationId: set_handle_service_group_privileges
+  operationId: update_group_handle_service_privileges
   tags:
     - Handle Service
   x-onedata-gri:
@@ -91,33 +99,37 @@ patch:
   x-onedata-permissions:
     - handle_service_update
     - oz_handle_services_set_privileges
-  summary: Set handle service groups privileges
+  summary: Update group's handle service privileges
   x-bash-codegen-description: |
-    Sets group privileges for accessing a handle service instance.
+    Updates child group's (`{gid}`) privileges in a handle service (`{id}`).
 
     This operation requires `handle_service_update` privilege.
     For administrator who does not belong to this group
     `oz_handle_services_set_privileges` privilege is required.
   description: |
-    Sets group privileges for accessing a handle service instance.
+    Updates child group's (`{gid}`) privileges in a handle service (`{id}`).
 
     This operation requires `handle_service_update` privilege.
     For administrator who does not belong to this group
     `oz_handle_services_set_privileges` privilege is required.
 
+    The `grant` field specifies a list of privileges to be granted. The `revoke`
+    field specifies a list of privileges to be revoked. At least one of those
+    fields must be given.
+
     ***Example cURL requests***
 
-    **Set handle service group privileges**
+    **Update group's privileges in a handle service**
     ```bash
     curl -u username:password -X PATCH  -H "Content-type: application/json" \
-    -d '{"privileges": ["handle_service_register_handle"]}' \
+    -d '{"grant": ["handle_service_register_handle"], "revoke": ["handle_service_update"]}' \
     https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: Group privileges updated successfully.
+      description: The privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -141,20 +153,20 @@ patch:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
-      required: true
+      description: Handle service Id.
       type: string
+      required: true
     - name: gid
       in: path
-      description: The ID of the group of a handle service.
-      required: true
+      description: Group Id.
       type: string
+      required: true
     - name: privileges
       in: body
-      description: The list of group privileges to specific handle service.
-      required: true
+      description: Handle service privileges update request.
       schema:
         $ref: '#/definitions/HandleServicePrivilegesUpdate'
+      required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"privileges\": [\"handle_service_register_handle\"]}' | onezone-rest-cli setHandleServiceGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"
+    source: "echo '{\"grant\": [\"handle_service_register_handle\"], \"revoke\": [\"handle_service_update\"]}' | onezone-rest-cli updateGroupHandleServicePrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"

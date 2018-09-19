@@ -68,12 +68,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Parent group ID.
+    description: Parent group Id.
     type: string
     required: true
   x-code-samples:
@@ -140,12 +140,12 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Parent group ID.
+    description: Parent group Id.
     type: string
     required: true
   x-code-samples:

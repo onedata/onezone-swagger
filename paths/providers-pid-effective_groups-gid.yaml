@@ -14,11 +14,11 @@ get:
   x-bash-codegen-description: |
     Returns the details of an effective group of a specific provider.
 
-    This operation requires `oz_groups_view` administrator privilege.
+    This operation requires `oz_groups_view` admin privilege.
   description: |
     Returns the details of an effective group of a specific provider.
 
-    This operation requires `oz_groups_view` administrator privilege.
+    This operation requires `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -37,7 +37,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The group ID.
+      description: The group Id.
       schema:
         $ref: '#/definitions/Group'
     '400':
@@ -62,12 +62,12 @@ get:
         $ref: '#/definitions/Error'
   parameters:
     - name: pid
-      description: Provider ID.
+      description: Provider Id.
       type: string
       in: path
       required: true
     - name: gid
-      description: Group ID.
+      description: Group Id.
       type: string
       in: path
       required: true

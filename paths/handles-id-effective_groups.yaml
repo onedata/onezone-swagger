@@ -1,32 +1,32 @@
 get:
-  operationId: list_handle_groups
+  operationId: list_effective_handle_groups
   tags:
     - Handle
   x-onedata-gri:
     type: od_handle
-    id: ?BINDING(hndl)
-    aspect: groups
+    id: ?BINDING(id)
+    aspect: eff_groups
   x-onedata-permissions:
     - handle_view
     - oz_handles_list_relationships
-  summary: List handle groups
+  summary: Get effective handle groups
   x-bash-codegen-description: |
-    Returns all groups with access to a handle instance
+    Returns effective groups with access to a handle instance.
 
     This operation requires `handle_view` privilege
-    or `oz_handles_list_relationships` administrator privilege.
+    or `oz_handles_list_relationships` admin privilege.
   description: |
-    Returns all groups with access to a handle instance
+    Returns effective groups with access to a handle instance.
 
     This operation requires `handle_view` privilege
-    or `oz_handles_list_relationships` administrator privilege.
+    or `oz_handles_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Get handle groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_groups
 
     {
       "groups": [
@@ -39,7 +39,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of identifiers of groups with access to specific handle.
+      description: The effective list of identifiers of groups with access to specific handle.
       schema:
         $ref: '#/definitions/Groups'
     '400':
@@ -63,11 +63,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: hndl
+    - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle Id.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleGroups hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
+    source: "onezone-rest-cli listEffectiveHandleGroups id=DLAKSHDLKJHJjSADHLKJhlkASHLH"

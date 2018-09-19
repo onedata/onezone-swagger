@@ -9,13 +9,13 @@ get:
     - oz_handles_list
   summary: List handles
   x-bash-codegen-description: |
-    Returns the list of ID's of all handles registered in Onezone.
+    Returns the list of Ids of all handles registered in Onezone.
 
-    This operation requires `oz_handles_list` administrator privilege.
+    This operation requires `oz_handles_list` admin privilege.
   description: |
-    Returns the list of ID's of all handles registered in Onezone.
+    Returns the list of Ids of all handles registered in Onezone.
 
-    This operation requires `oz_handles_list` administrator privilege.
+    This operation requires `oz_handles_list` admin privilege.
 
     ***Example cURL requests***
 
@@ -34,7 +34,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of handle identifiers (Onedata internal GUID's).
+      description: The list of handle identifiers (Onedata internal GUIDs).
       schema:
         $ref: '#/definitions/Handles'
     '400':
@@ -80,7 +80,7 @@ post:
 
     This operation requires `handle_service_register_handle` privilege, which needs to
     be assigned to a specific handle service
-    or `oz_handles_create` administrator privilege.
+    or `oz_handles_create` admin privilege.
   description: |
     Allows to register a new handle identifier, using a specific handle service.
 
@@ -92,7 +92,7 @@ post:
 
     This operation requires `handle_service_register_handle` privilege, which needs to
     be assigned to a specific handle service
-    or `oz_handles_create` administrator privilege.
+    or `oz_handles_create` admin privilege.
 
     ***Example cURL requests***
 

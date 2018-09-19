@@ -62,12 +62,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Effective provider ID.
+    description: Effective provider Id.
     type: string
     required: true
   x-code-samples:

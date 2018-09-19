@@ -40,7 +40,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The effective list of space ID's for which the group has access.
+      description: The effective list of space Ids for which the group has access.
       schema:
         $ref: '#/definitions/Spaces'
     '400':
@@ -66,7 +66,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:

@@ -1,35 +1,37 @@
 get:
-  operationId: list_handle_group_privileges
+  operationId: list_user_handle_privileges
   tags:
     - Handle
   x-onedata-gri:
     type: od_handle
-    id: ?BINDING(hndl)
-    aspect: "{group_privileges, ?BINDING(gid)}"
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_view
     - oz_handles_view_privileges
-  summary: List handle group privileges
+  summary: List user handle privileges
   x-bash-codegen-description: |
-    Returns group privileges for accessing a handle instance.
+    Returns the list of user's (`{uid}`) privileges in a handle (`{id}`).
 
     This operation requires `handle_view` privilege
-    or `oz_handles_view_privileges` administrator privilege.
+    or `oz_handles_view_privileges` admin privilege.
   description: |
-    Returns group privileges for accessing a handle instance.
+    Returns the list of user's (`{uid}`) privileges in a handle (`{id}`).
 
     This operation requires `handle_view` privilege
-    or `oz_handles_view_privileges` administrator privilege.
+    or `oz_handles_view_privileges` admin privilege.
 
     ***Example cURL requests***
 
-    **Get handle group privileges**
+    **Get handle user privileges**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/DLAKSHDLKJHJjSADHLKJhlkASHLH/groups/HJjLHSADHhlkASHDLAKSHDLKJLKJhlk/privileges
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     {
       "privileges": [
+        "handle_delete",
+        "handle_update",
         "handle_view"
       ]
     }
@@ -38,9 +40,16 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of privileges of a group to a specific handle.
+      description: The list of user's privileges in the handle.
       schema:
-        $ref: '#/definitions/HandlePrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/HandleServicePrivileges'
+        example:
+          privileges:
+          - handle_delete
+          - handle_update
+          - handle_view
     '400':
       description: Invalid request.
       schema:
@@ -62,57 +71,61 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: hndl
+    - name: id
       in: path
-      description: The ID of the handle.
+      description: Handle Id.
       required: true
       type: string
-    - name: gid
+    - name: uid
       in: path
-      description: The ID of the group of a handle.
+      description: User Id.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleGroupPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
+    source: "onezone-rest-cli listUserHandlePrivileges id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
 patch:
-  operationId: set_handle_group_privileges
+  operationId: update_handle_user_privileges
   tags:
     - Handle
   x-onedata-gri:
     type: od_handle
-    id: ?BINDING(hndl)
-    aspect: "{group_privileges, ?BINDING(gid)}"
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_update
     - oz_handles_set_privileges
-  summary: Set handle groups privileges
+  summary: Update user handle privileges
   x-bash-codegen-description: |
-    Sets group privileges for accessing a handle instance.
+    Updates child user's (`{uid}`) privileges in a handle (`{id}`).
 
     This operation requires `handle_update` privilege
-    or `oz_handles_set_privileges` administrator privilege.
+    or `oz_handles_set_privileges` admin privilege.
   description: |
-    Sets group privileges for accessing a handle instance.
+    Updates child user's (`{uid}`) privileges in a handle (`{id}`).
 
     This operation requires `handle_update` privilege
-    or `oz_handles_set_privileges` administrator privilege.
+    or `oz_handles_set_privileges` admin privilege.
+
+    The `grant` field specifies a list of privileges to be granted. The `revoke`
+    field specifies a list of privileges to be revoked. At least one of those
+    fields must be given.
 
     ***Example cURL requests***
 
-    **Set handle group privileges**
+    **Update group's privileges in a handle**
     ```bash
     curl -u username:password -X PATCH -H "Content-type: application/json" \
-    -d '{"privileges": ["handle_view_data"]}' \
-    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    -d '{"grant": ["handle_view"], "revoke": ["handle_delete"]}' \
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: Group privileges updated successfully.
+      description: The privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -134,22 +147,22 @@ patch:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: hndl
+    - name: id
       in: path
-      description: The Onedata ID of the handle.
+      description: Handle Id.
       required: true
       type: string
-    - name: gid
+    - name: uid
       in: path
-      description: The ID of the group of a handle.
+      description: User Id.
       required: true
       type: string
     - name: privileges
       in: body
-      description: The list of group privileges to a specific handle.
+      description: Handle privileges update request.
       required: true
       schema:
         $ref: '#/definitions/HandlePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
-    source: "echo '[{\"privileges\": [\"handle_view_data\"]}' | onezone-rest-cli setHandleGroupPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk -"
+    source: "echo '{\"grant\": [\"handle_view\"], \"revoke\": [\"handle_delete\"]}' | onezone-rest-cli updateUserHandlePrivileges id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"

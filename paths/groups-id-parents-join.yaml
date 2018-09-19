@@ -11,7 +11,7 @@ post:
     - oz_groups_add_relationships
   summary: Join parent group
   x-bash-codegen-description: |
-    Adds given group as a subgroup of a specific group based on provided token.
+    Adds given group as a child group of a specific group based on provided token.
 
     The parent group to which the group will be added is identified from the
     token (the token is issued in the context of a group).
@@ -20,7 +20,7 @@ post:
     For administrator who does not belong to this group
     `oz_groups_add_relationships` privilege is required.
   description: |
-    Adds given group as a subgroup of a specific group based on provided token.
+    Adds given group as a child group of a specific group based on provided token.
 
     The parent group to which the group will be added is identified from the token
     (the token is issued in the context of a group).
@@ -70,7 +70,7 @@ post:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: data

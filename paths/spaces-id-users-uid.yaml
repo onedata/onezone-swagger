@@ -68,12 +68,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:
@@ -141,12 +141,12 @@ put:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   - name: privileges
@@ -176,12 +176,12 @@ delete:
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    requires `oz_spaces_add_relationships` and `oz_users_add_relationships` administrator privilege.
+    requires `oz_spaces_add_relationships` and `oz_users_add_relationships` admin privilege.
   description: |
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    requires `oz_spaces_add_relationships` and `oz_users_add_relationships` administrator privilege.
+    requires `oz_spaces_add_relationships` and `oz_users_add_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -194,7 +194,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: User will be removed from space.
+      description: User was removed from space.
     '400':
       description: Invalid request.
       schema:
@@ -218,12 +218,12 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:

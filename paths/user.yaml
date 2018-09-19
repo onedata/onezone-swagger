@@ -145,7 +145,7 @@ delete:
     ```
   responses:
     '204':
-      description: User will be removed.
+      description: User was removed.
     '400':
       description: Invalid request.
       schema:

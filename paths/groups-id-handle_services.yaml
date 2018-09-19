@@ -66,7 +66,7 @@ get:
   parameters:
     - name: id
       in: path
-      description: Group ID.
+      description: Group Id.
       type: string
       required: true
   x-code-samples:
@@ -91,14 +91,14 @@ post:
     Creates a new handle service for given group.
 
     This operation requires `group_create_handle_service` privilege and
-    `oz_handle_services_create` administrator privilege.
+    `oz_handle_services_create` admin privilege.
     For administrator who does not belong to this group
     `oz_handle_services_create` and `oz_groups_add_relationships` privileges are required.
   description: |
     Creates a new handle service for group.
 
     This operation requires `group_create_handle_service` privilege and
-    `oz_handle_services_create` administrator privilege.
+    `oz_handle_services_create` admin privilege.
     For administrator who does not belong to this group
     `oz_handle_services_create` and `oz_groups_add_relationships` privileges are required.
 
@@ -149,7 +149,7 @@ post:
         $ref: '#/definitions/HandleServiceCreateRequest'
     - name: id
       in: path
-      description: Group ID.
+      description: Group Id.
       type: string
       required: true
   x-code-samples:

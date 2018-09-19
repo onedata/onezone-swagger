@@ -15,12 +15,12 @@ get:
     Returns the details about a specific share.
     
     This operation requires `space_view` privilege in space where share is created or
-    `oz_shares_view` administrator privilege.
+    `oz_shares_view` admin privilege.
   description: |
     Returns the details about a specific share.
     
     This operation requires `space_view` privilege in space where share is created or
-    `oz_shares_view` administrator privilege.
+    `oz_shares_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -68,7 +68,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Share ID.
+    description: Share Id.
     type: string
     required: true
   x-code-samples:
@@ -94,14 +94,14 @@ patch:
     Currently this operation allows only to change the name of the share.
 
     This operation requires privilege `space_manage_shares` in space
-    in which the share was created or `oz_shares_update` administrator privilege.
+    in which the share was created or `oz_shares_update` admin privilege.
   description: |
     Updates the details about a share.
 
     Currently this operation allows only to change the name of the share.
 
     This operation requires privilege `space_manage_shares` in space
-    in which the share was created or `oz_shares_update` administrator privilege.
+    in which the share was created or `oz_shares_update` admin privilege.
 
     ***Example cURL requests***
 
@@ -139,7 +139,7 @@ patch:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: data
@@ -173,12 +173,12 @@ delete:
     Removes a specific share.
 
     This operation requires privilege `space_manage_shares` in space
-    in which the share was created or `oz_shares_delete` administrator privilege.
+    in which the share was created or `oz_shares_delete` admin privilege.
   description: |
     Removes a specific share.
 
     This operation requires privilege `space_manage_shares` in space
-    in which the share was created or `oz_shares_delete` administrator privilege.
+    in which the share was created or `oz_shares_delete` admin privilege.
 
     ***Example cURL requests***
 
@@ -213,7 +213,7 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Share ID.
+    description: Share Id.
     type: string
     required: true
   x-code-samples:

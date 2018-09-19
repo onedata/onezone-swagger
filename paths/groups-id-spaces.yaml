@@ -40,7 +40,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of space ID's for which the group has access.
+      description: The list of space Ids for which the group has access.
       schema:
         $ref: '#/definitions/Spaces'
     '400':
@@ -66,7 +66,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
@@ -113,11 +113,11 @@ post:
   responses:
     '204':
       description: >
-        ID of the created space in the form /groups/{id}/spaces/{sid} is
+        Id of the created space in the form /groups/{id}/spaces/{sid} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: ID of the created space.
+          description: Id of the created space.
           type: string
     '400':
       description: Invalid request.
@@ -138,7 +138,7 @@ post:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: spaceName

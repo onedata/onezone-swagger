@@ -16,12 +16,12 @@ get:
     Get details of a group with access to handle service.
 
     This operation requires `handle_service_view` privilege
-    or `oz_groups_view` administrator privilege.
+    or `oz_groups_view` admin privilege.
   description: |
     Get details of a group with access to handle service.
 
     This operation requires `handle_service_view` privilege
-    or `oz_groups_view` administrator privilege.
+    or `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -66,12 +66,12 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: gid
       in: path
-      description: The ID of the group to return information about.
+      description: The Id of the group to return information about.
       required: true
       type: string
   x-code-samples:
@@ -96,12 +96,12 @@ put:
     Allows to add a group to a handle service.
 
     This operation requires `handle_service_update` privilege
-    or `oz_handle_services_add_relationships` and `oz_groups_add_relationships` administrator privilege.
+    or `oz_handle_services_add_relationships` and `oz_groups_add_relationships` admin privilege.
   description: |
     Allows to add a group to a handle service.
 
     This operation requires `handle_service_update` privilege
-    or `oz_handle_services_add_relationships` and `oz_groups_add_relationships` administrator privilege.
+    or `oz_handle_services_add_relationships` and `oz_groups_add_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -144,12 +144,12 @@ put:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: gid
       in: path
-      description: The ID of the group to add to handle service.
+      description: The Id of the group to add to handle service.
       required: true
       type: string
   x-code-samples:
@@ -174,12 +174,12 @@ delete:
     Allows to remove a group from access to a handle service.
 
     This operation requires `handle_service_update` privilege
-    or `oz_handle_services_remove_relationships` and `oz_groups_remove_relationships` administrator privilege.
+    or `oz_handle_services_remove_relationships` and `oz_groups_remove_relationships` admin privilege.
   description: |
     Allows to remove a group from access to a handle service.
 
     This operation requires `handle_service_update` privilege
-    or `oz_handle_services_remove_relationships` and `oz_groups_remove_relationships` administrator privilege.
+    or `oz_handle_services_remove_relationships` and `oz_groups_remove_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -190,7 +190,7 @@ delete:
     ```
   responses:
     '204':
-      description: Group will be removed.
+      description: Group was removed.
     '400':
       description: Invalid request.
       schema:
@@ -214,12 +214,12 @@ delete:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: gid
       in: path
-      description: The ID of the group to remove from handle service.
+      description: The Id of the group to remove from handle service.
       required: true
       type: string
   x-code-samples:

@@ -9,15 +9,15 @@ get:
   x-onedata-permissions:
     - group_view
     - oz_groups_list_relationships
-  summary: Get subgroups
+  summary: Get child groups
   x-bash-codegen-description: |
-    Returns the list of subgroups of a specific group.
+    Returns the list of child groups of a specific group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
     `oz_groups_list_relationships` privilege is required.
   description: |
-    Returns the list of subgroups of a specific group.
+    Returns the list of child groups of a specific group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
@@ -25,7 +25,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get subgroups**
+    **Get child groups**
     ```bash
     curl -u admin:password -X GET \
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children
@@ -38,7 +38,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of subgroup ID's.
+      description: The list of child group Ids.
       schema:
         $ref: '#/definitions/Groups'
     '400':
@@ -64,7 +64,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
@@ -139,7 +139,7 @@ post:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: data

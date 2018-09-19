@@ -35,7 +35,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of space ID's.
+      description: The list of space Ids.
       schema:
         $ref: '#/definitions/Spaces'
     '400':

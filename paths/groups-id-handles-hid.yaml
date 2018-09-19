@@ -82,12 +82,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: hid
     in: path
-    description: Handle ID.
+    description: Handle Id.
     type: string
     required: true
   x-code-samples:
@@ -132,7 +132,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: The handle will be removed from group.
+      description: The handle was removed from group.
     '400':
       description: Invalid request.
       schema:
@@ -156,7 +156,7 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: hid

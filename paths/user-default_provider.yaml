@@ -8,11 +8,11 @@ get:
     aspect: default_provider
   summary: Get default provider
   x-bash-codegen-description: |
-    Returns the ID of the default provider.
+    Returns the Id of the default provider.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Returns the ID of the default provider.
+    Returns the Id of the default provider.
 
     This operation can be invoked on behalf of the current user only.
 
@@ -113,7 +113,7 @@ put:
   parameters:
   - name: defaultprovider
     in: body
-    description: Default provider ID.
+    description: Default provider Id.
     schema:
       $ref: '#/definitions/DefaultProvider'
     required: true

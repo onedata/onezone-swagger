@@ -2,7 +2,7 @@ type: object
 description: Signed certificate for registered provider.
 properties:
   id:
-    description: The ID of the registered provider
+    description: The Id of the registered provider
     type: string
   cert:
     description: The signed certificate to be used when connecting to Onezone services.

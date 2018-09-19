@@ -44,7 +44,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of effective user ID's that belong to a specific group
+      description: The list of effective user Ids that belong to a specific group
       schema:
         $ref: '#/definitions/Users'
     '400':
@@ -70,7 +70,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:

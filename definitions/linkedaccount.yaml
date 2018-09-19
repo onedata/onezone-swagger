@@ -3,10 +3,10 @@ description: User linked account.
 properties:
   idp:
     type: string
-    description: ID of the identity provider.
+    description: Id of the identity provider.
   subjectId:
     type: string
-    description: User ID assigned in identity provider.
+    description: User Id assigned in identity provider.
   login:
     type: string
     description: User login name.

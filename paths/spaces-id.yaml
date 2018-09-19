@@ -66,7 +66,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
@@ -90,12 +90,12 @@ patch:
     Updates the details about a space.
 
     This operation requires `space_update` privilege
-    or `oz_spaces_update` administrator privilege.
+    or `oz_spaces_update` admin privilege.
   description: |
     Updates the details about a space.
 
     This operation requires `space_update` privilege
-    or `oz_spaces_update` administrator privilege.
+    or `oz_spaces_update` admin privilege.
 
     ***Example cURL requests***
 
@@ -133,7 +133,7 @@ patch:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: data
@@ -167,12 +167,12 @@ delete:
     Removes a specific space.
 
     This operation requires `space_delete` privilege
-    or `oz_spaces_delete` administrator privilege.
+    or `oz_spaces_delete` admin privilege.
   description: |
     Removes a specific space.
 
     This operation requires `space_delete` privilege
-    or `oz_spaces_delete` administrator privilege.
+    or `oz_spaces_delete` admin privilege.
 
     ***Example cURL requests***
 
@@ -183,7 +183,7 @@ delete:
     ```
   responses:
     '204':
-      description: The space will be removed.
+      description: The space was removed.
     '400':
       description: Invalid request.
       schema:
@@ -207,7 +207,7 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:

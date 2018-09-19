@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of all groups in the system.
 
-    Requires `oz_groups_list` administrator privilege.
+    Requires `oz_groups_list` admin privilege.
   description: |
     Returns the list of all groups in the system.
 
-    Requires `oz_groups_list` administrator privilege.
+    Requires `oz_groups_list` admin privilege.
 
     ***Example cURL requests***
 
@@ -28,7 +28,7 @@ get:
   responses:
     '200':
       description: >
-        The list of group ID's created within the Onezone service.
+        The list of group Ids created within the Onezone service.
       schema:
         $ref: '#/definitions/Groups'
     '400':

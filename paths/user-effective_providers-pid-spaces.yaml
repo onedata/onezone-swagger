@@ -60,7 +60,7 @@ get:
   parameters:
   - name: pid
     in: path
-    description: Provider ID.
+    description: Provider Id.
     type: string
     required: true
   x-code-samples:

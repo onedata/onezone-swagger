@@ -16,12 +16,12 @@ get:
     Returns details about a specific effective group in a space.
 
     This operation requires `space_view` privilege
-    or `oz_groups_view` administrator privilege.
+    or `oz_groups_view` admin privilege.
   description: |
     Returns details about a specific effective group in a space.
 
     This operation requires `space_view` privilege
-    or `oz_groups_view` administrator privilege.
+    or `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -66,12 +66,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
