@@ -14,7 +14,7 @@ get:
     Returns the list of effective child group's (`{cid}`) privileges in a group (`{id}`).
 
     Effective privileges are a sum of child group's privileges and privileges
-    inherited from its parent group memberhips.
+    inherited from its parent group memberships.
 
     This operation requires `group_view_privileges` privilege.
     For administrator who does not belong to this group
@@ -23,7 +23,7 @@ get:
     Returns the list of effective child group's (`{cid}`) privileges in a group (`{id}`).
 
     Effective privileges are a sum of child group's privileges and privileges
-    inherited from its parent group memberhips.
+    inherited from its parent group memberships.
 
     This operation requires `group_view_privileges` privilege.
     For administrator who does not belong to this group
@@ -31,7 +31,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get effective child group's privileges in a group**
+    **List effective child group's privileges in a group**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges

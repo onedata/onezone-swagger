@@ -25,7 +25,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get group's privileges in a handle service**
+    **List group's privileges in a handle service**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
@@ -101,13 +101,13 @@ patch:
     - oz_handle_services_set_privileges
   summary: Update group's handle service privileges
   x-bash-codegen-description: |
-    Updates child group's (`{gid}`) privileges in a handle service (`{id}`).
+    Updates group's (`{gid}`) privileges in a handle service (`{id}`).
 
     This operation requires `handle_service_update` privilege.
     For administrator who does not belong to this group
     `oz_handle_services_set_privileges` privilege is required.
   description: |
-    Updates child group's (`{gid}`) privileges in a handle service (`{id}`).
+    Updates group's (`{gid}`) privileges in a handle service (`{id}`).
 
     This operation requires `handle_service_update` privilege.
     For administrator who does not belong to this group

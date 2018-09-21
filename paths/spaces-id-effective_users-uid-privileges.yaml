@@ -14,7 +14,7 @@ get:
     Returns the list of effective user's (`{uid}`) privileges in a space (`{id}`).
 
     Effective privileges are a sum of user's privileges and privileges
-    inherited from his group memberhips.
+    inherited from his group memberships.
 
     This operation requires `space_view_privileges` privilege
     or `oz_spaces_view_privileges` admin privilege.
@@ -22,14 +22,14 @@ get:
     Returns the list of effective user's (`{uid}`) privileges in a space (`{id}`).
 
     Effective privileges are a sum of user's privileges and privileges
-    inherited from his group memberhips.
+    inherited from his group memberships.
 
     This operation requires `space_view_privileges` privilege
     or `oz_spaces_view_privileges` admin privilege.
 
     ***Example cURL requests***
 
-    **Get effective user's privileges in a space**
+    **List effective user's privileges in a space**
     ```bash
     curl -u admin:password -X GET \
     https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_users/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
@@ -93,4 +93,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveUserSpacePrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listEffectiveUserSpacePrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"

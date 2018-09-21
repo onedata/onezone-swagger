@@ -20,7 +20,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get group's admin privileges in Onezone**
+    **List group's admin privileges in Onezone**
     ```bash
     curl -u admin:password -X GET \
     https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges

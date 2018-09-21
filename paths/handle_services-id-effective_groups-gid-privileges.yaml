@@ -14,7 +14,7 @@ get:
     Returns the list of effective group's (`{gid}`) privileges in a handle service (`{id}`).
 
     Effective privileges are a sum of group's privileges and privileges
-    inherited from its parent group memberhips.
+    inherited from its parent group memberships.
 
     This operation requires `handle_service_view` privilege
     or `oz_handle_services_view_privileges` admin privilege.
@@ -22,14 +22,14 @@ get:
     Returns the list of effective group's (`{gid}`) privileges in a handle service (`{id}`).
 
     Effective privileges are a sum of group's privileges and privileges
-    inherited from its parent group memberhips.
+    inherited from its parent group memberships.
 
     This operation requires `handle_service_view` privilege
     or `oz_handle_services_view_privileges` admin privilege.
 
     ***Example cURL requests***
 
-    **Get effective group's privileges in a handle service**
+    **List effective group's privileges in a handle service**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges

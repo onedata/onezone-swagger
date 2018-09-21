@@ -23,7 +23,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get group's privileges in a handle**
+    **List group's privileges in a handle**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/handles/DLAKSHDLKJHJjSADHLKJhlkASHLH/groups/HJjLHSADHhlkASHDLAKSHDLKJLKJhlk/privileges
@@ -99,12 +99,12 @@ patch:
     - oz_handles_set_privileges
   summary: Update handle groups privileges
   x-bash-codegen-description: |
-    Updates child group's (`{gid}`) privileges in a handle (`{id}`).
+    Updates group's (`{gid}`) privileges in a handle (`{id}`).
 
     This operation requires `handle_update` privilege
     or `oz_handles_set_privileges` admin privilege.
   description: |
-    Updates child group's (`{gid}`) privileges in a handle (`{id}`).
+    Updates group's (`{gid}`) privileges in a handle (`{id}`).
 
     This operation requires `handle_update` privilege
     or `oz_handles_set_privileges` admin privilege.

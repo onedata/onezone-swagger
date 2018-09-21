@@ -14,7 +14,7 @@ get:
     Returns the list of effective user's (`{uid}`) privileges in a group (`{id}`).
 
     Effective privileges are a sum of user's privileges and privileges
-    inherited from his group memberhips.
+    inherited from his group memberships.
 
     This operation requires `group_view_privileges` privilege.
     For administrator who does not belong to this group
@@ -23,7 +23,7 @@ get:
     Returns the list of effective user's (`{uid}`) privileges in a group (`{id}`).
 
     Effective privileges are a sum of user's privileges and privileges
-    inherited from his group memberhips.
+    inherited from his group memberships.
 
     This operation requires `group_view_privileges` privilege.
     For administrator who does not belong to this group
@@ -31,7 +31,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get effective user's privileges in a group**
+    **List effective user's privileges in a group**
     ```bash
     curl -i -u username:password -X GET \
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges

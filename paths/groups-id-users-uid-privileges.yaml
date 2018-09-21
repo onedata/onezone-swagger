@@ -25,7 +25,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get user's privileges in a group**
+    **List user's privileges in a group**
     ```bash
     curl -u username:password -X GET
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges

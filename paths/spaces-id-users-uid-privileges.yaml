@@ -25,7 +25,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get user's privileges in a space**
+    **List user's privileges in a space**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges

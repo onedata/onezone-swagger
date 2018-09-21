@@ -23,7 +23,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get handle user privileges**
+    **List handle user privileges**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
@@ -99,12 +99,12 @@ patch:
     - oz_handles_set_privileges
   summary: Update user handle privileges
   x-bash-codegen-description: |
-    Updates child user's (`{uid}`) privileges in a handle (`{id}`).
+    Updates user's (`{uid}`) privileges in a handle (`{id}`).
 
     This operation requires `handle_update` privilege
     or `oz_handles_set_privileges` admin privilege.
   description: |
-    Updates child user's (`{uid}`) privileges in a handle (`{id}`).
+    Updates user's (`{uid}`) privileges in a handle (`{id}`).
 
     This operation requires `handle_update` privilege
     or `oz_handles_set_privileges` admin privilege.

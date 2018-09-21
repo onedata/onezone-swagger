@@ -95,9 +95,6 @@ GroupPrivileges:
 GroupPrivilegesUpdate:
   $ref: ./groupprivilegesupdate.yaml
 
-PrivilegesUpdateOperation:
-  $ref: ./privilegesupdateoperation.yaml
-
 AdminPrivileges:
   $ref: ./adminprivileges.yaml
 
