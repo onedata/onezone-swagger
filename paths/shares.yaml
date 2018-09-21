@@ -11,12 +11,12 @@ get:
   x-bash-codegen-description: |
     Returns the list of shares.
 
-    This operation requires administrator privilege `oz_shares_list`.
+    This operation requires admin privilege `oz_shares_list`.
 
   description: |
     Returns the list of shares.
 
-    This operation requires administrator privilege `oz_shares_list`.
+    This operation requires admin privilege `oz_shares_list`.
 
     ***Example cURL requests***
 
@@ -78,12 +78,12 @@ post:
     Creates a new share.
 
     This operation requires privilege `space_manage_shares` in space
-    in which the share is created or `oz_shares_create` administrator privilege.
+    in which the share is created or `oz_shares_create` admin privilege.
   description: |
     Creates a new share.
 
     This operation requires privilege `space_manage_shares` in space
-    in which the share is created or `oz_shares_create` administrator privilege.
+    in which the share is created or `oz_shares_create` admin privilege.
 
     ***Example cURL requests***
 

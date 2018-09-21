@@ -72,7 +72,7 @@ get:
   parameters:
   - name: hsid
     in: path
-    description: Handle service ID.
+    description: Handle service Id.
     type: string
     required: true
   x-code-samples:

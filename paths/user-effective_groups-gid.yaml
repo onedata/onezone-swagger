@@ -61,7 +61,7 @@ get:
   parameters:
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:

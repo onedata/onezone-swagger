@@ -68,12 +68,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: cid
     in: path
-    description: Effective child group ID.
+    description: Effective child group Id.
     type: string
     required: true
   x-code-samples:

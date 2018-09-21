@@ -95,16 +95,12 @@ GroupPrivileges:
 GroupPrivilegesUpdate:
   $ref: ./groupprivilegesupdate.yaml
 
-PrivilegesUpdateOperation:
-  $ref: ./updateprivilegesoperation.yaml
+AdminPrivileges:
+  $ref: ./adminprivileges.yaml
 
-OnezonePrivileges:
-  $ref: ./onezoneprivileges.yaml
+AdminPrivilegesUpdate:
+  $ref: ./adminprivilegesupdate.yaml
 
-OnezonePrivilegesUpdate:
-  $ref: ./onezoneprivilegesupdate.yaml
-
-# Handle definitions
 HandleService:
   $ref: ./handleservice.yaml
 

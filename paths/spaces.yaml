@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of all spaces managed by the Onezone service.
 
-    This operation requires `oz_spaces_list` administrator privilege.
+    This operation requires `oz_spaces_list` admin privilege.
   description: |
     Returns the list of all spaces managed by the Onezone service.
 
-    This operation requires `oz_spaces_list` administrator privilege.
+    This operation requires `oz_spaces_list` admin privilege.
 
     ***Example cURL requests***
 
@@ -35,7 +35,7 @@ get:
     - application/json
   responses:
     '200':
-      description: List of spaces Id's.
+      description: List of spaces Ids.
       schema:
         $ref: '#/definitions/Spaces'
     '400':
@@ -76,11 +76,11 @@ post:
   x-bash-codegen-description: |
     Creates new space.
 
-    This operation requires `oz_spaces_create` administrator privilege.
+    This operation requires `oz_spaces_create` admin privilege.
   description: |
     Creates new space.
 
-    This operation requires `oz_spaces_create` administrator privilege.
+    This operation requires `oz_spaces_create` admin privilege.
     
     See also:  
     [Create a new space for the current user](#operation/create_user_space)  

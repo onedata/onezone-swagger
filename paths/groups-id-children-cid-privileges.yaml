@@ -9,15 +9,15 @@ get:
   x-onedata-permissions:
     - group_view_privileges
     - oz_groups_view_privileges
-  summary: List child group privileges
+  summary: List child's group privileges
   x-bash-codegen-description: |
-    Returns the list of child group privileges in a specific group.
+    Returns the list of child group's (`{cid}`) privileges in a group (`{id}`).
 
     This operation requires `group_view_privileges` privilege.
     For administrator who does not belong to this group
     `oz_groups_view_privileges` privilege is required.
   description: |
-    Returns the list of child group privileges in a specific group.
+    Returns the list of child group's (`{cid}`) privileges in a group (`{id}`).
 
     This operation requires `group_view_privileges` privilege.
     For administrator who does not belong to this group
@@ -25,14 +25,18 @@ get:
 
     ***Example cURL requests***
 
-    **Get child group privileges in a group**
+    **List child group's privileges in a group**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/FX2GVC8lKEasj4q253sptVqF8HwUpk8jrwxKOe45uzL/privileges
 
     {
       "privileges": [
-        "group_view"
+        "group_view",
+        "group_update",
+        "group_delete",
+        "group_view_privileges",
+        "group_set_privileges"
       ]
     }
     ```
@@ -40,9 +44,18 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of child group privileges in a group.
+      description: The list of child group's privileges in the group.
       schema:
-        $ref: '#/definitions/GroupPrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/GroupPrivileges'
+        example:
+          privileges:
+          - group_view
+          - group_update
+          - group_delete
+          - group_view_privileges
+          - group_set_privileges
     '400':
       description: Invalid request.
       schema:
@@ -66,12 +79,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: cid
     in: path
-    description: Child group ID.
+    description: Child group Id.
     type: string
     required: true
   x-code-samples:
@@ -80,7 +93,7 @@ get:
 
 
 patch:
-  operationId: set_child_group_privileges
+  operationId: update_child_group_privileges
   tags:
     - Group
   x-onedata-gri:
@@ -90,32 +103,35 @@ patch:
   x-onedata-permissions:
     - group_set_privileges
     - oz_groups_set_privileges
-  summary: Set subgroup privileges
+  summary: Update child's group privileges
   x-bash-codegen-description: |
-    Sets privileges for a specific subgroup in a group.
+    Updates child group's (`{cid}`) privileges in a group (`{id}`).
 
     This operation requires `group_set_privileges` privilege.
     For administrator who does not belong to this group
     `oz_groups_set_privileges` privilege is required.
   description: |
-    Sets privileges for a specific subgroup in a group.
+    Updates child group's (`{cid}`) privileges in a group (`{id}`).
 
     This operation requires `group_set_privileges` privilege.
     For administrator who does not belong to this group
     `oz_groups_set_privileges` privilege is required.
 
+    The `grant` field specifies a list of privileges to be granted. The `revoke`
+    field specifies a list of privileges to be revoked. At least one of those
+    fields must be given.
+
     ***Example cURL requests***
 
-    **Set subgroup privileges in a group**
-
+    **Update child group's privileges in a group**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PATCH \
-    -d '{"privileges": ["group_view"]}' \
+    -d '{"grant": ["group_view", "group_update"], "revoke": ["group_delete"]}' \
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
     '204':
-      description: The group privileges have been set.
+      description: The privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -139,20 +155,20 @@ patch:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: cid
     in: path
-    description: Child group ID.
+    description: Child group Id.
     type: string
     required: true
   - name: data
     in: body
-    description: Child group privileges.
+    description: Group privileges update request.
     schema:
       $ref: '#/definitions/GroupPrivilegesUpdate'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"privileges\": [\"group_update\", \"group_view\"]}' | onezone-rest-cli setChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG -"
+    source: "echo '{\"grant\": [\"group_view\", \"group_update\"], \"revoke\": [\"group_delete\"]}' | onezone-rest-cli updateChildGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG -"

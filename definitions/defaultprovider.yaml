@@ -3,7 +3,7 @@ description: Default provider Id.
 properties:
   providerId:
     type: string
-    description: The ID of the default user provider.
+    description: The Id of the default user provider.
 required:
   - providerId
 example:

@@ -3,13 +3,13 @@ description: Handle properties.
 properties:
   handle:
     type: string
-    description: Unique ID of the handle as registered in the handle service.
+    description: Unique Id of the handle as registered in the handle service.
   handleId:
     type: string
-    description: Unique ID of the handle in Onedata.
+    description: Unique Id of the handle in Onedata.
   handleServiceId:
     type: string
-    description: ID of the service where the handle was registered.
+    description: Id of the service where the handle was registered.
   resourceType:
     type: string
     description: The type of resource to be registered.

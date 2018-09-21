@@ -566,60 +566,60 @@
 
 
 ###############################################################################
-# Handle services
+# Handles
 ###############################################################################
 
 /handles:
   $ref: ./handles.yaml
 
 
-/handles/{hndl}:
-  $ref: ./handles-hndl.yaml
+/handles/{id}:
+  $ref: ./handles-id.yaml
 
 
-/handles/{hndl}/users:
-  $ref: ./handles-hndl-users.yaml
+/handles/{id}/users:
+  $ref: ./handles-id-users.yaml
 
 
-/handles/{hndl}/users/{uid}:
-  $ref: ./handles-hndl-users-uid.yaml
+/handles/{id}/users/{uid}:
+  $ref: ./handles-id-users-uid.yaml
 
 
-/handles/{hndl}/users/{uid}/privileges:
-  $ref: ./handles-hndl-users-uid-privileges.yaml
+/handles/{id}/users/{uid}/privileges:
+  $ref: ./handles-id-users-uid-privileges.yaml
 
 
-/handles/{hndl}/effective_users:
-  $ref: ./handles-hndl-effective_users.yaml
+/handles/{id}/effective_users:
+  $ref: ./handles-id-effective_users.yaml
 
 
-/handles/{hndl}/effective_users/{uid}:
-  $ref: ./handles-hndl-effective_users-uid.yaml
+/handles/{id}/effective_users/{uid}:
+  $ref: ./handles-id-effective_users-uid.yaml
 
 
-/handles/{hndl}/effective_users/{uid}/privileges:
-  $ref: ./handles-hndl-effective_users-uid-privileges.yaml
+/handles/{id}/effective_users/{uid}/privileges:
+  $ref: ./handles-id-effective_users-uid-privileges.yaml
 
 
-/handles/{hndl}/groups:
-  $ref: ./handles-hndl-groups.yaml
+/handles/{id}/groups:
+  $ref: ./handles-id-groups.yaml
 
 
-/handles/{hndl}/groups/{gid}:
-  $ref: ./handles-hndl-groups-gid.yaml
+/handles/{id}/groups/{gid}:
+  $ref: ./handles-id-groups-gid.yaml
 
 
-/handles/{hndl}/groups/{gid}/privileges:
-  $ref: ./handles-hndl-groups-gid-privileges.yaml
+/handles/{id}/groups/{gid}/privileges:
+  $ref: ./handles-id-groups-gid-privileges.yaml
 
 
-/handles/{hndl}/effective_groups:
-  $ref: ./handles-hndl-effective_groups.yaml
+/handles/{id}/effective_groups:
+  $ref: ./handles-id-effective_groups.yaml
 
 
-/handles/{hndl}/effective_groups/{gid}:
-  $ref: ./handles-hndl-effective_groups-gid.yaml
+/handles/{id}/effective_groups/{gid}:
+  $ref: ./handles-id-effective_groups-gid.yaml
 
 
-/handles/{hndl}/effective_groups/{gid}/privileges:
-  $ref: ./handles-hndl-effective_groups-gid-privileges.yaml
+/handles/{id}/effective_groups/{gid}/privileges:
+  $ref: ./handles-id-effective_groups-gid-privileges.yaml

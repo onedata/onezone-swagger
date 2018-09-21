@@ -1,35 +1,42 @@
 get:
-  operationId: list_effective_handle_user_privileges
+  operationId: list_effective_user_handle_privileges
   tags:
     - Handle
   x-onedata-gri:
     type: od_handle
-    id: ?BINDING(hndl)
+    id: ?BINDING(id)
     aspect: "{eff_user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_view
     - oz_handles_view_privileges
-  summary: List effective handle user privileges
+  summary: List effective user's handle privileges
   x-bash-codegen-description: |
-    Returns effective user privileges for accessing a handle instance.
+    Returns the list of effective user's (`{uid}`) privileges in a handle (`{id}`).
+
+    Effective privileges are a sum of user's privileges and privileges
+    inherited from his group memberships.
 
     This operation requires `handle_view` privilege
-    or `oz_handles_view_privileges` administrator privilege.
+    or `oz_handles_view_privileges` admin privilege.
   description: |
-    Returns effective user privileges for accessing a handle instance.
+    Returns the list of effective user's (`{uid}`) privileges in a handle (`{id}`).
+
+    Effective privileges are a sum of user's privileges and privileges
+    inherited from his group memberships.
 
     This operation requires `handle_view` privilege
-    or `oz_handles_view_privileges` administrator privilege.
+    or `oz_handles_view_privileges` admin privilege.
 
     ***Example cURL requests***
 
-    **Get effective handle user privileges**
+    **List effective user's privileges in a handle**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
 
     {
       "privileges": [
+        "handle_delete",
         "handle_update",
         "handle_view"
       ]
@@ -39,9 +46,16 @@ get:
     - application/json
   responses:
     '200':
-      description: The effective list of privileges of a user to a specific handle.
+      description: The list of effective user's privileges in the handle.
       schema:
-        $ref: '#/definitions/HandlePrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/HandleServicePrivileges'
+        example:
+          privileges:
+          - handle_delete
+          - handle_update
+          - handle_view
     '400':
       description: Invalid request.
       schema:
@@ -63,16 +77,16 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: hndl
+    - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the effective user of a handle.
+      description: User Id.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveHandleUserPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli listEffectiveUserHandlePrivileges id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

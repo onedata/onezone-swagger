@@ -16,12 +16,12 @@ get:
     Returns the details of a specific handle registered by handle service.
 
     This operation requires `handle_service_view` privilege or
-    `oz_handles_view` administrator privilege.
+    `oz_handles_view` admin privilege.
   description: |
     Returns the details of a specific handle registered by handle service.
 
     This operation requires `handle_service_view` privilege
-    or `oz_handles_view` administrator privilege.
+    or `oz_handles_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -53,7 +53,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of handle identifiers (Onedata internal GUID's).
+      description: The list of handle identifiers (Onedata internal GUIDs).
       schema:
         $ref: '#/definitions/Handle'
     '400':
@@ -79,12 +79,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: The ID of the handle service.
+    description: Handle service Id.
     required: true
     type: string
   - name: hid
     in: path
-    description: The ID of the handle.
+    description: Handle Id.
     required: true
     type: string
   x-code-samples:

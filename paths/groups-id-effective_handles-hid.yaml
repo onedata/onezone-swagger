@@ -82,12 +82,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: hid
     in: path
-    description: Handle ID.
+    description: Handle Id.
     type: string
     required: true
   x-code-samples:

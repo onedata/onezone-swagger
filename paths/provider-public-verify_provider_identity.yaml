@@ -57,7 +57,7 @@ post:
       properties:
         providerId:
           type: string
-          description: Provider ID.
+          description: Provider Id.
         macaroon:
           type: string
           description: Provider identity macaroon.

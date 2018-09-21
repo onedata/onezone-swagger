@@ -72,7 +72,7 @@ get:
   parameters:
   - name: hsid
     in: path
-    description: Handle service ID.
+    description: Handle service Id.
     type: string
     required: true
   x-code-samples:
@@ -109,7 +109,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: The handle service will be removed.
+      description: The handle service was removed.
     '400':
       description: Invalid request.
       schema:

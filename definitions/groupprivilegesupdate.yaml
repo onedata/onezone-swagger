@@ -1,10 +1,20 @@
 type: object
-description: Update group privileges request.
-allOf:
-  - $ref: '#/definitions/PrivilegesUpdateOperation'
-  - $ref: '#/definitions/GroupPrivileges'
+description: Group privileges update request.
+properties:
+  grant:
+    $ref: '#/definitions/GroupPrivileges'
+  revoke:
+    $ref: '#/definitions/GroupPrivileges'
+
 example:
-  operation: update
-  privileges:
-    - group_add_space
+  grant:
+    - group_view
+    - group_update
     - group_delete
+    - group_view_privileges
+    - group_set_privileges
+  revoke:
+    - group_add_parent
+    - group_leave_parent
+    - group_add_child
+    - group_remove_child

@@ -3,7 +3,7 @@ description: Describes a user account.
 properties:
   userId:
     type: string
-    description: Unique user ID.
+    description: Unique user Id.
   name:
     type: string
     description: The user friendly name of storage resource.

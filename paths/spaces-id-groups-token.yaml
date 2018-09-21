@@ -14,12 +14,12 @@ post:
     Creates a token allowing to add a group to a specific space.
 
     This operation requires `space_add_group` privilege.
-    or `oz_spaces_add_relationships` administrator privilege.
+    or `oz_spaces_add_relationships` admin privilege.
   description: |
     Creates a token allowing to add a group to a specific space.
 
     This operation requires `space_add_group` privilege
-    or `oz_spaces_add_relationships` administrator privilege.
+    or `oz_spaces_add_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -62,7 +62,7 @@ post:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:

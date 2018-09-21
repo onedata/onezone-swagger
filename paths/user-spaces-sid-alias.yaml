@@ -57,7 +57,7 @@ get:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
@@ -121,7 +121,7 @@ put:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: data
@@ -164,7 +164,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: The space alias will be removed.
+      description: The space alias was removed.
     '400':
       description: Invalid request.
       schema:

@@ -68,12 +68,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:

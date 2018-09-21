@@ -42,7 +42,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of all provider ID's that support a specific space.
+      description: The list of all provider Ids that support a specific space.
       schema:
         $ref: '#/definitions/Providers'
     '400':
@@ -68,7 +68,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:

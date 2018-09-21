@@ -1,5 +1,5 @@
 get:
-  operationId: list_effective_space_group_privileges
+  operationId: list_effective_group_space_privileges
   tags:
     - Space
   x-onedata-gri:
@@ -9,28 +9,38 @@ get:
   x-onedata-permissions:
     - space_view_privileges
     - oz_spaces_view_privileges
-  summary: List effective group privileges to space
+  summary: List effective group's space privileges
   x-bash-codegen-description: |
-    Returns privileges for an effective group to a specific space.
+    Returns the list of effective group's (`{gid}`) privileges in a space (`{id}`).
+
+    Effective privileges are a sum of group's privileges and privileges
+    inherited from its parent group memberships.
 
     This operation requires `space_view_privileges` privilege
-    or `oz_spaces_view_privileges` administrator privilege.
+    or `oz_spaces_view_privileges` admin privilege.
   description: |
-    Returns privileges for an effective group to a specific space.
+    Returns the list of effective group's (`{gid}`) privileges in a space (`{id}`).
+
+    Effective privileges are a sum of group's privileges and privileges
+    inherited from its parent group memberships.
 
     This operation requires `space_view_privileges` privilege
-    or `oz_spaces_view_privileges` administrator privilege.
+    or `oz_spaces_view_privileges` admin privilege.
 
     ***Example cURL requests***
 
-    **Get effective space group privileges**
+    **List effective groups's privileges in a space**
     ```bash
     curl -u admin:password -X GET \
     https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
 
     {
       "privileges": [
-        "space_view"
+        "space_view",
+        "space_update",
+        "space_delete",
+        "space_view_privileges",
+        "space_set_privileges"
       ]
     }
     ```
@@ -38,9 +48,18 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of group privileges in a space.
+      description: The list of effective group's privileges in the space.
       schema:
-        $ref: '#/definitions/SpacePrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/SpacePrivileges'
+        example:
+          privileges:
+          - space_view
+          - space_update
+          - space_delete
+          - space_view_privileges
+          - space_set_privileges
     '400':
       description: Invalid request.
       schema:
@@ -64,14 +83,14 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveSpaceGroupPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listEffectiveGroupSpacePrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"

@@ -16,12 +16,12 @@ get:
     Allows to get a user to a handle service.
 
     This operation requires `handle_service_view` privilege
-    or `oz_users_view` administrator privilege.
+    or `oz_users_view` admin privilege.
   description: |
     Allows to get a user to a handle service.
 
     This operation requires `handle_service_view` privilege
-    or `oz_users_view` administrator privilege.
+    or `oz_users_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -66,12 +66,12 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to return information about.
+      description: The Id of the user to return information about.
       required: true
       type: string
   x-code-samples:

@@ -40,12 +40,12 @@ get:
         type: object
         properties:
           spaces:
-            description: The list of all user spaces ID's.
+            description: The list of all user spaces Ids.
             type: array
             items:
               type: string
           default:
-            description: The ID of the default user space.
+            description: The Id of the default user space.
             type: string
     '400':
       description: Invalid request.
@@ -139,4 +139,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createUserSpace name==test_space token==JKAxNWxUgPCAxNDk2MTQwMTQ0v38YI0Z2 size:=1024"
+    source: "onezone-rest-cli createUserSpace name==test_space"

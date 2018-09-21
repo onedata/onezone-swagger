@@ -9,15 +9,21 @@ get:
   x-onedata-permissions:
     - group_view_privileges
     - oz_groups_view_privileges
-  summary: List effective child group privileges
+  summary: List effective child's group privileges
   x-bash-codegen-description: |
-    Returns the list of effective child group privileges in a specific group.
+    Returns the list of effective child group's (`{cid}`) privileges in a group (`{id}`).
+
+    Effective privileges are a sum of child group's privileges and privileges
+    inherited from its parent group memberships.
 
     This operation requires `group_view_privileges` privilege.
     For administrator who does not belong to this group
     `oz_groups_view_privileges` privilege is required.
   description: |
-    Returns the list of effective child group privileges in a specific group.
+    Returns the list of effective child group's (`{cid}`) privileges in a group (`{id}`).
+
+    Effective privileges are a sum of child group's privileges and privileges
+    inherited from its parent group memberships.
 
     This operation requires `group_view_privileges` privilege.
     For administrator who does not belong to this group
@@ -25,14 +31,18 @@ get:
 
     ***Example cURL requests***
 
-    **Get child group privileges in a group**
+    **List effective child group's privileges in a group**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
 
     {
       "privileges": [
-        "group_view"
+        "group_view",
+        "group_update",
+        "group_delete",
+        "group_view_privileges",
+        "group_set_privileges"
       ]
     }
     ```
@@ -40,9 +50,18 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of effective child group privileges in a group.
+      description: The list of effective child group's privileges in the group.
       schema:
-        $ref: '#/definitions/GroupPrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/GroupPrivileges'
+        example:
+          privileges:
+          - group_view
+          - group_update
+          - group_delete
+          - group_view_privileges
+          - group_set_privileges
     '400':
       description: Invalid request.
       schema:
@@ -66,12 +85,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: cid
     in: path
-    description: Effective child group ID.
+    description: Effective child group Id.
     type: string
     required: true
   x-code-samples:

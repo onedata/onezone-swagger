@@ -75,7 +75,7 @@ get:
   parameters:
   - name: hid
     in: path
-    description: Handle ID.
+    description: Handle Id.
     type: string
     required: true
   x-code-samples:

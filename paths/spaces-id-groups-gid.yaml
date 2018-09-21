@@ -68,12 +68,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
@@ -140,12 +140,12 @@ put:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: privileges
@@ -196,7 +196,7 @@ delete:
     ```
   responses:
     '204':
-      description: A group will be removed from space.
+      description: A group was removed from space.
     '400':
       description: Invalid request.
       schema:
@@ -220,12 +220,12 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:

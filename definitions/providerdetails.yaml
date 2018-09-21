@@ -3,7 +3,7 @@ description: Provider properties.
 properties:
   providerId:
     type: string
-    description: The provider ID.
+    description: The provider Id.
   name:
     type: string
     description: Provider name.

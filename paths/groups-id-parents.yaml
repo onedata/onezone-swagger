@@ -38,7 +38,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of parent group ID's.
+      description: The list of parent group Ids.
       schema:
         $ref: '#/definitions/Groups'
     '400':
@@ -64,7 +64,7 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
@@ -142,7 +142,7 @@ post:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: group

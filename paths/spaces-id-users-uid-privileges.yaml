@@ -1,5 +1,5 @@
 get:
-  operationId: list_space_user_privileges
+  operationId: list_user_space_privileges
   tags:
     - Space
   x-onedata-gri:
@@ -9,15 +9,15 @@ get:
   x-onedata-permissions:
     - space_view_privileges
     - oz_spaces_view_privileges
-  summary: List user privileges to space
+  summary: List user's space privileges
   x-bash-codegen-description: |
-    Returns privileges of a user to a specific space.
+    Returns the list of user's (`{uid}`) privileges in a space (`{id}`).
 
     This operation requires `space_view_privileges` privilege.
     For administrators who do not have to be members of this space,
     `oz_spaces_view_privileges` privilege is required.
   description: |
-    Returns privileges of a user to a specific space.
+    Returns the list of user's (`{uid}`) privileges in a space (`{id}`).
 
     This operation requires `space_view_privileges` privilege.
     For administrators who do not have to be members of this space,
@@ -25,16 +25,18 @@ get:
 
     ***Example cURL requests***
 
-    **Get user privileges to space**
+    **List user's privileges in a space**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
 
     {
       "privileges": [
-        "space_invite_provider",
+        "space_view",
         "space_update",
-        "space_add_group"
+        "space_delete",
+        "space_view_privileges",
+        "space_set_privileges"
       ]
     }
     ```
@@ -42,9 +44,18 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of user privileges in a space.
+      description: The list of user's privileges in the space.
       schema:
-        $ref: '#/definitions/SpacePrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/SpacePrivileges'
+        example:
+          privileges:
+          - space_view
+          - space_update
+          - space_delete
+          - space_view_privileges
+          - space_set_privileges
     '400':
       description: Invalid request.
       schema:
@@ -68,21 +79,21 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listUserSpacePrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 
 
 patch:
-  operationId: set_space_user_privileges
+  operationId: update_user_space_privileges
   tags:
     - Space
   x-onedata-gri:
@@ -92,31 +103,35 @@ patch:
   x-onedata-permissions:
     - space_set_privileges
     - oz_set_privileges
-  summary: Set user privileges to space
+  summary: Update user's space privileges
   x-bash-codegen-description: |
-    Sets privileges for a user to a space.
+    Updates user's (`{uid}`) privileges in a space (`{id}`).
 
     This operation requires `space_set_privileges` privilege.
     For administrators who do not have to be members of this space,
     `oz_spaces_set_privileges` privilege is required.
   description: |
-    Sets privileges for a user to a space.
+    Updates user's (`{uid}`) privileges in a space (`{id}`).
 
     This operation requires `space_set_privileges` privilege.
     For administrators who do not have to be members of this space,
     `oz_spaces_set_privileges` privilege is required.
 
+    The `grant` field specifies a list of privileges to be granted. The `revoke`
+    field specifies a list of privileges to be revoked. At least one of those
+    fields must be given.
+
     ***Example cURL requests***
 
-    **Set user privileges to space**
+    **Update user's privileges in a space**
     ```bash
     curl -i -k -u admin:password -X PATCH \
-    -d '{"privileges":["space_invite_provider","space_update"]}' \
+    -d '{"grant": ["space_view", "space_update"], "revoke": ["space_delete"]}' \
     https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
     ```
   responses:
     '204':
-      description: The user privileges have been updated.
+      description: The privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -140,20 +155,20 @@ patch:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   - name: data
     in: body
-    description: Space privileges.
+    description: Space privileges update request.
     schema:
       $ref: '#/definitions/SpacePrivilegesUpdate'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"space_view\"]' | onezone-rest-cli setSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
+    source: "echo '{\"grant\": [\"space_view\", \"space_update\"], \"revoke\": [\"space_delete\"]}' | onezone-rest-cli updateUserSpacePrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"

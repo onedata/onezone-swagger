@@ -62,7 +62,7 @@ get:
 
 
 post:
-  operationId: create_group_for_user
+  operationId: create_user_group
   tags:
     - User
   x-onedata-gri:
@@ -129,4 +129,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroupForUser name==Group1 type==team"
+    source: "onezone-rest-cli createUserGroup name==Group1 type==team"

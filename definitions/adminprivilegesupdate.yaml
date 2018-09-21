@@ -1,0 +1,27 @@
+type: object
+description: Admin privileges update request.
+properties:
+  grant:
+    $ref: '#/definitions/AdminPrivileges'
+  revoke:
+    $ref: '#/definitions/AdminPrivileges'
+
+example:
+  grant:
+    - oz_groups_add_relationships
+    - oz_groups_remove_relationships
+    - oz_groups_view_privileges
+    - oz_groups_set_privileges
+    - oz_groups_list
+    - oz_groups_view
+    - oz_groups_list_relationships
+    - oz_spaces_create
+    - oz_spaces_update
+  revoke:
+    - oz_providers_list
+    - oz_providers_view
+    - oz_providers_update
+    - oz_providers_delete
+    - oz_providers_invite
+    - oz_providers_list_relationships
+    - oz_handle_services_create

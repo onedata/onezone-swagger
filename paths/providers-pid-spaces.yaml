@@ -12,11 +12,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `oz_providers_list_relationships` administrator privilege.
+    This operation requires `oz_providers_list_relationships` admin privilege.
   description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `oz_providers_list_relationships` administrator privilege.
+    This operation requires `oz_providers_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -36,7 +36,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of space ID's.
+      description: The list of space Ids.
       schema:
         $ref: '#/definitions/Spaces'
     '400':
@@ -61,7 +61,7 @@ get:
         $ref: '#/definitions/Error'
   parameters:
     - name: pid
-      description: Provider ID.
+      description: Provider Id.
       type: string
       in: path
       required: true

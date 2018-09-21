@@ -65,7 +65,7 @@ get:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
@@ -126,7 +126,7 @@ patch:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
@@ -187,7 +187,7 @@ delete:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:

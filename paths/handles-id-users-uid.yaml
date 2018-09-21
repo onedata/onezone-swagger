@@ -7,7 +7,7 @@ get:
     id: ?BINDING(uid)
     aspect: instance
     scope: shared
-  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(id))
   x-onedata-permissions:
     - handle_view
     - oz_users_view
@@ -16,12 +16,12 @@ get:
     Allows to add a user to a handle.
 
     This operation requires `handle_view` privilege
-    or `oz_users_view` administrator privilege.
+    or `oz_users_view` admin privilege.
   description: |
     Allows to add a user to a handle.
 
     This operation requires `handle_view` privilege
-    or `oz_users_view` administrator privilege.
+    or `oz_users_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -64,19 +64,19 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: hndl
+    - name: id
       in: path
-      description: The ID of the handle.
+      description: Handle Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to add to handle.
+      description: The Id of the user to add to handle.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli getHandleUser id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
 put:
@@ -85,7 +85,7 @@ put:
     - Handle
   x-onedata-gri:
     type: od_handle
-    id: ?BINDING(hndl)
+    id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_update
@@ -96,12 +96,12 @@ put:
     Allows to add a user to a handle.
 
     This operation requires `handle_update` privilege
-    or `oz_handles_add_relationships` and `oz_users_add_relationships` administrator privilege.
+    or `oz_handles_add_relationships` and `oz_users_add_relationships` admin privilege.
   description: |
     Allows to add a user to a handle.
 
     This operation requires `handle_update` privilege
-    or `oz_handles_add_relationships` and `oz_users_add_relationships` administrator privilege.
+    or `oz_handles_add_relationships` and `oz_users_add_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -115,7 +115,7 @@ put:
   responses:
     '201':
       description: >
-        URI of the added user in form https://$HOST/api/onezone/v3/handles/{hndl}/users/{uid} is
+        URI of the added user in form https://$HOST/api/onezone/v3/handles/{id}/users/{uid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -142,19 +142,19 @@ put:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: hndl
+    - name: id
       in: path
-      description: The ID of the handle.
+      description: Handle Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to add to handle.
+      description: The Id of the user to add to handle.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli addHandleUser id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
 
 
 delete:
@@ -163,7 +163,7 @@ delete:
     - Handle
   x-onedata-gri:
     type: od_handle
-    id: ?BINDING(hndl)
+    id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_update
@@ -174,12 +174,12 @@ delete:
     Allows to revoke users access to a handle.
 
     This operation requires `handle_update` privilege
-    or `oz_handles_remove_relationships` and `oz_users_remove_relationships` administrator privilege.
+    or `oz_handles_remove_relationships` and `oz_users_remove_relationships` admin privilege.
   description: |
     Allows to revoke users access to a handle.
 
     This operation requires `handle_update` privilege
-    or `oz_handles_remove_relationships` and `oz_users_remove_relationships` administrator privilege.
+    or `oz_handles_remove_relationships` and `oz_users_remove_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -190,7 +190,7 @@ delete:
     ```
   responses:
     '204':
-      description: User will be removed.
+      description: User was removed.
     '400':
       description: Invalid request.
       schema:
@@ -212,16 +212,16 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: hndl
+    - name: id
       in: path
-      description: The ID of the handle.
+      description: Handle Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to remove from handle.
+      description: The Id of the user to remove from handle.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli removeHandleUser id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

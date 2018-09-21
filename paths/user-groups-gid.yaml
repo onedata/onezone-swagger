@@ -61,7 +61,7 @@ get:
   parameters:
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
@@ -98,7 +98,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: The user will be removed from group.
+      description: The user was removed from group.
     '400':
       description: Invalid request.
       schema:
@@ -122,7 +122,7 @@ delete:
   parameters:
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:

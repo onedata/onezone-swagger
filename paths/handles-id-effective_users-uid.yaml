@@ -7,7 +7,7 @@ get:
     id: ?BINDING(uid)
     aspect: instance
     scope: shared
-  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(id))
   x-onedata-permissions:
     - handle_view
     - oz_users_view
@@ -16,12 +16,12 @@ get:
     Returns effective handle user details.
 
     This operation requires `handle_view` privilege
-    or `oz_users_view` administrator privilege.
+    or `oz_users_view` admin privilege.
   description: |
     Returns effective handle user details.
 
     This operation requires `handle_view` privilege
-    or `oz_users_view` administrator privilege.
+    or `oz_users_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -64,16 +64,16 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: hndl
+    - name: id
       in: path
-      description: The ID of the handle.
+      description: Handle Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to add to handle.
+      description: The Id of the user to add to handle.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli getEffectiveHandleUser id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

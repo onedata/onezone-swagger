@@ -68,12 +68,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:
@@ -99,14 +99,14 @@ put:
     Optionally, user privileges in this group can be specified
     in the request body.
 
-    This operation requires `oz_groups_add_relationships` and `oz_users_add_relationships` administrator privileges.
+    This operation requires `oz_groups_add_relationships` and `oz_users_add_relationships` admin privileges.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
     Optionally, user privileges in this group can be specified
     in the request body.
 
-    This operation requires `oz_groups_add_relationships` administrator privilege.
+    This operation requires `oz_groups_add_relationships` admin privilege.
 
     ***Example cURL requests***
 
@@ -149,12 +149,12 @@ put:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   - name: privileges
@@ -207,7 +207,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: The user will be removed from the group.
+      description: The user was removed from the group.
     '400':
       description: Invalid request.
       schema:
@@ -231,12 +231,12 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:

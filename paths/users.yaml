@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of all users in the system.
 
-    Requires `oz_users_list` administrator privilege.
+    Requires `oz_users_list` admin privilege.
   description: |
     Returns the list of all users in the system.
 
-    Requires `oz_users_list` administrator privilege.
+    Requires `oz_users_list` admin privilege.
 
     ***Example cURL requests***
 
@@ -28,7 +28,7 @@ get:
   responses:
     '200':
       description: >
-        The list of user ID's registered within the Onezone service.
+        The list of user Ids registered within the Onezone service.
       schema:
         $ref: '#/definitions/Users'
     '400':
@@ -53,4 +53,4 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli ozUsersList"
+    source: "onezone-rest-cli listUsers"
