@@ -1,32 +1,32 @@
 get:
-  operationId: list_provider_spaces
+  operationId: list_effective_provider_users
   tags:
     - Provider
   x-onedata-gri:
     type: od_provider
-    id: ?BINDING(pid)
-    aspect: spaces
-  summary: List spaces supported by provider
+    id: ?BINDING(id)
+    aspect: eff_users
   x-onedata-permissions:
     - oz_providers_list_relationships
+  summary: List effective users of provider
   x-bash-codegen-description: |
-    Returns the list of spaces supported by specific provider.
+    Returns the list of effective users of a specific provider.
 
     This operation requires `oz_providers_list_relationships` admin privilege.
   description: |
-    Returns the list of spaces supported by specific provider.
+    Returns the list of effective users of a specific provider.
 
     This operation requires `oz_providers_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
-    **List spaces supported by provider**
+    **List effective users of a provider**
     ```bash
-    curlsS -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces
+    curl -u username:password -X GET  \
+    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/users
 
     {
-      "spaces": [
+      "users": [
         "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk",
         "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
       ]
@@ -36,9 +36,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of space Ids.
+      description: The list of effective user Ids.
       schema:
-        $ref: '#/definitions/Spaces'
+        $ref: '#/definitions/Users'
     '400':
       description: Invalid request.
       schema:
@@ -60,11 +60,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: pid
+    - name: id
       description: Provider Id.
       type: string
       in: path
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listProviderSpaces pid=ASKLDJKAJHSD765-asdAA"
+    source: "onezone-rest-cli listEffectiveProviderUsers id=AKLSJDHALKJSHD89asdASD12"

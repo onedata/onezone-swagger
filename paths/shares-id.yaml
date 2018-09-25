@@ -109,7 +109,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "NewShareName"}' \
-    https://$HOST/api/v3/onezone/shares/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
+    https://$HOST/api/v3/onezone/shares/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
     ```
   consumes:
     - application/json

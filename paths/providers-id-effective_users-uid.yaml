@@ -7,7 +7,7 @@ get:
     id: ?BINDING(uid)
     aspect: instance
     scope: protected
-  x-onedata-auth-hint: ?THROUGH_PROVIDER(?BINDING(pid))
+  x-onedata-auth-hint: ?THROUGH_PROVIDER(?BINDING(id))
   x-onedata-permissions:
     - oz_users_view
   summary: Get effective user of provider
@@ -63,7 +63,7 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: pid
+    - name: id
       description: Provider Id.
       type: string
       in: path
@@ -75,4 +75,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveProviderUser pid=ASDJKHASDASD5465asdvASDasd uid=KJHAGSDJKHGASJKHDGAKJHSDGKHJASD"
+    source: "onezone-rest-cli getEffectiveProviderUser id=ASDJKHASDASD5465asdvASDasd uid=KJHAGSDJKHGASJKHDGAKJHSDGKHJASD"
