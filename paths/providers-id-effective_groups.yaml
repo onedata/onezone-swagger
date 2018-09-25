@@ -1,32 +1,32 @@
 get:
-  operationId: list_effective_provider_users
+  operationId: list_effective_provider_groups
   tags:
     - Provider
   x-onedata-gri:
     type: od_provider
-    id: ?BINDING(pid)
-    aspect: eff_users
+    id: ?BINDING(id)
+    aspect: eff_groups
   x-onedata-permissions:
     - oz_providers_list_relationships
-  summary: List effective users of provider
+  summary: List effective groups of provider
   x-bash-codegen-description: |
-    Returns the list of effective users of a specific provider.
+    Returns the effective list of groups of a specific provider.
 
     This operation requires `oz_providers_list_relationships` admin privilege.
   description: |
-    Returns the list of effective users of a specific provider.
+    Returns the effective list of groups of a specific provider.
 
     This operation requires `oz_providers_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
-    **List effective users of a provider**
+    **List groups of a provider**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/users
+    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/groups
 
     {
-      "users": [
+      "groups": [
         "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk",
         "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
       ]
@@ -36,9 +36,9 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of effective user Ids.
+      description: The list of group Ids.
       schema:
-        $ref: '#/definitions/Users'
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -60,11 +60,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: pid
+    - name: id
       description: Provider Id.
       type: string
       in: path
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveProviderUsers pid=AKLSJDHALKJSHD89asdASD12"
+    source: "onezone-rest-cli listEffectiveProviderGroups id=ASKLJDHLAKJSHDASHD76ASDJKL1"

@@ -4,7 +4,7 @@ get:
     - Provider
   x-onedata-gri:
     type: od_provider
-    id: ?BINDING(pid)
+    id: ?BINDING(id)
     aspect: instance
     scope: protected
   x-onedata-permissions:
@@ -62,14 +62,14 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: pid
+  - name: id
     in: path
     description: Provider Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem getProviderDetails pid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem getProviderDetails id=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
 
 
 delete:
@@ -78,7 +78,7 @@ delete:
     - Provider
   x-onedata-gri:
     type: od_provider
-    id: ?BINDING(pid)
+    id: ?BINDING(id)
     aspect: instance
   summary: Remove provider
   x-onedata-permissions:
@@ -129,11 +129,11 @@ delete:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: pid
+  - name: id
     in: path
     description: Provider Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem removeProvider pid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem removeProvider id=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

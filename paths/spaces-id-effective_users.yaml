@@ -26,7 +26,7 @@ get:
     **Get space effective users**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/effective_users
+    https://$HOST/api/v3/onezone/spaces/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/effective_users
 
     {
       "users": [

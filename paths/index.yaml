@@ -199,6 +199,10 @@
   $ref: ./groups-id-effective_users-uid-privileges.yaml
 
 
+/groups/{id}/effective_users/{uid}/membership:
+  $ref: ./groups-id-effective_users-uid-membership.yaml
+
+
 /groups/{id}/parents:
   $ref: ./groups-id-parents.yaml
 
@@ -245,6 +249,10 @@
 
 /groups/{id}/effective_children/{cid}/privileges:
   $ref: ./groups-id-effective_children-cid-privileges.yaml
+
+
+/groups/{id}/effective_children/{cid}/membership:
+  $ref: ./groups-id-effective_children-cid-membership.yaml
 
 
 /groups/{id}/spaces:
@@ -352,6 +360,10 @@
   $ref: ./spaces-id-effective_users-uid-privileges.yaml
 
 
+/spaces/{id}/effective_users/{uid}/membership:
+  $ref: ./spaces-id-effective_users-uid-membership.yaml
+
+
 /spaces/{id}/groups:
   $ref: ./spaces-id-groups.yaml
 
@@ -378,6 +390,10 @@
 
 /spaces/{id}/effective_groups/{gid}/privileges:
   $ref: ./spaces-id-effective_groups-gid-privileges.yaml
+
+
+/spaces/{id}/effective_groups/{gid}/membership:
+  $ref: ./spaces-id-effective_groups-gid-membership.yaml
 
 
 /spaces/{id}/shares:
@@ -425,32 +441,40 @@
   $ref: ./providers-token.yaml
 
 
-/providers/{pid}:
-  $ref: ./providers-pid.yaml
+/providers/{id}:
+  $ref: ./providers-id.yaml
 
 
-/providers/{pid}/effective_users:
-  $ref: ./providers-pid-effective_users.yaml
+/providers/{id}/effective_users:
+  $ref: ./providers-id-effective_users.yaml
 
 
-/providers/{pid}/effective_users/{uid}:
-  $ref: ./providers-pid-effective_users-uid.yaml
+/providers/{id}/effective_users/{uid}:
+  $ref: ./providers-id-effective_users-uid.yaml
 
 
-/providers/{pid}/effective_groups:
-  $ref: ./providers-pid-effective_groups.yaml
+/providers/{id}/effective_users/{uid}/membership:
+  $ref: ./providers-id-effective_users-uid-membership.yaml
 
 
-/providers/{pid}/effective_groups/{gid}:
-  $ref: ./providers-pid-effective_groups-gid.yaml
+/providers/{id}/effective_groups:
+  $ref: ./providers-id-effective_groups.yaml
 
 
-/providers/{pid}/spaces:
-  $ref: ./providers-pid-spaces.yaml
+/providers/{id}/effective_groups/{gid}:
+  $ref: ./providers-id-effective_groups-gid.yaml
 
 
-/providers/{pid}/spaces/{sid}:
-  $ref: ./providers-pid-spaces-sid.yaml
+/providers/{id}/effective_groups/{gid}/membership:
+  $ref: ./providers-id-effective_groups-gid-membership.yaml
+
+
+/providers/{id}/spaces:
+  $ref: ./providers-id-spaces.yaml
+
+
+/providers/{id}/spaces/{sid}:
+  $ref: ./providers-id-spaces-sid.yaml
 
 
 

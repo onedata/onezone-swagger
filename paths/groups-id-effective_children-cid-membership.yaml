@@ -1,0 +1,89 @@
+get:
+  operationId: get_effective_child_group_membership_intermediaries
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{eff_child_membership, ?BINDING(cid)}"
+  x-onedata-permissions:
+    - group_view
+    - oz_groups_view
+  summary: Get effective child's group membership intermediaries
+  x-bash-codegen-description: |
+    Returns the effective child's (`{cid}`) group membership intermediaries -
+    entities from which the child inherits membership in the group (`{id}`).
+    Special keyword `"self"` in entity id indicates that the child (`{cid}`)
+    has a direct membership in the group (`{id}`).
+
+    This operation requires any of the following authorization:
+    * as user who is an effective member of the child group (`{cid}`)
+    * as user who has `group_view` privilege in the group (`{id}`)
+    * as user who has `oz_groups_view` admin privilege.
+  description: |
+    Returns the effective child's (`{cid}`) group membership intermediaries -
+    entities from which the child inherits membership in the group (`{id}`).
+    Special keyword `"self"` in entity id indicates that the child (`{cid}`)
+    has a direct membership in the group (`{id}`).
+
+    This operation requires any of the following authorization:
+    * as user who is an effective member of the child group (`{cid}`)
+    * as user who has `group_view` privilege in the group (`{id}`)
+    * as user who has `oz_groups_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get effective child's group membership intermediaries**
+    ```bash
+    curl -i -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_children/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/membership
+
+    {
+      "intermediaries": [
+        {"type": "group", "id": "oj903yegkxcpsdfy34masdf9atf8awef8hasdf"},
+        {"type": "group", "id": "ldsfk9y324t162r3vxzc890u7z9cxyv79asdgf"},
+        {"type": "group", "id": "self"}
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of membership intermediaries.
+      schema:
+        $ref: '#/definitions/MembershipIntermediaries'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: cid
+    in: path
+    description: Child Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveChildGroupMembershipIntermediaries id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 cid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

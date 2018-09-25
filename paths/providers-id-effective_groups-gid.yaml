@@ -7,7 +7,7 @@ get:
     id: ?BINDING(gid)
     aspect: instance
     scope: protected
-  x-onedata-auth-hint: ?THROUGH_PROVIDER(?BINDING(pid))
+  x-onedata-auth-hint: ?THROUGH_PROVIDER(?BINDING(id))
   x-onedata-permissions:
     - oz_groups_view
   summary: Get group of provider
@@ -61,7 +61,7 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: pid
+    - name: id
       description: Provider Id.
       type: string
       in: path
@@ -73,4 +73,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveProviderGroup pid=ASDJKHASDASD5465asdvASDasd gid=KJHAGSDJKHGASJKHDGAKJHSDGKHJASD"
+    source: "onezone-rest-cli getEffectiveProviderGroup id=ASDJKHASDASD5465asdvASDasd gid=KJHAGSDJKHGASJKHDGAKJHSDGKHJASD"

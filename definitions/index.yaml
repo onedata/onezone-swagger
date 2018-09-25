@@ -166,3 +166,6 @@ Spaces:
 
 Providers:
   $ref: ./providers.yaml
+
+MembershipIntermediaries:
+  $ref: ./membershipintermediaries.yaml
