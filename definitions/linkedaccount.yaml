@@ -3,22 +3,22 @@ description: User linked account.
 properties:
   idp:
     type: string
-    description: Id of the identity provider.
+    description: Id of the Identity Provider.
   subjectId:
     type: string
-    description: User Id assigned in identity provider.
-  login:
-    type: string
-    description: User login name.
+    description: User Id assigned by the Identity Provider.
   name:
     type: string
     description: User full name.
-  emailList:
+  alias:
+    type: string
+    description: User alias (unique identifier, similar to login).
+  emails:
     type: array
     description: The list of user email accounts.
     items:
       type: string
-  groups:
+  entitlements:
     type: array
     description: |
       A list of strings denoting user group memberships as acquired from the
@@ -31,12 +31,12 @@ required:
 example:
   idp: github
   subjectId: ASDJH65675ASD765ASD890ASD6
-  login: user1
+  alias: user1
   name: User One
-  emailList:
+  emails:
     - user.1@example.com
     - user.one@example.com
     - user.i@example.com
-  groups:
-    - "vo:example-org.eu/tm:members/member"
-    - "vo:example-org.eu/rl:administration/admin"
+  entitlements:
+    - "elixir_test:members"
+    - "elixir_test:administration"

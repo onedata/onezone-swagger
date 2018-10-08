@@ -32,7 +32,7 @@ get:
 
     {
        "name" : "John Doe",
-       "login" : "username",
+       "alias" : "username",
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo"
     }
     ```
