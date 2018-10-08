@@ -28,11 +28,11 @@ get:
     https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/effective_users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
 
     {
-       "name" : "John Doe",
-       "login" : "username",
-       "linkedAccounts" : [],
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "emailList" : []
+       "name" : "John Doe",
+       "alias" : "username",
+       "emails" : [],
+       "linkedAccounts" : []
     }
     ```
   produces:

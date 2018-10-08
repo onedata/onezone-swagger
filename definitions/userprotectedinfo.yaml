@@ -12,10 +12,10 @@ properties:
     description: The list of accounts linked to this user.
     items:
       $ref: '#/definitions/LinkedAccount'
-  login:
+  alias:
     type: string
-    description: User login
-  emailList:
+    description: User alias (unique identifier, similar to login).
+  emails:
     type: array
     items:
       type: string
@@ -25,12 +25,12 @@ required:
 example:
   userId: ALKJSDH77i79ASDKJA-ASDBAS9-87
   name: Rudolf Lingens
-  login: Rudolf_Lingens
+  alias: r.lingens
   linkedAccounts:
     - subjectId: ASD879ASD-7SADASFSsa0831
       idp: github
     - subjectId: QWESsD-7SADASFSsa0831
       idp: elixir
-  emailList:
+  emails:
     - rudolf.linges@example.com
     - john.doe@example.com

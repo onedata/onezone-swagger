@@ -4,8 +4,8 @@ properties:
   name:
     type: string
     description: User full name.
-  login:
+  alias:
     type: string
-    description: User login, must be unique.
+    description: User alias (unique identifier, similar to login).
 example:
   name: Rudolf Lingens
