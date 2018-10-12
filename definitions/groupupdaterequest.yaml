@@ -11,6 +11,6 @@ properties:
       - organization
       - unit
       - team
-      - role
+      - role_holders
 example:
   type: unit
