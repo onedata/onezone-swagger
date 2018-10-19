@@ -35,7 +35,7 @@ get:
     {
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
        "name" : "John Doe",
-       "login" : "username"
+       "alias" : "username"
     }
     ```
   produces:
