@@ -28,7 +28,7 @@ get:
     {
       "groupId": "LKJGHASDJHAJKLSHDLJKASD",
       "name": "admins",
-      "type": "role"
+      "type": "team"
     }
     ```
   produces:

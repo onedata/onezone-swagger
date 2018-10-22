@@ -81,10 +81,10 @@ post:
 
     ***Example cURL requests***
 
-    **Create new group of type `role`**
+    **Create new group of type `team`**
     ```bash
      curl -u username:password  -H "Content-type: application/json" \
-     -X POST -d '{ "name":"new_group" , "type":"role" }' \
+     -X POST -d '{ "name":"new_group" , "type":"team" }' \
      https://$HOST/api/v3/onezone/groups/
     ```
   consumes:
@@ -127,4 +127,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroup name==Group2 type==role"
+    source: "onezone-rest-cli createGroup name==Group2 type==team"

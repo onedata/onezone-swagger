@@ -105,7 +105,7 @@ post:
     **Create new group**
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
-    -X POST -d '{ "name" : "test_group" , "type" : "role" }' \
+    -X POST -d '{ "name" : "test_group" , "type" : "team" }' \
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/parents
     ```
   consumes:

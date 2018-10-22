@@ -183,7 +183,7 @@ description: |
  operations and attributes.
 
  ```
- docker run -it onedata/rest-cli:18.02.0-rc7
+ docker run -it onedata/rest-cli:18.02.0-rc12
  ```
 
  We have also prepared tutorials which show how to use this API in practice:
