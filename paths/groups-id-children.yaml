@@ -83,6 +83,7 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - group_add_child
+    - oz_groups_create
     - oz_groups_add_relationships
   summary: Create child group
   x-bash-codegen-description: |
@@ -90,13 +91,15 @@ post:
 
     This operation requires `group_add_child` privilege.
     For administrator who does not belong to this group
-    'oz_groups_add_relationships' privilege is required.
+    `oz_groups_add_relationships` and `oz_groups_create`
+    privileges are required.
   description: |
     Creates a new child group belonging to the group of {id}.
 
     This operation requires `group_add_child` privilege.
     For administrator who does not belong to this group
-    'oz_groups_add_relationships' privilege is required.
+    `oz_groups_add_relationships` and `oz_groups_create`
+    privileges are required.
 
     ***Example cURL requests***
 
@@ -150,4 +153,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli createChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8  name==Group2 type==team"
