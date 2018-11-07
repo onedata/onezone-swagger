@@ -33,7 +33,7 @@ get:
     {
       "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
       "name": "new_groupX",
-      "type": "role"
+      "type": "team"
     }
     ```
   produces:

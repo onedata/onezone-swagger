@@ -35,7 +35,7 @@ get:
     {
       "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
       "name": "new_group1",
-      "type": "role"
+      "type": "team"
     }
     ```
   produces:
@@ -93,15 +93,29 @@ put:
     - oz_groups_add_relationships
   summary: Add child group
   x-bash-codegen-description: |
-    Adds group {cid} as child group of {id}.
+    Adds group {cid} as child group of group {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the child group in this group.
 
-    For administrator who does not belong to this group
-    `oz_groups_add_relationships` privilege is required.
+    This operation requires `group_add_child` privilege in the parent group and
+    `group_add_parent` privilege in the child group. If `privileges` are
+    specified in the request, `group_set_privileges` privilege is also required.
+
+    For administrator who does not belong to those groups,
+    `oz_groups_add_relationships` privilege is required, and
+    `oz_groups_set_privileges` if `privileges` are specified in the request.
   description: |
-    Adds group {cid} as child group of {id}.
+    Adds group {cid} as child group of group {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the child group in this group.
 
-    For administrator who does not belong to this group
-    `oz_groups_add_relationships` privilege is required.
+    This operation requires `group_add_child` privilege in the parent group and
+    `group_add_parent` privilege in the child group. If `privileges` are
+    specified in the request, `group_set_privileges` privilege is also required.
+
+    For administrator who does not belong to those groups,
+    `oz_groups_add_relationships` privilege is required, and
+    `oz_groups_set_privileges` if `privileges` are specified in the request.
 
     ***Example cURL requests***
 
