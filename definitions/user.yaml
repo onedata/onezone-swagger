@@ -6,7 +6,7 @@ properties:
     description: Unique user ID.
   name:
     type: string
-    description: The user friendly name of storage resource.
+    description: The user friendly account name.
   alias:
     type: string
     description: User alias (unique identifier, similar to login).

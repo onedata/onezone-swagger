@@ -5,4 +5,4 @@ properties:
     description: Description of the error.
     type: string
 example:
-  error: Provided data could not be understood by the server
+  error: Error description
