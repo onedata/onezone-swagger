@@ -7,6 +7,8 @@ paths:
 definitions:
   $ref: ./definitions/index.yaml
 tags:
+  - name: Zone
+    description: Information about the Onezone service
   - name: User
     description: User management operations
   - name: Group
@@ -22,6 +24,9 @@ tags:
   - name: Handle Service
     description: Handle service management operations.
 x-tagGroups:
+  - name: Service information
+    tags:
+      - Onezone
   - name: User management
     tags:
       - User
