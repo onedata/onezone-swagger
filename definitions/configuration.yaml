@@ -13,7 +13,7 @@ properties:
   build:
     type: string
     description: Build number of this Onezone service
-  subdomainDelegationEnabled:
+  subdomainDelegationSupported:
     type: boolean
     description: If true, registering Oneproviders are allowed to request
       subdomains of the Onezone domain for use as their domains.
@@ -26,5 +26,5 @@ required:
   - name
   - version
   - build
-  - subdomainDelegationEnabled
+  - subdomainDelegationSupported
   - compatibleOneproviderVersions
