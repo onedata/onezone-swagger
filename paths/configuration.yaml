@@ -1,0 +1,28 @@
+get:
+  operationId: get_configuration
+  tags:
+    - Zone
+  x-onedata-gri:
+    type: oz_worker
+    aspect: configuration
+  x-onedata-permissions: []
+  summary: Returns public configuration of Onezone service.
+  x-bash-codegen-description: |
+    Returns public configuration of Onezone service.
+  description: >
+    Returns public information about the Onezone service.
+    This endpoint does not require authentication.
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Configuration returned successfully.
+      schema:
+        $ref: '#/definitions/Configuration'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getConfiguration"
