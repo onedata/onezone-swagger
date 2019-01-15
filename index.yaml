@@ -26,7 +26,7 @@ tags:
 x-tagGroups:
   - name: Service information
     tags:
-      - Onezone
+      - Zone
   - name: User management
     tags:
       - User
