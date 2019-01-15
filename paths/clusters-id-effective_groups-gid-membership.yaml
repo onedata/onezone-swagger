@@ -16,7 +16,7 @@ get:
     Special keyword `"self"` in entity id indicates that the group (`{gid}`)
     has a direct membership in the cluster (`{id}`).
 
-    This operation requires any of the following authorization:
+    This operation requires any of the following authentication:
     * as user who is an effective member of the group (`{gid}`)
     * as user who has `cluster_view` privilege in the cluster (`{id}`)
     * as user who has `oz_clusters_view` admin privilege.
@@ -26,7 +26,7 @@ get:
     Special keyword `"self"` in entity id indicates that the group (`{gid}`)
     has a direct membership in the cluster (`{id}`).
 
-    This operation requires any of the following authorization:
+    This operation requires any of the following authentication:
     * as user who is an effective member of the group (`{gid}`)
     * as user who has `cluster_view` privilege in the cluster (`{id}`)
     * as user who has `oz_clusters_view` admin privilege.

@@ -54,9 +54,17 @@ x-tagGroups:
     tags:
     - Cluster
 securityDefinitions:
-  api_key:
+  api_key1:
     type: apiKey
     name: X-Auth-Token
+    in: header
+  api_key2:
+    type: apiKey
+    name: Macaroon
+    in: header
+  api_key3:
+    type: apiKey
+    name: 'Authorization: Bearer'
     in: header
   basic:
     type: basic

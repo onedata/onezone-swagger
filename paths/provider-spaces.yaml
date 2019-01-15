@@ -8,15 +8,15 @@ get:
     aspect: spaces
   summary: List spaces at provider
   x-bash-codegen-description: |
-    Returns the list of spaces managed by the Oneprovider that performed the
-    request.
+    Returns the list of spaces managed by the Oneprovider that performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
   description: |
-    Returns the list of spaces managed by the Oneprovider that performed the
-    request.
+    Returns the list of spaces managed by the Oneprovider that performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 

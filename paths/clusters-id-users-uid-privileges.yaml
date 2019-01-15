@@ -34,6 +34,7 @@ get:
       "privileges": [
         "cluster_view",
         "cluster_update",
+        "cluster_delete",
         "cluster_view_privileges",
         "cluster_set_privileges"
       ]
@@ -52,6 +53,7 @@ get:
           privileges:
           - cluster_view
           - cluster_update
+          - cluster_delete
           - cluster_view_privileges
           - cluster_set_privileges
     '400':
@@ -124,7 +126,7 @@ patch:
     **Update user's privileges in a cluster**
     ```bash
     curl -i -k -u admin:password -X PATCH \
-    -d '{"grant": ["cluster_view", "cluster_update"], "revoke": ["cluster_invite_user"]}' \
+    -d '{"grant": ["cluster_view", "cluster_update"], "revoke": ["cluster_delete"]}' \
     https://$HOST/api/v3/onezone/clusters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
     ```
   responses:
@@ -169,4 +171,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"grant\": [\"cluster_view\", \"cluster_update\"], \"revoke\": [\"cluster_invite_user\"]}' | onezone-rest-cli updateUserClusterPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
+    source: "echo '{\"grant\": [\"cluster_view\", \"cluster_update\"], \"revoke\": [\"cluster_delete\"]}' | onezone-rest-cli updateUserClusterPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"

@@ -16,7 +16,7 @@ get:
     Special keyword `"self"` in entity id indicates that the user (`{uid}`)
     has a direct membership in the group (`{id}`).
 
-    This operation requires any of the following authorization:
+    This operation requires any of the following authentication:
     * as user (`{uid}`) who is an effective member of the group (`{id}`)
     * as user who has `group_view` privilege in the group (`{id}`)
     * as user who has `oz_groups_view` admin privilege.
@@ -26,7 +26,7 @@ get:
     Special keyword `"self"` in entity id indicates that the user (`{uid}`)
     has a direct membership in the group (`{id}`).
 
-    This operation requires any of the following authorization:
+    This operation requires any of the following authentication:
     * as user (`{uid}`) who is an effective member of the group (`{id}`)
     * as user who has `group_view` privilege in the group (`{id}`)
     * as user who has `oz_groups_view` admin privilege.

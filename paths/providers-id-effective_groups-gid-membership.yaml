@@ -14,7 +14,7 @@ get:
     Returns the effective group's (`{gid}`) provider membership intermediaries -
     spaces from which the group inherits membership in the provider (`{id}`).
 
-    This operation requires any of the following authorization:
+    This operation requires any of the following authentication:
     * as user (`{uid}`) who is an effective member of the group (`{gid}`)
     * as provider (`{id}`)
     * as user who has `oz_providers_view` admin privilege.
@@ -22,7 +22,7 @@ get:
     Returns the effective group's (`{gid}`) provider membership intermediaries -
     spaces from which the group inherits membership in the provider (`{id}`).
 
-    This operation requires any of the following authorization:
+    This operation requires any of the following authentication:
     * as user (`{uid}`) who is an effective member of the group (`{gid}`)
     * as provider (`{id}`)
     * as user who has `oz_providers_view` admin privilege.

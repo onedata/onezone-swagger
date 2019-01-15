@@ -14,6 +14,7 @@ example:
     - cluster_add_group
   revoke:
     - cluster_update
+    - cluster_delete
     - cluster_set_privileges
     - cluster_remove_user
     - cluster_remove_group

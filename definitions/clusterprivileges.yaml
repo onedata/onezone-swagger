@@ -5,6 +5,7 @@ items:
   enum:
     - cluster_view
     - cluster_update
+    - cluster_delete
     - cluster_view_privileges
     - cluster_set_privileges
 

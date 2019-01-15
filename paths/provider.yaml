@@ -7,17 +7,17 @@ get:
     id: ?CLIENT_ID
     aspect: instance
     scope: protected
-  summary: Get provider details
+  summary: Get current provider details
   x-bash-codegen-description: |
-    Returns information about the Oneprovider that performed the request
-    (based on provided Peer Certificate authentication).
+    Returns information about the Oneprovider that performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
   description: |
-    Returns information about the Oneprovider that performed the request
-    (based on provided Peer Certificate authentication).
+    Returns information about the Oneprovider that performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
@@ -77,11 +77,15 @@ patch:
     aspect: instance
   summary: Modify provider details
   x-bash-codegen-description: |
-    Updates information about the Oneprovider identified by the
-    peer certificate used for the request.
+    Updates information about the Oneprovider that performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
   description: |
-    Updates information about the Oneprovider identified by the
-    peer certificate used for the request.
+    Updates information about the Oneprovider that performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
@@ -138,19 +142,17 @@ delete:
     aspect: instance
   summary: Unregister provider
   x-bash-codegen-description: |
-    Allows Oneprovider service to unregister from Onezone.
+    Allows Oneprovider service to unregister from Onezone - concerns the
+    Oneprovider that performed the request.
 
-    This operation allows a Oneprovider to unregister from a this Onezone, i.e.
-    it can only be invoked by Oneprovider which wants to unregister. It does't
-    require any parameters, as the provider is identified by the peer
-    certificate used for this connection.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
   description: |
-    Allows Oneprovider service to unregister from Onezone.
+    Allows Oneprovider service to unregister from Onezone - concerns the
+    Oneprovider that performed the request.
 
-    This operation allows a Oneprovider to unregister from a this Onezone, i.e.
-    it can only be invoked by Oneprovider which wants to unregister. It does't
-    require any parameters, as the provider is identified by the peer
-    certificate used for this connection.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 

@@ -79,17 +79,21 @@ x-bash-codegen-description: |
 
 description: |
   # Overview
-  This is the RESTful API definition of Onezone component of Onedata data management system [onedata.org](http://www.onedata.org).
+  This is the RESTful API definition of Onezone component of Onedata
+  data management system [onedata.org](http://onedata.org).
 
-  > This API is defined using [Swagger](http://swagger.io/), the JSON specification can be used to automatically generate
-  > client libraries - [swagger.json](../../../swagger/onezone/swagger.json).
+  > This API is defined using [Swagger](http://swagger.io/), the JSON
+  specification can be used to automatically generate client libraries -
+  [swagger.json](../../../swagger/onezone/swagger.json).
 
-  This API allows control and configuration of local Onezone service deployment, in particular management
-  of users, groups, spaces, shares, providers, handle services, handles and clusters.
+  This API allows control and configuration of local Onezone service deployment,
+  in particular management of users, groups, spaces, shares, providers,
+  handle services, handles and clusters.
 
   ## Authentication and authorization
-  To be able to use this API, the REST client must authenticate with the Onezone service and posses
-  required authorization, which is determined based on client's privileges and relations in the system.
+  To be able to use this API, the REST client must authenticate with the Onezone
+  service and posses required authorization, which is determined based on
+  client's privileges and relations in the system.
 
   There are essentially three types of REST clients depending on the authentication:
     * **users** - can authenticate using an access token or basic credentials
@@ -117,76 +121,83 @@ description: |
     > Please mind that the provider root macaroon is highly confidential and must
     be kept secret (similarly to a private RSA key).
 
-    * **anonymous** - there is a small subset of operations that do not require any
-    authentication and are publicly available, for example:
+    * **anonymous** - there is a small subset of operations that do not require
+      any authentication and are publicly available, for example:
       * `POST /user/authorize` - authorizes user with authentication token through
-      Onezone web interface. This interface is called typically by providers,
+        Onezone web interface. This interface is called typically by providers,
       * `POST /provider` - registers a Oneprovider in Onezone service
-      (however a valid registration token in the body is required),
-      * `POST /provider/test/check_my_ports` - checks if all given ports are reachable from Onezone,
-      * `GET /provider/test/check_my_ip` - returns the external IP of the request peer (as seen by the Onezone).
+        (however a valid registration token in the body is required),
+      * `POST /provider/test/check_my_ports` - checks if all given ports are
+        reachable from Onezone,
+      * `GET /provider/test/check_my_ip` - returns the external IP of the
+        request peer (as seen by the Onezone).
 
-  The authorization of the client is determined based on existing relations and privileges
-  in the system. In most cases, the below rules can be roughly applied:
+  The authorization of the client is determined based on existing relations and
+  privileges in the system. In most cases, the below rules can be roughly applied:
     * users and providers can access and modify their own data
-    * users can perform operations in groups, spaces, handle services, handles and clusters
-    depending on their privileges in subject entity - the required privileges are listed
-    in the description of each operation
-    * users can be given special admin privileges (fine-grained) that allow to access and
-    modify all entities in the system - see certain operations for details.
+    * users can perform operations in groups, spaces, handle services, handles
+      and clusters depending on their privileges in subject entity - the required
+      privileges are listed in the description of each operation
+    * users can be given special admin privileges (fine-grained) that allow to
+      access and modify all entities in the system - see certain operations for
+      details.
 
   Authentication and Authorization errors have the following meaning:
     * HTTP 401 UNAUTHORIZED - the client could not be authenticated
-    * HTTP 403 FORBIDDEN - the client was authenticated, but is not permitted to perform the action
+    * HTTP 403 FORBIDDEN - the client was authenticated, but is not permitted to
+      perform the action
 
   ## Effective users and effective groups and spaces
-  Onedata supports creation of arbitrary nested group and space membership tree structures. In order to determine
-  if a given user belongs to the group directly or indirectly by belonging to a subgroup of a group,
-  separate API calls are provided for getting information about group users (direct group members) and
-  effective users (indirect group members).
+  Onedata supports creation of arbitrary nested group and space membership tree
+  structures. In order to determine if a given user belongs to the group
+  directly or indirectly by belonging to a subgroup of a group, separate API
+  calls are provided for getting information about group users
+  (direct group members) and effective users (indirect group members).
 
   ## API structure
-  Most operations are RESTful, i.e. paths reflect the actual resource mode and operations on them are mapped to
-  most appropriate HTTP methods.
+  Most operations are RESTful, i.e. paths reflect the actual resource mode and
+  operations on them are mapped to most appropriate HTTP methods.
 
   **Space management**
-  The space management operations of this API provide means for accessing information about spaces
-  and their management.
+  The space management operations of this API provide means for accessing
+  information about spaces and their management.
 
   **Share management**
   The share management operations of this API provide means for accessing
   information about shares and their management.
 
   **Group management**
-  The group management operations allow for creation of user groups, assigning their authorization rights,
-  adding and removing users from groups.
+  The group management operations allow for creation of user groups, assigning
+  their authorization rights, adding and removing users from groups.
 
   **User management**
-  The user management methods enable for creation of users, managing their authorization
-  credentials as well as space and group membership.
+  The user management methods enable for creation of users, managing their
+  authorization credentials as well as space and group membership.
 
   **Provider management**
-  Provider specific calls enable for getting global information about the spaces managed by the provider,
-  and some administrative operations which can be used for monitoring or accounting.
+  Provider specific calls enable for getting global information about the spaces
+  managed by the provider, and some administrative operations which can be used
+  for monitoring or accounting.
 
   **Handle service management**
-  The handle service management operations of this API provide means for accessing
-  information about handle services and their management.
+  The handle service management operations of this API provide means for
+  accessing information about handle services and their management.
 
   **Handle API**
-  Onezone provides extensive support for integration with Handle system registration
-  services, including support for DOI and PID identifier assignment services. The API
-  provides methods for adding new Handle services to the system, managing which users
-  can use which registration services and complete API for registering identifiers to
-  users data sets which are made public.
+  Onezone provides extensive support for integration with Handle system
+  registration services, including support for DOI and PID identifier assignment
+  services. The API provides methods for adding new Handle services to the
+  system, managing which users can use which registration services and complete
+  API for registering identifiers to users data sets which are made public.
 
   **Cluster API**
   Operations for managing Onezone / Oneprovider clusters and their members.
 
 
   ## Using the API
-  Onezone API is quite complex and thus it might be difficult to quickly figure out how
-  to perform specific action, however the following guidelines might be useful:
+  Onezone API is quite complex and thus it might be difficult to quickly figure
+    out how to perform specific action, however the following guidelines might
+    be useful:
     * Operations performed by a regular users on their resources are grouped under
       `/user` path (**USER** group in the menu)
     * Operations performed by administrators of specific resources (e.g. groups,
@@ -206,7 +217,7 @@ description: |
   docker run -it onedata/rest-cli:18.02.0-rc13
   ```
 
-  We have also prepared tutorials which show how to use this API in practice:
+  Below you can find some tutorials which show how to use this API in practice:
     * [User oriented tutorial](https://onedata.org/docs/doc/using_onedata/using_onedata_from_cli.html)
     * [Administrator oriented tutorial](https://onedata.org/docs/doc/administering_onedata/administering_onedata_from_cli.html)
 
@@ -222,7 +233,7 @@ description: |
   **Get user details**
   ```bash
   curl -H 'X-Auth-Token: MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlk' -X GET \
-  https://$ONEZONE_HOST/api/v3/onezone/user \
+  https://$ONEZONE_HOST/api/v3/onezone/user
   ```
 
 contact:
