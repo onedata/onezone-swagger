@@ -1,0 +1,172 @@
+get:
+  operationId: list_user_cluster_privileges
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - cluster_view_privileges
+    - oz_clusters_view_privileges
+  summary: List user's cluster privileges
+  x-bash-codegen-description: |
+    Returns the list of user's (`{uid}`) privileges in a cluster (`{id}`).
+
+    This operation requires `cluster_view_privileges` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_clusters_view_privileges` privilege is required.
+  description: |
+    Returns the list of user's (`{uid}`) privileges in a cluster (`{id}`).
+
+    This operation requires `cluster_view_privileges` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_clusters_view_privileges` privilege is required.
+
+    ***Example cURL requests***
+
+    **List user's privileges in a cluster**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+
+    {
+      "privileges": [
+        "cluster_view",
+        "cluster_update",
+        "cluster_view_privileges",
+        "cluster_set_privileges"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of user's privileges in the cluster.
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/ClusterPrivileges'
+        example:
+          privileges:
+          - cluster_view
+          - cluster_update
+          - cluster_view_privileges
+          - cluster_set_privileges
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listUserClusterPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+
+
+patch:
+  operationId: update_user_cluster_privileges
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - cluster_set_privileges
+    - oz_set_privileges
+  summary: Update user's cluster privileges
+  x-bash-codegen-description: |
+    Updates user's (`{uid}`) privileges in a cluster (`{id}`).
+
+    This operation requires `cluster_set_privileges` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_clusters_set_privileges` privilege is required.
+  description: |
+    Updates user's (`{uid}`) privileges in a cluster (`{id}`).
+
+    This operation requires `cluster_set_privileges` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_clusters_set_privileges` privilege is required.
+
+    The `grant` field specifies a list of privileges to be granted. The `revoke`
+    field specifies a list of privileges to be revoked. At least one of those
+    fields must be given.
+
+    ***Example cURL requests***
+
+    **Update user's privileges in a cluster**
+    ```bash
+    curl -i -k -u admin:password -X PATCH \
+    -d '{"grant": ["cluster_view", "cluster_update"], "revoke": ["cluster_invite_user"]}' \
+    https://$HOST/api/v3/onezone/clusters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+    ```
+  responses:
+    '204':
+      description: The privileges have been updated.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Cluster privileges update request.
+    schema:
+      $ref: '#/definitions/ClusterPrivilegesUpdate'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "echo '{\"grant\": [\"cluster_view\", \"cluster_update\"], \"revoke\": [\"cluster_invite_user\"]}' | onezone-rest-cli updateUserClusterPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"

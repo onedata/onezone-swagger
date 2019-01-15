@@ -23,6 +23,8 @@ tags:
     description: Operations for managing Handle system service and identifier generation.
   - name: Handle Service
     description: Handle service management operations.
+  - name: Cluster
+    description: Cluster management operations.
 x-tagGroups:
   - name: Service information
     tags:
@@ -48,6 +50,9 @@ x-tagGroups:
   - name: Handle service management
     tags:
       - Handle Service
+  - name: Cluster management
+    tags:
+    - Cluster
 securityDefinitions:
   api_key:
     type: apiKey

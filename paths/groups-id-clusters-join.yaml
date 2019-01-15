@@ -1,39 +1,36 @@
 post:
-  operationId: join_space
+  operationId: group_join_cluster
   tags:
-    - User
+    - Group
   x-onedata-gri:
-    type: od_space
+    type: od_cluster
     aspect: join
-  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
-  summary: Join space
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  summary: Join group to a cluster
   x-bash-codegen-description: |
-    Join an existing space using an inivitation token.
-
-    This operation can be invoked on behalf of the current user only.
+    Join an existing cluster using an inivitation token.
   description: |
-    Join an existing space using an inivitation token.
-
-    This operation can be invoked on behalf of the current user only.
+    Join an existing cluster using an inivitation token.
 
     ***Example cURL requests***
 
-    **Join an existing space**
+    **Join group to an existing cluster**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
     -d '{ "token" : "MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcmLciFsOgyUkPI3f02le6PM01IX8go" }'  \
-    https://$HOST/api/v3/onezone/user/spaces/join
+    https://$HOST/api/v3/onezone/groups/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3r/clusters/join
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the joined space in form https://$HOST/api/onezone/v3/user/spaces/{id} is
-        returned in the response `Location` header.
+        URI of the joined cluster in form
+        https://$HOST/api/onezone/v3/groups/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3r/clusters/{id}
+        is returned in the response `Location` header.
       headers:
         Location:
-          description: URI of the joined space.
+          description: URI of the joined cluster.
           type: string
     '400':
       description: Invalid request.
@@ -56,12 +53,17 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: spaceinvitetoken
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: clusterinvitetoken
     in: body
-    description: Token for joining a space.
+    description: Token for joining a cluster.
     schema:
-      $ref: '#/definitions/SpaceInviteToken'
+      $ref: '#/definitions/ClusterInviteToken'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinSpace token==ASDKLJHASD868&ASDJKJKHasjhdaASD89798asdaA"
+    source: "onezone-rest-cli groupJoinCluster id=Xnp1JVpWfL8_stHJgct76AFALjRsI0W3r token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

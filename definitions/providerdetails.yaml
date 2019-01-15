@@ -7,19 +7,40 @@ properties:
   name:
     type: string
     description: Provider name.
+  subdomainDelegation:
+    type: boolean
+    description: >
+      True if this provider has been assigned a subdomain in onezone's domain.
+  subdomain:
+    type: string
+    description: >
+      Unique subdomain in onezone's domain for the storage provider. Present if
+      subdomain delegation is enabled.
   domain:
     type: string
     description: >
-      The fully qualified domain name of the provider or its IP address.
+      The fully qualified domain name of the storage provider or its IP address (only for
+      single-node deployments or clusters with a reverse proxy). Present if
+      subdomain delegation is disabled.
   latitude:
     type: number
     description: The geographical latitude of the provider data center location.
   longitude:
     type: number
     description: The geographical longitude of the provider data center location.
+  cluster:
+    type: string
+    description: The Id of the corresponding Oneprovider cluster.
+  online:
+    type: boolean
+    description: True if this provider is online - connected to Onezone.
 example:
-  name: Example provider
   providerId: H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk
-  domain: provider1.beta.onedata.org
+  name: Example provider
+  subdomainDelegation: false
+  subdomain: null
+  domain: provider1.example.com
   latitude: 50.0647
   longitude: 19.9450
+  cluster: 56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW
+  online: true

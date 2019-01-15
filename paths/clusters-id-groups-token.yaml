@@ -1,0 +1,70 @@
+post:
+  operationId: create_cluster_group_invite_token
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: invite_group_token
+  x-onedata-permissions:
+    - cluster_add_group
+    - oz_clusters_add_relationships
+  summary: Create cluster invite token for group
+  x-bash-codegen-description: |
+    Creates a token allowing to add a group to a specific cluster.
+
+    This operation requires `cluster_add_group` privilege.
+    or `oz_clusters_add_relationships` admin privilege.
+  description: |
+    Creates a token allowing to add a group to a specific cluster.
+
+    This operation requires `cluster_add_group` privilege
+    or `oz_clusters_add_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Create cluster invitation token for group**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/clusters/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/groups/token
+
+    {
+      "token": "MDAxNmxvY0cGUgKWsjcpnrLE00RtOd2F00cGUgKWsjcpnrLE00RtOdhmnQycSICwMsugo"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The token for joining a specific group.
+      schema:
+        $ref : '#/definitions/ClusterInviteToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createClusterGroupInviteToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

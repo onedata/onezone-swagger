@@ -1,43 +1,42 @@
 get:
-  operationId: get_user_effective_group
+  operationId: list_user_effective_clusters
   tags:
     - User
   x-onedata-gri:
-    type: od_group
-    id: ?BINDING(gid)
-    aspect: instance
-    scope: protected
-  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
-  summary: Get effective group details
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: eff_clusters
+  summary: List user's effective clusters
   x-bash-codegen-description: |
-    Returns information about a specific effective group to which the user belongs.
+    Returns the list of user's effective clusters.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Returns information about a specific effective group to which the user belongs.
+    Returns the list of user's effective clusters.
 
     This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Get user's effective group details**
+    **Get user's effective clusters**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_groups/LKJGHASDJHAJKLSHDLJKASD
+    https://$HOST/api/v3/onezone/user/effective_clusters
 
     {
-      "groupId": "LKJGHASDJHAJKLSHDLJKASD",
-      "name": "admins",
-      "type": "team"
+      "clusters": [
+        "IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"
+      ]
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about a specific effective group.
+      description: >
+        The list of user's effective clusters.
       schema:
-        $ref: '#/definitions/Group'
+        $ref: '#/definitions/Clusters'
     '400':
       description: Invalid request.
       schema:
@@ -58,12 +57,6 @@ get:
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
-  parameters:
-  - name: gid
-    in: path
-    description: Group Id.
-    type: string
-    required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserEffectiveGroup gid=LKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli listUserEffectiveClusters"

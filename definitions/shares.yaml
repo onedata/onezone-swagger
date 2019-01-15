@@ -3,7 +3,7 @@ description: List of shares.
 properties:
   shares:
     type: array
-    description: The list of share Id's.
+    description: The list of share Ids.
     items:
       type: string
 required:

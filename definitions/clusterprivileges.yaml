@@ -1,0 +1,15 @@
+type: array
+description: A list of privileges in the cluster.
+items:
+  type: string
+  enum:
+    - cluster_view
+    - cluster_update
+    - cluster_view_privileges
+    - cluster_set_privileges
+
+    - cluster_invite_user
+    - cluster_remove_user
+
+    - cluster_add_group
+    - cluster_remove_group

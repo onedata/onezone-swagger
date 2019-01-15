@@ -1,40 +1,39 @@
 post:
-  operationId: join_group
+  operationId: user_join_cluster
   tags:
     - User
   x-onedata-gri:
-    type: od_group
+    type: od_cluster
     aspect: join
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
-  summary: Join group
+  summary: Join cluster
   x-bash-codegen-description: |
-    Join an existing group using an inivitation token.
+    Join an existing cluster using an inivitation token.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Join an existing group using an inivitation token.
+    Join an existing cluster using an inivitation token.
 
     This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Join group**
-
+    **Join an existing cluster**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
-    -X POST -d '{ "token": "LKJGH6785678asdASDKhj879asdLKJHASDASDJHAJKLSHDLJKASD" }' \
-    https://$HOST/api/v3/onezone/user/groups/join
+    curl -u admin:password  -H "Content-type: application/json" -X POST \
+    -d '{ "token" : "MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcmLciFsOgyUkPI3f02le6PM01IX8go" }'  \
+    https://$HOST/api/v3/onezone/user/clusters/join
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the joined group in form https://$HOST/api/onezone/v3/user/groups/{id} is
+        URI of the joined cluster in form https://$HOST/api/onezone/v3/user/clusters/{id} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: URI of the joined group.
+          description: URI of the joined cluster.
           type: string
     '400':
       description: Invalid request.
@@ -57,12 +56,12 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: groupinvitetoken
+  - name: clusterinvitetoken
     in: body
-    description: Token for joining a group.
+    description: Token for joining a cluster.
     schema:
-      $ref: '#/definitions/GroupInviteToken'
+      $ref: '#/definitions/ClusterInviteToken'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinGroup token==LKJGH6785678asdASDKhj879asdLKJHASDASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli userJoinCluster token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

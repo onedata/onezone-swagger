@@ -1,43 +1,49 @@
 get:
-  operationId: get_user_effective_group
+  operationId: get_user_effective_cluster
   tags:
     - User
   x-onedata-gri:
-    type: od_group
-    id: ?BINDING(gid)
+    type: od_cluster
+    id: ?BINDING(cid)
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
-  summary: Get effective group details
+  summary: Get user's effective cluster details
   x-bash-codegen-description: |
-    Returns information about a specific effective group to which the user belongs.
+    Returns information about a specific user's effective cluster.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Returns information about a specific effective group to which the user belongs.
+    Returns information about a specific user's effective cluster.
 
     This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Get user's effective group details**
+    **Get user's effective cluster details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_groups/LKJGHASDJHAJKLSHDLJKASD
+    https://$HOST/api/v3/onezone/user/clusters/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
 
     {
-      "groupId": "LKJGHASDJHAJKLSHDLJKASD",
-      "name": "admins",
-      "type": "team"
+      "clusterId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+      "type" : "oneprovider",
+      "serviceId" : "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjC",
+      "name" : "My Provider",
+      "domain" : "my-provider.example.com",
+      "version" : "18.02.1",
+      "build" : "cd624fd211-18",
+      "online" : true,
+      "proxy" : false
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about a specific effective group.
+      description: Details of a specific effective cluster.
       schema:
-        $ref: '#/definitions/Group'
+        $ref: '#/definitions/Cluster'
     '400':
       description: Invalid request.
       schema:
@@ -59,11 +65,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: gid
+  - name: cid
     in: path
-    description: Group Id.
+    description: Cluster Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserEffectiveGroup gid=LKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli getUserEffectiveCluster cid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

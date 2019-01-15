@@ -1,14 +1,14 @@
 type: object
-description: List of providers.
+description: The list of clusters.
 properties:
-  providers:
+  clusters:
     type: array
-    description: The list of provider Ids.
+    description: The list of cluster Ids.
     items:
       type: string
 required:
-  - providers
+  - clusters
 example:
-  providers:
+  clusters:
     - Bmav38YI0Z2-dw-fvrZ3XP-J0HjCN0taT3_WungK
     - ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR

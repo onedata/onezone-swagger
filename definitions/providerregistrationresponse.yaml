@@ -1,9 +1,12 @@
 type: object
-description: Signed certificate for registered provider.
+description: Response upon successful Oneprovider registration.
 properties:
-  id:
-    description: The Id of the registered provider
+  providerId:
+    description: The Id of the newly registered provider.
     type: string
-  cert:
-    description: The signed certificate to be used when connecting to Onezone services.
+  macaroon:
+    description: The Oneprovider root macaroon - bearing its identity and full authorization.
+    type: string
+  adminUserId:
+    description: The Id of the Onezone user that is linked to the Oneprovider panel admin account.
     type: string

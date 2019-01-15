@@ -29,6 +29,9 @@ Groups:
 Shares:
   $ref: ./shares.yaml
 
+ProviderRegistrationToken:
+  $ref: ./providerregistrationtoken.yaml
+
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
 
@@ -172,6 +175,24 @@ Spaces:
 
 Providers:
   $ref: ./providers.yaml
+
+Cluster:
+  $ref: ./cluster.yaml
+
+Clusters:
+  $ref: ./clusters.yaml
+
+ClusterUpdateRequest:
+  $ref: ./clusterupdaterequest.yaml
+
+ClusterInviteToken:
+  $ref: ./clusterinvitetoken.yaml
+
+ClusterPrivileges:
+  $ref: ./clusterprivileges.yaml
+
+ClusterPrivilegesUpdate:
+  $ref: ./clusterprivilegesupdate.yaml
 
 MembershipIntermediaries:
   $ref: ./membershipintermediaries.yaml

@@ -3,7 +3,7 @@ description: List of handle services.
 properties:
   handle_services:
     type: array
-    description: The list of handle services Id's.
+    description: The list of handle services Ids.
     items:
       type: string
 required:

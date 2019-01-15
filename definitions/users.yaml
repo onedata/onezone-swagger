@@ -3,7 +3,7 @@ description: List of users.
 properties:
   users:
     type: array
-    description: The list of user Id's.
+    description: The list of user Ids.
     items:
       type: string
 required:

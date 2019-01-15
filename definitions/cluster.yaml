@@ -1,0 +1,33 @@
+type: object
+description: Cluster details.
+# @fixme descriptions
+properties:
+  clusterId:
+    type: string
+  type:
+    type: string
+    description: "Type of the cluster"
+    enum: [oneprovider, onezone]
+  serviceId:
+    type: string
+    description: >
+      The id of the service hosted on this cluster - depending on the type equal
+      to the Oneprovider Id or null in case of Onezone cluster
+  version:
+    type: string
+    description: Software version.
+  build:
+    type: string
+    description: Software build identifier.
+  proxy:
+    type: boolean
+    description: >
+      Is onepanel proxy enabled - if so, onepanel GUI is served on cluster's
+      domain at port 443 (rather than 9443).
+required:
+  - clusterId
+  - type
+  - serviceId
+  - version
+  - build
+  - proxy
