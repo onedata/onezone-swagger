@@ -64,7 +64,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem getCurrentProviderDetails"
+    source: "onezone-rest-cli getCurrentProviderDetails"
 
 
 patch:

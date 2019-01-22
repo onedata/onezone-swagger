@@ -32,6 +32,9 @@ Shares:
 ProviderRegistrationToken:
   $ref: ./providerregistrationtoken.yaml
 
+LinkOnepanelUserToken:
+  $ref: ./linkonepanelusertoken.yaml
+
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
 

@@ -75,12 +75,16 @@ post:
     - space_manage_shares
     - oz_shares_create
   x-bash-codegen-description: |
-    Creates a new share.
+    Creates a new share in Onezone. This operation is reserved for internal
+    Oneprovider logic and must not be used directly. Consult Oneprovider API for
+    the create share operation.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share is created or `oz_shares_create` admin privilege.
   description: |
-    Creates a new share.
+    Creates a new share in Onezone. This operation is reserved for internal
+    Oneprovider logic and must not be used directly. Consult Oneprovider API for
+    the create share operation.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share is created or `oz_shares_create` admin privilege.

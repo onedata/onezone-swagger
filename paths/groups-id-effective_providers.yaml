@@ -11,13 +11,13 @@ get:
     - oz_groups_list_relationships
   summary: List effective group's providers
   x-bash-codegen-description: |
-    Returns the effective list of providers supporting group spaces.
+    Returns the list of effective providers supporting group spaces.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
     `oz_groups_list_relationships` privilege is required.
   description: |
-    Returns the effective list of providers supporting group spaces.
+    Returns the list of effective providers supporting group spaces.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
@@ -34,7 +34,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The effective list of providers supporting group spaces.
+      description: the list of effective providers supporting group spaces.
       schema:
         $ref: '#/definitions/Providers'
     '400':

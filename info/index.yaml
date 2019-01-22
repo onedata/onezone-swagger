@@ -236,6 +236,18 @@ description: |
   https://$ONEZONE_HOST/api/v3/onezone/user
   ```
 
+  **Get user details using an access token from github**
+  ```bash
+  curl -H 'X-Auth-Token: github/ijaAVWq3j9234jA9gPoR9agFja89t9UiPf8tiueSdx' -X GET \
+  https://$ONEZONE_HOST/api/v3/onezone/user
+  ```
+  > Note that github IdP must be properly configured:
+  > * authority delegation must be enabled
+  > * tokenPrefix must be set to "github/" (for the above example to work)
+  >
+  > You can learn more in
+  > [the documentation](https://onedata.org/#/home/documentation/doc/administering_onedata/openid_saml_configuration[authority-delegation].html).
+
 contact:
   name: Onedata support
   url: https://onedata.org/support

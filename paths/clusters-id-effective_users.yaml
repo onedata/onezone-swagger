@@ -11,12 +11,12 @@ get:
     - cluster_view
     - oz_clusters_list_relationships
   x-bash-codegen-description: |
-    Returns the effective list of users belonging to a specific cluster.
+    Returns the list of effective users belonging to a specific cluster.
 
     This operation requires `cluster_view` privilege
     or `oz_clusters_list_relationships` admin privilege.
   description: |
-    Returns the effective list of users belonging to a specific cluster.
+    Returns the list of effective users belonging to a specific cluster.
 
     This operation requires `cluster_view` privilege
     or `oz_clusters_list_relationships` admin privilege.

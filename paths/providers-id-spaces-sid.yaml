@@ -14,11 +14,19 @@ get:
   x-bash-codegen-description: |
     Returns the details of space supported by a specific provider.
 
-    This operation requires `oz_spaces_view` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_spaces_view` admin privilege.
   description: |
     Returns the details of space supported by a specific provider.
 
-    This operation requires `oz_spaces_view` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_spaces_view` admin privilege.
 
     ***Example cURL requests***
 

@@ -17,8 +17,8 @@ get:
     has a direct membership in the cluster (`{id}`).
 
     This operation requires any of the following authentication:
-    * as user (`{uid}`) who is an effective member of the cluster (`{id}`)
-    * as user who has `cluster_view` privilege in the cluster (`{id}`)
+    * as user (`{uid}`) who is an effective member of the cluster (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster (`{id}`),
     * as user who has `oz_clusters_view` admin privilege.
   description: |
     Returns the effective user's (`{uid}`) cluster membership intermediaries -
@@ -27,8 +27,8 @@ get:
     has a direct membership in the cluster (`{id}`).
 
     This operation requires any of the following authentication:
-    * as user (`{uid}`) who is an effective member of the cluster (`{id}`)
-    * as user who has `cluster_view` privilege in the cluster (`{id}`)
+    * as user (`{uid}`) who is an effective member of the cluster (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster (`{id}`),
     * as user who has `oz_clusters_view` admin privilege.
 
     ***Example cURL requests***

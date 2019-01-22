@@ -17,8 +17,8 @@ get:
     has a direct membership in the group (`{id}`).
 
     This operation requires any of the following authentication:
-    * as user (`{uid}`) who is an effective member of the group (`{id}`)
-    * as user who has `group_view` privilege in the group (`{id}`)
+    * as user (`{uid}`) who is an effective member of the group (`{id}`),
+    * as user who has `group_view` privilege in the group (`{id}`),
     * as user who has `oz_groups_view` admin privilege.
   description: |
     Returns the effective user's (`{uid}`) group membership intermediaries -
@@ -27,8 +27,8 @@ get:
     has a direct membership in the group (`{id}`).
 
     This operation requires any of the following authentication:
-    * as user (`{uid}`) who is an effective member of the group (`{id}`)
-    * as user who has `group_view` privilege in the group (`{id}`)
+    * as user (`{uid}`) who is an effective member of the group (`{id}`),
+    * as user who has `group_view` privilege in the group (`{id}`),
     * as user who has `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
