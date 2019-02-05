@@ -170,5 +170,23 @@ Spaces:
 Providers:
   $ref: ./providers.yaml
 
+Harvester:
+  $ref: ./harvester.yaml
+
+Harvesters:
+  $ref: ./harvesters.yaml
+
+HarvesterInviteToken:
+  $ref: ./harvesterinvitetoken.yaml
+
+HarvesterPrivileges:
+  $ref: ./harvesterprivileges.yaml
+
+HarvesterPrivilegesUpdate:
+  $ref: ./harvesterprivilegesupdate.yaml
+
+HarvesterCreateRequest:
+  $ref: ./harvestercreaterequest.yaml
+
 MembershipIntermediaries:
   $ref: ./membershipintermediaries.yaml

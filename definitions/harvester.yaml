@@ -1,0 +1,25 @@
+type: object
+description: Harvester details.
+properties:
+  harvesterId:
+    type: string
+    description: Unique harvester Id.
+  name:
+    type: string
+    description: The name of the harvester.
+  endpoint:
+    type: string
+    description: Endpoint of search engine harvester uses.
+  plugin:
+    type: string
+    description: Plugin harvester uses handling requests.
+required:
+  - harvesterId
+  - name
+  - endpoint
+  - plugin
+example:
+  harvesterId: ALSKDHLASD8ASDNjasd99
+  name: Test harvester
+  endpoint: https://example.elastic.com
+  plugin: elastic_search_plugin

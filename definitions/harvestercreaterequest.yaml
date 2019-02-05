@@ -1,0 +1,20 @@
+type: object
+description: New harvester parameters.
+properties:
+  name:
+    type: string
+    description: The name of the harvester.
+  endpoint:
+    type: string
+    description: Endpoint of search engine harvester uses.
+  plugin:
+    type: string
+    description: Plugin harvester uses handling requests.
+required:
+  - name
+  - endpoint
+  - plugin
+example:
+  name: My Private harvester
+  endpoint: https://example.elastic.com
+  plugin: elastic_search_plugin

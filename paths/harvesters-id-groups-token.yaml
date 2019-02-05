@@ -1,0 +1,70 @@
+post:
+  operationId: create_harvester_group_token
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: invite_group_token
+  x-onedata-permissions:
+    - harvester_add_group
+    - oz_harvesters_add_relationships
+  summary: Create harvester invite token for group
+  x-bash-codegen-description: |
+    Creates a token allowing to add a group to a specific harvester.
+
+    This operation requires `harvester_add_group` privilege.
+    or `oz_harvesters_add_relationships` admin privilege.
+  description: |
+    Creates a token allowing to add a group to a specific harvester.
+
+    This operation requires `harvester_add_group` privilege
+    or `oz_harvesters_add_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Create harvester invitation token for group**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/harvesters/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/groups/token
+
+    {
+      "token": "MDAxNmxvY0cGUgKWsjcpnrLE00RtOd2F00cGUgKWsjcpnrLE00RtOdhmnQycSICwMsugo"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The token for joining a specific group.
+      schema:
+        $ref : '#/definitions/HarvesterInviteToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createHarvesterGroupToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

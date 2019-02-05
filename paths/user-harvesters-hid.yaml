@@ -1,0 +1,132 @@
+get:
+  operationId: get_user_harvester
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
+  summary: Get harvester details
+  x-bash-codegen-description: |
+    Returns the details of a specific harvester.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the details of a specific harvester.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get harvester details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/harvesters/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+
+    {
+       "providers" : {
+          "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+       },
+       "harvesterId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+       "name" : "Test"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the details of a specific harvester.
+      schema:
+        $ref: '#/definitions/Harvester'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: hid
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserHarvester hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+
+
+delete:
+  operationId: remove_user_harvester
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{harvester, ?BINDING(hid)}"
+  summary: Leave harvester
+  x-bash-codegen-description: |
+    Removes the users ownership or membership in a specific harvester.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Removes the users ownership or membership in a specific harvester.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Delete user harvester**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/user/harvesters/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: The harvester will be deleted.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: hid
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeUserHarvester hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

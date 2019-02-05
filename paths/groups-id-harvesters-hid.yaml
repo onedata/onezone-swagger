@@ -1,39 +1,39 @@
 get:
-  operationId: get_group_space
+  operationId: get_group_harvester
   tags:
     - Group
   x-onedata-gri:
-    type: od_space
-    id: ?BINDING(sid)
+    type: od_harvester
+    id: ?BINDING(hid)
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
-    - oz_spaces_view
-  summary: Get group's space details
+    - oz_harvesters_view
+  summary: Get group's harvester details
   x-bash-codegen-description: |
-    Returns information about a specific space to which the group belongs.
+    Returns information about a specific harvester to which the group belongs.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    `oz_spaces_view` privilege is required.
+    `oz_harvesters_view` privilege is required.
   description: |
-    Returns information about a specific space to which the group belongs.
+    Returns information about a specific harvester to which the group belongs.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    `oz_spaces_view` privilege is required.
+    `oz_harvesters_view` privilege is required.
 
     ***Example cURL requests***
 
-    **Get group's space details**
+    **Get group's harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
 
     {
-      "spaceId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
+      "harvesterId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
       "name": "a",
       "providers": {
         "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
@@ -44,9 +44,9 @@ get:
     - application/json
   responses:
     '200':
-      description: Information about a specific space in a group.
+      description: Information about a specific harvester in a group.
       schema:
-        $ref: '#/definitions/Space'
+        $ref: '#/definitions/Harvester'
     '400':
       description: Invalid request.
       schema:
@@ -73,50 +73,50 @@ get:
     description: Group Id.
     type: string
     required: true
-  - name: sid
+  - name: hid
     in: path
-    description: Space Id.
+    description: Harvester Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupSpace id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 sid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli getGroupHarvester id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 hid=HUUPOMNGzikwiLXHaFYcE8"
 
 
 delete:
-  operationId: remove_group_from_space
+  operationId: remove_group_from_harvester
   tags:
     - Group
   x-onedata-gri:
     type: od_group
     id: ?BINDING(id)
-    aspect: "{space, ?BINDING(sid)}"
+    aspect: "{harvester, ?BINDING(hid)}"
   x-onedata-permissions:
-    - group_leave_space
-    - oz_spaces_remove_relationships
+    - group_leave_harvester
+    - oz_harvesters_remove_relationships
     - oz_groups_remove_relationships
-  summary: Remove group from space
+  summary: Remove group from harvester
   x-bash-codegen-description: |
-    Removes the group {id} from space {sid} (the group will no longer have access to space).
+    Removes the group {id} from harvester {hid} (the group will no longer have access to harvester).
 
-    This operation requires `group_leave_space` privilege.
+    This operation requires `group_leave_harvester` privilege.
   description: |
-    Removes the group {id} from space {sid} (the group will no longer have access to space).
+    Removes the group {id} from harvester {hid} (the group will no longer have access to harvester).
 
-    This operation requires `group_leave_space` privilege.
+    This operation requires `group_leave_harvester` privilege.
     For administrator who does not belong to this group
-    `oz_groups_remove_relationships` and `oz_spaces_remove_relationships` privileges are required.
+    `oz_groups_remove_relationships` and `oz_harvesters_remove_relationships` privileges are required.
 
     ***Example cURL requests***
 
-    **Remove space from group**
+    **Remove harvester from group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
     ```
   responses:
     '204':
-      description: A group was removed from the space.
+      description: A group was removed from the harvester.
     '400':
       description: Invalid request.
       schema:
@@ -143,11 +143,11 @@ delete:
     description: Group Id.
     type: string
     required: true
-  - name: sid
+  - name: hid
     in: path
-    description: Space Id.
+    description: Harvester Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroupFromSpace id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 sid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli removeGroupFromHarvester id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 hid=HUUPOMNGzikwiLXHaFYcE8"

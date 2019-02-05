@@ -1,0 +1,61 @@
+get:
+  operationId: list_effective_user_harvesters
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: eff_harvesters
+  summary: List effective user harvesters
+  x-bash-codegen-description: |
+    Returns the list of user's effective harvesters.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the list of user's effective harvesters.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get user effective harvesters**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/user/effective_harvesters
+
+    {
+      "harvesters": [
+        "ALSDJLASJDLKJAS86asdkkaSDD"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of harvesters.
+      schema:
+        $ref: '#/definitions/Harvesters'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listEffectiveUserHarvesters"
