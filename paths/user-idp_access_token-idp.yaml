@@ -1,0 +1,75 @@
+post:
+  operationId: acquire_idp_access_token
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{idp_access_token, ?BINDING(idp)}"
+  summary: Acquire IdP access token
+  x-bash-codegen-description: |
+    Acquires an access token issued by given IdP for the current user. This
+    operation requires that the IdP is configured to support offline access -
+    issues refresh tokens upon user's login to Onezone, which are later used
+    to acquire new access tokens when they expire. Offline access can be
+    configured by the Onezone admin.
+
+    The user must first log in to Onezone using given IdP,
+    otherwise the operation will return a 404 error.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Acquires an access token issued by given IdP for the current user. This
+    operation requires that the IdP is configured to support offline access -
+    issues refresh tokens upon user's login to Onezone, which are later used
+    to acquire new access tokens when they expire. Offline access can be
+    configured by the Onezone admin.
+
+    The user must first log in to Onezone using given IdP,
+    otherwise the operation will return a 404 error.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Acquire IdP access token**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/user/idp_access_token/github
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The access token issued by given IdP.
+      schema:
+        $ref: '#/definitions/IdPAccessToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: idp
+    in: path
+    description: IdP identifier.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli acquireIdpAccessToken idp=github"

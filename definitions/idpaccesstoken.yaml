@@ -1,0 +1,15 @@
+type: object
+description: IdP Access token.
+properties:
+  token:
+    type: string
+    description: The access token.
+  ttl:
+    type: integer
+    description: Time to live of the token (in seconds).
+required:
+  - token
+  - ttl
+example:
+  token: 5fc7f98122413e93fc9acbc2cd804961a24501b5820ca6cd3e35b844da9e73b1
+  ttl: 3597
