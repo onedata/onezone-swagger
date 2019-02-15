@@ -22,6 +22,22 @@ properties:
     description: List of compatible Oneprovider versions
     items:
       type: string
+  supportedIdPs:
+    type: array
+    description: List of IdPs supported by Onezone
+    items:
+      type: object
+      description: IdP details
+      properties:
+        id:
+          type: string
+          description: The identifier of the IdP
+        offlineAccess:
+          type: boolean
+          description: Determines whether given IdP can be used in the offline
+            access flow, i.e. Onezone can acquire access tokens in the IdP without
+            the user being logged in.
+
 required:
   - name
   - version

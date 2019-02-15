@@ -64,6 +64,10 @@
   $ref: ./user-default_provider.yaml
 
 
+/user/idp_access_token/{idp}:
+  $ref: ./user-idp_access_token-idp.yaml
+
+
 /user/groups:
   $ref: ./user-groups.yaml
 
