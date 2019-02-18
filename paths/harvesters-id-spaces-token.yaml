@@ -1,5 +1,5 @@
 post:
-  operationId: create_harvester_invite_space_token
+  operationId: create_harvester_space_token
   tags:
     - Harvester
   x-onedata-gri:
@@ -9,16 +9,14 @@ post:
   x-onedata-permissions:
     - harvester_invite_space
     - oz_harvesters_add_relationships
-  summary: Create harvester support token
+  summary: Create harvester invite token for space
   x-bash-codegen-description: |
-    Creates a token which can be submitted to a selected space in order to
-    add space to the harvester.
+    Creates a token which can be can be consumed to add a space to a harvester.
 
     This operation requires `harvester_invite_space` privilege
     or `oz_harvesters_add_relationships` admin privilege.
   description: |
-    Creates a token which can be submitted to a selected space in order to
-    add space to the harvester.
+    Creates a token which can be can be consumed to add a space to a harvester.
 
     This operation requires `harvester_invite_space` privilege
     or `oz_harvesters_add_relationships` admin privilege.
@@ -40,7 +38,7 @@ post:
     - application/json
   responses:
     '200':
-      description: The token for getting harvester storage support from a space.
+      description: The token for joining a specific harvester.
       schema:
         $ref : '#/definitions/HarvesterInviteToken'
     '400':
@@ -71,4 +69,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createHarvesterSupportToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli createHarvesterSpaceToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

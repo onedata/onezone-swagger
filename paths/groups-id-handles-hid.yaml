@@ -109,13 +109,13 @@ delete:
     - oz_handles_remove_relationships
   summary: Remove group handle
   x-bash-codegen-description: |
-    Removes the groups ownership or membership in a specific handle.
+    Removes the groups ownership or access to a specific handle.
 
     This operation requires `group_leave_handle` privilege.
     For administrator who does not belong to this group
     `oz_groups_remove_relationships` and `oz_handles_remove_relationships` privileges are required.
   description: |
-    Removes the groups ownership or membership in a specific handle.
+    Removes the groups ownership or access to a specific handle.
 
     This operation requires `group_leave_handle` privilege.
     For administrator who does not belong to this group

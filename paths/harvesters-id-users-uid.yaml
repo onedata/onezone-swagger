@@ -13,7 +13,7 @@ get:
     - oz_users_view
   summary: Get harvester user details
   x-bash-codegen-description: |
-    Returns the public information about a specific user in a harvester.
+    Returns basic information about a specific user in a harvester.
 
     This operation requires `harvester_view` privilege.
     For administrators who do not have to be members of this harvester,

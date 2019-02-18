@@ -12,9 +12,9 @@ get:
   summary: Get effective group's space membership intermediaries
   x-bash-codegen-description: |
     Returns the effective group's (`{gid}`) space membership intermediaries -
-    entities from which the group inherits membership in the space (`{id}`).
+    entities from which the group inherits access to the space (`{id}`).
     Special keyword `"self"` in entity id indicates that the group (`{gid}`)
-    has a direct membership in the space (`{id}`).
+    has a direct access to the space (`{id}`).
 
     This operation requires any of the following authorization:
     * as user who is an effective member of the group (`{gid}`)
@@ -22,9 +22,9 @@ get:
     * as user who has `oz_spaces_view` admin privilege.
   description: |
     Returns the effective group's (`{gid}`) space membership intermediaries -
-    entities from which the group inherits membership in the space (`{id}`).
+    entities from which the group inherits access to the space (`{id}`).
     Special keyword `"self"` in entity id indicates that the group (`{gid}`)
-    has a direct membership in the space (`{id}`).
+    has a direct access to the space (`{id}`).
 
     This operation requires any of the following authorization:
     * as user who is an effective member of the group (`{gid}`)

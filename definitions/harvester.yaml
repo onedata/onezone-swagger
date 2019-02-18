@@ -9,10 +9,10 @@ properties:
     description: The name of the harvester.
   endpoint:
     type: string
-    description: Endpoint of search engine harvester uses.
+    description: URL of the harvester backend (e.g. elastic search service).
   plugin:
     type: string
-    description: Plugin harvester uses handling requests.
+    description: Name of the erlang plugin used for communication with the harvester backend.
 required:
   - harvesterId
   - name
@@ -22,4 +22,4 @@ example:
   harvesterId: ALSKDHLASD8ASDNjasd99
   name: Test harvester
   endpoint: https://example.elastic.com
-  plugin: elastic_search_plugin
+  plugin: elasticsearch_plugin

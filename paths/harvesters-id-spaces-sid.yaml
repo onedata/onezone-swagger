@@ -165,7 +165,7 @@ put:
 
 
 delete:
-  operationId: remove_harvesters_space
+  operationId: remove_harvester_space
   tags:
     - Harvester
   x-onedata-gri:
@@ -230,4 +230,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeSpaceSupportingHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeHarvesterSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

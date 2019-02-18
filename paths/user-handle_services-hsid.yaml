@@ -90,11 +90,11 @@ delete:
     aspect: "{handle_service, ?BINDING(hsid)}"
   summary: Remove user handle service
   x-bash-codegen-description: |
-    Removes the users ownership or membership in a specific handle service.
+    Removes the users ownership or access to a specific handle service.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the users ownership or membership in a specific handle service.
+    Removes the users ownership or access to a specific handle service.
 
     This operation can be invoked on behalf of the current user only.
 

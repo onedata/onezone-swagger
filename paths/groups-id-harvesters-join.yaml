@@ -37,7 +37,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the joined harvester in form https://$HOST/api/onezone/v3/groups/{id}/harvesters/{sid} is
+        URI of the joined harvester in form https://$HOST/api/onezone/v3/groups/{id}/harvesters/{hid} is
         returned in the response `Location` header.
       headers:
         Location:

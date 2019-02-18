@@ -12,7 +12,7 @@ get:
   summary: Get effective user's provider membership intermediaries
   x-bash-codegen-description: |
     Returns the effective user's (`{uid}`) provider membership intermediaries -
-    spaces from which the user inherits membership in the provider (`{id}`).
+    spaces from which the user inherits access to the provider (`{id}`).
 
     This operation requires any of the following authorization:
     * as user (`{uid}`) who is an effective member of the provider (`{id}`)
@@ -20,7 +20,7 @@ get:
     * as user who has `oz_providers_view` admin privilege.
   description: |
     Returns the effective user's (`{uid}`) provider membership intermediaries -
-    spaces from which the user inherits membership in the provider (`{id}`).
+    spaces from which the user inherits access to the provider (`{id}`).
 
     This operation requires any of the following authorization:
     * as user (`{uid}`) who is an effective member of the provider (`{id}`)

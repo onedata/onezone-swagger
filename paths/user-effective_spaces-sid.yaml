@@ -10,11 +10,11 @@ get:
   x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get effective space details
   x-bash-codegen-description: |
-    Returns information about a specific effective space to which the user belongs.
+    Returns information about a specific effective space to which the user has access.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Returns information about a specific effective space to which the user belongs.
+    Returns information about a specific effective space to which the user has access.
 
     This operation can be invoked on behalf of the current user only.
 

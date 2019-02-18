@@ -114,7 +114,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the added group in form https://$HOST/api/onezone/v3/harvesters/{id}/groups/{cid} is
+        URI of the added group in form https://$HOST/api/onezone/v3/harvesters/{id}/groups/{gid} is
         returned in the response `Location` header.
       headers:
         Location:

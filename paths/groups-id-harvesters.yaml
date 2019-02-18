@@ -105,7 +105,7 @@ post:
     **Create new harvester for group**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" \
-    -X POST -d '{ "name" : "new_harvester", "endpoint" : "https://example.elastic.com", "plugin" : "elastic_search_plugin" }' \
+    -X POST -d '{ "name" : "new_harvester", "endpoint" : "https://example.elastic.com", "plugin" : "elasticsearch_plugin" }' \
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters
     ```
   produces:
@@ -113,7 +113,7 @@ post:
   responses:
     '204':
       description: >
-        Id of the created harvester in the form /groups/{id}/harvesters/{sid} is
+        Id of the created harvester in the form /groups/{id}/harvesters/{hid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -149,4 +149,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createHarvesterForGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name==\"New harvester name\""
+    source: "onezone-rest-cli createHarvesterForGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name==\"New harvester name\" endpoint== \"https://example.elastic.com\" plugin==\"elasticsearch_plugin\""

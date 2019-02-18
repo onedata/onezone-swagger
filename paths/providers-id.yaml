@@ -17,7 +17,7 @@ get:
     If called by other provider doesn't require any special privileges.
 
     This operation requires `oz_providers_view` admin privilege or
-    effective membership in space supported by that provider.
+    effective access to space supported by that provider.
   description: |
     Returns the information about a specific Oneprovider service, which is
     connected to the onezone.
@@ -25,7 +25,7 @@ get:
     If called by other provider doesn't require any special privileges.
 
     This operation requires `oz_providers_view` admin privilege or
-    effective membership in space supported by that provider.
+    effective access to space supported by that provider.
 
     ***Example cURL requests***
 

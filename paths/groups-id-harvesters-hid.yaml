@@ -13,13 +13,13 @@ get:
     - oz_harvesters_view
   summary: Get group's harvester details
   x-bash-codegen-description: |
-    Returns information about a specific harvester to which the group belongs.
+    Returns information about a specific harvester to which the group has access.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
     `oz_harvesters_view` privilege is required.
   description: |
-    Returns information about a specific harvester to which the group belongs.
+    Returns information about a specific harvester to which the group has access.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group

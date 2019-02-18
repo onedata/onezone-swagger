@@ -72,7 +72,7 @@ get:
 
 
 delete:
-  operationId: remove_user_harvester
+  operationId: user_leave_harvester
   tags:
     - User
   x-onedata-gri:
@@ -81,11 +81,11 @@ delete:
     aspect: "{harvester, ?BINDING(hid)}"
   summary: Leave harvester
   x-bash-codegen-description: |
-    Removes the users ownership or membership in a specific harvester.
+    Removes the users ownership or access to a specific harvester.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the users ownership or membership in a specific harvester.
+    Removes the users ownership or access to a specific harvester.
 
     This operation can be invoked on behalf of the current user only.
 
@@ -100,7 +100,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: The harvester will be deleted.
+      description: The user was removed from harvester.
     '400':
       description: Invalid request.
       schema:
@@ -129,4 +129,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserHarvester hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli userLeaveHarvester hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

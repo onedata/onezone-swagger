@@ -99,7 +99,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the created space in the form https://$HOST/api/onezone/v3/user/spaces/{id} is
+        URI of the created space in the form https://$HOST/api/onezone/v3/spaces/{id} is
         returned in the response `Location` header.
       headers:
         Location:

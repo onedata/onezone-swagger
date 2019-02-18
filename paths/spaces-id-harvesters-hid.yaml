@@ -82,7 +82,7 @@ get:
 
 
 delete:
-  operationId: space_leave_harvester
+  operationId: remove_space_from_harvester
   tags:
     - Space
   x-onedata-gri:
@@ -92,23 +92,20 @@ delete:
   x-onedata-permissions:
     - space_remove_harvester
     - oz_spaces_remove_relationships
-  summary: Leave space from harvester.
+    - oz_harvesters_remove_relationships
+  summary: Remove space from harvester.
   x-bash-codegen-description: |
-    Leave space from a specific harvester.
+    Removes the space {id} from harvester {hid} (metadata from given space will no longer be submitted to given harvester).
 
-    For regular users, who belong to this space it requires
-    `space_remove_harvester` privilege to remove a harvester from this space.
-
-    For administrators, who are not members of this space,
-    `oz_spaces_remove_relationships` privilege is required.
+    This operation requires `space_remove_harvester` privilege().
+    For administrator who does not belong to this group
+    `oz_spaces_remove_relationships` and `oz_harvesters_remove_relationships` privileges are required.
   description: |
-    Leave space from a specific harvester.
+    Removes the space {id} from harvester {hid} (metadata from given space will no longer be submitted to given harvester).
 
-    For regular users, who belong to this space it requires
-    `space_remove_harvester` privilege to remove a harvester from this space.
-
-    For administrators, who are not members of this space,
-    `oz_spaces_remove_relationships` privilege is required.
+    This operation requires `space_remove_harvester` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_remove_relationships` and `oz_harvesters_remove_relationships` privileges are required.
 
     ***Example cURL requests***
 
@@ -119,7 +116,7 @@ delete:
     ```
   responses:
     '204':
-      description: A space was left from harvester.
+      description: A space was removed from harvester.
     '400':
       description: Invalid request.
       schema:
@@ -153,4 +150,4 @@ delete:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli removeSpaceHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 hid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+      source: "onezone-rest-cli removeSpaceFromHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 hid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

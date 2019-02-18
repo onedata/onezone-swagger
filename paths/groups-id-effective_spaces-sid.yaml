@@ -13,13 +13,13 @@ get:
     - oz_spaces_view
   summary: Get effective group space details
   x-bash-codegen-description: |
-    Returns information about a specific effective space to which the group belongs.
+    Returns information about a specific effective space to which the group has access.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
     `oz_spaces_view` privilege is required.
   description: |
-    Returns information about a specific effective space to which the group belongs.
+    Returns information about a specific effective space to which the group has access.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
