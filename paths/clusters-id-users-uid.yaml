@@ -13,13 +13,13 @@ get:
     - oz_users_view
   summary: Get cluster's user details
   x-bash-codegen-description: |
-    Returns the public information about a specific user in a cluster.
+    Returns basic information about a specific user in a cluster.
 
     This operation requires `cluster_view` privilege.
     For administrators who do not have to be members of this cluster,
     `oz_users_view` privilege is required.
   description: |
-    Returns the public information about a specific user in a cluster.
+    Returns basic information about a specific user in a cluster.
 
     This operation requires `cluster_view` privilege.
     For administrators who do not have to be members of this cluster,
