@@ -19,7 +19,7 @@ get:
     For administrators who do not have to be members of this harvester,
     `oz_users_view` privilege is required.
   description: |
-    Returns the public information about a specific user in a harvester.
+    Returns basic information about a specific user in a harvester.
 
     This operation requires `harvester_view` privilege.
     For administrators who do not have to be members of this harvester,

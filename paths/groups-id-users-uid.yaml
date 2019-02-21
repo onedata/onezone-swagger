@@ -13,13 +13,13 @@ get:
     - oz_users_view
   summary: Get group user details
   x-bash-codegen-description: |
-    Returns the public information about a user {uid} in group {id}.
+    Returns basic information about a user {uid} in group {id}.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
     `oz_users_view` privilege is required.
   description: |
-    Returns the public information about a user {uid} in group {id}.
+    Returns basic information about a user {uid} in group {id}.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group

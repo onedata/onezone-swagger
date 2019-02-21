@@ -9,7 +9,7 @@ properties:
     description: The name of the harvester.
   endpoint:
     type: string
-    description: URL of the harvester backend (e.g. elastic search service).
+    description: URL of the harvester backend (e.g. elasticsearch service).
   plugin:
     type: string
     description: Name of the erlang plugin used for communication with the harvester backend.

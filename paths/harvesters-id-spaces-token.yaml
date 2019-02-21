@@ -1,5 +1,5 @@
 post:
-  operationId: create_harvester_space_token
+  operationId: create_harvester_invite_space_token
   tags:
     - Harvester
   x-onedata-gri:
@@ -69,4 +69,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createHarvesterSpaceToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli createHarvesterInviteSpaceToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
