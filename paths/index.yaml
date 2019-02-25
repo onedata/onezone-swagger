@@ -168,10 +168,6 @@
   $ref: ./user-clusters-provider_registration_token.yaml
 
 
-/user/clusters/link_onepanel_user_token:
-  $ref: ./user-clusters-link_onepanel_user_token.yaml
-
-
 /user/clusters/join:
   $ref: ./user-clusters-join.yaml
 
@@ -713,10 +709,6 @@
 
 /clusters/{id}:
   $ref: ./clusters-id.yaml
-
-
-/clusters/{id}/link_onepanel_user:
-  $ref: ./clusters-id-link_onepanel_user.yaml
 
 
 /clusters/{id}/users:
