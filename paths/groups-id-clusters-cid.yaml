@@ -29,12 +29,18 @@ get:
       "clusterId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
       "type" : "oneprovider",
       "serviceId" : "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjC",
-      "name" : "My Provider",
-      "domain" : "my-provider.example.com",
-      "version" : "18.02.1",
-      "build" : "cd624fd211-18",
+      "workerVersion": {
+        "release": "18.02.1",
+        "build": "1-gfabf02d",
+        "gui": "129c549fbe9b3e730c3d9910492228566e39e1236945766a74381405cc57fb04"
+      },
+      "onepanelVersion": {
+        "release": "18.02.1",
+        "build": "3-89fc6bad",
+        "gui": "68e7e1472adb719ddf2d88908775091dfb10e5d0b916f06125ea1af4056044e3"
+      },
       "online" : true,
-      "proxy" : false
+      "onepanelProxy" : false
     }
     ```
   produces:

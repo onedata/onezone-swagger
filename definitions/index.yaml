@@ -8,6 +8,9 @@ Configuration:
 Error:
   $ref: ./error.yaml
 
+VersionInfo:
+  $ref: ./versioninfo.yaml
+
 User:
   $ref: ./user.yaml
 
