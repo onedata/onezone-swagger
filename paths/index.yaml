@@ -459,6 +459,10 @@
   $ref: ./spaces-id-harvesters.yaml
 
 
+/spaces/{id}/harvesters/join:
+  $ref: ./spaces-id-harvesters-join.yaml
+
+
 /spaces/{id}/harvesters/{hid}:
   $ref: ./spaces-id-harvesters-hid.yaml
 

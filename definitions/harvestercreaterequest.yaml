@@ -10,11 +10,36 @@ properties:
   plugin:
     type: string
     description: Name of the erlang plugin used for communication with the harvester backend.
+  config:
+    type: object
+    description: Custom JSON configuration passed to harvester GUI plugin.
+  entryTypeField:
+    type: string
+    description: Name of the field in harvested metadata that contains entry type.
+  acceptedEntryTypes:
+    type: array
+    items:
+      type: string
+    description: List of all accepted entry types.
+  defaultEntryType:
+    type: string
+    description: Type that will be used, when field provided in `entryTypeField` is not found.
 required:
   - name
   - endpoint
   - plugin
+  - config
+  - entryTypeField
+  - acceptedEntryTypes
 example:
   name: My Private harvester
   endpoint: https://example.elastic.com
   plugin: elasticsearch_plugin
+  config: {
+    "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
+    "externalHelpLink": "http://example.com/some_help_page",
+    "refreshDataTimeout": 1000
+  }
+  entryTypeField: type
+  acceptedEntryTypes: [study, data_object]
+  defaultEntryType: study

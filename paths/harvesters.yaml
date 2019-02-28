@@ -85,14 +85,17 @@ post:
     See also:  
     [Create a new harvester for the current user](#operation/create_user_harvester)  
     [Create a new harvester for given group](#operation/create_harvester_for_group)  
-    [Create a new harvester for given space](#operation/create_harvester_for_space)
 
     ***Example cURL requests***
 
     **Create new harvester**
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
-    -X POST -d '{ "name" : "new_harvester", "endpoint" : "https://example.elastic.com", "plugin" : "elasticsearch_plugin" }' \
+    -X POST -d '{ "name" : "new_harvester", "endpoint" : "https://example.elastic.com", "plugin" : "elasticsearch_plugin"  \
+    "config" : { "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
+                 "externalHelpLink": "http://example.com/some_help_page",
+                 "refreshDataTimeout": 1000 }, \
+    "entryTypeField" : "type", "acceptedEntryTypes" : ["study", "data_object"], "defaultEntryType" : "study" }' \
     https://$HOST/api/v3/onezone/harvesters
     ```
   consumes:
@@ -135,4 +138,9 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createHarvester name==\"Harvester 1\" endpoint== \"https://example.elastic.com\" plugin==\"elasticsearch_plugin\""
+    source: "onezone-rest-cli createHarvester name==\"Harvester 1\" endpoint== \"https://example.elastic.com\" plugin==\"elasticsearch_plugin\"
+    config=={
+    \"typeMapping\": [ { \"id\": 0, \"name\": \"Type 1\" }, { \"id\": 1, \"name\": \"Type 1\" } ],
+    \"externalHelpLink\": \"http://example.com/some_help_page\",
+    \"refreshDataTimeout\": 1000
+  } entryTypeField== \"type\" acceptedEntryTypes==[\"study\", \"data_object\"] defaultEntryType: \"study\""
