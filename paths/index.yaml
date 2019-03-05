@@ -785,5 +785,9 @@
 
 /harvesters/{id}/spaces/{sid}:
   $ref: ./harvesters-id-spaces-sid.yaml
+  
+  
+/harvesters/{id}/config:
+  $ref: ./harvesters-id-config.yaml
 
 

@@ -188,5 +188,8 @@ HarvesterPrivilegesUpdate:
 HarvesterCreateRequest:
   $ref: ./harvestercreaterequest.yaml
 
+HarvesterConfiguration:
+  $ref: ./harvesterconfiguration.yaml
+
 MembershipIntermediaries:
   $ref: ./membershipintermediaries.yaml

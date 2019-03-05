@@ -11,8 +11,7 @@ properties:
     type: string
     description: Name of the erlang plugin used for communication with the harvester backend.
   config:
-    type: object
-    description: Custom JSON configuration passed to harvester GUI plugin.
+    $ref: '#/definitions/HarvesterConfiguration'
   entryTypeField:
     type: string
     description: Name of the field in harvested metadata that contains entry type.
@@ -28,7 +27,6 @@ required:
   - name
   - endpoint
   - plugin
-  - config
   - entryTypeField
   - acceptedEntryTypes
 example:

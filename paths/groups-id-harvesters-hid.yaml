@@ -33,11 +33,13 @@ get:
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
 
     {
-      "harvesterId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
-      "name": "a",
-      "providers": {
-        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
-      }
+      "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "name": "new_harvester1",
+      "public" : true,
+      "plugin" : "elasticsearch_plugin",
+      "entryTypeField" : "type",
+      "acceptedEntryTypes" : ["study", "data_object"],
+      "defaultEntryType" : "study"
     }
     ```
   produces:

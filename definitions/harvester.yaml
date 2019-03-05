@@ -7,9 +7,36 @@ properties:
   name:
     type: string
     description: The name of the harvester.
+  public:
+    type: boolean
+    description: Whether given harvester is public.
+  plugin:
+    type: string
+    description: Name of the erlang plugin used for communication with the harvester backend.
+  entryTypeField:
+    type: string
+    description: Name of the field in harvested metadata that contains entry type.
+  acceptedEntryTypes:
+    type: array
+    items:
+      type: string
+    description: List of all accepted entry types.
+  defaultEntryType:
+    type: string
+    description: Type that will be used, when field provided in `entryTypeField` is not found.
 required:
   - harvesterId
   - name
+  - public
+  - plugin
+  - entryTypeField
+  - acceptedEntryTypes
+  - defaultEntryType
 example:
   harvesterId: ALSKDHLASD8ASDNjasd99
   name: Test harvester
+  public: true
+  plugin: elasticsearch_plugin
+  entryTypeField: type
+  acceptedEntryTypes: [study, data_object]
+  defaultEntryType: study

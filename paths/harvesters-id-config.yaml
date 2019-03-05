@@ -1,0 +1,147 @@
+get:
+  operationId: get_harvester_config
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: config
+    scope: private
+  x-onedata-permissions:
+    - oz_harvesters_view
+  summary: Get harvester configuration
+  x-bash-codegen-description: |
+    Returns JSON configuration for harvester GUI plugin.
+
+    If called by user who is not member of the harvester, requires `oz_harvesters_view`
+    privilege.
+  description: |
+    Returns JSON configuration for harvester GUI plugin.
+
+    If called by user who is not member of the harvester, requires `oz_harvesters_view`
+    privilege.
+
+    ***Example cURL requests***
+
+    **Get harvester details**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/harvesters/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I/config
+
+    {
+      "config" : {
+        "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
+        "externalHelpLink": "http://example.com/some_help_page",
+        "refreshDataTimeout": 1000
+      }
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Harvester GUI plugin configuration.
+      schema:
+        $ref: '#/definitions/HarvesterConfiguration'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Harvester Id.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getHarvesterConfig id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+
+
+patch:
+  operationId: modify_harvester_config
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: config
+  x-onedata-permissions:
+    - harvester_update
+    - oz_harvesters_update
+  summary: Modify harvester configuration
+  x-bash-codegen-description: |
+    Updates harvester GUI plugin configuration.
+
+    This operation requires `harvester_update` privilege
+    or `oz_harvesters_update` admin privilege.
+  description: |
+    Updates harvester GUI plugin configuration.
+
+    This operation requires `harvester_update` privilege
+    or `oz_harvesters_update` admin privilege.
+
+    ***Example cURL requests***
+
+    **Change harvester name**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" \
+    -X PATCH -d '{"config": {}}' \
+    https://$HOST/api/v3/onezone/harvesters/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/config
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Harvester configuration has been updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Harvester Id.
+      type: string
+      required: true
+    - name: data
+      in: body
+      description: New harvester config
+      schema:
+        $ref: '#/definitions/HarvesterConfiguration'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli modifyHarvesterConfig id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 config=={}"

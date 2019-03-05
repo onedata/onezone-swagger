@@ -33,9 +33,13 @@ get:
     https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/harvesters/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
 
     {
-      "harvesterId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
-      "name": "new_harvesterX",
-      "type": "team"
+      "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "name": "new_harvester1",
+      "public" : true,
+      "plugin" : "elasticsearch_plugin",
+      "entryTypeField" : "type",
+      "acceptedEntryTypes" : ["study", "data_object"],
+      "defaultEntryType" : "study"
     }
     ```
   produces:

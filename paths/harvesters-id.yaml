@@ -31,9 +31,11 @@ get:
     {
       "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_harvester1",
-      "providers": {
-        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
-      }
+      "public" : true,
+      "plugin" : "elasticsearch_plugin",
+      "entryTypeField" : "type",
+      "acceptedEntryTypes" : ["study", "data_object"],
+      "defaultEntryType" : "study"
     }
     ```
   produces:
