@@ -13,11 +13,13 @@ get:
   x-bash-codegen-description: |
     Returns the information about a specific group.
 
-    This operation requires `oz_groups_view` admin privilege or group membership.
+    This operation requires membership in the group or
+    `oz_groups_view` admin privilege.
   description: |
     Returns the information about a specific group.
 
-    This operation requires `oz_groups_view` admin privilege or group membership.
+    This operation requires membership in the group or
+    `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
 

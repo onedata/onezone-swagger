@@ -13,13 +13,13 @@ get:
   x-bash-codegen-description: |
     Returns the details about a specific cluster.
 
-    If called by user who is not member of the cluster, requires `oz_clusters_view`
-    privilege.
+    This operation requires membership in the cluster or
+    `oz_clusters_view` admin privilege.
   description: |
     Returns the details about a specific cluster.
 
-    If called by user who is not member of the cluster, requires `oz_clusters_view`
-    privilege.
+    This operation requires membership in the cluster or
+    `oz_clusters_view` admin privilege.
 
     ***Example cURL requests***
 
