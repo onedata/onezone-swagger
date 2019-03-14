@@ -93,7 +93,7 @@ post:
 
     ***Example cURL requests***
 
-    **Create new space**
+    **Register provider**
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
     -X POST -d '{
