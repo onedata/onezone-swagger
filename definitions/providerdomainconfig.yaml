@@ -1,0 +1,29 @@
+type: object
+description: Provider's domain config.
+properties:
+  subdomainDelegation:
+    description: >
+      True if this Oneprovider has been assigned a subdomain in Onezone's domain.
+    type: boolean
+  domain:
+    description: >
+      The fully qualified domain name of the Oneprovider or its IP address
+      (only for single-node deployments or clusters with a reverse proxy).
+    type: string
+  subdomain:
+    description: >
+      Unique subdomain in Onezone's domain for the Oneprovider.
+      Applicable if subdomain delegation is enabled, null otherwise.
+    type: string
+  ipList:
+    description: >
+      The list of IP addresses advertised by Onezone on behalf of the Oneprovider.
+      Applicable if subdomain delegation is enabled, empty list otherwise.
+    type: array
+    items:
+      type: string
+example:
+  subdomainDelegation: false
+  domain: provider1.example.com
+  subdomain: null
+  ipList: ["172.17.0.1", "172.17.0.2", "172.17.0.3"]

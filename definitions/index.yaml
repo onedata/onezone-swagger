@@ -47,6 +47,9 @@ ProviderRegistrationResponse:
 ProviderDetails:
   $ref: ./providerdetails.yaml
 
+ProviderDomainConfig:
+  $ref: ./providerdomainconfig.yaml
+
 AuthenticationToken:
   $ref: ./authenticationtoken.yaml
 

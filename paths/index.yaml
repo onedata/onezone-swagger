@@ -527,6 +527,10 @@
   $ref: ./providers-id-spaces-sid.yaml
 
 
+/providers/{id}/domain_config:
+  $ref: ./providers-id-domain_config.yaml
+
+
 
 ###############################################################################
 # Provider
@@ -566,6 +570,10 @@
 
 /provider/public/verify_provider_identity:
   $ref: ./provider-public-verify_provider_identity.yaml
+
+
+/provider/domain_config:
+  $ref: ./provider-domain_config.yaml
 
 
 

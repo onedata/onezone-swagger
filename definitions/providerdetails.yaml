@@ -1,44 +1,32 @@
 type: object
-description: Provider properties.
+description: Oneprovider properties.
 properties:
   providerId:
     type: string
     description: The provider Id.
   name:
     type: string
-    description: Provider name.
-  subdomainDelegation:
-    type: boolean
-    description: >
-      True if this provider has been assigned a subdomain in onezone's domain.
-  subdomain:
-    type: string
-    description: >
-      Unique subdomain in onezone's domain for the storage provider. Present if
-      subdomain delegation is enabled.
+    description: Oneprovider name.
   domain:
     type: string
     description: >
-      The fully qualified domain name of the storage provider or its IP address (only for
-      single-node deployments or clusters with a reverse proxy). Present if
-      subdomain delegation is disabled.
+      The fully qualified domain name of the Oneprovider or its IP address
+      (only for single-node deployments or clusters with a reverse proxy).
   latitude:
     type: number
-    description: The geographical latitude of the provider data center location.
+    description: The geographical latitude of the Oneprovider data center location.
   longitude:
     type: number
-    description: The geographical longitude of the provider data center location.
+    description: The geographical longitude of the Oneprovider data center location.
   cluster:
     type: string
     description: The Id of the corresponding Oneprovider cluster.
   online:
     type: boolean
-    description: True if this provider is online - connected to Onezone.
+    description: True if this Oneprovider is online - connected to Onezone.
 example:
   providerId: H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk
   name: Example provider
-  subdomainDelegation: false
-  subdomain: null
   domain: provider1.example.com
   latitude: 50.0647
   longitude: 19.9450
