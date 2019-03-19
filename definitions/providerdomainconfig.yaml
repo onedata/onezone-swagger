@@ -23,7 +23,7 @@ properties:
     items:
       type: string
 example:
-  subdomainDelegation: false
-  domain: provider1.example.com
-  subdomain: null
+  subdomainDelegation: true
+  domain: provider1.onezone-example.org
+  subdomain: provider1
   ipList: ["172.17.0.1", "172.17.0.2", "172.17.0.3"]
