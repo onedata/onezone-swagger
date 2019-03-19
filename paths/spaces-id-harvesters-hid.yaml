@@ -37,9 +37,8 @@ get:
       "name": "new_harvester1",
       "public" : true,
       "plugin" : "elasticsearch_plugin",
-      "entryTypeField" : "type",
-      "acceptedEntryTypes" : ["study", "data_object"],
-      "defaultEntryType" : "study"
+      "endpoint" : "https://example.elastic.com",
+      "indices" : ["803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I"]
     }
     ```
   produces:

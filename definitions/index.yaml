@@ -191,5 +191,17 @@ HarvesterCreateRequest:
 HarvesterConfiguration:
   $ref: ./harvesterconfiguration.yaml
 
+HarvesterIndex:
+  $ref: ./harvesterindex.yaml
+
+HarvesterIndices:
+  $ref: ./harvesterindices.yaml
+
+HarvesterIndexCreateRequest:
+  $ref: ./harvesterindexcreaterequest.yaml
+
+HarvesterQuery:
+  $ref: ./harvesterquery.yaml
+
 MembershipIntermediaries:
   $ref: ./membershipintermediaries.yaml

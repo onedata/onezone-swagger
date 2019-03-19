@@ -5,7 +5,7 @@ get:
   x-onedata-gri:
     type: od_harvester
     id: ?BINDING(id)
-    aspect: config
+    aspect: gui_plugin_config
     scope: private
   x-onedata-permissions:
     - oz_harvesters_view
@@ -14,12 +14,12 @@ get:
     Returns JSON configuration for harvester GUI plugin.
 
     If called by user who is not member of the harvester, requires `oz_harvesters_view`
-    privilege.
+    admin privilege.
   description: |
     Returns JSON configuration for harvester GUI plugin.
 
     If called by user who is not member of the harvester, requires `oz_harvesters_view`
-    privilege.
+    admin privilege.
 
     ***Example cURL requests***
 
@@ -81,7 +81,7 @@ patch:
   x-onedata-gri:
     type: od_harvester
     id: ?BINDING(id)
-    aspect: config
+    aspect: gui_plugin_config
   x-onedata-permissions:
     - harvester_update
     - oz_harvesters_update

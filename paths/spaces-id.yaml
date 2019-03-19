@@ -14,12 +14,12 @@ get:
     Returns the details about a specific space.
 
     If called by user who is not member of the space, requires `oz_spaces_view`
-    privilege.
+    admin privilege.
   description: |
     Returns the details about a specific space.
 
     If called by user who is not member of the space, requires `oz_spaces_view`
-    privilege.
+    admin privilege.
 
     ***Example cURL requests***
 

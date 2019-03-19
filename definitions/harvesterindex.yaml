@@ -1,0 +1,15 @@
+type: object
+description: Harvester index parameters.
+properties:
+  indexId:
+    type: string
+    description: Unique Id of the index.
+  name:
+    type: string
+    description: The name of the index.
+required:
+  - indexId
+  - name
+example:
+  indexId: Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+  name: My Private Index

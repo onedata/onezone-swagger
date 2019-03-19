@@ -1,0 +1,20 @@
+type: object
+description: Harvester index parameters.
+properties:
+  name:
+    type: string
+    description: The name of the index.
+  guiPluginName:
+    type: string
+    description: The name of the index in gui plugin.
+  schema:
+    type: string
+    description: Encoded schema of the index.
+required:
+  - name
+  - guiPluginName
+  - schema
+example:
+  name: My Private Index
+  guiPluginName: My Private Index
+  schema: "{}"

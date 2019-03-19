@@ -100,7 +100,7 @@ put:
 
     For administrator who does not belong to the space / harvester,
     `oz_spaces_add_relationships` and `oz_harvesters_add_relationships` privileges
-    are required, .
+    are required.
   description: |
     Adds space {sid} as member of harvester {id}.
 
@@ -109,7 +109,7 @@ put:
 
     For administrator who does not belong to the space / harvester,
     `oz_spaces_add_relationships` and `oz_harvesters_add_relationships` privileges
-    are required, .
+    are required.
 
     ***Example cURL requests***
 
@@ -175,7 +175,7 @@ delete:
   x-onedata-permissions:
     - harvester_remove_space
     - oz_harvesters_remove_relationships
-  summary: Remove harvester support
+  summary: Remove harvester space
   x-bash-codegen-description: |
     Removes space from a specific harvester.
 

@@ -13,13 +13,17 @@ get:
   x-bash-codegen-description: |
     Returns the list of groups belonging to a specific harvester.
 
-    If called by user who is not member of the harvester, requires `harvester_view`
-    privilege or `oz_harvesters_list_relationships` admin privilege.
+    This operation requires `harvester_view` privilege in the harvester.
+
+    For administrator who does not belong to the harvester,
+    `oz_harvesters_list_relationships` privilege is required.
   description: |
     Returns the list of groups belonging to a specific harvester.
 
-    If called by user who is not member of the harvester, requires `harvester_view`
-    privilege or `oz_harvesters_list_relationships` admin privilege.
+    This operation requires `harvester_view` privilege in the harvester.
+
+    For administrator who does not belong to the harvester,
+    `oz_harvesters_list_relationships` privilege is required.
 
     ***Example cURL requests***
 

@@ -791,3 +791,11 @@
   $ref: ./harvesters-id-config.yaml
 
 
+/harvesters/{id}/indices:
+  $ref: ./harvesters-id-indices.yaml
+
+
+/harvesters/{id}/indices/{iid}:
+  $ref: ./harvesters-id-indices-iid.yaml
+
+

@@ -1,0 +1,22 @@
+type: object
+description: Harvester query parameters for Elasticsearch.
+properties:
+  method:
+    type: string
+    enum:
+      - post
+      - get
+    description: Method of request to Elasticsearch.
+  path:
+    type: string
+    description: Path to locate resource in index.
+  body:
+    description: Body of request to Elasticsearch.
+      
+required:
+  - method
+  - path
+
+example:
+  method: get
+  path: entry_id?stored_fields=tags,counter
