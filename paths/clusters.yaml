@@ -37,13 +37,7 @@ get:
     '200':
       description: List of all clusters Ids.
       schema:
-        type: object
-        properties:
-          clusters:
-            description: The list of all cluster Ids.
-            type: array
-            items:
-              type: string
+        $ref: '#/definitions/Clusters'
     '400':
       description: Invalid request.
       schema:

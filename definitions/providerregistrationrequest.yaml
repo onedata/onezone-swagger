@@ -1,38 +1,38 @@
 type: object
-description: Provider registration request.
+description: Oneprovider registration request.
 properties:
   token:
     type: string
     description: >
-      Token for registering a new provider.
+      Token for registering a new Oneprovider.
   name:
     type: string
-    description: Provider name.
+    description: Oneprovider name.
   subdomainDelegation:
     type: boolean
     description: >
-      If enabled, the storage provider will be assigned a subdomain in onezone's domain
+      If enabled, the Oneprovider will be assigned a subdomain in onezone's domain
       and 'subdomain' property must be provided. If disabled, 'domain' property
       should be provided.
   subdomain:
     type: string
     description: >
-      Unique subdomain in onezone's domain for the storage provider. Required if
+      Unique subdomain in onezone's domain for the Oneprovider. Required if
       subdomain delegation is enabled.
   domain:
     type: string
     description: >
-      The fully qualified domain name of the storage provider or its IP address (only for
+      The fully qualified domain name of the Oneprovider or its IP address (only for
       single-node deployments or clusters with a reverse proxy). Required if
       subdomain delegation is disabled.
   latitude:
     type: number
     x-erlang-type: float
-    description: The geographical latitude of the provider data center location.
+    description: The geographical latitude of the Oneprovider's data center location.
   longitude:
     type: number
     x-erlang-type: float
-    description: The geographical longitude of the provider data center location.
+    description: The geographical longitude of the Oneprovider's data center location.
 required:
   - name
   - subdomainDelegation

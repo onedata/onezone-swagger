@@ -104,7 +104,7 @@ post:
       "latitude" : "50.0647",
       "longitude" : "19.9450",
     }' \
-    https://$HOST/api/v3/onezone/spaces
+    https://$HOST/api/v3/onezone/provider
     ```
 
   consumes:

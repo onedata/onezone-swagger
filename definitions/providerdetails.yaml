@@ -3,7 +3,7 @@ description: Oneprovider properties.
 properties:
   providerId:
     type: string
-    description: The provider Id.
+    description: The Oneprovider Id.
   name:
     type: string
     description: Oneprovider name.
@@ -14,10 +14,10 @@ properties:
       (only for single-node deployments or clusters with a reverse proxy).
   latitude:
     type: number
-    description: The geographical latitude of the Oneprovider data center location.
+    description: The geographical latitude of the Oneprovider's data center location.
   longitude:
     type: number
-    description: The geographical longitude of the Oneprovider data center location.
+    description: The geographical longitude of the Oneprovider's data center location.
   cluster:
     type: string
     description: The Id of the corresponding Oneprovider cluster.

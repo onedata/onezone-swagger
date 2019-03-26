@@ -8,7 +8,7 @@ post:
     aspect: support
   summary: Add space storage support
   x-bash-codegen-description: |
-    Adds support for specific space on behalf of tthe
+    Adds support for specific space on behalf of the
     Oneprovider that performed the request.
 
     This operation requires provider authentication - see
@@ -16,7 +16,7 @@ post:
 
     Requires a space support token.
   description: |
-    Adds support for specific space on behalf of tthe
+    Adds support for specific space on behalf of the
     Oneprovider that performed the request.
 
     This operation requires provider authentication - see

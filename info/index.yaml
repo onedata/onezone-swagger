@@ -1,80 +1,116 @@
 version: 18.07-alpha  # @TODO update when released
 title: Onezone
 x-bash-codegen-description: |
-  This is the RESTful API definition of Onezone component of Onedata data
-  management system [onedata.org].
+  This is the RESTful API definition of Onezone component of Onedata
+  data management system [onedata.org](http://onedata.org).
 
   This API allows control and configuration of local Onezone service deployment,
-  in particular management of users, spaces, groups and providers.
+  in particular management of users, groups, spaces, shares, providers,
+  handle services, handles and clusters.
 
+  ## Authentication and authorization
+  To be able to use this API, the REST client must authenticate with the Onezone
+  service and posses required authorization, which is determined based on
+  client's privileges and relations in the system.
 
-  REST API operations from the permissions perspective in Onezone service can
-  be divided into 2 groups, depending on the actor making the request:
-  **User requests**
-  Regular end user requests are authenticated based on the `X-Auth-Token` header,
-  which must include valid client access token, and authorization is made based
-  on the privileges assigned to the user in the system. Each operation in this
-  API that is available to end users, has a list of required privileges, except
-  for the operations which are related to user account management, i.e.each user
-  can perform any operation on his account, the `X-Auth-Token` header example:
-   ```
-     X-Auth-Token: IAUYCGOUASGDJHASDJKVAHSDJHASDKJHABSDKJHBASKJHJHBASD...
-   ```
-  In case the Onezone deployment supports authentication delegation other IdP's,
-  the `X-Auth-Token` field can contain token from such IdP with appropriate prefix,
-  as configured by Onezone administrators, e.g.:
-   ```
-     X-Auth-Token: github:GST5aasdA7asdAASFG7asdasaAS
-   ```
+  There are essentially three types of REST clients depending on the authentication:
+    * **users** - can authenticate using an access token or basic credentials
+    (only for users originating from Onezone's onepanel). Examples:
+    ```bash
+    curl -H "Macaroon: $TOKEN" [...]
+    curl -H "X-Auth-Token: $TOKEN" [...]
+    curl -H "Authorization: Bearer $TOKEN" [...]
+    curl -u "username:password" [...]
+    ```
+    > `$TOKEN` can ba a Onedata access token, obtained via Onezone GUI or API, in the form
+    `MDAxNWxvY2F00aW9...`. If authority delegation for given IdP is enabled,
+    it is possible to provide an access token from the IdP, which must be prefixed
+    properly (depending on the configuration), e.g.: `github/GST5aasdA...`.
 
-  **Provider requests**
-  When a Oneprovider service needs to request some action from the Onezone
-  service, it must authenticate using the peer certificate which was assigned to
-  this provider when registering in the Onezone service.
+    * **Oneproviders** - can authenticate using the provider auth macaroon (token),
+    which was assigned during registration in Onezone. It can be found in
+    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user access
+    token, for example:
+    ```bash
+    curl -H "Macaroon: $TOKEN" [...]
+    curl -H "X-Auth-Token: $TOKEN" [...]
+    curl -H "Authorization: Bearer $TOKEN" [...]
+    ```
+    > Please mind that the provider root macaroon is highly confidential and must
+    be kept secret (similarly to a private RSA key).
 
+    * **anonymous** - there is a small subset of operations that do not require
+      any authentication and are publicly available, for example:
+      * `POST /user/authorize` - authorizes user with authentication token through
+        Onezone web interface. This interface is called typically by providers,
+      * `POST /provider` - registers a Oneprovider in Onezone service
+        (however a valid registration token in the body is required),
+      * `POST /provider/test/check_my_ports` - checks if all given ports are
+        reachable from Onezone,
+      * `GET /provider/test/check_my_ip` - returns the external IP of the
+        request peer (as seen by the Onezone).
 
-  ## Effective users and effective groups
-  Onedata supports creation of arbitrary nested group tree structures. In order
-  to allow identification if a given user belongs to the group directly or
-  indirectly by belonging to a subgroup of a group, separate API calls are
-  provided for getting information about group users (direct group members) and
-  effective users (indirect group members).
+  The authorization of the client is determined based on existing relations and
+  privileges in the system. In most cases, the rules below can be roughly applied:
+    * users and providers can access and modify their own data
+    * users can perform operations in groups, spaces, handle services, handles
+      and clusters depending on their privileges in subject entity - the required
+      privileges are listed in the description of each operation
+    * users can be given special admin privileges (fine-grained) that allow to
+      access and modify all entities in the system - see certain operations for
+      details.
+
+  Authentication and Authorization errors have the following meaning:
+    * HTTP 401 UNAUTHORIZED - the client could not be authenticated
+    * HTTP 403 FORBIDDEN - the client was authenticated, but is not permitted to
+      perform the action
+
+  ## Effective users and effective groups and spaces
+  Onedata supports creation of arbitrary nested group and space membership tree
+  structures. In order to determine if a given user belongs to the group
+  directly or indirectly by belonging to a subgroup of a group, separate API
+  calls are provided for getting information about group users
+  (direct group members) and effective users (indirect group members).
 
   ## API structure
-  Most operations are RESTful, i.e. paths reflect the actual resource mode and
-  operations on them are mapped to most appropriate HTTP methods.
+  The API is divided into several categories, corresponding to entities in Onedata:
 
-  ## Space management
+  **Space management**
   The space management operations of this API provide means for accessing
   information about spaces and their management.
 
-  ## Share management
+  **Share management**
   The share management operations of this API provide means for accessing
   information about shares and their management.
 
-  ## Group management
-  The group management operations allow for creation of user groups, assigning
+  **Group management**
+  The group management operations allow creation of user groups, assigning
   their authorization rights, adding and removing users from groups.
 
-  ## User management
-  The user management methods enable for creation of users, managing their
+  **User management**
+  The user management methods allow creation of users, managing their
   authorization credentials as well as space and group membership.
 
-  ## Provider management
-  Provider specific calls enable for getting global information about the
-  spaces managed by the provider, and some administrative operations which can
-  be used for monitoring or accounting.
+  **Provider management**
+  Provider specific calls allow getting global information about the spaces
+  managed by the provider, and some administrative operations which can be used
+  for monitoring or accounting.
 
-  ## Handle API
+  **Handle service management**
+  The handle service management operations of this API provide means for
+  accessing information about handle services and their management.
+
+  **Handle API**
   Onezone provides extensive support for integration with Handle system
   registration services, including support for DOI and PID identifier assignment
   services. The API provides methods for adding new Handle services to the
   system, managing which users can use which registration services and complete
-  API for registering identifiers to users data sets which are made public.
+  API for registering identifiers to users' data sets which are made public.
 
-  ## Handle service management
-  The handle service management operations of this API provide means for accessing
-  information about handle services and their management.
+  **Cluster management**
+  Operations for managing Onezone / Oneprovider clusters and their members -
+  users and groups that can access the Onepanel interfaces (REST or GUI) of
+  a cluster.
 
 
 description: |
@@ -102,15 +138,15 @@ description: |
     curl -H "Macaroon: $TOKEN" [...]
     curl -H "X-Auth-Token: $TOKEN" [...]
     curl -H "Authorization: Bearer $TOKEN" [...]
-    curl -u "admin:password" [...]
+    curl -u "username:password" [...]
     ```
     > `$TOKEN` can ba a Onedata access token, obtained via Onezone GUI or API, in the form
     `MDAxNWxvY2F00aW9...`. If authority delegation for given IdP is enabled,
-    it is possible to provide an access token from the IdP, which must to be prefixed
-    properly (depending on the configuration), eg: `github/GST5aasdA...`.
+    it is possible to provide an access token from the IdP, which must be prefixed
+    properly (depending on the configuration), e.g.: `github/GST5aasdA...`.
 
-    * **providers** - can authenticate using the provider auth macaroon (token), which
-    was assigned during registration in Onezone. It can be found in
+    * **Oneproviders** - can authenticate using the provider auth macaroon (token),
+    which was assigned during registration in Onezone. It can be found in
     `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user access
     token, for example:
     ```bash
@@ -133,7 +169,7 @@ description: |
         request peer (as seen by the Onezone).
 
   The authorization of the client is determined based on existing relations and
-  privileges in the system. In most cases, the below rules can be roughly applied:
+  privileges in the system. In most cases, the rules below can be roughly applied:
     * users and providers can access and modify their own data
     * users can perform operations in groups, spaces, handle services, handles
       and clusters depending on their privileges in subject entity - the required
@@ -155,8 +191,7 @@ description: |
   (direct group members) and effective users (indirect group members).
 
   ## API structure
-  Most operations are RESTful, i.e. paths reflect the actual resource mode and
-  operations on them are mapped to most appropriate HTTP methods.
+  The API is divided into several categories, corresponding to entities in Onedata:
 
   **Space management**
   The space management operations of this API provide means for accessing
@@ -167,15 +202,15 @@ description: |
   information about shares and their management.
 
   **Group management**
-  The group management operations allow for creation of user groups, assigning
+  The group management operations allow creation of user groups, assigning
   their authorization rights, adding and removing users from groups.
 
   **User management**
-  The user management methods enable for creation of users, managing their
+  The user management methods allow creation of users, managing their
   authorization credentials as well as space and group membership.
 
   **Provider management**
-  Provider specific calls enable for getting global information about the spaces
+  Provider specific calls allow getting global information about the spaces
   managed by the provider, and some administrative operations which can be used
   for monitoring or accounting.
 
@@ -188,16 +223,18 @@ description: |
   registration services, including support for DOI and PID identifier assignment
   services. The API provides methods for adding new Handle services to the
   system, managing which users can use which registration services and complete
-  API for registering identifiers to users data sets which are made public.
+  API for registering identifiers to users' data sets which are made public.
 
-  **Cluster API**
-  Operations for managing Onezone / Oneprovider clusters and their members.
+  **Cluster management**
+  Operations for managing Onezone / Oneprovider clusters and their members -
+  users and groups that can access the Onepanel interfaces (REST or GUI) of
+  a cluster.
 
 
   ## Using the API
   Onezone API is quite complex and thus it might be difficult to quickly figure
-    out how to perform specific action, however the following guidelines might
-    be useful:
+  out how to perform specific action, however the following guidelines might
+  be useful:
     * Operations performed by a regular users on their resources are grouped under
       `/user` path (**USER** group in the menu)
     * Operations performed by administrators of specific resources (e.g. groups,
@@ -241,16 +278,16 @@ description: |
   curl -H 'X-Auth-Token: github/ijaAVWq3j9234jA9gPoR9agFja89t9UiPf8tiueSdx' -X GET \
   https://$ONEZONE_HOST/api/v3/onezone/user
   ```
-  > Note that github IdP must be properly configured:
+  > Note that GitHub IdP must be properly configured for the example to work:
   > * authority delegation must be enabled
-  > * tokenPrefix must be set to "github/" (for the above example to work)
+  > * tokenPrefix must be set to "github/"
   >
   > You can learn more in
   > [the documentation](https://onedata.org/#/home/documentation/doc/administering_onedata/openid_saml_configuration[authority-delegation].html).
 
 contact:
   name: Onedata support
-  url: https://onedata.org/support
+  url: https://onedata.org/#/home/support
   email: info@onedata.org
 license:
   name: Apache 2.0

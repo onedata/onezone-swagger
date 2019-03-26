@@ -102,7 +102,7 @@ patch:
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - cluster_set_privileges
-    - oz_set_privileges
+    - oz_clusters_set_privileges
   summary: Update user's cluster privileges
   x-bash-codegen-description: |
     Updates user's (`{uid}`) privileges in a cluster (`{id}`).

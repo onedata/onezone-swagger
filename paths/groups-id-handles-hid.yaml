@@ -132,7 +132,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: The groups is no longer a member of the handle.
+      description: The group is no longer a member of the handle.
     '400':
       description: Invalid request.
       schema:

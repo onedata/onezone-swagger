@@ -194,13 +194,13 @@ delete:
   x-bash-codegen-description: |
     Removes user from specific cluster.
 
-    This operation requires `cluster_remove_user` or
-    requires `oz_clusters_add_relationships` and `oz_users_add_relationships` admin privilege.
+    This operation requires `cluster_remove_user` privilege in the cluster or
+    `oz_clusters_remove_relationships` and `oz_users_remove_relationships` admin privilege.
   description: |
     Removes user from specific cluster.
 
-    This operation requires `cluster_remove_user` or
-    requires `oz_clusters_add_relationships` and `oz_users_add_relationships` admin privilege.
+    This operation requires `cluster_remove_user` privilege in the cluster or
+    `oz_clusters_remove_relationships` and `oz_users_remove_relationships` admin privileges.
 
     ***Example cURL requests***
 

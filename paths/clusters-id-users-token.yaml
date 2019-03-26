@@ -40,7 +40,7 @@ post:
     - application/json
   responses:
     '200':
-      description: The token for joining a specific group.
+      description: The token for joining a specific cluster.
       schema:
         $ref: '#/definitions/ClusterInviteToken'
     '400':

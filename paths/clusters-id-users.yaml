@@ -25,7 +25,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get cluster provider details**
+    **Get cluster users**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/clusters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users

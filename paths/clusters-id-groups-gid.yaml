@@ -11,7 +11,7 @@ get:
   x-onedata-permissions:
     - cluster_view
     - oz_groups_view
-  summary: Get group details
+  summary: Get cluster group details
   x-bash-codegen-description: |
     Returns details about a specific group in a cluster.
 
