@@ -90,7 +90,7 @@ put:
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - cluster_invite_user
+    - cluster_add_user
     - cluster_set_privileges
     - oz_clusters_add_relationships
     - oz_users_add_relationships
@@ -102,7 +102,7 @@ put:
     privileges will be set for the user in this cluster.
 
     This operation can only be invoked by the user {uid} to add himself to the
-    cluster (if he is not a member already) and requires `cluster_invite_user`
+    cluster (if he is not a member already) and requires `cluster_add_user`
     privilege in the cluster. If `privileges` are specified in the request,
     `cluster_set_privileges` privilege is also required.
 
@@ -116,7 +116,7 @@ put:
     privileges will be set for the user in this cluster.
 
     This operation can only be invoked by the user {uid} to add himself to the
-    cluster (if he is not a member already) and requires `cluster_invite_user`
+    cluster (if he is not a member already) and requires `cluster_add_user`
     privilege in the cluster. If `privileges` are specified in the request,
     `cluster_set_privileges` privilege is also required.
 

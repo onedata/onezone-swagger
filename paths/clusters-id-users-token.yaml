@@ -7,19 +7,19 @@ post:
     id: ?BINDING(id)
     aspect: invite_user_token
   x-onedata-permissions:
-    - cluster_invite_user
+    - cluster_add_user
     - oz_clusters_add_relationships
   summary: Create cluster user invite token
   x-bash-codegen-description: |
     Creates a token allowing new user to join a cluster.
 
-    This operation requires `cluster_invite_user` privilege.
+    This operation requires `cluster_add_user` privilege.
     For administrators who do not have to be members of this cluster,
     `oz_clusters_add_relationships` privilege is required.
   description: |
     Creates a token allowing new user to join a cluster.
 
-    This operation requires `cluster_invite_user` privilege.
+    This operation requires `cluster_add_user` privilege.
     For administrators who do not have to be members of this cluster,
     `oz_clusters_add_relationships` privilege is required.
 

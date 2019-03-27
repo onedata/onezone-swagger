@@ -90,7 +90,7 @@ put:
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - space_invite_user
+    - space_add_user
     - space_set_privileges
     - oz_spaces_add_relationships
     - oz_users_add_relationships
@@ -102,7 +102,7 @@ put:
     privileges will be set for the user in this space.
 
     This operation can only be invoked by the user {uid} to add himself to the
-    space (if he is not a member already) and requires `space_invite_user`
+    space (if he is not a member already) and requires `space_add_user`
     privilege in the space. If `privileges` are specified in the request,
     `space_set_privileges` privilege is also required.
 
@@ -116,7 +116,7 @@ put:
     privileges will be set for the user in this space.
 
     This operation can only be invoked by the user {uid} to add himself to the
-    space (if he is not a member already) and requires `space_invite_user`
+    space (if he is not a member already) and requires `space_add_user`
     privilege in the space. If `privileges` are specified in the request,
     `space_set_privileges` privilege is also required.
 

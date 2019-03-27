@@ -10,7 +10,7 @@ example:
   grant:
     - cluster_view
     - cluster_view_privileges
-    - cluster_invite_user
+    - cluster_add_user
     - cluster_add_group
   revoke:
     - cluster_update
