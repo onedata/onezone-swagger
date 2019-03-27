@@ -94,7 +94,7 @@ put:
     - cluster_set_privileges
     - oz_clusters_add_relationships
     - oz_groups_add_relationships
-    - oz_cluster_set_privileges
+    - oz_clusters_set_privileges
   summary: Add group to cluster
   x-bash-codegen-description: |
     Adds group {gid} as member of cluster {id}. Optional privileges
