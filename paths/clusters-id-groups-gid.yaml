@@ -97,7 +97,7 @@ put:
     - oz_clusters_set_privileges
   summary: Add group to cluster
   x-bash-codegen-description: |
-    Adds group {gid} as member of cluster {id}. Optional privileges
+    Adds group {gid} as member of cluster {id}. Optionally, privileges
     can be passed in the request body, otherwise default
     privileges will be set for the group in this cluster.
 
@@ -110,7 +110,7 @@ put:
     are required, and `oz_clusters_set_privileges` if `privileges` are specified
     in the request.
   description: |
-    Adds group {gid} as member of cluster {id}. Optional privileges
+    Adds group {gid} as member of cluster {id}. Optionally, privileges
     can be passed in the request body, otherwise default
     privileges will be set for the group in this cluster.
 

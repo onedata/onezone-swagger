@@ -97,7 +97,7 @@ put:
     - oz_clusters_set_privileges
   summary: Add user to cluster
   x-bash-codegen-description: |
-    Adds user {uid} as member of cluster {id}. Optional privileges
+    Adds user {uid} as member of cluster {id}. Optionally, privileges
     can be passed in the request body, otherwise default
     privileges will be set for the user in this cluster.
 
@@ -111,7 +111,7 @@ put:
     though `oz_clusters_set_privileges` privilege is required if `privileges` are
     specified in the request.
   description: |
-    Adds user {uid} as member of cluster {id}. Optional privileges
+    Adds user {uid} as member of cluster {id}. Optionally, privileges
     can be passed in the request body, otherwise default
     privileges will be set for the user in this cluster.
 

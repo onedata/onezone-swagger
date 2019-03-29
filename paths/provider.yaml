@@ -29,7 +29,6 @@ get:
     {
       "name": "example",
       "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk",
-      "subdomainDelegation": false,
       "domain": "195.216.97.151",
       "latitude": 50.068968,
       "longitude": 19.909444
