@@ -189,7 +189,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Remove harvester support**
+    **Remove harvester space**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST/api/v3/onezone/harvesters/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/spaces/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk

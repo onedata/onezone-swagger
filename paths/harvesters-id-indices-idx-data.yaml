@@ -1,0 +1,69 @@
+delete:
+  operationId: remove_harvester_index_with_data
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: "{index_with_data, ?BINDING(idx)}"
+  x-onedata-permissions:
+    - harvester_update
+    - oz_harvesters_update
+  summary: Remove harvester index with data
+  x-bash-codegen-description: |
+    Removes index from a specific harvester.
+
+    This operation requires `harvester_update` privilege
+    or `oz_harvesters_update` admin privilege.
+  description: |
+    Removes index from a specific harvester. **All harvested data will also be removed**.\
+    If you do not wish to remove all harvested data see:
+    [Remove index](#operation/remove_harvester_index)
+
+    This operation requires `harvester_update` privilege
+    or `oz_harvesters_update` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove harvester index**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/harvesters/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/indices/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
+    ```
+  responses:
+    '204':
+      description: This index and harvested metadata have been removed from given harvester.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Harvester Id.
+      type: string
+      required: true
+    - name: idx
+      in: path
+      description: Index Id.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli removeHarvesterIndexWithData id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 idx=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

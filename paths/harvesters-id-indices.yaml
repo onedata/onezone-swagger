@@ -100,7 +100,7 @@ post:
     **Create new index in harvester**
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
-    -X POST -d '{ "name" : "new_index", "guiPluginName" : "new_index", "schema" : "{}" }\
+    -X POST -d '{ "name" : "My study index", "guiPluginName" : "study"}\
     https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/indices
     ```
   consumes:

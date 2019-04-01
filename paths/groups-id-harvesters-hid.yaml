@@ -33,12 +33,11 @@ get:
     https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
 
     {
-      "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "harvesterId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
       "name": "new_harvester1",
       "public" : true,
       "plugin" : "elasticsearch_plugin",
-      "endpoint" : "https://example.elastic.com",
-      "indices" : ["803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I"]
+      "endpoint" : "https://example.elastic.com"
     }
     ```
   produces:

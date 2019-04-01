@@ -37,8 +37,7 @@ get:
       "name": "new_harvester1",
       "public" : true,
       "plugin" : "elasticsearch_plugin",
-      "endpoint" : "https://example.elastic.com",
-      "indices" : ["803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I"]
+      "endpoint" : "https://example.elastic.com"
     }
     ```
   produces:

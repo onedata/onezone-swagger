@@ -5,7 +5,7 @@ get:
   x-onedata-gri:
     type: od_harvester
     id: ?BINDING(id)
-    aspect: "{index, ?BINDING(iid)}"
+    aspect: "{index, ?BINDING(idx)}"
     scope: private
   x-onedata-permissions:
     - harvester_view
@@ -33,7 +33,9 @@ get:
 
     {
       "indexId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk",
-      "name": "example"
+      "name": "My study index"
+      "guiPluginName": "study"
+      "schema": "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"
     }
     ```
   produces:
@@ -69,92 +71,14 @@ get:
     description: Harvester Id.
     type: string
     required: true
-  - name: iid
+  - name: idx
     in: path
     description: Index Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHarvesterIndex id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 iid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
-
-post:
-  operationId: query_harvester_index
-  tags:
-    - Harvester
-  x-onedata-gri:
-    type: od_harvester
-    id: ?BINDING(id)
-    aspect: "{query, ?BINDING(iid)}"
-  summary: Query harvester index.
-  x-bash-codegen-description: |
-    Performs query to index {iid} in harvester {id}.
-
-    This operation does not require any privileges when the harvester is public 
-    otherwise being member of the harvester is required.
-
-    Request body depends on selected `harvester_plugin`. This is example for `elasticsearch_plugin`.
-  description: |
-    Performs query to index {iid} in harvester {id}.
-
-    This operation does not require any privileges when the harvester is public 
-    otherwise being member of the harvester is required.
-
-    Request body depends on selected `harvester_plugin`. This is example for `elasticsearch_plugin`.
-    
-    ***Example cURL requests***
-
-    **query harvester index**
-    ```bash
-    curl -u username:password  -H "Content-type: application/json" -X POST \
-    -d '{ "method" : "get", "path" : ""}'
-     https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/indices/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz \
-    ```
-  consumes:
-    - application/json
-  responses:
-    '200':
-      description: Response of harvester backend for given request.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '401':
-      description: Authentication error.
-      schema:
-        $ref: '#/definitions/Error'
-    '403':
-      description: Authorization error.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Resource not found.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server Error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-    - name: id
-      in: path
-      description: Harvester Id.
-      type: string
-      required: true
-    - name: iid
-      in: path
-      description: Index Id.
-      type: string
-      required: true
-    - name: query
-      in: body
-      schema:
-        $ref: '#/definitions/HarvesterQuery'
-      required: false
-  x-code-samples:
-    - lang: Shell
-      source: "onezone-rest-cli queryHarvesterIndex id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 iid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
-
+    source: "onezone-rest-cli getHarvesterIndex id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 idx=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 
 patch:
   operationId: modify_harvester_index
@@ -163,18 +87,18 @@ patch:
   x-onedata-gri:
     type: od_harvester
     id: ?BINDING(id)
-    aspect: "{index, ?BINDING(iid)}"
+    aspect: "{index, ?BINDING(idx)}"
   x-onedata-permissions:
     - harvester_update
     - oz_harvesters_update
   summary: Modify harvester index
   x-bash-codegen-description: |
-    Updates harvester index.
+    Modifies harvester index.
 
     This operation requires `harvester_update` privilege
     or `oz_harvesters_update` admin privilege.
   description: |
-    Updates harvester index.
+    Modifies harvester index.
 
     This operation requires `harvester_update` privilege
     or `oz_harvesters_update` admin privilege.
@@ -184,14 +108,14 @@ patch:
     **Change harvester name**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
-    -X PATCH -d '{"config": {}}' \
+    -X PATCH -d '{"name" : "new_name", "guiPluginName" : "new_gui_plugin_name"}' \
     https://$HOST/api/v3/onezone/harvesters/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/indices/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: Harvester index has been updated successfully.
+      description: Harvester index has been modified successfully.
     '400':
       description: Invalid request.
       schema:
@@ -218,14 +142,14 @@ patch:
       description: Harvester Id.
       type: string
       required: true
-    - name: iid
+    - name: idx
       in: path
       description: Index Id.
       type: string
       required: true
     - name: data
       in: body
-      description: The new name of the index.
+      description: The new data of the index.
       schema:
         type: object
         properties:
@@ -248,25 +172,27 @@ delete:
   x-onedata-gri:
     type: od_harvester
     id: ?BINDING(id)
-    aspect: "{index, ?BINDING(iid)}"
+    aspect: "{index, ?BINDING(idx)}"
   x-onedata-permissions:
     - harvester_update
     - oz_harvesters_update
   summary: Remove harvester index
   x-bash-codegen-description: |
-    Removes index from a specific harvester.
+    Removes index from a specific harvester. **It will be no longer possible to access harvested data through onezone service**.
 
     This operation requires `harvester_update` privilege
     or `oz_harvesters_update` admin privilege.
   description: |
-    Removes index from a specific harvester.
+    Removes index from a specific harvester. **It will be no longer possible to access harvested data through onezone service**.\
+    If you wish to also remove harvested data see: 
+    [Remove index with harvested data](#operation/remove_harvester_index_with_data)
 
     This operation requires `harvester_update` privilege
     or `oz_harvesters_update` admin privilege.
 
     ***Example cURL requests***
 
-    **Remove harvester support**
+    **Remove harvester index**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST/api/v3/onezone/harvesters/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/indices/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
@@ -300,11 +226,11 @@ delete:
     description: Harvester Id.
     type: string
     required: true
-  - name: iid
+  - name: idx
     in: path
     description: Index Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHarvesterIndex id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 iid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeHarvesterIndex id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 idx=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

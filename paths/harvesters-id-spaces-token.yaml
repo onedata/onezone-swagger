@@ -23,7 +23,7 @@ post:
 
     ***Example cURL requests***
 
-    **Create harvester support token**
+    **Create harvester invite space token**
     ```bash
     curl -u admin:password -X POST \
     https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/spaces/token

@@ -8,11 +8,11 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Join group
   x-bash-codegen-description: |
-    Join existing group using inivitation token.
+    Join existing group using invitation token.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Join existing group using inivitation token.
+    Join existing group using invitation token.
 
     This operation can be invoked on behalf of the current user only.
 

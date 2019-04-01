@@ -711,6 +711,10 @@
   $ref: ./harvesters-id.yaml
 
 
+/harvesters/{id}/data:
+  $ref: ./harvesters-id-data.yaml
+
+
 /harvesters/{id}/users:
   $ref: ./harvesters-id-users.yaml
 
@@ -795,7 +799,19 @@
   $ref: ./harvesters-id-indices.yaml
 
 
-/harvesters/{id}/indices/{iid}:
-  $ref: ./harvesters-id-indices-iid.yaml
+/harvesters/{id}/indices/{idx}/query:
+  $ref: ./harvesters-id-indices-idx-query.yaml
 
+
+/harvesters/{id}/indices/{idx}/progress:
+  $ref: ./harvesters-id-indices-idx-progress.yaml
+
+
+
+/harvesters/{id}/indices/{idx}:
+  $ref: ./harvesters-id-indices-idx.yaml
+
+
+/harvesters/{id}/indices/{idx}/data:
+  $ref: ./harvesters-id-indices-idx-data.yaml
 
