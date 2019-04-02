@@ -31,7 +31,6 @@ get:
     {
       "clusterId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
       "type" : "oneprovider",
-      "serviceId" : "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjC",
       "workerVersion": {
         "release": "18.02.1",
         "build": "1-gfabf02d",

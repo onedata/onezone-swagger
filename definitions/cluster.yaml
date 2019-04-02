@@ -3,16 +3,13 @@ description: Cluster details.
 properties:
   clusterId:
     type: string
-    description: Unique Id of the cluster.
+    description: >
+      The id of the cluster - depending on the type equal to the Oneprovider Id
+      or "onezone" in case of Onezone cluster
   type:
     type: string
     description: Type of the cluster
     enum: [oneprovider, onezone]
-  serviceId:
-    type: string
-    description: >
-      The id of the service hosted on this cluster - depending on the type equal
-      to the Oneprovider Id or "onezone" in case of Onezone cluster
   workerVersion:
     $ref: '#/definitions/VersionInfo'
   onepanelVersion:
@@ -25,7 +22,6 @@ properties:
 required:
   - clusterId
   - type
-  - serviceId
   - workerVersion
   - onepanelVersion
   - onepanelProxy
