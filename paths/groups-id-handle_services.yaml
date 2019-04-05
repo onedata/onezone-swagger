@@ -27,7 +27,7 @@ get:
 
     **Get group handle services**
     ```bash
-    curl -u username:password -X GET https://$HOST/api/v3/groups/ASLKDJHAKLJSDHJKASD/handle_services
+    curl -u username:password -X GET https://$HOST/api/v3/groups/$GROUP_ID/handle_services
 
     {
       "handle_services": [

@@ -23,7 +23,7 @@ get:
     **Get space details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID
 
     {
        "providers" : {
@@ -94,7 +94,7 @@ delete:
     **Delete user space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID
     ```
   produces:
     - application/json

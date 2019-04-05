@@ -28,7 +28,7 @@ get:
     **Add handle user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/handles/$HANDLE_ID/effective_users/$USER_ID
 
     {
        "name" : "John Doe",

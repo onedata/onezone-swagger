@@ -17,7 +17,7 @@ get:
     **Get group's effective clusters**
     ```bash
     curl -u groupname:password -X GET \
-    https://$HOST/api/v3/onezone/groups/GVC8lKEasj4q253sptVqF8HwUpk8j/effective_clusters
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_clusters
 
     {
       "clusters": [

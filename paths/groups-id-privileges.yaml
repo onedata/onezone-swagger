@@ -23,7 +23,7 @@ get:
     **List group's admin privileges in Onezone**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/privileges
 
     {
       "privileges": [
@@ -132,7 +132,7 @@ patch:
     ```bash
     curl -H "Content-type: application/json" -X PATCH \
     -d '{"grant": ["oz_spaces_list"], "revoke": ["oz_groups_update"]}' \
-    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/privileges
     ```
   responses:
     '204':
@@ -199,7 +199,7 @@ delete:
     **Remove all group's admin privileges in Onezone**
     ```bash
     curl -i -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2/privileges
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/privileges
     ```
   responses:
     '204':

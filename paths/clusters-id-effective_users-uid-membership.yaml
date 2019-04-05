@@ -36,7 +36,7 @@ get:
     **Get effective user's cluster membership intermediaries**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_users/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/membership
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/effective_users/$USER_ID/membership
 
     {
       "intermediaries": [

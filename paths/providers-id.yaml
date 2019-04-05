@@ -32,7 +32,7 @@ get:
     **Get specific provider details**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET  \
-    https://$HOST/api/v3/onezone/providers/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID
     ```
   produces:
     - application/json
@@ -101,7 +101,7 @@ delete:
     **Get specific provider details**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE  \
-    https://$HOST/api/v3/onezone/providers/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID
     ```
   produces:
     - application/json

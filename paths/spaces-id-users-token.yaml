@@ -28,7 +28,7 @@ post:
     **Create space user invite token**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/token
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/token
 
     {
       "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIG00zcEJ2UDVuOHhkQUNhdk9hbTlyNnIwNldPSzVhc"

@@ -23,7 +23,7 @@ get:
     **Get user effective handle service**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/effective_handle_services/$HANDLE_SERVICE_ID
 
     {
         "name": "MyCommunity Handle service",

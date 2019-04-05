@@ -31,7 +31,7 @@ get:
     **List spaces supported by provider**
     ```bash
     curlsS -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/spaces
 
     {
       "spaces": [

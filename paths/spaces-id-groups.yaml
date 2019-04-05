@@ -28,7 +28,7 @@ get:
     **Get space groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/groups
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups
 
     {
       "groups": [
@@ -109,7 +109,7 @@ post:
     **Create group in space**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/spaces/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/groups
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups
     ```
   produces:
   - application/json

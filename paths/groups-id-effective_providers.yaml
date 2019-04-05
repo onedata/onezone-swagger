@@ -28,7 +28,7 @@ get:
     **Get group effective providers**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_providers
     ```
   produces:
     - application/json
