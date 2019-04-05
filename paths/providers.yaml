@@ -72,8 +72,8 @@ post:
   summary: Register provider
   x-bash-codegen-description: |
     Registers a Oneprovider in Onezone service. Upon success, a new cluster is
-    created, with the registering user linked to it. The cluster id can be learnt
-    from Oneprovider details.
+    created, with the registering user linked to it. The cluster Id is the same
+    as Oneprovider Id.
 
     Requires a valid provider registration token - see:
       * [Create provider registration token for self](#operation/user_create_provider_registration_token_for_self)
@@ -82,8 +82,8 @@ post:
     This operation has public access.
   description: |
     Registers a Oneprovider in Onezone service. Upon success, a new cluster is
-    created, with the registering user linked to it. The cluster id can be learnt
-    from Oneprovider details.
+    created, with the registering user linked to it. The cluster Id is the same
+    as Oneprovider Id.
 
     Requires a valid provider registration token - see:
       * [Create provider registration token for self](#operation/user_create_provider_registration_token_for_self)
