@@ -8,17 +8,17 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Join space
   x-bash-codegen-description: |
-    Join existing space using inivitation token.
+    Join an existing space using an inivitation token.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Join existing space using inivitation token.
+    Join an existing space using an inivitation token.
 
     This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Join existing space**
+    **Join an existing space**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
     -d '{ "token" : "MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcmLciFsOgyUkPI3f02le6PM01IX8go" }'  \

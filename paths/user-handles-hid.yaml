@@ -91,13 +91,13 @@ delete:
     type: od_user
     id: ?CLIENT_ID
     aspect: "{handle, ?BINDING(hid)}"
-  summary: Remove handle
+  summary: Leave handle
   x-bash-codegen-description: |
-    Removes the users ownership or membership in a specific space.
+    Removes the user's membership in a specific handle.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the users ownership or membership in a specific space.
+    Removes the user's membership in a specific handle.
 
     This operation can be invoked on behalf of the current user only.
 

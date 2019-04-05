@@ -11,21 +11,21 @@ get:
     - oz_providers_view
   summary: Get provider details
   x-bash-codegen-description: |
-    Returns the information about a specific Oneprovider service, which is
-    connected to the onezone.
+    Returns the information about a specific Oneprovider service that is
+    registered in Onezone.
 
-    If called by other provider doesn't require any special privileges.
-
-    This operation requires `oz_providers_view` admin privilege or
-    effective membership in space supported by that provider.
+    This operation requires any of the following authentication:
+    * as any provider (providers are allowed to view each other's data),
+    * as user who is an effective member in a space supported by the subject provider,
+    * as user who has `oz_providers_view` admin privilege.
   description: |
-    Returns the information about a specific Oneprovider service, which is
-    connected to the onezone.
+    Returns the information about a specific Oneprovider service that is
+    registered in Onezone.
 
-    If called by other provider doesn't require any special privileges.
-
-    This operation requires `oz_providers_view` admin privilege or
-    effective membership in space supported by that provider.
+    This operation requires any of the following authentication:
+    * as any provider (providers are allowed to view each other's data),
+    * as user who is an effective member in a space supported by the subject provider,
+    * as user who has `oz_providers_view` admin privilege.
 
     ***Example cURL requests***
 
@@ -69,7 +69,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem getProviderDetails id=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli getProviderDetails id=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
 
 
 delete:
@@ -84,17 +84,17 @@ delete:
   x-onedata-permissions:
     - oz_providers_delete
   x-bash-codegen-description: |
-    Removes specific Oneprovider from this zone.
+    Removes (unregisters) given Oneprovider from Onezone.
 
-    If called by other provider doesn't require any special privileges.
-
-    This operation requires `oz_providers_delete` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `oz_providers_delete` admin privilege.
   description: |
-    Removes specific Oneprovider from this zone.
+    Removes (unregisters) given Oneprovider from Onezone.
 
-    If called by other provider doesn't require any special privileges.
-
-    This operation requires `oz_providers_delete` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `oz_providers_delete` admin privilege.
 
     ***Example cURL requests***
 
@@ -136,4 +136,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem removeProvider id=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli removeProvider id=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

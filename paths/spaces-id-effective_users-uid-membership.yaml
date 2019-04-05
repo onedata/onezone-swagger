@@ -16,9 +16,9 @@ get:
     Special keyword `"self"` in entity id indicates that the user (`{uid}`)
     has a direct membership in the space (`{id}`).
 
-    This operation requires any of the following authorization:
-    * as user (`{uid}`) who is an effective member of the space (`{id}`)
-    * as user who has `space_view` privilege in the space (`{id}`)
+    This operation requires any of the following authentication:
+    * as user (`{uid}`) who is an effective member of the space (`{id}`),
+    * as user who has `space_view` privilege in the space (`{id}`),
     * as user who has `oz_spaces_view` admin privilege.
   description: |
     Returns the effective user's (`{uid}`) space membership intermediaries -
@@ -26,9 +26,9 @@ get:
     Special keyword `"self"` in entity id indicates that the user (`{uid}`)
     has a direct membership in the space (`{id}`).
 
-    This operation requires any of the following authorization:
-    * as user (`{uid}`) who is an effective member of the space (`{id}`)
-    * as user who has `space_view` privilege in the space (`{id}`)
+    This operation requires any of the following authentication:
+    * as user (`{uid}`) who is an effective member of the space (`{id}`),
+    * as user who has `space_view` privilege in the space (`{id}`),
     * as user who has `oz_spaces_view` admin privilege.
 
     ***Example cURL requests***

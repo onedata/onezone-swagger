@@ -94,26 +94,26 @@ get:
 
 
 delete:
-  operationId: remove_group_handle_service
+  operationId: group_leave_handle_service
   tags:
     - Group
   x-onedata-gri:
     type: od_group
     id: ?BINDING(id)
     aspect: "{handle_service, ?BINDING(hsid)}"
-  summary: Remove group handle service
+  summary: Group leave handle service
   x-onedata-permissions:
     - group_leave_handle_service
     - oz_groups_remove_relationships
     - oz_handle_services_remove_relationships
   x-bash-codegen-description: |
-    Removes the group ownership or membership in a specific handle service.
+    Removes the group's membership in a specific handle service.
 
     This operation requires `group_leave_handle_service` privilege.
     For administrator who does not belong to this group
     `oz_groups_remove_relationships` and `oz_handle_services_remove_relationships` privilege is required.
   description: |
-    Removes the group ownership or membership in a specific handle service.
+    Removes the group's membership in a specific handle service.
 
     This operation requires `group_leave_handle_service` privilege.
     For administrator who does not belong to this group
@@ -130,7 +130,7 @@ delete:
     - application/json
   responses:
     '204':
-      description: The handle service will be deleted.
+      description: The group is no longer a member of the handle service.
     '400':
       description: Invalid request.
       schema:
@@ -164,4 +164,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroupHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli groupLeaveHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

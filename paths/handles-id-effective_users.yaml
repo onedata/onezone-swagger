@@ -39,7 +39,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The effective list of identifiers of users with access to specific handle.
+      description: The list of identifiers of effective users with access to specific handle.
       schema:
         $ref: '#/definitions/Users'
     '400':

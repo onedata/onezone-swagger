@@ -170,12 +170,14 @@ delete:
     - oz_shares_delete
   summary: Remove share
   x-bash-codegen-description: |
-    Removes a specific share.
+    Removes a specific share. This operation is reserved for internal
+    Oneprovider logic and must not be used directly.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_delete` admin privilege.
   description: |
-    Removes a specific share.
+    Removes a specific share. This operation is reserved for internal
+    Oneprovider logic and must not be used directly.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_delete` admin privilege.

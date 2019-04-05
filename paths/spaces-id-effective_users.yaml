@@ -11,12 +11,12 @@ get:
     - space_view
     - oz_spaces_list_relationships
   x-bash-codegen-description: |
-    Returns the effective list of users belonging to a specific space.
+    Returns the list of effective users belonging to a specific space.
 
     This operation requires `space_view` privilege
     or `oz_spaces_list_relationships` admin privilege.
   description: |
-    Returns the effective list of users belonging to a specific space.
+    Returns the list of effective users belonging to a specific space.
 
     This operation requires `space_view` privilege
     or `oz_spaces_list_relationships` admin privilege.

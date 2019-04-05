@@ -1,0 +1,250 @@
+get:
+  operationId: get_cluster_user
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_CLUSTER(?BINDING(id))
+  x-onedata-permissions:
+    - cluster_view
+    - oz_users_view
+  summary: Get cluster's user details
+  x-bash-codegen-description: |
+    Returns basic information about a specific user in a cluster.
+
+    This operation requires `cluster_view` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_users_view` privilege is required.
+  description: |
+    Returns basic information about a specific user in a cluster.
+
+    This operation requires `cluster_view` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_users_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get cluster user data**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+
+    {
+       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
+       "name" : "John Doe",
+       "alias" : "username"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a cluster user.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getClusterUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+
+
+put:
+  operationId: add_cluster_user
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - cluster_add_user
+    - cluster_set_privileges
+    - oz_clusters_add_relationships
+    - oz_users_add_relationships
+    - oz_clusters_set_privileges
+  summary: Add user to cluster
+  x-bash-codegen-description: |
+    Adds user {uid} as member of cluster {id}. Optionally, privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the user in this cluster.
+
+    This operation can only be invoked by the user {uid} to add himself to the
+    cluster (if he is not a member already) and requires `cluster_add_user`
+    privilege in the cluster. If `privileges` are specified in the request,
+    `cluster_set_privileges` privilege is also required.
+
+    Administrators having the `oz_clusters_add_relationships` and
+    `oz_users_add_relationships` admin privileges can add any user to any cluster,
+    though `oz_clusters_set_privileges` privilege is required if `privileges` are
+    specified in the request.
+  description: |
+    Adds user {uid} as member of cluster {id}. Optionally, privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the user in this cluster.
+
+    This operation can only be invoked by the user {uid} to add himself to the
+    cluster (if he is not a member already) and requires `cluster_add_user`
+    privilege in the cluster. If `privileges` are specified in the request,
+    `cluster_set_privileges` privilege is also required.
+
+    Administrators having the `oz_clusters_add_relationships` and
+    `oz_users_add_relationships` admin privileges can add any user to any cluster,
+    though `oz_clusters_set_privileges` privilege is required if `privileges` are
+    specified in the request.
+
+    ***Example cURL requests***
+
+    **Add user to cluster**
+    ```bash
+    curl -u username:password  -H "Content-type: application/json" -X PUT \
+    https://$HOST/api/v3/onezone/clusters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The user was added to the cluster.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  - name: privileges
+    in: body
+    schema:
+      $ref: '#/definitions/ClusterPrivileges'
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addClusterUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+
+
+delete:
+  operationId: remove_cluster_user
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - cluster_remove_user
+    - oz_clusters_remove_relationships
+    - oz_users_remove_relationships
+  summary: Remove user from cluster
+  x-bash-codegen-description: |
+    Removes user from specific cluster.
+
+    This operation requires `cluster_remove_user` privilege in the cluster or
+    `oz_clusters_remove_relationships` and `oz_users_remove_relationships` admin privilege.
+  description: |
+    Removes user from specific cluster.
+
+    This operation requires `cluster_remove_user` privilege in the cluster or
+    `oz_clusters_remove_relationships` and `oz_users_remove_relationships` admin privileges.
+
+    ***Example cURL requests***
+
+    **Get cluster user data**
+    ```bash
+    curl  -u admin:password -X DELETE \
+    https://$HOST/api/v3/onezone/clusters/p-mts_OBjwXss-E9kBxzp-ux12KNW2CBSaXlkDowDEk/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: User was removed from cluster.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeClusterUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

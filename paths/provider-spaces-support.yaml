@@ -8,15 +8,21 @@ post:
     aspect: support
   summary: Add space storage support
   x-bash-codegen-description: |
-    Adds support for specific space on behalf of the Oneprovider that
-    performed the request. Space support token is required.
+    Adds support for specific space on behalf of the
+    Oneprovider that performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+
+    Requires a space support token.
   description: |
-    Adds support for specific space on behalf of the Oneprovider that
-    performed the request. Space support token is required.
+    Adds support for specific space on behalf of the
+    Oneprovider that performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+
+    Requires a space support token.
 
     ***Example cURL requests***
 

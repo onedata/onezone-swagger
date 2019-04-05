@@ -127,7 +127,7 @@ patch:
     ```bash
     curl -H "Content-type: application/json" -X PATCH \
     -d '{"grant": ["group_view", "group_update"], "revoke": ["group_delete"]}' \
-    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges/privileges
+    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
     ```
   responses:
     '204':

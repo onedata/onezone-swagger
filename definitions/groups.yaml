@@ -3,7 +3,7 @@ description: List of groups.
 properties:
   groups:
     type: array
-    description: The list of group Id's.
+    description: The list of group Ids.
     items:
       type: string
 required:

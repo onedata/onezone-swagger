@@ -13,13 +13,15 @@ get:
   x-bash-codegen-description: |
     Returns the list of groups belonging to a specific space.
 
-    If called by user who is not member of the space, requires `space_view`
-    privilege or `oz_spaces_list_relationships` admin privilege.
+    This operation requires `space_view` privilege.
+    For administrator who does not belong to this space
+    `oz_spaces_list_relationships` privilege is required.
   description: |
     Returns the list of groups belonging to a specific space.
 
-    If called by user who is not member of the space, requires `space_view`
-    privilege or `oz_spaces_list_relationships` admin privilege.
+    This operation requires `space_view` privilege.
+    For administrator who does not belong to this space
+    `oz_spaces_list_relationships` privilege is required.
 
     ***Example cURL requests***
 

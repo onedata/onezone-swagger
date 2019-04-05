@@ -1,0 +1,62 @@
+get:
+  operationId: list_user_clusters
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: clusters
+  summary: List user's clusters
+  x-bash-codegen-description: |
+    Returns the list of user's clusters.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the list of user's clusters.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get user's clusters**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/clusters
+
+    {
+      "clusters": [
+        "IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        The list of user's clusters.
+      schema:
+        $ref: '#/definitions/Clusters'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listUserClusters"

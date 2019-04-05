@@ -1,0 +1,14 @@
+type: object
+description: The list of clusters.
+properties:
+  clusters:
+    type: array
+    description: The list of cluster Ids.
+    items:
+      type: string
+required:
+  - clusters
+example:
+  clusters:
+    - Bmav38YI0Z2-dw-fvrZ3XP-J0HjCN0taT3_WungK
+    - ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR
