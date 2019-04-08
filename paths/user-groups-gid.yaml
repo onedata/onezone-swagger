@@ -23,7 +23,7 @@ get:
     **Get user groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/groups/LKJGHASDJHAJKLSHDLJKASD
+    https://$HOST/api/v3/onezone/user/groups/$GROUP_ID
 
     {
       "groupId": "LKJGHASDJHAJKLSHDLJKASD",
@@ -92,7 +92,7 @@ delete:
     **Leave group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/groups/qScCV0Tt3NiTLYbx_DGzJFnQxDYQNqNxk6o5YANWRo8
+    https://$HOST/api/v3/onezone/user/groups/$GROUP_ID
     ```
   produces:
     - application/json

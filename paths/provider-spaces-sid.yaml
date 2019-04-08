@@ -27,7 +27,7 @@ get:
     **Get space details**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET \
-    https://$HOST/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
 
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
@@ -102,7 +102,7 @@ patch:
     **Change supported size**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X PATCH -d '{"size": 1024000}' \
-    https://$HOST/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
     - application/json
@@ -167,7 +167,7 @@ delete:
     **Revoke space support**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE \
-    https://$HOST/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
     - application/json

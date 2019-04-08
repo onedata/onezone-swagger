@@ -26,7 +26,7 @@ get:
     **List groups's privileges in a space**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID/privileges
 
     {
       "privileges": [
@@ -123,7 +123,7 @@ patch:
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
     -d '{"grant": ["space_view", "space_update"], "revoke": ["space_delete"]}' \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID/privileges
     ```
   responses:
     '204':

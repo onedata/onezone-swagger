@@ -28,7 +28,7 @@ get:
     **Get handle user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
 
     {
        "name" : "John Doe",
@@ -108,7 +108,7 @@ put:
     **Add handle user**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
     ```
   produces:
     - application/json
@@ -186,7 +186,7 @@ delete:
     **Remove handle service user**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
+    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
     ```
   responses:
     '204':

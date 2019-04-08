@@ -32,7 +32,7 @@ get:
     **List effective user's privileges in a handle**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    https://$HOST/api/v3/handles/$HANDLE_ID/effective_users/$USER_ID/privileges
 
     {
       "privileges": [

@@ -28,7 +28,7 @@ get:
     **Get group effective spaces**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_spaces
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_spaces
 
     {
       "spaces": [

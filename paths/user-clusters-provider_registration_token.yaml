@@ -35,7 +35,7 @@ post:
     **Create provider registration token for current user**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/user/clusters/provider_registration_token
+    https://$HOST/api/v3/onezone/user/clusters/$CLUSTER_ID
 
     {
       "token": [

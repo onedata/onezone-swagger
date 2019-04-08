@@ -36,7 +36,7 @@ get:
     **Add group to space**
     ```bash
     curl -u username:password -H "Content-type: application/json" -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/shares/A6KXxNgzlvqmmrbzqE_BQiammrbzqE_BQiaHEE
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/shares/$SHARE_ID
 
     {
       "shareId": "8asd89asdlbKJSBD79a8sdkLKJH8asdkjasd8989",

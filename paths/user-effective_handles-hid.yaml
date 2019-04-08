@@ -23,7 +23,7 @@ get:
     **Get user effective handle**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/effective_handles/$HANDLE_ID
 
     {
       "handle": "10.5072/w95Zlng",

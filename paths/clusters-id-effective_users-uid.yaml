@@ -28,7 +28,7 @@ get:
     **Get effective cluster user details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_users/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/effective_users/$USER_ID
 
     {
       "userId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",

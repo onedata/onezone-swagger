@@ -18,7 +18,7 @@ post:
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
     -d '{ "token" : "MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcmLciFsOgyUkPI3f02le6PM01IX8go" }'  \
-    https://$HOST/api/v3/onezone/groups/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3r/clusters/join
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/clusters/join
     ```
   consumes:
     - application/json
@@ -26,7 +26,7 @@ post:
     '201':
       description: >
         URI of the joined cluster in form
-        https://$HOST/api/onezone/v3/groups/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3r/clusters/{id}
+        https://$HOST/api/onezone/v3/groups/$GROUP_ID/clusters/{id}
         is returned in the response `Location` header.
       headers:
         Location:

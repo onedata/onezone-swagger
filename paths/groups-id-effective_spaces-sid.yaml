@@ -30,7 +30,7 @@ get:
     **Get group's space details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_spaces/$SPACE_ID
 
     {
        "providers" : {

@@ -28,7 +28,7 @@ get:
     **Get child groups**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children
 
     {
       "groups": []
@@ -106,7 +106,7 @@ post:
     **Create child group**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children
     ```
   produces:
     - application/json

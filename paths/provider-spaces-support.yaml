@@ -30,7 +30,7 @@ post:
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X POST \
     -d '{"size": 1024000, "token": "Ko1SDKLJASHDkjjkjashdkjahsdkk655a8sdkgkasdASD"}' \
-    https://$HOST/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
     - application/json

@@ -30,7 +30,7 @@ get:
     **Get space user data**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
 
     {
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
@@ -130,7 +130,7 @@ put:
     **Add user to space**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
     ```
   consumes:
     - application/json
@@ -207,7 +207,7 @@ delete:
     **Get space user data**
     ```bash
     curl  -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/p-mts_OBjwXss-E9kBxzp-ux12KNW2CBSaXlkDowDEk/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
     ```
   consumes:
     - application/json

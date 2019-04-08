@@ -26,7 +26,7 @@ get:
     **Get handle users**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users
+    https://$HOST/api/v3/handles/$HANDLE_ID/users
 
     {
       "users": [

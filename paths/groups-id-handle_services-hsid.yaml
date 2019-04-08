@@ -30,7 +30,7 @@ get:
     **Get handle service details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/ALASDLKJALKSDJKLASD/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handle_services/$HANDLE_SERVICE_ID
 
     {
         "name": "MyCommunity Handle service",
@@ -124,7 +124,7 @@ delete:
     **Delete user handle service**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/AJKLASHJKDHKAJSHD/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handle_services/$HANDLE_SERVICE_ID
     ```
   produces:
     - application/json
