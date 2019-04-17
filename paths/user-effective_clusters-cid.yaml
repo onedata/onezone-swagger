@@ -1,0 +1,80 @@
+get:
+  operationId: get_user_effective_cluster
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(cid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
+  summary: Get user's effective cluster details
+  x-bash-codegen-description: |
+    Returns information about a specific user's effective cluster.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns information about a specific user's effective cluster.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get user's effective cluster details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/clusters/$CLUSTER_ID
+
+    {
+      "clusterId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+      "type" : "oneprovider",
+      "workerVersion": {
+        "release": "18.02.1",
+        "build": "1-gfabf02d",
+        "gui": "129c549fbe9b3e730c3d9910492228566e39e1236945766a74381405cc57fb04"
+      },
+      "onepanelVersion": {
+        "release": "18.02.1",
+        "build": "3-89fc6bad",
+        "gui": "68e7e1472adb719ddf2d88908775091dfb10e5d0b916f06125ea1af4056044e3"
+      },
+      "online" : true,
+      "onepanelProxy" : false
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of a specific effective cluster.
+      schema:
+        $ref: '#/definitions/Cluster'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: cid
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserEffectiveCluster cid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

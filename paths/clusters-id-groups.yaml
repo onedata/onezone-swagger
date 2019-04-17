@@ -1,0 +1,159 @@
+get:
+  operationId: list_cluster_groups
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: groups
+  summary: List cluster's groups
+  x-onedata-permissions:
+    - cluster_view
+    - oz_clusters_list_relationships
+  x-bash-codegen-description: |
+    Returns the list of groups belonging to a specific cluster.
+
+    This operation requires `cluster_view` privilege.
+    For administrator who does not belong to this cluster
+    `oz_clusters_list_relationships` privilege is required.
+  description: |
+    Returns the list of groups belonging to a specific cluster.
+
+    This operation requires `cluster_view` privilege.
+    For administrator who does not belong to this cluster
+    `oz_clusters_list_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get cluster groups**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups
+
+    {
+      "groups": [
+        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all group Ids that belong to a specific cluster
+      schema:
+        $ref: '#/definitions/Groups'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listClusterGroups id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+
+
+post:
+  operationId: create_cluster_group
+  tags:
+  - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "group"
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - cluster_add_group
+    - oz_groups_create
+    - oz_clusters_add_relationships
+  summary: Create group in cluster
+  x-bash-codegen-description: |
+    Creates a new group belonging to the cluster of {id}.
+
+    This operation requires `cluster_add_group` privilege.
+    For administrator who does not belong to this group
+    `oz_clusters_add_relationships` and `oz_groups_create`
+    privileges are required.
+  description: |
+    Creates a new group belonging to the cluster of {id}.
+
+    This operation requires `cluster_add_group` privilege.
+    For administrator who does not belong to this group
+    `oz_clusters_add_relationships` and `oz_groups_create`
+    privileges are required.
+
+    ***Example cURL requests***
+
+    **Create group in cluster**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups
+    ```
+  produces:
+  - application/json
+  responses:
+    '201':
+      description: >
+        URI of the added group in form https://$HOST/api/onezone/v3/clusters/{id}/groups/{gid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created group.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Group properties.
+    schema:
+      $ref: '#/definitions/GroupCreateRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createClusterGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 name==Group2 type==team"

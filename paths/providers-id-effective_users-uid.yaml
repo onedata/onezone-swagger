@@ -13,19 +13,25 @@ get:
   summary: Get effective user of provider
   x-bash-codegen-description: |
     Returns the details of an effective user of a specific provider.
-
-    This operation requires `oz_users_view` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_users_view` admin privilege.
   description: |
     Returns the details of an effective user of a specific provider.
-
-    This operation requires `oz_users_view` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_users_view` admin privilege.
 
     ***Example cURL requests***
 
     **Get effective user of a provider**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/effective_users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/effective_users/$USER_ID
 
     {
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",

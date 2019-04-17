@@ -23,7 +23,7 @@ get:
     **Get space details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID
 
     {
        "providers" : {
@@ -72,7 +72,7 @@ get:
 
 
 delete:
-  operationId: remove_user_space
+  operationId: leave_space
   tags:
     - User
   x-onedata-gri:
@@ -81,11 +81,11 @@ delete:
     aspect: "{space, ?BINDING(sid)}"
   summary: Leave space
   x-bash-codegen-description: |
-    Removes the users ownership or access to a specific space.
+    Removes the user's ownership or access to a specific space.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the users ownership or access to a specific space.
+    Removes the user's ownership or access to a specific space.
 
     This operation can be invoked on behalf of the current user only.
 
@@ -94,13 +94,13 @@ delete:
     **Delete user space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID
     ```
   produces:
     - application/json
   responses:
     '204':
-      description: The space will be deleted.
+      description: The user is no longer a member of the space.
     '400':
       description: Invalid request.
       schema:
@@ -129,4 +129,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli leaveSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

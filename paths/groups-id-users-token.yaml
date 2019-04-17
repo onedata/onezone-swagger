@@ -7,19 +7,19 @@ post:
     id: ?BINDING(id)
     aspect: invite_user_token
   x-onedata-permissions:
-    - group_invite_user
+    - group_add_user
     - oz_groups_add_relationships
   summary: Create user invite token for group
   x-bash-codegen-description: |
     Creates a token allowing new user to join the group.
 
-    This operation requires `group_invite_user` privilege.
+    This operation requires `group_add_user` privilege.
     For administrator who does not belong to this group
     `oz_groups_add_relationships` privilege is required.
   description: |
     Creates a token allowing new user to join the group.
 
-    This operation requires `group_invite_user` privilege.
+    This operation requires `group_add_user` privilege.
     For administrator who does not belong to this group
     `oz_groups_add_relationships` privilege is required.
 
@@ -28,7 +28,7 @@ post:
     **Generate user group invite token**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/token
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/users/token
 
     {
       "token": "MDAxNmxvY2F00aW9uIHJlZlFTUbnZpdGVthHo8xmai4RqqBO2MZM00mrYGgo"

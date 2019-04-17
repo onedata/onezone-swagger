@@ -1,0 +1,73 @@
+get:
+  operationId: list_cluster_effective_groups
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: eff_groups
+  x-onedata-permissions:
+    - cluster_view
+    - oz_clusters_list_relationships
+  summary: List cluster's effective groups
+  x-bash-codegen-description: |
+    Returns the list of effective groups belonging to a specific cluster.
+
+    This operation requires `cluster_view` privilege
+    or `oz_clusters_list_relationships` admin privilege.
+  description: |
+    Returns the list of effective groups belonging to a specific cluster.
+
+    This operation requires `cluster_view` privilege
+    or `oz_clusters_list_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get cluster effective groups**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/effective_groups
+
+    {
+      "groups": [
+        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of effective group Ids that belong to a specific cluster.
+      schema:
+        $ref: '#/definitions/Groups'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listClusterEffectiveGroups id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

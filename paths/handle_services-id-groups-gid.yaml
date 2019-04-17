@@ -28,7 +28,7 @@ get:
     **Get group handle service**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/groups/$GROUP_ID
 
     {
       "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
@@ -108,7 +108,7 @@ put:
     **Add handle service user**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/groups/$GROUP_ID
     ```
   consumes:
     - application/json
@@ -186,7 +186,7 @@ delete:
     **Remove handle service group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/groups/$GROUP_ID
     ```
   responses:
     '204':

@@ -11,13 +11,13 @@ get:
     - oz_groups_list_relationships
   summary: List effective group's providers
   x-bash-codegen-description: |
-    Returns the effective list of providers supporting group spaces.
+    Returns the list of effective providers supporting group spaces.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
     `oz_groups_list_relationships` privilege is required.
   description: |
-    Returns the effective list of providers supporting group spaces.
+    Returns the list of effective providers supporting group spaces.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
@@ -28,13 +28,13 @@ get:
     **Get group effective providers**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_providers
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The effective list of providers supporting group spaces.
+      description: the list of effective providers supporting group spaces.
       schema:
         $ref: '#/definitions/Providers'
     '400':

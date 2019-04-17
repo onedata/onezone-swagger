@@ -28,7 +28,7 @@ get:
     **Get handle services handle**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/LKJASHDLKJHASD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/handle_services/LKJASHDLKJHASD/handles/$HANDLE_ID
 
     {
       "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",

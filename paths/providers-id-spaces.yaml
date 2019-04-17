@@ -1,29 +1,37 @@
 get:
-  operationId: list_provider_spaces
+  operationId: list_provider_supported_spaces
   tags:
     - Provider
   x-onedata-gri:
     type: od_provider
     id: ?BINDING(id)
     aspect: spaces
-  summary: List spaces supported by provider
+  summary: List provider's supported spaces
   x-onedata-permissions:
     - oz_providers_list_relationships
   x-bash-codegen-description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `oz_providers_list_relationships` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_providers_list_relationships` admin privilege.
   description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `oz_providers_list_relationships` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_providers_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **List spaces supported by provider**
     ```bash
     curlsS -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/spaces
 
     {
       "spaces": [
@@ -67,4 +75,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listProviderSpaces id=ASKLDJKAJHSD765-asdAA"
+    source: "onezone-rest-cli listProviderSupportedSpaces id=ASKLDJKAJHSD765-asdAA"

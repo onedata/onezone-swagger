@@ -14,17 +14,17 @@ get:
     Returns the effective user's (`{uid}`) provider membership intermediaries -
     spaces from which the user inherits access to the provider (`{id}`).
 
-    This operation requires any of the following authorization:
-    * as user (`{uid}`) who is an effective member of the provider (`{id}`)
-    * as provider (`{id}`)
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user (`{uid}`) who is an effective member of the provider (`{id}`),
     * as user who has `oz_providers_view` admin privilege.
   description: |
     Returns the effective user's (`{uid}`) provider membership intermediaries -
     spaces from which the user inherits access to the provider (`{id}`).
 
-    This operation requires any of the following authorization:
-    * as user (`{uid}`) who is an effective member of the provider (`{id}`)
-    * as provider (`{id}`)
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user (`{uid}`) who is an effective member of the provider (`{id}`),
     * as user who has `oz_providers_view` admin privilege.
 
     ***Example cURL requests***
@@ -32,7 +32,7 @@ get:
     **Get effective user's provider membership intermediaries**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/providers/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_users/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/membership
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/effective_users/$USER_ID/membership
 
     {
       "intermediaries": [

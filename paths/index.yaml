@@ -26,6 +26,10 @@
   $ref: ./users-id-effective_privileges.yaml
 
 
+/users/{id}/clusters/provider_registration_token:
+  $ref: ./users-id-clusters-provider_registration_token.yaml
+
+
 
 ###############################################################################
 # User
@@ -62,6 +66,10 @@
 
 /user/default_provider:
   $ref: ./user-default_provider.yaml
+
+
+/user/idp_access_token/{idp}:
+  $ref: ./user-idp_access_token-idp.yaml
 
 
 /user/groups:
@@ -170,6 +178,30 @@
 
 /user/effective_harvesters/{hid}:
   $ref: ./user-effective_harvesters-hid.yaml
+  
+  
+/user/clusters:
+  $ref: ./user-clusters.yaml
+
+
+/user/clusters/provider_registration_token:
+  $ref: ./user-clusters-provider_registration_token.yaml
+
+
+/user/clusters/join:
+  $ref: ./user-clusters-join.yaml
+
+
+/user/clusters/{cid}:
+  $ref: ./user-clusters-cid.yaml
+
+
+/user/effective_clusters:
+  $ref: ./user-effective_clusters.yaml
+
+
+/user/effective_clusters/{cid}:
+  $ref: ./user-effective_clusters-cid.yaml
 
 
 ###############################################################################
@@ -358,6 +390,27 @@
 
 /groups/{id}/effective_harvesters/{hid}:
   $ref: ./groups-id-effective_harvesters-hid.yaml
+  
+  
+/groups/{id}/clusters:
+  $ref: ./groups-id-clusters.yaml
+
+
+/groups/{id}/clusters/join:
+  $ref: ./groups-id-clusters-join.yaml
+
+
+/groups/{id}/clusters/{cid}:
+  $ref: ./groups-id-clusters-cid.yaml
+
+
+/groups/{id}/effective_clusters:
+  $ref: ./groups-id-effective_clusters.yaml
+
+
+/groups/{id}/effective_clusters/{cid}:
+  $ref: ./groups-id-effective_clusters-cid.yaml
+
 
 ###############################################################################
 # Spaces
@@ -446,7 +499,6 @@
 /spaces/{id}/providers:
   $ref: ./spaces-id-providers.yaml
 
-
 /spaces/{id}/providers/token:
   $ref: ./spaces-id-providers-token.yaml
 
@@ -487,10 +539,6 @@
   $ref: ./providers.yaml
 
 
-/providers/token:
-  $ref: ./providers-token.yaml
-
-
 /providers/{id}:
   $ref: ./providers-id.yaml
 
@@ -525,6 +573,10 @@
 
 /providers/{id}/spaces/{sid}:
   $ref: ./providers-id-spaces-sid.yaml
+
+
+/providers/{id}/domain_config:
+  $ref: ./providers-id-domain_config.yaml
 
 
 
@@ -567,6 +619,9 @@
 /provider/public/verify_provider_identity:
   $ref: ./provider-public-verify_provider_identity.yaml
 
+
+/provider/domain_config:
+  $ref: ./provider-domain_config.yaml
 
 
 ###############################################################################
@@ -815,3 +870,78 @@
 /harvesters/{id}/indices/{idx}/data:
   $ref: ./harvesters-id-indices-idx-data.yaml
 
+
+###############################################################################
+# Clusters
+###############################################################################
+
+/clusters:
+  $ref: ./clusters.yaml
+
+
+/clusters/{id}:
+  $ref: ./clusters-id.yaml
+
+
+/clusters/{id}/users:
+  $ref: ./clusters-id-users.yaml
+
+
+/clusters/{id}/users/token:
+  $ref: ./clusters-id-users-token.yaml
+
+
+/clusters/{id}/users/{uid}:
+  $ref: ./clusters-id-users-uid.yaml
+
+
+/clusters/{id}/users/{uid}/privileges:
+  $ref: ./clusters-id-users-uid-privileges.yaml
+
+
+/clusters/{id}/effective_users:
+  $ref: ./clusters-id-effective_users.yaml
+
+
+/clusters/{id}/effective_users/{uid}:
+  $ref: ./clusters-id-effective_users-uid.yaml
+
+
+/clusters/{id}/effective_users/{uid}/privileges:
+  $ref: ./clusters-id-effective_users-uid-privileges.yaml
+
+
+/clusters/{id}/effective_users/{uid}/membership:
+  $ref: ./clusters-id-effective_users-uid-membership.yaml
+
+
+/clusters/{id}/groups:
+  $ref: ./clusters-id-groups.yaml
+
+
+/clusters/{id}/groups/token:
+  $ref: ./clusters-id-groups-token.yaml
+
+
+/clusters/{id}/groups/{gid}:
+  $ref: ./clusters-id-groups-gid.yaml
+
+
+/clusters/{id}/groups/{gid}/privileges:
+  $ref: ./clusters-id-groups-gid-privileges.yaml
+
+
+/clusters/{id}/effective_groups:
+  $ref: ./clusters-id-effective_groups.yaml
+
+
+/clusters/{id}/effective_groups/{gid}:
+  $ref: ./clusters-id-effective_groups-gid.yaml
+
+
+/clusters/{id}/effective_groups/{gid}/privileges:
+  $ref: ./clusters-id-effective_groups-gid-privileges.yaml
+
+
+/clusters/{id}/effective_groups/{gid}/membership:
+  $ref: ./clusters-id-effective_groups-gid-membership.yaml

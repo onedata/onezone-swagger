@@ -16,9 +16,9 @@ get:
     Special keyword `"self"` in entity id indicates that the child (`{cid}`)
     has a direct access to the group (`{id}`).
 
-    This operation requires any of the following authorization:
-    * as user who is an effective member of the child group (`{cid}`)
-    * as user who has `group_view` privilege in the group (`{id}`)
+    This operation requires any of the following authentication:
+    * as user who is an effective member of the child group (`{cid}`),
+    * as user who has `group_view` privilege in the group (`{id}`),
     * as user who has `oz_groups_view` admin privilege.
   description: |
     Returns the effective child's (`{cid}`) group membership intermediaries -
@@ -26,9 +26,9 @@ get:
     Special keyword `"self"` in entity id indicates that the child (`{cid}`)
     has a direct access to the group (`{id}`).
 
-    This operation requires any of the following authorization:
-    * as user who is an effective member of the child group (`{cid}`)
-    * as user who has `group_view` privilege in the group (`{id}`)
+    This operation requires any of the following authentication:
+    * as user who is an effective member of the child group (`{cid}`),
+    * as user who has `group_view` privilege in the group (`{id}`),
     * as user who has `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
@@ -36,7 +36,7 @@ get:
     **Get effective child's group membership intermediaries**
     ```bash
     curl -i -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_children/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/membership
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_children/$CHILD_GROUP_ID/membership
 
     {
       "intermediaries": [

@@ -1,0 +1,10 @@
+type: object
+description: Cluster update request.
+properties:
+  proxy:
+    type: boolean
+    description: >
+      Is onepanel proxy enabled - if so, onepanel GUI is served on cluster's
+      domain at port 443 (rather than 9443).
+example:
+  proxy: true

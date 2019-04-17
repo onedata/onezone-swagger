@@ -28,7 +28,7 @@ get:
     **List user's privileges in a space**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID/privileges
 
     {
       "privileges": [
@@ -102,7 +102,7 @@ patch:
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - space_set_privileges
-    - oz_set_privileges
+    - oz_spaces_set_privileges
   summary: Update user's space privileges
   x-bash-codegen-description: |
     Updates user's (`{uid}`) privileges in a space (`{id}`).
@@ -127,7 +127,7 @@ patch:
     ```bash
     curl -i -k -u admin:password -X PATCH \
     -d '{"grant": ["space_view", "space_update"], "revoke": ["space_delete"]}' \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID/privileges
     ```
   responses:
     '204':

@@ -10,20 +10,28 @@ get:
     - oz_providers_list_relationships
   summary: List effective groups of provider
   x-bash-codegen-description: |
-    Returns the effective list of groups of a specific provider.
+    Returns the list of effective groups of a specific provider.
 
-    This operation requires `oz_providers_list_relationships` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_providers_list_relationships` admin privilege.
   description: |
-    Returns the effective list of groups of a specific provider.
+    Returns the list of effective groups of a specific provider.
 
-    This operation requires `oz_providers_list_relationships` admin privilege.
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_providers_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **List groups of a provider**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/groups
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/groups
 
     {
       "groups": [

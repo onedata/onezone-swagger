@@ -30,7 +30,7 @@ get:
     **Get handle details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles/$HANDLE_ID
 
     {
       "handle": "10.5072/w95Zlng"
@@ -96,7 +96,7 @@ get:
 
 
 delete:
-  operationId: remove_group_handle
+  operationId: group_leave_handle
   tags:
     - Group
   x-onedata-gri:
@@ -107,15 +107,15 @@ delete:
     - group_leave_handle
     - oz_groups_remove_relationships
     - oz_handles_remove_relationships
-  summary: Remove group handle
+  summary: Group leave handle
   x-bash-codegen-description: |
-    Removes the groups ownership or access to a specific handle.
+    Removes the group's ownership or access to a specific handle.
 
     This operation requires `group_leave_handle` privilege.
     For administrator who does not belong to this group
     `oz_groups_remove_relationships` and `oz_handles_remove_relationships` privileges are required.
   description: |
-    Removes the groups ownership or access to a specific handle.
+    Removes the group's ownership or access to a specific handle.
 
     This operation requires `group_leave_handle` privilege.
     For administrator who does not belong to this group
@@ -126,13 +126,13 @@ delete:
     **Delete user space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/AKSDKJLHASDJKjhjaksdLKJASD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles/$HANDLE_ID
     ```
   produces:
     - application/json
   responses:
     '204':
-      description: The handle was removed from group.
+      description: The group is no longer a member of the handle.
     '400':
       description: Invalid request.
       schema:
@@ -166,4 +166,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli groupLeaveHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

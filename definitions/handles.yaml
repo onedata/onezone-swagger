@@ -3,7 +3,7 @@ description: List of handles.
 properties:
   handles:
     type: array
-    description: The list of handle Id's.
+    description: The list of handle Ids.
     items:
       type: string
 required:

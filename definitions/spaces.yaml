@@ -3,7 +3,7 @@ description: List of spaces.
 properties:
   spaces:
     type: array
-    description: The list of space Id's.
+    description: The list of space Ids.
     items:
       type: string
 required:

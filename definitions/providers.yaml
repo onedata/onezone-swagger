@@ -3,7 +3,7 @@ description: List of providers.
 properties:
   providers:
     type: array
-    description: The list of provider Id's.
+    description: The list of provider Ids.
     items:
       type: string
 required:

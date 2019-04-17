@@ -23,7 +23,7 @@ get:
     **Get handle service details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/handle_services/$HANDLE_SERVICE_ID
 
     {
         "name": "MyCommunity Handle service",
@@ -81,20 +81,20 @@ get:
 
 
 delete:
-  operationId: remove_user_handle_service
+  operationId: leave_handle_service
   tags:
     - User
   x-onedata-gri:
     type: od_user
     id: ?CLIENT_ID
     aspect: "{handle_service, ?BINDING(hsid)}"
-  summary: Remove user handle service
+  summary: Leave handle service
   x-bash-codegen-description: |
-    Removes the users ownership or access to a specific handle service.
+    Removes the user's ownership or access to a specific handle service.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the users ownership or access to a specific handle service.
+    Removes the user's ownership or access to a specific handle service.
 
     This operation can be invoked on behalf of the current user only.
 
@@ -103,13 +103,13 @@ delete:
     **Delete user handle service**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/handle_services/$HANDLE_SERVICE_ID
     ```
   produces:
     - application/json
   responses:
     '204':
-      description: The handle service was removed.
+      description: The user is no longer a member of the handle service.
     '400':
       description: Invalid request.
       schema:
@@ -138,4 +138,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli leaveHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

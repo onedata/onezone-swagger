@@ -1,0 +1,89 @@
+get:
+  operationId: get_effective_group_cluster_membership_intermediaries
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "{eff_group_membership, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - cluster_view
+    - oz_clusters_view
+  summary: Get effective group's cluster membership intermediaries
+  x-bash-codegen-description: |
+    Returns the effective group's (`{gid}`) cluster membership intermediaries -
+    entities from which the group inherits membership in the cluster (`{id}`).
+    Special keyword `"self"` in entity id indicates that the group (`{gid}`)
+    has a direct membership in the cluster (`{id}`).
+
+    This operation requires any of the following authentication:
+    * as user who is an effective member of the group (`{gid}`),
+    * as user who has `cluster_view` privilege in the cluster (`{id}`),
+    * as user who has `oz_clusters_view` admin privilege.
+  description: |
+    Returns the effective group's (`{gid}`) cluster membership intermediaries -
+    entities from which the group inherits membership in the cluster (`{id}`).
+    Special keyword `"self"` in entity id indicates that the group (`{gid}`)
+    has a direct membership in the cluster (`{id}`).
+
+    This operation requires any of the following authentication:
+    * as user who is an effective member of the group (`{gid}`),
+    * as user who has `cluster_view` privilege in the cluster (`{id}`),
+    * as user who has `oz_clusters_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get effective group's cluster membership intermediaries**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/effective_groups/$GROUP_ID/membership
+
+    {
+      "intermediaries": [
+        {"type": "group", "id": "oj903yegkxcpsdfy34masdf9atf8awef8hasdf"},
+        {"type": "group", "id": "ldsfk9y324t162r3vxzc890u7z9cxyv79asdgf"},
+        {"type": "cluster", "id": "self"}
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of membership intermediaries.
+      schema:
+        $ref: '#/definitions/MembershipIntermediaries'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveGroupClusterMembershipIntermediaries id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

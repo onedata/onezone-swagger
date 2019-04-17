@@ -27,7 +27,7 @@ get:
     **Get space details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3
+    https://$HOST/api/v3/onezone/shares/$SHARE_ID
 
     {
       "shareId": "bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
@@ -109,7 +109,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "NewShareName"}' \
-    https://$HOST/api/v3/onezone/shares/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
+    https://$HOST/api/v3/onezone/shares/$SHARE_ID
     ```
   consumes:
     - application/json
@@ -170,12 +170,14 @@ delete:
     - oz_shares_delete
   summary: Remove share
   x-bash-codegen-description: |
-    Removes a specific share.
+    Removes a specific share. This operation is reserved for internal
+    Oneprovider logic and must not be used directly.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_delete` admin privilege.
   description: |
-    Removes a specific share.
+    Removes a specific share. This operation is reserved for internal
+    Oneprovider logic and must not be used directly.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_delete` admin privilege.
@@ -185,7 +187,7 @@ delete:
     **Remove space**
     ```bash
     curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/shares/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/shares/$SHARE_ID
     ```
   responses:
     '204':

@@ -23,7 +23,7 @@ get:
     **Get handle details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/handles/$HANDLE_ID
 
     {
       "handle": "10.5072/w95Zlng",
@@ -91,13 +91,13 @@ delete:
     type: od_user
     id: ?CLIENT_ID
     aspect: "{handle, ?BINDING(hid)}"
-  summary: Remove handle
+  summary: Leave handle
   x-bash-codegen-description: |
-    Removes the users ownership or access to a specific space.
+    Removes the user's ownership or access to a specific space.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the users ownership or access to a specific space.
+    Removes the user's ownership or access to a specific space.
 
     This operation can be invoked on behalf of the current user only.
 
@@ -106,7 +106,7 @@ delete:
     **Delete user space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/handles/$HANDLE_ID
     ```
   produces:
     - application/json

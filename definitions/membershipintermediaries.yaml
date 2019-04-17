@@ -15,6 +15,7 @@ properties:
             - provider
             - handle_service
             - handle
+            - cluster
         id:
           type: string
           description: The id of the intermediary.

@@ -30,7 +30,7 @@ get:
     **Generate user group invite token**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID
 
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
@@ -90,7 +90,7 @@ put:
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - group_invite_user
+    - group_add_user
     - group_set_privileges
     - oz_groups_add_relationships
     - oz_users_add_relationships
@@ -102,7 +102,7 @@ put:
     privileges will be set for the user in this group.
 
     This operation can only be invoked by the user {uid} to add himself to the
-    group (if he is not a member already) and requires `group_invite_user`
+    group (if he is not a member already) and requires `group_add_user`
     privilege in the group. If `privileges` are specified in the request,
     `group_set_privileges` privilege is also required.
 
@@ -116,7 +116,7 @@ put:
     privileges will be set for the user in this group.
 
     This operation can only be invoked by the user {uid} to add himself to the
-    group (if he is not a member already) and requires `group_invite_user`
+    group (if he is not a member already) and requires `group_add_user`
     privilege in the group. If `privileges` are specified in the request,
     `group_set_privileges` privilege is also required.
 
@@ -130,7 +130,7 @@ put:
     **Generate user group invite token**
     ```bash
     curl -u admin:password -X PUT \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID
     ```
   produces:
     - application/json
@@ -218,7 +218,7 @@ delete:
     **Remove user from group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID
     ```
   consumes:
     - application/json

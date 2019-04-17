@@ -13,18 +13,20 @@ get:
   x-bash-codegen-description: |
     Returns the information about a specific group.
 
-    This operation requires `oz_groups_view` admin privilege or group membership.
+    This operation requires membership in the group or
+    `oz_groups_view` admin privilege.
   description: |
     Returns the information about a specific group.
 
-    This operation requires `oz_groups_view` admin privilege or group membership.
+    This operation requires membership in the group or
+    `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
 
     **Get group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID
 
     {
       "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
@@ -101,7 +103,7 @@ patch:
     ```bash
     curl -i -u admin:password  -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_group_name"}' \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEqsj4q253sptVqF8
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID
     ```
   consumes:
     - application/json
@@ -175,7 +177,7 @@ delete:
     **Remove group**
     ```bash
     curl -u admin:password -X DELETE  \
-    https://$HOST/api/v3/onezone/user/groups/LT88rteQ4KMSYXMWO0Oibiqn7X5nUD51NTsCqgDN8e4
+    https://$HOST/api/v3/onezone/user/groups/$GROUP_ID
     ```
   responses:
     '204':

@@ -1,0 +1,79 @@
+get:
+  operationId: get_cluster_effective_user
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_CLUSTER(?BINDING(id))
+  x-onedata-permissions:
+    - cluster_view
+    - oz_users_view
+  summary: Get cluster's effective user details
+  x-bash-codegen-description: |
+    Returns details about a specific effective user in a cluster.
+
+    This operation requires `cluster_view` privilege
+    or `oz_users_view` admin privilege.
+  description: |
+    Returns details about a specific effective user in a cluster.
+
+    This operation requires `cluster_view` privilege
+    or `oz_users_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get effective cluster user details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/effective_users/$USER_ID
+
+    {
+      "userId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "alias": "username",
+      "name": "John Doe"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of a specific user in a cluster.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getClusterEffectiveUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

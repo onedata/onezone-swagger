@@ -8,6 +8,9 @@ Configuration:
 Error:
   $ref: ./error.yaml
 
+VersionInfo:
+  $ref: ./versioninfo.yaml
+
 User:
   $ref: ./user.yaml
 
@@ -17,6 +20,9 @@ UserProtectedInfo:
 UserUpdateRequest:
   $ref: ./userupdaterequest.yaml
 
+IdPAccessToken:
+  $ref: ./idpaccesstoken.yaml
+
 Users:
   $ref: ./users.yaml
 
@@ -25,6 +31,9 @@ Groups:
 
 Shares:
   $ref: ./shares.yaml
+
+ProviderRegistrationToken:
+  $ref: ./providerregistrationtoken.yaml
 
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
@@ -37,6 +46,9 @@ ProviderRegistrationResponse:
 
 ProviderDetails:
   $ref: ./providerdetails.yaml
+
+ProviderDomainConfig:
+  $ref: ./providerdomainconfig.yaml
 
 AuthenticationToken:
   $ref: ./authenticationtoken.yaml
@@ -202,6 +214,24 @@ HarvesterIndexCreateRequest:
 
 HarvesterQuery:
   $ref: ./harvesterquery.yaml
+
+Cluster:
+  $ref: ./cluster.yaml
+
+Clusters:
+  $ref: ./clusters.yaml
+
+ClusterUpdateRequest:
+  $ref: ./clusterupdaterequest.yaml
+
+ClusterInviteToken:
+  $ref: ./clusterinvitetoken.yaml
+
+ClusterPrivileges:
+  $ref: ./clusterprivileges.yaml
+
+ClusterPrivilegesUpdate:
+  $ref: ./clusterprivilegesupdate.yaml
 
 MembershipIntermediaries:
   $ref: ./membershipintermediaries.yaml

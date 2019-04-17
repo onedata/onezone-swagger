@@ -1,0 +1,79 @@
+post:
+  operationId: user_create_provider_registration_token
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: provider_registration_token
+  summary: Create provider registration token for a user
+  x-bash-codegen-description: |
+    Creates a token for a specific user allowing him to register a new provider
+    in Onezone. After the registration, the user's account will be automatically
+    linked to the new Oneprovider cluster
+    (granting him access to Oneprovider's onepanel).
+
+    If registration policy in Onezone is configured as `open`, any user can
+    generate the token for himself. In case of `restricted` policy or issuing
+    the token for another user, this operation requires `oz_providers_invite` privilege.
+  description: |
+    Creates a token for a specific user allowing him to register a new provider
+    in Onezone. After the registration, the user's account will be automatically
+    linked to the new Oneprovider cluster
+    (granting him access to Oneprovider's onepanel).
+
+    If registration policy in Onezone is configured as `open`, any user can
+    generate the token for himself. In case of `restricted` policy or issuing
+    the token for another user, this operation requires `oz_providers_invite` privilege.
+
+    ***Example cURL requests***
+
+    **Create provider registration token for a specific user**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/users/$USER_ID/clusters/$CLUSTER_ID
+
+    {
+      "token": [
+        "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW-0Y8"
+      ]
+    }
+    ```
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: A provider registration token.
+      schema:
+        $ref : '#/definitions/ProviderRegistrationToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli userCreateProviderRegistrationToken id=oj903yegkxcpsdfy34masdf9a"

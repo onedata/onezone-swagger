@@ -12,7 +12,7 @@ allOf:
       prefix:
         type: string
         description: >
-          The PID prefix under which new PID's can be minted using this account.
+          The PID prefix under which new PIDs can be minted using this account.
       username:
         type: string
         description: >
@@ -36,7 +36,7 @@ allOf:
       identifierTemplate: 
         type: string
         description: >
-          Template for generating PID's based Onedata properties (e.g. space UUID). If set to `true` the `autoSuffixGeneration` must be `false`.
+          Template for generating PIDs based Onedata properties (e.g. space UUID). If set to `true` the `autoSuffixGeneration` must be `false`.
       allowTemplateOverride: 
         type: string
         description: >

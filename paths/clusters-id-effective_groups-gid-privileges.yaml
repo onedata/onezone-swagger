@@ -1,0 +1,96 @@
+get:
+  operationId: list_effective_group_cluster_privileges
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "{eff_group_privileges, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - cluster_view_privileges
+    - oz_clusters_view_privileges
+  summary: List effective group's cluster privileges
+  x-bash-codegen-description: |
+    Returns the list of effective group's (`{gid}`) privileges in a cluster (`{id}`).
+
+    Effective privileges are a sum of group's privileges and privileges
+    inherited from its parent group memberships.
+
+    This operation requires `cluster_view_privileges` privilege
+    or `oz_clusters_view_privileges` admin privilege.
+  description: |
+    Returns the list of effective group's (`{gid}`) privileges in a cluster (`{id}`).
+
+    Effective privileges are a sum of group's privileges and privileges
+    inherited from its parent group memberships.
+
+    This operation requires `cluster_view_privileges` privilege
+    or `oz_clusters_view_privileges` admin privilege.
+
+    ***Example cURL requests***
+
+    **List effective groups's privileges in a cluster**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/effective_groups/$GROUP_ID/privileges
+
+    {
+      "privileges": [
+        "cluster_view",
+        "cluster_update",
+        "cluster_delete",
+        "cluster_view_privileges",
+        "cluster_set_privileges"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of effective group's privileges in the cluster.
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/ClusterPrivileges'
+        example:
+          privileges:
+          - cluster_view
+          - cluster_update
+          - cluster_delete
+          - cluster_view_privileges
+          - cluster_set_privileges
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listEffectiveGroupClusterPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"

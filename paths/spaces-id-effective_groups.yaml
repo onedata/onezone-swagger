@@ -11,12 +11,12 @@ get:
     - oz_spaces_list_relationships
   summary: List effective space groups
   x-bash-codegen-description: |
-    Returns the effective list of groups belonging to a specific space.
+    Returns the list of effective groups belonging to a specific space.
 
     This operation requires `space_view` privilege
     or `oz_spaces_list_relationships` admin privilege.
   description: |
-    Returns the effective list of groups belonging to a specific space.
+    Returns the list of effective groups belonging to a specific space.
 
     This operation requires `space_view` privilege
     or `oz_spaces_list_relationships` admin privilege.
@@ -26,7 +26,7 @@ get:
     **Get space effective groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/effective_groups
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/effective_groups
 
     {
       "groups": [

@@ -30,7 +30,7 @@ get:
     **Get space user data**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
 
     {
        "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
@@ -90,7 +90,7 @@ put:
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - space_invite_user
+    - space_add_user
     - space_set_privileges
     - oz_spaces_add_relationships
     - oz_users_add_relationships
@@ -102,7 +102,7 @@ put:
     privileges will be set for the user in this space.
 
     This operation can only be invoked by the user {uid} to add himself to the
-    space (if he is not a member already) and requires `space_invite_user`
+    space (if he is not a member already) and requires `space_add_user`
     privilege in the space. If `privileges` are specified in the request,
     `space_set_privileges` privilege is also required.
 
@@ -116,7 +116,7 @@ put:
     privileges will be set for the user in this space.
 
     This operation can only be invoked by the user {uid} to add himself to the
-    space (if he is not a member already) and requires `space_invite_user`
+    space (if he is not a member already) and requires `space_add_user`
     privilege in the space. If `privileges` are specified in the request,
     `space_set_privileges` privilege is also required.
 
@@ -130,7 +130,7 @@ put:
     **Add user to space**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
     ```
   consumes:
     - application/json
@@ -207,7 +207,7 @@ delete:
     **Get space user data**
     ```bash
     curl  -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/p-mts_OBjwXss-E9kBxzp-ux12KNW2CBSaXlkDowDEk/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
     ```
   consumes:
     - application/json

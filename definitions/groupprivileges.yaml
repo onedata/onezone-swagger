@@ -15,7 +15,7 @@ items:
     - group_add_child
     - group_remove_child
 
-    - group_invite_user
+    - group_add_user
     - group_remove_user
 
     - group_add_space

@@ -1,25 +1,34 @@
 type: object
-description: Provider properties.
+description: Oneprovider properties.
 properties:
   providerId:
     type: string
-    description: The provider Id.
+    description: The Oneprovider Id.
   name:
     type: string
-    description: Provider name.
+    description: Oneprovider name.
   domain:
     type: string
     description: >
-      The fully qualified domain name of the provider or its IP address.
+      The fully qualified domain name of the Oneprovider or its IP address
+      (only for single-node deployments or clusters with a reverse proxy).
   latitude:
     type: number
-    description: The geographical latitude of the provider data center location.
+    description: The geographical latitude of the Oneprovider's data center location.
   longitude:
     type: number
-    description: The geographical longitude of the provider data center location.
+    description: The geographical longitude of the Oneprovider's data center location.
+  cluster:
+    type: string
+    description: The Id of the corresponding Oneprovider cluster.
+  online:
+    type: boolean
+    description: True if this Oneprovider is online - connected to Onezone.
 example:
-  name: Example provider
   providerId: H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk
-  domain: provider1.beta.onedata.org
+  name: Example provider
+  domain: provider1.example.com
   latitude: 50.0647
   longitude: 19.9450
+  cluster: 56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW
+  online: true
