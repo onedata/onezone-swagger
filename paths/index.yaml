@@ -846,8 +846,8 @@
   $ref: ./harvesters-id-spaces-sid.yaml
   
   
-/harvesters/{id}/config:
-  $ref: ./harvesters-id-config.yaml
+/harvesters/{id}/gui_plugin_config:
+  $ref: ./harvesters-id-gui_plugin_config.yaml
 
 
 /harvesters/{id}/indices:
@@ -860,7 +860,6 @@
 
 /harvesters/{id}/indices/{idx}/progress:
   $ref: ./harvesters-id-indices-idx-progress.yaml
-
 
 
 /harvesters/{id}/indices/{idx}:

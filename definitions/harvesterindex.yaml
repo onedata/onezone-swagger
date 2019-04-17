@@ -14,7 +14,8 @@ properties:
     type: string
     description:
       Mapping of index name to one recognized by gui plugin.  
-      This index will be available from gui only when this value is on acceptable indices list in gui plugin manifest.
+      Allows to specify this index to be used by GUI plugin to produce search results. 
+      Recognized gui index names are listed in gui plugin manifest.
 required:
   - indexId
   - name

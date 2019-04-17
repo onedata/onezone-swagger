@@ -184,8 +184,8 @@ delete:
     or `oz_harvesters_update` admin privilege.
   description: |
     Removes index from a specific harvester. **It will be no longer possible to access harvested data through onezone service**.\
-    If you wish to also remove harvested data see: 
-    [Remove index with harvested data](#operation/remove_harvester_index_with_data)
+    If you wish to remove harvested metadata see: 
+    [Remove harvested metadata in index](#operation/remove_harvested_index_data)
 
     This operation requires `harvester_update` privilege
     or `oz_harvesters_update` admin privilege.

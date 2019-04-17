@@ -9,7 +9,7 @@ properties:
     description: Method of request to Elasticsearch.
   path:
     type: string
-    description: Path to locate resource in index.
+    description: Resource path relative to index
   body:
     description: Body of request to Elasticsearch.
       

@@ -1,38 +1,37 @@
 delete:
-  operationId: remove_harvester_with_data
+  operationId: remove_harvested_data
   tags:
     - Harvester
   x-onedata-gri:
     type: od_harvester
     id: ?BINDING(id)
-    aspect: instance_with_data
+    aspect: data
   x-onedata-permissions:
     - harvester_delete
     - oz_harvesters_delete 
-  summary: Remove harvester with data
+  summary: Remove harvested data
   x-bash-codegen-description: |
-    Removes a specific harvester. **All harvested data will also be removed**.
+    Removes harvested metadata in all indices in given harvster.
 
     This operation requires `harvester_delete` privilege
     or `oz_harvesters_delete` admin privilege.
   description: |
-    Removes a specific harvester. **All harvested data will also be removed**.\
-    If you do not wish to remove all harvested data see:
-    [Remove harvester](#operation/remove_harvester)
+    Removes harvested metadata in all indices in given harvster. \
+    See also: [Remove harvester](#operation/remove_harvester)
     
     This operation requires `harvester_delete` privilege
     or `oz_harvesters_delete` admin privilege.
 
     ***Example cURL requests***
 
-    **Remove harvester**
+    **Remove harvested data**
     ```bash
     curl -u admin:password -X DELETE \
     https://$HOST/api/v3/onezone/harvesters/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
     '204':
-      description: The harvester and harvested metadata were removed.
+      description: All harvested metadata were removed.
     '400':
       description: Invalid request.
       schema:
@@ -61,4 +60,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHarvesterWithData id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli removeHarvestedData id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

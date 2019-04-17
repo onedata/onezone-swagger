@@ -1,0 +1,22 @@
+type: object
+description: Details about an index harvesting progress. 
+properties:
+  space_id:
+    type: object
+    properties:
+      provider_id:
+        type: object
+        properties:
+          progress:
+            type: array
+            items:
+              type: integer
+            description: 
+              "Array in form [CurrentSequence, MaxSequence] where: <br />
+              CurrentSequence - highest sequence number in given space in given provider already harvested in this index. <br />
+              MaxSequence - highest known sequence in given space in given provider."
+            minItems: 2
+            maxItems: 2
+example: { "$SPACE_ID1" : {"$PROVIDER_ID1" : [8,13], "$PROVIDER_ID2" : [13,21]},
+           "$SPACE_ID2" : {"$PROVIDER_ID1" : [3,5], "$PROVIDER_ID3" : [5,8]} }
+

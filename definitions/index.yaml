@@ -215,6 +215,12 @@ HarvesterIndexCreateRequest:
 HarvesterQuery:
   $ref: ./harvesterquery.yaml
 
+HarvesterQueryResponse:
+  $ref: ./harvesterqueryresponse.yaml
+
+HarvesterIndexProgressDetails:
+  $ref: ./harvesterindexprogressdetails.yaml
+
 Cluster:
   $ref: ./cluster.yaml
 

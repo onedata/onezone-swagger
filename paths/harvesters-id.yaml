@@ -170,8 +170,8 @@ delete:
     or `oz_harvesters_delete` admin privilege.
   description: |
     Removes a specific harvester. **It will be no longer possible to access harvested data through onezone service**.\
-    If you wish to also remove harvested data see: 
-    [Remove harvester with harvested data](#operation/remove_harvester_with_data)
+    If you wish to remove harvested metadata see: 
+    [Remove harvested data](#operation/remove_harvested_data)
 
     This operation requires `harvester_delete` privilege
     or `oz_harvesters_delete` admin privilege.

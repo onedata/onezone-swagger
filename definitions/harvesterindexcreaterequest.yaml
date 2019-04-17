@@ -7,11 +7,12 @@ properties:
   guiPluginName:
     type: string
     description: 
-      Mapping of index name to one recognized by gui plugin.  
-      This index will be available from gui only when this value is on acceptable indices list in gui plugin manifest.
+      Mapping of index name to one recognized by gui plugin.
+      Allows to specify this index to be used by GUI plugin to produce search results.
+      Recognized gui index names are listed in gui plugin manifest.
   schema:
     type: string
-    description: Encoded schema of the index.
+    description: Schema of the index provided as string (e.g. encoded JSON).
 required:
   - name
   - guiPluginName

@@ -48,9 +48,7 @@ get:
     '200':
       description: JSON with details about an index harvesting progress.
       schema:
-        type: object
-        example: { "$SPACE_ID1" : {"$PROVIDER_ID1" : [8,13], "$PROVIDER_ID2" : [13,21]},
-                   "$SPACE_ID2" : {"$PROVIDER_ID1" : [3,5], "$PROVIDER_ID3" : [5,8]} }
+        $ref: '#/definitions/HarvesterIndexProgressDetails'
     '400':
       description: Invalid request.
       schema:
