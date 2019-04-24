@@ -15,9 +15,7 @@ properties:
     description: Schema of the index provided as string (e.g. encoded JSON).
 required:
   - name
-  - guiPluginName
 example:
   name: My study index
   guiPluginName: study
   schema: "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"
-
