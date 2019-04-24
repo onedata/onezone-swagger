@@ -1,15 +1,15 @@
 delete:
-  operationId: remove_harvested_index_data
+  operationId: remove_harvested_index_metadata
   tags:
     - Harvester
   x-onedata-gri:
     type: od_harvester
     id: ?BINDING(id)
-    aspect: "{index_data, ?BINDING(idx)}"
+    aspect: "{index_metadata, ?BINDING(idx)}"
   x-onedata-permissions:
     - harvester_update
     - oz_harvesters_update
-  summary: Remove harvested index data
+  summary: Remove harvested index metadata
   x-bash-codegen-description: |
     Removes all harvested metadata in given index.
 
@@ -24,7 +24,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Remove harvested index data**
+    **Remove harvested index metadata**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST/api/v3/onezone/harvesters/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/indices/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
@@ -65,4 +65,4 @@ delete:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli removeHarvestedIndexData id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 idx=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+      source: "onezone-rest-cli removeHarvestedIndexMetadata id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 idx=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

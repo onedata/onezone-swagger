@@ -766,8 +766,8 @@
   $ref: ./harvesters-id.yaml
 
 
-/harvesters/{id}/data:
-  $ref: ./harvesters-id-data.yaml
+/harvesters/{id}/metadata:
+  $ref: ./harvesters-id-metadata.yaml
 
 
 /harvesters/{id}/users:
@@ -866,8 +866,8 @@
   $ref: ./harvesters-id-indices-idx.yaml
 
 
-/harvesters/{id}/indices/{idx}/data:
-  $ref: ./harvesters-id-indices-idx-data.yaml
+/harvesters/{id}/indices/{idx}/metadata:
+  $ref: ./harvesters-id-indices-idx-metadata.yaml
 
 
 ###############################################################################
