@@ -107,13 +107,13 @@ delete:
     - oz_groups_remove_relationships
     - oz_handle_services_remove_relationships
   x-bash-codegen-description: |
-    Removes the group's membership in a specific handle service.
+    Removes the group's ownership or access to a specific handle service.
 
     This operation requires `group_leave_handle_service` privilege.
     For administrator who does not belong to this group
     `oz_groups_remove_relationships` and `oz_handle_services_remove_relationships` privilege is required.
   description: |
-    Removes the group's membership in a specific handle service.
+    Removes the group's ownership or access to a specific handle service.
 
     This operation requires `group_leave_handle_service` privilege.
     For administrator who does not belong to this group

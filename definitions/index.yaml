@@ -182,6 +182,45 @@ Spaces:
 Providers:
   $ref: ./providers.yaml
 
+Harvester:
+  $ref: ./harvester.yaml
+
+Harvesters:
+  $ref: ./harvesters.yaml
+
+HarvesterInviteToken:
+  $ref: ./harvesterinvitetoken.yaml
+
+HarvesterPrivileges:
+  $ref: ./harvesterprivileges.yaml
+
+HarvesterPrivilegesUpdate:
+  $ref: ./harvesterprivilegesupdate.yaml
+
+HarvesterCreateRequest:
+  $ref: ./harvestercreaterequest.yaml
+
+HarvesterConfiguration:
+  $ref: ./harvesterconfiguration.yaml
+
+HarvesterIndex:
+  $ref: ./harvesterindex.yaml
+
+HarvesterIndices:
+  $ref: ./harvesterindices.yaml
+
+HarvesterIndexCreateRequest:
+  $ref: ./harvesterindexcreaterequest.yaml
+
+HarvesterQuery:
+  $ref: ./harvesterquery.yaml
+
+HarvesterQueryResponse:
+  $ref: ./harvesterqueryresponse.yaml
+
+HarvesterIndexProgressDetails:
+  $ref: ./harvesterindexprogressdetails.yaml
+
 Cluster:
   $ref: ./cluster.yaml
 

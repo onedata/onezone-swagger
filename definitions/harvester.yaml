@@ -1,0 +1,33 @@
+type: object
+description: Harvester details.
+properties:
+  harvesterId:
+    type: string
+    description: Unique harvester Id.
+  name:
+    type: string
+    description: The name of the harvester.
+  public:
+    type: boolean
+    description: | 
+      Whether given harvester is public. 
+      More on public harvesters: [Query harvester index](#operation/query_harvester_index)  
+  plugin:
+    type: string
+    description: Name of the erlang plugin used for communication with the harvester backend.
+  endpoint:
+    type: string
+    description: URL of the harvester backend (e.g. elasticsearch service).
+    
+required:
+  - harvesterId
+  - name
+  - public
+  - plugin
+  - endpoint
+example:
+  harvesterId: ALSKDHLASD8ASDNjasd99
+  name: Test harvester
+  public: true
+  plugin: elasticsearch_plugin
+  endpoint: https://example.elastic.com

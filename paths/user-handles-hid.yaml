@@ -93,11 +93,11 @@ delete:
     aspect: "{handle, ?BINDING(hid)}"
   summary: Leave handle
   x-bash-codegen-description: |
-    Removes the user's membership in a specific handle.
+    Removes the user's ownership or access to a specific space.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the user's membership in a specific handle.
+    Removes the user's ownership or access to a specific space.
 
     This operation can be invoked on behalf of the current user only.
 

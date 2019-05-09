@@ -13,13 +13,13 @@ get:
     - oz_users_view
   summary: Get space user details
   x-bash-codegen-description: |
-    Returns the public information about a specific user in a space.
+    Returns basic information about a specific user in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
     `oz_users_view` privilege is required.
   description: |
-    Returns the public information about a specific user in a space.
+    Returns basic information about a specific user in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,

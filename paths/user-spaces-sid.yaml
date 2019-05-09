@@ -81,11 +81,11 @@ delete:
     aspect: "{space, ?BINDING(sid)}"
   summary: Leave space
   x-bash-codegen-description: |
-    Removes the user's membership in a specific space.
+    Removes the user's ownership or access to a specific space.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the user's membership in a specific space.
+    Removes the user's ownership or access to a specific space.
 
     This operation can be invoked on behalf of the current user only.
 

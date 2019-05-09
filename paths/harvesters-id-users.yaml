@@ -1,0 +1,74 @@
+get:
+  operationId: list_harvester_users
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: users
+  x-onedata-permissions:
+    - harvester_view
+    - oz_harvesters_list_relationships
+  summary: List harvester users
+  x-bash-codegen-description: |
+    Returns the list of users belonging to a specific harvester.
+
+    This operation requires `harvester_view` privilege.
+    For administrators who do not have to be members of this harvester,
+    `oz_harvesters_list_relationships` privilege is required.
+  description: |
+    Returns the list of users belonging to a specific harvester.
+
+    This operation requires `harvester_view` privilege.
+    For administrators who do not have to be members of this harvester,
+    `oz_harvesters_list_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get harvester users**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users
+
+    {
+      "users": [
+        "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all user Ids that belong to a specific harvester
+      schema:
+        $ref: '#/definitions/Users'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listHarvesterUsers id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

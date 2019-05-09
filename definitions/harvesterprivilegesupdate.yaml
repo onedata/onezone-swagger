@@ -1,0 +1,20 @@
+type: object
+description: Harvester privileges update request.
+properties:
+  grant:
+    $ref: '#/definitions/HarvesterPrivileges'
+  revoke:
+    $ref: '#/definitions/HarvesterPrivileges'
+
+example:
+  grant:
+    - harvester_view
+    - harvester_update
+    - harvester_delete
+    - harvester_view_privileges
+    - harvester_set_privileges
+  revoke:
+    - harvester_invite_user
+    - harvester_remove_user
+    - harvester_add_group
+    - harvester_remove_group

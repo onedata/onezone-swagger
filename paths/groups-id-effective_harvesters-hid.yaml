@@ -1,0 +1,83 @@
+get:
+  operationId: get_effective_group_harvester
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_harvesters_view
+  summary: Get effective group harvester details
+  x-bash-codegen-description: |
+    Returns information about a specific effective harvester to which the group has access.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_harvesters_view` privilege is required.
+  description: |
+    Returns information about a specific effective harvester to which the group has access.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_harvesters_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get group's harvester details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_harvesters/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+
+    {
+      "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "name": "new_harvester1",
+      "public" : true,
+      "plugin" : "elasticsearch_plugin",
+      "endpoint" : "https://example.elastic.com"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a specific harvester in a group.
+      schema:
+        $ref: '#/definitions/Harvester'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: hid
+    in: path
+    description: Effective harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveGroupHarvester id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 hid=HUUPOMNGzikwiLXHaFYcE8"

@@ -1,0 +1,155 @@
+get:
+  operationId: get_space_harvester
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_harvesters_view
+  summary: Get harvester details
+  x-bash-codegen-description: |
+    Returns details about a specific harvester in a space.
+
+    This operation requires `space_view` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_harvesters_view` privilege is required.
+  description: |
+    Returns details about a specific harvester in a space.
+
+    This operation requires `space_view` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_harvesters_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get space harvester details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/harvesters/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+
+    {
+      "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "name": "new_harvester1",
+      "public" : true,
+      "plugin" : "elasticsearch_plugin",
+      "endpoint" : "https://example.elastic.com"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of a specific harvester in a space.
+      schema:
+        $ref: '#/definitions/Harvester'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Space Id.
+      type: string
+      required: true
+    - name: hid
+      in: path
+      description: Harvester Id.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getSpaceHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 hid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+
+
+delete:
+  operationId: remove_space_from_harvester
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{harvester, ?BINDING(hid)}"
+  x-onedata-permissions:
+    - space_remove_harvester
+    - oz_spaces_remove_relationships
+    - oz_harvesters_remove_relationships
+  summary: Remove space from harvester.
+  x-bash-codegen-description: |
+    Removes the space {id} from harvester {hid} (metadata from given space will no longer be submitted to given harvester).
+
+    This operation requires `space_remove_harvester` privilege().
+    For administrator who does not belong to this group
+    `oz_spaces_remove_relationships` and `oz_harvesters_remove_relationships` privileges are required.
+  description: |
+    Removes the space {id} from harvester {hid} (metadata from given space will no longer be submitted to given harvester).
+
+    This operation requires `space_remove_harvester` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_remove_relationships` and `oz_harvesters_remove_relationships` privileges are required.
+
+    ***Example cURL requests***
+
+    **Get space harvester details**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/harvesters/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
+    ```
+  responses:
+    '204':
+      description: A space was removed from harvester.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Space Id.
+      type: string
+      required: true
+    - name: hid
+      in: path
+      description: Harvester Id.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli removeSpaceFromHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 hid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

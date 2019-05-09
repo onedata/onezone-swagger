@@ -1,0 +1,27 @@
+type: object
+description: New harvester parameters.
+properties:
+  name:
+    type: string
+    description: The name of the harvester.
+  endpoint:
+    type: string
+    description: URL of the harvester backend (e.g. elasticsearch service).
+  plugin:
+    type: string
+    description: Name of the erlang plugin used for communication with the harvester backend.
+  config:
+    $ref: '#/definitions/HarvesterConfiguration'
+required:
+  - name
+  - endpoint
+  - plugin
+example:
+  name: My Private harvester
+  endpoint: https://example.elastic.com
+  plugin: elasticsearch_plugin
+  config: {
+    "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
+    "externalHelpLink": "http://example.com/some_help_page",
+    "refreshDataTimeout": 1000
+  }

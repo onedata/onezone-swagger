@@ -11,7 +11,7 @@ get:
   x-onedata-permissions:
     - space_view
     - oz_groups_view
-  summary: Get group details
+  summary: Get space's group details
   x-bash-codegen-description: |
     Returns details about a specific group in a space.
 

@@ -12,9 +12,9 @@ get:
   summary: Get effective child's group membership intermediaries
   x-bash-codegen-description: |
     Returns the effective child's (`{cid}`) group membership intermediaries -
-    entities from which the child inherits membership in the group (`{id}`).
+    entities from which the child inherits access to the group (`{id}`).
     Special keyword `"self"` in entity id indicates that the child (`{cid}`)
-    has a direct membership in the group (`{id}`).
+    has a direct access to the group (`{id}`).
 
     This operation requires any of the following authentication:
     * as user who is an effective member of the child group (`{cid}`),
@@ -22,9 +22,9 @@ get:
     * as user who has `oz_groups_view` admin privilege.
   description: |
     Returns the effective child's (`{cid}`) group membership intermediaries -
-    entities from which the child inherits membership in the group (`{id}`).
+    entities from which the child inherits access to the group (`{id}`).
     Special keyword `"self"` in entity id indicates that the child (`{cid}`)
-    has a direct membership in the group (`{id}`).
+    has a direct access to the group (`{id}`).
 
     This operation requires any of the following authentication:
     * as user who is an effective member of the child group (`{cid}`),

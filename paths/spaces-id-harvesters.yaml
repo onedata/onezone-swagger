@@ -1,0 +1,75 @@
+get:
+  operationId: list_space_harvesters
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: harvesters
+  summary: List space harvesters
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_relationships
+  x-bash-codegen-description: |
+    Returns the list of harvesters of a specific space.
+
+    This operation requires `space_view` privilege.
+    If called by user who is not member of the space, requires  
+    `oz_spaces_list_relationships` admin privilege.
+  description: |
+    Returns the list of harvesters of a specific space.
+
+    This operation requires `space_view` privilege.
+    If called by user who is not member of the space, requires  
+    `oz_spaces_list_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space harvesters**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/harvesters
+
+    {
+      "harvesters": [
+        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all harvester Ids of a specific space
+      schema:
+        $ref: '#/definitions/Harvesters'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Space Id.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli listSpaceHarvesters id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

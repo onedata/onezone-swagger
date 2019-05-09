@@ -1,0 +1,85 @@
+get:
+  operationId: get_harvester_index_progress
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: "{index_progress, ?BINDING(idx)}"
+    scope: private
+  x-onedata-permissions:
+    - harvester_view
+    - oz_harvesters_view
+  summary: Get harvester index progress
+  x-bash-codegen-description: |
+    Returns details about harvesting progress of a specific index in the harvester.
+
+    For users who are members of harvester it requires `harvester_view`.
+    For administrators who do not have to be members of this harvester,
+    `oz_harvesters_view` privilege is required.
+  description: |
+    Returns details about harvesting progress of a specific index in the harvester.
+
+    For users who are members of harvester it requires `harvester_view`.
+    For administrators who do not have to be members of this harvester,
+    `oz_harvesters_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get harvester space details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/harvesters/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/indices/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
+
+    {
+      $SPACE_ID1 : {
+        $PROVIDER_ID1 : [8,13],
+        $PROVIDER_ID2 : [13,21]
+      },
+      $SPACE_ID2 : {
+        $PROVIDER_ID1 : [3,5],
+        $PROVIDER_ID3 : [5,8]
+      }
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: JSON with details about an index harvesting progress.
+      schema:
+        $ref: '#/definitions/HarvesterIndexProgressDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Harvester Id.
+      type: string
+      required: true
+    - name: idx
+      in: path
+      description: Index Id.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getHarvesterIndexProgress id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 idx=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

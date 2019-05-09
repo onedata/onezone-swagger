@@ -93,13 +93,13 @@ delete:
     - group_leave_parent
     - oz_groups_remove_relationships
   x-bash-codegen-description: |
-    Removes the group membership in a specific parent group.
+    Removes the group access to a specific parent group.
 
     This operation requires `group_leave_parent` privilege.
     For administrator who does not belong to this group
     `oz_groups_remove_relationships` privilege is required.
   description: |
-    Removes the group membership in a specific parent group.
+    Removes the group access to a specific parent group.
 
     This operation requires `group_leave_parent` privilege.
     For administrator who does not belong to this group

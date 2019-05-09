@@ -1,0 +1,89 @@
+get:
+  operationId: get_effective_group_harvester_membership_intermediaries
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: "{eff_group_membership, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - harvester_view
+    - oz_harvesters_view
+  summary: Get effective group's harvester membership intermediaries
+  x-bash-codegen-description: |
+    Returns the effective group's (`{gid}`) harvester membership intermediaries -
+    entities from which the group inherits access to the harvester (`{id}`).
+    Special keyword `"self"` in entity id indicates that the group (`{gid}`)
+    has a direct access to the harvester (`{id}`).
+
+    This operation requires any of the following authorization:
+    * as user who is an effective member of the group (`{gid}`)
+    * as user who has `harvester_view` privilege in the harvester (`{id}`)
+    * as user who has `oz_harvesters_view` admin privilege.
+  description: |
+    Returns the effective group's (`{gid}`) harvester membership intermediaries -
+    entities from which the group inherits access to the harvester (`{id}`).
+    Special keyword `"self"` in entity id indicates that the group (`{gid}`)
+    has a direct access to the harvester (`{id}`).
+
+    This operation requires any of the following authorization:
+    * as user who is an effective member of the group (`{gid}`)
+    * as user who has `harvester_view` privilege in the harvester (`{id}`)
+    * as user who has `oz_harvesters_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get effective group's harvester membership intermediaries**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/membership
+
+    {
+      "intermediaries": [
+        {"type": "group", "id": "oj903yegkxcpsdfy34masdf9atf8awef8hasdf"},
+        {"type": "group", "id": "ldsfk9y324t162r3vxzc890u7z9cxyv79asdgf"},
+        {"type": "harvester", "id": "self"}
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of membership intermediaries.
+      schema:
+        $ref: '#/definitions/MembershipIntermediaries'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveGroupHarvesterMembershipIntermediaries id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

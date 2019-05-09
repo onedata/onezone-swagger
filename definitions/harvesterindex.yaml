@@ -1,0 +1,28 @@
+type: object
+description: Harvester index parameters.
+properties:
+  indexId:
+    type: string
+    description: Unique Id of the index.
+  name:
+    type: string
+    description: The name of the index.
+  schema:
+    type: string
+    description: Encoded schema of the index.
+  guiPluginName:
+    type: string
+    description:
+      Mapping of index name to one recognized by gui plugin.  
+      Allows to specify this index to be used by GUI plugin to produce search results. 
+      Recognized gui index names are listed in gui plugin manifest.
+required:
+  - indexId
+  - name
+  - schema
+  - guiPluginName
+example:
+  indexId: Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+  name: My study index
+  guiPluginName: study
+  schema: "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"

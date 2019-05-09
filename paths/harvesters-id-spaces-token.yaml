@@ -1,0 +1,72 @@
+post:
+  operationId: create_harvester_invite_space_token
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: invite_space_token
+  x-onedata-permissions:
+    - harvester_invite_space
+    - oz_harvesters_add_relationships
+  summary: Create harvester invite token for space
+  x-bash-codegen-description: |
+    Creates a token which can be can be consumed to add a space to a harvester.
+
+    This operation requires `harvester_invite_space` privilege
+    or `oz_harvesters_add_relationships` admin privilege.
+  description: |
+    Creates a token which can be can be consumed to add a space to a harvester.
+
+    This operation requires `harvester_invite_space` privilege
+    or `oz_harvesters_add_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Create harvester invite space token**
+    ```bash
+    curl -u admin:password -X POST \
+    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/spaces/token
+
+    {
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIHZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"
+    }
+    ```
+  produces:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The token for joining a specific harvester.
+      schema:
+        $ref : '#/definitions/HarvesterInviteToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createHarvesterInviteSpaceToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

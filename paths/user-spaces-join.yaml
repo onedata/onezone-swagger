@@ -8,11 +8,11 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Join space
   x-bash-codegen-description: |
-    Join an existing space using an inivitation token.
+    Join existing space using an invitation token.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Join an existing space using an inivitation token.
+    Join existing space using an invitation token.
 
     This operation can be invoked on behalf of the current user only.
 

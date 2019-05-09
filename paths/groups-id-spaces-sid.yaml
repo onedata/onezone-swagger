@@ -13,13 +13,13 @@ get:
     - oz_spaces_view
   summary: Get group's space details
   x-bash-codegen-description: |
-    Returns information about a specific space to which the group belongs.
+    Returns information about a specific space to which the group has access.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
     `oz_spaces_view` privilege is required.
   description: |
-    Returns information about a specific space to which the group belongs.
+    Returns information about a specific space to which the group has access.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
@@ -105,7 +105,7 @@ delete:
 
     This operation requires `group_leave_space` privilege.
     For administrator who does not belong to this group
-    `oz_groups_remove_relationships` and `oz_spaces_remove_create` privileges are required.
+    `oz_groups_remove_relationships` and `oz_spaces_remove_relationships` privileges are required.
 
     ***Example cURL requests***
 
