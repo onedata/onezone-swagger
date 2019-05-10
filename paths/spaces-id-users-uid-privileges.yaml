@@ -89,7 +89,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listUserSpacePrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listUserSpacePrivileges id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 patch:
@@ -171,4 +171,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"grant\": [\"space_view\", \"space_update\"], \"revoke\": [\"space_delete\"]}' | onezone-rest-cli updateUserSpacePrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
+    source: "echo '{\"grant\": [\"space_view\", \"space_update\"], \"revoke\": [\"space_delete\"]}' | onezone-rest-cli updateUserSpacePrivileges id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc -"

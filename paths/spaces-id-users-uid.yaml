@@ -33,9 +33,9 @@ get:
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
 
     {
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "name" : "John Doe",
-       "alias" : "username"
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe"
     }
     ```
   produces:
@@ -78,7 +78,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getSpaceUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 put:
@@ -175,7 +175,7 @@ put:
     required: false
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli addSpaceUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 delete:
@@ -247,4 +247,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli removeSpaceUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"

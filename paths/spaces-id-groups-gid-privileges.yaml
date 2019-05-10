@@ -87,7 +87,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listGroupSpacePrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
+    source: "onezone-rest-cli listGroupSpacePrivileges id=b752ceafabb662b4e5728b2ded25cdd1 gid=c44d4ab910245342be5a0a89fdff095e"
 
 
 patch:

@@ -27,9 +27,9 @@ get:
 
     {
        "providers" : {
-          "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+          "296ebe3c20e9666dc489b647f8647f12" : 5368709120
        },
-       "spaceId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+       "spaceId" : "f8d843beda24e54545455ecc0f4b8886",
        "name" : "Test"
     }
     ```
@@ -68,4 +68,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getEffectiveUserSpace sid=95b663a6467c72ab1256865efef9e387"

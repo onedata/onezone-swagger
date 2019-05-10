@@ -23,8 +23,8 @@ properties:
 example:
   intermediaries:
     - type: group
-      id: oj903yegkxcpsdfy34masdf9atf8awef8hasdf
+      id: ef228f31345699bbfa74b030517965a2
     - type: group
-      id: ldsfk9y324t162r3vxzc890u7z9cxyv79asdgf
+      id: b55b907444dd00aab8cbe8dcb82681fd
     - type: space
       id: self

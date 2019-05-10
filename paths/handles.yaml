@@ -25,8 +25,8 @@ get:
 
     {
       "handles": [
-        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
       ]
     }
     ```
@@ -99,7 +99,7 @@ post:
     **Register handle**
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
-    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }' \
+    -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }' \
     https://$HOST/api/v3/handles
     ```
   consumes:

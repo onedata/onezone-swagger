@@ -30,7 +30,7 @@ get:
     **Get harvester index**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/indices
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/indices
 
     {
       "indices": [
@@ -73,7 +73,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHarvesterIndices id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listHarvesterIndices id=b752ceafabb662b4e5728b2ded25cdd1"
 
 post:
   operationId: create_harvester_index
@@ -101,7 +101,7 @@ post:
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
     -X POST -d '{ "name" : "My study index", "guiPluginName" : "study"}\
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/indices
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/indices
     ```
   consumes:
     - application/json

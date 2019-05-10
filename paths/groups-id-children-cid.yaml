@@ -33,7 +33,7 @@ get:
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
 
     {
-      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
       "name": "new_group1",
       "type": "team"
     }
@@ -78,7 +78,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli getChildGroup id=538ef9643ae6b9e40817e51eece7e341 cid=0ec9817801d74e2fa6cc50a476ed5d4d"
 
 
 put:
@@ -168,7 +168,7 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli addChildGroup id=538ef9643ae6b9e40817e51eece7e341 cid=0ec9817801d74e2fa6cc50a476ed5d4d"
 
 
 delete:
@@ -239,4 +239,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli removeChildGroup id=538ef9643ae6b9e40817e51eece7e341 cid=0ec9817801d74e2fa6cc50a476ed5d4d"

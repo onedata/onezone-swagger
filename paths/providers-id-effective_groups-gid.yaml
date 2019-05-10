@@ -36,7 +36,7 @@ get:
     https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/groups/$GROUP_ID
 
     {
-      "groupId":"KJHAGSDJKHGASJKHDGAKJHSDGKHJASD",
+      "groupId":"051f1a51d80c664b0d9528d81ee56a93",
       "name":"new_group",
       "type":"team"
     }
@@ -81,4 +81,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveProviderGroup id=ASDJKHASDASD5465asdvASDasd gid=KJHAGSDJKHGASJKHDGAKJHSDGKHJASD"
+    source: "onezone-rest-cli getEffectiveProviderGroup id=1f290dd428ff09aab8ca014d24154a35 gid=051f1a51d80c664b0d9528d81ee56a93"

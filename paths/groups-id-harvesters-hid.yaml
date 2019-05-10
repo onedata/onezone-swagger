@@ -30,7 +30,7 @@ get:
     **Get group's harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
 
     {
       "harvesterId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
@@ -80,7 +80,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupHarvester id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 hid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli getGroupHarvester id=a4d3bc73aada63052310652d421609f1 hid=HUUPOMNGzikwiLXHaFYcE8"
 
 
 delete:
@@ -112,7 +112,7 @@ delete:
     **Remove harvester from group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
     ```
   responses:
     '204':
@@ -150,4 +150,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroupFromHarvester id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 hid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli removeGroupFromHarvester id=a4d3bc73aada63052310652d421609f1 hid=HUUPOMNGzikwiLXHaFYcE8"

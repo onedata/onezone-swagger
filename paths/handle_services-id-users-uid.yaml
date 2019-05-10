@@ -31,9 +31,9 @@ get:
     https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
 
     {
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "name" : "John Doe",
-       "alias" : "username"
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe"
     }
     ```
   produces:
@@ -76,7 +76,7 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleServiceUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli getHandleServiceUser id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"
 
 
 put:
@@ -148,7 +148,7 @@ put:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addHandleServiceUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli addHandleServiceUser id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"
 
 
 delete:
@@ -218,4 +218,4 @@ delete:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHandleServiceUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli removeHandleServiceUser id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"

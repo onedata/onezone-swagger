@@ -34,10 +34,10 @@ get:
 
     {
       "handle": "10.5072/w95Zlng"
-      "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
-      "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
+      "handleId": "95b663a6467c72ab1256865efef9e387",
+      "handleServiceId": "97c27230017cd54c1220189e357322c4",
       "resourceType": "Share",
-      "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
+      "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
       "metadata": "<?xml version=\"1.0\"?>
           <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
           <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
@@ -92,7 +92,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=95b663a6467c72ab1256865efef9e387"
 
 
 delete:
@@ -166,4 +166,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli groupLeaveHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli groupLeaveHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=95b663a6467c72ab1256865efef9e387"

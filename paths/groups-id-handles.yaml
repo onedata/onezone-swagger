@@ -72,7 +72,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listGroupHandles id=LKJAHGSDLKJHALSDkjashdasdk"
+    source: "onezone-rest-cli listGroupHandles id=12da582337ff25cc86db30580b20d3cd"
 
 
 post:
@@ -112,7 +112,7 @@ post:
     **Create new group handle**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
-    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }'
+    -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }'
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles
     ```
   consumes:
@@ -160,4 +160,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "cat handle.json | onezone-rest-cli createGroupHandle id=LKJAHGSDLKJHALSDkjashdasdk"
+    source: "cat handle.json | onezone-rest-cli createGroupHandle id=12da582337ff25cc86db30580b20d3cd"

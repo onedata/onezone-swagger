@@ -30,8 +30,8 @@ get:
 
     {
       "groups": [
-        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
-        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"
+        "f1c8b1a37aa7447b22eb65a742d40524",
+        "8e1cea0b379e3683257c32f896d55115"
       ]
     }
     ```
@@ -70,4 +70,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveSpaceGroups id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listEffectiveSpaceGroups id=b752ceafabb662b4e5728b2ded25cdd1"

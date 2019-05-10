@@ -80,7 +80,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceProvider id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 pid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getSpaceProvider id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 delete:
@@ -149,4 +149,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeProviderSupportingSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 pid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeProviderSupportingSpace id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"

@@ -28,7 +28,7 @@ get:
     **List user's privileges in a harvester**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/users/a5b469a2b0516b662a49da74d6d7d7bc/privileges
 
     {
       "privileges": [
@@ -89,7 +89,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listUserHarvesterPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listUserHarvesterPrivileges id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 patch:
@@ -127,7 +127,7 @@ patch:
     ```bash
     curl -i -k -u admin:password -X PATCH \
     -d '{"grant": ["harvester_view", "harvester_update"], "revoke": ["harvester_delete"]}' \
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/users/a5b469a2b0516b662a49da74d6d7d7bc/privileges
     ```
   responses:
     '204':
@@ -171,4 +171,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"grant\": [\"harvester_view\", \"harvester_update\"], \"revoke\": [\"harvester_delete\"]}' | onezone-rest-cli updateUserHarvesterPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
+    source: "echo '{\"grant\": [\"harvester_view\", \"harvester_update\"], \"revoke\": [\"harvester_delete\"]}' | onezone-rest-cli updateUserHarvesterPrivileges id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc -"

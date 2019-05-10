@@ -30,10 +30,10 @@ get:
     **Get harvester group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/groups/f1c8b1a37aa7447b22eb65a742d40524
 
     {
-      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
       "name": "new_groupX",
       "type": "team"
     }
@@ -78,7 +78,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHarvesterGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getHarvesterGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 put:
@@ -128,7 +128,7 @@ put:
     **Add group to harvester**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-     https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz
+     https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/groups/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz
     ```
   consumes:
     - application/json
@@ -173,7 +173,7 @@ put:
     required: false
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addGroupToHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli addGroupToHarvester id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 delete:
@@ -210,7 +210,7 @@ delete:
     **Get harvester group details**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
+    https://$HOST/api/v3/onezone/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/groups/a4d3bc73aada63052310652d421609f1
     ```
   responses:
     '204':
@@ -248,4 +248,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHarvesterGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeHarvesterGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"

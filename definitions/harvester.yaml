@@ -26,7 +26,7 @@ required:
   - plugin
   - endpoint
 example:
-  harvesterId: ALSKDHLASD8ASDNjasd99
+  harvesterId: 5989b9476b7d1b2f955c65efb24c0917
   name: Test harvester
   public: true
   plugin: elasticsearch_plugin

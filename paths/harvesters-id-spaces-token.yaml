@@ -26,7 +26,7 @@ post:
     **Create harvester invite space token**
     ```bash
     curl -u admin:password -X POST \
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/spaces/token
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/spaces/token
 
     {
       "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIHZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"
@@ -69,4 +69,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createHarvesterInviteSpaceToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli createHarvesterInviteSpaceToken id=b752ceafabb662b4e5728b2ded25cdd1"

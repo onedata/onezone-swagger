@@ -21,9 +21,9 @@ required:
   - resourceId
   - metadata
 example:
-  handleServiceId: ALKJSDH77i79ASDKJA-ASDBAS9-87
+  handleServiceId: f1c8b1a37aa7447b22eb65a742d40524
   resourceType: Share
-  resourceId: LKJAHSDA796IASDKBjkhaksjdk568787asdhjbasd
+  resourceId: f7a6d2ea511e728c9b3f3972cecb7af4
   metadata: >
     <?xml version=\"1.0\"?>
     <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">

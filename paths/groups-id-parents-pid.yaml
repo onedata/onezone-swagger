@@ -78,7 +78,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getParentGroup id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM pid=9OqgExw00RwaU2MXT51"
+    source: "onezone-rest-cli getParentGroup id=f1c8b1a37aa7447b22eb65a742d40524 pid=9OqgExw00RwaU2MXT51"
 
 delete:
   operationId: leave_parent_group
@@ -150,4 +150,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli leaveParentGroup id=AJKLASHJKDHKAJSHD pid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli leaveParentGroup id=b7b4c806040d906c0d93d9db7644f39f pid=95b663a6467c72ab1256865efef9e387"

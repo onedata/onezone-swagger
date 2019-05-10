@@ -28,12 +28,12 @@ get:
     **Get effective harvester user details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_users/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/effective_users/f1c8b1a37aa7447b22eb65a742d40524
 
     {
-      "userId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
-      "alias": "username",
-      "name": "John Doe"
+      "userId": "f1c8b1a37aa7447b22eb65a742d40524",
+      "username" : "jodoe",
+      "fullName" : "John Doe"
     }
     ```
   produces:
@@ -76,4 +76,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveHarvesterUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getEffectiveHarvesterUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=f1c8b1a37aa7447b22eb65a742d40524"

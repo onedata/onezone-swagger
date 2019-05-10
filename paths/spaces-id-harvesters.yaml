@@ -28,12 +28,12 @@ get:
     **Get space harvesters**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/harvesters
+    https://$HOST/api/v3/onezone/spaces/16a0e017d184d7d4512f441e72848fff5PLE/harvesters
 
     {
       "harvesters": [
-        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
-        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"
+        "f1c8b1a37aa7447b22eb65a742d40524",
+        "8e1cea0b379e3683257c32f896d55115"
       ]
     }
     ```
@@ -72,4 +72,4 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli listSpaceHarvesters id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+      source: "onezone-rest-cli listSpaceHarvesters id=b752ceafabb662b4e5728b2ded25cdd1"

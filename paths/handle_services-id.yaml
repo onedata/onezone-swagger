@@ -29,7 +29,7 @@ get:
     https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID
 
     {
-        "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
         "name": "MyCommunity Handle service",
         "proxyEndpoint": "https://localhost:17000/handle_proxy",
         "serviceProperties": {
@@ -81,7 +81,7 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli getHandleService id=a4d3bc73aada63052310652d421609f1"
 
 
 patch:
@@ -153,7 +153,7 @@ patch:
         $ref: '#/definitions/HandleServiceUpdate'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 password==\"new_password\" -"
+    source: "onezone-rest-cli modifyHandleService id=a4d3bc73aada63052310652d421609f1 password==\"new_password\" -"
 
 
 delete:
@@ -217,4 +217,4 @@ delete:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli removeHandleService id=a4d3bc73aada63052310652d421609f1"

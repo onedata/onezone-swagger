@@ -1,18 +1,20 @@
 type: object
-description: User linked account.
+description: User's linked account, expressing identity from an IdP (federated, social etc.).
 properties:
   idp:
     type: string
-    description: Id of the Identity Provider.
+    description: Id of the Identity Provider, as specified in Onezone's auth.config.
   subjectId:
     type: string
-    description: User Id assigned by the Identity Provider.
-  name:
+    description: Unique user Id assigned by the Identity Provider.
+  fullName:
     type: string
-    description: User full name.
-  alias:
+    description: User's full name (given names + surname).
+  username:
     type: string
-    description: User alias (unique identifier, similar to login).
+    description: >
+      User's human-readable identifier, unique across the system. Makes it
+      easier to identify the user and can be used for signing in with password.
   emails:
     type: array
     description: The list of user email accounts.
@@ -25,14 +27,18 @@ properties:
       identity provider. Memberships are in Onedata normalized form.
     items:
       type: string
+  custom:
+    type: object
+    description: Custom user data collected upon login, depending on Onezone auth.config.
+
 required:
   - idp
   - subjectId
 example:
-  idp: github
-  subjectId: ASDJH65675ASD765ASD890ASD6
-  alias: user1
-  name: User One
+  idp: elixir
+  subjectId: 1978f5775ae2dc16730418bf3fc81764
+  fullName: User One
+  username: user1
   emails:
     - user.1@example.com
     - user.one@example.com
@@ -40,3 +46,6 @@ example:
   entitlements:
     - "elixir_test:members"
     - "elixir_test:administration"
+  custom:
+    gender: "M"
+    role: "developer"

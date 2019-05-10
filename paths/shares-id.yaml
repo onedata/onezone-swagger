@@ -30,9 +30,9 @@ get:
     https://$HOST/api/v3/onezone/shares/$SHARE_ID
 
     {
-      "shareId": "bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
+      "shareId": "b752ceafabb662b4e5728b2ded25cdd1",
       "name": "MyShare",
-      "publicUrl": "http://onedata.org/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
+      "publicUrl": "http://onedata.org/shares/b752ceafabb662b4e5728b2ded25cdd1",
       "rootFileId": "I4QaPBog0kCdUPBog0kCdUdd",
       "spaceId": "UIsgAxi5I803ZirkUfdiWDd4W3bI4QaPBog_0kCdUdd",
       "handleId": "doi:10.15911/MyShares.726855"
@@ -73,7 +73,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli getShare id=b752ceafabb662b4e5728b2ded25cdd1"
 
 
 patch:
@@ -154,7 +154,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name==Share20"
+    source: "onezone-rest-cli modifyShare id=b752ceafabb662b4e5728b2ded25cdd1 name==Share20"
 
 
 delete:

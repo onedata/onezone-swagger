@@ -60,4 +60,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHarvestedMetadata id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli removeHarvestedMetadata id=b752ceafabb662b4e5728b2ded25cdd1"

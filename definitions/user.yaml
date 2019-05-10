@@ -4,16 +4,18 @@ properties:
   userId:
     type: string
     description: Unique user Id.
-  name:
+  fullName:
     type: string
-    description: The user friendly account name.
-  alias:
+    description: User's full name (given names + surname).
+  username:
     type: string
-    description: User alias (unique identifier, similar to login).
+    description: >
+      User's human-readable identifier, unique across the system. Makes it
+      easier to identify the user and can be used for signing in with password.
 required:
   - userId
-  - name
+  - fullName
 example:
-  userId: ALKJSDH77i79ASDKJA-ASDBAS9-87
-  name: Rudolf Lingens
-  alias: r.lingens
+  userId: f1c8b1a37aa7447b22eb65a742d40524
+  fullName: Rudolf Lingens
+  username: r.lingens

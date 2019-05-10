@@ -34,7 +34,7 @@ post:
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X POST \
     -d '{ "method" : "get", "path" : "resource_id"}'
-     https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/indices/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz/query 
+     https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/indices/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz/query
     ```
   consumes:
     - application/json
@@ -81,4 +81,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli queryHarvesterIndex id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 idx=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+      source: "onezone-rest-cli queryHarvesterIndex id=b752ceafabb662b4e5728b2ded25cdd1 idx=f1c8b1a37aa7447b22eb65a742d40524"

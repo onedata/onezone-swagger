@@ -24,7 +24,7 @@ get:
     https://$HOST/api/v3/onezone/user/default_provider
 
     {
-      "providerId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+      "providerId": "95b663a6467c72ab1256865efef9e387"
     }
     ```
   produces:
@@ -119,7 +119,7 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli setDefaultProvider providerId==LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli setDefaultProvider providerId==135043853efbfb34b892b30545ab4d81"
 
 
 delete:

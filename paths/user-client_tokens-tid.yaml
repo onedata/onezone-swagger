@@ -56,4 +56,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeClientToken tid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"
+    source: "onezone-rest-cli removeClientToken tid=13c6bf68ed88dd01f396571f976b148d"

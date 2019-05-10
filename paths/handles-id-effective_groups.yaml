@@ -30,8 +30,8 @@ get:
 
     {
       "groups": [
-        "LKLKJhlkASHDJLAKSHDHJjL",
-        "KJHJjLHDLLKLAKSJhlkASHD"
+        "16969b9d4d1f1457b7c1d061022f6b96",
+        "a6c6e47cc477aa4d3f8c61ce71df9850"
       ]
     }
     ```
@@ -70,4 +70,4 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveHandleGroups id=DLAKSHDLKJHJjSADHLKJhlkASHLH"
+    source: "onezone-rest-cli listEffectiveHandleGroups id=45bf25a5cb16e12a9faa6d088a2c7088"

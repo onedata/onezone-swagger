@@ -76,7 +76,7 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleGroup id=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
+    source: "onezone-rest-cli getHandleGroup id=45bf25a5cb16e12a9faa6d088a2c7088 gid=c44d4ab910245342be5a0a89fdff095e"
 
 
 put:
@@ -154,7 +154,7 @@ put:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addHandleGroup id=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
+    source: "onezone-rest-cli addHandleGroup id=45bf25a5cb16e12a9faa6d088a2c7088 gid=c44d4ab910245342be5a0a89fdff095e"
 
 
 delete:
@@ -224,4 +224,4 @@ delete:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHandleGroup id=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
+    source: "onezone-rest-cli removeHandleGroup id=45bf25a5cb16e12a9faa6d088a2c7088 gid=c44d4ab910245342be5a0a89fdff095e"

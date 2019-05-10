@@ -76,4 +76,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli userCreateProviderRegistrationToken id=oj903yegkxcpsdfy34masdf9a"
+    source: "onezone-rest-cli userCreateProviderRegistrationToken id=99b930e38a8f46a1a0036db7d6422591"

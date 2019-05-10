@@ -71,4 +71,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveGroupSpaces id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listEffectiveGroupSpaces id=a4d3bc73aada63052310652d421609f1"

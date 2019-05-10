@@ -77,4 +77,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserEffectiveHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserEffectiveHandleService hsid=95b663a6467c72ab1256865efef9e387"

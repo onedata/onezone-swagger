@@ -89,7 +89,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listUserGroupPrivileges id=a4d3bc73aada63052310652d421609f1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 patch:
@@ -171,4 +171,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"grant\": [\"group_view\", \"group_update\"], \"revoke\": [\"group_delete\"]}' | onezone-rest-cli updateUserGroupPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"
+    source: "echo '{\"grant\": [\"group_view\", \"group_update\"], \"revoke\": [\"group_delete\"]}' | onezone-rest-cli updateUserGroupPrivileges id=a4d3bc73aada63052310652d421609f1 uid=a5b469a2b0516b662a49da74d6d7d7bc -"

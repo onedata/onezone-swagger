@@ -30,7 +30,7 @@ post:
     ```bash
     curl -u admin:password -H "Content-type: application/json" \
     -d '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVuJ3l02U1JXzstRdK00ZHbso02rRcG8bJLAo"}' \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters/join
+    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/join
     ```
   consumes:
     - application/json
@@ -76,4 +76,4 @@ post:
       $ref: '#/definitions/HarvesterInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli groupJoinHarvester id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM token==9ASDKJHAJKyvajsbd675OqgExw00RwaU2MXT51"
+    source: "onezone-rest-cli groupJoinHarvester id=f1c8b1a37aa7447b22eb65a742d40524 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

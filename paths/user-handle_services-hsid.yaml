@@ -77,7 +77,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserHandleService hsid=95b663a6467c72ab1256865efef9e387"
 
 
 delete:
@@ -138,4 +138,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli leaveHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli leaveHandleService hsid=95b663a6467c72ab1256865efef9e387"

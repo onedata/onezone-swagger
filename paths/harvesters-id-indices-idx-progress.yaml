@@ -82,4 +82,4 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getHarvesterIndexProgress id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 idx=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+      source: "onezone-rest-cli getHarvesterIndexProgress id=b752ceafabb662b4e5728b2ded25cdd1 idx=f1c8b1a37aa7447b22eb65a742d40524"

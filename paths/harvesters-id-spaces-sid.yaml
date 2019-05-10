@@ -77,7 +77,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHarvesterSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getHarvesterSpace id=b752ceafabb662b4e5728b2ded25cdd1 sid=f1c8b1a37aa7447b22eb65a742d40524"
 
 put:
   operationId: add_space_to_harvester
@@ -116,7 +116,7 @@ put:
     **Add space to harvester**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-     https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/spaces/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz
+     https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/spaces/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz
     ```
   consumes:
     - application/json
@@ -161,7 +161,7 @@ put:
       required: false
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli addSpaceToHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+      source: "onezone-rest-cli addSpaceToHarvester id=b752ceafabb662b4e5728b2ded25cdd1 sid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 delete:
@@ -230,4 +230,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHarvesterSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 sid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeHarvesterSpace id=b752ceafabb662b4e5728b2ded25cdd1 sid=f1c8b1a37aa7447b22eb65a742d40524"

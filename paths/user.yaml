@@ -24,9 +24,9 @@ get:
     curl -u username:password -X GET https://$HOST/api/v3/onezone/user
 
     {
-      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "alias": "admin",
-      "name": "admin",
+      "userId": "a5b469a2b0516b662a49da74d6d7d7bc",
+      "fullName": "Mr Admin",
+      "username": "admin",
       "linkedAccounts": [],
       "emails": []
     }
@@ -79,10 +79,10 @@ patch:
 
     ***Example cURL requests***
 
-    **Change user name**
+    **Change user fullName**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PATCH  \
-    -d '{"name": "new_name"}' \
+    -d '{"fullName": "John Doe"}' \
     https://$HOST/api/v3/onezone/user
     ```
   consumes:
@@ -119,7 +119,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyCurrentUser name==new_name"
+    source: "onezone-rest-cli modifyCurrentUser fullName==new_name"
 
 
 delete:

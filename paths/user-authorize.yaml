@@ -50,4 +50,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli authorizeUser token==ASKDJHASKJDHLKAJASD785674ASDghjkoGLHJKASDJGHK7655I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli authorizeUser token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

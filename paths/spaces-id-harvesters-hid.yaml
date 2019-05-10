@@ -30,7 +30,7 @@ get:
     **Get space harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/harvesters/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/spaces/b45d02d01066b8794ad7f927becf4bde/harvesters/f1c8b1a37aa7447b22eb65a742d40524
 
     {
       "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
@@ -80,7 +80,7 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getSpaceHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 hid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+      source: "onezone-rest-cli getSpaceHarvester id=b752ceafabb662b4e5728b2ded25cdd1 hid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 delete:
@@ -114,7 +114,7 @@ delete:
     **Get space harvester details**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/harvesters/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
+    https://$HOST/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/harvesters/a4d3bc73aada63052310652d421609f1
     ```
   responses:
     '204':
@@ -152,4 +152,4 @@ delete:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli removeSpaceFromHarvester id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 hid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+      source: "onezone-rest-cli removeSpaceFromHarvester id=b752ceafabb662b4e5728b2ded25cdd1 hid=f1c8b1a37aa7447b22eb65a742d40524"

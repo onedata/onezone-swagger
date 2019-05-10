@@ -71,7 +71,7 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getHarvesterConfig id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+      source: "onezone-rest-cli getHarvesterConfig id=b752ceafabb662b4e5728b2ded25cdd1"
 
 
 patch:
@@ -103,7 +103,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"config": {}}' \
-    https://$HOST/api/v3/onezone/harvesters/56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/config
+    https://$HOST/api/v3/onezone/harvesters/16a0e017d184d7d4512f441e72848fff5PLE/config
     ```
   consumes:
     - application/json
@@ -144,4 +144,4 @@ patch:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli modifyHarvesterConfig id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 config=={}"
+      source: "onezone-rest-cli modifyHarvesterConfig id=b752ceafabb662b4e5728b2ded25cdd1 config=={}"

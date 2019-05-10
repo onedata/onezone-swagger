@@ -69,7 +69,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listChildGroups id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listChildGroups id=538ef9643ae6b9e40817e51eece7e341"
 
 
 post:
@@ -153,4 +153,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8  name==Group2 type==team"
+    source: "onezone-rest-cli createChildGroup id=538ef9643ae6b9e40817e51eece7e341  name==Group2 type==team"

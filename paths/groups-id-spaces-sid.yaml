@@ -36,7 +36,7 @@ get:
       "spaceId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
       "name": "a",
       "providers": {
-        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
       }
     }
     ```
@@ -80,7 +80,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupSpace id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 sid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli getGroupSpace id=a4d3bc73aada63052310652d421609f1 sid=HUUPOMNGzikwiLXHaFYcE8"
 
 
 delete:
@@ -150,4 +150,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroupFromSpace id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 sid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli removeGroupFromSpace id=a4d3bc73aada63052310652d421609f1 sid=HUUPOMNGzikwiLXHaFYcE8"

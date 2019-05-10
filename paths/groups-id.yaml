@@ -69,7 +69,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli getGroup id=a4d3bc73aada63052310652d421609f1"
 
 
 patch:
@@ -144,7 +144,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name==\"New Group Name\" type==team"
+    source: "onezone-rest-cli modifyGroup id=a4d3bc73aada63052310652d421609f1 name==\"New Group Name\" type==team"
 
 
 delete:
@@ -210,4 +210,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli removeGroup id=a4d3bc73aada63052310652d421609f1"

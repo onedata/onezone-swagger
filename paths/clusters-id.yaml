@@ -29,7 +29,7 @@ get:
     https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID
 
     {
-      "clusterId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+      "clusterId" : "f8d843beda24e54545455ecc0f4b8886",
       "type" : "oneprovider",
       "workerVersion": {
         "release": "18.02.1",
@@ -80,7 +80,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getCluster id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli getCluster id=b752ceafabb662b4e5728b2ded25cdd1"
 
 
 patch:
@@ -153,4 +153,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyCluster id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 proxy=true"
+    source: "onezone-rest-cli modifyCluster id=b752ceafabb662b4e5728b2ded25cdd1 proxy=true"

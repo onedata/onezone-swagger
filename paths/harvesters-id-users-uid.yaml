@@ -30,12 +30,12 @@ get:
     **Get harvester user data**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/users/f1c8b1a37aa7447b22eb65a742d40524
 
     {
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "name" : "John Doe",
-       "alias" : "username"
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe"
     }
     ```
   produces:
@@ -78,7 +78,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHarvesterUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getHarvesterUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 put:
@@ -130,7 +130,7 @@ put:
     **Add user to harvester**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-    https://$HOST/api/v3/onezone/harvesters/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/users/a5b469a2b0516b662a49da74d6d7d7bc
     ```
   consumes:
     - application/json
@@ -175,7 +175,7 @@ put:
     required: false
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addHarvesterUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli addHarvesterUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 delete:
@@ -247,4 +247,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHarvesterUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli removeHarvesterUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
