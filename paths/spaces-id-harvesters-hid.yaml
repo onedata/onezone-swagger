@@ -114,7 +114,7 @@ delete:
     **Get space harvester details**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/harvesters/a4d3bc73aada63052310652d421609f1
+    https://$HOST/api/v3/onezone/spaces/7e1af0c5f0bfdfe9d2e7edb731247f5f/harvesters/a4d3bc73aada63052310652d421609f1
     ```
   responses:
     '204':

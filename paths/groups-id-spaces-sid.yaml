@@ -33,8 +33,8 @@ get:
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/spaces/$SPACE_ID
 
     {
-      "spaceId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
-      "name": "a",
+      "spaceId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
+      "name": "Personal space",
       "providers": {
         "296ebe3c20e9666dc489b647f8647f12" : 5368709120
       }

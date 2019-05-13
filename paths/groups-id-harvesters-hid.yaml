@@ -30,10 +30,10 @@ get:
     **Get group's harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/7e1af0c5f0bfdfe9d2e7edb731247f5f
 
     {
-      "harvesterId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
+      "harvesterId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
       "name": "new_harvester1",
       "public" : true,
       "plugin" : "elasticsearch_plugin",
@@ -112,7 +112,7 @@ delete:
     **Remove harvester from group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/7e1af0c5f0bfdfe9d2e7edb731247f5f
     ```
   responses:
     '204':

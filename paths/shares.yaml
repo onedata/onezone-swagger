@@ -137,4 +137,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createShare id=b752ceafabb662b4e5728b2ded25cdd1 name==Share20 spaceId==0311e753f77320e1a3f0acc03bb6d972"
+    source: "onezone-rest-cli createShare shareId==b752ceafabb662b4e5728b2ded25cdd1 name==Share20 spaceId==0311e753f77320e1a3f0acc03bb6d972"
