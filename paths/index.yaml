@@ -18,6 +18,9 @@
   $ref: ./users-id.yaml
 
 
+/users/{id}/basic_auth:
+  $ref: ./users-id-basic_auth.yaml
+
 /users/{id}/privileges:
   $ref: ./users-id-privileges.yaml
 
@@ -38,6 +41,10 @@
 
 /user:
   $ref: ./user.yaml
+
+
+/user/password:
+  $ref: ./user-password.yaml
 
 
 /user/authorize:

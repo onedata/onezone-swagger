@@ -14,11 +14,20 @@ VersionInfo:
 User:
   $ref: ./user.yaml
 
+UserCreateRequest:
+  $ref: ./usercreaterequest.yaml
+
 UserProtectedInfo:
   $ref: ./userprotectedinfo.yaml
 
 UserUpdateRequest:
   $ref: ./userupdaterequest.yaml
+
+UserPasswordUpdate:
+  $ref: ./userpasswordupdate.yaml
+
+UserBasicAuthSettingsUpdate:
+  $ref: ./userbasicauthsettingsupdate.yaml
 
 IdPAccessToken:
   $ref: ./idpaccesstoken.yaml
