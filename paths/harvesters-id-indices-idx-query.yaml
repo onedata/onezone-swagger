@@ -8,7 +8,7 @@ post:
     aspect: "{query, ?BINDING(idx)}"
   x-onedata-permissions:
     - oz_harvesters_view
-  summary: Query harvester index.
+  summary: Query harvester index
   x-bash-codegen-description: |
     Performs query to index {idx} in harvester {id}.
 

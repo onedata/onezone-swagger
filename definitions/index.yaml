@@ -227,8 +227,8 @@ HarvesterQuery:
 HarvesterQueryResponse:
   $ref: ./harvesterqueryresponse.yaml
 
-HarvesterIndexProgressDetails:
-  $ref: ./harvesterindexprogressdetails.yaml
+HarvesterIndexStatsDetails:
+  $ref: ./harvesterindexstatsdetails.yaml
 
 Cluster:
   $ref: ./cluster.yaml
