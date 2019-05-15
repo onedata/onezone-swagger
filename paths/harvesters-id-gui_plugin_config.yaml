@@ -26,7 +26,7 @@ get:
     **Get harvester details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I/config
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/config
 
     {
       "config" : {
@@ -103,7 +103,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"config": {}}' \
-    https://$HOST/api/v3/onezone/harvesters/16a0e017d184d7d4512f441e72848fff5PLE/config
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/config
     ```
   consumes:
     - application/json

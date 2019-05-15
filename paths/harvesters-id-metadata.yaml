@@ -27,7 +27,7 @@ delete:
     **Remove harvested metadata**
     ```bash
     curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/harvesters/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID
     ```
   responses:
     '204':

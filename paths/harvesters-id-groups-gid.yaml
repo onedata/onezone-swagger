@@ -30,7 +30,7 @@ get:
     **Get harvester group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/groups/f1c8b1a37aa7447b22eb65a742d40524
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/$GROUP_ID
 
     {
       "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
@@ -128,7 +128,7 @@ put:
     **Add group to harvester**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-     https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/groups/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz
+     https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/$GROUP_ID
     ```
   consumes:
     - application/json
@@ -210,7 +210,7 @@ delete:
     **Get harvester group details**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/harvesters/7e1af0c5f0bfdfe9d2e7edb731247f5f/groups/a4d3bc73aada63052310652d421609f1
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/$GROUP_ID
     ```
   responses:
     '204':

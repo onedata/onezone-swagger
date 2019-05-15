@@ -30,7 +30,7 @@ get:
     **Get group's harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/effective_harvesters/f8d843beda24e54545455ecc0f4b8886
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_harvesters/$HARVESTER_ID
 
     {
       "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",

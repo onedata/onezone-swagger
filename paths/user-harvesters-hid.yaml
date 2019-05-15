@@ -23,7 +23,7 @@ get:
     **Get harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/harvesters/f8d843beda24e54545455ecc0f4b8886
+    https://$HOST/api/v3/onezone/user/harvesters/$HARVESTER_ID
 
     {
       "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
@@ -94,7 +94,7 @@ delete:
     **Delete user harvester**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/harvesters/95b663a6467c72ab1256865efef9e387
+    https://$HOST/api/v3/onezone/user/harvesters/$HARVESTER_ID
     ```
   produces:
     - application/json

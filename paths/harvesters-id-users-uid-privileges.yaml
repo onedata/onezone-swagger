@@ -28,7 +28,7 @@ get:
     **List user's privileges in a harvester**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/users/a5b469a2b0516b662a49da74d6d7d7bc/privileges
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/users/$USER_ID/privileges
 
     {
       "privileges": [
@@ -127,7 +127,7 @@ patch:
     ```bash
     curl -i -k -u admin:password -X PATCH \
     -d '{"grant": ["harvester_view", "harvester_update"], "revoke": ["harvester_delete"]}' \
-    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/users/a5b469a2b0516b662a49da74d6d7d7bc/privileges
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/users/$USER_ID/privileges
     ```
   responses:
     '204':

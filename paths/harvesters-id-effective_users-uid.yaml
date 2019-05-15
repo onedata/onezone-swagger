@@ -28,7 +28,7 @@ get:
     **Get effective harvester user details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/b45d02d01066b8794ad7f927becf4bde/effective_users/f1c8b1a37aa7447b22eb65a742d40524
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/effective_users/$USER_ID
 
     {
       "userId": "f1c8b1a37aa7447b22eb65a742d40524",

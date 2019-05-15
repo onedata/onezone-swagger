@@ -28,7 +28,7 @@ get:
     **Get group harvesters**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/harvesters
 
     {
       "harvesters": [
@@ -109,7 +109,7 @@ post:
     "config" : { "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
                  "externalHelpLink": "http://example.com/some_help_page",
                  "refreshDataTimeout": 1000 }, \
-    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/harvesters
     ```
   produces:
     - application/json
