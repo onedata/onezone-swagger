@@ -1,0 +1,12 @@
+type: object
+description: User basic auth settings modification request.
+properties:
+  basicAuthEnabled:
+    type: boolean
+    description: Toggles authentication with username & password for given user.
+  newPassword:
+    type: string
+    description: New user's password to overwrite the old one.
+example:
+  basicAuthEnabled: true
+  newPassword: lS1c6FD2mxB2ff

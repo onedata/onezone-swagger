@@ -21,6 +21,9 @@ properties:
     type: array
     items:
       type: string
+  basicAuthEnabled:
+    type: boolean
+    description: Specifies if this user is allowed to authenticate with username & password.
 required:
   - userId
   - fullName
@@ -36,3 +39,4 @@ example:
   emails:
     - rudolf.lingens@example.com
     - john.doe@example.com
+  basicAuthEnabled: false

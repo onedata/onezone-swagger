@@ -28,7 +28,8 @@ get:
       "fullName": "Mr Admin",
       "username": "admin",
       "linkedAccounts": [],
-      "emails": []
+      "emails": [],
+      "basicAuthEnabled": false
     }
     ```
   produces:
