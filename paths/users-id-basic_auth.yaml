@@ -20,7 +20,7 @@ patch:
 
     ***Example cURL requests***
 
-    **Change user name**
+    **Change user's basic auth settings**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X PATCH  \
     -d '{"basicAuthEnabled": true, "newPassword": "password123"}' \
