@@ -24,8 +24,9 @@ properties:
                 description: Timestamp of last harvestation in this index
               archival:
                 type: boolean
-                description: "Stats are marked archival when it is no longer possible to harvest metadata <br />
-                  in given space in given provider e.g space was removed from harvester"
+                description:
+                  Stats are marked archival when it is no longer possible to harvest metadata  
+                  in given space in given provider (e.g space was removed from harvester)
             required:
               - currentSeq
               - maxSeq

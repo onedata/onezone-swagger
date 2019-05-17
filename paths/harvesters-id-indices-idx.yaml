@@ -36,6 +36,7 @@ get:
       "name": "My study index"
       "guiPluginName": "study"
       "schema": "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"
+      "pluginIndexId": "njewzgezodqwzdq1ngy3ndywzti4n2i4zdm0ndblztkjngywowyzzwfiztljzji3ngnmy2i3ndfhztjmzjk1y2u"
     }
     ```
   produces:
@@ -184,7 +185,7 @@ delete:
     or `oz_harvesters_update` admin privilege.
   description: |
     Removes index from a specific harvester. **It will be no longer possible to access harvested data through onezone service**.\
-    If you wish to remove harvested metadata see: 
+    If you wish to remove harvested metadata see:
     [Remove harvested metadata in index](#operation/remove_harvested_index_data)
 
     This operation requires `harvester_update` privilege
