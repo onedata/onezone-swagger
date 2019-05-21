@@ -15,6 +15,6 @@ properties:
     description: Id of file to share.
 example:
   name: MyNewShare
-  shareId: AIOD8979asui2788ASD
-  spaceId: kluYUSDYTF892uuHDUS
-  rootFileId: OIUYQWREBxmcv876789
+  shareId: 0921135ee61fe53a3df449365228e9b4
+  spaceId: 1b29cf9ea2f540e7c0874d7d09976b23
+  rootFileId: 8c64eec93fac95822e90dd144b5ea0a5

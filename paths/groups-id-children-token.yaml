@@ -71,4 +71,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createChildGroupToken id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli createChildGroupToken id=538ef9643ae6b9e40817e51eece7e341"

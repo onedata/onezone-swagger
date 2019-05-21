@@ -26,9 +26,9 @@ required:
   - rootFileId
   - spaceId
 example:
-  shareId: 8asd89asdlbKJSBD79a8sdkLKJH8asdkjasd8989
+  shareId: 303884afb761d91a7362b2841647bc08
   name: MyNewShare
-  publicUrl: https://onedata.org/shares/ASDLKJH8asdkjasd89898asd89asdlbKJSBDikjab89-asdmASD
-  rootFileId: ASDkjlkkasdjoiwnafldnacbaasd8879a8sdkjb
-  spaceId: LKJH8asdkjasd89898asd89asdlbKJSBD79a8sdk
+  publicUrl: https://onedata.org/shares/303884afb761d91a7362b2841647bc08
+  rootFileId: b6509670a1bc869c849290029cf8c0af
+  spaceId: 04b0d63bdaa15cc600212082e50e5e25
   handleId: doi:10.15911/MyShares.726855

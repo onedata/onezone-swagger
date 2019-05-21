@@ -33,7 +33,7 @@ get:
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID
 
     {
-      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
       "name": "new_groupX",
       "type": "team"
     }
@@ -78,7 +78,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getSpaceGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 put:
@@ -173,7 +173,7 @@ put:
     required: false
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addGroupToSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli addGroupToSpace id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 delete:
@@ -248,4 +248,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeSpaceGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"

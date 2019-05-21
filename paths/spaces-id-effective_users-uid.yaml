@@ -31,9 +31,9 @@ get:
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/effective_users/$USER_ID
 
     {
-      "userId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
-      "alias": "username",
-      "name": "John Doe"
+      "userId": "f1c8b1a37aa7447b22eb65a742d40524",
+      "fullName" : "John Doe",
+      "username" : "jodoe"
     }
     ```
   produces:
@@ -76,4 +76,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getEffectiveSpaceUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=f1c8b1a37aa7447b22eb65a742d40524"

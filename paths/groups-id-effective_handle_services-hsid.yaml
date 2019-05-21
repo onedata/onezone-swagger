@@ -33,7 +33,7 @@ get:
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_handle_services/$HANDLE_SERVICE_ID
 
     {
-        "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
         "name": "MyCommunity Handle service",
         "proxyEndpoint": "https://localhost:17000/handle_proxy",
         "serviceProperties": {
@@ -90,4 +90,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveGroupHandleService id=ALASDLKJALKSDJKLASD hsid=SADHLKJhlkASHDLAKSHDLKJHJjLH"
+    source: "onezone-rest-cli getEffectiveGroupHandleService id=9f63efbd952391af88e096c2bb33bb5d hsid=0fe7c8a20ffdf07480c46f084bc3b8d5"

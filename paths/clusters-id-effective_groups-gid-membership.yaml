@@ -40,8 +40,8 @@ get:
 
     {
       "intermediaries": [
-        {"type": "group", "id": "oj903yegkxcpsdfy34masdf9atf8awef8hasdf"},
-        {"type": "group", "id": "ldsfk9y324t162r3vxzc890u7z9cxyv79asdgf"},
+        {"type": "group", "id": "95527367966a95639e93a88718450b36"},
+        {"type": "group", "id": "2ef3de15fd49b3d6420f58428a6ad219"},
         {"type": "cluster", "id": "self"}
       ]
     }
@@ -86,4 +86,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveGroupClusterMembershipIntermediaries id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getEffectiveGroupClusterMembershipIntermediaries id=b752ceafabb662b4e5728b2ded25cdd1 gid=a5b469a2b0516b662a49da74d6d7d7bc"

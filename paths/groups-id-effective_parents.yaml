@@ -69,4 +69,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveParentGroups id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listEffectiveParentGroups id=f1c8b1a37aa7447b22eb65a742d40524"

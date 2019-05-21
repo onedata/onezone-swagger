@@ -89,4 +89,4 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveUserHandlePrivileges id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli listEffectiveUserHandlePrivileges id=45bf25a5cb16e12a9faa6d088a2c7088 uid=5ca9574418d5a2c509265d37356ee549"

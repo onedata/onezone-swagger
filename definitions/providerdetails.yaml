@@ -25,10 +25,10 @@ properties:
     type: boolean
     description: True if this Oneprovider is online - connected to Onezone.
 example:
-  providerId: H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk
+  providerId: 6b9bc70630547d925861a27e1f050dfe
   name: Example provider
   domain: provider1.example.com
   latitude: 50.0647
   longitude: 19.9450
-  cluster: 56IZ6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW
+  cluster: 16a0e017d184d7d4512f441e72848fff
   online: true

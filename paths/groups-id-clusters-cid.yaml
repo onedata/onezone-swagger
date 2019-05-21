@@ -26,7 +26,7 @@ get:
     https://$HOST/api/v3/onezone/group/clusters/$CLUSTER_ID
 
     {
-      "clusterId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+      "clusterId" : "f8d843beda24e54545455ecc0f4b8886",
       "type" : "oneprovider",
       "workerVersion": {
         "release": "18.02.1",
@@ -83,7 +83,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupCluster cid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getGroupCluster cid=95b663a6467c72ab1256865efef9e387"
 
 
 delete:
@@ -145,4 +145,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli groupLeaveCluster id=GVC8lKEasj4q253sptVqF8HwUpk8j cid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli groupLeaveCluster id=GVC8lKEasj4q253sptVqF8HwUpk8j cid=95b663a6467c72ab1256865efef9e387"

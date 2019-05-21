@@ -30,8 +30,8 @@ get:
 
     {
       "users": [
-        "LAKSHDLKLKJhlkASHDJHJjL",
-        "HDLKJHJjLLKLAKSJhlkASHD"
+        "5bcd19ea6b3e308347fd12ccefc96b09",
+        "cef7eb7463ed17acd3ffd9bc53b796ea"
       ]
     }
     ```
@@ -70,4 +70,4 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveHandleUsers id=DLAKSHDLKJHJjSADHLKJhlkASHLH"
+    source: "onezone-rest-cli listEffectiveHandleUsers id=45bf25a5cb16e12a9faa6d088a2c7088"

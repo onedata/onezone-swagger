@@ -34,7 +34,7 @@ get:
 
     {
       "name": "provider1",
-      "providerId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
+      "providerId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
       "domain": "provider1.beta.onedata.org",
       "latitude": 50.0647,
       "longitude": 19.9450
@@ -80,4 +80,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupEffectiveProvider id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 pid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli getGroupEffectiveProvider id=a4d3bc73aada63052310652d421609f1 pid=HUUPOMNGzikwiLXHaFYcE8"

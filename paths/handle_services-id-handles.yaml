@@ -26,12 +26,12 @@ get:
     **Get handle services handles**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/LKJASHDLKJHASD/handles
+    https://$HOST/api/v3/handle_services/13c6bf68ed88dd01f396571f976b148d/handles
 
     {
       "handles": [
-        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
       ]
     }
     ```
@@ -70,4 +70,4 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleServicesHandles id=KLJAHSDKLJHASDhjhjgasd6asdjkASD"
+    source: "onezone-rest-cli getHandleServicesHandles id=33f5e5925f6ec7ddf8f68516b2980fdb"

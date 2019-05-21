@@ -34,7 +34,7 @@ get:
 
     {
         "name": "MyCommunity Handle service",
-        "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
         "proxyEndpoint": "https://localhost:17000/handle_proxy",
         "serviceProperties": {
             "allowTemplateOverride": false,
@@ -90,7 +90,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupHandleService id=ALASDLKJALKSDJKLASD hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getGroupHandleService id=9f63efbd952391af88e096c2bb33bb5d hsid=95b663a6467c72ab1256865efef9e387"
 
 
 delete:
@@ -164,4 +164,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli groupLeaveHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli groupLeaveHandleService hsid=95b663a6467c72ab1256865efef9e387"

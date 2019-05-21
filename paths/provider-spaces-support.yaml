@@ -29,7 +29,7 @@ post:
     **Add support for specific space**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X POST \
-    -d '{"size": 1024000, "token": "Ko1SDKLJASHDkjjkjashdkjahsdkk655a8sdkgkasdASD"}' \
+    -d '{"size": 1024000, "token": "43e9940c0a679799f87269e68b7f5a4e"}' \
     https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
@@ -71,4 +71,4 @@ post:
       $ref: '#/definitions/SpaceSupportRequest'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli providerSpaceSupport token==WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli providerSpaceSupport token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

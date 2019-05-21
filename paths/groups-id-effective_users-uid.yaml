@@ -33,9 +33,9 @@ get:
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_users/$USER_ID
 
     {
-      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "alias": "admin",
-      "name": "admin"
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe",
     }
     ```
   produces:
@@ -78,4 +78,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getEffectiveGroupUser id=538ef9643ae6b9e40817e51eece7e341 uid=a5b469a2b0516b662a49da74d6d7d7bc"

@@ -31,8 +31,8 @@ get:
 
     {
       "handle_services": [
-        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
       ]
     }
     ```
@@ -71,7 +71,7 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli listGroupHandleServices id=ASLKDJHAKLJSDHJKASD"
+      source: "onezone-rest-cli listGroupHandleServices id=8c2ef25065401e0e3dca3a7f94c3b05e"
 
 
 post:
@@ -107,7 +107,7 @@ post:
     **Add group handle services**
     ```bash
     curl -u username:password -X POST  -H "Content-type: application/json" \
-    -d '{ ... }' https://$HOST/api/v3/groups/ASASDLKALKSD/handle_services
+    -d '{ ... }' https://$HOST/api/v3/groups/4ebd9efd1e67f6c18695db1d762a914a/handle_services
     ```
   consumes:
     - application/json
@@ -154,4 +154,4 @@ post:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "cat hndl_service.json | onezone-rest-cli addGroupHandleService id=ASASDLKALKSD -"
+    source: "cat hndl_service.json | onezone-rest-cli addGroupHandleService id=4ebd9efd1e67f6c18695db1d762a914a -"

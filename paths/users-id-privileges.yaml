@@ -99,7 +99,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listUserAdminPrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listUserAdminPrivileges id=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 patch:
@@ -166,7 +166,7 @@ patch:
       $ref: '#/definitions/AdminPrivilegesUpdate'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"oz_spaces_list\", \"oz_groups_update\"]' | onezone-rest-cli updateUserAdminPrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
+    source: "echo '[\"oz_spaces_list\", \"oz_groups_update\"]' | onezone-rest-cli updateUserAdminPrivileges id=f1c8b1a37aa7447b22eb65a742d40524 -"
 
 
 delete:
@@ -231,4 +231,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserAdminPrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeUserAdminPrivileges id=f1c8b1a37aa7447b22eb65a742d40524"

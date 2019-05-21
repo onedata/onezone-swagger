@@ -26,7 +26,7 @@ get:
     https://$HOST/api/v3/onezone/user/groups/$GROUP_ID
 
     {
-      "groupId": "LKJGHASDJHAJKLSHDLJKASD",
+      "groupId": "59fec3bd894eef1cdae81623f477e370",
       "name": "admins",
       "type": "team"
     }
@@ -66,7 +66,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserGroup gid=LKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli getUserGroup gid=59fec3bd894eef1cdae81623f477e370"
 
 
 delete:
@@ -127,4 +127,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli leaveGroup gid=LKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli leaveGroup gid=59fec3bd894eef1cdae81623f477e370"

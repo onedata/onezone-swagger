@@ -32,7 +32,7 @@ get:
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
       "providers": {
-        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
       }
     }
     ```
@@ -71,7 +71,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli getSpace id=b752ceafabb662b4e5728b2ded25cdd1"
 
 
 patch:
@@ -148,7 +148,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifySpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name==\"New Space Name\""
+    source: "onezone-rest-cli modifySpace id=b752ceafabb662b4e5728b2ded25cdd1 name==\"New Space Name\""
 
 
 delete:
@@ -212,4 +212,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli removeSpace id=b752ceafabb662b4e5728b2ded25cdd1"

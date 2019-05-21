@@ -76,4 +76,4 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveHandleGroup id=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
+    source: "onezone-rest-cli getEffectiveHandleGroup id=45bf25a5cb16e12a9faa6d088a2c7088 gid=c44d4ab910245342be5a0a89fdff095e"

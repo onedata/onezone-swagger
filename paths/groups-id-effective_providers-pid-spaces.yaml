@@ -28,7 +28,7 @@ get:
 
     {
       "spaces": [
-        "ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR"
+        "6825604b0eb6a47b8b7a04b6369eb24d"
       ]
     }
     ```
@@ -72,4 +72,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupSpacesInEffectiveProvider id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 pid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli getGroupSpacesInEffectiveProvider id=a4d3bc73aada63052310652d421609f1 pid=HUUPOMNGzikwiLXHaFYcE8"

@@ -23,7 +23,7 @@ get:
     **Get harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/harvesters/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+    https://$HOST/api/v3/onezone/user/harvesters/f8d843beda24e54545455ecc0f4b8886
 
     {
       "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
@@ -68,7 +68,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserHarvester hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserHarvester hid=95b663a6467c72ab1256865efef9e387"
 
 
 delete:
@@ -94,7 +94,7 @@ delete:
     **Delete user harvester**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/harvesters/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/harvesters/95b663a6467c72ab1256865efef9e387
     ```
   produces:
     - application/json
@@ -129,4 +129,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli userLeaveHarvester hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli userLeaveHarvester hid=95b663a6467c72ab1256865efef9e387"

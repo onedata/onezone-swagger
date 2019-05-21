@@ -66,4 +66,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli groupJoinCluster id=Xnp1JVpWfL8_stHJgct76AFALjRsI0W3r token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"
+    source: "onezone-rest-cli groupJoinCluster id=f8d843beda24e54545455ecc0f4b8886 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

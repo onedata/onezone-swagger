@@ -80,4 +80,4 @@ post:
       $ref: '#/definitions/GroupInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinParentGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 token==AKLSHJHDKLJASHDJKHASKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli joinParentGroup id=538ef9643ae6b9e40817e51eece7e341 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

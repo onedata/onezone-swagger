@@ -75,4 +75,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getProviderDomainConfig id=ASKLDJKAJHSD765-asdAA"
+    source: "onezone-rest-cli getProviderDomainConfig id=0f7fa3347bd2f090acc6ed246e1f1747"

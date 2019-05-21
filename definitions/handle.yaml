@@ -28,8 +28,8 @@ example:
   handle: 10.5072/w95Zlng
   handleId: 14208c48fe063d26fd45144b90977a56
   resourceType: Share
-  resourceId: RsNk1CVHZTU3Z0OThwcHAhRN1NPawowMDFhY2lkIHRpbWUgPC
-  handleServiceId: JKAxNWxvY2F0aW9uImSEFSSGdrbHFCa1pWST2OTQ4cz
+  resourceId: 3d8cd457cef92ba08261bf1bb8d40438
+  handleServiceId: f480c4889db90d93996ee89d0ee5f8f0
   metadata: >
     <?xml version=\"1.0\"?>
     <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">

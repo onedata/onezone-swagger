@@ -27,11 +27,12 @@ get:
     https://$HOST/api/v3/onezone/users/$USER_ID
 
     {
-      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "alias": "admin",
-      "name": "admin",
+      "userId": "a5b469a2b0516b662a49da74d6d7d7bc",
+      "fullName": "Mr Admin",
+      "username": "admin",
       "linkedAccounts": []
-      "emails": []
+      "emails": [],
+      "basicAuthEnabled": false
     }
     ```
   produces:
@@ -69,7 +70,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUser id=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getUser id=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 delete:
@@ -130,4 +131,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli removeUser id=a4d3bc73aada63052310652d421609f1"

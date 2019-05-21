@@ -22,7 +22,7 @@ required:
   - schema
   - guiPluginName
 example:
-  indexId: Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+  indexId: 2c0160248ba9a66f45da751ca459535a
   name: My study index
   guiPluginName: study
   schema: "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"

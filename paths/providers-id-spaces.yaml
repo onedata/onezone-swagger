@@ -35,8 +35,8 @@ get:
 
     {
       "spaces": [
-        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk",
-        "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
+        "1ad4551e2c127fac3850374eeb2dfec4",
+        "a6c6e47cc477aa4d3f8c61ce71df9850"
       ]
     }
     ```
@@ -75,4 +75,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listProviderSupportedSpaces id=ASKLDJKAJHSD765-asdAA"
+    source: "onezone-rest-cli listProviderSupportedSpaces id=0f7fa3347bd2f090acc6ed246e1f1747"

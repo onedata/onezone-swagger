@@ -119,7 +119,7 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli setDefaultSpace spaceId==LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli setDefaultSpace spaceId==135043853efbfb34b892b30545ab4d81"
 
 
 delete:

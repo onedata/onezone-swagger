@@ -35,8 +35,8 @@ get:
 
     {
       "groups": [
-        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk",
-        "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
+        "1ad4551e2c127fac3850374eeb2dfec4",
+        "a6c6e47cc477aa4d3f8c61ce71df9850"
       ]
     }
     ```
@@ -75,4 +75,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveProviderGroups id=ASKLJDHLAKJSHDASHD76ASDJKL1"
+    source: "onezone-rest-cli listEffectiveProviderGroups id=4bcbbee276f0ff703dce2029f6cdf37c"

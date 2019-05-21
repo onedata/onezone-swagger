@@ -28,7 +28,7 @@ get:
     **Get group harvesters**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters
+    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters
 
     {
       "harvesters": [
@@ -71,7 +71,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listGroupHarvesters id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listGroupHarvesters id=a4d3bc73aada63052310652d421609f1"
 
 
 post:
@@ -109,7 +109,7 @@ post:
     "config" : { "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
                  "externalHelpLink": "http://example.com/some_help_page",
                  "refreshDataTimeout": 1000 }, \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/harvesters
+    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters
     ```
   produces:
     - application/json
@@ -152,7 +152,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createHarvesterForGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 name==\"New harvester name\" endpoint== \"https://example.elastic.com\" plugin==\"elasticsearch_plugin\"
+    source: "onezone-rest-cli createHarvesterForGroup id=a4d3bc73aada63052310652d421609f1 name==\"New harvester name\" endpoint== \"https://example.elastic.com\" plugin==\"elasticsearch_plugin\"
     config=={
     \"typeMapping\": [ { \"id\": 0, \"name\": \"Type 1\" }, { \"id\": 1, \"name\": \"Type 1\" } ],
     \"externalHelpLink\": \"http://example.com/some_help_page\",

@@ -76,4 +76,4 @@ post:
       $ref: '#/definitions/SpaceInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli groupJoinSpace id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM token==9ASDKJHAJKyvajsbd675OqgExw00RwaU2MXT51"
+    source: "onezone-rest-cli groupJoinSpace id=f1c8b1a37aa7447b22eb65a742d40524 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

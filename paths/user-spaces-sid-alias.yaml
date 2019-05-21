@@ -62,7 +62,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387"
 
 
 put:
@@ -132,7 +132,7 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onezone-rest-cli setUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY alias=="Space alias"
+    source: onezone-rest-cli setUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387 alias=="Space alias"
 
 
 delete:
@@ -193,4 +193,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli removeUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387"

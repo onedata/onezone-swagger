@@ -26,7 +26,7 @@ get:
     https://$HOST/api/v3/onezone/user/effective_providers/$PROVIDER_ID
 
     {
-      "providerId":"oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+      "providerId":"95b663a6467c72ab1256865efef9e387",
       "name": "provider2",
       "domain": "provider2.beta.onedata.org",
       "latitude": 50.0647,
@@ -68,4 +68,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserEffectiveProvider pid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserEffectiveProvider pid=95b663a6467c72ab1256865efef9e387"

@@ -83,7 +83,7 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listUserHandlePrivileges id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli listUserHandlePrivileges id=45bf25a5cb16e12a9faa6d088a2c7088 uid=5ca9574418d5a2c509265d37356ee549"
 
 
 patch:
@@ -165,4 +165,4 @@ patch:
         $ref: '#/definitions/HandlePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"grant\": [\"handle_view\"], \"revoke\": [\"handle_delete\"]}' | onezone-rest-cli updateUserHandlePrivileges id=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"
+    source: "echo '{\"grant\": [\"handle_view\"], \"revoke\": [\"handle_delete\"]}' | onezone-rest-cli updateUserHandlePrivileges id=45bf25a5cb16e12a9faa6d088a2c7088 uid=5ca9574418d5a2c509265d37356ee549 -"
