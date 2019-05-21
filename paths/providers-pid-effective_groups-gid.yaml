@@ -30,7 +30,7 @@ get:
     {
       "groupId":"KJHAGSDJKHGASJKHDGAKJHSDGKHJASD",
       "name":"new_group",
-      "type":"role"
+      "type":"team"
     }
     ```
   produces:

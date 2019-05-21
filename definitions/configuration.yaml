@@ -1,0 +1,46 @@
+description: Public information about Onezone configuration and version.
+type: object
+properties:
+  name:
+    type: string
+    description: Onezone's name
+  domain:
+    type: string
+    description: Onezone's cluster domain
+  version:
+    type: string
+    description: Version of this Onezone service
+  build:
+    type: string
+    description: Build number of this Onezone service
+  subdomainDelegationSupported:
+    type: boolean
+    description: If true, registering Oneproviders are allowed to request
+      subdomains of the Onezone domain for use as their domains.
+  compatibleOneproviderVersions:
+    type: array
+    description: List of compatible Oneprovider versions
+    items:
+      type: string
+  supportedIdPs:
+    type: array
+    description: List of IdPs supported by Onezone
+    items:
+      type: object
+      description: IdP details
+      properties:
+        id:
+          type: string
+          description: The identifier of the IdP
+        offlineAccess:
+          type: boolean
+          description: Determines whether given IdP can be used in the offline
+            access flow, i.e. Onezone can acquire access tokens in the IdP without
+            the user being logged in.
+
+required:
+  - name
+  - version
+  - build
+  - subdomainDelegationSupported
+  - compatibleOneproviderVersions

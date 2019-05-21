@@ -2,6 +2,9 @@
 # This file groups the type definitions for Onezone REST API
 #
 
+Configuration:
+  $ref: ./configuration.yaml
+
 Error:
   $ref: ./error.yaml
 
@@ -13,6 +16,9 @@ UserProtectedInfo:
 
 UserUpdateRequest:
   $ref: ./userupdaterequest.yaml
+
+IdPAccessToken:
+  $ref: ./idpaccesstoken.yaml
 
 Users:
   $ref: ./users.yaml

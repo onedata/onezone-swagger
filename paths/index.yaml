@@ -3,6 +3,9 @@
 # defined in separate files for each path
 #
 
+/configuration:
+  $ref: ./configuration.yaml
+
 ###############################################################################
 # Users
 ###############################################################################
@@ -59,6 +62,10 @@
 
 /user/default_provider:
   $ref: ./user-default_provider.yaml
+
+
+/user/idp_access_token/{idp}:
+  $ref: ./user-idp_access_token-idp.yaml
 
 
 /user/groups:
