@@ -1,0 +1,23 @@
+type: object
+description: Harvester settings update request.
+properties:
+  name:
+    type: string
+    description: The name of the harvester.
+  endpoint:
+    type: string
+    description:
+      URL of the harvester backend (e.g. elasticsearch service).
+      Note that this option should be used only when changing to a new location of the same harvester backend.
+      Otherwise [create a new harvester](#operation/create_harvester).
+  plugin:
+    type: string
+    description: Name of the erlang plugin used for communication with the harvester backend.
+  public:
+    type: boolean
+    description: Public harvester allows any user to query its indices.
+example:
+  name: My Private harvester
+  endpoint: https://example.elastic.com
+  plugin: elasticsearch_plugin
+  public: true

@@ -140,11 +140,7 @@ patch:
     in: body
     description: Harvester parameters
     schema:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The new name of the harvester.
+      $ref: '#/definitions/HarvesterUpdateRequest'
     required: true
   x-code-samples:
   - lang: Shell

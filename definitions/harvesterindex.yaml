@@ -16,19 +16,14 @@ properties:
       Mapping of index name to one recognized by gui plugin.  
       Allows to specify this index to be used by GUI plugin to produce search results. 
       Recognized gui index names are listed in gui plugin manifest.
-  pluginIndexId:
-    type: string
-    description: Id of this index in indexing service (e.g elasticsearch)
 
 required:
   - indexId
   - name
   - schema
   - guiPluginName
-  - pluginIndexId
 example:
   indexId: 2c0160248ba9a66f45da751ca459535a
   name: My study index
   guiPluginName: study
   schema: "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"
-  pluginIndexId: njewzgezodqwzdq1ngy3ndywzti4n2i4zdm0ndblztkjngywowyzzwfiztljzji3ngnmy2i3ndfhztjmzjk1y2u

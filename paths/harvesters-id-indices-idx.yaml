@@ -36,7 +36,6 @@ get:
       "name": "My study index"
       "guiPluginName": "study"
       "schema": "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"
-      "pluginIndexId": "njewzgezodqwzdq1ngy3ndywzti4n2i4zdm0ndblztkjngywowyzzwfiztljzji3ngnmy2i3ndfhztjmzjk1y2u"
     }
     ```
   produces:

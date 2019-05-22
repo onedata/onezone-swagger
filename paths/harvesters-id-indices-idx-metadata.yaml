@@ -11,12 +11,12 @@ delete:
     - oz_harvesters_update
   summary: Remove harvested index metadata
   x-bash-codegen-description: |
-    Removes all harvested metadata in given index.
+    Schedules removal of all harvested metadata in given index.
 
     This operation requires `harvester_update` privilege
     or `oz_harvesters_update` admin privilege.
   description: |
-    Removes all harvested metadata in given index.\
+    Schedules removal of all harvested metadata in given index.\
     See also: [Remove index](#operation/remove_harvester_index)
 
     This operation requires `harvester_update` privilege
@@ -31,7 +31,7 @@ delete:
     ```
   responses:
     '204':
-      description: All harvested metadata in this index have been removed.
+      description: All harvested metadata in this index have been scheduled to be removed.
     '400':
       description: Invalid request.
       schema:

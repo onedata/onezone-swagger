@@ -42,7 +42,7 @@ get:
     '200':
       description: Harvester GUI plugin configuration.
       schema:
-        $ref: '#/definitions/HarvesterConfiguration'
+        $ref: '#/definitions/HarvesterGuiPluginConfig'
     '400':
       description: Invalid request.
       schema:
@@ -140,7 +140,7 @@ patch:
       in: body
       description: New harvester config
       schema:
-        $ref: '#/definitions/HarvesterConfiguration'
+        $ref: '#/definitions/HarvesterGuiPluginConfig'
       required: true
   x-code-samples:
     - lang: Shell

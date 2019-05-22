@@ -209,8 +209,11 @@ HarvesterPrivilegesUpdate:
 HarvesterCreateRequest:
   $ref: ./harvestercreaterequest.yaml
 
-HarvesterConfiguration:
-  $ref: ./harvesterconfiguration.yaml
+HarvesterUpdateRequest:
+  $ref: ./harvesterupdaterequest.yaml
+
+HarvesterGuiPluginConfig:
+  $ref: ./harvesterguipluginconfig.yaml
 
 HarvesterIndex:
   $ref: ./harvesterindex.yaml

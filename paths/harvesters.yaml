@@ -92,10 +92,10 @@ post:
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
     -X POST -d '{ "name" : "new_harvester", "endpoint" : "https://example.elastic.com", "plugin" : "elasticsearch_plugin"  \
-    "config" : { "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
-                 "externalHelpLink": "http://example.com/some_help_page",
-                 "refreshDataTimeout": 1000 } 
-                }' \
+    "guiPluginConfig" : { "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
+                           "externalHelpLink": "http://example.com/some_help_page",
+                           "refreshDataTimeout": 1000 }
+                        }' \
     https://$HOST/api/v3/onezone/harvesters
     ```
   consumes:
@@ -139,7 +139,7 @@ post:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createHarvester name==\"Harvester 1\" endpoint== \"https://example.elastic.com\" plugin==\"elasticsearch_plugin\"
-    config=={
+    guiPluginConfig=={
     \"typeMapping\": [ { \"id\": 0, \"name\": \"Type 1\" }, { \"id\": 1, \"name\": \"Type 1\" } ],
     \"externalHelpLink\": \"http://example.com/some_help_page\",
     \"refreshDataTimeout\": 1000
