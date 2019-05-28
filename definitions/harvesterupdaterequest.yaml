@@ -17,7 +17,7 @@ properties:
     type: boolean
     description: Public harvester allows any user to query its indices.
 example:
-  name: My Private harvester
+  name: My public harvester
   endpoint: https://example.elastic.com
   plugin: elasticsearch_plugin
   public: true

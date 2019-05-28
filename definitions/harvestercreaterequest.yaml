@@ -14,9 +14,10 @@ properties:
     $ref: '#/definitions/HarvesterGuiPluginConfig'
 required:
   - name
+  - endpoint
   - plugin
 example:
-  name: My Private harvester
+  name: My private harvester
   endpoint: https://example.elastic.com
   plugin: elasticsearch_plugin
   guiPluginConfig: {

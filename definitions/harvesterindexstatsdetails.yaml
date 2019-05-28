@@ -7,32 +7,29 @@ properties:
       provider_id:
         type: object
         properties:
-          stats:
-            type: object
-            properties:
-              currentSeq:
-                type: integer
-                description: Highest sequence number in given space in given provider already harvested in this index
-              maxSeq:
-                type: integer
-                description: Highest known sequence in given space in given provider
-              error:
-                type: string
-                description: Short description of encountered error if last harvestation failed
-              lastUpdate:
-                type: integer
-                description: Timestamp of last harvestation in this index
-              archival:
-                type: boolean
-                description:
-                  Stats are marked archival when it is no longer possible to harvest metadata  
-                  in given space in given provider (e.g space was removed from harvester)
-            required:
-              - currentSeq
-              - maxSeq
-              - error
-              - lastUpdate
-              - archival
+          currentSeq:
+            type: integer
+            description: Highest sequence number in given space in given provider already harvested in this index
+          maxSeq:
+            type: integer
+            description: Highest known sequence in given space in given provider
+          error:
+            type: string
+            description: Short description of encountered error if last harvesting failed
+          lastUpdate:
+            type: integer
+            description: Timestamp of last harvesting in this index
+          archival:
+            type: boolean
+            description:
+              Stats are marked archival when it is no longer possible to harvest metadata
+              in given space in given provider (e.g space was removed from harvester)
+        required:
+          - currentSeq
+          - maxSeq
+          - error
+          - lastUpdate
+          - archival
 
 example:
   {
@@ -47,7 +44,7 @@ example:
        "$PROVIDER_ID2" : {
           "currentSeq" : 8,
           "maxSeq" : 13,
-          "error" : "Service unavailable: temporary failure.",
+          "error" : "Service unavailable: temporary failure",
           "lastUpdate" : 1557928576,
           "archival" : false
         }
