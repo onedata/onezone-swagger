@@ -1,0 +1,14 @@
+type: object
+description: List of providers.
+properties:
+  providers:
+    type: array
+    description: The list of provider Id's.
+    items:
+      type: string
+required:
+  - providers
+example:
+  providers:
+    - Bmav38YI0Z2-dw-fvrZ3XP-J0HjCN0taT3_WungK
+    - ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR

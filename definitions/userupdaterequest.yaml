@@ -1,0 +1,11 @@
+type: object
+description: User update request message.
+properties:
+  name:
+    type: string
+    description: User full name.
+  alias:
+    type: string
+    description: User alias (unique identifier, similar to login).
+example:
+  name: Rudolf Lingens

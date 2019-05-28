@@ -1,19 +1,20 @@
 get:
-  operationId: get_provider_details
+  operationId: get_current_provider_details
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: provider
-  x-onedata-method: provider_logic:get_data
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: instance
+    scope: protected
   summary: Get provider details
   x-bash-codegen-description: |
-    Returns information about the Oneprovider that performed the request 
+    Returns information about the Oneprovider that performed the request
     (based on provided Peer Certificate authentication).
 
     This operation requires peer certificate authentication.
   description: |
-    Returns information about the Oneprovider that performed the request 
+    Returns information about the Oneprovider that performed the request
     (based on provided Peer Certificate authentication).
 
     This operation requires peer certificate authentication.
@@ -22,14 +23,14 @@ get:
 
     **Get information about provider**
     ```bash
-    curl -k --cert ./etc/op_worker/certs/grpcert.pem \
-    https://$HOST:8443/api/v3/onezone/provider
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." \
+    https://$HOST/api/v3/onezone/provider
 
     {
-      "clientName": "example",
-      "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0__-upGkf9tk",
-      "urls": ["195.216.97.151"],
-      "redirectionPoint": "https://195.216.97.151",
+      "name": "example",
+      "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk",
+      "subdomainDelegation": false,
+      "domain": "195.216.97.151",
       "latitude": 50.068968,
       "longitude": 19.909444
     }
@@ -48,7 +49,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -63,87 +64,17 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getProviderDetails"
-
-
-post:
-  operationId: register_provider
-  tags:
-    - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: provider
-  x-onedata-method: provider_logic:create
-  summary: Register provider
-  x-bash-codegen-description: |
-    Registers a Oneprovider in Onezone service. 
-    
-    Requires a valid CSR in the bodyand returns signed certificate that will 
-    must used by the Oneprovider for authorization (SSL Peer Certificate).
-
-    This operation has public access.
-  description: |
-    Registers a Oneprovider in Onezone service. 
-    
-    Requires a valid CSR in the bodyand returns signed certificate that will 
-    must used by the Oneprovider for authorization (SSL Peer Certificate).
-
-    This operation has public access.
-  consumes:
-    - application/json
-  responses:
-    '200':
-      description: Provider registered successfully.
-      schema:
-        type: object
-        properties:
-          id: 
-            description: The ID of the registered provider
-            type: string
-          cert:
-            description: The signed certificate to be used when connecting to Onezone services.
-            type: string
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '401':
-      description: Authentication error.
-      schema:
-        $ref: '#/definitions/Error'  
-    '403':
-      description: Authorization error.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Resource not found.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server Error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-  - name: data
-    in: body
-    description: Provider reqistration request including CSR.
-    schema:
-      $ref: '#/definitions/ProviderRegistrationRequest'
-    required: true
-  x-code-samples:
-  - lang: Shell
-    source: "cat registration_request.json | onezone-rest-cli registerProvider"
-
+    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem getCurrentProviderDetails"
 
 
 patch:
   operationId: modify_provider
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: provider
-  x-onedata-method: provider_logic:modify
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: instance
   summary: Modify provider details
   x-bash-codegen-description: |
     Updates information about the Oneprovider identified by the
@@ -156,9 +87,9 @@ patch:
 
     **Update provider geo location**
     ```bash
-    curl -k --cert ./etc/op_worker/certs/grpcert.pem -X PATCH \
-    -d '{"latitude":50.068968,"longitude":20.909444}'  \
-    https://$HOST:8443/api/v3/onezone/provider
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X PATCH \
+    -d '{"latitude": 50.068968,"longitude": 20.909444}'  \
+    https://$HOST/api/v3/onezone/provider
     ```
   consumes:
     - application/json
@@ -172,7 +103,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -190,48 +121,48 @@ patch:
     in: body
     description: Provider data.
     schema:
-      $ref: '#/definitions/ProviderDetails'
+      $ref: '#/definitions/ProviderUpdateRequest'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "cat provider_details.json | onezone-rest-cli modifyProvider"
+    source: "cat provider_details.json | onezone-rest-cli modifyProvider -"
 
 
 delete:
   operationId: unregister_provider
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: provider
-  x-onedata-method: provider_logic:remove
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: instance
   summary: Unregister provider
   x-bash-codegen-description: |
     Allows Oneprovider service to unregister from Onezone.
 
-    This operation allows a Oneprovider to unregister from a this Onezone, i.e. 
-    it can only be invoked by Oneprovider which wants to unregister. It does't 
-    require any parameters, as the provider is identified by the peer 
+    This operation allows a Oneprovider to unregister from a this Onezone, i.e.
+    it can only be invoked by Oneprovider which wants to unregister. It does't
+    require any parameters, as the provider is identified by the peer
     certificate used for this connection.
   description: |
     Allows Oneprovider service to unregister from Onezone.
 
-    This operation allows a Oneprovider to unregister from a this Onezone, i.e. 
-    it can only be invoked by Oneprovider which wants to unregister. It does't 
-    require any parameters, as the provider is identified by the peer 
+    This operation allows a Oneprovider to unregister from a this Onezone, i.e.
+    it can only be invoked by Oneprovider which wants to unregister. It does't
+    require any parameters, as the provider is identified by the peer
     certificate used for this connection.
 
     ***Example cURL requests***
 
     **Unregister provider from Onezone**
     ```bash
-    curl -k --cert ./etc/op_worker/certs/grpcert.pem -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/provider
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE  \
+    https://$HOST/api/v3/onezone/provider
     ```
   consumes:
     - application/json
   responses:
-    '202':
+    '204':
       description: Provider will be unregistered.
     '400':
       description: Invalid request.
@@ -240,7 +171,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -256,4 +187,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli unregisterProvider"
-

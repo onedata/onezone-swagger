@@ -1,19 +1,19 @@
 get:
-  operationId: get_supported_spaces
+  operationId: list_supported_spaces
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: spaces
-  x-onedata-method: provider_logic:get_spaces
-  summary: Get spaces at provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: spaces
+  summary: List spaces at provider
   x-bash-codegen-description: |
-    Returns the list of spaces managed by the Oneprovider that performed the 
+    Returns the list of spaces managed by the Oneprovider that performed the
     request.
 
     This operation requires peer certificate authentication.
   description: |
-    Returns the list of spaces managed by the Oneprovider that performed the 
+    Returns the list of spaces managed by the Oneprovider that performed the
     request.
 
     This operation requires peer certificate authentication.
@@ -22,11 +22,13 @@ get:
 
     **Get spaces supported by provider**
     ```bash
-    curl -k --cert ./etc/op_worker/certs/grpcert.pem -X GET  \
-    https://$HOST:8443/api/v3/onezone/provider/spaces
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET  \
+    https://$HOST/api/v3/onezone/provider/spaces
 
     {
-      "spaces":["ASDKJHKLAJSDHKjhAsdkjh68asdASDlk"]
+      "spaces": [
+        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk"
+      ]
     }
     ```
   produces:
@@ -35,9 +37,7 @@ get:
     '200':
       description: The list of space ID's.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Spaces'
     '400':
       description: Invalid request.
       schema:
@@ -45,7 +45,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -60,64 +60,4 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSupportedSpaces"
-
-
-post:
-  operationId: create_provider_space
-  tags:
-    - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: spaces
-  x-onedata-method: space_logic:create
-  summary:  Create new space by provider
-  x-bash-codegen-description: |
-    Creates a new space on behalf of the Oneprovider that performed the request.
-
-    This operation requires peer certificate authentication.
-  description: |
-    Creates a new space on behalf of the Oneprovider that performed the request.
-
-    This operation requires peer certificate authentication.
-  consumes:
-    - application/json
-  responses:
-    '201':
-      description: >
-        ID of the created space in the form /spaces/{id} is 
-        returned in the response `Location` header. 
-      headers:
-        Location: 
-          description: ID of the created space.
-          type: string
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '401':
-      description: Authentication error.
-      schema:
-        $ref: '#/definitions/Error'  
-    '403':
-      description: Authorization error.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Resource not found.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server Error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-  - name: data
-    in: body
-    description: New space parameters.
-    schema:
-      $ref: '#/definitions/Space'
-    required: true
-  x-code-samples:
-  - lang: Shell
-    source: "onezone-rest-cli createProviderSpace name:=\"My Space\" token:=KAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFS size+=1024"
+    source: "onezone-rest-cli listSupportedSpaces"

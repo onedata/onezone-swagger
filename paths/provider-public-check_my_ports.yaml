@@ -1,0 +1,77 @@
+post:
+  operationId: check_my_ports
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: check_my_ports
+  summary: Check ports availability
+  x-bash-codegen-description: |
+    Checks if all given ports are reachable from Onezone.
+
+    This operation has public access.
+  description: |
+    Checks if all given ports are reachable from Onezone.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Check provider ports**
+    ```bash
+    curl -i --tlsv1.2 -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." \
+    -X POST -H 'Content-type: application/json' \
+    -d '[ "https://provider1.com:80", "https://provider1.com:443" ]' https://$HOST/api/v3/onezone/provider/test/check_my_ports
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the list of ports (with URLs) and their status.
+      schema:
+        type: array
+        items:
+          type: array
+          items:
+            type: string
+        example:
+          -
+            - https://provider1.com:80
+            - ok
+          -
+            - https://provider1.com:443
+            - error
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: ports
+    in: body
+    description: List of ports (with URL) to check.
+    schema:
+      type: array
+      items:
+        type: string
+      example:
+        - 'https://provider1.com:80'
+        - 'https://provider1.com:443'
+  x-code-samples:
+  - lang: Shell
+    source: "echo '[\"https://provider1.com:80\", \"https://provider1.com:443\"]' | onezone-rest-cli checkMyPorts -"

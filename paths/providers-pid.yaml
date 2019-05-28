@@ -1,37 +1,38 @@
 get:
-  operationId: get_other_provider
+  operationId: get_provider_details
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: nprovider
-  x-onedata-method: provider_logic:get_data
-  summary: Get other provider details
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_providers_list
+  summary: Get provider details
   x-bash-codegen-description: |
-    Returns the information about another Oneprovider service, which is 
+    Returns the information about a specific Oneprovider service, which is
     connected to the onezone.
-    
-    If called by other provider doesn't require any special privileges. 
 
-    When called by a regular user, requires 'list_providers' privilege.
+    If called by other provider doesn't require any special privileges.
 
-    This operation requires `list_providers` privilege.
+    This operation requires `oz_providers_list` administrator privilege or
+    effective membership in space supported by that provider.
   description: |
-    Returns the information about another Oneprovider service, which is 
+    Returns the information about a specific Oneprovider service, which is
     connected to the onezone.
-    
-    If called by other provider doesn't require any special privileges. 
 
-    When called by a regular user, requires 'list_providers' privilege.
+    If called by other provider doesn't require any special privileges.
 
-    This operation requires `list_providers` privilege.
+    This operation requires `oz_providers_list` administrator privilege or
+    effective membership in space supported by that provider.
 
     ***Example cURL requests***
 
     **Get specific provider details**
     ```bash
-    curl -k --cert ./etc/op_worker/certs/grpcert.pem -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET  \
+    https://$HOST/api/v3/onezone/providers/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
     ```
   produces:
     - application/json
@@ -47,7 +48,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -68,4 +69,71 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getOtherProvider pid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem getProviderDetails pid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+
+
+delete:
+  operationId: remove_provider
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+  summary: Remove provider
+  x-onedata-permissions:
+    - oz_providers_delete
+  x-bash-codegen-description: |
+    Removes specific Oneprovider from this zone.
+
+    If called by other provider doesn't require any special privileges.
+
+    This operation requires `oz_providers_delete` administrator privilege.
+  description: |
+    Removes specific Oneprovider from this zone.
+
+    If called by other provider doesn't require any special privileges.
+
+    This operation requires `oz_providers_delete` administrator privilege.
+
+    ***Example cURL requests***
+
+    **Get specific provider details**
+    ```bash
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE  \
+    https://$HOST/api/v3/onezone/providers/WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Provider will be unregistered.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: pid
+    in: path
+    description: Provider ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli --cert ozp_cert.pem --key ozp_key.pem removeProvider pid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

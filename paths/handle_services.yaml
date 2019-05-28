@@ -1,29 +1,35 @@
 get:
-  operationId: get_handle_services
+  operationId: list_handle_services
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:get_handle_services
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    aspect: list
   x-onedata-permissions:
-    - list_handle_services
-  summary: Get handle services
+    - oz_handle_services_list
+  summary: List handle services
   x-bash-codegen-description: |
     Returns the list of registered handle services.
+
+    This operation requires `oz_handle_services_list` administrator privilege.
   description: |
     Returns the list of registered handle services.
+
+    This operation requires `oz_handle_services_list` administrator privilege.
+
 
     ***Example cURL requests***
 
     **Get handle services**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/handle_services
+    curl -u username:password -X GET https://$HOST/api/v3/handle_services
 
-    [
-      "SADHLKJhlkASHDLAKSHDLKJHJjLH", 
-      "LAKSHDLKJHJjLHSADHLKJhlkASHD"
-    ]
+    {
+      "handle_services": [
+        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -31,9 +37,7 @@ get:
     '200':
       description: The list of identifiers of registered handle services.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/HandleServices'
     '400':
       description: Invalid request.
       schema:
@@ -41,7 +45,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -62,36 +66,41 @@ get:
 post:
   operationId: add_handle_service
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
-    - list_handle_services
+    - oz_handle_services_create
   summary: Add handle service
   x-bash-codegen-description: |
     Allows to register a new handle service.
+
+    This operation requires `oz_handle_services_create` administrator privilege.
   description: |
     Allows to register a new handle service.
+
+    This operation requires `oz_handle_services_create` administrator privilege.
 
     ***Example cURL requests***
 
     **Add handle services**
     ```bash
-    curl -k -u username:password -X POST  -H "Content-type: application/json" \
-    -d '{ ... }' https://$HOST:8443/api/v3/handle_services
+    curl -u username:password -X POST  -H "Content-type: application/json" \
+    -d '{ ... }' https://$HOST/api/v3/handle_services
     ```
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request successful.
+    '201':
+      description: >
+        URI of the created handle service in form https://onezone.domain/api/onezone/v3/handle_services/{id} is
+        returned in the response `Location` header.
       headers:
         Location:
+          description: URI of the created handle service.
           type: string
-          description: |
-            The endpoint of the new handle service resource including the generated GUID.
     '400':
       description: Invalid request.
       schema:
@@ -99,7 +108,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -120,5 +129,4 @@ post:
         $ref: '#/definitions/HandleService'
   x-code-samples:
   - lang: Shell
-    source: "cat hndl_service.json | onezone-rest-cli addHandleService"
-
+    source: "cat hndl_service.json | onezone-rest-cli addHandleService -"

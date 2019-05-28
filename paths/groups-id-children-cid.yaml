@@ -1,0 +1,228 @@
+get:
+  operationId: get_child_group
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(cid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_groups_list_groups
+  summary: Get subgroup details
+  x-bash-codegen-description: |
+    Returns information about a specific child group.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+     'oz_groups_list_groups' privilege is required.
+  description: |
+    Returns information about a specific child group.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+     'oz_groups_list_groups' privilege is required.
+
+    ***Example cURL requests***
+
+    **Get child group details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+
+    {
+      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "name": "new_group1",
+      "type": "team"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a specific child group.
+      schema:
+        $ref: '#/definitions/Group'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: cid
+    in: path
+    description: Child group ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+
+
+put:
+  operationId: add_child_group
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{child, ?BINDING(cid)}"
+  x-onedata-permissions:
+    - oz_groups_add_members
+  summary: Add child group
+  x-bash-codegen-description: |
+    Adds group {cid} as child group of {id}.
+
+    For administrator who does not belong to this group
+    'oz_groups_add_members' privilege is required.
+  description: |
+    Adds group {cid} as child group of {id}.
+
+    For administrator who does not belong to this group
+    'oz_groups_add_members' privilege is required.
+
+    ***Example cURL requests***
+
+    **Add child group**
+    ```bash
+    curl -u username:password -X PUT \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    ```
+  produces:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the added group in form https://onezone.domain/api/onezone/v3/groups/{id}/children/{cid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created group.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: cid
+    in: path
+    description: Child group ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+
+
+delete:
+  operationId: remove_child_group
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{child, ?BINDING(cid)}"
+  x-onedata-permissions:
+    - group_remove_group
+    - oz_groups_remove_members
+  summary: Remove subgroup
+  x-bash-codegen-description: |
+    Removes a specific child with {cid} from parent group with {id}.
+
+    This operation requires `group_remove_group` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_remove_members' privilege is required.
+  description: |
+    Removes a specific child with {cid} from parent group with {id}.
+
+    This operation requires `group_remove_group` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_remove_members' privilege is required.
+
+    ***Example cURL requests***
+
+    **Remove child group**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/groups/KoiO-QKqmYZRjPVdtR30FrdIEA1JF9f3TznAr9BDjA4/children/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50
+    ```
+  responses:
+    '204':
+      description: A subgroup will be removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: cid
+    in: path
+    description: Child group ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"

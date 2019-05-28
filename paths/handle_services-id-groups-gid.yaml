@@ -1,35 +1,45 @@
-put:
-  operationId: add_handle_service_group
+get:
+  operationId: get_handle_service_group
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:add_handle_service_group
+    - Handle Service
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
-    - modify_handle_service
-  summary: Add handle service group
+    - handle_service_view
+  summary: Get handle service group details
   x-bash-codegen-description: |
-    Allows to add a group to a handle service.
+    Get details of a group with access to handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_view` administrator privilege.
   description: |
-    Allows to add a group to a handle service.
+    Get details of a group with access to handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_view` administrator privilege.
 
     ***Example cURL requests***
 
-    **Add handle service user**
+    **Get group handle service**
     ```bash
-    curl -k -u username:password -X PUT \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8
+
+    {
+      "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
+      "name":"Group name",
+      "type":"team"
+    }
     ```
   produces:
     - application/json
   responses:
-    '204':
-      description: Group added successfully.
+    '200':
+      description: Group details returned.
+      schema:
+        $ref: '#/definitions/Group'
     '400':
       description: Invalid request.
       schema:
@@ -37,7 +47,81 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: The ID of the handle service.
+      required: true
+      type: string
+    - name: gid
+      in: path
+      description: The ID of the group to return information about.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+
+
+put:
+  operationId: add_handle_service_group
+  tags:
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - handle_service_update
+  summary: Add handle service group
+  x-bash-codegen-description: |
+    Allows to add a group to a handle service.
+
+    This operation requires `handle_service_update` privilege.
+  description: |
+    Allows to add a group to a handle service.
+
+    This operation requires `handle_service_update` privilege.
+
+    ***Example cURL requests***
+
+    **Add handle service user**
+    ```bash
+    curl -u username:password -X PUT \
+    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the added group in form https://onezone.domain/api/onezone/v3/handle_services/{id}/groups/{gid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the added group.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -69,33 +153,33 @@ put:
 delete:
   operationId: remove_handle_service_group
   tags:
-    - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle_service
-  x-onedata-resource: handle_service
-  x-onedata-method: handle_logic:remove_handle_service_group
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
-    - modify_handle_service
+    - handle_service_update
   summary: Remove handle service group
   x-bash-codegen-description: |
     Allows to remove a group from access to a handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
   description: |
     Allows to remove a group from access to a handle service.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_service_update` privilege.
 
     ***Example cURL requests***
 
     **Remove handle service group**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/DLAKSHDLKJHJjLHADHLKJh
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
     ```
   responses:
-    '202':
-      description: Group removed successfully.
+    '204':
+      description: Group will be removed.
     '400':
       description: Invalid request.
       schema:
@@ -103,7 +187,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -130,4 +214,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli removeHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
-

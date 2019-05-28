@@ -1,11 +1,12 @@
 get:
   operationId: get_share
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: share
-  x-onedata-method: space_logic:get_share
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(id)
+    aspect: instance
+    scope: private
   summary: Get share details
   x-bash-codegen-description: |
     Returns the details about a specific share.
@@ -16,15 +17,16 @@ get:
 
     **Get space details**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3
 
     {
       "shareId": "bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
       "name": "MyShare",
-      "public_url": "http://onedata.org/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
-      "root_file_id": "",
-      "parent_space": "UIsgAxi5I803ZirkUfdiWDd4W3bI4QaPBog_0kCdUdd"
+      "publicUrl": "http://onedata.org/shares/bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3",
+      "rootFileId": "I4QaPBog0kCdUPBog0kCdUdd",
+      "spaceId": "UIsgAxi5I803ZirkUfdiWDd4W3bI4QaPBog_0kCdUdd",
+      "handleId": "doi:10.15911/MyShares.726855"
     }
     ```
   produces:
@@ -41,7 +43,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -68,30 +70,42 @@ get:
 patch:
   operationId: modify_share
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: shares
-  x-onedata-resource: share
-  x-onedata-method: sharelogic:modify
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_manage_shares
   summary: Modify share details
   x-bash-codegen-description: |
     Updates the details about a share.
+
+    Currently this operation allows only to change the name of the share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
   description: |
     Updates the details about a share.
+
+    Currently this operation allows only to change the name of the share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
 
     ***Example cURL requests***
 
     **Change share name**
     ```bash
-    curl -k -u username:password -H "Content-type: application/json" \
-    -X PATCH -d '{"name": "new_share_name"}' \
-    https://$HOST:8443/api/v3/onezone/shares/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
+    curl -u username:password -H "Content-type: application/json" \
+    -X PATCH -d '{"name": "NewShareName"}' \
+    https://$HOST/api/v3/onezone/shares/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: Share has been updated successfully.
+      description: Share will be updated.
     '400':
       description: Invalid request.
       schema:
@@ -99,7 +113,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -122,37 +136,49 @@ patch:
     in: body
     description: Share parameters
     schema:
-      $ref: '#/definitions/ShareUpdateRequest'
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the share.
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name:=Share20 publicUrl:=\"http://oz.example.com/shares/sgAxi5I803ZirkUfdiWDd4W3\""
+    source: "onezone-rest-cli modifyShare id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name==Share20"
 
 
 delete:
   operationId: remove_share
   tags:
-    - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: share
-  x-onedata-method: space_logic:remove_share
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_manage_shares
   summary: Remove share
   x-bash-codegen-description: |
     Removes a specific share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
   description: |
     Removes a specific share.
+
+    This operation requires privilege `space_manage_shares` in space
+    in which the share was created.
 
     ***Example cURL requests***
 
     **Remove space**
     ```bash
-    curl -k -u admin:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/shares/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    curl -u admin:password -X DELETE \
+    https://$HOST/api/v3/onezone/shares/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
-    '200':
-      description: The share has been removed successfully.
+    '204':
+      description: The share will been removed.
     '400':
       description: Invalid request.
       schema:
@@ -160,7 +186,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -182,4 +208,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli removeShare id=803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I"
-

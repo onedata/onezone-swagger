@@ -1,37 +1,43 @@
 get:
-  operationId: get_group_effective_users
+  operationId: list_effective_group_users
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: effective_users
-  x-onedata-method: group_logic:get_effective_users
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_users
   x-onedata-permissions:
-    - group_view_data
-  summary: Get effective group users
+    - group_view
+    - oz_groups_list_users
+  summary: List effective group users
   x-bash-codegen-description: |
-    Returns the list of effective group users, which includes both who directly 
-    belong to the group, as well as users who belong to the group indirectly 
+    Returns the list of effective group users, which includes both who directly
+    belong to the group, as well as users who belong to the group indirectly
     through its parent groups.
 
-    This operation requires `group_view_data` privilege.
-
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+     'oz_groups_list_users' privilege is required.
   description: |
-    Returns the list of effective group users, which includes both who directly belong to the group,
-    as well as users who belong to the group indirectly through its parent groups.
+    Returns the list of effective group users, which includes both who directly
+    belong to the group, as well as users who belong to the group indirectly
+    through its parent groups.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+     'oz_groups_list_users' privilege is required.
 
     ***Example cURL requests***
 
     **Get effective group users**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users
-
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users
 
     {
-      "users":  ["lb0NvUXIVguzjQ3dBOXAyd1c11fWKB5dKJDQ6YvB7a0"]
+      "users":  [
+        "lb0NvUXIVguzjQ3dBOXAyd1c11fWKB5dKJDQ6YvB7a0"
+      ]
     }
     ```
   produces:
@@ -40,9 +46,7 @@ get:
     '200':
       description: The list of effective user ID's that belong to a specific group
       schema:
-        type: array
-        items: 
-          type: string
+        $ref: '#/definitions/Users'
     '400':
       description: Invalid request.
       schema:
@@ -50,7 +54,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -71,4 +75,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupEffectiveUsers id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listEffectiveGroupUsers id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"

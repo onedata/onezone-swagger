@@ -2,33 +2,40 @@ get:
   operationId: get_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:get_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
-    - group_view_data
+    - group_view,
+    - oz_groups_list_users
   summary: Get group user details
   x-bash-codegen-description: |
     Returns the public information about a user {uid} in group {id}.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
   description: |
     Returns the public information about a user {uid} in group {id}.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
 
     ***Example cURL requests***
 
     **Generate user group invite token**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
-   
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "login":"username",
-      "name":"admin"
+      "alias": "admin",
+      "name": "admin"
     }
     ```
   produces:
@@ -45,7 +52,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -74,39 +81,130 @@ get:
     source: "onezone-rest-cli getGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 
 
+put:
+  operationId: add_group_user
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - oz_groups_add_members
+  summary: Add user to group
+  x-bash-codegen-description: |
+    Returns the public information about a user {uid} in group {id}.
+
+    Optionally, user privileges in this group can be specified
+    in the request body.
+
+    This operation requires `oz_groups_add_members` administrator privilege.
+  description: |
+    Returns the public information about a user {uid} in group {id}.
+
+    Optionally, user privileges in this group can be specified
+    in the request body.
+
+    This operation requires `oz_groups_add_members` administrator privilege.
+
+    ***Example cURL requests***
+
+    **Generate user group invite token**
+    ```bash
+    curl -u admin:password -X PUT \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    ```
+  produces:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the added user in form https://onezone.domain/api/onezone/v3/groups/{id}/users/{uid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the added user.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User ID.
+    type: string
+    required: true
+  - name: privileges
+    in: body
+    required: false
+    description: The list of privileges for the
+    schema:
+      $ref: '#/definitions/GroupPrivileges'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+
+
 delete:
   operationId: remove_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: user
-  x-onedata-method: group_logic:remove_user
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - group_remove_user
+    - oz_groups_remove_members
   summary: Remove user from group
   x-bash-codegen-description: |
-    Removes the user {uid} from a group {id} (the user will no longer have 
+    Removes the user {uid} from a group {id} (the user will no longer have
     access to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_remove_members' privilege is required.
   description: |
-    Removes the user {uid} from a group {id} (the user will no longer have access 
+    Removes the user {uid} from a group {id} (the user will no longer have access
     to spaces accessible to the group).
 
     This operation requires `group_remove_user` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_remove_members' privilege is required.
 
     ***Example cURL requests***
 
     **Remove user from group**
     ```bash
-    curl -k  -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/groups/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/groups/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
     ```
   consumes:
     - application/json
   responses:
-    '202':
+    '204':
       description: The user will be removed from the group.
     '400':
       description: Invalid request.
@@ -115,7 +213,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

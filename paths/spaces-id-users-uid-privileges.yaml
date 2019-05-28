@@ -1,34 +1,36 @@
 get:
-  operationId: get_space_user_privileges
+  operationId: list_space_user_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: upriv
-  x-onedata-method: space_logic:get_privileges
-  summary: Get user privileges to space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - space_view
+  summary: List user privileges to space
   x-bash-codegen-description: |
-    Returns privileges of a user belonging to the space.
+    Returns privileges of a user to a specific space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
   description: |
-    Returns privileges of a user belonging to the space.
+    Returns privileges of a user to a specific space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
 
     ***Example cURL requests***
 
     **Get user privileges to space**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
-    
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+
     {
       "privileges": [
-        "space_add_provider",
-        "space_change_data",
+        "space_invite_provider",
+        "space_update",
         "space_invite_group"
-        ]
+      ]
     }
     ```
   produces:
@@ -45,7 +47,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -71,24 +73,26 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
 
 
-put:
+patch:
   operationId: set_space_user_privileges
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: upriv
-  x-onedata-method: space_logic:set_privileges
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - space_set_privileges
   summary: Set user privileges to space
   x-bash-codegen-description: |
-    Adds specific privileges for a user in a space.
+    Sets privileges for a user to a space.
 
     This operation requires `space_set_privileges` privilege.
   description: |
-    Adds specific privileges for a user in a space.
+    Sets privileges for a user to a space.
 
     This operation requires `space_set_privileges` privilege.
 
@@ -96,13 +100,13 @@ put:
 
     **Set user privileges to space**
     ```bash
-    curl -i -k -u admin:password -X PUT \
-    -d '{"privileges":["space_add_provider","space_change_data"]}' \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+    curl -i -k -u admin:password -X PATCH \
+    -d '{"privileges":["space_invite_provider","space_update"]}' \
+    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been added.
+    '204':
+      description: The user privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -110,7 +114,7 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -136,11 +140,10 @@ put:
     required: true
   - name: data
     in: body
-    description: User privileges.
+    description: Space privileges.
     schema:
-      $ref: '#/definitions/SpacePrivileges'
+      $ref: '#/definitions/SpacePrivilegesUpdate'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"space_view_data\"]' | onezone-rest-cli setSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
-
+    source: "echo '[\"space_view\"]' | onezone-rest-cli setSpaceUserPrivileges id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0 -"

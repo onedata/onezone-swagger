@@ -1,30 +1,34 @@
 get:
-  operationId: get_spaces
+  operationId: oz_spaces_list
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-resource: spaces
-  x-onedata-method: space_logic:list_spaces
+  x-onedata-gri:
+    type: od_space
+    aspect: list
+  x-onedata-permissions:
+    - oz_spaces_list
   summary: List all spaces
   x-bash-codegen-description: |
     Returns the list of all spaces managed by the Onezone service.
-    
-    This operation requires `list_spaces` privilege.
+
+    This operation requires `oz_spaces_list` administrator privilege.
   description: |
     Returns the list of all spaces managed by the Onezone service.
-    
-    This operation requires `list_spaces` privilege.
+
+    This operation requires `oz_spaces_list` administrator privilege.
 
     ***Example cURL requests***
 
     **List all spaces**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/spaces
 
     {
-      "spaces": ["S0Y9FSe9TFJFFzzLtBEs8","IkHBv8CoAFmbFU4fj26"]
+      "spaces": [
+        "S0Y9FSe9TFJFFzzLtBEs8",
+        "IkHBv8CoAFmbFU4fj26"
+      ]
     }
     ```
   produces:
@@ -33,12 +37,7 @@ get:
     '200':
       description: List of spaces Id's.
       schema:
-        type: object
-        properties:
-          spaces:
-            type: array
-            items: 
-              type: string
+        $ref: '#/definitions/Spaces'
     '400':
       description: Invalid request.
       schema:
@@ -46,7 +45,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -61,32 +60,26 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaces"
+    source: "onezone-rest-cli listSpaces"
 
 
 post:
   operationId: create_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: spaces
-  x-onedata-method: space_logic:create
+  x-onedata-gri:
+    type: od_space
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new space
   x-bash-codegen-description: |
-    When called by a regular user, creates a new space and creates the current 
-    user its owner.
-    
-    When called by a provider, creates a new space and automatically adds 
-    support for it, based on the token provided in the request body.
+    When called by a regular user, creates a new space and sets the current
+    user as its owner.
 
     This operation does not require any specific privileges.
   description: |
-    When called by a regular user, creates a new space and creates the current 
-    user its owner.
-    
-    When called by a provider, creates a new space and automatically adds 
-    support for it, based on the token provided in the request body.
+    When called by a regular user, creates a new space and sets the current
+    user as its owner.
 
     This operation does not require any specific privileges.
 
@@ -94,20 +87,20 @@ post:
 
     **Create new space**
     ```bash
-    curl -k -u username:password  -H "Content-type: application/json" \
+    curl -u username:password  -H "Content-type: application/json" \
     -X POST -d '{ "name" : "new_space" }' \
-    https://$HOST:8443/api/v3/onezone/spaces
+    https://$HOST/api/v3/onezone/spaces
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        ID of the created space in the form /spaces/{id} is 
-        returned in the response `Location` header. 
+        URI of the created space in the form https://onezone.domain/api/onezone/v3/user/spaces/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
-          description: ID of the created space.
+        Location:
+          description: URI of the created space.
           type: string
     '400':
       description: Invalid request.
@@ -116,7 +109,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -136,13 +129,9 @@ post:
     schema:
       type: object
       properties:
-        name: 
+        name:
           type: string
-          description: The name of the space
-        token:
-          type: string
-          description: Space creation token (only for providers).
+          description: The name of the new space.
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createSpace name:=\"Space 1\" token:=ASLKJ1DHAKJS2DLKJAHS5DKJ4ASDKJ3HALSKJD3HLKAJSDHASD1O"
-
+    source: "onezone-rest-cli createSpace name==\"Space 1\""

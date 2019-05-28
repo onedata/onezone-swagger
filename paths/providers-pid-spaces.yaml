@@ -2,30 +2,32 @@ get:
   operationId: list_provider_spaces
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: providers
-  x-onedata-resource: spaces
-  x-onedata-method: provider_logic:get_spaces
-  summary: Get spaces supported by provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: spaces
+  summary: List spaces supported by provider
+  x-onedata-permissions:
+    - oz_providers_list_spaces
   x-bash-codegen-description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `list_spaces_of_provider` privilege.
+    This operation requires `oz_providers_list_spaces` administrator privilege.
   description: |
     Returns the list of spaces supported by specific provider.
 
-    This operation requires `list_spaces_of_provider` privilege.
+    This operation requires `oz_providers_list_spaces` administrator privilege.
 
     ***Example cURL requests***
 
     **List spaces supported by provider**
     ```bash
-    curl -ksS -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces
+    curlsS -u username:password -X GET  \
+    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces
 
     {
       "spaces": [
-        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk", 
+        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk",
         "JKLAHSDLKHASJKLDH76786ASDHBKJHMa"
       ]
     }
@@ -36,12 +38,7 @@ get:
     '200':
       description: The list of space ID's.
       schema:
-        type: object
-        properties:
-          spaces:
-            type: array
-            items: 
-              type: string
+        $ref: '#/definitions/Spaces'
     '400':
       description: Invalid request.
       schema:
@@ -49,7 +46,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -70,4 +67,4 @@ get:
       required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listProviderSpaces"
+    source: "onezone-rest-cli listProviderSpaces pid=ASKLDJKAJHSD765-asdAA"

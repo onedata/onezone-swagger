@@ -1,34 +1,41 @@
 get:
-  operationId: get_groups_effective_user
+  operationId: get_effective_group_user
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: effective_user
-  x-onedata-method: group_logic:get_effective_user
-  x-onedata-permissions: 
-    - group_view_data
-  summary: Get group effective user details
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_group_list_users
+  summary: Get effective group user details
   x-bash-codegen-description: |
-    Returns public information about a specific effective group user.
+    Returns information about a specific effective group user.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
   description: |
-    Returns public information about a specific effective group user.
+    Returns information about a specific effective group user.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_list_users' privilege is required.
 
     ***Example cURL requests***
 
     **Get group user details**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8/effective_users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5d2JDQ6YvB7a0
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8/effective_users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
 
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "login": "username",
-      "name": "user1"
+      "alias": "admin",
+      "name": "admin"
     }
     ```
   produces:
@@ -45,7 +52,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -71,4 +78,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupsEffectiveUser id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getEffectiveGroupUser id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

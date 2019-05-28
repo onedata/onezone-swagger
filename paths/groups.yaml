@@ -2,25 +2,26 @@ get:
   operationId: list_groups
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: groups
-  x-onedata-method: group_logic:create
+  x-onedata-gri:
+    type: od_group
+    aspect: list
+  x-onedata-permissions:
+    - oz_groups_list
   summary: List all groups
   x-bash-codegen-description: |
     Returns the list of all groups in the system.
 
-    Requires `list_groups` privilege.
+    Requires `oz_groups_list` administrator privilege.
   description: |
     Returns the list of all groups in the system.
 
-    Requires `list_groups` privilege.
+    Requires `oz_groups_list` administrator privilege.
 
     ***Example cURL requests***
 
     **List all groups in the system**
     ```bash
-     curl -k -u username:password -X GET https://$HOST:8443/api/v3/onezone/groups
+     curl -u username:password -X GET https://$HOST/api/v3/onezone/groups
     ```
   produces:
     - application/json
@@ -29,12 +30,7 @@ get:
       description: >
         The list of group ID's created within the Onezone service.
       schema:
-        type: object
-        properties:
-          groups:
-            type: array
-            items: 
-              type: string
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -42,7 +38,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -64,15 +60,15 @@ post:
   operationId: create_group
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: groups
-  x-onedata-method: group_logic:create
+  x-onedata-gri:
+    type: od_group
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Create new group
   x-bash-codegen-description: |
     Creates a new group.
 
-    This operation does require any specific privileges.
+    This operation does not require any specific privileges.
   description: |
     Creates a new group.
 
@@ -80,22 +76,22 @@ post:
 
     ***Example cURL requests***
 
-    **Create new group of type `role`**
+    **Create new group of type `team`**
     ```bash
-     curl -k -u username:password  -H "Content-type: application/json" \
-     -X POST -d '{ "name":"new_group" , "type":"role" }' \
-     https://$HOST:8443/api/v3/onezone/groups/
+     curl -u username:password  -H "Content-type: application/json" \
+     -X POST -d '{ "name":"new_group" , "type":"team" }' \
+     https://$HOST/api/v3/onezone/groups/
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        ID of the group created in the form /groups/{id} is 
+        URI of the group created in form https://onezone.domain/api/onezone/v3/user/groups/{id} is
         returned in the response `Location` header.
       headers:
-        Location: 
-          description: ID of the created group.
+        Location:
+          description: URI of the created group.
           type: string
     '400':
       description: Invalid request.
@@ -104,7 +100,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -122,8 +118,8 @@ post:
     in: body
     description: Group properties.
     schema:
-      $ref: '#/definitions/Group'
+      $ref: '#/definitions/GroupCreateRequest'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroup name:=Group2 type:=role "
+    source: "onezone-rest-cli createGroup name==Group2 type==team"

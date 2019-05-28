@@ -1,0 +1,63 @@
+get:
+  operationId: list_effective_group_providers
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_providers
+  x-onedata-permissions:
+    - group_view
+  summary: List effective group's providers
+  x-bash-codegen-description: |
+    Returns the effective list of providers supporting group spaces.
+
+    This operation requires `group_view` privilege.
+  description: |
+    Returns the effective list of providers supporting group spaces.
+
+    This operation requires `group_view` privilege.
+
+    ***Example cURL requests***
+
+    **Get group effective providers**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The effective list of providers supporting group spaces.
+      schema:
+        $ref: '#/definitions/Providers'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listEffectiveGroupProviders id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"

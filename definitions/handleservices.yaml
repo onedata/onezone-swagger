@@ -1,0 +1,14 @@
+type: object
+description: List of handle services.
+properties:
+  handle_services:
+    type: array
+    description: The list of handle services Id's.
+    items:
+      type: string
+required:
+  - handle_services
+example:
+  handle_services:
+    - Bmav38YI0Z2-dw-fvrZ3XP-J0HjCN0taT3_WungK
+    - ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR

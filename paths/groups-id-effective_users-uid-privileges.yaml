@@ -1,51 +1,53 @@
 get:
-  operationId: get_groups_user_privileges
-  tags: 
+  operationId: list_groups_user_privileges
+  tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: eupriv
-  x-onedata-method: group_logic:get_effective_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{eff_user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
-    - group_view_data
-  summary: Get user group privileges
+    - group_view
+  summary: List user group privileges
   x-bash-codegen-description: |
-    Returns the user privileges in a group.
+    Returns the effective user privileges in a group.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
   description: |
-    Returns the user privileges in a group.
+    Returns the effective user privileges in a group.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 
     **Get group user details**
     ```bash
-    curl -i -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+    curl -i -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
 
-    {"privileges": [
-      "group_change_data",
-      "group_create_space",
-      "group_create_space_token",
-      "group_invite_group",
-      "group_invite_user",
-      "group_join_group",
-      "group_join_space",
-      "group_leave_space",
-      "group_remove",
-      "group_remove_group",
-      "group_remove_user",
-      "group_set_privileges",
-      "group_view_data"]
+    {
+      "privileges": [
+        "group_update",
+        "group_create_space",
+        "group_create_space_token",
+        "group_invite_group",
+        "group_invite_user",
+        "group_join_group",
+        "group_join_space",
+        "group_leave_space",
+        "group_delete",
+        "group_remove_group",
+        "group_remove_user",
+        "group_set_privileges",
+        "group_view"
+      ]
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: Returns the information about a group user.
+      description: Returns the information about a group user privileges.
       schema:
         $ref: '#/definitions/GroupPrivileges'
     '400':
@@ -55,7 +57,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -81,4 +83,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupsUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listGroupsUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"

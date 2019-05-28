@@ -1,29 +1,34 @@
 get:
-  operationId: get_handles
+  operationId: list_handles
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handles
+  x-onedata-gri:
+    type: od_handle
+    aspect: list
   x-onedata-permissions:
-    - list_handles
-  summary: Get handles
+    - oz_handles_list
+  summary: List handles
   x-bash-codegen-description: |
-    Returns the list of ID's of all handles accessible by the current user.
+    Returns the list of ID's of all handles registered in Onezone.
+
+    This operation requires `oz_handles_list` administrator privilege.
   description: |
-    Returns the list of ID's of all handles accessible by the current user.
+    Returns the list of ID's of all handles registered in Onezone.
+
+    This operation requires `oz_handles_list` administrator privilege.
 
     ***Example cURL requests***
 
     **Get handles**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/handles
+    curl -u username:password -X GET https://$HOST/api/v3/handles
 
-    [
-      "SADHLKJhlkASHDLAKSHDLKJHJjLH", 
-      "LAKSHDLKJHJjLHSADHLKJhlkASHD"
-    ]
+    {
+      "handles": [
+        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -31,9 +36,7 @@ get:
     '200':
       description: The list of handle identifiers (Onedata internal GUID's).
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Handles'
     '400':
       description: Invalid request.
       schema:
@@ -41,7 +44,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -56,51 +59,54 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandles"
+    source: "onezone-rest-cli listHandles"
 
 
 post:
-  operationId: register_handle
+  operationId: handle_service_register_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:add_handle
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
-    - register_handle
+    - handle_service_register_handle
   summary: Register handle
   x-bash-codegen-description: |
     Allows to register a new handle identifier, using a specific handle service.
 
     The handle service must be registered in Onedata separately.
 
-    This operation requires `register_handle` privilege.
+    This operation requires `handle_service_register_handle` privilege, which needs to
+    be assigned to a specific handle service.
   description: |
     Allows to register a new handle identifier, using a specific handle service.
 
     The handle service must be registered in Onedata separately.
 
-    This operation requires `register_handle` privilege.
+    This operation requires `handle_service_register_handle` privilege, which needs to
+    be assigned to a specific handle service.
 
     ***Example cURL requests***
 
     **Register handle**
     ```bash
-    curl -k -u username:password -X POST -H "Content-type: application/json" \
-    -d '{"handleServiceId": "AFSASDARAWD32aasfASSD", "resourceType": "Share", "resourceId": "LKJGLSAKDGASGD34234JKAHSD", "metadata": "..." }' \
-    https://$HOST:8443/api/v3/handles
+    curl -u username:password -X POST -H "Content-type: application/json" \
+    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }' \
+    https://$HOST/api/v3/handles
     ```
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request successful.
+    '201':
+      description: >
+        URI of the created handle in form https://onezone.domain/api/onezone/v3/user/handles/{id} is
+        returned in the response `Location` header.
       headers:
         Location:
+          description: URI of the created handle.
           type: string
-          description: |
-            The endpoint of the new handle resource including the generated GUID.
     '400':
       description: Invalid request.
       schema:
@@ -108,7 +114,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -129,5 +135,4 @@ post:
         $ref: '#/definitions/HandleRegistrationRequest'
   x-code-samples:
   - lang: Shell
-    source: "cat hndl_request.json | onezone-rest-cli registerHandle"
-
+    source: "cat hndl_request.json | onezone-rest-cli registerHandle -"

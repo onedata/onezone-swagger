@@ -1,0 +1,78 @@
+get:
+  operationId: get_effective_group_provider
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+  summary: Get effective group's provider details
+  x-bash-codegen-description: |
+    Returns information about a specific effective provider supporting groups spaces.
+
+    This operation requires `group_view` privilege.
+  description: |
+    Returns information about a specific effective provider supporting groups spaces.
+
+    This operation requires `group_view` privilege.
+
+    ***Example cURL requests***
+
+    **Get group's effective provider details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+
+    {
+      "name": "provider1",
+      "providerId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
+      "domain": "provider1.beta.onedata.org",
+      "latitude": 50.0647,
+      "longitude": 19.9450
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a specific provider supporting groups spaces.
+      schema:
+        $ref: '#/definitions/ProviderDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: pid
+    in: path
+    description: Effective provider ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveGroupProvider id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 pid=HUUPOMNGzikwiLXHaFYcE8"

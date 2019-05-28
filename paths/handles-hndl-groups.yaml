@@ -2,33 +2,35 @@ get:
   operationId: list_handle_groups
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_groups
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: groups
   x-onedata-permissions:
-    - view_handle_groups
-  summary: Get handle groups
+    - handle_view
+  summary: List handle groups
   x-bash-codegen-description: |
     Returns all groups with access to a handle instance
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns all groups with access to a handle instance
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
     **Get handle groups**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups
 
-    [
-      "LKLKJhlkASHDJLAKSHDHJjL",
-      "KJHJjLHDLLKLAKSJhlkASHD"
-    ]
+    {
+      "groups": [
+        "LKLKJhlkASHDJLAKSHDHJjL",
+        "KJHJjLHDLLKLAKSJhlkASHD"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -36,9 +38,7 @@ get:
     '200':
       description: The list of identifiers of groups with access to specific handle.
       schema:
-        type: array
-        items:
-          type: string
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -46,7 +46,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

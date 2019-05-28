@@ -2,36 +2,47 @@ get:
   operationId: get_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
+    scope: protected
   x-onedata-permissions:
-    - view_handle
+    - handle_view
   summary: Get handle
   x-bash-codegen-description: |
     Returns the properties of a specific handle.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns the properties of a specific handle.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
     **Get handle**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
 
     {
-      "handleId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-      "handleType": "DOI",
+      "handle": "10.5072/w95Zlng"
+      "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
       "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
-      "handle": "10.572/ABCD-asdakjsdak87587asdk-1234/8",
+      "resourceType": "Share",
       "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
-      "metadata": "...",
+      "metadata": "<?xml version=\"1.0\"?>
+          <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
+          <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
+                   xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+            <rdf:Description rdf:about=\"http://example.com/resouces/1\">
+              <dc:title>Example Resource</dc:title>
+              <dc:creator>John Doe</dc:creator>
+              <dc:publisher>MIT</dc:publisher>
+              <dc:date>2000-06-06</dc:date>
+            </rdf:Description>
+          </rdf:RDF>",
       "timestamp": "1997-07-16T19:20"
     }
     ```
@@ -49,7 +60,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -74,34 +85,34 @@ get:
 
 
 patch:
-  operationId: modify_handle
+  operationId: handle_update
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:modify_handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
   x-onedata-permissions:
-    - modify_handle
+    - handle_update
   summary: Modify handle
   x-bash-codegen-description: |
-    Allows to update a registeed handle, for instance change the Onedata resource
-    to which it points to.
+    Allows to update a registered handle, currently it only allows
+    to modify the handle metadata property.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
   description: |
-    Allows to update a registeed handle, for instance change the Onedata resource
-    to which it points to.
+    Allows to update a registered handle, currently it only allows
+    to modify the handle metadata property.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
 
     ***Example cURL requests***
 
     **Modify handle resource**
     ```bash
-    curl -k -u username:password -X PATCH  -H "Content-type: application/json" \
-    -d '{"resourceId": "jalkADKDGHKAJSdlkHDukjhassjd76876asdkb"}' \
-    https://$HOST:8443/api/v3/handles/LKHASDkkjhASDLHU70ASDn
+    curl -u username:password -X PATCH  -H "Content-type: application/json" \
+    -d '{"metadata": "<?xml..."}' \
+    https://$HOST/api/v3/handles/LKHASDkkjhASDLHU70ASDn
     ```
   consumes:
     - application/json
@@ -115,7 +126,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -137,42 +148,46 @@ patch:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/Handle'
+        type: object
+        properties:
+          metadata:
+            type: string
+            description: Dublin Core metadata in XML for the handle.
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH resourceId:=RsNk1CVHZTU3Z0OThwcHAhRN1NPawowMDFhY2lkIHRpbWUgPC"
+    source: "cat handl_metadata.json | onezone-rest-cli modifyHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
 
 
 delete:
-  operationId: delete_handle
+  operationId: remove_handle
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:delete_handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: instance
   x-onedata-permissions:
-    - delete_handle
+    - handle_delete
   summary: Unregister handle
   x-bash-codegen-description: |
     Allows to unregister a registered handle.
 
-    This operation requires `delete_handle` privilege.
+    This operation requires `handle_delete` privilege.
   description: |
     Allows to unregister a registered handle.
 
-    This operation requires `delete_handle` privilege.
+    This operation requires `handle_delete` privilege.
 
     ***Example cURL requests***
 
     **Unregister handle**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/handles/SDLLKHASDkSDLHU70ASDnHU70ASDnkjhA
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/handles/SDLLKHASDkSDLHU70ASDnHU70ASDnkjhA
     ```
   responses:
-    '202':
-      description: Unregistration was successful.
+    '204':
+      description: Handle will be removed.
     '400':
       description: Invalid request.
       schema:
@@ -180,7 +195,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -200,4 +215,4 @@ delete:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"
+    source: "onezone-rest-cli removeHandle hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH"

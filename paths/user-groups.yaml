@@ -1,11 +1,12 @@
 get:
-  operationId: get_user_groups
+  operationId: list_user_groups
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_groups
-  summary: Get user groups
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: groups
+  summary: List user groups
   x-bash-codegen-description: |
     Returns the list of user's groups.
 
@@ -19,11 +20,13 @@ get:
 
     **Get user groups**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/groups
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/user/groups
 
     {
-      "groups": ["admins"]
+      "groups": [
+        "ASDLKJASLDKJLKASJDAJHSGD66ASDjasadA"
+      ]
     }
     ```
   produces:
@@ -32,12 +35,7 @@ get:
     '200':
       description: The list of groups.
       schema:
-        type: object
-        properties:
-          groups:
-            type: array
-            items:
-              type: string
+        $ref: '#/definitions/Groups'
     '400':
       description: Invalid request.
       schema:
@@ -45,7 +43,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -60,24 +58,25 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserGroups"
+    source: "onezone-rest-cli listUserGroups"
 
 
 post:
   operationId: create_group_for_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:create
-  summary: Create new group
+  x-onedata-gri:
+    type: od_group
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  summary: Create new group for the current user
   x-bash-codegen-description: |
-    Creates a new group for the current user. 
+    Creates a new group for the current user.
     The user automatically becomes a member of this group.
 
     This operation can be invoked on behalf of current user only.
   description: |
-    Creates a new group for the current user. 
+    Creates a new group for the current user.
     The user automatically becomes a member of this group.
 
     This operation can be invoked on behalf of current user only.
@@ -86,20 +85,20 @@ post:
 
     **Create new group**
     ```bash
-    curl -k -u username:password  -H "Content-type: application/json" \
-    -X POST -d '{ "name" : "test_group" , "type" : "admin" }' \
-    https://$HOST:8443/api/v3/onezone/user/groups
+    curl -u username:password  -H "Content-type: application/json" \
+    -X POST -d '{ "name" : "test_group" , "type" : "team" }' \
+    https://$HOST/api/v3/onezone/user/groups
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        ID of the created group in the form /user/groups/{gid} is 
-        returned in the response `Location` header. 
+        URI of the created group in form https://onezone.domain/api/onezone/v3/user/groups/{gid} is
+        returned in the response `Location` header.
       headers:
-        Location: 
-          description: ID of the created group.
+        Location:
+          description: URI of the created group.
           type: string
     '400':
       description: Invalid request.
@@ -108,7 +107,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -130,5 +129,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroupForUser name:=Group1 type:=team"
-
+    source: "onezone-rest-cli createGroupForUser name==Group1 type==team"

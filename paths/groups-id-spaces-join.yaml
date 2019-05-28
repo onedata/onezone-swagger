@@ -2,10 +2,10 @@ post:
   operationId: group_join_space
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: sjoin
-  x-onedata-method: space_logic:join
+  x-onedata-gri:
+    type: od_space
+    aspect: join
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_join_space
   summary: Join space by group
@@ -22,20 +22,20 @@ post:
 
     **Join group's space**
     ```bash
-    curl -k -u admin:password -H "Content-type: application/json" \
+    curl -u admin:password -H "Content-type: application/json" \
     -d '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVuJ3l02U1JXzstRdK00ZHbso02rRcG8bJLAo"}' \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/join
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/join
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        ID of the joined space in the form /spaces/{id} is 
-        returned in the response `Location` header.  
+        URI of the joined space in form https://onezone.domain/api/onezone/v3/groups/{id}/spaces/{sid} is
+        returned in the response `Location` header.
       headers:
-        Location: 
-          description: ID of the joined space.  
+        Location:
+          description: URI of the joined space.
           type: string
     '400':
       description: Invalid request.
@@ -44,7 +44,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -70,4 +70,4 @@ post:
       $ref: '#/definitions/SpaceInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli groupJoinSpace id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM token:=9ASDKJHAJKyvajsbd675OqgExw00RwaU2MXT51"
+    source: "onezone-rest-cli groupJoinSpace id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM token==9ASDKJHAJKyvajsbd675OqgExw00RwaU2MXT51"

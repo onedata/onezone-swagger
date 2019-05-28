@@ -2,7 +2,7 @@
 
 API_REPO_NAME="onezone"
 
-# Code bellow should not modified, 
+# Code bellow should not modified,
 # all the customized is placed above this comment
 
 usage() { cat <<EOF
@@ -68,11 +68,11 @@ SRC_SWAGGER=swagger.json
 PATH_IN_GITBOOK=${TMP_DIR}/doc/swagger/${API_REPO_NAME}
 $git_c rm -r $PATH_IN_GITBOOK/*
 mkdir -p $PATH_IN_GITBOOK
-cp -r $SRC_SWAGGER $PATH_IN_GITBOOK/
+#cp -r $SRC_SWAGGER $PATH_IN_GITBOOK/
 
 $git_c add -A
-$git_c diff 
+$git_c diff
 $git_c commit -m "${API_REPO_NAME} swag. api: $commit_message"
 $git_c push
 
-rm -rf $TMP_DIR 
+rm -rf $TMP_DIR

@@ -2,31 +2,40 @@ post:
   operationId: provider_space_support
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: ssupport
-  x-onedata-method: space_logic:support
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: support
   summary: Add space storage support
   x-bash-codegen-description: |
-    Adds support for specific space on behalf of the Oneprovider that 
+    Adds support for specific space on behalf of the Oneprovider that
     performed the request. Space support token is required.
 
     This operation requires peer certificate authentication.
   description: |
-    Adds support for specific space on behalf of the Oneprovider that 
+    Adds support for specific space on behalf of the Oneprovider that
     performed the request. Space support token is required.
 
     This operation requires peer certificate authentication.
+
+    ***Example cURL requests***
+
+    **Add support for specific space**
+    ```bash
+    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X POST \
+    -d '{"size": 1024000, "token": "Ko1SDKLJASHDkjjkjashdkjahsdkk655a8sdkgkasdASD"}' \
+    https://$HOST/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    ```
   produces:
     - application/json
   responses:
     '201':
       description: >
-        ID of the supported space in the form /spaces/{id} is 
-        returned in the response `Location` header. 
+        URI of the supported space in form https://onezone.domain/api/onezone/v3/provider/spaces/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
-          description: ID of the supported space.
+        Location:
+          description: URI of the supported space.
           type: string
     '400':
       description: Invalid request.
@@ -35,7 +44,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -49,10 +58,11 @@ post:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: pid
+  - name: token
     in: body
+    description: The space support token.
     schema:
-      $ref: '#/definitions/SpaceSupportToken'
+      $ref: '#/definitions/SpaceSupportRequest'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli providerSpaceSupport token:=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+    source: "onezone-rest-cli providerSpaceSupport token==WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

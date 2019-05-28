@@ -2,9 +2,12 @@ get:
   operationId: get_user_group
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:get_data
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get group details
   x-bash-codegen-description: |
     Returns information about a specific group to which the user belongs.
@@ -19,13 +22,13 @@ get:
 
     **Get user groups**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/groups/LKJGHASDJHAJKLSHDLJKASD
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/groups/LKJGHASDJHAJKLSHDLJKASD
 
     {
       "groupId": "LKJGHASDJHAJKLSHDLJKASD",
       "name": "admins",
-      "type": "role"
+      "type": "team"
     }
     ```
   produces:
@@ -42,7 +45,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -70,9 +73,10 @@ delete:
   operationId: leave_group
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-method: group_logic:remove_user
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{group, ?BINDING(gid)}"
   summary: Leave group
   x-bash-codegen-description: |
     Removes the current user from a specific group.
@@ -87,14 +91,14 @@ delete:
 
     **Leave group**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/user/groups/qScCV0Tt3NiTLYbx_DGzJFnQxDYQNqNxk6o5YANWRo8
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/user/groups/qScCV0Tt3NiTLYbx_DGzJFnQxDYQNqNxk6o5YANWRo8
     ```
   produces:
     - application/json
   responses:
-    '200':
-      description: The user left the group successfully.
+    '204':
+      description: The user will be removed from group.
     '400':
       description: Invalid request.
       schema:
@@ -102,7 +106,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -124,4 +128,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli leaveGroup gid=LKJGHASDJHAJKLSHDLJKASD"
-

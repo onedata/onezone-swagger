@@ -2,9 +2,10 @@ post:
   operationId: join_group
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: group_logic:join
+  x-onedata-gri:
+    type: od_group
+    aspect: join
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Join group
   x-bash-codegen-description: |
     Join existing group using inivitation token.
@@ -14,16 +15,26 @@ post:
     Join existing group using inivitation token.
 
     This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Join group**
+
+    ```bash
+    curl -u username:password  -H "Content-type: application/json" \
+    -X POST -d '{ "token": "LKJGH6785678asdASDKhj879asdLKJHASDASDJHAJKLSHDLJKASD" }' \
+    https://$HOST/api/v3/onezone/user/groups/join
+    ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        ID of the joined group in the form /user/groups/{id} is 
-        returned in the response `Location` header. 
+        URI of the joined group in form https://onezone.domain/api/onezone/v3/user/groups/{id} is
+        returned in the response `Location` header.
       headers:
-        Location: 
-          description: ID of the joined group.
+        Location:
+          description: URI of the joined group.
           type: string
     '400':
       description: Invalid request.
@@ -32,7 +43,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -54,4 +65,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinGroup token:=LKJGH6785678asdASDKhj879asdLKJHASDASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli joinGroup token==LKJGH6785678asdASDKhj879asdLKJHASDASDJHAJKLSHDLJKASD"

@@ -1,0 +1,69 @@
+post:
+  operationId: create_child_group_token
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: invite_group_token
+  x-onedata-permissions:
+    - group_invite_group
+  summary: Create child group invitation token
+  x-bash-codegen-description: |
+    Creates a token that can be used to add a group as subgroup of group with {id}.
+
+    This operation requires `group_invite_group` privilege.
+  description: |
+    Creates a token that can be used to add a group as subgroup of group with {id}.
+
+    This operation requires `group_invite_group` privilege.
+
+    ***Example cURL requests***
+
+    **Create invitation token for subgroup**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVq
+
+    {
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIDdrenY00SXM5dEFGYVRNQXFlMUlPSXVGMFBoSkFKWHFieWRUc2l5TUUxX2sKMDAyZGNpZCB00b2tlblR5cGUgPSBncm91cF9pbnZpdGVfZ3JvdXBfdG9rZW4KMDAyZnNpZ25hdHVyZSCJAtwScxZNktP9EIS00vlM5ZB7QsXhjtRtjKWZfwEfs6wo"
+    }
+    ```
+  produces:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The token for joining a specific group.
+      schema:
+        $ref: '#/definitions/GroupInviteToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createChildGroupToken id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"

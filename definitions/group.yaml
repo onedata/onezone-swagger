@@ -6,7 +6,7 @@ properties:
     description: Unique group Id.
   name:
     type: string
-    description: The name of the space.
+    description: The name of the group.
   type:
     type: string
     description: The type of the group.
@@ -14,10 +14,12 @@ properties:
       - organization
       - unit
       - team
-      - role
+      - role_holders
 required:
+  - groupId
   - name
   - type
 example:
+  groupId: ALSKDHLASD8ASDNjasd99
   name: Test group
-  type: role
+  type: team

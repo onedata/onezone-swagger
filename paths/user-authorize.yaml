@@ -1,18 +1,18 @@
 post:
-  operationId: authenticate_user
+  operationId: authorize_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: auth_logic:authenticate_user
+  x-onedata-gri:
+    type: od_user
+    aspect: authorize
   summary: Authenticate user
   x-bash-codegen-description: |
     Authorizes user with authentication token through Onezone web interface.
-    
+
     This operation has public access.
   description: |
     Authorizes user with authentication token through Onezone web interface.
-    
+
     This operation has public access.
   consumes:
     - application/json
@@ -28,7 +28,7 @@ post:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -50,4 +50,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli authenticateUser token:=ASKDJHASKJDHLKAJASD785674ASDghjkoGLHJKASDJGHK7655I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli authorizeUser token==ASKDJHASKJDHLKAJASD785674ASDghjkoGLHJKASDJGHK7655I803ZirkUfdiWDd4W3"

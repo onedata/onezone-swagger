@@ -1,0 +1,149 @@
+get:
+  operationId: list_group_handles
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: handles
+  x-onedata-permissions:
+    - group_view
+  summary: List group handles
+  x-bash-codegen-description: |
+    Returns the list of groups handles.
+
+    This operation requires `group_view` privilege.
+  description: |
+    Returns the list of groups handles.
+
+    This operation requires `group_view` privilege.
+
+    ***Example cURL requests***
+
+    **Get group handles**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/handles
+
+    {
+      "handles": [
+        "IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        Returns the list of group handles.
+      schema:
+        $ref: '#/definitions/Handles'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listGroupHandles id=LKJAHGSDLKJHALSDkjashdasdk"
+
+
+post:
+  operationId: create_group_handle
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - handle_service_register_handle
+  summary: Create new group handle
+  x-bash-codegen-description: |
+    Creates a new handle on behalf of a group.
+
+    This operation requires `handle_service_register_handle` privilege, for the handle service
+    specified in the `handleServiceId` field.
+  description: |
+    Creates a new handle on behalf of a group.
+
+    This operation requires `handle_service_register_handle` privilege, for the handle service
+    specified in the `handleServiceId` field.
+
+
+    ***Example cURL requests***
+
+    **Create new group handle**
+    ```bash
+    curl -u admin:password  -H "Content-type: application/json" -X POST \
+    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }'
+    https://$HOST/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/handles
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the created space in form https://onezone.domain/api/onezone/v3/groups/{id}/handles/{sid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created handle.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: handle
+    in: body
+    description: New handle parameters.
+    schema:
+      $ref: '#/definitions/HandleRegistrationRequest'
+    required: true
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "cat handle.json | onezone-rest-cli createGroupHandle id=LKJAHGSDLKJHALSDkjashdasdk"

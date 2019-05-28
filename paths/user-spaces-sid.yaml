@@ -2,9 +2,12 @@ get:
   operationId: get_user_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get space details
   x-bash-codegen-description: |
     Returns the details of a specific space.
@@ -17,13 +20,17 @@ get:
 
     ***Example cURL requests***
 
-    **Generate space join token**
+    **Get space details**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/user/spaces/IkHB1CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p00Y8
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
 
     {
-
+       "providers" : {
+          "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+       },
+       "spaceId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+       "name" : "Test"
     }
     ```
   produces:
@@ -40,7 +47,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -61,16 +68,17 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserSpace sid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"
+    source: "onezone-rest-cli getUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
 
 
 delete:
-  operationId: delete_user_space
+  operationId: remove_user_space
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: space
-  x-onedata-method: space_logic:remove_user
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space, ?BINDING(sid)}"
   summary: Leave space
   x-bash-codegen-description: |
     Removes the users ownership or membership in a specific space.
@@ -85,14 +93,14 @@ delete:
 
     **Delete user space**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/user/spaces/PMPs42mROSS7Rg7z7BwU9JYpSof4SvIW5v14uQY8X08
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
     ```
   produces:
     - application/json
   responses:
-    '200':
-      description: The space was deleted successfuly.
+    '204':
+      description: The space will be deleted.
     '400':
       description: Invalid request.
       schema:
@@ -100,7 +108,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -121,6 +129,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteUserSpace sid=LKJGHASDJHasdklajlsd899878asdJKAS22AJKLSHDLJKASD"
-
-
+    source: "onezone-rest-cli removeUserSpace sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

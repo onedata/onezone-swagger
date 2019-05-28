@@ -1,33 +1,35 @@
 get:
-  operationId: get_handle_group_privileges
+  operationId: list_handle_group_privileges
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:get_handle_group
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
-    - view_handle
-  summary: Get handle group privileges
+    - handle_view
+  summary: List handle group privileges
   x-bash-codegen-description: |
     Returns group privileges for accessing a handle instance.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Returns group privileges for accessing a handle instance.
 
-    This operation requires `view_handle` privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
     **Get handle group privileges**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/handles/DLAKSHDLKJHJjSADHLKJhlkASHLH/group/HJjLHSADHhlkASHDLAKSHDLKJLKJhlk/privileges
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/DLAKSHDLKJHJjSADHLKJhlkASHLH/groups/HJjLHSADHhlkASHDLAKSHDLKJLKJhlk/privileges
 
-    [
-      "view_handle
-    ]
+    {
+      "privileges": [
+        "handle_view"
+      ]
+    }
     ```
   produces:
     - application/json
@@ -43,7 +45,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -69,36 +71,36 @@ get:
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleGroupPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
+    source: "onezone-rest-cli listHandleGroupPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
 
 
-put:
+patch:
   operationId: set_handle_group_privileges
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:set_handle_group_privileges
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{group_privileges, ?BINDING(gid)}"
   x-onedata-permissions:
-    - modify_handle
+    - handle_update
   summary: Set handle groups privileges
   x-bash-codegen-description: |
     Sets group privileges for accessing a handle instance.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
   description: |
     Sets group privileges for accessing a handle instance.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
 
     ***Example cURL requests***
 
     **Set handle group privileges**
     ```bash
-    curl -k -u username:password -X PUT  -H "Content-type: application/json" \
+    curl -u username:password -X PATCH -H "Content-type: application/json" \
     -d '{"privileges": ["handle_view_data"]}' \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/group/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
     ```
   consumes:
     - application/json
@@ -112,7 +114,7 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -141,8 +143,7 @@ put:
       description: The list of group privileges to a specific handle.
       required: true
       schema:
-        $ref: '#/definitions/HandlePrivileges'
+        $ref: '#/definitions/HandlePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"handle_view_data\"]' | onezone-rest-cli setHandleGroupPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk"
-
+    source: "echo '[{\"privileges\": [\"handle_view_data\"]}' | onezone-rest-cli setHandleGroupPrivileges hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH gid=HJjLHSADHhlkASHDLAKSHDLKJLKJhlk -"

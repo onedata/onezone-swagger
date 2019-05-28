@@ -1,0 +1,10 @@
+type: object
+description: Spaces privileges update request.
+allOf:
+  - $ref: '#/definitions/PrivilegesUpdateOperation'
+  - $ref: '#/definitions/SpacePrivileges'
+example:
+  operation: update
+  privileges:
+        - space_invite_provider
+        - space_invite_user

@@ -1,0 +1,177 @@
+get:
+  operationId: get_default_provider
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_provider
+  summary: Get default provider
+  x-bash-codegen-description: |
+    Returns the ID of the default provider.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Returns the ID of the default provider.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Get user default provider**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/default_provider
+
+    {
+      "providerId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the Id of the default user provider or '404'.
+      schema:
+        $ref: '#/definitions/DefaultProvider'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getDefaultProvider"
+
+
+put:
+  operationId: set_default_provider
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_provider
+  summary: Set default provider
+  x-bash-codegen-description: |
+    Sets default provider for current user.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Sets default provider for current user.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Set user default provider**
+    ```bash
+    curl -u username:password  -H "Content-type: application/json" -X PUT \
+    -d '{ "providerId" : "S0Y9FSeSrVTXCTmCpgqfH4-_Dw3Uc9TFJFFzzLtBEs8" }' \
+    https://$HOST/api/v3/onezone/user/default_provider
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Default provider set successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: defaultprovider
+    in: body
+    description: Default provider ID.
+    schema:
+      $ref: '#/definitions/DefaultProvider'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli setDefaultProvider providerId==LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"
+
+
+delete:
+  operationId: remove_default_provider
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: default_provider
+  summary: Unset default provider
+  x-bash-codegen-description: |
+    Removes default provider setting for current user.
+
+    This operation can be invoked on behalf of current user only.
+  description: |
+    Removes default provider setting for current user.
+
+    This operation can be invoked on behalf of current user only.
+
+    ***Example cURL requests***
+
+    **Set user default space**
+    ```bash
+    curl -u username:password  -X DELETE \
+    https://$HOST/api/v3/onezone/user/default_provider
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Default provider removed successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeDefaultProvider"

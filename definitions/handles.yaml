@@ -1,0 +1,14 @@
+type: object
+description: List of handles.
+properties:
+  handles:
+    type: array
+    description: The list of handle Id's.
+    items:
+      type: string
+required:
+  - handles
+example:
+  handles:
+    - Bmav38YI0Z2-dw-fvrZ3XP-J0HjCN0taT3_WungK
+    - ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR

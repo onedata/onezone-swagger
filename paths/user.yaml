@@ -2,9 +2,11 @@ get:
   operationId: get_current_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:get_data
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: instance
+    scope: protected
   summary: Get current user details
   x-bash-codegen-description: |
     Returns details about currently authenticated user.
@@ -19,15 +21,14 @@ get:
 
     **Get user details**
     ```bash
-    curl -k -u username:password -X GET https://$HOST:8443/api/v3/onezone/user
-    
+    curl -u username:password -X GET https://$HOST/api/v3/onezone/user
+
     {
       "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "login": "admin",
+      "alias": "admin",
       "name": "admin",
-      "connectedAccounts": [],
-      "alias": "",
-      "emailList": []
+      "linkedAccounts": [],
+      "emails": []
     }
     ```
   produces:
@@ -36,7 +37,7 @@ get:
     '200':
       description: Returns the information about user.
       schema:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/UserProtectedInfo'
     '400':
       description: Invalid request.
       schema:
@@ -55,18 +56,18 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUser"
-
+    source: "onezone-rest-cli getCurrentUser"
 
 
 patch:
-  operationId: modify_user
+  operationId: modify_current_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:modify
-  summary: Modify user
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: instance
+  summary: Modify current user
   x-bash-codegen-description: |
     Modifies user account details based on information provided in the request body.
 
@@ -80,9 +81,9 @@ patch:
 
     **Change user name**
     ```bash
-    curl -k -u username:password  -H "Content-type: application/json" -X PATCH  \
+    curl -u username:password  -H "Content-type: application/json" -X PATCH  \
     -d '{"name": "new_name"}' \
-    https://$HOST:8443/api/v3/onezone/user
+    https://$HOST/api/v3/onezone/user
     ```
   consumes:
     - application/json
@@ -96,7 +97,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -114,21 +115,22 @@ patch:
     in: body
     description: User data.
     schema:
-      $ref: '#/definitions/User'
+      $ref: '#/definitions/UserUpdateRequest'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyUser name:=new_name"
+    source: "onezone-rest-cli modifyCurrentUser name==new_name"
 
 
 delete:
-  operationId: remove_user
+  operationId: remove_current_user
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: user
-  x-onedata-method: user_logic:remove
-  summary: Remove user
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: instance
+  summary: Remove current user
   x-bash-codegen-description: |
     Removes the account of currently authenticated user.
   description: |
@@ -138,14 +140,12 @@ delete:
 
     **Remove user account**
     ```bash
-    curl -k -u username:password -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/user
+    curl -u username:password -X DELETE  \
+    https://$HOST/api/v3/onezone/user
     ```
   responses:
-    '200':
-      description: User removed successfully.
-      schema:
-        type: string
+    '204':
+      description: User will be removed.
     '400':
       description: Invalid request.
       schema:
@@ -153,7 +153,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -168,5 +168,4 @@ delete:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUser"
-
+    source: "onezone-rest-cli removeCurrentUser"

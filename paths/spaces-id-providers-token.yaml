@@ -1,33 +1,39 @@
-get:
-  operationId: get_space_provider_token
+post:
+  operationId: create_space_support_token
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: pinvite
-  x-onedata-method: token_logic:create
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: invite_provider_token
+  x-onedata-permissions:
+    - space_invite_provider
   summary: Create space support token
   x-bash-codegen-description: |
-    Creates a token which can be submitted to a selected provider in order to 
+    Creates a token which can be submitted to a selected provider in order to
     add storage support for the space.
 
-    This operation requires `space_add_provider` privilege.
+    This operation requires `space_invite_provider` privilege.
   description: |
-    Creates a token which can be submitted to a selected provider in order to 
+    Creates a token which can be submitted to a selected provider in order to
     add storage support for the space.
 
-    This operation requires `space_add_provider` privilege.
+    This operation requires `space_invite_provider` privilege.
 
     ***Example cURL requests***
 
-    **Get space support token**
+    **Create space support token**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/providers/token
+    curl -u admin:password -X POST \
+    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/providers/token
 
-    {"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIHZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"}
+    {
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIHZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"
+    }
     ```
   produces:
+    - application/json
+  consumes:
     - application/json
   responses:
     '200':
@@ -41,7 +47,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -62,4 +68,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceProviderToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli createSpaceSupportToken id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

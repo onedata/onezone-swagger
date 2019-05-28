@@ -1,0 +1,42 @@
+type: object
+description: User linked account.
+properties:
+  idp:
+    type: string
+    description: ID of the identity provider.
+  subjectId:
+    type: string
+    description: User ID assigned in identity provider.
+  alias:
+    type: string
+    description: User alias (unique identifier, similar to login).
+  name:
+    type: string
+    description: User full name.
+  emails:
+    type: array
+    description: The list of user email accounts.
+    items:
+      type: string
+  entitlements:
+    type: array
+    description: |
+      A list of strings denoting user group memberships as acquired from the
+      identity provider. Memberships are in Onedata normalized form.
+    items:
+      type: string
+required:
+  - idp
+  - subjectId
+example:
+  idp: github
+  subjectId: ASDJH65675ASD765ASD890ASD6
+  alias: user1
+  name: User One
+  emails:
+    - user.1@example.com
+    - user.one@example.com
+    - user.i@example.com
+  entitlements:
+    - "elixir_test:members"
+    - "elixir_test:administration"

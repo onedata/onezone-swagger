@@ -1,35 +1,45 @@
-put:
-  operationId: add_handle_user
+get:
+  operationId: get_handle_user
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:add_handle_user
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
   x-onedata-permissions:
-    - modify_handle
-  summary: Add handle user
+    - handle_view
+  summary: Get handle user
   x-bash-codegen-description: |
     Allows to add a user to a handle.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_view` privilege.
   description: |
     Allows to add a user to a handle.
 
-    This operation requires `modify_handle_service` privilege.
+    This operation requires `handle_view` privilege.
 
     ***Example cURL requests***
 
-    **Add handle user**
+    **Get handle user**
     ```bash
-    curl -k -u username:password -X PUT \
-    https://$HOST:8443/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+
+    {
+       "name" : "John Doe",
+       "alias" : "username",
+       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo"
+    }
     ```
   produces:
     - application/json
   responses:
-    '204':
-      description: User added successfully.
+    '200':
+      description: User details returned successfully.
+      schema:
+        $ref: '#/definitions/User'
     '400':
       description: Invalid request.
       schema:
@@ -37,7 +47,81 @@ put:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      description: The ID of the handle.
+      required: true
+      type: string
+    - name: uid
+      in: path
+      description: The ID of the user to add to handle.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+
+
+put:
+  operationId: add_handle_user
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - handle_update
+  summary: Add handle user
+  x-bash-codegen-description: |
+    Allows to add a user to a handle.
+
+    This operation requires `handle_update` privilege.
+  description: |
+    Allows to add a user to a handle.
+
+    This operation requires `handle_update` privilege.
+
+    ***Example cURL requests***
+
+    **Add handle user**
+    ```bash
+    curl -u username:password -X PUT \
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
+    ```
+  produces:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the added user in form https://onezone.domain/api/onezone/v3/handles/{hndl}/users/{uid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the added user.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -70,32 +154,32 @@ delete:
   operationId: remove_handle_user
   tags:
     - Handle
-  x-onedata-service: onezone
-  x-onedata-module: handle
-  x-onedata-resource: handle
-  x-onedata-method: handle_logic:remove_handle_user
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hndl)
+    aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - modify_handle
+    - handle_update
   summary: Remove handle user
   x-bash-codegen-description: |
-    Allows to remove a user from access to a handle.
+    Allows to revoke users access to a handle.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
   description: |
-    Allows to remove a user from access to a handle.
+    Allows to revoke users access to a handle.
 
-    This operation requires `modify_handle` privilege.
+    This operation requires `handle_update` privilege.
 
     ***Example cURL requests***
 
     **Remove handle service user**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/handles/AKSHDLKJHJjLHSADHLKJhlkASHDL/users/JHJjLHADHLKJhDLAKSHDLK
     ```
   responses:
-    '202':
-      description: User removed successfully.
+    '204':
+      description: User will be removed.
     '400':
       description: Invalid request.
       schema:
@@ -103,7 +187,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

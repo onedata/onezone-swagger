@@ -1,0 +1,83 @@
+post:
+  operationId: map_idp_group
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: map_idp_group
+  summary: Maps external IdP group id into internal group id in OneZone
+  x-bash-codegen-description: |
+    Maps external IdP group id into internal group id in OneZone.
+    The IdP must have group mapping enabled.
+
+    This operation has public access.
+  description: |
+    Maps external IdP group id into internal group id in OneZone.
+    The IdP must have group mapping enabled.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Check provider IP**
+    ```bash
+    curl --tlsv1.2 -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." \
+    -d '{"idp": "elixir", "groupId": "elixir:members"}' \
+    -X GET https://beta.onedata.org/api/v3/onezone/provider/public/map_idp_group
+
+    {
+      "groupId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The group ID in external IdP.
+      schema:
+        type: object
+        properties:
+          groupId:
+            type: string
+            description: Internal group ID in OneZone.
+            items:
+              type: string
+        example:
+          groupId: dqs1ew2afn9q28rnweu8fb23r9jqwtfg
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: data
+    in: body
+    description: Mapping parameters
+    schema:
+      type: object
+      properties:
+        ipd:
+          type: string
+          description: External IdP (identity provider).
+        groupId:
+          type: string
+          description: GroupId in given IdP.
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli mapIdpGroup ipd==\"elixir\" groupId==\"elixir:members\" "

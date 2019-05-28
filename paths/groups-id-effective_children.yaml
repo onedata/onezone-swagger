@@ -1,0 +1,72 @@
+get:
+  operationId: get_effective_children_groups
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_children
+  x-onedata-permissions:
+    - group_view
+    - oz_groups_list_groups
+  summary: Get effective child groups
+  x-bash-codegen-description: |
+    Returns the list of effective child groups of a specific group.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_list_groups' privilege is required.
+  description: |
+    Returns the list of effective child groups of a specific group.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    'oz_groups_list_groups' privilege is required.
+
+    ***Example cURL requests***
+
+    **Get effective child groups**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_children
+
+    {
+      "groups": []
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of subgroup ID's.
+      schema:
+        $ref: '#/definitions/Groups'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveChildGroups id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"

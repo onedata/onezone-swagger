@@ -1,0 +1,16 @@
+type: object
+description: Group update request.
+properties:
+  name:
+    type: string
+    description: The name of the group.
+  type:
+    type: string
+    description: The type of the group.
+    enum:
+      - organization
+      - unit
+      - team
+      - role_holders
+example:
+  type: unit

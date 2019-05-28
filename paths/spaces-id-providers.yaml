@@ -1,30 +1,41 @@
 get:
-  operationId: get_space_providers
+  operationId: list_space_providers
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: providers
-  x-onedata-method: space_logic:get_providers
-  summary: Get space providers
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: providers
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_providers
+  summary: List space providers
   x-bash-codegen-description: |
     Returns the list of providers supporting specific space.
 
-    This operation requires `list_providers_of_space` privilege.
+    For users who are members of space it requires `space_view`.
+
+    For administrators who do not have to be members of this space,
+    `oz_spaces_list_providers` privilege is required.
   description: |
     Returns the list of providers supporting specific space.
 
-    This operation requires `list_providers_of_space` privilege.
+    For users who are members of space it requires `space_view`.
+
+    For administrators who do not have to be members of this space,
+    `oz_spaces_list_providers` privilege is required.
 
     ***Example cURL requests***
 
     **Get space support token**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/providers
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/providers
 
     {
-      "providers": ["MDAxNmxvYZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"]
+      "providers": [
+        "MDAxNmxvYZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"
+      ]
     }
     ```
   produces:
@@ -33,9 +44,7 @@ get:
     '200':
       description: The list of all provider ID's that support a specific space.
       schema:
-        type: array
-        items: 
-          type: string
+        $ref: '#/definitions/Providers'
     '400':
       description: Invalid request.
       schema:
@@ -43,7 +52,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -64,4 +73,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceProviders id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listSpaceProviders id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

@@ -2,31 +2,40 @@ get:
   operationId: get_space_group
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: group
-  x-onedata-method: space_logic:get_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_groups
   summary: Get group details
   x-bash-codegen-description: |
     Returns details about a specific group in a space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_list_groups` privilege is required.
   description: |
     Returns details about a specific group in a space.
 
-    This operation requires `space_view_data` privilege.
+    This operation requires `space_view` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_list_groups` privilege is required.
 
     ***Example cURL requests***
 
     **Get space group details**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
 
     {
       "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
       "name": "new_groupX",
-      "type": "role"
+      "type": "team"
     }
     ```
   produces:
@@ -43,7 +52,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -72,37 +81,42 @@ get:
     source: "onezone-rest-cli getSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 
 
-
-delete:
-  operationId: delete_space_group
+put:
+  operationId: add_group_to_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: group
-  x-onedata-method: space_logic:remove_group
-  summary: Remove group from space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - oz_spaces_add_members
+  summary: Add group to space
   x-bash-codegen-description: |
-    Removes a specific group from space.
+    Allows to add a group to any space.
 
-    This operation requires `space_remove_group` privilege or 
-    `remove_member_from_space` privilege.
+    This operation can be invoked by system administrators only
+    and requires `oz_spaces_add_members` privilege.
   description: |
-    Removes a specific group from space.
+    Allows to add a group to any space. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for group in this space.
 
-    This operation requires `space_remove_group` privilege or 
-    `remove_member_from_space` privilege.
+    This operation can be invoked by system administrators only
+    and requires `oz_spaces_add_members` privilege.
 
     ***Example cURL requests***
 
-    **Get space group details**
+    **Add group to space**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
+    curl -u username:password  -H "Content-type: application/json" -X PUT \
+     https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz
     ```
+  consumes:
+    - application/json
   responses:
-    '200':
-      description: A space has been removed from group.
+    '204':
+      description: The group was added to the space.
     '400':
       description: Invalid request.
       schema:
@@ -110,7 +124,87 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: privileges
+    in: body
+    schema:
+      $ref: '#/definitions/SpacePrivileges'
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addGroupToSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+
+
+delete:
+  operationId: remove_space_group
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - space_remove_group
+    - oz_spaces_remove_members
+  summary: Remove group from space
+  x-bash-codegen-description: |
+    Removes a specific group from space.
+
+    For regular users, who belong to this space it requires
+    `space_remove_group` privilege to remove a group from this space.
+
+    For administrators, who are not members of this space,
+    `oz_spaces_remove_members` privilege is required.
+  description: |
+    Removes a specific group from space.
+
+    For regular users, who belong to this space it requires
+    `space_remove_group` privilege to remove a group from this space.
+
+    For administrators, who are not members of this space,
+    `oz_spaces_remove_members` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get space group details**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
+    ```
+  responses:
+    '204':
+      description: A group will be removed from space.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -136,5 +230,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
-
+    source: "onezone-rest-cli removeSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"

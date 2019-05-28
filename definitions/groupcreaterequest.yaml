@@ -1,0 +1,19 @@
+type: object
+description: Group create request.
+properties:
+  name:
+    type: string
+    description: The name of the group.
+  type:
+    type: string
+    description: The type of the group. If not specified, `team` is assumed.
+    enum:
+      - organization
+      - unit
+      - team
+      - role_holders
+required:
+  - name
+example:
+  name: Test group
+  type: team

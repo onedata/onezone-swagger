@@ -1,0 +1,76 @@
+get:
+  operationId: get_effective_handle_user
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(hndl))
+  x-onedata-permissions:
+    - handle_view
+  summary: Get effective handle user
+  x-bash-codegen-description: |
+    Returns effective handle user details.
+
+    This operation requires `handle_view` privilege.
+  description: |
+    Returns effective handle user details.
+
+    This operation requires `handle_view` privilege.
+
+    ***Example cURL requests***
+
+    **Add handle user**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+
+    {
+       "name" : "John Doe",
+       "alias" : "username",
+       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: User details returned succesfully.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: hndl
+      in: path
+      description: The ID of the handle.
+      required: true
+      type: string
+    - name: uid
+      in: path
+      description: The ID of the user to add to handle.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveHandleUser hndl=DLAKSHDLKJHJjSADHLKJhlkASHLH uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"

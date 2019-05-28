@@ -1,27 +1,29 @@
 get:
-  operationId: get_user_onezone_privileges
+  operationId: list_user_onezone_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: privileges
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_user_privileges
-  summary: Get user's Onezone privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
+  summary: List user Onezone privileges
   x-bash-codegen-description: |
     Returns the list of user privileges for Onezone.
 
-    This operation requires `view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of user privileges for Onezone.
 
-    This operation requires `view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Get users privileges to Onezone service**
     ```bash
-    curl -k -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/privileges
+    curl -u username:password -X GET  \
+    https://$HOST/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/privileges
 
     {
       "privileges": []
@@ -41,7 +43,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -62,38 +64,40 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 
 
 patch:
   operationId: set_user_onezone_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:set_privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Set user's Onezone privileges
   x-bash-codegen-description: |
     Modifies privileges for a user {id} for Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
   description: |
     Modifies privileges for a user {id} for Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Modifies users privileges to Onezone service**
     ```bash
-    curl -k -u username:password  -H "Content-type: application/json"  -X PUT \
-    -d '{"privileges":["list_spaces"]}' \
-    https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmPj3SF0NsqBgdHG7iel89FHY802w/privileges
+    curl -u username:password  -H "Content-type: application/json" -X PATCH \
+    -d '{"privileges":["oz_spaces_list"]}' \
+    https://$HOST/api/v3/onezone/users/ivMnRLb2WYNApEmPj3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been added.
+    '204':
+      description: The user privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -101,7 +105,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -124,40 +128,42 @@ patch:
     in: body
     description: User Onezone privileges.
     schema:
-      $ref: '#/definitions/OnezonePrivileges'
+      $ref: '#/definitions/OnezonePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"list_spaces\", \"list_spaces\"]' | onezone-rest-cli setUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "echo '[\"oz_spaces_list\", \"oz_spaces_list\"]' | onezone-rest-cli setUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
 
 
 delete:
   operationId: remove_user_onezone_privileges
   tags:
     - User
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:remoev_privileges
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Remove user's Onezone privileges
   x-bash-codegen-description: |
     Removes all privileges for a user {id} to Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
   description: |
     Removes all privileges for a user {id} to Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Delete all user privileges to Onezone service**
     ```bash
-    curl -k -u username:password  -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/privileges
+    curl -u username:password  -X DELETE  \
+    https://$HOST/api/v3/onezone/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w/privileges
     ```
   responses:
-    '200':
-      description: The user privileges have been added.
+    '204':
+      description: The user privileges will be removed.
     '400':
       description: Invalid request.
       schema:
@@ -165,7 +171,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -187,4 +193,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli removeUserOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
-

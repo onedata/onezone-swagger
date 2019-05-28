@@ -1,0 +1,70 @@
+get:
+  operationId: list_effective_space_groups
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: eff_groups
+  x-onedata-permissions:
+    - space_view
+  summary: List effective space groups
+  x-bash-codegen-description: |
+    Returns the effective list of groups belonging to a specific space.
+
+    This operation requires `space_view` privilege.
+  description: |
+    Returns the effective list of groups belonging to a specific space.
+
+    This operation requires `space_view` privilege.
+
+    ***Example cURL requests***
+
+    **Get space effective groups**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/effective_groups
+
+    {
+      "groups": [
+        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of effective group ID's that belong to a specific space.
+      schema:
+        $ref: '#/definitions/Groups'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listEffectiveSpaceGroups id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

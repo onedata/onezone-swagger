@@ -1,27 +1,29 @@
 get:
-  operationId: get_group_onezone_privileges
+  operationId: list_group_onezone_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: privileges
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:get_group_privileges
-  summary: Get group's Onezone privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
+  summary: List group's Onezone privileges
   x-bash-codegen-description: |
     Returns the list of group privileges for Onezone.
 
-    This operation requires `view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
   description: |
     Returns the list of group privileges for Onezone.
 
-    This operation requires `view_privileges` privilege.
+    This operation requires `oz_view_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Get groups privileges to Onezone service**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
 
     {
       "privileges": []
@@ -41,7 +43,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -62,37 +64,39 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
 
 
 patch:
   operationId: set_group_onezone_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:set_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Set group's Onezone privileges
   x-bash-codegen-description: |
-    Modifies privileges for a user {id} for Onezone.
+    Modifies privileges for a group {id} for Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
   description: |
-    Modifies privileges for a user {id} for Onezone.
+    Modifies privileges for a group {id} for Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Set groups privileges to Onezone service**
     ```bash
-    curl -k -H "Content-type: application/json"  -X PUT \
-    -d '{"privileges": ["list_spaces"]}' \
-    https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
+    curl -H "Content-type: application/json"  -X PATCH \
+    -d '{"privileges": ["oz_spaces_list"]}' \
+    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/privileges
     ```
   responses:
-    '200':
+    '204':
       description: The group privileges have been added.
     '400':
       description: Invalid request.
@@ -101,7 +105,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -122,42 +126,44 @@ patch:
     required: true
   - name: data
     in: body
-    description: User Onezone privileges.
+    description: Onezone privileges update request.
     schema:
-      $ref: '#/definitions/OnezonePrivileges'
+      $ref: '#/definitions/OnezonePrivilegesUpdate'
   x-code-samples:
   - lang: Shell
-    source: "echo '[\"list_spaces\", \"list_spaces\"]' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "echo '{\"privileges\": [\"oz_spaces_list\", \"add_spaces\"]}' | onezone-rest-cli setGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM -"
 
 
 delete:
   operationId: remove_group_onezone_privileges
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: onezone
-  x-onedata-resource: upriv
-  x-onedata-method: onezone_logic:remove_privileges
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
   summary: Remove group's Onezone privileges
   x-bash-codegen-description: |
     Removes all privileges for a group {id} to Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
   description: |
     Removes all privileges for a group {id} to Onezone.
 
-    This operation requires `set_privileges` privilege.
+    This operation requires `oz_set_privileges` administrator privilege.
 
     ***Example cURL requests***
 
     **Remove all groups privileges to Onezone service**
     ```bash
-    curl -i -k -u username:password  -X DELETE  \
-    https://$HOST:8443/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2/privileges
+    curl -i -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2/privileges
     ```
   responses:
-    '200':
-      description: The group privileges have been added.
+    '204':
+      description: The group privileges will be removed.
     '400':
       description: Invalid request.
       schema:
@@ -165,7 +171,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -187,4 +193,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli removeGroupOnezonePrivileges id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
-

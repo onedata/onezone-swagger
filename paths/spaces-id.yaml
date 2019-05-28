@@ -2,34 +2,38 @@ get:
   operationId: get_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_spaces_list
   summary: Get space details
   x-bash-codegen-description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces' 
+    If called by user who is not member of the space, requires `oz_spaces_list`
     privilege.
   description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires 'list_spaces' 
+    If called by user who is not member of the space, requires `oz_spaces_list`
     privilege.
 
     ***Example cURL requests***
 
     **Get space details**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
 
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
-      "canonicalName": "new_space1",
-      "providersSupports": []
+      "providers": {
+        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+      }
     }
     ```
   produces:
@@ -46,7 +50,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -74,23 +78,29 @@ patch:
   operationId: modify_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:modify
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_update
   summary: Modify space details
   x-bash-codegen-description: |
     Updates the details about a space.
+
+    This operation requires `space_update` privilege.
   description: |
     Updates the details about a space.
+
+    This operation requires `space_update` privilege.
 
     ***Example cURL requests***
 
     **Change space name**
     ```bash
-    curl -k -u username:password -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_space12"}' \
-    https://$HOST:8443/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
+    https://$HOST/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
     ```
   consumes:
     - application/json
@@ -104,7 +114,7 @@ patch:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -127,37 +137,47 @@ patch:
     in: body
     description: Space parameters
     schema:
-      $ref: '#/definitions/Space'
+      type: object
+      properties:
+        name:
+          type: string
+          description: The new name of the space.
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifySpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name:=\"New Space Name\""
+    source: "onezone-rest-cli modifySpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name==\"New Space Name\""
 
 
 delete:
   operationId: remove_space
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: space
-  x-onedata-method: space_logic:remove_space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_delete
   summary: Remove space
   x-bash-codegen-description: |
     Removes a specific space.
+
+    This operation requires `space_delete` privilege.
   description: |
     Removes a specific space.
+
+    This operation requires `space_delete` privilege.
 
     ***Example cURL requests***
 
     **Remove space**
     ```bash
-    curl -k -u admin:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    curl -u admin:password -X DELETE \
+    https://$HOST/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
     ```
   responses:
-    '200':
-      description: The space has been removed successfully.
+    '204':
+      description: The space will be removed.
     '400':
       description: Invalid request.
       schema:
@@ -165,7 +185,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -187,4 +207,3 @@ delete:
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli removeSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
-

@@ -2,32 +2,37 @@ get:
   operationId: get_provider_space
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: providers
-  x-onedata-resource: spaces
-  x-onedata-method: provider_logic:get_space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_PROVIDER(?BINDING(pid))
+  x-onedata-permissions:
+    - oz_providers_list_spaces
   summary: Get space supported by provider
   x-bash-codegen-description: |
     Returns the details of space supported by a specific provider.
 
-    This operation requires `list_spaces_of_provider` privilege.
+    This operation requires `oz_providers_list_spaces` administrator privilege.
   description: |
     Returns the details of space supported by a specific provider.
 
-    This operation requires `list_spaces_of_provider` privilege.
+    This operation requires `oz_providers_list_spaces` administrator privilege.
 
     ***Example cURL requests***
 
     **Get space supported by provider**
     ```bash
-    curl -ksS -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces/KJHAGSDJKHGASJKHDGAKJHSDGKHJASD
+    curl -u username:password -X GET  \
+    https://$HOST/api/v3/onezone/providers/ASDJKHASDASD5465asdvASDasd/spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
 
     {
-      "spaceId": "KJHAGSDJKHGASJKHDGAKJHSDGKHJASD",
-      "name": "new_space1",
-      "canonicalName": "new_space1",
-      "providersSupports": []
+       "providers" : {
+          "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+       },
+       "spaceId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+       "name" : "Test"
     }
     ```
   produces:
@@ -44,7 +49,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

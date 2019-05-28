@@ -1,0 +1,14 @@
+type: object
+description: List of spaces.
+properties:
+  spaces:
+    type: array
+    description: The list of space Id's.
+    items:
+      type: string
+required:
+  - spaces
+example:
+  spaces:
+    - Bmav38YI0Z2-dw-fvrZ3XP-J0HjCN0taT3_WungK
+    - ASmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR

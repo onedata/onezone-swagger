@@ -1,30 +1,33 @@
 get:
-  operationId: get_providers
+  operationId: oz_providers_list
   tags:
     - Provider
-  x-onedata-service: onezone
-  x-onedata-module: provider
-  x-onedata-resource: providers
-  x-onedata-method: provider_logic:get_providers
-  summary: Get providers
+  x-onedata-gri:
+    type: od_provider
+    aspect: list
+  x-onedata-permissions:
+    - oz_providers_list
+  summary: List providers
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.
-    
-    This operation requires `list_providers` privilege.
+
+    This operation requires `oz_providers_list` administrator privilege.
   description: |
     Returns the list of providers registered in the Onezone service.
-    
-    This operation requires `list_providers` privilege.
+
+    This operation requires `oz_providers_list` administrator privilege.
 
     ***Example cURL requests***
 
     **Get list of providers**
     ```bash
     curl -Ssk -u username:password -X GET  \
-    https://$HOST:8443/api/v3/onezone/providers
+    https://$HOST/api/v3/onezone/providers
 
     {
-      "providers": ["WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"]
+      "providers": [
+        "WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+      ]
     }
     ```
   produces:
@@ -33,14 +36,7 @@ get:
     '200':
       description: List of providers Id's.
       schema:
-        type: object
-        properties:
-          providers:
-            type: array
-            items:
-              type: string
-        required:
-          - providers
+        $ref: '#/definitions/Providers'
     '400':
       description: Invalid request.
       schema:
@@ -48,7 +44,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -63,4 +59,65 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getProviders"
+    source: "onezone-rest-cli listProviders"
+
+
+post:
+  operationId: register_provider
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: instance
+  summary: Register provider
+  x-bash-codegen-description: |
+    Registers a Oneprovider in Onezone service.
+
+    Requires a valid CSR in the bodyand returns signed certificate that will
+    be used by the Oneprovider for authorization (SSL Peer Certificate).
+
+    This operation has public access.
+  description: |
+    Registers a Oneprovider in Onezone service.
+
+    Requires a valid CSR in the body and returns signed certificate that will
+    be used by the Oneprovider for authorization (SSL Peer Certificate).
+
+    This operation has public access.
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Provider registered successfully.
+      schema:
+        $ref: '#/definitions/ProviderRegistrationResponse'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: data
+    in: body
+    description: Provider reqistration request including CSR.
+    schema:
+      $ref: '#/definitions/ProviderRegistrationRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "cat registration_request.json | onezone-rest-cli registerProvider -"

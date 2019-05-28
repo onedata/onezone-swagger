@@ -13,18 +13,22 @@ properties:
   rootFileId:
     type: string
     description: The ID of the shared file or folder.
-  parentSpace:
+  spaceId:
     type: string
     description: The ID of the space in which the share was created.
+  handleId:
+    type: string
+    description: The Id of open data Handle (e.g. DOI or PID) assigned to this share.
 required:
   - shareId
   - name
   - publicUrl
   - rootFileId
-  - parentSpace
+  - spaceId
 example:
-  shareId: 
+  shareId: 8asd89asdlbKJSBD79a8sdkLKJH8asdkjasd8989
   name: MyNewShare
   publicUrl: https://onedata.org/shares/ASDLKJH8asdkjasd89898asd89asdlbKJSBDikjab89-asdmASD
   rootFileId: ASDkjlkkasdjoiwnafldnacbaasd8879a8sdkjb
-  parentSpace: LKJH8asdkjasd89898asd89asdlbKJSBD79a8sdk
+  spaceId: LKJH8asdkjasd89898asd89asdlbKJSBD79a8sdk
+  handleId: doi:10.15911/MyShares.726855

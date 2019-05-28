@@ -3,7 +3,9 @@ description: Client token for authorization from command line or via REST.
 properties:
   token:
     type: string
-    description: The client token.
+    description: The access token.
+    items:
+      type: string
 required:
   - token
 example:

@@ -1,0 +1,85 @@
+get:
+  operationId: get_effective_group_handle
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  summary: Get effective group handle details
+  x-bash-codegen-description: |
+    Returns the details of a specific effective handle.
+
+  description: |
+    Returns the details of a specific effective handle.
+
+    ***Example cURL requests***
+
+    **Get effective handle details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/effective_handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+
+    {
+      "handle": "10.5072/w95Zlng"
+      "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+      "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
+      "resourceType": "Share",
+      "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
+      "metadata": "<?xml version=\"1.0\"?>
+          <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
+          <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
+                   xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+            <rdf:Description rdf:about=\"http://example.com/resouces/1\">
+              <dc:title>Example Resource</dc:title>
+              <dc:creator>John Doe</dc:creator>
+              <dc:publisher>MIT</dc:publisher>
+              <dc:date>2000-06-06</dc:date>
+            </rdf:Description>
+          </rdf:RDF>",
+      "timestamp": "1997-07-16T19:20"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the details of a specific effective handle.
+      schema:
+        $ref: '#/definitions/Handle'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group ID.
+    type: string
+    required: true
+  - name: hid
+    in: path
+    description: Handle ID.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"

@@ -2,35 +2,38 @@ get:
   operationId: get_group_space
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: space
-  x-onedata-method: space_logic:get_data
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
-    - group_view_data
+    - group_view
   summary: Get group's space details
   x-bash-codegen-description: |
     Returns information about a specific space to which the group belongs.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
   description: |
     Returns information about a specific space to which the group belongs.
 
-    This operation requires `group_view_data` privilege.
+    This operation requires `group_view` privilege.
 
     ***Example cURL requests***
 
     **Get group's space details**
     ```bash
-    curl -k -u username:password -X GET \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
-   
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+
     {
       "spaceId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
       "name": "a",
-      "canonicalName": "a",
-      "providersSupports": []
-    }    
+      "providers": {
+        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+      }
+    }
     ```
   produces:
     - application/json
@@ -38,7 +41,7 @@ get:
     '200':
       description: Information about a specific space in a group.
       schema:
-        $ref: '#/definitions/Group'
+        $ref: '#/definitions/Space'
     '400':
       description: Invalid request.
       schema:
@@ -46,7 +49,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -79,10 +82,10 @@ delete:
   operationId: remove_group_from_space
   tags:
     - Group
-  x-onedata-service: onezone
-  x-onedata-module: group
-  x-onedata-resource: space
-  x-onedata-method: space_logic:remove_group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{space, ?BINDING(sid)}"
   x-onedata-permissions:
     - group_leave_space
   summary: Remove group from space
@@ -99,11 +102,11 @@ delete:
 
     **Remove space from group**
     ```bash
-    curl -k -u username:password -X DELETE \
-    https://$HOST:8443/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
     ```
   responses:
-    '202':
+    '204':
       description: A group will be removed from the space.
     '400':
       description: Invalid request.
@@ -112,7 +115,7 @@ delete:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:

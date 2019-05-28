@@ -1,27 +1,28 @@
 get:
-  operationId: get_space_shares
+  operationId: list_space_shares
   tags:
     - Space
-  x-onedata-service: onezone
-  x-onedata-module: spaces
-  x-onedata-resource: shares
-  x-onedata-method: space_logic:get_shares
-  summary: Get space shares
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: shares
+  summary: List space shares
   x-bash-codegen-description: |
     Returns the list of shares from specific space.
   description: |
     Returns the list of shares from specific space.
 
-
     ***Example cURL requests***
 
     **List space shares**
     ```bash
-    curl -k -u admin:password -X GET \
-    https://$HOST:8443/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/shares
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/shares
 
     {
-      "shares": ["MDAxNmxvYZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"]
+      "shares": [
+        "MDAxNmxvYZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"
+      ]
     }
     ```
   produces:
@@ -30,9 +31,7 @@ get:
     '200':
       description: The list of all share ID's that have been created in specific space.
       schema:
-        type: array
-        items: 
-          type: string
+        $ref: '#/definitions/Shares'
     '400':
       description: Invalid request.
       schema:
@@ -40,7 +39,7 @@ get:
     '401':
       description: Authentication error.
       schema:
-        $ref: '#/definitions/Error'  
+        $ref: '#/definitions/Error'
     '403':
       description: Authorization error.
       schema:
@@ -61,4 +60,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceShares id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listSpaceShares id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"

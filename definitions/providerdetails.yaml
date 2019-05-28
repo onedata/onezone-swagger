@@ -4,14 +4,13 @@ properties:
   providerId:
     type: string
     description: The provider ID.
-  urls:
-    type: array
-    description: The list of urls where the provider can be reached.
-    items:
-      type: string
-  redirectionPoint:
+  name:
     type: string
-    description: The redirection URL for the provider.
+    description: Provider name.
+  domain:
+    type: string
+    description: >
+      The fully qualified domain name of the provider or its IP address.
   latitude:
     type: number
     description: The geographical latitude of the provider data center location.
@@ -19,10 +18,8 @@ properties:
     type: number
     description: The geographical longitude of the provider data center location.
 example:
-  providerId: LASDASJDBH89869ASD79869asd
-  urls:
-    - http://beta.onedata.org/provider1
-    - http://beta.onedata.org/provider2
-  redirectionPoint: http://beta.onedata.org/provider2
+  name: Example provider
+  providerId: H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0123upGkf9tk
+  domain: provider1.beta.onedata.org
   latitude: 50.0647
   longitude: 19.9450
