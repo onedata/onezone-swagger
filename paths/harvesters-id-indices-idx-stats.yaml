@@ -1,24 +1,24 @@
 get:
-  operationId: get_harvester_index_progress
+  operationId: get_harvester_index_stats
   tags:
     - Harvester
   x-onedata-gri:
     type: od_harvester
     id: ?BINDING(id)
-    aspect: "{index_progress, ?BINDING(idx)}"
+    aspect: "{index_stats, ?BINDING(idx)}"
     scope: private
   x-onedata-permissions:
     - harvester_view
     - oz_harvesters_view
-  summary: Get harvester index progress
+  summary: Get harvester index stats
   x-bash-codegen-description: |
-    Returns details about harvesting progress of a specific index in the harvester.
+    Returns details about harvesting stats of a specific index in the harvester.
 
     For users who are members of harvester it requires `harvester_view`.
     For administrators who do not have to be members of this harvester,
     `oz_harvesters_view` privilege is required.
   description: |
-    Returns details about harvesting progress of a specific index in the harvester.
+    Returns details about harvesting stats of a specific index in the harvester.
 
     For users who are members of harvester it requires `harvester_view`.
     For administrators who do not have to be members of this harvester,
@@ -26,19 +26,43 @@ get:
 
     ***Example cURL requests***
 
-    **Get harvester space details**
+    **Get harvester index stats**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/indices/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
 
     {
       $SPACE_ID1 : {
-        $PROVIDER_ID1 : [8,13],
-        $PROVIDER_ID2 : [13,21]
+        $PROVIDER_ID1 : {
+          "currentSeq" : 5,
+          "maxSeq" : 8,
+          "error" : null,
+          "lastUpdate" : 1557928576,
+          "archival" : false
+        },
+        $PROVIDER_ID2 : {
+          "currentSeq" : 8,
+          "maxSeq" : 13,
+          "error" : "Service unavailable: temporary failure.",
+          "lastUpdate" : 1557928576,
+          "archival" : false
+        }
       },
       $SPACE_ID2 : {
-        $PROVIDER_ID1 : [3,5],
-        $PROVIDER_ID3 : [5,8]
+        $PROVIDER_ID1 : {
+          "currentSeq" : 13,
+          "maxSeq" : 21,
+          "error" : null,
+          "lastUpdate" : 1557928576,
+          "archival" : false
+        },
+        $PROVIDER_ID3 : {
+          "currentSeq" : 21,
+          "maxSeq" : 34,
+          "error" : null,
+          "lastUpdate" : 1557928576,
+          "archival" : true
+        }
       }
     }
     ```
@@ -46,9 +70,9 @@ get:
     - application/json
   responses:
     '200':
-      description: JSON with details about an index harvesting progress.
+      description: JSON with an index harvesting stats.
       schema:
-        $ref: '#/definitions/HarvesterIndexProgressDetails'
+        $ref: '#/definitions/HarvesterIndexStatsDetails'
     '400':
       description: Invalid request.
       schema:
@@ -82,4 +106,4 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getHarvesterIndexProgress id=b752ceafabb662b4e5728b2ded25cdd1 idx=f1c8b1a37aa7447b22eb65a742d40524"
+      source: "onezone-rest-cli getHarvesterIndexStats id=b752ceafabb662b4e5728b2ded25cdd1 idx=f1c8b1a37aa7447b22eb65a742d40524"

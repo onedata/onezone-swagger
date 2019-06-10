@@ -30,7 +30,7 @@ get:
     **Get group's harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/7e1af0c5f0bfdfe9d2e7edb731247f5f
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/harvesters/$HARVESTER_ID
 
     {
       "harvesterId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
@@ -112,7 +112,7 @@ delete:
     **Remove harvester from group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/a4d3bc73aada63052310652d421609f1/harvesters/7e1af0c5f0bfdfe9d2e7edb731247f5f
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/harvesters/$HARVESTER_ID
     ```
   responses:
     '204':

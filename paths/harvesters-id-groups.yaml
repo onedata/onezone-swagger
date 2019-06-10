@@ -30,7 +30,7 @@ get:
     **Get harvester groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/16a0e017d184d7d4512f441e72848fff5PLE/groups
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups
 
     {
       "groups": [
@@ -111,7 +111,7 @@ post:
     **Create group in harvester**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/harvesters/a4d3bc73aada63052310652d421609f1/groups
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups
     ```
   produces:
   - application/json

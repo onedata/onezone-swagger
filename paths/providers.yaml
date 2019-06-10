@@ -59,7 +59,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listProviders"
+    source: "onezone-rest-cli ozProvidersList"
 
 
 post:

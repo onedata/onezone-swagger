@@ -11,12 +11,12 @@ delete:
     - oz_harvesters_update
   summary: Remove harvested index metadata
   x-bash-codegen-description: |
-    Removes all harvested metadata in given index.
+    Schedules removal of all harvested metadata in given index.
 
     This operation requires `harvester_update` privilege
     or `oz_harvesters_update` admin privilege.
   description: |
-    Removes all harvested metadata in given index.\
+    Schedules removal of all harvested metadata in given index.\
     See also: [Remove index](#operation/remove_harvester_index)
 
     This operation requires `harvester_update` privilege
@@ -27,11 +27,11 @@ delete:
     **Remove harvested index metadata**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/harvesters/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/indices/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
     ```
   responses:
     '204':
-      description: All harvested metadata in this index have been removed.
+      description: All harvested metadata in this index have been scheduled to be removed.
     '400':
       description: Invalid request.
       schema:

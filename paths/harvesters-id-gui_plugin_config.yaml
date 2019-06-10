@@ -26,7 +26,7 @@ get:
     **Get harvester details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I/config
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/config
 
     {
       "config" : {
@@ -42,7 +42,7 @@ get:
     '200':
       description: Harvester GUI plugin configuration.
       schema:
-        $ref: '#/definitions/HarvesterConfiguration'
+        $ref: '#/definitions/HarvesterGuiPluginConfig'
     '400':
       description: Invalid request.
       schema:
@@ -103,7 +103,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"config": {}}' \
-    https://$HOST/api/v3/onezone/harvesters/16a0e017d184d7d4512f441e72848fff5PLE/config
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/config
     ```
   consumes:
     - application/json
@@ -140,7 +140,7 @@ patch:
       in: body
       description: New harvester config
       schema:
-        $ref: '#/definitions/HarvesterConfiguration'
+        $ref: '#/definitions/HarvesterGuiPluginConfig'
       required: true
   x-code-samples:
     - lang: Shell

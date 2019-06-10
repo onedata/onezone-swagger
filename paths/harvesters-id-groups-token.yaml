@@ -26,7 +26,7 @@ post:
     **Create harvester invitation token for group**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/harvesters/16a0e017d184d7d4512f441e72848fff5PLE/groups/token
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/token
 
     {
       "token": "MDAxNmxvY0cGUgKWsjcpnrLE00RtOd2F00cGUgKWsjcpnrLE00RtOdhmnQycSICwMsugo"

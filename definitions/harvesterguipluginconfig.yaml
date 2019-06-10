@@ -1,10 +1,10 @@
 type: object
 description: Custom JSON configuration passed to harvester GUI plugin.
 properties:
-  config:
+  guiPluginConfig:
     type: object
 required:
-  - config
+  - guiPluginConfig
 example:
   config: {
     "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
