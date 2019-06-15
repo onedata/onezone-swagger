@@ -1,10 +1,16 @@
 type: object
 description: Handle service privileges update request.
-allOf:
-  - $ref: '#/definitions/PrivilegesUpdateOperation'
-  - $ref: '#/definitions/HandleServicePrivileges'
+properties:
+  grant:
+    $ref: '#/definitions/HandleServicePrivileges'
+  revoke:
+    $ref: '#/definitions/HandleServicePrivileges'
+
 example:
-  operation: update
-  privileges:
+  grant:
+    - handle_service_update
+    - handle_service_view
+  revoke:
     - handle_service_delete
     - handle_service_list_handles
+    - handle_service_register_handle

@@ -10,28 +10,33 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
+    - oz_spaces_view
   summary: Get effective group space details
   x-bash-codegen-description: |
-    Returns information about a specific effective space to which the group belongs.
+    Returns information about a specific effective space to which the group has access.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_view` privilege is required.
   description: |
-    Returns information about a specific effective space to which the group belongs.
+    Returns information about a specific effective space to which the group has access.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get group's space details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_spaces/Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_spaces/$SPACE_ID
 
     {
        "providers" : {
-          "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+          "296ebe3c20e9666dc489b647f8647f12" : 5368709120
        },
-       "spaceId" : "Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY",
+       "spaceId" : "f8d843beda24e54545455ecc0f4b8886",
        "name" : "Test"
     }
     ```
@@ -65,14 +70,14 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: sid
     in: path
-    description: Effective space ID.
+    description: Effective space Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveGroupSpace id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 sid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli getEffectiveGroupSpace id=a4d3bc73aada63052310652d421609f1 sid=HUUPOMNGzikwiLXHaFYcE8"

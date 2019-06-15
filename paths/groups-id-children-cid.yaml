@@ -10,30 +10,30 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
-    - oz_groups_list_groups
-  summary: Get subgroup details
+    - oz_groups_view
+  summary: Get child group details
   x-bash-codegen-description: |
     Returns information about a specific child group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-     'oz_groups_list_groups' privilege is required.
+     `oz_groups_view` privilege is required.
   description: |
     Returns information about a specific child group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-     'oz_groups_list_groups' privilege is required.
+     `oz_groups_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get child group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
 
     {
-      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
       "name": "new_group1",
       "type": "team"
     }
@@ -68,17 +68,17 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: cid
     in: path
-    description: Child group ID.
+    description: Child group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli getChildGroup id=538ef9643ae6b9e40817e51eece7e341 cid=0ec9817801d74e2fa6cc50a476ed5d4d"
 
 
 put:
@@ -90,32 +90,46 @@ put:
     id: ?BINDING(id)
     aspect: "{child, ?BINDING(cid)}"
   x-onedata-permissions:
-    - oz_groups_add_members
+    - oz_groups_add_relationships
   summary: Add child group
   x-bash-codegen-description: |
-    Adds group {cid} as child group of {id}.
+    Adds group {cid} as child group of group {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the child group in this group.
 
-    For administrator who does not belong to this group
-    'oz_groups_add_members' privilege is required.
+    This operation requires `group_add_child` privilege in the parent group and
+    `group_add_parent` privilege in the child group. If `privileges` are
+    specified in the request, `group_set_privileges` privilege is also required.
+
+    For administrator who does not belong to those groups,
+    `oz_groups_add_relationships` privilege is required, and
+    `oz_groups_set_privileges` if `privileges` are specified in the request.
   description: |
-    Adds group {cid} as child group of {id}.
+    Adds group {cid} as child group of group {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the child group in this group.
 
-    For administrator who does not belong to this group
-    'oz_groups_add_members' privilege is required.
+    This operation requires `group_add_child` privilege in the parent group and
+    `group_add_parent` privilege in the child group. If `privileges` are
+    specified in the request, `group_set_privileges` privilege is also required.
+
+    For administrator who does not belong to those groups,
+    `oz_groups_add_relationships` privilege is required, and
+    `oz_groups_set_privileges` if `privileges` are specified in the request.
 
     ***Example cURL requests***
 
     **Add child group**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
     ```
   produces:
     - application/json
   responses:
     '201':
       description: >
-        URI of the added group in form https://onezone.domain/api/onezone/v3/groups/{id}/children/{cid} is
+        URI of the added group in form https://$HOST/api/onezone/v3/groups/{id}/children/{cid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -144,17 +158,17 @@ put:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: cid
     in: path
-    description: Child group ID.
+    description: Child group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli addChildGroup id=538ef9643ae6b9e40817e51eece7e341 cid=0ec9817801d74e2fa6cc50a476ed5d4d"
 
 
 delete:
@@ -166,32 +180,32 @@ delete:
     id: ?BINDING(id)
     aspect: "{child, ?BINDING(cid)}"
   x-onedata-permissions:
-    - group_remove_group
-    - oz_groups_remove_members
-  summary: Remove subgroup
+    - group_remove_child
+    - oz_groups_remove_relationships
+  summary: Remove child group
   x-bash-codegen-description: |
     Removes a specific child with {cid} from parent group with {id}.
 
-    This operation requires `group_remove_group` privilege.
+    This operation requires `group_remove_child` privilege.
     For administrator who does not belong to this group
-    'oz_groups_remove_members' privilege is required.
+    `oz_groups_remove_relationships` privilege is required.
   description: |
     Removes a specific child with {cid} from parent group with {id}.
 
-    This operation requires `group_remove_group` privilege.
+    This operation requires `group_remove_child` privilege.
     For administrator who does not belong to this group
-    'oz_groups_remove_members' privilege is required.
+    `oz_groups_remove_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **Remove child group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/KoiO-QKqmYZRjPVdtR30FrdIEA1JF9f3TznAr9BDjA4/children/Qi4QT2oalnfQu0SzTK1HgXxKuUrlRppb68rr_UhwC50
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
     ```
   responses:
     '204':
-      description: A subgroup will be removed.
+      description: A child group was removed.
     '400':
       description: Invalid request.
       schema:
@@ -215,14 +229,14 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: cid
     in: path
-    description: Child group ID.
+    description: Child group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli removeChildGroup id=538ef9643ae6b9e40817e51eece7e341 cid=0ec9817801d74e2fa6cc50a476ed5d4d"

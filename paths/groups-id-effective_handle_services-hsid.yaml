@@ -10,25 +10,30 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
+    - oz_handle_services_view
   summary: Get effective group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific effective handle service.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_view` privilege is required.
   description: |
     Returns the details of a specific effective handle service.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get effective handle service details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/ALASDLKJALKSDJKLASD/effective_handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_handle_services/$HANDLE_SERVICE_ID
 
     {
-        "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
         "name": "MyCommunity Handle service",
         "proxyEndpoint": "https://localhost:17000/handle_proxy",
         "serviceProperties": {
@@ -75,14 +80,14 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: hsid
     in: path
-    description: Handle service ID.
+    description: Handle service Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveGroupHandleService id=ALASDLKJALKSDJKLASD hsid=SADHLKJhlkASHDLAKSHDLKJHJjLH"
+    source: "onezone-rest-cli getEffectiveGroupHandleService id=9f63efbd952391af88e096c2bb33bb5d hsid=0fe7c8a20ffdf07480c46f084bc3b8d5"

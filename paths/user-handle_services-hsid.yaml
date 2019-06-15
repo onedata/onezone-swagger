@@ -12,18 +12,18 @@ get:
   x-bash-codegen-description: |
     Returns the details of a specific handle service.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the details of a specific handle service.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Get handle service details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/handle_services/$HANDLE_SERVICE_ID
 
     {
         "name": "MyCommunity Handle service",
@@ -72,44 +72,44 @@ get:
   parameters:
   - name: hsid
     in: path
-    description: Handle service ID.
+    description: Handle service Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserHandleService hsid=95b663a6467c72ab1256865efef9e387"
 
 
 delete:
-  operationId: remove_user_handle_service
+  operationId: leave_handle_service
   tags:
     - User
   x-onedata-gri:
     type: od_user
     id: ?CLIENT_ID
     aspect: "{handle_service, ?BINDING(hsid)}"
-  summary: Remove user handle service
+  summary: Leave handle service
   x-bash-codegen-description: |
-    Removes the users ownership or membership in a specific handle service.
+    Removes the user's ownership or access to a specific handle service.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Removes the users ownership or membership in a specific handle service.
+    Removes the user's ownership or access to a specific handle service.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Delete user handle service**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/handle_services/$HANDLE_SERVICE_ID
     ```
   produces:
     - application/json
   responses:
     '204':
-      description: The handle service will be removed.
+      description: The user is no longer a member of the handle service.
     '400':
       description: Invalid request.
       schema:
@@ -138,4 +138,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli leaveHandleService hsid=95b663a6467c72ab1256865efef9e387"

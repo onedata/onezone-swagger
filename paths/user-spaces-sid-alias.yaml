@@ -10,18 +10,18 @@ get:
   x-bash-codegen-description: |
     Returns the alias of a specific space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the alias of a specific space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Get space alias**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
 
     {
       "alias": "Test space 2"
@@ -57,12 +57,12 @@ get:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387"
 
 
 put:
@@ -77,11 +77,11 @@ put:
   x-bash-codegen-description: |
     Sets the alias of a specific space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Sets the alias of a specific space.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -89,7 +89,7 @@ put:
     ```bash
     curl -u username:password -X PUT -d '{"alias": "Space alias"}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
     ```
   consumes:
     - application/json
@@ -121,7 +121,7 @@ put:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: data
@@ -132,7 +132,7 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: onezone-rest-cli setUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY alias=="Space alias"
+    source: onezone-rest-cli setUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387 alias=="Space alias"
 
 
 delete:
@@ -147,24 +147,24 @@ delete:
   x-bash-codegen-description: |
     Removes the space alias.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Removes the space alias.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Remove user space alias**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/spaces/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY/alias
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
     ```
   produces:
     - application/json
   responses:
     '204':
-      description: The space alias will be removed.
+      description: The space alias was removed.
     '400':
       description: Invalid request.
       schema:
@@ -193,4 +193,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeUserSpaceAlias sid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli removeUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387"

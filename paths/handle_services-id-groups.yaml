@@ -8,27 +8,30 @@ get:
     aspect: groups
   x-onedata-permissions:
     - handle_service_view
+    - oz_handle_services_list_relationships
   summary: List handle service groups
   x-bash-codegen-description: |
     Returns all groups with access to a handle service instance
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_list_relationships` admin privilege.
   description: |
     Returns all groups with access to a handle service instance
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Get handle service groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/groups
 
     {
       "groups": [
-        "LKJhlkASHDLAKSHDLKJHJjL",
-        "LAKSHDLKJHJjLLKJhlkASHD"
+        "9d9687a61855be21a31c34359b1fa0d4",
+        "89389b5483bb60288e6f0a7af488e710"
       ]
     }
     ```
@@ -62,9 +65,9 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleServiceGroups id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listHandleServiceGroups id=a4d3bc73aada63052310652d421609f1"

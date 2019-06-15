@@ -20,6 +20,6 @@ required:
   - name
   - type
 example:
-  groupId: ALSKDHLASD8ASDNjasd99
+  groupId: a4d3bc73aada63052310652d421609f1
   name: Test group
   type: team

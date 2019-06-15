@@ -8,17 +8,17 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   summary: Join space
   x-bash-codegen-description: |
-    Join existing space using inivitation token.
+    Join existing space using an invitation token.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Join existing space using inivitation token.
+    Join existing space using an invitation token.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Join existing space**
+    **Join an existing space**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
     -d '{ "token" : "MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcmLciFsOgyUkPI3f02le6PM01IX8go" }'  \
@@ -29,7 +29,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the joined space in form https://onezone.domain/api/onezone/v3/user/spaces/{id} is
+        URI of the joined space in form https://$HOST/api/onezone/v3/user/spaces/{id} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -64,4 +64,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinSpace token==ASDKLJHASD868&ASDJKJKHasjhdaASD89798asdaA"
+    source: "onezone-rest-cli joinSpace token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

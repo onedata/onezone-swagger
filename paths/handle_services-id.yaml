@@ -8,17 +8,17 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - oz_handle_services_list
+    - oz_handle_services_view
   summary: Get handle service
   x-bash-codegen-description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_list` administrator privilege or
+    This operation requires `oz_handle_services_view` admin privilege or
     handle service membership.
   description: |
     Returns the properties of a specific handle service.
 
-    This operation requires `oz_handle_services_list` administrator privilege or
+    This operation requires `oz_handle_services_view` admin privilege or
     handle service membership.
 
     ***Example cURL requests***
@@ -26,10 +26,10 @@ get:
     **Get handle services**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID
 
     {
-        "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
         "name": "MyCommunity Handle service",
         "proxyEndpoint": "https://localhost:17000/handle_proxy",
         "serviceProperties": {
@@ -76,12 +76,12 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli getHandleService id=a4d3bc73aada63052310652d421609f1"
 
 
 patch:
@@ -94,15 +94,18 @@ patch:
     aspect: instance
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_update
   summary: Modify handle service
   x-bash-codegen-description: |
     Allows to update a registered handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege or
+    `oz_handle_services_update` admin privilege.
   description: |
     Allows to update a registered handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege or
+    `oz_handle_services_update` admin privilege.
 
     ***Example cURL requests***
 
@@ -110,7 +113,7 @@ patch:
     ```bash
     curl -u username:password -X PATCH  -H "Content-type: application/json" \
     -d '{"name": "New handle service name"}' \
-    https://$HOST/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID
     ```
   consumes:
     - application/json
@@ -140,7 +143,7 @@ patch:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: handleService
@@ -150,7 +153,7 @@ patch:
         $ref: '#/definitions/HandleServiceUpdate'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 password==\"new_password\" -"
+    source: "onezone-rest-cli modifyHandleService id=a4d3bc73aada63052310652d421609f1 password==\"new_password\" -"
 
 
 delete:
@@ -163,22 +166,25 @@ delete:
     aspect: instance
   x-onedata-permissions:
     - handle_service_delete
+    - oz_handle_services_delete
   summary: Unregister handle service
   x-bash-codegen-description: |
     Allows to unregister a registeed handle service.
 
-    This operation requires `handle_service_delete` privilege.
+    This operation requires `handle_service_delete` privilege or
+    `oz_handle_services_delete` admin privilege.
   description: |
     Allows to unregister a registeed handle service.
 
-    This operation requires `handle_service_delete` privilege.
+    This operation requires `handle_service_delete` privilege or
+    `oz_handle_services_delete` admin privilege.
 
     ***Example cURL requests***
 
     **Unregister handle service**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handle_services/LKHASDkkjhASDLHU70ASDn
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID
     ```
   responses:
     '204':
@@ -206,9 +212,9 @@ delete:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHandleService id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli removeHandleService id=a4d3bc73aada63052310652d421609f1"

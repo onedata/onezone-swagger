@@ -10,22 +10,25 @@ get:
   x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
     - handle_service_view
+    - oz_groups_view
   summary: Get handle service group details
   x-bash-codegen-description: |
     Get details of a group with access to handle service.
 
-    This operation requires `handle_service_view` administrator privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_groups_view` admin privilege.
   description: |
     Get details of a group with access to handle service.
 
-    This operation requires `handle_service_view` administrator privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
 
     **Get group handle service**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/groups/$GROUP_ID
 
     {
       "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
@@ -63,17 +66,17 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: gid
       in: path
-      description: The ID of the group to return information about.
+      description: The Id of the group to return information about.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli getHandleServiceGroup id=a4d3bc73aada63052310652d421609f1 gid=5ca9574418d5a2c509265d37356ee549"
 
 
 put:
@@ -86,29 +89,33 @@ put:
     aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_add_relationships
+    - oz_groups_add_relationships
   summary: Add handle service group
   x-bash-codegen-description: |
     Allows to add a group to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_add_relationships` and `oz_groups_add_relationships` admin privilege.
   description: |
     Allows to add a group to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_add_relationships` and `oz_groups_add_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Add handle service user**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/groups/$GROUP_ID
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the added group in form https://onezone.domain/api/onezone/v3/handle_services/{id}/groups/{gid} is
+        URI of the added group in form https://$HOST/api/onezone/v3/handle_services/{id}/groups/{gid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -137,17 +144,17 @@ put:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: gid
       in: path
-      description: The ID of the group to add to handle service.
+      description: The Id of the group to add to handle service.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli addHandleServiceGroup id=a4d3bc73aada63052310652d421609f1 gid=5ca9574418d5a2c509265d37356ee549"
 
 
 delete:
@@ -160,26 +167,30 @@ delete:
     aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_remove_relationships
+    - oz_users_remove_relationships
   summary: Remove handle service group
   x-bash-codegen-description: |
     Allows to remove a group from access to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_remove_relationships` and `oz_groups_remove_relationships` admin privilege.
   description: |
     Allows to remove a group from access to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_remove_relationships` and `oz_groups_remove_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Remove handle service group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/groups/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/groups/$GROUP_ID
     ```
   responses:
     '204':
-      description: Group will be removed.
+      description: Group was removed.
     '400':
       description: Invalid request.
       schema:
@@ -203,14 +214,14 @@ delete:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: gid
       in: path
-      description: The ID of the group to remove from handle service.
+      description: The Id of the group to remove from handle service.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHandleServiceGroup id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 gid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli removeHandleServiceGroup id=a4d3bc73aada63052310652d421609f1 gid=5ca9574418d5a2c509265d37356ee549"

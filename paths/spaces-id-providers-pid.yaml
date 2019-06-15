@@ -10,27 +10,27 @@ get:
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
-    - oz_spaces_list_providers
+    - oz_providers_view
   summary: Get space provider details
   x-bash-codegen-description: |
     Returns details about a specific provider supporting the space.
 
     For users who are members of space it requires `space_view`.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_providers` privilege is required.
+    `oz_providers_view` privilege is required.
   description: |
     Returns details about a specific provider supporting the space.
 
     For users who are members of space it requires `space_view`.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_providers` privilege is required.
+    `oz_providers_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get space provider details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
 
     {
       "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk",
@@ -70,17 +70,17 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Provider ID.
+    description: Provider Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceProvider id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 pid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getSpaceProvider id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 delete:
@@ -93,22 +93,25 @@ delete:
     aspect: "{provider, ?BINDING(pid)}"
   x-onedata-permissions:
     - space_remove_provider
+    - oz_spaces_remove_relationships
   summary: Remove space support
   x-bash-codegen-description: |
     Removes support from provider for a specific space.
 
-    This operation requires `space_remove_provider` privilege.
+    This operation requires `space_remove_provider` privilege
+    or `oz_spaces_remove_relationships` admin privilege.
   description: |
     Removes support from provider for a specific space.
 
-    This operation requires `space_remove_provider` privilege.
+    This operation requires `space_remove_provider` privilege
+    or `oz_spaces_remove_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Remove space support**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/IkHBv8CoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8/providers/H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
     ```
   responses:
     '204':
@@ -136,14 +139,14 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Provider ID.
+    description: Provider Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeProviderSupportingSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 pid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeProviderSupportingSpace id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"

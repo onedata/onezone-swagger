@@ -10,22 +10,27 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
+    - oz_groups_view
   summary: Get parent group details
   x-bash-codegen-description: |
     Returns details about a specific parent group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view` privilege is required.
   description: |
     Returns details about a specific parent group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get parent group details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/parents/9OqgExw00RwaU2MXT51
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents/$PARENT_GROUP_ID
 
     {
       "groupId": "9OqgExw00RwaU2MXT51",
@@ -63,17 +68,17 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Parent group ID.
+    description: Parent group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getParentGroup id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM pid=9OqgExw00RwaU2MXT51"
+    source: "onezone-rest-cli getParentGroup id=f1c8b1a37aa7447b22eb65a742d40524 pid=9OqgExw00RwaU2MXT51"
 
 delete:
   operationId: leave_parent_group
@@ -85,22 +90,27 @@ delete:
     aspect: "{parent, ?BINDING(pid)}"
   summary: Leave parent group
   x-onedata-permissions:
-    - group_update
+    - group_leave_parent
+    - oz_groups_remove_relationships
   x-bash-codegen-description: |
-    Removes the group membership in a specific parent group.
+    Removes the group access to a specific parent group.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` privilege is required.
   description: |
-    Removes the group membership in a specific parent group.
+    Removes the group access to a specific parent group.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` privilege is required.
 
     ***Example cURL requests***
 
-    **Delete user handle service**
+    **Leave parent group as group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/AJKLASHJKDHKAJSHD/parents/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents/$PARENT_GROUP_ID
     ```
   produces:
     - application/json
@@ -130,14 +140,14 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Parent group ID.
+    description: Parent group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli leaveParentGroup id=AJKLASHJKDHKAJSHD pid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli leaveParentGroup id=b7b4c806040d906c0d93d9db7644f39f pid=95b663a6467c72ab1256865efef9e387"

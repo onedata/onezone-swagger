@@ -8,7 +8,7 @@ get:
     aspect: eff_users
   x-onedata-permissions:
     - group_view
-    - oz_groups_list_users
+    - oz_groups_list_relationships
   summary: List effective group users
   x-bash-codegen-description: |
     Returns the list of effective group users, which includes both who directly
@@ -17,7 +17,7 @@ get:
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-     'oz_groups_list_users' privilege is required.
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the list of effective group users, which includes both who directly
     belong to the group, as well as users who belong to the group indirectly
@@ -25,14 +25,14 @@ get:
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-     'oz_groups_list_users' privilege is required.
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **Get effective group users**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_users
 
     {
       "users":  [
@@ -44,7 +44,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of effective user ID's that belong to a specific group
+      description: The list of effective user Ids that belong to a specific group
       schema:
         $ref: '#/definitions/Users'
     '400':
@@ -70,9 +70,9 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveGroupUsers id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli listEffectiveGroupUsers id=538ef9643ae6b9e40817e51eece7e341"

@@ -10,32 +10,32 @@ get:
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
-    - oz_spaces_list_users
+    - oz_users_view
   summary: Get space user details
   x-bash-codegen-description: |
-    Returns the public information about a specific user in a space.
+    Returns basic information about a specific user in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_users` privilege is required.
+    `oz_users_view` privilege is required.
   description: |
-    Returns the public information about a specific user in a space.
+    Returns basic information about a specific user in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_users` privilege is required.
+    `oz_users_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get space user data**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
 
     {
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "name" : "John Doe",
-       "alias" : "username"
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe"
     }
     ```
   produces:
@@ -68,21 +68,21 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli getSpaceUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 put:
-  operationId: add_user_to_space
+  operationId: add_space_user
   tags:
     - Space
   x-onedata-gri:
@@ -90,27 +90,47 @@ put:
     id: ?BINDING(id)
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
-    - oz_spaces_add_members
+    - space_add_user
+    - space_set_privileges
+    - oz_spaces_add_relationships
+    - oz_users_add_relationships
+    - oz_spaces_set_privileges
   summary: Add user to space
   x-bash-codegen-description: |
-    Allows to add a user to any space.
-
-    This operation can be invoked by system administrators only
-    and requires `oz_spaces_add_members` privilege.
-  description: |
-    Allows to add a user to any space. Optional privileges
+    Adds user {uid} as member of space {id}. Optional privileges
     can be passed in the request body, otherwise default
-    privileges will be set for user in this space.
+    privileges will be set for the user in this space.
 
-    This operation can be invoked by system administrators only
-    and requires `oz_spaces_add_members` privilege.
+    This operation can only be invoked by the user {uid} to add himself to the
+    space (if he is not a member already) and requires `space_add_user`
+    privilege in the space. If `privileges` are specified in the request,
+    `space_set_privileges` privilege is also required.
+
+    Administrators having the `oz_spaces_add_relationships` and
+    `oz_users_add_relationships` admin privileges can add any user to any space,
+    though `oz_spaces_set_privileges` privilege is required if `privileges` are
+    specified in the request.
+  description: |
+    Adds user {uid} as member of space {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the user in this space.
+
+    This operation can only be invoked by the user {uid} to add himself to the
+    space (if he is not a member already) and requires `space_add_user`
+    privilege in the space. If `privileges` are specified in the request,
+    `space_set_privileges` privilege is also required.
+
+    Administrators having the `oz_spaces_add_relationships` and
+    `oz_users_add_relationships` admin privileges can add any user to any space,
+    though `oz_spaces_set_privileges` privilege is required if `privileges` are
+    specified in the request.
 
     ***Example cURL requests***
 
     **Add user to space**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
     ```
   consumes:
     - application/json
@@ -140,12 +160,12 @@ put:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   - name: privileges
@@ -155,7 +175,7 @@ put:
     required: false
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addUserToSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli addSpaceUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
 
 
 delete:
@@ -168,31 +188,32 @@ delete:
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - space_remove_user
-    - oz_spaces_remove_members
+    - oz_spaces_remove_relationships
+    - oz_users_remove_relationships
   summary: Remove user from space
   x-bash-codegen-description: |
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    `oz_spaces_remove_members` administrator privilege.
+    requires `oz_spaces_add_relationships` and `oz_users_add_relationships` admin privilege.
   description: |
     Removes user from specific space.
 
     This operation requires `space_remove_user` or
-    `oz_spaces_remove_members` administrator privilege.
+    requires `oz_spaces_add_relationships` and `oz_users_add_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Get space user data**
     ```bash
     curl  -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/p-mts_OBjwXss-E9kBxzp-ux12KNW2CBSaXlkDowDEk/users/ivMnRLb2WYNApEmP-j3SF0NsqBgdHG7iel89FHY802w
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: User will be removed from space.
+      description: User was removed from space.
     '400':
       description: Invalid request.
       schema:
@@ -216,14 +237,14 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeSpaceUser id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli removeSpaceUser id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"

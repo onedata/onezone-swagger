@@ -8,13 +8,13 @@ get:
     aspect: default_provider
   summary: Get default provider
   x-bash-codegen-description: |
-    Returns the ID of the default provider.
+    Returns the Id of the default provider.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Returns the ID of the default provider.
+    Returns the Id of the default provider.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -24,7 +24,7 @@ get:
     https://$HOST/api/v3/onezone/user/default_provider
 
     {
-      "providerId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+      "providerId": "95b663a6467c72ab1256865efef9e387"
     }
     ```
   produces:
@@ -69,13 +69,13 @@ put:
     aspect: default_provider
   summary: Set default provider
   x-bash-codegen-description: |
-    Sets default provider for current user.
+    Sets default provider for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Sets default provider for current user.
+    Sets default provider for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -113,13 +113,13 @@ put:
   parameters:
   - name: defaultprovider
     in: body
-    description: Default provider ID.
+    description: Default provider Id.
     schema:
       $ref: '#/definitions/DefaultProvider'
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli setDefaultProvider providerId==LASKJLD7687ASDJKLHGasd67867KJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli setDefaultProvider providerId==135043853efbfb34b892b30545ab4d81"
 
 
 delete:
@@ -132,13 +132,13 @@ delete:
     aspect: default_provider
   summary: Unset default provider
   x-bash-codegen-description: |
-    Removes default provider setting for current user.
+    Removes default provider setting for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Removes default provider setting for current user.
+    Removes default provider setting for the current user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 

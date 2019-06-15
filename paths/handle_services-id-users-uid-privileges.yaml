@@ -1,5 +1,5 @@
 get:
-  operationId: get_handle_service_user_privileges
+  operationId: list_user_handle_service_privileges
   tags:
     - Handle Service
   x-onedata-gri:
@@ -8,26 +8,30 @@ get:
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_view
-  summary: List handle service user privileges
+    - oz_handle_services_view_privileges
+  summary: List user's handle service privileges
   x-bash-codegen-description: |
-    Returns user privileges for accessing a handle service instance.
+    Returns the list of user's (`{uid}`) privileges in a handle service (`{id}`).
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_view_privileges` admin privilege.
   description: |
-    Returns user privileges for accessing a handle service instance.
+    Returns the list of user's (`{uid}`) privileges in a handle service (`{id}`).
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_view_privileges` admin privilege.
 
     ***Example cURL requests***
 
-    **Get handle service user privileges**
+    **List user's privileges in a handle service**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID/privileges
 
     {
       "privileges": [
-        "handle_service_delete",
+        "handle_service_register_handle",
+        "handle_service_update",
         "handle_service_view"
       ]
     }
@@ -36,9 +40,16 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of privileges of a user to a specific handle service.
+      description: The list of user's privileges in the handle service.
       schema:
-        $ref: '#/definitions/HandleServicePrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/HandleServicePrivileges'
+        example:
+          privileges:
+          - handle_service_register_handle
+          - handle_service_update
+          - handle_service_view
     '400':
       description: Invalid request.
       schema:
@@ -62,21 +73,21 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
-      required: true
+      description: Handle service Id.
       type: string
+      required: true
     - name: uid
       in: path
-      description: The ID of the user of a handle service.
-      required: true
+      description: Effective group Id.
       type: string
+      required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listHandleServiceUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli listUserHandleServicePrivileges id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"
 
 
 patch:
-  operationId: set_handle_service_user_privileges
+  operationId: update_group_handle_service_privileges
   tags:
     - Handle Service
   x-onedata-gri:
@@ -85,29 +96,36 @@ patch:
     aspect: "{user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
-  summary: Set handle service user privileges
+    - oz_handle_services_set_privileges
+  summary: Update user's handle service privileges
   x-bash-codegen-description: |
-    Sets user privileges for accessing a handle service instance.
+    Updates user's (`{uid}`) privileges in a handle service (`{id}`).
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_set_privileges` admin privilege.
   description: |
-    Sets user privileges for accessing a handle service instance.
+    Updates user's (`{uid}`) privileges in a handle service (`{id}`).
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_set_privileges` admin privilege.
+
+    The `grant` field specifies a list of privileges to be granted. The `revoke`
+    field specifies a list of privileges to be revoked. At least one of those
+    fields must be given.
 
     ***Example cURL requests***
 
-    **Set handle service user privileges**
+    **Update user's privileges in a handle service**
     ```bash
     curl -u username:password -X PATCH  -H "Content-type: application/json" \
-    -d '{"privileges": ["handle_service_register_handle"]}' \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/hlkASHDLAKSHDLKJHJjLHSADHLKJhlk/privileges
+    -d '{"grant": ["handle_service_register_handle"], "revoke": ["handle_service_update"]}' \
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID/privileges
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: User privileges updated successfully.
+      description: The privileges have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -131,20 +149,20 @@ patch:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
-      required: true
+      description: Handle service Id.
       type: string
+      required: true
     - name: uid
       in: path
-      description: The ID of the user of a handle service.
-      required: true
+      description: User Id.
       type: string
+      required: true
     - name: privileges
       in: body
-      description: The list of user privileges to specific handle service.
-      required: true
+      description: Handle service privileges update request.
       schema:
         $ref: '#/definitions/HandleServicePrivileges'
+      required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"privileges\": [\"handle_service_register_handle\"]}' | onezone-rest-cli setHandleServiceUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk -"
+    source: "echo '{\"grant\": [\"handle_service_register_handle\"], \"revoke\": [\"handle_service_update\"]}' | onezone-rest-cli updateUserHandleServicePrivileges id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549 -"

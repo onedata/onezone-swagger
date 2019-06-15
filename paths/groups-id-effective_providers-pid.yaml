@@ -1,5 +1,5 @@
 get:
-  operationId: get_effective_group_provider
+  operationId: get_group_effective_provider
   tags:
     - Group
   x-onedata-gri:
@@ -10,26 +10,31 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
-  summary: Get effective group's provider details
+    - oz_providers_view
+  summary: Get group's effective provider details
   x-bash-codegen-description: |
-    Returns information about a specific effective provider supporting groups spaces.
+    Returns information about a specific effective provider for the group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_providers_view` privilege is required.
   description: |
-    Returns information about a specific effective provider supporting groups spaces.
+    Returns information about a specific effective provider for the group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_providers_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get group's effective provider details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_providers/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_providers/$PROVIDER_ID
 
     {
       "name": "provider1",
-      "providerId": "HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE",
+      "providerId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
       "domain": "provider1.beta.onedata.org",
       "latitude": 50.0647,
       "longitude": 19.9450
@@ -39,7 +44,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Information about a specific provider supporting groups spaces.
+      description: Returns information about a specific effective provider for the group.
       schema:
         $ref: '#/definitions/ProviderDetails'
     '400':
@@ -65,14 +70,14 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Effective provider ID.
+    description: Effective provider Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveGroupProvider id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 pid=HUUPOMNGzikwiLXHaFYcE8"
+    source: "onezone-rest-cli getGroupEffectiveProvider id=a4d3bc73aada63052310652d421609f1 pid=HUUPOMNGzikwiLXHaFYcE8"

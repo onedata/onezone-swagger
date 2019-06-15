@@ -1,0 +1,78 @@
+get:
+  operationId: list_effective_provider_users
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(id)
+    aspect: eff_users
+  x-onedata-permissions:
+    - oz_providers_list_relationships
+  summary: List effective users of provider
+  x-bash-codegen-description: |
+    Returns the list of effective users of a specific provider.
+
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_providers_list_relationships` admin privilege.
+  description: |
+    Returns the list of effective users of a specific provider.
+
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
+    * as user who has `oz_providers_list_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **List effective users of a provider**
+    ```bash
+    curl -u username:password -X GET  \
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/users
+
+    {
+      "users": [
+        "1ad4551e2c127fac3850374eeb2dfec4",
+        "a6c6e47cc477aa4d3f8c61ce71df9850"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of effective user Ids.
+      schema:
+        $ref: '#/definitions/Users'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      description: Provider Id.
+      type: string
+      in: path
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listEffectiveProviderUsers id=bf01a1d82c0f3032be369a223bc4457a"

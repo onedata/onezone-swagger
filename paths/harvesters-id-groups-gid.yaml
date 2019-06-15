@@ -1,0 +1,251 @@
+get:
+  operationId: get_harvester_group
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HARVESTER(?BINDING(id))
+  x-onedata-permissions:
+    - harvester_view
+    - oz_groups_view
+  summary: Get harvester's group details
+  x-bash-codegen-description: |
+    Returns details about a specific group in a harvester.
+
+    This operation requires `harvester_view` privilege.
+    For administrators who do not have to be members of this harvester,
+    `oz_groups_view` privilege is required.
+  description: |
+    Returns details about a specific group in a harvester.
+
+    This operation requires `harvester_view` privilege.
+    For administrators who do not have to be members of this harvester,
+    `oz_groups_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get harvester group details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/$GROUP_ID
+
+    {
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
+      "name": "new_groupX",
+      "type": "team"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of a specific group in a harvester.
+      schema:
+        $ref: '#/definitions/Group'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHarvesterGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
+
+
+put:
+  operationId: add_group_to_harvester
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - harvester_add_group
+    - harvester_set_privileges
+    - oz_harvesters_add_relationships
+    - oz_groups_add_relationships
+    - oz_harvester_set_privileges
+  summary: Add group to harvester
+  x-bash-codegen-description: |
+    Adds group {gid} as member of harvester {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the group in this harvester.
+
+    This operation requires `harvester_add_group` privilege in the harvester and
+    `group_add_harvester` privilege in the group. If `privileges` are
+    specified in the request, `harvester_set_privileges` privilege is also required.
+
+    For administrator who does not belong to the group / harvester,
+    `oz_groups_add_relationships` and `oz_harvesters_add_relationships` privileges
+    are required, and `oz_harvesters_set_privileges` if `privileges` are specified
+    in the request.
+  description: |
+    Adds group {gid} as member of harvester {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the group in this harvester.
+
+    This operation requires `harvester_add_group` privilege in the harvester and
+    `group_add_harvester` privilege in the group. If `privileges` are
+    specified in the request, `harvester_set_privileges` privilege is also required.
+
+    For administrator who does not belong to the group / harvester,
+    `oz_groups_add_relationships` and `oz_harvesters_add_relationships` privileges
+    are required, and `oz_harvesters_set_privileges` if `privileges` are specified
+    in the request.
+
+    ***Example cURL requests***
+
+    **Add group to harvester**
+    ```bash
+    curl -u username:password  -H "Content-type: application/json" -X PUT \
+     https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/$GROUP_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The group was added to the harvester.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: privileges
+    in: body
+    schema:
+      $ref: '#/definitions/HarvesterPrivileges'
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addGroupToHarvester id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
+
+
+delete:
+  operationId: remove_harvester_group
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - harvester_remove_group
+    - oz_harvesters_remove_relationships
+  summary: Remove group from harvester
+  x-bash-codegen-description: |
+    Removes a specific group from harvester.
+
+    For regular users, who belong to this harvester it requires
+    `harvester_remove_group` privilege to remove a group from this harvester.
+
+    For administrators, who are not members of this harvester,
+    `oz_harvesters_remove_relationships` privilege is required.
+  description: |
+    Removes a specific group from harvester.
+
+    For regular users, who belong to this harvester it requires
+    `harvester_remove_group` privilege to remove a group from this harvester.
+
+    For administrators, who are not members of this harvester,
+    `oz_harvesters_remove_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get harvester group details**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/$GROUP_ID
+    ```
+  responses:
+    '204':
+      description: A group was removed from harvester.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeHarvesterGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"

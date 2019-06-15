@@ -8,22 +8,27 @@ get:
     aspect: parents
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List parent groups
   x-bash-codegen-description: |
     Returns the parent groups of a specific group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the parent groups of a specific group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **Get parent groups**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/parents
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents
 
     {
       "groups": []
@@ -33,7 +38,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of parent group ID's.
+      description: The list of parent group Ids.
       schema:
         $ref: '#/definitions/Groups'
     '400':
@@ -59,29 +64,41 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listParentGroups id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli listParentGroups id=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 post:
-  operationId: create_group_for_group
+  operationId: create_parent_group
   tags:
     - Group
   x-onedata-gri:
     type: od_group
     aspect: instance
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
-  summary: Create new group for the current group
+  x-onedata-permissions:
+    - group_add_parent
+    - oz_groups_add_relationships
+    - oz_groups_create
+  summary: Create a new parent group for given group
   x-bash-codegen-description: |
     Creates a new group for the current group.
     The group automatically becomes a member of this group.
+    
+    This operation requires `group_add_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` and `oz_groups_create` privileges are required.
   description: |
     Creates a new group for the current group.
     The group automatically becomes a member of this group.
+    
+    This operation requires `group_add_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` and `oz_groups_create` privileges are required.
 
     ***Example cURL requests***
 
@@ -89,14 +106,14 @@ post:
     ```bash
     curl -u username:password  -H "Content-type: application/json" \
     -X POST -d '{ "name" : "test_group" , "type" : "team" }' \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/parents
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the created group in form https://onezone.domain/api/onezone/v3/groups/{gid}/parents/{pid} is
+        URI of the created group in form https://$HOST/api/onezone/v3/groups/{gid}/parents/{pid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -125,7 +142,7 @@ post:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: group
@@ -136,4 +153,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createGroupForGroup name==Group1 type==team"
+    source: "onezone-rest-cli createParentGroup name==Group1 type==team"

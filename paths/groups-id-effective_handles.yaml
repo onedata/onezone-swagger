@@ -8,22 +8,27 @@ get:
     aspect: eff_handles
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List effective group handles
   x-bash-codegen-description: |
     Returns the list of effective groups' handles.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the list of effective groups' handles.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **List effective group handles**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/LKJAHGSDLKJHALSDkjashdasdk/effective_handles
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_handles
 
     {
       "handles": [
@@ -61,9 +66,9 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveGroupHandles id=LKJAHGSDLKJHALSDkjashdasdk"
+    source: "onezone-rest-cli listEffectiveGroupHandles id=12da582337ff25cc86db30580b20d3cd"

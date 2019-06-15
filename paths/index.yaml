@@ -18,12 +18,19 @@
   $ref: ./users-id.yaml
 
 
+/users/{id}/basic_auth:
+  $ref: ./users-id-basic_auth.yaml
+
 /users/{id}/privileges:
   $ref: ./users-id-privileges.yaml
 
 
 /users/{id}/effective_privileges:
   $ref: ./users-id-effective_privileges.yaml
+
+
+/users/{id}/clusters/provider_registration_token:
+  $ref: ./users-id-clusters-provider_registration_token.yaml
 
 
 
@@ -34,6 +41,10 @@
 
 /user:
   $ref: ./user.yaml
+
+
+/user/password:
+  $ref: ./user-password.yaml
 
 
 /user/authorize:
@@ -120,6 +131,10 @@
   $ref: ./user-effective_providers-pid.yaml
 
 
+/user/effective_providers/{pid}/spaces:
+  $ref: ./user-effective_providers-pid-spaces.yaml
+
+
 /user/handle_services:
   $ref: ./user-handle_services.yaml
 
@@ -152,6 +167,48 @@
   $ref: ./user-effective_handles-hid.yaml
 
 
+/user/harvesters:
+  $ref: ./user-harvesters.yaml
+
+
+/user/harvesters/join:
+  $ref: ./user-harvesters-join.yaml
+
+
+/user/harvesters/{hid}:
+  $ref: ./user-harvesters-hid.yaml
+
+
+/user/effective_harvesters:
+  $ref: ./user-effective_harvesters.yaml
+
+
+/user/effective_harvesters/{hid}:
+  $ref: ./user-effective_harvesters-hid.yaml
+  
+  
+/user/clusters:
+  $ref: ./user-clusters.yaml
+
+
+/user/clusters/provider_registration_token:
+  $ref: ./user-clusters-provider_registration_token.yaml
+
+
+/user/clusters/join:
+  $ref: ./user-clusters-join.yaml
+
+
+/user/clusters/{cid}:
+  $ref: ./user-clusters-cid.yaml
+
+
+/user/effective_clusters:
+  $ref: ./user-effective_clusters.yaml
+
+
+/user/effective_clusters/{cid}:
+  $ref: ./user-effective_clusters-cid.yaml
 
 
 ###############################################################################
@@ -202,6 +259,10 @@
   $ref: ./groups-id-effective_users-uid-privileges.yaml
 
 
+/groups/{id}/effective_users/{uid}/membership:
+  $ref: ./groups-id-effective_users-uid-membership.yaml
+
+
 /groups/{id}/parents:
   $ref: ./groups-id-parents.yaml
 
@@ -250,6 +311,10 @@
   $ref: ./groups-id-effective_children-cid-privileges.yaml
 
 
+/groups/{id}/effective_children/{cid}/membership:
+  $ref: ./groups-id-effective_children-cid-membership.yaml
+
+
 /groups/{id}/spaces:
   $ref: ./groups-id-spaces.yaml
 
@@ -276,6 +341,10 @@
 
 /groups/{id}/effective_providers/{pid}:
   $ref: ./groups-id-effective_providers-pid.yaml
+
+
+/groups/{id}/effective_providers/{pid}/spaces:
+  $ref: ./groups-id-effective_providers-pid-spaces.yaml
 
 
 /groups/{id}/handle_services:
@@ -309,6 +378,45 @@
 /groups/{id}/effective_handles/{hid}:
   $ref: ./groups-id-effective_handles-hid.yaml
 
+
+/groups/{id}/harvesters:
+  $ref: ./groups-id-harvesters.yaml
+
+
+/groups/{id}/harvesters/join:
+  $ref: ./groups-id-harvesters-join.yaml
+
+
+/groups/{id}/harvesters/{hid}:
+  $ref: ./groups-id-harvesters-hid.yaml
+
+
+/groups/{id}/effective_harvesters:
+  $ref: ./groups-id-effective_harvesters.yaml
+
+
+/groups/{id}/effective_harvesters/{hid}:
+  $ref: ./groups-id-effective_harvesters-hid.yaml
+  
+  
+/groups/{id}/clusters:
+  $ref: ./groups-id-clusters.yaml
+
+
+/groups/{id}/clusters/join:
+  $ref: ./groups-id-clusters-join.yaml
+
+
+/groups/{id}/clusters/{cid}:
+  $ref: ./groups-id-clusters-cid.yaml
+
+
+/groups/{id}/effective_clusters:
+  $ref: ./groups-id-effective_clusters.yaml
+
+
+/groups/{id}/effective_clusters/{cid}:
+  $ref: ./groups-id-effective_clusters-cid.yaml
 
 
 ###############################################################################
@@ -351,6 +459,10 @@
   $ref: ./spaces-id-effective_users-uid-privileges.yaml
 
 
+/spaces/{id}/effective_users/{uid}/membership:
+  $ref: ./spaces-id-effective_users-uid-membership.yaml
+
+
 /spaces/{id}/groups:
   $ref: ./spaces-id-groups.yaml
 
@@ -379,6 +491,10 @@
   $ref: ./spaces-id-effective_groups-gid-privileges.yaml
 
 
+/spaces/{id}/effective_groups/{gid}/membership:
+  $ref: ./spaces-id-effective_groups-gid-membership.yaml
+
+
 /spaces/{id}/shares:
   $ref: ./spaces-id-shares.yaml
 
@@ -390,7 +506,6 @@
 /spaces/{id}/providers:
   $ref: ./spaces-id-providers.yaml
 
-
 /spaces/{id}/providers/token:
   $ref: ./spaces-id-providers-token.yaml
 
@@ -398,6 +513,17 @@
 /spaces/{id}/providers/{pid}:
   $ref: ./spaces-id-providers-pid.yaml
 
+
+/spaces/{id}/harvesters:
+  $ref: ./spaces-id-harvesters.yaml
+
+
+/spaces/{id}/harvesters/join:
+  $ref: ./spaces-id-harvesters-join.yaml
+
+
+/spaces/{id}/harvesters/{hid}:
+  $ref: ./spaces-id-harvesters-hid.yaml
 
 
 ###############################################################################
@@ -420,36 +546,44 @@
   $ref: ./providers.yaml
 
 
-/providers/token:
-  $ref: ./providers-token.yaml
+/providers/{id}:
+  $ref: ./providers-id.yaml
 
 
-/providers/{pid}:
-  $ref: ./providers-pid.yaml
+/providers/{id}/effective_users:
+  $ref: ./providers-id-effective_users.yaml
 
 
-/providers/{pid}/effective_users:
-  $ref: ./providers-pid-effective_users.yaml
+/providers/{id}/effective_users/{uid}:
+  $ref: ./providers-id-effective_users-uid.yaml
 
 
-/providers/{pid}/effective_users/{uid}:
-  $ref: ./providers-pid-effective_users-uid.yaml
+/providers/{id}/effective_users/{uid}/membership:
+  $ref: ./providers-id-effective_users-uid-membership.yaml
 
 
-/providers/{pid}/effective_groups:
-  $ref: ./providers-pid-effective_groups.yaml
+/providers/{id}/effective_groups:
+  $ref: ./providers-id-effective_groups.yaml
 
 
-/providers/{pid}/effective_groups/{gid}:
-  $ref: ./providers-pid-effective_groups-gid.yaml
+/providers/{id}/effective_groups/{gid}:
+  $ref: ./providers-id-effective_groups-gid.yaml
 
 
-/providers/{pid}/spaces:
-  $ref: ./providers-pid-spaces.yaml
+/providers/{id}/effective_groups/{gid}/membership:
+  $ref: ./providers-id-effective_groups-gid-membership.yaml
 
 
-/providers/{pid}/spaces/{sid}:
-  $ref: ./providers-pid-spaces-sid.yaml
+/providers/{id}/spaces:
+  $ref: ./providers-id-spaces.yaml
+
+
+/providers/{id}/spaces/{sid}:
+  $ref: ./providers-id-spaces-sid.yaml
+
+
+/providers/{id}/domain_config:
+  $ref: ./providers-id-domain_config.yaml
 
 
 
@@ -492,6 +626,9 @@
 /provider/public/verify_provider_identity:
   $ref: ./provider-public-verify_provider_identity.yaml
 
+
+/provider/domain_config:
+  $ref: ./provider-domain_config.yaml
 
 
 ###############################################################################
@@ -565,60 +702,252 @@
 
 
 ###############################################################################
-# Handle services
+# Handles
 ###############################################################################
 
 /handles:
   $ref: ./handles.yaml
 
 
-/handles/{hndl}:
-  $ref: ./handles-hndl.yaml
+/handles/{id}:
+  $ref: ./handles-id.yaml
 
 
-/handles/{hndl}/users:
-  $ref: ./handles-hndl-users.yaml
+/handles/{id}/users:
+  $ref: ./handles-id-users.yaml
 
 
-/handles/{hndl}/users/{uid}:
-  $ref: ./handles-hndl-users-uid.yaml
+/handles/{id}/users/{uid}:
+  $ref: ./handles-id-users-uid.yaml
 
 
-/handles/{hndl}/users/{uid}/privileges:
-  $ref: ./handles-hndl-users-uid-privileges.yaml
+/handles/{id}/users/{uid}/privileges:
+  $ref: ./handles-id-users-uid-privileges.yaml
 
 
-/handles/{hndl}/effective_users:
-  $ref: ./handles-hndl-effective_users.yaml
+/handles/{id}/effective_users:
+  $ref: ./handles-id-effective_users.yaml
 
 
-/handles/{hndl}/effective_users/{uid}:
-  $ref: ./handles-hndl-effective_users-uid.yaml
+/handles/{id}/effective_users/{uid}:
+  $ref: ./handles-id-effective_users-uid.yaml
 
 
-/handles/{hndl}/effective_users/{uid}/privileges:
-  $ref: ./handles-hndl-effective_users-uid-privileges.yaml
+/handles/{id}/effective_users/{uid}/privileges:
+  $ref: ./handles-id-effective_users-uid-privileges.yaml
 
 
-/handles/{hndl}/groups:
-  $ref: ./handles-hndl-groups.yaml
+/handles/{id}/groups:
+  $ref: ./handles-id-groups.yaml
 
 
-/handles/{hndl}/groups/{gid}:
-  $ref: ./handles-hndl-groups-gid.yaml
+/handles/{id}/groups/{gid}:
+  $ref: ./handles-id-groups-gid.yaml
 
 
-/handles/{hndl}/groups/{gid}/privileges:
-  $ref: ./handles-hndl-groups-gid-privileges.yaml
+/handles/{id}/groups/{gid}/privileges:
+  $ref: ./handles-id-groups-gid-privileges.yaml
 
 
-/handles/{hndl}/effective_groups:
-  $ref: ./handles-hndl-effective_groups.yaml
+/handles/{id}/effective_groups:
+  $ref: ./handles-id-effective_groups.yaml
 
 
-/handles/{hndl}/effective_groups/{gid}:
-  $ref: ./handles-hndl-effective_groups-gid.yaml
+/handles/{id}/effective_groups/{gid}:
+  $ref: ./handles-id-effective_groups-gid.yaml
 
 
-/handles/{hndl}/effective_groups/{gid}/privileges:
-  $ref: ./handles-hndl-effective_groups-gid-privileges.yaml
+/handles/{id}/effective_groups/{gid}/privileges:
+  $ref: ./handles-id-effective_groups-gid-privileges.yaml
+
+
+###############################################################################
+# Harvesters
+###############################################################################
+
+/harvesters:
+  $ref: ./harvesters.yaml
+
+
+/harvesters/{id}:
+  $ref: ./harvesters-id.yaml
+
+
+/harvesters/{id}/metadata:
+  $ref: ./harvesters-id-metadata.yaml
+
+
+/harvesters/{id}/users:
+  $ref: ./harvesters-id-users.yaml
+
+
+/harvesters/{id}/users/token:
+  $ref: ./harvesters-id-users-token.yaml
+
+
+/harvesters/{id}/users/{uid}:
+  $ref: ./harvesters-id-users-uid.yaml
+
+
+/harvesters/{id}/users/{uid}/privileges:
+  $ref: ./harvesters-id-users-uid-privileges.yaml
+
+
+/harvesters/{id}/effective_users:
+  $ref: ./harvesters-id-effective_users.yaml
+
+
+/harvesters/{id}/effective_users/{uid}:
+  $ref: ./harvesters-id-effective_users-uid.yaml
+
+
+/harvesters/{id}/effective_users/{uid}/privileges:
+  $ref: ./harvesters-id-effective_users-uid-privileges.yaml
+
+
+/harvesters/{id}/effective_users/{uid}/membership:
+  $ref: ./harvesters-id-effective_users-uid-membership.yaml
+
+
+/harvesters/{id}/groups:
+  $ref: ./harvesters-id-groups.yaml
+
+
+/harvesters/{id}/groups/token:
+  $ref: ./harvesters-id-groups-token.yaml
+
+
+/harvesters/{id}/groups/{gid}:
+  $ref: ./harvesters-id-groups-gid.yaml
+
+
+/harvesters/{id}/groups/{gid}/privileges:
+  $ref: ./harvesters-id-groups-gid-privileges.yaml
+
+
+/harvesters/{id}/effective_groups:
+  $ref: ./harvesters-id-effective_groups.yaml
+
+
+/harvesters/{id}/effective_groups/{gid}:
+  $ref: ./harvesters-id-effective_groups-gid.yaml
+
+
+/harvesters/{id}/effective_groups/{gid}/privileges:
+  $ref: ./harvesters-id-effective_groups-gid-privileges.yaml
+
+
+/harvesters/{id}/effective_groups/{gid}/membership:
+  $ref: ./harvesters-id-effective_groups-gid-membership.yaml
+
+
+/harvesters/{id}/spaces:
+  $ref: ./harvesters-id-spaces.yaml
+
+
+/harvesters/{id}/spaces/token:
+  $ref: ./harvesters-id-spaces-token.yaml
+
+
+/harvesters/{id}/spaces/{sid}:
+  $ref: ./harvesters-id-spaces-sid.yaml
+  
+  
+/harvesters/{id}/gui_plugin_config:
+  $ref: ./harvesters-id-gui_plugin_config.yaml
+
+
+/harvesters/{id}/indices:
+  $ref: ./harvesters-id-indices.yaml
+
+
+/harvesters/{id}/indices/{idx}/query:
+  $ref: ./harvesters-id-indices-idx-query.yaml
+
+
+/harvesters/{id}/indices/{idx}/stats:
+  $ref: ./harvesters-id-indices-idx-stats.yaml
+
+
+/harvesters/{id}/indices/{idx}:
+  $ref: ./harvesters-id-indices-idx.yaml
+
+
+/harvesters/{id}/indices/{idx}/metadata:
+  $ref: ./harvesters-id-indices-idx-metadata.yaml
+
+
+###############################################################################
+# Clusters
+###############################################################################
+
+/clusters:
+  $ref: ./clusters.yaml
+
+
+/clusters/{id}:
+  $ref: ./clusters-id.yaml
+
+
+/clusters/{id}/users:
+  $ref: ./clusters-id-users.yaml
+
+
+/clusters/{id}/users/token:
+  $ref: ./clusters-id-users-token.yaml
+
+
+/clusters/{id}/users/{uid}:
+  $ref: ./clusters-id-users-uid.yaml
+
+
+/clusters/{id}/users/{uid}/privileges:
+  $ref: ./clusters-id-users-uid-privileges.yaml
+
+
+/clusters/{id}/effective_users:
+  $ref: ./clusters-id-effective_users.yaml
+
+
+/clusters/{id}/effective_users/{uid}:
+  $ref: ./clusters-id-effective_users-uid.yaml
+
+
+/clusters/{id}/effective_users/{uid}/privileges:
+  $ref: ./clusters-id-effective_users-uid-privileges.yaml
+
+
+/clusters/{id}/effective_users/{uid}/membership:
+  $ref: ./clusters-id-effective_users-uid-membership.yaml
+
+
+/clusters/{id}/groups:
+  $ref: ./clusters-id-groups.yaml
+
+
+/clusters/{id}/groups/token:
+  $ref: ./clusters-id-groups-token.yaml
+
+
+/clusters/{id}/groups/{gid}:
+  $ref: ./clusters-id-groups-gid.yaml
+
+
+/clusters/{id}/groups/{gid}/privileges:
+  $ref: ./clusters-id-groups-gid-privileges.yaml
+
+
+/clusters/{id}/effective_groups:
+  $ref: ./clusters-id-effective_groups.yaml
+
+
+/clusters/{id}/effective_groups/{gid}:
+  $ref: ./clusters-id-effective_groups-gid.yaml
+
+
+/clusters/{id}/effective_groups/{gid}/privileges:
+  $ref: ./clusters-id-effective_groups-gid-privileges.yaml
+
+
+/clusters/{id}/effective_groups/{gid}/membership:
+  $ref: ./clusters-id-effective_groups-gid-membership.yaml

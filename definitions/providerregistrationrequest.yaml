@@ -1,61 +1,46 @@
 type: object
-description: Provider registration request.
+description: Oneprovider registration request.
 properties:
-  name:
-    type: string
-    description: Provider name.
   token:
     type: string
     description: >
-      Token for registering provider. May be required depending on
-      provider registration policy in given Onezone.
+      Token for registering a new Oneprovider.
+  name:
+    type: string
+    description: Oneprovider name.
   subdomainDelegation:
     type: boolean
     description: >
-      If enabled, the storage provider will be assigned a subdomain in onezone's domain
+      If enabled, the Oneprovider will be assigned a subdomain in onezone's domain
       and 'subdomain' property must be provided. If disabled, 'domain' property
       should be provided.
   subdomain:
     type: string
     description: >
-      Unique subdomain in onezone's domain for the storage provider. Required if
+      Unique subdomain in onezone's domain for the Oneprovider. Required if
       subdomain delegation is enabled.
   domain:
     type: string
     description: >
-      The fully qualified domain name of the storage provider or its IP address (only for
+      The fully qualified domain name of the Oneprovider or its IP address (only for
       single-node deployments or clusters with a reverse proxy). Required if
       subdomain delegation is disabled.
-  csr:
-    type: string
-    description: Certificate Signature Request to generate new certificate for the provider.
   latitude:
     type: number
     x-erlang-type: float
-    description: The geographical latitude of the provider data center location.
+    description: The geographical latitude of the Oneprovider's data center location.
   longitude:
     type: number
     x-erlang-type: float
-    description: The geographical longitude of the provider data center location.
+    description: The geographical longitude of the Oneprovider's data center location.
 required:
   - name
   - subdomainDelegation
-  - csr
+  - token
 example:
+  token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
   name: Example provider
+  subdomainDelegation: false
   domain: provider2.beta.onedata.org
-  csr: |
-    -----BEGIN CERTIFICATE REQUEST-----
-    MIIByjCCATMCAQAwgYkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlh
-    MRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRMwEQYDVQQKEwpHb29nbGUgSW5jMR8w
-    HQYDVQQLExZJbmZvcm1hdGlvbiBUZWNobm9sb2d5MRcwFQYDVQQDEw53d3cuZ29v
-    Z2xlLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEApZtYJCHJ4VpVXHfV
-    IlstQTlO4qC03hjX+ZkPyvdYd1Q4+qbAeTwXmCUKYHThVRd5aXSqlPzyIBwieMZr
-    WFlRQddZ1IzXAlVRDWwAo60KecqeAXnnUK+5fXoTI/UgWshre8tJ+x/TMHaQKR/J
-    cIWPhqaQhsJuzZbvAdGA80BLxdMCAwEAAaAAMA0GCSqGSIb3DQEBBQUAA4GBAIhl
-    4PvFq+e7ipARgI5ZM+GZx6mpCz44DTo0JkwfRDf+BtrsaC0q68eTf2XhYOsq4fkH
-    Q0uA0aVog3f5iJxCa3Hp5gxbJQ6zV6kJ0TEsuaaOhEko9sdpCoPOnRBm2i/XRD2D
-    6iNh8f8z0ShGsFqjDgFHyF3o+lUyj+UC6H1QW7bn
-    -----END CERTIFICATE REQUEST-----
   latitude: 50.0647
   longitude: 19.9450

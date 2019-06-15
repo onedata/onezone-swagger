@@ -7,26 +7,31 @@ post:
     id: ?BINDING(id)
     aspect: invite_group_token
   x-onedata-permissions:
-    - group_invite_group
+    - group_add_child
+    - oz_groups_add_relationships
   summary: Create child group invitation token
   x-bash-codegen-description: |
-    Creates a token that can be used to add a group as subgroup of group with {id}.
+    Creates a token that can be used to add a group as child group of group with {id}.
 
-    This operation requires `group_invite_group` privilege.
+    This operation requires `group_add_child` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` privilege is required.
   description: |
-    Creates a token that can be used to add a group as subgroup of group with {id}.
+    Creates a token that can be used to add a group as child group of group with {id}.
 
-    This operation requires `group_invite_group` privilege.
+    This operation requires `group_add_child` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` privilege is required.
 
     ***Example cURL requests***
 
-    **Create invitation token for subgroup**
+    **Create invitation token for child group**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVq
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID
 
     {
-      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIDdrenY00SXM5dEFGYVRNQXFlMUlPSXVGMFBoSkFKWHFieWRUc2l5TUUxX2sKMDAyZGNpZCB00b2tlblR5cGUgPSBncm91cF9pbnZpdGVfZ3JvdXBfdG9rZW4KMDAyZnNpZ25hdHVyZSCJAtwScxZNktP9EIS00vlM5ZB7QsXhjtRtjKWZfwEfs6wo"
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIZdrenY00SXM5dEFGYVRNQXFlMUlPSXVGMFBoSkFKWHFieWRUc2l5TUUxX2sKMDAyZGNpZCB00b2tlblR5cGUgPSBncm91cF9pbnZpdGVfZ3JvdXBfdG9rZW4KMDAyZnNpZ25hdHVyZSCJAtwScxZNktP9EIS00vlM5ZB7QsXhjtRtjKWZfwEfs6wo"
     }
     ```
   produces:
@@ -61,9 +66,9 @@ post:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createChildGroupToken id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8"
+    source: "onezone-rest-cli createChildGroupToken id=538ef9643ae6b9e40817e51eece7e341"

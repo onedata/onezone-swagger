@@ -10,27 +10,30 @@ get:
   x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
     - handle_service_view
+    - oz_users_view
   summary: Get effective handle service user
   x-bash-codegen-description: |
     Allows to get a user to a handle service.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_users_view` admin privilege.
   description: |
     Allows to get a user to a handle service.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_users_view` admin privilege.
 
     ***Example cURL requests***
 
     **Get effective handle service user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/effective_users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/effective_users/$USER_ID
 
     {
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "name" : "John Doe",
-       "alias" : "username"
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe"
     }
     ```
   produces:
@@ -63,14 +66,14 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to return information about.
+      description: The Id of the user to return information about.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveHandleServiceUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli getEffectiveHandleServiceUser id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"

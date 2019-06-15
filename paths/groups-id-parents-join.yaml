@@ -7,22 +7,27 @@ post:
     aspect: join
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
-    - group_join_group
+    - group_add_parent
+    - oz_groups_add_relationships
   summary: Join parent group
   x-bash-codegen-description: |
-    Adds given group as a subgroup of a specific group based on provided token.
+    Adds given group as a child group of a specific group based on provided token.
 
     The parent group to which the group will be added is identified from the
     token (the token is issued in the context of a group).
 
-    This operation requires `group_join_group` privilege.
+    This operation requires `group_add_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` privilege is required.
   description: |
-    Adds given group as a subgroup of a specific group based on provided token.
+    Adds given group as a child group of a specific group based on provided token.
 
     The parent group to which the group will be added is identified from the token
     (the token is issued in the context of a group).
 
-    This operation requires `group_join_group` privilege.
+    This operation requires `group_add_parent` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_add_relationships` privilege is required.
 
     ***Example cURL requests***
 
@@ -31,12 +36,12 @@ post:
     ```bash
     curl  -u admin:password -H "Content-type: application/json" -X POST \
     -d  '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW"}'  \
-    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122o/parents/join
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents/join
     ```
   responses:
     '201':
       description: >
-        URI of the joined group in form https://onezone.domain/api/onezone/v3/groups/{id}/parents/{pid} is
+        URI of the joined group in form https://$HOST/api/onezone/v3/groups/{id}/parents/{pid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -65,7 +70,7 @@ post:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: data
@@ -75,4 +80,4 @@ post:
       $ref: '#/definitions/GroupInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli joinParentGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 token==AKLSHJHDKLJASHDJKHASKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli joinParentGroup id=538ef9643ae6b9e40817e51eece7e341 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

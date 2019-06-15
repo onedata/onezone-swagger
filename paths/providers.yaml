@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.
 
-    This operation requires `oz_providers_list` administrator privilege.
+    This operation requires `oz_providers_list` admin privilege.
   description: |
     Returns the list of providers registered in the Onezone service.
 
-    This operation requires `oz_providers_list` administrator privilege.
+    This operation requires `oz_providers_list` admin privilege.
 
     ***Example cURL requests***
 
@@ -34,7 +34,7 @@ get:
     - application/json
   responses:
     '200':
-      description: List of providers Id's.
+      description: List of providers Ids.
       schema:
         $ref: '#/definitions/Providers'
     '400':
@@ -59,7 +59,7 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listProviders"
+    source: "onezone-rest-cli ozProvidersList"
 
 
 post:
@@ -71,19 +71,42 @@ post:
     aspect: instance
   summary: Register provider
   x-bash-codegen-description: |
-    Registers a Oneprovider in Onezone service.
+    Registers a Oneprovider in Onezone service. Upon success, a new cluster is
+    created, with the registering user linked to it. The cluster Id is the same
+    as Oneprovider Id.
 
-    Requires a valid CSR in the bodyand returns signed certificate that will
-    be used by the Oneprovider for authorization (SSL Peer Certificate).
+    Requires a valid provider registration token - see:
+      * [Create provider registration token for self](#operation/user_create_provider_registration_token_for_self)
+      * [Create provider registration token for a user](#operation/user_create_provider_registration_token)
 
     This operation has public access.
   description: |
-    Registers a Oneprovider in Onezone service.
+    Registers a Oneprovider in Onezone service. Upon success, a new cluster is
+    created, with the registering user linked to it. The cluster Id is the same
+    as Oneprovider Id.
 
-    Requires a valid CSR in the body and returns signed certificate that will
-    be used by the Oneprovider for authorization (SSL Peer Certificate).
+    Requires a valid provider registration token - see:
+      * [Create provider registration token for self](#operation/user_create_provider_registration_token_for_self)
+      * [Create provider registration token for a user](#operation/user_create_provider_registration_token)
 
     This operation has public access.
+
+    ***Example cURL requests***
+
+    **Register provider**
+    ```bash
+    curl -u username:password  -H "Content-type: application/json" \
+    -X POST -d '{
+      "token" : "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
+      "name" : "My provider",
+      "subdomainDelegation" : "false",
+      "domain" : "provider2.beta.onedata.org",
+      "latitude" : "50.0647",
+      "longitude" : "19.9450",
+    }' \
+    https://$HOST/api/v3/onezone/provider
+    ```
+
   consumes:
     - application/json
   responses:
@@ -114,7 +137,7 @@ post:
   parameters:
   - name: data
     in: body
-    description: Provider reqistration request including CSR.
+    description: Provider reqistration request.
     schema:
       $ref: '#/definitions/ProviderRegistrationRequest'
     required: true

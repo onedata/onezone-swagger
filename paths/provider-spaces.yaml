@@ -1,22 +1,22 @@
 get:
-  operationId: list_supported_spaces
+  operationId: list_current_provider_supported_spaces
   tags:
     - Provider
   x-onedata-gri:
     type: od_provider
     id: ?CLIENT_ID
     aspect: spaces
-  summary: List spaces at provider
+  summary: List current provider's supported spaces
   x-bash-codegen-description: |
-    Returns the list of spaces managed by the Oneprovider that performed the
-    request.
+    Returns the list of spaces managed by the Oneprovider that performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
   description: |
-    Returns the list of spaces managed by the Oneprovider that performed the
-    request.
+    Returns the list of spaces managed by the Oneprovider that performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
@@ -27,7 +27,7 @@ get:
 
     {
       "spaces": [
-        "ASDKJHKLAJSDHKjhAsdkjh68asdASDlk"
+        "1ad4551e2c127fac3850374eeb2dfec4"
       ]
     }
     ```
@@ -35,7 +35,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of space ID's.
+      description: The list of space Ids.
       schema:
         $ref: '#/definitions/Spaces'
     '400':
@@ -60,4 +60,4 @@ get:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listSupportedSpaces"
+    source: "onezone-rest-cli listCurrentProviderSupportedSpaces"

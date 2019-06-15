@@ -1,5 +1,5 @@
 get:
-  operationId: get_effective_user_provider
+  operationId: get_user_effective_provider
   tags:
     - User
   x-onedata-gri:
@@ -8,25 +8,25 @@ get:
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
-  summary: Get effective provider details
+  summary: Get user's effective provider details
   x-bash-codegen-description: |
     Returns information about a specific effective provider for the user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns information about a specific effective provider for the user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Get user effective provider**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_providers/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/effective_providers/$PROVIDER_ID
 
     {
-      "providerId":"oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
+      "providerId":"95b663a6467c72ab1256865efef9e387",
       "name": "provider2",
       "domain": "provider2.beta.onedata.org",
       "latitude": 50.0647,
@@ -37,7 +37,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the information about a specific effective provider.
+      description: Returns information about a specific effective provider for the user.
       schema:
         $ref: '#/definitions/ProviderDetails'
     '400':
@@ -63,9 +63,9 @@ get:
   parameters:
   - name: pid
     in: path
-    description: Provider ID.
+    description: Provider Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveUserProvider pid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserEffectiveProvider pid=95b663a6467c72ab1256865efef9e387"

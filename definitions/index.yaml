@@ -8,14 +8,26 @@ Configuration:
 Error:
   $ref: ./error.yaml
 
+VersionInfo:
+  $ref: ./versioninfo.yaml
+
 User:
   $ref: ./user.yaml
+
+UserCreateRequest:
+  $ref: ./usercreaterequest.yaml
 
 UserProtectedInfo:
   $ref: ./userprotectedinfo.yaml
 
 UserUpdateRequest:
   $ref: ./userupdaterequest.yaml
+
+UserPasswordUpdate:
+  $ref: ./userpasswordupdate.yaml
+
+UserBasicAuthSettingsUpdate:
+  $ref: ./userbasicauthsettingsupdate.yaml
 
 IdPAccessToken:
   $ref: ./idpaccesstoken.yaml
@@ -29,6 +41,9 @@ Groups:
 Shares:
   $ref: ./shares.yaml
 
+ProviderRegistrationToken:
+  $ref: ./providerregistrationtoken.yaml
+
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
 
@@ -40,6 +55,9 @@ ProviderRegistrationResponse:
 
 ProviderDetails:
   $ref: ./providerdetails.yaml
+
+ProviderDomainConfig:
+  $ref: ./providerdomainconfig.yaml
 
 AuthenticationToken:
   $ref: ./authenticationtoken.yaml
@@ -101,16 +119,12 @@ GroupPrivileges:
 GroupPrivilegesUpdate:
   $ref: ./groupprivilegesupdate.yaml
 
-PrivilegesUpdateOperation:
-  $ref: ./updateprivilegesoperation.yaml
+AdminPrivileges:
+  $ref: ./adminprivileges.yaml
 
-OnezonePrivileges:
-  $ref: ./onezoneprivileges.yaml
+AdminPrivilegesUpdate:
+  $ref: ./adminprivilegesupdate.yaml
 
-OnezonePrivilegesUpdate:
-  $ref: ./onezoneprivilegesupdate.yaml
-
-# Handle definitions
 HandleService:
   $ref: ./handleservice.yaml
 
@@ -176,3 +190,66 @@ Spaces:
 
 Providers:
   $ref: ./providers.yaml
+
+Harvester:
+  $ref: ./harvester.yaml
+
+Harvesters:
+  $ref: ./harvesters.yaml
+
+HarvesterInviteToken:
+  $ref: ./harvesterinvitetoken.yaml
+
+HarvesterPrivileges:
+  $ref: ./harvesterprivileges.yaml
+
+HarvesterPrivilegesUpdate:
+  $ref: ./harvesterprivilegesupdate.yaml
+
+HarvesterCreateRequest:
+  $ref: ./harvestercreaterequest.yaml
+
+HarvesterUpdateRequest:
+  $ref: ./harvesterupdaterequest.yaml
+
+HarvesterGuiPluginConfig:
+  $ref: ./harvesterguipluginconfig.yaml
+
+HarvesterIndex:
+  $ref: ./harvesterindex.yaml
+
+HarvesterIndices:
+  $ref: ./harvesterindices.yaml
+
+HarvesterIndexCreateRequest:
+  $ref: ./harvesterindexcreaterequest.yaml
+
+HarvesterQuery:
+  $ref: ./harvesterquery.yaml
+
+HarvesterQueryResponse:
+  $ref: ./harvesterqueryresponse.yaml
+
+HarvesterIndexStatsDetails:
+  $ref: ./harvesterindexstatsdetails.yaml
+
+Cluster:
+  $ref: ./cluster.yaml
+
+Clusters:
+  $ref: ./clusters.yaml
+
+ClusterUpdateRequest:
+  $ref: ./clusterupdaterequest.yaml
+
+ClusterInviteToken:
+  $ref: ./clusterinvitetoken.yaml
+
+ClusterPrivileges:
+  $ref: ./clusterprivileges.yaml
+
+ClusterPrivilegesUpdate:
+  $ref: ./clusterprivilegesupdate.yaml
+
+MembershipIntermediaries:
+  $ref: ./membershipintermediaries.yaml

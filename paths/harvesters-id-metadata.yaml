@@ -1,0 +1,63 @@
+delete:
+  operationId: remove_harvested_metadata
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: metadata
+  x-onedata-permissions:
+    - harvester_delete
+    - oz_harvesters_delete 
+  summary: Remove harvested metadata
+  x-bash-codegen-description: |
+    Schedules removal of harvested metadata in all indices in given harvester.
+
+    This operation requires `harvester_delete` privilege
+    or `oz_harvesters_delete` admin privilege.
+  description: |
+    Schedules removal of harvested metadata in all indices in given harvester.\
+    See also: [Remove harvester](#operation/remove_harvester)
+    
+    This operation requires `harvester_delete` privilege
+    or `oz_harvesters_delete` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove harvested metadata**
+    ```bash
+    curl -u admin:password -X DELETE \
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID
+    ```
+  responses:
+    '204':
+      description: All harvested metadata have been scheduled to be removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeHarvestedMetadata id=b752ceafabb662b4e5728b2ded25cdd1"

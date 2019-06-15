@@ -1,0 +1,20 @@
+type: object
+description: Cluster privileges update request.
+properties:
+  grant:
+    $ref: '#/definitions/ClusterPrivileges'
+  revoke:
+    $ref: '#/definitions/ClusterPrivileges'
+
+example:
+  grant:
+    - cluster_view
+    - cluster_view_privileges
+    - cluster_add_user
+    - cluster_add_group
+  revoke:
+    - cluster_update
+    - cluster_delete
+    - cluster_set_privileges
+    - cluster_remove_user
+    - cluster_remove_group

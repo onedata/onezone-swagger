@@ -1,0 +1,30 @@
+type: object
+description: The list of membership intermediaries - entities from which the user inherits membership.
+properties:
+  intermediaries:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The type of the intermediary.
+          enum:
+            - group
+            - space
+            - provider
+            - handle_service
+            - handle
+            - cluster
+        id:
+          type: string
+          description: The id of the intermediary.
+
+example:
+  intermediaries:
+    - type: group
+      id: ef228f31345699bbfa74b030517965a2
+    - type: group
+      id: b55b907444dd00aab8cbe8dcb82681fd
+    - type: space
+      id: self

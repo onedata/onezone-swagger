@@ -1,0 +1,251 @@
+get:
+  operationId: get_cluster_group
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_CLUSTER(?BINDING(id))
+  x-onedata-permissions:
+    - cluster_view
+    - oz_groups_view
+  summary: Get cluster group details
+  x-bash-codegen-description: |
+    Returns details about a specific group in a cluster.
+
+    This operation requires `cluster_view` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_groups_view` privilege is required.
+  description: |
+    Returns details about a specific group in a cluster.
+
+    This operation requires `cluster_view` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_groups_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get cluster group details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
+
+    {
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
+      "name": "new_groupX",
+      "type": "team"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of a specific group in a cluster.
+      schema:
+        $ref: '#/definitions/Group'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getClusterGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
+
+
+put:
+  operationId: add_group_to_cluster
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - cluster_add_group
+    - cluster_set_privileges
+    - oz_clusters_add_relationships
+    - oz_groups_add_relationships
+    - oz_clusters_set_privileges
+  summary: Add group to cluster
+  x-bash-codegen-description: |
+    Adds group {gid} as member of cluster {id}. Optionally, privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the group in this cluster.
+
+    This operation requires `cluster_add_group` privilege in the cluster and
+    `group_add_cluster` privilege in the group. If `privileges` are
+    specified in the request, `cluster_set_privileges` privilege is also required.
+
+    For administrator who does not belong to the group / cluster,
+    `oz_groups_add_relationships` and `oz_clusters_add_relationships` privileges
+    are required, and `oz_clusters_set_privileges` if `privileges` are specified
+    in the request.
+  description: |
+    Adds group {gid} as member of cluster {id}. Optionally, privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the group in this cluster.
+
+    This operation requires `cluster_add_group` privilege in the cluster and
+    `group_add_cluster` privilege in the group. If `privileges` are
+    specified in the request, `cluster_set_privileges` privilege is also required.
+
+    For administrator who does not belong to the group / cluster,
+    `oz_groups_add_relationships` and `oz_clusters_add_relationships` privileges
+    are required, and `oz_clusters_set_privileges` if `privileges` are specified
+    in the request.
+
+    ***Example cURL requests***
+
+    **Add group to cluster**
+    ```bash
+    curl -u username:password  -H "Content-type: application/json" -X PUT \
+     https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The group was added to the cluster.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: privileges
+    in: body
+    schema:
+      $ref: '#/definitions/ClusterPrivileges'
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addGroupToCluster id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
+
+
+delete:
+  operationId: remove_cluster_group
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - cluster_remove_group
+    - oz_clusters_remove_relationships
+  summary: Remove group from cluster
+  x-bash-codegen-description: |
+    Removes a specific group from cluster.
+
+    For regular users, who belong to this cluster it requires
+    `cluster_remove_group` privilege to remove a group from this cluster.
+
+    For administrators, who are not members of this cluster,
+    `oz_clusters_remove_relationships` privilege is required.
+  description: |
+    Removes a specific group from cluster.
+
+    For regular users, who belong to this cluster it requires
+    `cluster_remove_group` privilege to remove a group from this cluster.
+
+    For administrators, who are not members of this cluster,
+    `oz_clusters_remove_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get cluster group details**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
+    ```
+  responses:
+    '204':
+      description: A group was removed from cluster.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeClusterGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"

@@ -8,23 +8,33 @@ get:
     aspect: instance
     scope: protected
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_handle_services_view
   summary: Get group handle service details
   x-bash-codegen-description: |
     Returns the details of a specific handle service.
 
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_view` privilege is required.
   description: |
     Returns the details of a specific handle service.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handle_services_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get handle service details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/ALASDLKJALKSDJKLASD/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handle_services/$HANDLE_SERVICE_ID
 
     {
         "name": "MyCommunity Handle service",
-        "handleServiceId": "SADHLKJhlkASHDLAKSHDLKJHJjLH",
+        "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
         "proxyEndpoint": "https://localhost:17000/handle_proxy",
         "serviceProperties": {
             "allowTemplateOverride": false,
@@ -70,51 +80,57 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: hsid
     in: path
-    description: Handle service ID.
+    description: Handle service Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupHandleService id=ALASDLKJALKSDJKLASD hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getGroupHandleService id=9f63efbd952391af88e096c2bb33bb5d hsid=95b663a6467c72ab1256865efef9e387"
 
 
 delete:
-  operationId: remove_group_handle_service
+  operationId: group_leave_handle_service
   tags:
     - Group
   x-onedata-gri:
     type: od_group
     id: ?BINDING(id)
     aspect: "{handle_service, ?BINDING(hsid)}"
-  summary: Remove group handle service
+  summary: Group leave handle service
   x-onedata-permissions:
-    - group_update
+    - group_leave_handle_service
+    - oz_groups_remove_relationships
+    - oz_handle_services_remove_relationships
   x-bash-codegen-description: |
-    Removes the group ownership or membership in a specific handle service.
+    Removes the group's ownership or access to a specific handle service.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_handle_service` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_handle_services_remove_relationships` privilege is required.
   description: |
-    Removes the group ownership or membership in a specific handle service.
+    Removes the group's ownership or access to a specific handle service.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_handle_service` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_handle_services_remove_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **Delete user handle service**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/AJKLASHJKDHKAJSHD/handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handle_services/$HANDLE_SERVICE_ID
     ```
   produces:
     - application/json
   responses:
     '204':
-      description: The handle service will be deleted.
+      description: The group is no longer a member of the handle service.
     '400':
       description: Invalid request.
       schema:
@@ -138,7 +154,7 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: hsid
@@ -148,4 +164,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroupHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli groupLeaveHandleService hsid=95b663a6467c72ab1256865efef9e387"

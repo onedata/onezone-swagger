@@ -6,18 +6,29 @@ get:
     type: od_space
     id: ?BINDING(id)
     aspect: shares
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_relationships
   summary: List space shares
   x-bash-codegen-description: |
     Returns the list of shares from specific space.
+
+    This operation requires `space_view` privilege.
+    This operation requires membership of given space
+    or `oz_spaces_list_relationships` admin privilege.
   description: |
     Returns the list of shares from specific space.
+
+    This operation requires `space_view` privilege.
+    This operation requires membership of given space
+    or `oz_spaces_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **List space shares**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/shares
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/shares
 
     {
       "shares": [
@@ -29,7 +40,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of all share ID's that have been created in specific space.
+      description: The list of all share Ids that have been created in specific space.
       schema:
         $ref: '#/definitions/Shares'
     '400':
@@ -55,9 +66,9 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listSpaceShares id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listSpaceShares id=b752ceafabb662b4e5728b2ded25cdd1"

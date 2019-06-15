@@ -10,11 +10,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of users' handles.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns the list of users' handles.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
@@ -72,17 +72,17 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - handle_service_register_handle
-  summary: Create new user handle
+  summary: Create a new handle for the current user
   x-bash-codegen-description: |
     Creates a new handle as current user.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     'handle_service_register_handle' privilege in the handle service
     where the new handle is to be registered
   description: |
     Creates a new handle as current user.
 
-    This operation can be invoked on behalf of current user only and requires
+    This operation can be invoked on behalf of the current user only and requires
     'handle_service_register_handle' privilege in the handle service
     where the new handle is to be registered
 
@@ -91,7 +91,7 @@ post:
     **Create new user handle**
     ```bash
     curl -u admin:password  -H "Content-type: application/json" -X POST \
-    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }'
+    -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }'
     https://$HOST/api/v3/onezone/user/handles
     ```
   consumes:
@@ -99,7 +99,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the created space in form https://onezone.domain/api/onezone/v3/user/handles/{id} is
+        URI of the created space in form https://$HOST/api/onezone/v3/user/handles/{id} is
         returned in the response `Location` header.
       headers:
         Location:

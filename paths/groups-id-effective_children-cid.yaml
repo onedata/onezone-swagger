@@ -10,30 +10,30 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
-    - oz_group_list_groups
+    - oz_groups_view
   summary: Get effective child group details
   x-bash-codegen-description: |
     Returns information about a specific effective child group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_groups' privilege is required.
+    `oz_groups_view` privilege is required.
   description: |
     Returns information about a specific effective child group.
 
     This operation requires `group_view` privilege.
     For administrator who does not belong to this group
-    'oz_groups_list_groups' privilege is required.
+    `oz_groups_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get effective child details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_children/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_children/$CHILD_GROUP_ID
 
     {
-      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
       "name": "new_group1",
       "type": "team"
     }
@@ -68,14 +68,14 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: cid
     in: path
-    description: Effective child group ID.
+    description: Effective child group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveChildGroup id=HwUpk8jrwxKOe45uzLFX2GVC1lKEasj4q253sptVqF8 cid=AKLSKDHASDKASDGAHSGDHJASDHJJAHGDSJKHG"
+    source: "onezone-rest-cli getEffectiveChildGroup id=538ef9643ae6b9e40817e51eece7e341 cid=0ec9817801d74e2fa6cc50a476ed5d4d"

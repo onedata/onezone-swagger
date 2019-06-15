@@ -7,22 +7,31 @@ get:
     id: ?BINDING(id)
     aspect: eff_users
   summary: List effective space users
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_relationships
   x-bash-codegen-description: |
-    Returns the effective list of users belonging to a specific space.
+    Returns the list of effective users belonging to a specific space.
+
+    This operation requires `space_view` privilege
+    or `oz_spaces_list_relationships` admin privilege.
   description: |
-    Returns the effective list of users belonging to a specific space.
+    Returns the list of effective users belonging to a specific space.
+
+    This operation requires `space_view` privilege
+    or `oz_spaces_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Get space effective users**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE/effective_users
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/effective_users
 
     {
       "users": [
-        "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
-        "e3piG9yg9877lagR7aHayk73te9gAMXxQvjBycwvnaow"
+        "f1c8b1a37aa7447b22eb65a742d40524",
+        "8e1cea0b379e3683257c32f896d55115"
       ]
     }
     ```
@@ -30,7 +39,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of effective user ID's that belong to a specific space.
+      description: The list of effective user Ids that belong to a specific space.
       schema:
         $ref: '#/definitions/Users'
     '400':
@@ -56,9 +65,9 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listEffectiveSpaceUsers id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listEffectiveSpaceUsers id=b752ceafabb662b4e5728b2ded25cdd1"

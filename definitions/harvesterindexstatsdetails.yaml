@@ -1,0 +1,68 @@
+type: object
+description: Index harvesting stats.
+properties:
+  space_id:
+    type: object
+    properties:
+      provider_id:
+        type: object
+        properties:
+          currentSeq:
+            type: integer
+            description: Highest sequence number in given space in given provider already harvested in this index
+          maxSeq:
+            type: integer
+            description: Highest known sequence in given space in given provider
+          error:
+            type: string
+            description: Short description of encountered error if last harvesting failed
+          lastUpdate:
+            type: integer
+            description: Timestamp of last harvesting in this index
+          archival:
+            type: boolean
+            description:
+              Stats are marked archival when it is no longer possible to harvest metadata
+              in given space in given provider (e.g space was removed from harvester)
+        required:
+          - currentSeq
+          - maxSeq
+          - error
+          - lastUpdate
+          - archival
+
+example:
+  {
+    "$SPACE_ID1" : {
+        "$PROVIDER_ID1" : {
+          "currentSeq" : 5,
+          "maxSeq" : 8,
+          "error" : null,
+          "lastUpdate" : 1557928576,
+          "archival" : false
+        },
+       "$PROVIDER_ID2" : {
+          "currentSeq" : 8,
+          "maxSeq" : 13,
+          "error" : "Service unavailable: temporary failure",
+          "lastUpdate" : 1557928576,
+          "archival" : false
+        }
+    },
+    "$SPACE_ID2" : {
+      "$PROVIDER_ID1" : {
+          "currentSeq" : 13,
+          "maxSeq" : 21,
+          "error" : null,
+          "lastUpdate" : 1557928576,
+          "archival" : false
+        },
+      "$PROVIDER_ID3" : {
+          "currentSeq" : 21,
+          "maxSeq" : 34,
+          "error" : null,
+          "lastUpdate" : 1557928576,
+          "archival" : true
+        }
+    }
+  }

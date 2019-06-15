@@ -1,0 +1,74 @@
+post:
+  operationId: create_harvester_user_invite_token
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: invite_user_token
+  x-onedata-permissions:
+    - harvester_invite_user
+    - oz_harvesters_add_relationships
+  summary: Create harvester user invite token
+  x-bash-codegen-description: |
+    Creates a token allowing new user to join a harvester.
+
+    This operation requires `harvester_invite_user` privilege.
+    For administrators who do not have to be members of this harvester,
+    `oz_harvesters_add_relationships` privilege is required.
+  description: |
+    Creates a token allowing new user to join a harvester.
+
+    This operation requires `harvester_invite_user` privilege.
+    For administrators who do not have to be members of this harvester,
+    `oz_harvesters_add_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Create harvester user invite token**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/users/token
+
+    {
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIG00zcEJ2UDVuOHhkQUNhdk9hbTlyNnIwNldPSzVhc"
+    }
+    ```
+  produces:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The token for joining a specific harvester.
+      schema:
+        $ref: '#/definitions/HarvesterInviteToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createHarvesterUserInviteToken id=b752ceafabb662b4e5728b2ded25cdd1"

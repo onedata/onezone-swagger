@@ -9,13 +9,13 @@ get:
     - oz_handles_list
   summary: List handles
   x-bash-codegen-description: |
-    Returns the list of ID's of all handles registered in Onezone.
+    Returns the list of Ids of all handles registered in Onezone.
 
-    This operation requires `oz_handles_list` administrator privilege.
+    This operation requires `oz_handles_list` admin privilege.
   description: |
-    Returns the list of ID's of all handles registered in Onezone.
+    Returns the list of Ids of all handles registered in Onezone.
 
-    This operation requires `oz_handles_list` administrator privilege.
+    This operation requires `oz_handles_list` admin privilege.
 
     ***Example cURL requests***
 
@@ -25,8 +25,8 @@ get:
 
     {
       "handles": [
-        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
       ]
     }
     ```
@@ -34,7 +34,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of handle identifiers (Onedata internal GUID's).
+      description: The list of handle identifiers (Onedata internal GUIDs).
       schema:
         $ref: '#/definitions/Handles'
     '400':
@@ -69,9 +69,9 @@ post:
   x-onedata-gri:
     type: od_handle
     aspect: instance
-  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - handle_service_register_handle
+    - oz_handles_create
   summary: Register handle
   x-bash-codegen-description: |
     Allows to register a new handle identifier, using a specific handle service.
@@ -79,21 +79,27 @@ post:
     The handle service must be registered in Onedata separately.
 
     This operation requires `handle_service_register_handle` privilege, which needs to
-    be assigned to a specific handle service.
+    be assigned to a specific handle service
+    or `oz_handles_create` admin privilege.
   description: |
     Allows to register a new handle identifier, using a specific handle service.
 
     The handle service must be registered in Onedata separately.
+    
+    See also:  
+    [Create a new handle for the current user](#operation/create_user_handle)  
+    [Create a new handle for given group](#operation/create_group_handle)  
 
     This operation requires `handle_service_register_handle` privilege, which needs to
-    be assigned to a specific handle service.
+    be assigned to a specific handle service
+    or `oz_handles_create` admin privilege.
 
     ***Example cURL requests***
 
     **Register handle**
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
-    -d '{ "handleServiceId": "LKJAHSDKJLHASD", "resourceType": "Share", "resourceId": "ASDasd7asdASDASD76", "metadata": "<?xml version=\'1.0\'?>..." }' \
+    -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }' \
     https://$HOST/api/v3/handles
     ```
   consumes:
@@ -101,7 +107,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the created handle in form https://onezone.domain/api/onezone/v3/user/handles/{id} is
+        URI of the created handle in form https://$HOST/api/onezone/v3/handles/{id} is
         returned in the response `Location` header.
       headers:
         Location:

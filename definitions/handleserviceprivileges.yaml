@@ -1,20 +1,8 @@
-type: object
-description: The list of handle service privileges.
-properties:
-  privileges:
-    type: array
-    items:
-      type: string
-      enum:
-        - handle_service_delete
-        - handle_service_list_handles
-        - handle_service_register_handle
-        - handle_service_update
-        - handle_service_view
-required:
-  - privileges
-example:
-  privileges:
+type: array
+description: A list of privileges in the handle service.
+items:
+  type: string
+  enum:
     - handle_service_delete
     - handle_service_list_handles
     - handle_service_register_handle

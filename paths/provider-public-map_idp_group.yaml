@@ -33,13 +33,13 @@ post:
     - application/json
   responses:
     '200':
-      description: The group ID in external IdP.
+      description: The group Id in external IdP.
       schema:
         type: object
         properties:
           groupId:
             type: string
-            description: Internal group ID in OneZone.
+            description: Internal group Id in OneZone.
             items:
               type: string
         example:

@@ -10,25 +10,28 @@ get:
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
+    - oz_groups_view
   summary: Get effective space group details
   x-bash-codegen-description: |
     Returns details about a specific effective group in a space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view` privilege
+    or `oz_groups_view` admin privilege.
   description: |
     Returns details about a specific effective group in a space.
 
-    This operation requires `space_view` privilege.
+    This operation requires `space_view` privilege
+    or `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
 
     **Get effective space group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/effective_groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/effective_groups/$GROUP_ID
 
     {
-      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
       "name": "new_groupX",
       "type": "team"
     }
@@ -63,14 +66,14 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getEffectiveSpaceGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"

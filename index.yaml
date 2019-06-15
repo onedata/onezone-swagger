@@ -23,6 +23,10 @@ tags:
     description: Operations for managing Handle system service and identifier generation.
   - name: Handle Service
     description: Handle service management operations.
+  - name: Harvester
+    description: Harvester management operations.
+  - name: Cluster
+    description: Cluster management operations.
 x-tagGroups:
   - name: Service information
     tags:
@@ -48,10 +52,24 @@ x-tagGroups:
   - name: Handle service management
     tags:
       - Handle Service
+  - name: Harvester service management
+    tags:
+      - Harvester
+  - name: Cluster management
+    tags:
+    - Cluster
 securityDefinitions:
-  api_key:
+  api_key1:
     type: apiKey
     name: X-Auth-Token
+    in: header
+  api_key2:
+    type: apiKey
+    name: Macaroon
+    in: header
+  api_key3:
+    type: apiKey
+    name: 'Authorization: Bearer'
     in: header
   basic:
     type: basic

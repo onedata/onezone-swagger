@@ -1,0 +1,66 @@
+get:
+  operationId: get_current_provider_domain_config
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: domain_config
+  summary: Get current provider's domain config
+  x-onedata-permissions:
+    - oz_providers_view
+  x-bash-codegen-description: |
+    Returns the domain config of the Oneprovider that performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+  description: |
+    Returns the domain config of the Oneprovider that performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+
+    ***Example cURL requests***
+
+    **Get provider's domain config**
+    ```bash
+    curl -sS -u username:password -X GET  \
+    https://$HOST/api/v3/onezone/provider/domain_config
+
+    {
+      "subdomainDelegation": true,
+      "domain": "provider1.onezone.example.com",
+      "subdomain": "provider1",
+      "ipList": ["172.17.0.1", "172.17.0.2", "172.17.0.3"]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The provider's domain config.
+      schema:
+        $ref: '#/definitions/ProviderDomainConfig'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getCurrentProviderDomainConfig"

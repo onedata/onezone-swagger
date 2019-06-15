@@ -10,22 +10,27 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
+    - oz_groups_view
   summary: Get effective parent group details
   x-bash-codegen-description: |
     Returns details about a specific effective parent group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view` privilege is required.
   description: |
     Returns details about a specific effective parent group.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get effective parent group details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM/effective_parents/9OqgExw00RwaU2MXT51
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_parents/$PARENT_GROUP_ID
 
     {
       "groupId": "9OqgExw00RwaU2MXT51",
@@ -63,14 +68,14 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: pid
     in: path
-    description: Effective parent group ID.
+    description: Effective parent group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getEffectiveParentGroup id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM pid=9OqgExw00RwaU2MXT51"
+    source: "onezone-rest-cli getEffectiveParentGroup id=f1c8b1a37aa7447b22eb65a742d40524 pid=9OqgExw00RwaU2MXT51"

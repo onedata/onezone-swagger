@@ -10,30 +10,30 @@ get:
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
-    - oz_spaces_list_groups
-  summary: Get group details
+    - oz_groups_view
+  summary: Get space's group details
   x-bash-codegen-description: |
     Returns details about a specific group in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_groups` privilege is required.
+    `oz_groups_view` privilege is required.
   description: |
     Returns details about a specific group in a space.
 
     This operation requires `space_view` privilege.
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_groups` privilege is required.
+    `oz_groups_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get space group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID
 
     {
-      "groupId": "T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM",
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
       "name": "new_groupX",
       "type": "team"
     }
@@ -68,17 +68,17 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli getSpaceGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 put:
@@ -90,27 +90,45 @@ put:
     id: ?BINDING(id)
     aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
-    - oz_spaces_add_members
+    - space_add_group
+    - space_set_privileges
+    - oz_spaces_add_relationships
+    - oz_groups_add_relationships
+    - oz_space_set_privileges
   summary: Add group to space
   x-bash-codegen-description: |
-    Allows to add a group to any space.
-
-    This operation can be invoked by system administrators only
-    and requires `oz_spaces_add_members` privilege.
-  description: |
-    Allows to add a group to any space. Optional privileges
+    Adds group {gid} as member of space {id}. Optional privileges
     can be passed in the request body, otherwise default
-    privileges will be set for group in this space.
+    privileges will be set for the group in this space.
 
-    This operation can be invoked by system administrators only
-    and requires `oz_spaces_add_members` privilege.
+    This operation requires `space_add_group` privilege in the space and
+    `group_add_space` privilege in the group. If `privileges` are
+    specified in the request, `space_set_privileges` privilege is also required.
+
+    For administrator who does not belong to the group / space,
+    `oz_groups_add_relationships` and `oz_spaces_add_relationships` privileges
+    are required, and `oz_spaces_set_privileges` if `privileges` are specified
+    in the request.
+  description: |
+    Adds group {gid} as member of space {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the group in this space.
+
+    This operation requires `space_add_group` privilege in the space and
+    `group_add_space` privilege in the group. If `privileges` are
+    specified in the request, `space_set_privileges` privilege is also required.
+
+    For administrator who does not belong to the group / space,
+    `oz_groups_add_relationships` and `oz_spaces_add_relationships` privileges
+    are required, and `oz_spaces_set_privileges` if `privileges` are specified
+    in the request.
 
     ***Example cURL requests***
 
     **Add group to space**
     ```bash
     curl -u username:password  -H "Content-type: application/json" -X PUT \
-     https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/groups/qE_BQiaHEEDC21sY1Kuc9ueUeoZA6KXxNgzlvqmmrbz
+     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID
     ```
   consumes:
     - application/json
@@ -140,12 +158,12 @@ put:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: privileges
@@ -155,7 +173,7 @@ put:
     required: false
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addGroupToSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli addGroupToSpace id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
 
 
 delete:
@@ -168,7 +186,7 @@ delete:
     aspect: "{group, ?BINDING(gid)}"
   x-onedata-permissions:
     - space_remove_group
-    - oz_spaces_remove_members
+    - oz_spaces_remove_relationships
   summary: Remove group from space
   x-bash-codegen-description: |
     Removes a specific group from space.
@@ -177,7 +195,7 @@ delete:
     `space_remove_group` privilege to remove a group from this space.
 
     For administrators, who are not members of this space,
-    `oz_spaces_remove_members` privilege is required.
+    `oz_spaces_remove_relationships` privilege is required.
   description: |
     Removes a specific group from space.
 
@@ -185,18 +203,18 @@ delete:
     `space_remove_group` privilege to remove a group from this space.
 
     For administrators, who are not members of this space,
-    `oz_spaces_remove_members` privilege is required.
+    `oz_spaces_remove_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **Get space group details**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/HUUPOMNGzikwiLXHaFYcE8-qxDtKmt1Gb3v5OnF9UNE/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID
     ```
   responses:
     '204':
-      description: A group will be removed from space.
+      description: A group was removed from space.
     '400':
       description: Invalid request.
       schema:
@@ -220,14 +238,14 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeSpaceGroup id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 gid=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM"
+    source: "onezone-rest-cli removeSpaceGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"

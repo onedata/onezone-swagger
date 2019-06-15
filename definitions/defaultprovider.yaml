@@ -3,8 +3,8 @@ description: Default provider Id.
 properties:
   providerId:
     type: string
-    description: The ID of the default user provider.
+    description: The Id of the default user provider.
 required:
   - providerId
 example:
-  providerId: oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+  providerId: 1acaede6eec99d5722a5ea06dbf37a3c

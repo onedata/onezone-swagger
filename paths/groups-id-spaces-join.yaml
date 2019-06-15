@@ -7,16 +7,22 @@ post:
     aspect: join
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
-    - group_join_space
+    - group_add_space
+    - oz_spaces_add_relationships
+    - oz_groups_add_relationships
   summary: Join space by group
   x-bash-codegen-description: |
     Joins the group to an existing space based on provided space invitation token.
 
-    This operation requires `group_join_space` privilege.
+    This operation requires `group_add_space` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_add_relationships` and `oz_groups_add_relationships` privilege is required.
   description: |
     Joins the group to an existing space based on provided space invitation token.
 
-    This operation requires `group_join_space` privilege.
+    This operation requires `group_add_space` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_add_relationships` and `oz_groups_add_relationships` privilege is required.
 
     ***Example cURL requests***
 
@@ -24,14 +30,14 @@ post:
     ```bash
     curl -u admin:password -H "Content-type: application/json" \
     -d '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVuJ3l02U1JXzstRdK00ZHbso02rRcG8bJLAo"}' \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/spaces/join
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/spaces/join
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the joined space in form https://onezone.domain/api/onezone/v3/groups/{id}/spaces/{sid} is
+        URI of the joined space in form https://$HOST/api/onezone/v3/groups/{id}/spaces/{sid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -60,7 +66,7 @@ post:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: data
@@ -70,4 +76,4 @@ post:
       $ref: '#/definitions/SpaceInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli groupJoinSpace id=T5x_HhFYOnILOCUf9OqgExw00RwaU2MXT5122oWk_sM token==9ASDKJHAJKyvajsbd675OqgExw00RwaU2MXT51"
+    source: "onezone-rest-cli groupJoinSpace id=f1c8b1a37aa7447b22eb65a742d40524 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

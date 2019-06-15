@@ -8,31 +8,31 @@ get:
     aspect: instance
     scope: protected
   x-onedata-permissions:
-    - oz_spaces_list
+    - oz_spaces_view
   summary: Get space details
   x-bash-codegen-description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires `oz_spaces_list`
-    privilege.
+    This operation requires membership in the space or
+    `oz_spaces_view` admin privilege.
   description: |
     Returns the details about a specific space.
 
-    If called by user who is not member of the space, requires `oz_spaces_list`
-    privilege.
+    This operation requires membership in the space or
+    `oz_spaces_view` admin privilege.
 
     ***Example cURL requests***
 
     **Get space details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
 
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
       "providers": {
-        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
       }
     }
     ```
@@ -66,12 +66,12 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli getSpace id=b752ceafabb662b4e5728b2ded25cdd1"
 
 
 patch:
@@ -84,15 +84,18 @@ patch:
     aspect: instance
   x-onedata-permissions:
     - space_update
+    - oz_spaces_update
   summary: Modify space details
   x-bash-codegen-description: |
     Updates the details about a space.
 
-    This operation requires `space_update` privilege.
+    This operation requires `space_update` privilege
+    or `oz_spaces_update` admin privilege.
   description: |
     Updates the details about a space.
 
-    This operation requires `space_update` privilege.
+    This operation requires `space_update` privilege
+    or `oz_spaces_update` admin privilege.
 
     ***Example cURL requests***
 
@@ -100,7 +103,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_space12"}' \
-    https://$HOST/api/v3/onezone/spaces/56ID6lRxcbz4OEbrr7vPI52UA7E6WwkqQ6bJCtW5PLE
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
     ```
   consumes:
     - application/json
@@ -130,7 +133,7 @@ patch:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   - name: data
@@ -145,7 +148,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifySpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3 name==\"New Space Name\""
+    source: "onezone-rest-cli modifySpace id=b752ceafabb662b4e5728b2ded25cdd1 name==\"New Space Name\""
 
 
 delete:
@@ -158,26 +161,29 @@ delete:
     aspect: instance
   x-onedata-permissions:
     - space_delete
+    - oz_spaces_delete
   summary: Remove space
   x-bash-codegen-description: |
     Removes a specific space.
 
-    This operation requires `space_delete` privilege.
+    This operation requires `space_delete` privilege
+    or `oz_spaces_delete` admin privilege.
   description: |
     Removes a specific space.
 
-    This operation requires `space_delete` privilege.
+    This operation requires `space_delete` privilege
+    or `oz_spaces_delete` admin privilege.
 
     ***Example cURL requests***
 
     **Remove space**
     ```bash
     curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
     ```
   responses:
     '204':
-      description: The space will be removed.
+      description: The space was removed.
     '400':
       description: Invalid request.
       schema:
@@ -201,9 +207,9 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeSpace id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli removeSpace id=b752ceafabb662b4e5728b2ded25cdd1"

@@ -10,23 +10,23 @@ get:
   x-onedata-auth-hint: ?THROUGH_USER(?CLIENT_ID)
   summary: Get group details
   x-bash-codegen-description: |
-    Returns information about a specific group to which the user belongs.
+    Returns information about a specific group to which the user has access.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
-    Returns information about a specific group to which the user belongs.
+    Returns information about a specific group to which the user has access.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Get user groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/groups/LKJGHASDJHAJKLSHDLJKASD
+    https://$HOST/api/v3/onezone/user/groups/$GROUP_ID
 
     {
-      "groupId": "LKJGHASDJHAJKLSHDLJKASD",
+      "groupId": "59fec3bd894eef1cdae81623f477e370",
       "name": "admins",
       "type": "team"
     }
@@ -61,12 +61,12 @@ get:
   parameters:
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserGroup gid=LKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli getUserGroup gid=59fec3bd894eef1cdae81623f477e370"
 
 
 delete:
@@ -81,24 +81,24 @@ delete:
   x-bash-codegen-description: |
     Removes the current user from a specific group.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Removes the current user from a specific group.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Leave group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/groups/qScCV0Tt3NiTLYbx_DGzJFnQxDYQNqNxk6o5YANWRo8
+    https://$HOST/api/v3/onezone/user/groups/$GROUP_ID
     ```
   produces:
     - application/json
   responses:
     '204':
-      description: The user will be removed from group.
+      description: The user was removed from group.
     '400':
       description: Invalid request.
       schema:
@@ -122,9 +122,9 @@ delete:
   parameters:
   - name: gid
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli leaveGroup gid=LKJGHASDJHAJKLSHDLJKASD"
+    source: "onezone-rest-cli leaveGroup gid=59fec3bd894eef1cdae81623f477e370"

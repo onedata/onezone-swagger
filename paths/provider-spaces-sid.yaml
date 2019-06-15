@@ -13,25 +13,27 @@ get:
     Returns information about a specific space supported by the Oneprovider that
     performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
   description: |
     Returns information about a specific space supported by the Oneprovider that
     performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Get space details**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X GET \
-    https://$HOST/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
 
     {
       "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
       "name": "new_space1",
       "providers": {
-        "hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE" : 5368709120
+        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
       }
     }
     ```
@@ -65,7 +67,7 @@ get:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
@@ -83,20 +85,24 @@ patch:
     aspect: "{space, ?BINDING(sid)}"
   summary: Modify supported space
   x-bash-codegen-description: |
-    Modifies supported space parameters.
+    Modifies the support size of a space supported by the Oneprovider that
+    performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
   description: |
-    Modifies supported space parameters.
+    Modifies the support size of a space supported by the Oneprovider that
+    performed the request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Change supported size**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X PATCH -d '{"size": 1024000}' \
-    https://$HOST/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
     - application/json
@@ -126,7 +132,7 @@ patch:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
@@ -144,20 +150,24 @@ delete:
     aspect: "{space, ?BINDING(sid)}"
   summary: Remove space support
   x-bash-codegen-description: |
-    Removes support for space from the Oneprovider that performed the request.
+    Revokes support for a space supported by the Oneprovider that performed the
+    request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
   description: |
-    Removes support for space from the Oneprovider that performed the request.
+    Revokes support for a space supported by the Oneprovider that performed the
+    request.
 
-    This operation requires peer certificate authentication.
+    This operation requires provider authentication - see
+    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Revoke space support**
     ```bash
     curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X DELETE \
-    https://$HOST/api/v3/onezone/provider/spaces/803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
     - application/json
@@ -187,7 +197,7 @@ delete:
   parameters:
   - name: sid
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:

@@ -10,27 +10,30 @@ get:
   x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
   x-onedata-permissions:
     - handle_service_view
+    - oz_users_view
   summary: Get handle service user
   x-bash-codegen-description: |
     Allows to get a user to a handle service.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_users_view` admin privilege.
   description: |
     Allows to get a user to a handle service.
 
-    This operation requires `handle_service_view` privilege.
+    This operation requires `handle_service_view` privilege
+    or `oz_users_view` admin privilege.
 
     ***Example cURL requests***
 
     **Add handle service user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
 
     {
-       "userId" : "njOzyvXybAYvki10HXRCeJd_IlLHS4XEklgghmJjDpo",
-       "name" : "John Doe",
-       "alias" : "username"
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe"
     }
     ```
   produces:
@@ -63,17 +66,17 @@ get:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to return information about.
+      description: The Id of the user to return information about.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleServiceUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli getHandleServiceUser id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"
 
 
 put:
@@ -86,22 +89,26 @@ put:
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_add_relationships
+    - oz_users_add_relationships
   summary: Add handle service user
   x-bash-codegen-description: |
     Allows to add a user to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_add_relationships` and `oz_users_add_relationships` admin privilege.
   description: |
     Allows to add a user to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_add_relationships` and `oz_users_add_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Add handle service user**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
     ```
   produces:
     - application/json
@@ -131,17 +138,17 @@ put:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to add to handle service.
+      description: The Id of the user to add to handle service.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli addHandleServiceUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli addHandleServiceUser id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"
 
 
 delete:
@@ -154,26 +161,30 @@ delete:
     aspect: "{user, ?BINDING(uid)}"
   x-onedata-permissions:
     - handle_service_update
+    - oz_handle_services_remove_relationships
+    - oz_users_remove_relationships
   summary: Remove handle service user
   x-bash-codegen-description: |
     Allows to remove a user from access to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_remove_relationships` and `oz_users_remove_relationships` admin privilege.
   description: |
     Allows to remove a user from access to a handle service.
 
-    This operation requires `handle_service_update` privilege.
+    This operation requires `handle_service_update` privilege
+    or `oz_handle_services_remove_relationships` and `oz_users_remove_relationships` admin privilege.
 
     ***Example cURL requests***
 
     **Remove handle service user**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handle_services/SADHLKJhlkASHDLAKSHDLKJHJjLH/users/DLAKSHDLKJHJjLHADHLKJh
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
     ```
   responses:
     '204':
-      description: User will be removed from handle service.
+      description: User was removed from handle service.
     '400':
       description: Invalid request.
       schema:
@@ -197,14 +208,14 @@ delete:
   parameters:
     - name: id
       in: path
-      description: The ID of the handle service.
+      description: Handle service Id.
       required: true
       type: string
     - name: uid
       in: path
-      description: The ID of the user to remove from handle service.
+      description: The Id of the user to remove from handle service.
       required: true
       type: string
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeHandleServiceUser id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=hlkASHDLAKSHDLKJHJjLHSADHLKJhlk"
+    source: "onezone-rest-cli removeHandleServiceUser id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"

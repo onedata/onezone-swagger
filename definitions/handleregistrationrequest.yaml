@@ -11,7 +11,7 @@ properties:
     description: The type of resource to be registered.
   resourceId:
     type: string
-    description: The ID of the resource to be assigned a handle identifier.
+    description: The Id of the resource to be assigned a handle identifier.
   metadata:
     type: string
     description: Dublin Core metadata for the resource encoded in XML.
@@ -21,9 +21,9 @@ required:
   - resourceId
   - metadata
 example:
-  handleServiceId: ALKJSDH77i79ASDKJA-ASDBAS9-87
+  handleServiceId: f1c8b1a37aa7447b22eb65a742d40524
   resourceType: Share
-  resourceId: LKJAHSDA796IASDKBjkhaksjdk568787asdhjbasd
+  resourceId: f7a6d2ea511e728c9b3f3972cecb7af4
   metadata: >
     <?xml version=\"1.0\"?>
     <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">

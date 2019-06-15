@@ -10,29 +10,34 @@ get:
   x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
   x-onedata-permissions:
     - group_view
+    - oz_handles_view
   summary: Get group handle details
   x-bash-codegen-description: |
     Returns the details of a specific handle.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handles_view` privilege is required.
   description: |
     Returns the details of a specific handle.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_handles_view` privilege is required.
 
     ***Example cURL requests***
 
     **Get handle details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/KLAJSHDjhkahsdkasjdKLHSALD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles/$HANDLE_ID
 
     {
       "handle": "10.5072/w95Zlng"
-      "handleId": "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
-      "handleServiceId": "ASKDGHKAJSHDukjhasdlkjalksjd76876asdkb",
+      "handleId": "95b663a6467c72ab1256865efef9e387",
+      "handleServiceId": "97c27230017cd54c1220189e357322c4",
       "resourceType": "Share",
-      "resourceId": "dlkjalkADKDGHKAJSHDukjhassjd76876asdkb",
+      "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
       "metadata": "<?xml version=\"1.0\"?>
           <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
           <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
@@ -77,21 +82,21 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: hid
     in: path
-    description: Handle ID.
+    description: Handle Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=95b663a6467c72ab1256865efef9e387"
 
 
 delete:
-  operationId: remove_group_handle
+  operationId: group_leave_handle
   tags:
     - Group
   x-onedata-gri:
@@ -99,29 +104,35 @@ delete:
     id: ?BINDING(id)
     aspect: "{handle, ?BINDING(hid)}"
   x-onedata-permissions:
-    - group_update
-  summary: Remove group handle
+    - group_leave_handle
+    - oz_groups_remove_relationships
+    - oz_handles_remove_relationships
+  summary: Group leave handle
   x-bash-codegen-description: |
-    Removes the groups ownership or membership in a specific handle.
+    Removes the group's ownership or access to a specific handle.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_handle` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_handles_remove_relationships` privileges are required.
   description: |
-    Removes the groups ownership or membership in a specific handle.
+    Removes the group's ownership or access to a specific handle.
 
-    This operation requires `group_update` privilege.
+    This operation requires `group_leave_handle` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_handles_remove_relationships` privileges are required.
 
     ***Example cURL requests***
 
     **Delete user space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/AKSDKJLHASDJKjhjaksdLKJASD/handles/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles/$HANDLE_ID
     ```
   produces:
     - application/json
   responses:
     '204':
-      description: The handle will be removed from group.
+      description: The group is no longer a member of the handle.
     '400':
       description: Invalid request.
       schema:
@@ -145,7 +156,7 @@ delete:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: hid
@@ -155,4 +166,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeGroupHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli groupLeaveHandle id=KLAJSHDjhkahsdkasjdKLHSALD hid=95b663a6467c72ab1256865efef9e387"

@@ -1,0 +1,19 @@
+type: array
+description: A list of privileges in the harvester.
+items:
+  type: string
+  enum:
+    - harvester_view
+    - harvester_update
+    - harvester_delete
+    - harvester_view_privileges
+    - harvester_set_privileges
+
+    - harvester_invite_user
+    - harvester_remove_user
+
+    - harvester_add_group
+    - harvester_remove_group
+
+    - harvester_invite_space
+    - harvester_remove_space

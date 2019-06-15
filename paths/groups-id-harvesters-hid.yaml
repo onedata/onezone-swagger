@@ -1,0 +1,153 @@
+get:
+  operationId: get_group_harvester
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_harvesters_view
+  summary: Get group's harvester details
+  x-bash-codegen-description: |
+    Returns information about a specific harvester to which the group has access.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_harvesters_view` privilege is required.
+  description: |
+    Returns information about a specific harvester to which the group has access.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_harvesters_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get group's harvester details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/harvesters/$HARVESTER_ID
+
+    {
+      "harvesterId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
+      "name": "new_harvester1",
+      "public" : true,
+      "plugin" : "elasticsearch_plugin",
+      "endpoint" : "https://example.elastic.com"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a specific harvester in a group.
+      schema:
+        $ref: '#/definitions/Harvester'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: hid
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroupHarvester id=a4d3bc73aada63052310652d421609f1 hid=HUUPOMNGzikwiLXHaFYcE8"
+
+
+delete:
+  operationId: remove_group_from_harvester
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{harvester, ?BINDING(hid)}"
+  x-onedata-permissions:
+    - group_leave_harvester
+    - oz_harvesters_remove_relationships
+    - oz_groups_remove_relationships
+  summary: Remove group from harvester
+  x-bash-codegen-description: |
+    Removes the group {id} from harvester {hid} (the group will no longer have access to harvester).
+
+    This operation requires `group_leave_harvester` privilege.
+  description: |
+    Removes the group {id} from harvester {hid} (the group will no longer have access to harvester).
+
+    This operation requires `group_leave_harvester` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_harvesters_remove_relationships` privileges are required.
+
+    ***Example cURL requests***
+
+    **Remove harvester from group**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/harvesters/$HARVESTER_ID
+    ```
+  responses:
+    '204':
+      description: A group was removed from the harvester.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: hid
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeGroupFromHarvester id=a4d3bc73aada63052310652d421609f1 hid=HUUPOMNGzikwiLXHaFYcE8"

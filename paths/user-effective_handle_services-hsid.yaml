@@ -12,18 +12,18 @@ get:
   x-bash-codegen-description: |
     Returns information about a specific effective handle service for the user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns information about a specific effective handle service for the user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Get user effective handle service**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_handle_services/oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY
+    https://$HOST/api/v3/onezone/user/effective_handle_services/$HANDLE_SERVICE_ID
 
     {
         "name": "MyCommunity Handle service",
@@ -72,9 +72,9 @@ get:
   parameters:
   - name: hsid
     in: path
-    description: Handle service ID.
+    description: Handle service Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getUserEffectiveHandleService hsid=oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY"
+    source: "onezone-rest-cli getUserEffectiveHandleService hsid=95b663a6467c72ab1256865efef9e387"

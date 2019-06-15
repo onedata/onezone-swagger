@@ -20,8 +20,8 @@ get:
 
     {
       "handle_services": [
-        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
       ]
     }
     ```
@@ -67,17 +67,17 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - oz_handle_service_create
-  summary: Add user handle service
+  summary: Create a new handle service for the current user
   x-bash-codegen-description: |
     Allows to register a new handle service.
 
-    This operation can be invoked on behalf of current user only and requires
-    `oz_handle_service_create` administrator privilege.
+    This operation can be invoked on behalf of the current user only and requires
+    `oz_handle_service_create` admin privilege.
   description: |
     Allows to register a new handle service.
 
-    This operation can be invoked on behalf of current user only and requires
-    `oz_handle_service_create` administrator privilege.
+    This operation can be invoked on behalf of the current user only and requires
+    `oz_handle_service_create` admin privilege.
 
     ***Example cURL requests***
 
@@ -91,7 +91,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the created handle service in form https://onezone.domain/api/onezone/v3/user/handle_services/{id}
+        URI of the created handle service in form https://$HOST/api/onezone/v3/user/handle_services/{id}
         is returned in the response `Location` header.
       headers:
         Location:

@@ -1,0 +1,79 @@
+get:
+  operationId: get_effective_handle_user
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(id))
+  x-onedata-permissions:
+    - handle_view
+    - oz_users_view
+  summary: Get effective handle user
+  x-bash-codegen-description: |
+    Returns effective handle user details.
+
+    This operation requires `handle_view` privilege
+    or `oz_users_view` admin privilege.
+  description: |
+    Returns effective handle user details.
+
+    This operation requires `handle_view` privilege
+    or `oz_users_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Add handle user**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/$HANDLE_ID/effective_users/$USER_ID
+
+    {
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: User details returned succesfully.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Handle Id.
+      required: true
+      type: string
+    - name: uid
+      in: path
+      description: The Id of the user to add to handle.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveHandleUser id=45bf25a5cb16e12a9faa6d088a2c7088 uid=5ca9574418d5a2c509265d37356ee549"

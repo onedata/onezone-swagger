@@ -1,9 +1,9 @@
 type: object
-description: User space parameters.
+description: Space parameters.
 properties:
   spaceId:
     type: string
-    description: Unique ID of the space.
+    description: Unique Id of the space.
   name:
     type: string
     description: The name of the space.
@@ -21,7 +21,7 @@ required:
   - name
   - providers
 example:
-  spaceId: Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+  spaceId: 2c0160248ba9a66f45da751ca459535a
   name: My Private space
   providers:
-    hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE: 5368709120
+    296ebe3c20e9666dc489b647f8647f12: 5368709120

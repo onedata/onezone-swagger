@@ -8,26 +8,31 @@ get:
     aspect: eff_handle_services
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List effective group handle services
   x-bash-codegen-description: |
     Returns the list of registered group effective handle services.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the list of registered group effective handle services.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **Get group effective handle services**
     ```bash
-    curl -u username:password -X GET https://$HOST/api/v3/groups/ASLKDJHAKLJSDHJKASD/effective_handle_services
+    curl -u username:password -X GET https://$HOST/api/v3/groups/$GROUP_ID/effective_handle_services
 
     {
       "handle_services": [
-        "oOVF-KrO1P6rpA0LFgNVI8NxuhxyQMUnrYzjAnKiyAY",
-        "NxuhxyQMUnrYzjAnKiyAYoOVFPKrO1P6rpA0LFgNVI8"
+        "95b663a6467c72ab1256865efef9e387",
+        "67222da37f90559bcca1f85edd745e5c"
       ]
     }
     ```
@@ -61,7 +66,7 @@ get:
   parameters:
     - name: id
       in: path
-      description: Group ID.
+      description: Group Id.
       type: string
       required: true
   x-code-samples:

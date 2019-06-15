@@ -8,26 +8,31 @@ get:
     aspect: handle_services
   x-onedata-permissions:
     - group_view
+    - oz_groups_list_relationships
   summary: List group handle services
   x-bash-codegen-description: |
     Returns the list of registered group handle services.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
   description: |
     Returns the list of registered group handle services.
 
     This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **Get group handle services**
     ```bash
-    curl -u username:password -X GET https://$HOST/api/v3/groups/ASLKDJHAKLJSDHJKASD/handle_services
+    curl -u username:password -X GET https://$HOST/api/v3/groups/$GROUP_ID/handle_services
 
     {
       "handle_services": [
-        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
       ]
     }
     ```
@@ -61,12 +66,12 @@ get:
   parameters:
     - name: id
       in: path
-      description: Group ID.
+      description: Group Id.
       type: string
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli listGroupHandleServices id=ASLKDJHAKLJSDHJKASD"
+      source: "onezone-rest-cli listGroupHandleServices id=8c2ef25065401e0e3dca3a7f94c3b05e"
 
 
 post:
@@ -78,32 +83,38 @@ post:
     aspect: instance
   x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
   x-onedata-permissions:
+    - group_create_handle_service
     - oz_handle_services_create
-  summary: Add group handle service
+    - oz_groups_add_relationships
+  summary: Create a new handle service for given group.
   x-bash-codegen-description: |
-    Allows to register a new handle service for group.
+    Creates a new handle service for given group.
 
+    This operation requires `group_create_handle_service` privilege and
+    `oz_handle_services_create` admin privilege.
     For administrator who does not belong to this group
-    'oz_handle_services_create' privilege is required.
+    `oz_handle_services_create` and `oz_groups_add_relationships` privileges are required.
   description: |
-    Allows to register a new handle service for group.
+    Creates a new handle service for group.
 
+    This operation requires `group_create_handle_service` privilege and
+    `oz_handle_services_create` admin privilege.
     For administrator who does not belong to this group
-    'oz_handle_services_create' privilege is required.
+    `oz_handle_services_create` and `oz_groups_add_relationships` privileges are required.
 
     ***Example cURL requests***
 
     **Add group handle services**
     ```bash
     curl -u username:password -X POST  -H "Content-type: application/json" \
-    -d '{ ... }' https://$HOST/api/v3/groups/ASASDLKALKSD/handle_services
+    -d '{ ... }' https://$HOST/api/v3/groups/4ebd9efd1e67f6c18695db1d762a914a/handle_services
     ```
   consumes:
     - application/json
   responses:
     '201':
       description:
-        URI of the created space in form https://onezone.domain/api/onezone/v3/groups/{id}/handle_services/{sid} is
+        URI of the created space in form https://$HOST/api/onezone/v3/groups/{id}/handle_services/{sid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -138,9 +149,9 @@ post:
         $ref: '#/definitions/HandleServiceCreateRequest'
     - name: id
       in: path
-      description: Group ID.
+      description: Group Id.
       type: string
       required: true
   x-code-samples:
   - lang: Shell
-    source: "cat hndl_service.json | onezone-rest-cli addGroupHandleService id=ASASDLKALKSD -"
+    source: "cat hndl_service.json | onezone-rest-cli addGroupHandleService id=4ebd9efd1e67f6c18695db1d762a914a -"

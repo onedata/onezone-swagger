@@ -1,5 +1,5 @@
 get:
-  operationId: list_groups_user_privileges
+  operationId: list_effective_user_group_privileges
   tags:
     - Group
   x-onedata-gri:
@@ -7,39 +7,42 @@ get:
     id: ?BINDING(id)
     aspect: "{eff_user_privileges, ?BINDING(uid)}"
   x-onedata-permissions:
-    - group_view
-  summary: List user group privileges
+    - group_view_privileges
+    - oz_groups_view_privileges
+  summary: List effective user's group privileges
   x-bash-codegen-description: |
-    Returns the effective user privileges in a group.
+    Returns the list of effective user's (`{uid}`) privileges in a group (`{id}`).
 
-    This operation requires `group_view` privilege.
+    Effective privileges are a sum of user's privileges and privileges
+    inherited from his group memberships.
+
+    This operation requires `group_view_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view_privileges` privilege is required.
   description: |
-    Returns the effective user privileges in a group.
+    Returns the list of effective user's (`{uid}`) privileges in a group (`{id}`).
 
-    This operation requires `group_view` privilege.
+    Effective privileges are a sum of user's privileges and privileges
+    inherited from his group memberships.
+
+    This operation requires `group_view_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view_privileges` privilege is required.
 
     ***Example cURL requests***
 
-    **Get group user details**
+    **List effective user's privileges in a group**
     ```bash
     curl -i -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8/effective_users/lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0/privileges
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_users/$USER_ID/privileges
 
     {
       "privileges": [
+        "group_view",
         "group_update",
-        "group_create_space",
-        "group_create_space_token",
-        "group_invite_group",
-        "group_invite_user",
-        "group_join_group",
-        "group_join_space",
-        "group_leave_space",
         "group_delete",
-        "group_remove_group",
-        "group_remove_user",
-        "group_set_privileges",
-        "group_view"
+        "group_view_privileges",
+        "group_set_privileges"
       ]
     }
     ```
@@ -47,9 +50,18 @@ get:
     - application/json
   responses:
     '200':
-      description: Returns the information about a group user privileges.
+      description: The list of effective user's privileges in the group.
       schema:
-        $ref: '#/definitions/GroupPrivileges'
+        properties:
+          privileges:
+            $ref: '#/definitions/GroupPrivileges'
+        example:
+          privileges:
+          - group_view
+          - group_update
+          - group_delete
+          - group_view_privileges
+          - group_set_privileges
     '400':
       description: Invalid request.
       schema:
@@ -73,14 +85,14 @@ get:
   parameters:
   - name: id
     in: path
-    description: Group ID.
+    description: Group Id.
     type: string
     required: true
   - name: uid
     in: path
-    description: User ID.
+    description: User Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listGroupsUserPrivileges id=HwUpk8jrwxKOe45uzLFX2GVC8lKEasj4q253sptVqF8 uid=lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0"
+    source: "onezone-rest-cli listEffectiveUserGroupPrivileges id=a4d3bc73aada63052310652d421609f1 uid=a5b469a2b0516b662a49da74d6d7d7bc"

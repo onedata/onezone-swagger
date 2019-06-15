@@ -8,7 +8,7 @@ get:
     aspect: providers
   x-onedata-permissions:
     - space_view
-    - oz_spaces_list_providers
+    - oz_spaces_list_relationships
   summary: List space providers
   x-bash-codegen-description: |
     Returns the list of providers supporting specific space.
@@ -16,21 +16,21 @@ get:
     For users who are members of space it requires `space_view`.
 
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_providers` privilege is required.
+    `oz_spaces_list_relationships` privilege is required.
   description: |
     Returns the list of providers supporting specific space.
 
     For users who are members of space it requires `space_view`.
 
     For administrators who do not have to be members of this space,
-    `oz_spaces_list_providers` privilege is required.
+    `oz_spaces_list_relationships` privilege is required.
 
     ***Example cURL requests***
 
     **Get space support token**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/9ueUeoZA6KXxNgzlvqmmrbzqE_BQiaHEEDC21sY1Kuc/providers
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers
 
     {
       "providers": [
@@ -42,7 +42,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of all provider ID's that support a specific space.
+      description: The list of all provider Ids that support a specific space.
       schema:
         $ref: '#/definitions/Providers'
     '400':
@@ -68,9 +68,9 @@ get:
   parameters:
   - name: id
     in: path
-    description: Space ID.
+    description: Space Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli listSpaceProviders id=bI4QaPBog_0kCdUddUIsgAxi5I803ZirkUfdiWDd4W3"
+    source: "onezone-rest-cli listSpaceProviders id=b752ceafabb662b4e5728b2ded25cdd1"
