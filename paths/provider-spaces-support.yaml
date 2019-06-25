@@ -28,7 +28,7 @@ post:
 
     **Add support for specific space**
     ```bash
-    curl -H "macaroon:JKAxNWxvY2F0aW9uIG9uZXp..." -X POST \
+    curl -H "X-Auth-Token: $TOKEN" -X POST \
     -d '{"size": 1024000, "token": "43e9940c0a679799f87269e68b7f5a4e"}' \
     https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
