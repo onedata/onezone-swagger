@@ -17,24 +17,24 @@ x-bash-codegen-description: |
     * **users** - can authenticate using an access token or basic credentials
     (only for users originating from Onezone's onepanel). Examples:
     ```bash
-    curl -H "Macaroon: $TOKEN" [...]
     curl -H "X-Auth-Token: $TOKEN" [...]
     curl -H "Authorization: Bearer $TOKEN" [...]
     curl -u "username:password" [...]
+    curl -H "Macaroon: $TOKEN" [...]   # DEPRECATED
     ```
     > `$TOKEN` can ba a Onedata access token, obtained via Onezone GUI or API, in the form
     `MDAxNWxvY2F00aW9...`. If authority delegation for given IdP is enabled,
     it is possible to provide an access token from the IdP, which must be prefixed
     properly (depending on the configuration), e.g.: `github/GST5aasdA...`.
 
-    * **Oneproviders** - can authenticate using the provider auth macaroon (token),
+    * **Oneproviders** - can authenticate using the provider root macaroon token,
     which was assigned during registration in Onezone. It can be found in
-    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user access
-    token, for example:
+    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user
+    access token, for example:
     ```bash
-    curl -H "Macaroon: $TOKEN" [...]
     curl -H "X-Auth-Token: $TOKEN" [...]
     curl -H "Authorization: Bearer $TOKEN" [...]
+    curl -H "Macaroon: $TOKEN" [...]   # DEPRECATED
     ```
     > Please mind that the provider root macaroon is highly confidential and must
     be kept secret (similarly to a private RSA key).
@@ -135,24 +135,24 @@ description: |
     * **users** - can authenticate using an access token or basic credentials
     (only for users originating from Onezone's onepanel). Examples:
     ```bash
-    curl -H "Macaroon: $TOKEN" [...]
     curl -H "X-Auth-Token: $TOKEN" [...]
     curl -H "Authorization: Bearer $TOKEN" [...]
     curl -u "username:password" [...]
+    curl -H "Macaroon: $TOKEN" [...]   # DEPRECATED
     ```
     > `$TOKEN` can ba a Onedata access token, obtained via Onezone GUI or API, in the form
     `MDAxNWxvY2F00aW9...`. If authority delegation for given IdP is enabled,
     it is possible to provide an access token from the IdP, which must be prefixed
     properly (depending on the configuration), e.g.: `github/GST5aasdA...`.
 
-    * **Oneproviders** - can authenticate using the provider auth macaroon (token),
+    * **Oneproviders** - can authenticate using the provider root macaroon token,
     which was assigned during registration in Onezone. It can be found in
-    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user access
-    token, for example:
+    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user
+    access token, for example:
     ```bash
-    curl -H "Macaroon: $TOKEN" [...]
     curl -H "X-Auth-Token: $TOKEN" [...]
     curl -H "Authorization: Bearer $TOKEN" [...]
+    curl -H "Macaroon: $TOKEN" [...]   # DEPRECATED
     ```
     > Please mind that the provider root macaroon is highly confidential and must
     be kept secret (similarly to a private RSA key).
@@ -269,7 +269,7 @@ description: |
 
   **Get user details**
   ```bash
-  curl -H 'X-Auth-Token: MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlk' -X GET \
+  curl -H 'X-Auth-Token: $TOKEN' -X GET \
   https://$ONEZONE_HOST/api/v3/onezone/user
   ```
 
