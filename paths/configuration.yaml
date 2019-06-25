@@ -8,10 +8,20 @@ get:
   x-onedata-permissions: []
   summary: Returns public configuration of Onezone service.
   x-bash-codegen-description: |
-    Returns public configuration of Onezone service.
-  description: >
     Returns public information about the Onezone service.
+
     This endpoint does not require authentication.
+  description: |
+    Returns public information about the Onezone service.
+
+    This endpoint does not require authentication.
+
+    ***Example cURL requests***
+
+    **List all groups in the system**
+    ```bash
+     curl https://$HOST/api/v3/onezone/configuration
+    ```
   produces:
     - application/json
   responses:
