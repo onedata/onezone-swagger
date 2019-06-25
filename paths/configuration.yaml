@@ -18,7 +18,7 @@ get:
 
     ***Example cURL requests***
 
-    **List all groups in the system**
+    **Get public information about the Onezone service**
     ```bash
      curl https://$HOST/api/v3/onezone/configuration
     ```
