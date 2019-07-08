@@ -1,4 +1,4 @@
-version: 19.02.0-beta1  # @TODO update when released
+version: 19.02.0-beta1
 title: Onezone
 x-bash-codegen-description: |
   This is the RESTful API definition of Onezone component of Onedata
@@ -251,7 +251,7 @@ description: |
   operations and attributes.
 
   ```
-  docker run -it onedata/rest-cli:19.02.0-beta1  # @TODO update when released
+  docker run -it onedata/rest-cli:19.02.0-beta1
   ```
 
   Below you can find some tutorials which show how to use this API in practice:
