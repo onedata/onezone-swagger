@@ -45,6 +45,9 @@ routes() -> [
 {{/summary}}
     {<<"{{path}}">>, #rest_req{
         method = '{{httpMethod}}',
+        {{#hasProduces}}
+        produces = [{{#produces}}<<"{{{mediaType}}}">>{{#hasMore}}, {{/hasMore}}{{/produces}}],
+        {{/hasProduces}}
         {{#vendorExtensions}}
         {{#x-onedata-gri}}
         b_gri = #b_gri{type = {{type}}, id = {{{id}}}{{^id}}undefined{{/id}}, aspect = {{{aspect}}},{{#scope}} scope = {{scope}}{{/scope}}},
