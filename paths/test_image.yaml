@@ -1,0 +1,29 @@
+get:
+  operationId: test_image
+  tags:
+    - Zone
+  x-onedata-gri:
+    type: oz_worker
+    aspect: test_image
+  x-onedata-permissions: []
+  summary: Get test image.
+  x-bash-codegen-description: |
+    This endpoint returns a dummy image in `.png` format. It is used internally
+    by web applications across Onedata to check connectivity with certain services.
+    This endpoint does not require authentication.
+  description: >
+    This endpoint returns a dummy image in `.png` format. It is used internally
+    by web applications across Onedata to check connectivity with certain services.
+    This endpoint does not require authentication.
+  produces:
+    - image/png
+  responses:
+    '200':
+      description: Test image.
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli testImage"
