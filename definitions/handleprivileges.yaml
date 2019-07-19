@@ -3,6 +3,6 @@ description: A list of privileges in the handle.
 items:
   type: string
   enum:
-    - handle_delete
-    - handle_update
     - handle_view
+    - handle_update
+    - handle_delete
