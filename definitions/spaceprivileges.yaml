@@ -12,9 +12,13 @@ items:
     - space_read_data
     - space_write_data
     - space_manage_shares
-    - space_manage_indexes
-    - space_query_indexes
+
+    - space_view_indices
+    - space_manage_indices
+    - space_query_indices
+
     - space_view_statistics
+    - space_view_changes_stream
 
     - space_view_transfers
     - space_schedule_replication
@@ -30,3 +34,6 @@ items:
 
     - space_add_provider
     - space_remove_provider
+
+    - space_add_harvester
+    - space_remove_harvester

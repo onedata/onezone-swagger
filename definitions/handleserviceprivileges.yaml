@@ -3,8 +3,8 @@ description: A list of privileges in the handle service.
 items:
   type: string
   enum:
-    - handle_service_delete
-    - handle_service_list_handles
-    - handle_service_register_handle
-    - handle_service_update
     - handle_service_view
+    - handle_service_update
+    - handle_service_delete
+    - handle_service_register_handle
+    - handle_service_list_handles

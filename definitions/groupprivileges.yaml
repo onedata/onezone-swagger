@@ -26,3 +26,6 @@ items:
 
     - group_create_handle
     - group_leave_handle
+
+    - group_add_harvester
+    - group_remove_harvester

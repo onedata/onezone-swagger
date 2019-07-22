@@ -10,6 +10,8 @@ items:
     # Privileges to administrate users in OZ
     - oz_users_list
     - oz_users_view
+    - oz_users_create
+    - oz_users_manage_passwords
     - oz_users_update
     - oz_users_delete
     - oz_users_list_relationships
@@ -78,3 +80,25 @@ items:
     - oz_handles_list_relationships
     - oz_handles_add_relationships
     - oz_handles_remove_relationships
+
+    # Privileges to administrate harvesters in OZ
+    - oz_harvesters_list
+    - oz_harvesters_view
+    - oz_harvesters_create
+    - oz_harvesters_update
+    - oz_harvesters_delete
+    - oz_harvesters_view_privileges
+    - oz_harvesters_set_privileges
+    - oz_harvesters_list_relationships
+    - oz_harvesters_add_relationships
+    - oz_harvesters_remove_relationships
+
+    # Privileges to administrate clusters in OZ
+    - oz_clusters_list
+    - oz_clusters_view
+    - oz_clusters_update
+    - oz_clusters_view_privileges
+    - oz_clusters_set_privileges
+    - oz_clusters_list_relationships
+    - oz_clusters_add_relationships
+    - oz_clusters_remove_relationships
