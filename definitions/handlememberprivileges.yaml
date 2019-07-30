@@ -1,5 +1,5 @@
 type: array
-description: A list of member privileges in the handle.
+description: A subset of handle privileges suggested for handle managers.
 items:
   type: string
   enum:

@@ -1,5 +1,5 @@
 type: array
-description: A list of manager privileges in the cluster.
+description: A subset of cluster privileges suggested for cluster managers.
 items:
   type: string
   enum:
@@ -10,4 +10,6 @@ items:
 
     - cluster_add_group
     - cluster_remove_group
-example: [cluster_view,cluster_add_user,cluster_remove_user,cluster_add_group,cluster_remove_group ]
+example: [
+  cluster_view, cluster_add_user, cluster_remove_user, cluster_add_group, cluster_remove_group
+]

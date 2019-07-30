@@ -1,5 +1,5 @@
 type: array
-description: A list of viewer admin privileges in Onezone.
+description: A subset of zone admin privileges suggested for zone viewers.
 items:
   type: string
   enum:
@@ -47,10 +47,13 @@ items:
     - oz_clusters_view
     - oz_clusters_list_relationships
 example: [
-  oz_users_list, oz_users_view, oz_users_list_relationships, oz_groups_list, oz_groups_view, oz_groups_list_relationships,
-  oz_spaces_list, oz_spaces_view, oz_spaces_list_relationships, oz_shares_list, oz_shares_view, oz_providers_list,
-  oz_providers_view, oz_providers_list_relationships, oz_handle_services_list, oz_handle_services_view,
-  oz_handle_services_list_relationships, oz_handles_list, oz_handles_view, oz_handles_list_relationships,
-  oz_harvesters_list, oz_harvesters_view, oz_harvesters_list_relationships, oz_clusters_list, oz_clusters_view,
-  oz_clusters_list_relationships
+  oz_users_list, oz_users_view, oz_users_list_relationships,
+  oz_groups_list, oz_groups_view, oz_groups_list_relationships,
+  oz_spaces_list, oz_spaces_view, oz_spaces_list_relationships,
+  oz_shares_list, oz_shares_view,
+  oz_providers_list, oz_providers_view, oz_providers_list_relationships,
+  oz_handle_services_list, oz_handle_services_view, oz_handle_services_list_relationships,
+  oz_handles_list, oz_handles_view, oz_handles_list_relationships,
+  oz_harvesters_list, oz_harvesters_view, oz_harvesters_list_relationships,
+  oz_clusters_list, oz_clusters_view, oz_clusters_list_relationships
 ]

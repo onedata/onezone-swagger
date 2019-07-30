@@ -1,5 +1,5 @@
 type: array
-description: A list of member privileges in the harvester.
+description: A subset of harvester privileges suggested for harvester members.
 items:
   type: string
   enum:

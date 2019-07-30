@@ -1,5 +1,5 @@
 type: array
-description: A list of manager privileges in the group.
+description: A subset of group privileges suggested for group managers.
 items:
   type: string
   enum:
@@ -17,5 +17,7 @@ items:
 
     - group_add_harvester
     - group_remove_harvester
-example: [group_view,group_view_privileges,group_add_parent,group_leave_parent,group_add_child,group_remove_child,
-          group_add_user,group_remove_user,group_add_harvester,group_remove_harvester ]
+example: [
+  group_view, group_view_privileges, group_add_parent, group_leave_parent, group_add_child, group_remove_child,
+  group_add_user, group_remove_user, group_add_harvester, group_remove_harvester
+]

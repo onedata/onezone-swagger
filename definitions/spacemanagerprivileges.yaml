@@ -1,5 +1,5 @@
 type: array
-description: A list of privileges in the space.
+description: A subset of space privileges suggested for space managers.
 items:
   type: string
   enum:
