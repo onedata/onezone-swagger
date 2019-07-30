@@ -1,0 +1,6 @@
+type: array
+description: A list of privileges in the cluster.
+items:
+  type: string
+  enum:
+    - cluster_view

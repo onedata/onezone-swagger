@@ -1,0 +1,34 @@
+type: array
+description: A list of privileges in the space.
+items:
+  type: string
+  enum:
+    - space_view
+    - space_view_privileges
+
+    - space_read_data
+    - space_write_data
+    - space_manage_shares
+
+    - space_view_indices
+    - space_query_indices
+
+    - space_view_statistics
+    - space_view_changes_stream
+
+    - space_view_transfers
+    - space_schedule_replication
+
+    - space_add_user
+    - space_remove_user
+
+    - space_add_group
+    - space_remove_group
+
+    - space_add_harvester
+    - space_remove_harvester
+example: [
+  space_view, space_view_privileges, space_read_data, space_write_data, space_manage_shares, space_view_indices,
+  space_query_indices, space_view_statistics, space_view_changes_stream, space_view_transfers, space_schedule_replication,
+  space_add_user, space_remove_user, space_add_group, space_remove_group, space_add_harvester, space_remove_harvester
+]

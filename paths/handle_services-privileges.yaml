@@ -1,12 +1,12 @@
 get:
-  operationId: get_handle_service_privileges
+  operationId: list_handle_service_privileges
   tags:
     - Handle Service
   x-onedata-gri:
     type: od_handle_service
     aspect: privileges
   x-onedata-permissions: []
-  summary: Get all handle service privileges.
+  summary: List all handle service privileges.
   x-bash-codegen-description: |
     Returns list of all possible handle service privileges.
 
@@ -20,17 +20,38 @@ get:
 
     **Get list of all handle service privileges**
     ```bash
-     curl https://$HOST/api/v3/onezone/handle_service/privileges
+    curl https://$HOST/api/v3/onezone/handle_service/privileges
+
+    {
+      "admin": [
+        "handle_service_view",
+        "handle_service_update",
+        "handle_service_delete",
+        "handle_service_register_handle",
+        "handle_service_list_handles"
+      ],
+      "member": [
+        "handle_service_view",
+        "handle_service_register_handle"
+      ]
+    }
     ```
   produces:
     - application/json
   responses:
     '200':
       description: List of all handle service privileges
+      schema:
+        type: object
+        properties:
+          admin:
+            $ref: '#/definitions/HandleServicePrivileges'
+          member:
+            $ref: '#/definitions/HandleServiceMemberPrivileges'
     '500':
       description: Internal server Error.
       schema:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleServicePrivileges"
+    source: "onezone-rest-cli listHandleServicePrivileges"

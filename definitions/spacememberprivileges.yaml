@@ -1,0 +1,12 @@
+type: array
+description: A list of privileges in the space.
+items:
+  type: string
+  enum:
+    - space_view
+    - space_read_data
+    - space_write_data
+    - space_view_transfers
+example: [
+  space_view, space_read_data, space_write_data, space_view_transfers
+]

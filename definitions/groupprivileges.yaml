@@ -29,3 +29,8 @@ items:
 
     - group_add_harvester
     - group_remove_harvester
+example: [group_view, group_update, group_delete, group_view_privileges, group_set_privileges, group_add_parent,
+          group_leave_parent, group_add_child, group_remove_child, group_add_user, group_remove_user, group_add_space,
+          group_leave_space, group_create_handle_service, group_leave_handle_service, group_create_handle,
+          group_leave_handle, group_add_harvester, group_remove_harvester
+]

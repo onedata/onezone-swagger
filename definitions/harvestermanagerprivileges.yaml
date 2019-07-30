@@ -1,0 +1,19 @@
+type: array
+description: A list of manager privileges in the harvester.
+items:
+  type: string
+  enum:
+    - harvester_view
+
+    - harvester_add_user
+    - harvester_remove_user
+
+    - harvester_add_group
+    - harvester_remove_group
+
+    - harvester_add_space
+    - harvester_remove_space
+example: [
+  harvester_view, harvester_add_user, harvester_remove_user, harvester_add_group,
+  harvester_remove_group, harvester_add_space, harvester_remove_space
+]

@@ -1,0 +1,6 @@
+type: array
+description: A list of member privileges in the group.
+items:
+  type: string
+  enum:
+    - group_view
