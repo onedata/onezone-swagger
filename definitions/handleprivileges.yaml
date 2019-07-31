@@ -6,3 +6,6 @@ items:
     - handle_view
     - handle_update
     - handle_delete
+example: [
+  handle_view, handle_update, handle_delete
+]

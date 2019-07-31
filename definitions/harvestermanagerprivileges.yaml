@@ -1,0 +1,19 @@
+type: array
+description: A subset of harvester privileges suggested for harvester managers.
+items:
+  type: string
+  enum:
+    - harvester_view
+
+    - harvester_add_user
+    - harvester_remove_user
+
+    - harvester_add_group
+    - harvester_remove_group
+
+    - harvester_add_space
+    - harvester_remove_space
+example: [
+  harvester_view, harvester_add_user, harvester_remove_user, harvester_add_group,
+  harvester_remove_group, harvester_add_space, harvester_remove_space
+]

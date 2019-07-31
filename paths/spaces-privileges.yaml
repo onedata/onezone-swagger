@@ -1,0 +1,101 @@
+get:
+  operationId: list_space_privileges
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    aspect: privileges
+  x-onedata-permissions: []
+  summary: List all space privileges.
+  x-bash-codegen-description: |
+    Returns list of all possible space privileges.
+
+    This endpoint does not require authentication.
+  description: |
+    Returns list of all possible space privileges.
+
+    This endpoint does not require authentication.
+
+    ***Example cURL requests***
+
+    **Get list of all space privileges**
+    ```bash
+    curl https://$HOST/api/v3/onezone/space/privileges
+
+    {
+      "admin": [
+        "space_view",
+        "space_update",
+        "space_delete",
+        "space_view_privileges",
+        "space_set_privileges",
+        "space_read_data",
+        "space_write_data",
+        "space_manage_shares",
+        "space_view_indices",
+        "space_manage_indices",
+        "space_query_indices",
+        "space_view_statistics",
+        "space_view_changes_stream",
+        "space_view_transfers",
+        "space_schedule_replication",
+        "space_cancel_replication",
+        "space_schedule_eviction",
+        "space_cancel_eviction",
+        "space_add_user",
+        "space_remove_user",
+        "space_add_group",
+        "space_remove_group",
+        "space_add_provider",
+        "space_remove_provider",
+        "space_add_harvester",
+        "space_remove_harvester"
+      ],
+      "manager": [
+        "space_view",
+        "space_view_privileges",
+        "space_read_data",
+        "space_write_data",
+        "space_manage_shares",
+        "space_view_indices",
+        "space_query_indices",
+        "space_view_statistics",
+        "space_view_changes_stream",
+        "space_view_transfers",
+        "space_schedule_replication",
+        "space_add_user",
+        "space_remove_user",
+        "space_add_group",
+        "space_remove_group",
+        "space_add_harvester",
+        "space_remove_harvester"
+      ],
+      "member": [
+        "space_view",
+        "space_read_data",
+        "space_write_data",
+        "space_view_transfers"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: List of all space privileges
+      schema:
+        type: object
+        properties:
+          admin:
+            $ref: '#/definitions/SpacePrivileges'
+          manager:
+            $ref: '#/definitions/SpaceManagerPrivileges'
+          member:
+            $ref: '#/definitions/SpaceMemberPrivileges'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listSpacePrivileges"

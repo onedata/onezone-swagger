@@ -104,8 +104,17 @@ GroupInviteToken:
 LinkedAccount:
   $ref: ./linkedaccount.yaml
 
+Spaces:
+  $ref: ./spaces.yaml
+
 SpacePrivileges:
   $ref: ./spaceprivileges.yaml
+
+SpaceManagerPrivileges:
+  $ref: ./spacemanagerprivileges.yaml
+
+SpaceMemberPrivileges:
+  $ref: ./spacememberprivileges.yaml
 
 SpacePrivilegesUpdate:
   $ref: ./spaceprivilegesupdate.yaml
@@ -116,14 +125,23 @@ SpaceAlias:
 GroupPrivileges:
   $ref: ./groupprivileges.yaml
 
+GroupManagerPrivileges:
+  $ref: ./groupmanagerprivileges.yaml
+
+GroupMemberPrivileges:
+  $ref: ./groupmemberprivileges.yaml
+
 GroupPrivilegesUpdate:
   $ref: ./groupprivilegesupdate.yaml
 
 AdminPrivileges:
-  $ref: ./adminprivileges.yaml
+  $ref: ./zoneadminprivileges.yaml
+
+ViewerPrivileges:
+  $ref: ./zoneviewerprivileges.yaml
 
 AdminPrivilegesUpdate:
-  $ref: ./adminprivilegesupdate.yaml
+  $ref: ./zoneadminprivilegesupdate.yaml
 
 HandleService:
   $ref: ./handleservice.yaml
@@ -164,6 +182,9 @@ HandleRegistrationRequest:
 HandlePrivileges:
   $ref: ./handleprivileges.yaml
 
+HandleMemberPrivileges:
+  $ref: ./handlememberprivileges.yaml
+
 HandlePrivilegesUpdate:
   $ref: ./handleprivilegesupdate.yaml
 
@@ -172,6 +193,9 @@ HandleServices:
 
 HandleServicePrivileges:
   $ref: ./handleserviceprivileges.yaml
+
+HandleServiceMemberPrivileges:
+  $ref: ./handleservicememberprivileges.yaml
 
 HandleServicePrivilegesUpdate:
   $ref: ./handleserviceprivilegesupdate.yaml
@@ -184,9 +208,6 @@ ShareUpdateRequest:
 
 ShareCreateRequest:
   $ref: ./sharecreaterequest.yaml
-
-Spaces:
-  $ref: ./spaces.yaml
 
 Providers:
   $ref: ./providers.yaml
@@ -202,6 +223,12 @@ HarvesterInviteToken:
 
 HarvesterPrivileges:
   $ref: ./harvesterprivileges.yaml
+
+HarvesterManagerPrivileges:
+  $ref: ./harvestermanagerprivileges.yaml
+
+HarvesterMemberPrivileges:
+  $ref: ./harvestermemberprivileges.yaml
 
 HarvesterPrivilegesUpdate:
   $ref: ./harvesterprivilegesupdate.yaml
@@ -247,6 +274,12 @@ ClusterInviteToken:
 
 ClusterPrivileges:
   $ref: ./clusterprivileges.yaml
+
+ClusterManagerPrivileges:
+  $ref: ./clustermanagerprivileges.yaml
+
+ClusterMemberPrivileges:
+  $ref: ./clustermemberprivileges.yaml
 
 ClusterPrivilegesUpdate:
   $ref: ./clusterprivilegesupdate.yaml

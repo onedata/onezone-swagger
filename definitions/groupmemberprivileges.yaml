@@ -1,0 +1,6 @@
+type: array
+description: A subset of group privileges suggested for group members.
+items:
+  type: string
+  enum:
+    - group_view

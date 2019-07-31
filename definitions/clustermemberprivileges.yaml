@@ -1,0 +1,6 @@
+type: array
+description: A subset of cluster privileges suggested for cluster members.
+items:
+  type: string
+  enum:
+    - cluster_view

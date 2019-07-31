@@ -9,6 +9,9 @@
 /test_image:
   $ref: ./test_image.yaml
 
+/privileges:
+  $ref: ./privileges.yaml
+
 ###############################################################################
 # Users
 ###############################################################################
@@ -222,6 +225,10 @@
   $ref: ./groups.yaml
 
 
+/groups/privileges:
+  $ref: ./groups-privileges.yaml
+
+
 /groups/{id}:
   $ref: ./groups-id.yaml
 
@@ -428,6 +435,10 @@
 
 /spaces:
   $ref: ./spaces.yaml
+
+
+/spaces/privileges:
+  $ref: ./spaces-privileges.yaml
 
 
 /spaces/{id}:
@@ -643,6 +654,10 @@
   $ref: ./handle_services.yaml
 
 
+/handle_services/privileges:
+  $ref: ./handle_services-privileges.yaml
+
+
 /handle_services/{id}:
   $ref: ./handle_services-id.yaml
 
@@ -712,6 +727,10 @@
   $ref: ./handles.yaml
 
 
+/handles/privileges:
+  $ref: ./handles-privileges.yaml
+
+
 /handles/{id}:
   $ref: ./handles-id.yaml
 
@@ -770,6 +789,10 @@
 
 /harvesters:
   $ref: ./harvesters.yaml
+
+
+/harvesters/privileges:
+  $ref: ./harvesters-privileges.yaml
 
 
 /harvesters/{id}:
@@ -886,6 +909,10 @@
 
 /clusters:
   $ref: ./clusters.yaml
+
+
+/clusters/privileges:
+  $ref: ./clusters-privileges.yaml
 
 
 /clusters/{id}:

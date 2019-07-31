@@ -1,0 +1,84 @@
+get:
+  operationId: list_group_privileges
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    aspect: privileges
+  x-onedata-permissions: []
+  summary: List all group privileges.
+  x-bash-codegen-description: |
+    Returns list of all possible group privileges.
+
+    This endpoint does not require authentication.
+  description: |
+    Returns list of all possible group privileges.
+
+    This endpoint does not require authentication.
+
+    ***Example cURL requests***
+
+    **Get list of all group privileges**
+    ```bash
+    curl https://$HOST/api/v3/onezone/group/privileges
+
+    {
+      "admin": [
+        "group_view",
+        "group_update",
+        "group_delete",
+        "group_view_privileges",
+        "group_set_privileges",
+        "group_add_parent",
+        "group_leave_parent",
+        "group_add_child",
+        "group_remove_child",
+        "group_add_user",
+        "group_remove_user",
+        "group_add_space",
+        "group_leave_space",
+        "group_create_handle_service",
+        "group_leave_handle_service",
+        "group_create_handle",
+        "group_leave_handle",
+        "group_add_harvester",
+        "group_remove_harvester"
+      ],
+      "manager": [
+        "group_view",
+        "group_view_privileges",
+        "group_add_parent",
+        "group_leave_parent",
+        "group_add_child",
+        "group_remove_child",
+        "group_add_user",
+        "group_remove_user",
+        "group_add_harvester",
+        "group_remove_harvester"
+      ],
+      "member": [
+        "group_view"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: List of all group privileges
+      schema:
+        type: object
+        properties:
+          admin:
+            $ref: '#/definitions/GroupPrivileges'
+          manager:
+            $ref: '#/definitions/GroupManagerPrivileges'
+          member:
+            $ref: '#/definitions/GroupMemberPrivileges'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listGroupPrivileges"

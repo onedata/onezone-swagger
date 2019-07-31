@@ -1,0 +1,6 @@
+type: array
+description: A subset of handle privileges suggested for handle managers.
+items:
+  type: string
+  enum:
+    - handle_view

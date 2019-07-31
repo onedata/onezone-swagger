@@ -1,0 +1,69 @@
+get:
+  operationId: list_cluster_privileges
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    aspect: privileges
+  x-onedata-permissions: []
+  summary: List all cluster privileges.
+  x-bash-codegen-description: |
+    Returns list of all possible cluster privileges.
+
+    This endpoint does not require authentication.
+  description: |
+    Returns list of all possible cluster privileges.
+
+    This endpoint does not require authentication.
+
+    ***Example cURL requests***
+
+    **Get list of all cluster privileges**
+    ```bash
+    curl https://$HOST/api/v3/onezone/cluster/privileges
+
+    {
+      "admin": [
+        "cluster_view",
+        "cluster_update",
+        "cluster_delete",
+        "cluster_view_privileges",
+        "cluster_set_privileges",
+        "cluster_add_user",
+        "cluster_remove_user",
+        "cluster_add_group",
+        "cluster_remove_group"
+      ],
+      "manager": [
+        "cluster_view",
+        "cluster_add_user",
+        "cluster_remove_user",
+        "cluster_add_group",
+        "cluster_remove_group"
+      ],
+      "member": [
+        "cluster_view"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: List of all cluster privileges
+      schema:
+        type: object
+        properties:
+          admin:
+            $ref: '#/definitions/ClusterPrivileges'
+          manager:
+            $ref: '#/definitions/ClusterManagerPrivileges'
+          member:
+            $ref: '#/definitions/ClusterMemberPrivileges'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listClusterPrivileges"
