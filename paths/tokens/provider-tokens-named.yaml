@@ -1,0 +1,118 @@
+get:
+  operationId: list_own_provider_named_tokens
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{provider_named_tokens, ?CLIENT_ID}"
+  summary: List own provider named tokens
+  x-bash-codegen-description: |
+    Returns the list of provider's named tokens.
+
+    This operation can be invoked on behalf of the current provider only.
+  description: |
+    Returns the list of provider's named tokens.
+
+    This operation can be invoked on behalf of the current provider only.
+
+    ***Example cURL requests***
+
+    **List provider's named tokens**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET \
+    https://$HOST/api/v3/onezone/provider/tokens/named
+
+    {
+      "tokens": [
+        "my-token-1",
+        "secret-token",
+        "cluster abc invite token"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all provider named tokens
+      schema:
+        $ref: '#/definitions/NamedTokens'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli listOwnProviderNamedTokens"
+
+
+delete:
+  operationId: delete_own_provider_named_tokens
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{provider_named_tokens, ?CLIENT_ID}"
+  summary: Delete own provider named tokens
+  x-bash-codegen-description: |
+    Deletes all provider's named tokens.
+
+    This operation can be invoked on behalf of the current provider only.
+  description: |
+    Deletes all provider's named tokens.
+
+    This operation can be invoked on behalf of the current provider only.
+
+    ***Example cURL requests***
+
+    **Delete all provider's named tokens**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X DELETE \
+    https://$HOST/api/v3/onezone/provider/tokens/named
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: All provider's named tokens have been deleted.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli deleteOwnProviderNamedTokens"

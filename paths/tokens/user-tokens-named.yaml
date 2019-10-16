@@ -1,0 +1,118 @@
+get:
+  operationId: list_own_user_named_tokens
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{user_named_tokens, ?CLIENT_ID}"
+  summary: List own user named tokens
+  x-bash-codegen-description: |
+    Returns the list of user's named tokens.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the list of user's named tokens.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **List user's named tokens**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/tokens/named
+
+    {
+      "tokens": [
+        "my-token-1",
+        "secret-token",
+        "cluster abc invite token"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all user named tokens
+      schema:
+        $ref: '#/definitions/NamedTokens'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli listOwnUserNamedTokens"
+
+
+delete:
+  operationId: delete_own_user_named_tokens
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{user_named_tokens, ?CLIENT_ID}"
+  summary: Delete own user named tokens
+  x-bash-codegen-description: |
+    Deletes all user's named tokens.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Deletes all user's named tokens.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Delete all user's named tokens**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/user/tokens/named
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: All user's named tokens have been deleted.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli deleteOwnUserNamedTokens"

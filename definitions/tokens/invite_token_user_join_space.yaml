@@ -1,0 +1,18 @@
+allOf:
+- $ref: '#/definitions/InviteToken'
+- type: object
+  properties:
+    subtype:
+      type: string
+      enum: [userJoinSpace]
+      x-discriminator-value: "userJoinSpace"
+      description: Invite token type - invitation for a user to join a space.
+    spaceId:
+      type: string
+      description: Id of the invitation target space
+required:
+  - subtype
+  - spaceId
+example:
+  subtype: userJoinSpace
+  spaceId: 1b29cf9ea2f540e7c0874d7d09976b23

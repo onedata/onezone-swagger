@@ -1,0 +1,15 @@
+type: object
+description: List of named tokens.
+properties:
+  tokens:
+    type: array
+    description: The list of token names.
+    items:
+      type: string
+required:
+  - tokens
+example:
+  tokens:
+    - my-token-1
+    - secret-token
+    - cluster abc invite token

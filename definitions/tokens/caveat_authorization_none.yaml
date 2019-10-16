@@ -1,0 +1,23 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [authorizationNone]
+      x-discriminator-value: "authorizationNone"
+      description: |
+        Authorization none caveat - nullifies the authorization carried by the token.
+        Such token can only be used for identity verification (a.k.a. identity token).
+
+        Example:
+        ```json
+          {
+            "type": "authorizationNone"
+          }
+        ```
+      # @TODO VFS-5776 Add link to token docs
+required:
+  - type
+example:
+  type: authorizationNone

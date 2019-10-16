@@ -1,0 +1,23 @@
+type: object
+description: Caveat specification.
+discriminator: type
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - time
+  - authorizationNone
+  - audience
+  - ip
+  - asn
+  - geo.country
+  - geo.region
+  - api
+  - data.space
+  - data.access
+  - data.path
+  - data.objectid
+properties:
+  type:
+    type: string
+    description: Type of the caveat
+required:
+  - type

@@ -1,0 +1,18 @@
+allOf:
+- $ref: '#/definitions/InviteToken'
+- type: object
+  properties:
+    subtype:
+      type: string
+      enum: [supportSpace]
+      x-discriminator-value: "supportSpace"
+      description: Invite token type - invitation for a provider to support a space.
+    spaceId:
+      type: string
+      description: Id of the space to be supported
+required:
+  - subtype
+  - spaceId
+example:
+  subtype: supportSpace
+  spaceId: d4f5876dbe7f1e7e8a511de6dd31144b

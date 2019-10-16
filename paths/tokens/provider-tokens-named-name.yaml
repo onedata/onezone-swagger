@@ -1,0 +1,312 @@
+get:
+  operationId: get_own_provider_named_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(name)
+    aspect: "{provider_named_token, ?CLIENT_ID}"
+  summary: Get own provider named token
+  x-bash-codegen-description: |
+    Returns the information about a provider's named token.
+
+    This operation can be invoked on behalf of the current provider only.
+  description: |
+    Returns the information about a provider's named token.
+
+    This operation can be invoked on behalf of the current provider only.
+
+    ***Example cURL requests***
+
+    **Get own provider named token**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET \
+    https://$HOST/api/v3/onezone/provider/tokens/named/my-token-1
+    {
+      "name": "my-token-1",
+      "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
+      "subject": {
+        "type": "provider",
+        "id": "6ebe7ac282e0188b5336b5d8cfa564d5"
+      },
+      "type": {
+        "inviteToken": {
+          "subtype": "userJoinCluster",
+          "clusterId": "fb73f7ceff5abd995357abbe01c812ce"
+        }
+      },
+      "caveats": [
+        {
+          "type": "time",
+          "validUntil": 1571147494
+        },
+        {
+          "type": "ip",
+          "whitelist": [
+            "189.34.15.0/8",
+            "127.0.0.0/24",
+            "167.73.12.17"
+          ]
+        }
+      ],
+      "metadata": {
+        "creationTime": 1564721024,
+        "usageLimit": 15,
+        "usageCount": 3,
+        "privileges": [
+          "space_view",
+          "space_read_data",
+          "space_view_views",
+          "space_view_statistics"
+        ],
+        "custom": {
+          "jobName": "experiment-15",
+          "vm": "worker156.cloud.local"
+        }
+      },
+      "revoked": false,
+      "token": "MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the details of a specific named token.
+      schema:
+        $ref: '#/definitions/NamedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: name
+    in: path
+    description: Token name (unique for provider)
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getOwnProviderNamedToken name=my-token-1"
+
+
+put:
+  operationId: create_own_provider_named_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(name)
+    aspect: "{provider_named_token, ?CLIENT_ID}"
+  summary: Create own provider named token
+  x-bash-codegen-description: |
+    Creates a new named token for the provider. The token name must be unique
+    for the provider.
+
+    This operation can be invoked on behalf of the current provider only.
+  description: |
+    Creates a new named token for the provider. The token name must be unique
+    for the provider.
+
+    This operation can be invoked on behalf of the current provider only.
+
+    ***Example cURL requests***
+
+    **Create own provider named token**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X PUT -d '{"type": {"accessToken":{}}}' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/provider/tokens/named/new-token
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Returns the newly created named token in serialized form.
+      schema:
+        type: object
+        properties:
+          token:
+            $ref: '#/definitions/SerializedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: name
+    in: path
+    description: Token name (unique for provider)
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Properties of the new named token.
+    schema:
+      $ref: '#/definitions/NamedTokenCreateRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createOwnProviderNamedToken name=new-token"
+
+
+patch:
+  operationId: modify_own_provider_named_token
+  tags:
+  - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(name)
+    aspect: "{provider_named_token, ?CLIENT_ID}"
+  summary: Modify own provider named token
+  x-bash-codegen-description: |
+    Modifies a provider's named token. Supports toggling the revoked flag and
+    modifying the metadata.
+
+    This operation can be invoked on behalf of the current provider only.
+  description: |
+    Modifies a provider's named token. Supports toggling the revoked flag and
+    modifying the metadata.
+
+    This operation can be invoked on behalf of the current provider only.
+
+    ***Example cURL requests***
+
+    **Modify own provider named token**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
+    -X PATCH -d '{"revoked": true}' \
+    https://$HOST/api/v3/onezone/provider/tokens/named/my-token-1
+    ```
+  consumes:
+  - application/json
+  responses:
+    '204':
+      description: Provider's named token has been updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: name
+    in: path
+    description: Token name (unique for provider)
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Named token update request
+    schema:
+      $ref: '#/definitions/NamedTokenUpdateRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifyOwnProviderNamedToken name=my-token-1 revoked==true"
+
+
+delete:
+  operationId: delete_own_provider_named_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(name)
+    aspect: "{provider_named_token, ?CLIENT_ID}"
+  summary: Delete own provider named token
+  x-bash-codegen-description: |
+    Deletes a provider's named token.
+
+    This operation can be invoked on behalf of the current provider only.
+  description: |
+    Deletes a provider's named token.
+
+    This operation can be invoked on behalf of the current provider only.
+
+    ***Example cURL requests***
+
+    **Delete own provider named token**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X DELETE \
+    https://$HOST/api/v3/onezone/provider/tokens/named/my-token-1
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: The named token was deleted.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: name
+    in: path
+    description: Token name (unique for provider)
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli deleteOwnProviderNamedToken name=my-token-1"

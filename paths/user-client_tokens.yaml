@@ -1,4 +1,5 @@
 get:
+  deprecated: true
   operationId: list_client_tokens
   tags:
     - User
@@ -8,10 +9,16 @@ get:
     aspect: client_tokens
   summary: List user access tokens
   x-bash-codegen-description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use [this one](#operation/list_user_named_tokens).
+
     Returns the list of user tokens.
 
     This operation can be invoked on behalf of currently authenticated user only.
   description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use [this one](#operation/list_user_named_tokens).
+
     Returns the list of user tokens.
 
     This operation can be invoked on behalf of currently authenticated user only.
@@ -61,6 +68,7 @@ get:
 
 
 post:
+  deprecated: true
   operationId: create_client_token
   tags:
     - User
@@ -70,10 +78,16 @@ post:
     aspect: client_tokens
   summary: Generate user access token
   x-bash-codegen-description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use [this one](#operation/create_user_named_token).
+
     Creates new user token.
 
     This operation can be invoked on behalf of currently authenticated user only.
   description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use [this one](#operation/create_user_named_token).
+
     Creates new user token. The token is returned in the response body.
 
     This operation can be invoked on behalf of currently authenticated user only.

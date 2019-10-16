@@ -1,0 +1,31 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [data.access]
+      x-discriminator-value: "data.access"
+      description: Data access caveat - limits the data access type allowed with the token.
+      # @TODO VFS-5776 Add link to token docs
+    accessType:
+      type: string
+      enum:
+        - read
+        - write
+      description: |
+        Access type allowed with this token (only read or only write).
+
+        Example:
+        ```json
+          {
+            "type": "data.access",
+            "accessType": "read"
+          }
+        ```
+required:
+  - type
+  - accessType
+example:
+  type: data.access
+  accessType: read

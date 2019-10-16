@@ -1,0 +1,71 @@
+post:
+  operationId: create_own_provider_temporary_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{provider_temporary_token, ?CLIENT_ID}"
+  summary: Create own provider temporary token
+  x-bash-codegen-description: |
+    Creates a new temporary token for the provider. Temporary tokens must be
+    confined with a time caveat and are not persisted (cannot be retrieved, listed,
+    revoked, updated or deleted).
+
+    This operation can be invoked on behalf of the current provider only.
+  description: |
+    Creates a new temporary token for the provider. Temporary tokens must be
+    confined with a time caveat and are not persisted (cannot be retrieved, listed,
+    revoked, updated or deleted).
+
+    This operation can be invoked on behalf of the current provider only.
+
+    ***Example cURL requests***
+
+    **Create own provider temporary token**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X POST \
+    -d '{"type": {"accessToken":{}}, "caveats": [{"type": "time", "validUntil": 1571147494}]}' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/provider/tokens/temporary
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Returns the newly created temporary token in serialized form.
+      schema:
+        type: object
+        properties:
+          token:
+            $ref: '#/definitions/SerializedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: data
+      in: body
+      description: Properties of the new temporary token.
+      schema:
+        $ref: '#/definitions/TemporaryTokenCreateRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli createOwnProviderTemporaryToken"

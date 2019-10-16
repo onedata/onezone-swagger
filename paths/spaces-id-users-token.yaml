@@ -1,4 +1,5 @@
 post:
+  deprecated: true
   operationId: create_space_user_invite_token
   tags:
     - Space
@@ -11,12 +12,22 @@ post:
     - oz_spaces_add_relationships
   summary: Create space user invite token
   x-bash-codegen-description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_own_user_named_token)
+    * [create temporary token](#operation/create_own_user_temporary_token)
+
     Creates a token allowing new user to join a space.
 
     This operation requires `space_add_user` privilege.
     For administrators who do not have to be members of this space,
     `oz_spaces_add_relationships` privilege is required.
   description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_own_user_named_token)
+    * [create temporary token](#operation/create_own_user_temporary_token)
+
     Creates a token allowing new user to join a space.
 
     This operation requires `space_add_user` privilege.

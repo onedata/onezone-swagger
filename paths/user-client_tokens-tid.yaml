@@ -1,4 +1,5 @@
 delete:
+  deprecated: true
   operationId: remove_client_token
   tags:
     - User
@@ -8,10 +9,16 @@ delete:
     aspect: "{client_token, ?BINDING(tid)}"
   summary: Delete access token
   x-bash-codegen-description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use [this one](#operation/delete_user_named_token).
+
     Removes a specific access token.
 
     This operation can be invoked on behalf of the current user only.
   description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use [this one](#operation/delete_user_named_token).
+
     Removes a specific access token.
 
     This operation can be invoked on behalf of the current user only.

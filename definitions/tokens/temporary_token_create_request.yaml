@@ -1,0 +1,20 @@
+type: object
+description: Temporary token create request.
+properties:
+  type:
+    $ref: '#/definitions/TokenPropertyTokenType'
+  caveats:
+    $ref: '#/definitions/TokenPropertyCaveats'
+example:
+  type:
+    inviteToken:
+      subtype: userJoinCluster
+      clusterId: fb73f7ceff5abd995357abbe01c812ce
+  caveats:
+    - type: time
+      validUntil: 1571147494
+    - type: ip
+      whitelist:
+        - 189.34.15.0/8
+        - 127.0.0.0/24
+        - 167.73.12.17

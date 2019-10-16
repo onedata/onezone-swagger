@@ -1,0 +1,38 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [api]
+      x-discriminator-value: "api"
+      description: >
+        API caveat - limits the API operations that can be performed with the token.
+        The operations are whitelisted using the Onedata API matchspec format, which
+        includes the service identifier, operation type (CRUD) and resource identifier.
+      # @TODO VFS-5776 Add link to token docs
+    whitelist:
+      type: array
+      items:
+        type: string
+      description: |
+        List of API matchspecs that narrow down allowed API calls.
+
+        Example:
+        ```json
+          {
+            "type": "api",
+            "whitelist": [
+              "ozw/all/user.*.*:*",
+              "all/get/space.*.*:*"
+            ]
+          }
+        ```
+required:
+  - type
+  - whitelist
+example:
+  type: api
+  whitelist:
+    - ozw/all/user.*.*:*
+    - all/get/space.*.*:*

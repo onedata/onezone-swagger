@@ -1,4 +1,5 @@
 post:
+  deprecated: true
   operationId: create_harvester_group_token
   tags:
     - Harvester
@@ -11,11 +12,21 @@ post:
     - oz_harvesters_add_relationships
   summary: Create harvester invite token for group
   x-bash-codegen-description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_own_user_named_token)
+    * [create temporary token](#operation/create_own_user_temporary_token)
+
     Creates a token allowing to add a group to a specific harvester.
 
     This operation requires `harvester_add_group` privilege.
     or `oz_harvesters_add_relationships` admin privilege.
   description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_own_user_named_token)
+    * [create temporary token](#operation/create_own_user_temporary_token)
+
     Creates a token allowing to add a group to a specific harvester.
 
     This operation requires `harvester_add_group` privilege

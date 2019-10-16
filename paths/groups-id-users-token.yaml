@@ -1,4 +1,5 @@
 post:
+  deprecated: true
   operationId: create_user_group_invite_token
   tags:
     - Group
@@ -11,12 +12,22 @@ post:
     - oz_groups_add_relationships
   summary: Create user invite token for group
   x-bash-codegen-description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_own_user_named_token)
+    * [create temporary token](#operation/create_own_user_temporary_token)
+
     Creates a token allowing new user to join the group.
 
     This operation requires `group_add_user` privilege.
     For administrator who does not belong to this group
     `oz_groups_add_relationships` privilege is required.
   description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_own_user_named_token)
+    * [create temporary token](#operation/create_own_user_temporary_token)
+
     Creates a token allowing new user to join the group.
 
     This operation requires `group_add_user` privilege.

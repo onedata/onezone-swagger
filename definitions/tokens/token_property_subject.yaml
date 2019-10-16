@@ -1,0 +1,15 @@
+type: object
+description: >
+  The subject of the token - the user or Oneprovider in whose name the token
+  was issued. The bearer (consumer) of the token adopts the subject's
+  identity when accessing services with that token.
+properties:
+  type:
+    type: string
+    description: Type of the subject
+    enum:
+    - user
+    - oneprovider
+  id:
+    type: string
+    description: Id of the subject

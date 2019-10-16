@@ -1,0 +1,28 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [time]
+      x-discriminator-value: "time"
+      description: Time caveat - limits the validity of the token.
+      # @TODO VFS-5776 Add link to token docs
+    validUntil:
+      type: integer
+      description: |
+        Timestamp in seconds (UNIX epoch) when the token expires.
+
+        Example:
+        ```json
+          {
+            "type": "time",
+            "validUntil": 1571147494
+          }
+        ```
+required:
+  - type
+  - validUntil
+example:
+  type: time
+  validUntil: 1571147494

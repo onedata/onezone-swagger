@@ -1,0 +1,38 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [ip]
+      x-discriminator-value: "ip"
+      description: >
+        IP caveat - limits the allowed client IPs to a certain whitelist (masks are supported).
+      # @TODO VFS-5776 Add link to token docs
+    whitelist:
+      type: array
+      items:
+        type: string
+      description: |
+        List of IPs or masks that are allowed to utilize the token.
+
+        Example:
+        ```json
+          {
+            "type": "ip",
+            "whitelist": [
+              "189.34.15.0/8",
+              "127.0.0.0/24",
+              "167.73.12.17"
+            ]
+          }
+        ```
+required:
+  - type
+  - whitelist
+example:
+  type: ip
+  whitelist:
+    - 189.34.15.0/8
+    - 127.0.0.0/24
+    - 167.73.12.17

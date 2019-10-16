@@ -1,0 +1,18 @@
+allOf:
+- $ref: '#/definitions/InviteToken'
+- type: object
+  properties:
+    subtype:
+      type: string
+      enum: [groupJoinHarvester]
+      x-discriminator-value: "groupJoinHarvester"
+      description: Invite token type - invitation for a group to join a harvester.
+    harvesterId:
+      type: string
+      description: Id of the invitation target harvester
+required:
+  - subtype
+  - harvesterId
+example:
+  subtype: groupJoinHarvester
+  harvesterId: 8c64eec93fac95822e90dd144b5ea0a5

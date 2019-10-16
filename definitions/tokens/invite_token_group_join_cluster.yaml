@@ -1,0 +1,18 @@
+allOf:
+- $ref: '#/definitions/InviteToken'
+- type: object
+  properties:
+    subtype:
+      type: string
+      enum: [groupJoinCluster]
+      x-discriminator-value: "groupJoinCluster"
+      description: Invite token type - invitation for a group to join a cluster.
+    clusterId:
+      type: string
+      description: Id of the invitation target cluster
+required:
+  - subtype
+  - clusterId
+example:
+  subtype: groupJoinCluster
+  clusterId: d4f5876dbe7f1e7e8a511de6dd31144b

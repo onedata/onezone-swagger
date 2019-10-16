@@ -22,7 +22,7 @@ get:
 
     **Get spaces supported by provider**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onezone/provider/spaces
+    curl -H "x-auth-token: $TOKEN" -X GET https://$HOST/api/v3/onezone/provider/spaces
 
     {
       "spaces": [
