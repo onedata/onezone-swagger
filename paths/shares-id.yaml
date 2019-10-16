@@ -13,11 +13,19 @@ get:
   summary: Get share details
   x-bash-codegen-description: |
     Returns the details about a specific share.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    share details and updating share names.
     
     This operation requires `space_view` privilege in space where share is created or
     `oz_shares_view` admin privilege.
   description: |
     Returns the details about a specific share.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    share details and updating share names.
     
     This operation requires `space_view` privilege in space where share is created or
     `oz_shares_view` admin privilege.
@@ -30,12 +38,12 @@ get:
     https://$HOST/api/v3/onezone/shares/$SHARE_ID
 
     {
-      "shareId": "b752ceafabb662b4e5728b2ded25cdd1",
+      "shareId": "303884afb761d91a7362b2841647bc08",
       "name": "MyShare",
-      "publicUrl": "http://onedata.org/shares/b752ceafabb662b4e5728b2ded25cdd1",
-      "rootFileId": "I4QaPBog0kCdUPBog0kCdUdd",
-      "spaceId": "UIsgAxi5I803ZirkUfdiWDd4W3bI4QaPBog_0kCdUdd",
-      "handleId": "doi:10.15911/MyShares.726855"
+      "publicUrl": "http://onedata.org/shares/303884afb761d91a7362b2841647bc08",
+      "rootFileId": "46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53",
+      "spaceId": "04b0d63bdaa15cc600212082e50e5e25",
+      "handleId": "doi:10.15911/MyShare.726855"
     }
     ```
   produces:
@@ -73,7 +81,7 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getShare id=b752ceafabb662b4e5728b2ded25cdd1"
+    source: "onezone-rest-cli getShare id=303884afb761d91a7362b2841647bc08"
 
 
 patch:
@@ -89,16 +97,20 @@ patch:
     - oz_shares_update
   summary: Modify share details
   x-bash-codegen-description: |
-    Updates the details about a share.
+    Updates the share properties - currently only name change is supported.
 
-    Currently this operation allows only to change the name of the share.
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    share details and updating share names.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_update` admin privilege.
   description: |
-    Updates the details about a share.
+    Updates the share properties - currently only name change is supported.
 
-    Currently this operation allows only to change the name of the share.
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    share details and updating share names.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_update` admin privilege.
@@ -115,7 +127,7 @@ patch:
     - application/json
   responses:
     '204':
-      description: Share will be updated.
+      description: Share name has been updated.
     '400':
       description: Invalid request.
       schema:
@@ -154,70 +166,71 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyShare id=b752ceafabb662b4e5728b2ded25cdd1 name==Share20"
+    source: "onezone-rest-cli modifyShare id=303884afb761d91a7362b2841647bc08 name==Share20"
 
 
-delete:
-  operationId: remove_share
-  tags:
-    - Share
-  x-onedata-gri:
-    type: od_share
-    id: ?BINDING(id)
-    aspect: instance
-  x-onedata-permissions:
-    - space_manage_shares
-    - oz_shares_delete
-  summary: Remove share
-  x-bash-codegen-description: |
-    Removes a specific share. This operation is reserved for internal
-    Oneprovider logic and must not be used directly.
-
-    This operation requires privilege `space_manage_shares` in space
-    in which the share was created or `oz_shares_delete` admin privilege.
-  description: |
-    Removes a specific share. This operation is reserved for internal
-    Oneprovider logic and must not be used directly.
-
-    This operation requires privilege `space_manage_shares` in space
-    in which the share was created or `oz_shares_delete` admin privilege.
-
-    ***Example cURL requests***
-
-    **Remove space**
-    ```bash
-    curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/shares/$SHARE_ID
-    ```
-  responses:
-    '204':
-      description: The share will been removed.
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '401':
-      description: Authentication error.
-      schema:
-        $ref: '#/definitions/Error'
-    '403':
-      description: Authorization error.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Resource not found.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server Error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-  - name: id
-    in: path
-    description: Share Id.
-    type: string
-    required: true
-  x-code-samples:
-  - lang: Shell
-    source: "onezone-rest-cli removeShare id=803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I"
+# @TODO VFS-5845 not supported in REST (only GraphSync)
+#delete:
+#  operationId: remove_share
+#  tags:
+#    - Share
+#  x-onedata-gri:
+#    type: od_share
+#    id: ?BINDING(id)
+#    aspect: instance
+#  x-onedata-permissions:
+#    - space_manage_shares
+#    - oz_shares_delete
+#  summary: Remove share
+#  x-bash-codegen-description: |
+#    Removes a specific share. This operation is reserved for internal
+#    Oneprovider logic and must not be used directly.
+#
+#    This operation requires privilege `space_manage_shares` in space
+#    in which the share was created or `oz_shares_delete` admin privilege.
+#  description: |
+#    Removes a specific share. This operation is reserved for internal
+#    Oneprovider logic and must not be used directly.
+#
+#    This operation requires privilege `space_manage_shares` in space
+#    in which the share was created or `oz_shares_delete` admin privilege.
+#
+#    ***Example cURL requests***
+#
+#    **Remove space**
+#    ```bash
+#    curl -u admin:password -X DELETE \
+#    https://$HOST/api/v3/onezone/shares/$SHARE_ID
+#    ```
+#  responses:
+#    '204':
+#      description: The share will been removed.
+#    '400':
+#      description: Invalid request.
+#      schema:
+#        $ref: '#/definitions/Error'
+#    '401':
+#      description: Authentication error.
+#      schema:
+#        $ref: '#/definitions/Error'
+#    '403':
+#      description: Authorization error.
+#      schema:
+#        $ref: '#/definitions/Error'
+#    '404':
+#      description: Resource not found.
+#      schema:
+#        $ref: '#/definitions/Error'
+#    '500':
+#      description: Internal server Error.
+#      schema:
+#        $ref: '#/definitions/Error'
+#  parameters:
+#  - name: id
+#    in: path
+#    description: Share Id.
+#    type: string
+#    required: true
+#  x-code-samples:
+#  - lang: Shell
+#    source: "onezone-rest-cli removeShare id=303884afb761d91a7362b2841647bc08"
