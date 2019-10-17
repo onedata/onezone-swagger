@@ -1,12 +1,12 @@
 get:
-  operationId: get_own_user_named_token
+  operationId: get_named_token_of_current_user
   tags:
     - Token
   x-onedata-gri:
     type: od_token
     id: ?BINDING(name)
     aspect: "{user_named_token, ?CLIENT_ID}"
-  summary: Get own user named token
+  summary: Get named token of current user
   x-bash-codegen-description: |
     Returns the information about a user's named token.
 
@@ -18,7 +18,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get own user named token**
+    **Get named token of current user**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/user/tokens/named/my-token-1
@@ -103,18 +103,18 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getOwnUserNamedToken name=my-token-1"
+    source: "onezone-rest-cli getNamedTokenOfCurrentUser name=my-token-1"
 
 
 put:
-  operationId: create_own_user_named_token
+  operationId: create_named_token_for_current_user
   tags:
     - Token
   x-onedata-gri:
     type: od_token
     id: ?BINDING(name)
     aspect: "{user_named_token, ?CLIENT_ID}"
-  summary: Create own user named token
+  summary: Create named token for current user
   x-bash-codegen-description: |
     Creates a new named token for the user. The token name must be unique
     for the user.
@@ -136,7 +136,7 @@ put:
 
     ***Example cURL requests***
 
-    **Create own user named token**
+    **Create named token for current user**
     ```bash
     curl -u username:password -X PUT -d '{"type": {"accessToken":{}}}' \
     -H 'Content-type: application/json' \
@@ -186,18 +186,18 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createOwnUserNamedToken name=new-token"
+    source: "onezone-rest-cli createNamedTokenForCurrentUser name=new-token"
 
 
 patch:
-  operationId: modify_own_user_named_token
+  operationId: modify_named_token_of_current_user
   tags:
   - Token
   x-onedata-gri:
     type: od_token
     id: ?BINDING(name)
     aspect: "{user_named_token, ?CLIENT_ID}"
-  summary: Modify own user named token
+  summary: Modify named token of current user
   x-bash-codegen-description: |
     Modifies a user's named token. Supports toggling the revoked flag and
     modifying the metadata.
@@ -211,7 +211,7 @@ patch:
 
     ***Example cURL requests***
 
-    **Modify own user named token**
+    **Modify named token of current user**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"revoked": true}' \
@@ -256,18 +256,18 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyOwnUserNamedToken name=my-token-1 revoked==true"
+    source: "onezone-rest-cli modifyNamedTokenOfCurrentUser name=my-token-1 revoked==true"
 
 
 delete:
-  operationId: delete_own_user_named_token
+  operationId: delete_named_token_of_current_user
   tags:
     - Token
   x-onedata-gri:
     type: od_token
     id: ?BINDING(name)
     aspect: "{user_named_token, ?CLIENT_ID}"
-  summary: Delete own user named token
+  summary: Delete named token of current user
   x-bash-codegen-description: |
     Deletes a user's named token.
 
@@ -279,7 +279,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Delete own user named token**
+    **Delete named token of current user**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST/api/v3/onezone/user/tokens/named/my-token-1
@@ -317,4 +317,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteOwnUserNamedToken name=my-token-1"
+    source: "onezone-rest-cli deleteNamedTokenOfCurrentUser name=my-token-1"

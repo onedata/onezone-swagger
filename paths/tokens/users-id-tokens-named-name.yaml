@@ -1,5 +1,5 @@
 get:
-  operationId: get_user_named_token
+  operationId: get_named_token_of_user
   tags:
     - Token
   x-onedata-gri:
@@ -8,7 +8,7 @@ get:
     aspect: "{user_named_token, ?BINDING(id)}"
   x-onedata-permissions:
     - oz_tokens_manage
-  summary: Get user named token
+  summary: Get named token of a user
   x-bash-codegen-description: |
     Returns the information about a specific user's named token.
 
@@ -20,7 +20,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get user named token**
+    **Get named token of a user**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named/my-token-1
@@ -110,11 +110,11 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getUserNamedToken id=c26bab23d12f7389c3c311caf9c15902 name=my-token-1"
+      source: "onezone-rest-cli getNamedTokenOfUser id=c26bab23d12f7389c3c311caf9c15902 name=my-token-1"
 
 
 put:
-  operationId: create_user_named_token
+  operationId: create_named_token_for_user
   tags:
     - Token
   x-onedata-gri:
@@ -123,7 +123,7 @@ put:
     aspect: "{user_named_token, ?BINDING(id)}"
   x-onedata-permissions:
     - oz_tokens_manage
-  summary: Create user named token
+  summary: Create named token for a user
   x-bash-codegen-description: |
     Creates a new named token for specific user. The token name must be unique
     for the user.
@@ -145,7 +145,7 @@ put:
 
     ***Example cURL requests***
 
-    **Create user named token**
+    **Create named token for a user**
     ```bash
     curl -u username:password -X PUT -d '{"type": {"accessToken":{}}}' \
     -H 'Content-type: application/json' \
@@ -200,11 +200,11 @@ put:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli createUserNamedToken id=c26bab23d12f7389c3c311caf9c15902 name=new-token"
+      source: "onezone-rest-cli createNamedTokenForUser id=c26bab23d12f7389c3c311caf9c15902 name=new-token"
 
 
 patch:
-  operationId: modify_user_named_token
+  operationId: modify_named_token_of_user
   tags:
     - Token
   x-onedata-gri:
@@ -213,7 +213,7 @@ patch:
     aspect: "{user_named_token, ?BINDING(id)}"
   x-onedata-permissions:
     - oz_tokens_manage
-  summary: Modify user named token
+  summary: Modify named token of a user
   x-bash-codegen-description: |
     Modifies a specific user's named token. Supports toggling the revoked flag
     and modifying the metadata.
@@ -227,7 +227,7 @@ patch:
 
     ***Example cURL requests***
 
-    **Modify user named token**
+    **Modify named token of a user**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"revoked": true}' \
@@ -277,11 +277,11 @@ patch:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli modifyUserNamedToken id=c26bab23d12f7389c3c311caf9c15902 name=my-token-1 revoked==true"
+      source: "onezone-rest-cli modifyNamedTokenOfUser id=c26bab23d12f7389c3c311caf9c15902 name=my-token-1 revoked==true"
 
 
 delete:
-  operationId: delete_user_named_token
+  operationId: delete_named_token_of_user
   tags:
     - Token
   x-onedata-gri:
@@ -290,7 +290,7 @@ delete:
     aspect: "{user_named_token, ?BINDING(id)}"
   x-onedata-permissions:
     - oz_tokens_manage
-  summary: Delete user named token
+  summary: Delete named token of a user
   x-bash-codegen-description: |
     Deletes a specific user's named token.
 
@@ -302,7 +302,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Delete user named token**
+    **Delete named token of a user**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named/my-token-1
@@ -345,4 +345,4 @@ delete:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli deleteUserNamedToken id=c26bab23d12f7389c3c311caf9c15902  name=my-token-1"
+      source: "onezone-rest-cli deleteNamedTokenOfUser id=c26bab23d12f7389c3c311caf9c15902  name=my-token-1"

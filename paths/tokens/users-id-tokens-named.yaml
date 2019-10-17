@@ -1,5 +1,5 @@
 get:
-  operationId: list_user_named_tokens
+  operationId: list_named_tokens_of_user
   tags:
     - Token
   x-onedata-gri:
@@ -8,7 +8,7 @@ get:
     aspect: "{user_named_tokens, ?BINDING(id)}"
   x-onedata-permissions:
     - oz_tokens_manage
-  summary: List user named tokens
+  summary: List named tokens of a user
   x-bash-codegen-description: |
     Returns the list of specific user's named tokens.
 
@@ -20,7 +20,7 @@ get:
 
     ***Example cURL requests***
 
-    **List user named tokens**
+    **List named tokens of a user**
     ```bash
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named
@@ -68,18 +68,18 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli listUserNamedTokens id=c26bab23d12f7389c3c311caf9c15902"
+      source: "onezone-rest-cli listNamedTokensOfUser id=c26bab23d12f7389c3c311caf9c15902"
 
 
 delete:
-  operationId: delete_user_named_tokens
+  operationId: delete_named_tokens_of_user
   tags:
     - Token
   x-onedata-gri:
     type: od_token
     id: undefined
     aspect: "{user_named_tokens, ?CLIENT_ID}"
-  summary: Delete all user named tokens
+  summary: Delete named tokens of a user
   x-bash-codegen-description: |
     Deletes all named tokens belonging to a specific user.
 
@@ -91,7 +91,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Delete all user named tokens**
+    **Delete named tokens of a user**
     ```bash
     curl -u username:password -X DELETE \
     https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named
@@ -129,4 +129,4 @@ delete:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli deleteUserNamedTokens id=c26bab23d12f7389c3c311caf9c15902"
+      source: "onezone-rest-cli deleteNamedTokensOfUser id=c26bab23d12f7389c3c311caf9c15902"

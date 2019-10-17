@@ -1,12 +1,12 @@
 get:
-  operationId: get_own_provider_named_token
+  operationId: get_named_token_of_current_provider
   tags:
     - Token
   x-onedata-gri:
     type: od_token
     id: ?BINDING(name)
     aspect: "{provider_named_token, ?CLIENT_ID}"
-  summary: Get own provider named token
+  summary: Get named token of current provider
   x-bash-codegen-description: |
     Returns the information about a provider's named token.
 
@@ -18,7 +18,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get own provider named token**
+    **Get named token of current provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X GET \
     https://$HOST/api/v3/onezone/provider/tokens/named/my-token-1
@@ -103,18 +103,18 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getOwnProviderNamedToken name=my-token-1"
+    source: "onezone-rest-cli getNamedTokenOfCurrentProvider name=my-token-1"
 
 
 put:
-  operationId: create_own_provider_named_token
+  operationId: create_named_token_for_current_provider
   tags:
     - Token
   x-onedata-gri:
     type: od_token
     id: ?BINDING(name)
     aspect: "{provider_named_token, ?CLIENT_ID}"
-  summary: Create own provider named token
+  summary: Create named token for current provider
   x-bash-codegen-description: |
     Creates a new named token for the provider. The token name must be unique
     for the provider.
@@ -128,7 +128,7 @@ put:
 
     ***Example cURL requests***
 
-    **Create own provider named token**
+    **Create named token for current provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X PUT -d '{"type": {"accessToken":{}}}' \
     -H 'Content-type: application/json' \
@@ -178,18 +178,18 @@ put:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createOwnProviderNamedToken name=new-token"
+    source: "onezone-rest-cli createNamedTokenForCurrentProvider name=new-token"
 
 
 patch:
-  operationId: modify_own_provider_named_token
+  operationId: modify_named_token_of_current_provider
   tags:
   - Token
   x-onedata-gri:
     type: od_token
     id: ?BINDING(name)
     aspect: "{provider_named_token, ?CLIENT_ID}"
-  summary: Modify own provider named token
+  summary: Modify named token of current provider
   x-bash-codegen-description: |
     Modifies a provider's named token. Supports toggling the revoked flag and
     modifying the metadata.
@@ -203,7 +203,7 @@ patch:
 
     ***Example cURL requests***
 
-    **Modify own provider named token**
+    **Modify named token of current provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
     -X PATCH -d '{"revoked": true}' \
@@ -248,18 +248,18 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyOwnProviderNamedToken name=my-token-1 revoked==true"
+    source: "onezone-rest-cli modifyNamedTokenOfCurrentProvider name=my-token-1 revoked==true"
 
 
 delete:
-  operationId: delete_own_provider_named_token
+  operationId: delete_named_token_of_current_provider
   tags:
     - Token
   x-onedata-gri:
     type: od_token
     id: ?BINDING(name)
     aspect: "{provider_named_token, ?CLIENT_ID}"
-  summary: Delete own provider named token
+  summary: Delete named token of current provider
   x-bash-codegen-description: |
     Deletes a provider's named token.
 
@@ -271,7 +271,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Delete own provider named token**
+    **Delete named token of current provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X DELETE \
     https://$HOST/api/v3/onezone/provider/tokens/named/my-token-1
@@ -309,4 +309,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli deleteOwnProviderNamedToken name=my-token-1"
+    source: "onezone-rest-cli deleteNamedTokenOfCurrentProvider name=my-token-1"
