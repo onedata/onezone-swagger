@@ -653,6 +653,17 @@
 # Tokens
 ###############################################################################
 
+/tokens/examine:
+  $ref: ./tokens/tokens-examine.yaml
+/tokens/confine:
+  $ref: ./tokens/tokens-confine.yaml
+/tokens/verify_access_token:
+  $ref: ./tokens/tokens-verify_access_token.yaml
+/tokens/verify_identity_token:
+  $ref: ./tokens/tokens-verify_identity_token.yaml
+/tokens/verify_invite_token:
+  $ref: ./tokens/tokens-verify_invite_token.yaml
+
 /tokens/named:
   $ref: ./tokens/tokens-named.yaml
 /tokens/named/{id}:

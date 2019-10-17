@@ -7,7 +7,7 @@ allOf:
       enum: [geo.country]
       x-discriminator-value: "geo.country"
       description: >
-        GEO Country caveat - limits the counties from which the token can be utilized.
+        GEO Country caveat - limits the countries from which the token can be utilized.
         The client's country is resolved based on client's IP and MaxMind's
         GeoLite database.
       # @TODO VFS-5776 Add link to token docs

@@ -77,20 +77,28 @@ NamedTokens:
   $ref: ./tokens/named_tokens.yaml
 NamedToken:
   $ref: ./tokens/named_token.yaml
+ExaminedToken:
+  $ref: ./tokens/examined_token.yaml
 NamedTokenUpdateRequest:
   $ref: ./tokens/named_token_update_request.yaml
 NamedTokenCreateRequest:
   $ref: ./tokens/named_token_create_request.yaml
 TemporaryTokenCreateRequest:
   $ref: ./tokens/temporary_token_create_request.yaml
+VerifyTokenRequest:
+  $ref: ./tokens/verify_token_request.yaml
 # ------------------------------------------------------------------------------
 # Token properties
 SerializedToken:
   $ref: ./tokens/serialized_token.yaml
 TokenPropertyName:
   $ref: ./tokens/token_property_name.yaml
+TokenPropertyOnezoneDomain:
+  $ref: ./tokens/token_property_onezone_domain.yaml
 TokenPropertyId:
   $ref: ./tokens/token_property_id.yaml
+TokenPropertyPersistence:
+  $ref: ./tokens/token_property_persistence.yaml
 TokenPropertySubject:
   $ref: ./tokens/token_property_subject.yaml
 TokenPropertyTokenType:
@@ -145,7 +153,7 @@ asn:
   $ref: ./tokens/caveat_asn.yaml
 geo.country:
   $ref: ./tokens/caveat_geo_country.yaml
-get.region:
+geo.region:
   $ref: ./tokens/caveat_geo_region.yaml
 api:
   $ref: ./tokens/caveat_api.yaml

@@ -1,0 +1,5 @@
+type: string
+description: Determines if the token is persistent (named) or not (temporary).
+enum:
+  - named
+  - temporary

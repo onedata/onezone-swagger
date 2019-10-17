@@ -1,0 +1,71 @@
+post:
+  operationId: verify_access_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: verify_access_token
+  summary: Verify an access token
+  x-bash-codegen-description: |
+    Verifies an access token provided in serialized form.
+    Upon success, returns the token's subject.
+    Optionally, IP address of the token bearer can be provided,
+    which will be used to verify against the IP and geolocation related caveats.
+
+    This operation has public access.
+  description: |
+    Verifies an access token provided in serialized form.
+    Upon success, returns the token's subject.
+    Optionally, IP address of the token bearer can be provided,
+    which will be used to verify against the IP and geolocation related caveats.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Verify an access token**
+    ```bash
+    curl -d '{"token": "MDAxNmxvY2F00aW9uIHZ2...", "peerIp": "38.190.241.12"}' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/tokens/verify_access_token
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Returns the token's subject.
+      schema:
+        type: object
+        properties:
+          subject:
+            $ref: '#/definitions/TokenPropertySubject'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: data
+      in: body
+      description: The token to be verified and optionally peer's IP address.
+      schema:
+        $ref: '#/definitions/VerifyTokenRequest'
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli verifyAccessToken"

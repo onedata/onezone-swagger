@@ -9,7 +9,7 @@ allOf:
       description: >
         ASN caveat - limits the ASNs (Autonomous System Number) from which the
         token can be utilized. The client's ASN is resolved based on
-        his IP and MaxMind's GeoLite database.
+        client's IP and MaxMind's GeoLite database.
       # @TODO VFS-5776 Add link to token docs
     whitelist:
       type: array

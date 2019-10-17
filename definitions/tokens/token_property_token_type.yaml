@@ -1,8 +1,8 @@
 type: object
 description: The type of the token (object)
 enum:
-  - {accessToken: {}}
-  - {inviteToken: {"...": "..."}}
+  - "{accessToken: {}}"
+  - "{inviteToken: {\"...\": \"...\"}}"
 properties:
   accessToken:
     type: object
