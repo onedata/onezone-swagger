@@ -11,10 +11,18 @@ get:
   x-bash-codegen-description: |
     Returns the list of shares.
 
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    share details and updating share names.
+
     This operation requires admin privilege `oz_shares_list`.
 
   description: |
     Returns the list of shares.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    share details and updating share names.
 
     This operation requires admin privilege `oz_shares_list`.
 
@@ -26,8 +34,8 @@ get:
 
     {
       "shares: [
-        "6c17ab1c6364d87e00a4172b6f28971850374eeb2dfec4",
-        "32919d6a51bac9b040c7cb7961fdccf3",
+        "303884afb761d91a7362b2841647bc08",
+        "32919d6a51bac9b040c7cb7961fdccf3"
       ]
     }
     ```
@@ -63,78 +71,79 @@ get:
     source: "onezone-rest-cli listShares"
 
 
-post:
-  operationId: create_share
-  tags:
-    - Share
-  x-onedata-gri:
-    type: od_share
-    aspect: instance
-  summary: Create share
-  x-onedata-permissions:
-    - space_manage_shares
-    - oz_shares_create
-  x-bash-codegen-description: |
-    Creates a new share in Onezone. This operation is reserved for internal
-    Oneprovider logic and must not be used directly. Consult Oneprovider API for
-    the create share operation.
-
-    This operation requires privilege `space_manage_shares` in space
-    in which the share is created or `oz_shares_create` admin privilege.
-  description: |
-    Creates a new share in Onezone. This operation is reserved for internal
-    Oneprovider logic and must not be used directly. Consult Oneprovider API for
-    the create share operation.
-
-    This operation requires privilege `space_manage_shares` in space
-    in which the share is created or `oz_shares_create` admin privilege.
-
-    ***Example cURL requests***
-
-    **Create share**
-    ```bash
-    curl -u username:password -H "Content-type: application/json" -X POST -d \
-    '{"shareId": "32919d6a51bac9b040c7cb7961fdccf3", "name": "NewShare", "spaceId": "f795b603a27402a6adbf612a86b9e08b", "rootFileId": "72b84d00aef3a054a4df24e282a4f50d"}' \
-    https://$HOST/api/v3/onezone/shares
-    ```
-  consumes:
-    - application/json
-  responses:
-    '201':
-      description: >
-        URI of the created share in form https://$HOST/api/onezone/v3/shares/{id} is
-        returned in the response `Location` header.
-      headers:
-        Location:
-          description: URI of the created share.
-          type: string
-    '400':
-      description: Invalid request.
-      schema:
-        $ref: '#/definitions/Error'
-    '401':
-      description: Authentication error.
-      schema:
-        $ref: '#/definitions/Error'
-    '403':
-      description: Authorization error.
-      schema:
-        $ref: '#/definitions/Error'
-    '404':
-      description: Resource not found.
-      schema:
-        $ref: '#/definitions/Error'
-    '500':
-      description: Internal server Error.
-      schema:
-        $ref: '#/definitions/Error'
-  parameters:
-  - name: data
-    in: body
-    description: Share parameters
-    schema:
-      $ref: '#/definitions/ShareCreateRequest'
-    required: true
-  x-code-samples:
-  - lang: Shell
-    source: "onezone-rest-cli createShare shareId==b752ceafabb662b4e5728b2ded25cdd1 name==Share20 spaceId==0311e753f77320e1a3f0acc03bb6d972"
+# @TODO VFS-5845 not supported in REST (only GraphSync)
+#post:
+#  operationId: create_share
+#  tags:
+#    - Share
+#  x-onedata-gri:
+#    type: od_share
+#    aspect: instance
+#  summary: Create share
+#  x-onedata-permissions:
+#    - space_manage_shares
+#    - oz_shares_create
+#  x-bash-codegen-description: |
+#    Creates a new share in Onezone. This operation is reserved for internal
+#    Oneprovider logic and must not be used directly. Consult Oneprovider API for
+#    the create share operation.
+#
+#    This operation requires privilege `space_manage_shares` in space
+#    in which the share is created or `oz_shares_create` admin privilege.
+#  description: |
+#    Creates a new share in Onezone. This operation is reserved for internal
+#    Oneprovider logic and must not be used directly. Consult Oneprovider API for
+#    the create share operation.
+#
+#    This operation requires privilege `space_manage_shares` in space
+#    in which the share is created or `oz_shares_create` admin privilege.
+#
+#    ***Example cURL requests***
+#
+#    **Create share**
+#    ```bash
+#    curl -u username:password -H "Content-type: application/json" -X POST -d \
+#    '{"shareId": "32919d6a51bac9b040c7cb7961fdccf3", "name": "NewShare", "spaceId": "f795b603a27402a6adbf612a86b9e08b", "rootFileId": "72b84d00aef3a054a4df24e282a4f50d"}' \
+#    https://$HOST/api/v3/onezone/shares
+#    ```
+#  consumes:
+#    - application/json
+#  responses:
+#    '201':
+#      description: >
+#        URI of the created share in form https://$HOST/api/onezone/v3/shares/{id} is
+#        returned in the response `Location` header.
+#      headers:
+#        Location:
+#          description: URI of the created share.
+#          type: string
+#    '400':
+#      description: Invalid request.
+#      schema:
+#        $ref: '#/definitions/Error'
+#    '401':
+#      description: Authentication error.
+#      schema:
+#        $ref: '#/definitions/Error'
+#    '403':
+#      description: Authorization error.
+#      schema:
+#        $ref: '#/definitions/Error'
+#    '404':
+#      description: Resource not found.
+#      schema:
+#        $ref: '#/definitions/Error'
+#    '500':
+#      description: Internal server Error.
+#      schema:
+#        $ref: '#/definitions/Error'
+#  parameters:
+#  - name: data
+#    in: body
+#    description: Share parameters
+#    schema:
+#      $ref: '#/definitions/ShareCreateRequest'
+#    required: true
+#  x-code-samples:
+#  - lang: Shell
+#    source: "onezone-rest-cli createShare shareId==b752ceafabb662b4e5728b2ded25cdd1 name==Share20 spaceId==0311e753f77320e1a3f0acc03bb6d972"
