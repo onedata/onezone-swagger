@@ -33,7 +33,7 @@ post:
     curl -H "x-auth-token: $TOKEN" -X POST \
     -d '{"type": {"accessToken":{}}, "caveats": [{"type": "time", "validUntil": 1571147494}]}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/providers/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/temporary
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/temporary
     ```
   consumes:
     - application/json
@@ -109,7 +109,7 @@ delete:
     **Revoke all temporary tokens of a provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X DELETE \
-    https://$HOST/api/v3/onezone/providers/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/temporary
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/temporary
     ```
   produces:
     - application/json

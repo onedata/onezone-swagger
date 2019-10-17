@@ -23,7 +23,7 @@ get:
     **List named tokens of a user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named
 
     {
       "tokens": [
@@ -78,7 +78,7 @@ delete:
   x-onedata-gri:
     type: od_token
     id: undefined
-    aspect: "{user_named_tokens, ?CLIENT_ID}"
+    aspect: "{user_named_tokens, ?BINDING(id)}"
   summary: Delete named tokens of a user
   x-bash-codegen-description: |
     Deletes all named tokens belonging to a specific user.
@@ -94,7 +94,7 @@ delete:
     **Delete named tokens of a user**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named
     ```
   produces:
     - application/json

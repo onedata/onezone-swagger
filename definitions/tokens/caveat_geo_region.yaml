@@ -13,13 +13,13 @@ allOf:
       # @TODO VFS-5776 Add link to token docs
     filter:
       type: string
+      enum:
+        - whitelist
+        - blacklist
       description: |
         Filter type to be applied:
         * whitelist limits allowed regions to the ones on the list only
         * blacklist limits allowed regions to any region that is not on the list
-      enum:
-        - whitelist
-        - blacklist
     list:
       type: array
       items:

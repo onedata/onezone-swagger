@@ -23,7 +23,7 @@ get:
     **Get named token of a user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named/my-token-1
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named/my-token-1
     {
       "name": "my-token-1",
       "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
@@ -149,7 +149,7 @@ put:
     ```bash
     curl -u username:password -X PUT -d '{"type": {"accessToken":{}}}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named/new-token
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named/new-token
     ```
   consumes:
     - application/json
@@ -231,7 +231,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"revoked": true}' \
-    https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named/my-token-1
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named/my-token-1
     ```
   consumes:
     - application/json
@@ -305,7 +305,7 @@ delete:
     **Delete named token of a user**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/named/my-token-1
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named/my-token-1
     ```
   produces:
     - application/json

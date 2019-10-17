@@ -186,4 +186,4 @@ delete:
         $ref: '#/definitions/Error'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli unregisterOneprovider"
+    source: "onezone-rest-cli unregisterProvider"

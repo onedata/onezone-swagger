@@ -23,7 +23,7 @@ get:
     **Get named token of a provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onezone/providers/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/named/my-token-1
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named/my-token-1
     {
       "name": "my-token-1",
       "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
@@ -141,7 +141,7 @@ put:
     ```bash
     curl -H "x-auth-token: $TOKEN" -X PUT -d '{"type": {"accessToken":{}}}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/providers/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/named/new-token
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named/new-token
     ```
   consumes:
     - application/json
@@ -223,7 +223,7 @@ patch:
     ```bash
     curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
     -X PATCH -d '{"revoked": true}' \
-    https://$HOST/api/v3/onezone/providers/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/named/my-token-1
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named/my-token-1
     ```
   consumes:
     - application/json
@@ -297,7 +297,7 @@ delete:
     **Delete named token of a provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X DELETE \
-    https://$HOST/api/v3/onezone/providers/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/named/my-token-1
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named/my-token-1
     ```
   produces:
     - application/json

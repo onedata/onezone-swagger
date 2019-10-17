@@ -16,7 +16,6 @@ post:
     please use one of:
     * [create named token](#operation/create_own_user_named_token)
     * [create temporary token](#operation/create_own_user_temporary_token)
-    and specify the following token type: `{"inviteToken":{"subtype": "groupJoinSpace"}}`
 
     Creates a token which can be submitted to a selected provider in order to
     add storage support for the space.

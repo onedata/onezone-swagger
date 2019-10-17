@@ -12,18 +12,20 @@ get:
   x-bash-codegen-description: |
     Returns the information about a specific named token by its id.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Returns the information about a specific named token by its id.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
     **Get named token**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/tokens/named/2b5d0dd5aa6443a69277b5ce0544fec2
+    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
     {
       "name": "my-token-1",
       "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
@@ -123,12 +125,14 @@ patch:
     Modifies a specific named token by its id. Supports toggling the revoked flag
     and modifying the metadata.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Modifies a specific named token by its id. Supports toggling the revoked flag
     and modifying the metadata.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -136,7 +140,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"revoked": true}' \
-    https://$HOST/api/v3/onezone/tokens/named/2b5d0dd5aa6443a69277b5ce0544fec2
+    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
     ```
   consumes:
     - application/json
@@ -205,7 +209,7 @@ delete:
     **Delete named token**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/tokens/named/2b5d0dd5aa6443a69277b5ce0544fec2
+    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
     ```
   produces:
     - application/json

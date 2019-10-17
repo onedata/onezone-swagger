@@ -13,6 +13,9 @@ allOf:
       # @TODO VFS-5776 Add link to token docs
     filter:
       type: string
+      enum:
+        - whitelist
+        - blacklist
       description: |
         Filter type to be applied:
         * whitelist limits allowed countries to the ones on the list only

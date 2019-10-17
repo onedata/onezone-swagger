@@ -23,7 +23,7 @@ get:
     **List named tokens of a provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onezone/providers/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/named
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named
 
     {
       "tokens": [
@@ -78,7 +78,7 @@ delete:
   x-onedata-gri:
     type: od_token
     id: undefined
-    aspect: "{provider_named_tokens, ?CLIENT_ID}"
+    aspect: "{provider_named_tokens, ?BINDING(id)}"
   summary: Delete named tokens of a provider
   x-bash-codegen-description: |
     Deletes all named tokens belonging to a specific provider.
@@ -94,7 +94,7 @@ delete:
     **Delete named tokens of a provider**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X DELETE \
-    https://$HOST/api/v3/onezone/providers/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/named
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named
     ```
   produces:
     - application/json

@@ -41,7 +41,7 @@ post:
     curl -u username:password -X POST \
     -d '{"type": {"accessToken":{}}, "caveats": [{"type": "time", "validUntil": 1571147494}]}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/users/c26bab23d12f7389c3c311caf9c15902/tokens/temporary
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/temporary
     ```
   consumes:
     - application/json
@@ -117,7 +117,7 @@ delete:
     **Revoke all temporary tokens of a user**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X DELETE \
-    https://$HOST/api/v3/onezone/users/6ebe7ac282e0188b5336b5d8cfa564d5/tokens/temporary
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/temporary
     ```
   produces:
     - application/json

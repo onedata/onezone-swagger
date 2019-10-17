@@ -143,4 +143,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "cat registration_request.json | onezone-rest-cli registerOneprovider -"
+    source: "cat registration_request.json | onezone-rest-cli registerProvider -"
