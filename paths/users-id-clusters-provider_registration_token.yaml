@@ -1,4 +1,5 @@
 post:
+  deprecated: true
   operationId: user_create_provider_registration_token
   tags:
     - User
@@ -8,6 +9,11 @@ post:
     aspect: provider_registration_token
   summary: Create provider registration token for a user
   x-bash-codegen-description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_named_token_for_current_user)
+    * [create temporary token](#operation/create_temporary_token_for_current_user)
+
     Creates a token for a specific user allowing him to register a new provider
     in Onezone. After the registration, the user's account will be automatically
     linked to the new Oneprovider cluster
@@ -17,6 +23,11 @@ post:
     generate the token for himself. In case of `restricted` policy or issuing
     the token for another user, this operation requires `oz_providers_invite` privilege.
   description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_named_token_for_current_user)
+    * [create temporary token](#operation/create_temporary_token_for_current_user)
+
     Creates a token for a specific user allowing him to register a new provider
     in Onezone. After the registration, the user's account will be automatically
     linked to the new Oneprovider cluster

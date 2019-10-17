@@ -14,8 +14,8 @@ post:
   x-bash-codegen-description: |
     This enpoint is deprecated and will be removed in future release,
     please use one of:
-    * [create named token](#operation/create_own_user_named_token)
-    * [create temporary token](#operation/create_own_user_temporary_token)
+    * [create named token](#operation/create_named_token_for_current_user)
+    * [create temporary token](#operation/create_temporary_token_for_current_user)
 
     Creates a token allowing to add a group to a specific harvester.
 
@@ -24,8 +24,8 @@ post:
   description: |
     This enpoint is deprecated and will be removed in future release,
     please use one of:
-    * [create named token](#operation/create_own_user_named_token)
-    * [create temporary token](#operation/create_own_user_temporary_token)
+    * [create named token](#operation/create_named_token_for_current_user)
+    * [create temporary token](#operation/create_temporary_token_for_current_user)
 
     Creates a token allowing to add a group to a specific harvester.
 

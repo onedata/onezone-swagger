@@ -35,6 +35,7 @@
   $ref: ./users-id-effective_privileges.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /users/{id}/clusters/provider_registration_token:
   $ref: ./users-id-clusters-provider_registration_token.yaml
 
