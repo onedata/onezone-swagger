@@ -1,8 +1,8 @@
 type: object
-description: Share parameters.
+description: Share update parameters.
 properties:
   name:
     type: string
     description: The user defined name for the share.
 example:
-  name: MyNewShare
+  name: NewShareName
