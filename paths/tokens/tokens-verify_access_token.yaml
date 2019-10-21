@@ -6,6 +6,7 @@ post:
     type: od_token
     id: undefined
     aspect: verify_access_token
+    scope: public
   summary: Verify an access token
   x-bash-codegen-description: |
     Verifies an access token provided in serialized form.
@@ -68,4 +69,4 @@ post:
         $ref: '#/definitions/VerifyTokenRequest'
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli verifyAccessToken"
+      source: "onezone-rest-cli verifyAccessToken token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

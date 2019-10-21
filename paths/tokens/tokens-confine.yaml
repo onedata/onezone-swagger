@@ -6,6 +6,7 @@ post:
     type: od_token
     id: undefined
     aspect: confine
+    scope: public
   summary: Confine a token
   x-bash-codegen-description: |
     Confines (restricts) a token provided in serialized form with given caveats.
@@ -76,4 +77,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli confineToken"
+      source: "echo '{\"token\": \"MDAx...\", \"caveats\": [{\"type\": \"time\", \"validUntil\": 1571147494}]}' | onezone-rest-cli confineToken -"

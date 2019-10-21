@@ -6,6 +6,7 @@ post:
     type: od_token
     id: undefined
     aspect: verify_identity_token
+    scope: public
   summary: Verify an identity token
   x-bash-codegen-description: |
     Verifies an identity token provided in serialized form. Identity token is
@@ -73,4 +74,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli verifyIdentityToken"
+      source: "onezone-rest-cli verifyIdentityToken token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

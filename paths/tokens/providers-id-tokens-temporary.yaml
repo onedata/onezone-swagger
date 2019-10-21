@@ -16,7 +16,8 @@ post:
     existing temporary tokens of the provider:
     [see more](#operation/revoke_all_temporary_tokens_of_provider)).
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the currently authorized provider,
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Creates a new temporary token for specific provider. Temporary tokens must be
     confined with a time caveat and are not persisted (cannot be retrieved, listed,
@@ -24,7 +25,8 @@ post:
     existing temporary tokens of the provider:
     [see more](#operation/revoke_all_temporary_tokens_of_provider)).
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the currently authorized provider,
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -97,12 +99,14 @@ delete:
     Immediately revokes (invalidates) all temporary tokens belonging
     to a specific provider. The operation cannot be undone.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the currently authorized provider,
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Immediately revokes (invalidates) all temporary tokens belonging
     to a specific provider. The operation cannot be undone.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the currently authorized provider,
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -144,4 +148,4 @@ delete:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli revokeAllTemporaryTokensOfProvider"
+      source: "onezone-rest-cli revokeAllTemporaryTokensOfProvider id=6ebe7ac282e0188b5336b5d8cfa564d5"

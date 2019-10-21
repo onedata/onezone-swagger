@@ -6,6 +6,7 @@ post:
     type: od_token
     id: undefined
     aspect: verify_invite_token
+    scope: public
   summary: Verify an invite token
   x-bash-codegen-description: |
     Verifies an invite token provided in serialized form.
@@ -71,4 +72,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli verifyInviteToken"
+      source: "onezone-rest-cli verifyInviteToken token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

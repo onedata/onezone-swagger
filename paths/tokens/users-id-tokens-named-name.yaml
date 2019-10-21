@@ -12,11 +12,13 @@ get:
   x-bash-codegen-description: |
     Returns the information about a specific user's named token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Returns the information about a specific user's named token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -132,7 +134,8 @@ put:
     the target entity to create a token. For example, `space_add_group` in
     the space when creating a `groupJoinSpace` invite token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Creates a new named token for specific user. The token name must be unique
     for the user.
@@ -141,7 +144,8 @@ put:
     the target entity to create a token. For example, `space_add_group` in
     the space when creating a `groupJoinSpace` invite token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -218,12 +222,14 @@ patch:
     Modifies a specific user's named token. Supports toggling the revoked flag
     and modifying the metadata.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Modifies a specific user's named token. Supports toggling the revoked flag
     and modifying the metadata.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -294,11 +300,13 @@ delete:
   x-bash-codegen-description: |
     Deletes a specific user's named token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Deletes a specific user's named token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 

@@ -6,7 +6,6 @@ properties:
   peerIp:
     type: string
     description: The IP address of the token bearer.
-    required: false
     example: 38.190.241.12
 required:
   - token

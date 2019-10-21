@@ -12,11 +12,13 @@ get:
   x-bash-codegen-description: |
     Returns the information about a specific provider's named token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Returns the information about a specific provider's named token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -128,12 +130,14 @@ put:
     Creates a new named token for specific provider. The token name must be unique
     for the provider.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Creates a new named token for specific provider. The token name must be unique
     for the provider.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -210,12 +214,14 @@ patch:
     Modifies a specific provider's named token. Supports toggling the revoked flag
     and modifying the metadata.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Modifies a specific provider's named token. Supports toggling the revoked flag
     and modifying the metadata.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -286,11 +292,13 @@ delete:
   x-bash-codegen-description: |
     Deletes a specific provider's named token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Deletes a specific provider's named token.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 

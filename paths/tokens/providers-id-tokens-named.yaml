@@ -12,11 +12,13 @@ get:
   x-bash-codegen-description: |
     Returns the list of specific provider's named tokens.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the currently authorized provider,
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Returns the list of specific provider's named tokens.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the currently authorized provider,
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -83,11 +85,13 @@ delete:
   x-bash-codegen-description: |
     Deletes all named tokens belonging to a specific provider.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the currently authorized provider,
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Deletes all named tokens belonging to a specific provider.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the currently authorized provider,
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 

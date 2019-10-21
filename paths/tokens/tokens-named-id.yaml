@@ -198,11 +198,13 @@ delete:
   x-bash-codegen-description: |
     Deletes a specific named token by its id.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Deletes a specific named token by its id.
 
-    Requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 

@@ -6,6 +6,7 @@ post:
     type: od_token
     id: undefined
     aspect: examine
+    scope: public
   summary: Examine a token
   x-bash-codegen-description: |
     Examines a token provided in serialized form. Returns all the information
@@ -67,4 +68,4 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli examineToken"
+      source: "onezone-rest-cli examineToken token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"
