@@ -76,6 +76,8 @@ get:
 
 
 patch:
+  # TODO VFS-5856
+  deprecated: true
   operationId: modify_supported_space
   tags:
     - Provider
@@ -141,6 +143,8 @@ patch:
 
 
 delete:
+  # TODO VFS-5856
+  deprecated: true
   operationId: remove_space_support
   tags:
     - Provider
