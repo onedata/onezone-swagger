@@ -66,7 +66,7 @@ post:
       in: body
       description: The token to be verified and optionally peer's IP address.
       schema:
-        $ref: '#/definitions/VerifyTokenRequest'
+        $ref: '#/definitions/VerifyAccessTokenRequest'
   x-code-samples:
     - lang: Shell
       source: "onezone-rest-cli verifyAccessToken token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

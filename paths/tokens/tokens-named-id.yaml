@@ -10,12 +10,12 @@ get:
     - oz_tokens_manage
   summary: Get named token
   x-bash-codegen-description: |
-    Returns the information about a specific named token by its id.
+    Returns the information about a specific named token.
 
     This operation is available for the token owner (subject),
     otherwise requires `oz_tokens_manage` admin privilege.
   description: |
-    Returns the information about a specific named token by its id.
+    Returns the information about a specific named token.
 
     This operation is available for the token owner (subject),
     otherwise requires `oz_tokens_manage` admin privilege.
@@ -27,8 +27,8 @@ get:
     curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
     {
-      "name": "my-token-1",
       "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
+      "name": "my-token-1",
       "subject": {
         "type": "user",
         "id": "1b510f18b3b05611871c0acdffa9aed4"
@@ -107,7 +107,7 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getNamedToken id=2b5d0dd5aa6443a69277b5ce0544fec2"
+      source: "onezone-rest-cli getNamedToken id=$TOKEN_ID"
 
 
 patch:
@@ -122,14 +122,14 @@ patch:
     - oz_tokens_manage
   summary: Modify named token
   x-bash-codegen-description: |
-    Modifies a specific named token by its id. Supports toggling the revoked flag
-    and modifying the metadata.
+    Modifies a specific named token. Supports renaming the token,
+    toggling the revoked flag and modifying the metadata.
 
     This operation is available for the token owner (subject),
     otherwise requires `oz_tokens_manage` admin privilege.
   description: |
-    Modifies a specific named token by its id. Supports toggling the revoked flag
-    and modifying the metadata.
+    Modifies a specific named token. Supports renaming the token,
+    toggling the revoked flag and modifying the metadata.
 
     This operation is available for the token owner (subject),
     otherwise requires `oz_tokens_manage` admin privilege.
@@ -181,7 +181,7 @@ patch:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli modifyNamedToken id=2b5d0dd5aa6443a69277b5ce0544fec2 revoked==true"
+      source: "onezone-rest-cli modifyNamedToken id=$TOKEN_ID revoked==true"
 
 
 delete:
@@ -196,12 +196,12 @@ delete:
     - oz_tokens_manage
   summary: Delete named token
   x-bash-codegen-description: |
-    Deletes a specific named token by its id.
+    Deletes a specific named token.
 
     This operation is available for the token owner (subject),
     otherwise requires `oz_tokens_manage` admin privilege.
   description: |
-    Deletes a specific named token by its id.
+    Deletes a specific named token.
 
     This operation is available for the token owner (subject),
     otherwise requires `oz_tokens_manage` admin privilege.
@@ -246,4 +246,4 @@ delete:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli deleteNamedToken id=2b5d0dd5aa6443a69277b5ce0544fec2"
+      source: "onezone-rest-cli deleteNamedToken id=$TOKEN_ID"

@@ -70,7 +70,7 @@ post:
       in: body
       description: The token to be verified and optionally peer's IP address.
       schema:
-        $ref: '#/definitions/VerifyTokenRequest'
+        $ref: '#/definitions/VerifyAccessTokenRequest'
       required: true
   x-code-samples:
     - lang: Shell

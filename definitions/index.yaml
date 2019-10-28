@@ -73,8 +73,6 @@ SpaceSupportRequest:
 
 Tokens:
   $ref: ./tokens/tokens.yaml
-NamedTokens:
-  $ref: ./tokens/named_tokens.yaml
 NamedToken:
   $ref: ./tokens/named_token.yaml
 ExaminedToken:
@@ -85,8 +83,10 @@ NamedTokenCreateRequest:
   $ref: ./tokens/named_token_create_request.yaml
 TemporaryTokenCreateRequest:
   $ref: ./tokens/temporary_token_create_request.yaml
-VerifyTokenRequest:
-  $ref: ./tokens/verify_token_request.yaml
+VerifyAccessTokenRequest:
+  $ref: ./tokens/verify_access_token_request.yaml
+VerifyInviteTokenRequest:
+  $ref: ./tokens/verify_invite_token_request.yaml
 # ------------------------------------------------------------------------------
 # Token properties
 SerializedToken:

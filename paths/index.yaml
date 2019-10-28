@@ -673,27 +673,27 @@
   $ref: ./tokens/users-id-tokens-temporary.yaml
 /users/{id}/tokens/named:
   $ref: ./tokens/users-id-tokens-named.yaml
-/users/{id}/tokens/named/{name}:
-  $ref: ./tokens/users-id-tokens-named-name.yaml
+/users/{id}/tokens/named/name/{name}:
+  $ref: ./tokens/users-id-tokens-named-name-name.yaml
 /user/tokens/temporary:
   $ref: ./tokens/user-tokens-temporary.yaml
 /user/tokens/named:
   $ref: ./tokens/user-tokens-named.yaml
-/user/tokens/named/{name}:
-  $ref: ./tokens/user-tokens-named-name.yaml
+/user/tokens/named/name/{name}:
+  $ref: ./tokens/user-tokens-named-name-name.yaml
 
 /providers/{id}/tokens/temporary:
   $ref: ./tokens/providers-id-tokens-temporary.yaml
 /providers/{id}/tokens/named:
   $ref: ./tokens/providers-id-tokens-named.yaml
-/providers/{id}/tokens/named/{name}:
-  $ref: ./tokens/providers-id-tokens-named-name.yaml
+/providers/{id}/tokens/named/name/{name}:
+  $ref: ./tokens/providers-id-tokens-named-name-name.yaml
 /provider/tokens/temporary:
   $ref: ./tokens/provider-tokens-temporary.yaml
 /provider/tokens/named:
   $ref: ./tokens/provider-tokens-named.yaml
-/provider/tokens/named/{name}:
-  $ref: ./tokens/provider-tokens-named-name.yaml
+/provider/tokens/named/name/{name}:
+  $ref: ./tokens/provider-tokens-named-name-name.yaml
 
 ###############################################################################
 # Handle services

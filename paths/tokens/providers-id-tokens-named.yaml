@@ -1,3 +1,82 @@
+post:
+  operationId: create_named_token_for_provider
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{provider_named_token, ?BINDING(id)}"
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Create named token for a provider
+  x-bash-codegen-description: |
+    Creates a new named token for specific provider. The token name must be unique
+    for the provider.
+
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Creates a new named token for specific provider. The token name must be unique
+    for the provider.
+
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
+
+    ***Example cURL requests***
+
+    **Create named token for a provider**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X POST -d '{"name": "new-token"}' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named/
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Returns the newly created named token in serialized form.
+      schema:
+        type: object
+        properties:
+          token:
+            $ref: '#/definitions/SerializedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Provider Id
+      type: string
+      required: true
+    - name: data
+      in: body
+      description: Properties of the new named token.
+      schema:
+        $ref: '#/definitions/NamedTokenCreateRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli createNamedTokenForProvider id=$PROVIDER_ID name==new-token"
+
+
 get:
   operationId: list_named_tokens_of_provider
   tags:
@@ -29,9 +108,10 @@ get:
 
     {
       "tokens": [
-        "my-token-1",
-        "secret-token",
-        "cluster abc invite token"
+        "2b5d0dd5aa6443a69277b5ce0544fec2",
+        "818bf8d4404c2bcee2b47f024f6c0890",
+        "4a5e5dabcd55e03f1e9237eeca2548ff",
+        "81336b59656653a481d1e65168f3f213"
       ]
     }
     ```
@@ -41,7 +121,7 @@ get:
     '200':
       description: The list of all provider named tokens
       schema:
-        $ref: '#/definitions/NamedTokens'
+        $ref: '#/definitions/Tokens'
     '400':
       description: Invalid request.
       schema:

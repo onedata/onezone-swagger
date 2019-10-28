@@ -1,6 +1,8 @@
 type: object
 description: Named token create request.
 properties:
+  name:
+    $ref: '#/definitions/TokenPropertyName'
   type:
     $ref: '#/definitions/TokenPropertyTokenType'
   caveats:
@@ -9,7 +11,10 @@ properties:
     $ref: '#/definitions/TokenPropertyCustomMetadata'
   revoked:
     $ref: '#/definitions/TokenPropertyRevoked'
+required:
+  - name
 example:
+  name: New Token
   type:
     inviteToken:
       subtype: userJoinCluster

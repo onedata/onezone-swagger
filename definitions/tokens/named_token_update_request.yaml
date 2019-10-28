@@ -1,11 +1,14 @@
 type: object
 description: Named token update request.
 properties:
+  name:
+    $ref: '#/definitions/TokenPropertyName'
   customMetadata:
     $ref: '#/definitions/TokenPropertyCustomMetadata'
   revoked:
     $ref: '#/definitions/TokenPropertyRevoked'
 example:
+  name: My secret Token
   customMetadata:
     jobName: experiment-15
     vm: worker156.cloud.local

@@ -1,10 +1,10 @@
 type: object
 description: Named token details.
 properties:
-  name:
-    $ref: '#/definitions/TokenPropertyName'
   id:
     $ref: '#/definitions/TokenPropertyId'
+  name:
+    $ref: '#/definitions/TokenPropertyName'
   subject:
     $ref: '#/definitions/TokenPropertySubject'
   type:
@@ -18,8 +18,8 @@ properties:
   token:
     $ref: '#/definitions/SerializedToken'
 example:
-  name: my-token-1
   id: 2b5d0dd5aa6443a69277b5ce0544fec2
+  name: my-token-1
   subject:
     type: user
     id: 1b510f18b3b05611871c0acdffa9aed4
