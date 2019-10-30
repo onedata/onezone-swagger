@@ -103,4 +103,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getNamedTokenOfCurrentProviderByName name=my-token-1"
+    source: "onezone-rest-cli getNamedTokenOfCurrentProviderByName name==my-token-1"

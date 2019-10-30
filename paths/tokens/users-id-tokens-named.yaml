@@ -82,7 +82,7 @@ post:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli createNamedTokenForUser id=$USER_ID name=new-token"
+      source: "onezone-rest-cli createNamedTokenForUser id=$USER_ID name==new-token"
 
 
 get:

@@ -112,4 +112,4 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getNamedTokenOfUserByName id=$USER_ID name=my-token-1"
+      source: "onezone-rest-cli getNamedTokenOfUserByName id=$USER_ID name==my-token-1"
