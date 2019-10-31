@@ -81,6 +81,8 @@ NamedTokenUpdateRequest:
   $ref: ./tokens/named_token_update_request.yaml
 NamedTokenCreateRequest:
   $ref: ./tokens/named_token_create_request.yaml
+NamedTokenCreateResponse:
+  $ref: ./tokens/named_token_create_response.yaml
 TemporaryTokenCreateRequest:
   $ref: ./tokens/temporary_token_create_request.yaml
 VerifyAccessTokenRequest:

@@ -37,13 +37,18 @@ post:
   consumes:
     - application/json
   responses:
-    '200':
-      description: Returns the newly created named token in serialized form.
+    '201':
+      description: >
+        Response body contains the Id of newly created named token and its serialized form.
+        Additionally, URI of the created named token in form
+        https://$HOST/api/onezone/v3/tokens/named/{id}
+        is returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created named token.
+          type: string
       schema:
-        type: object
-        properties:
-          token:
-            $ref: '#/definitions/SerializedToken'
+        $ref: '#/definitions/NamedTokenCreateResponse'
     '400':
       description: Invalid request.
       schema:

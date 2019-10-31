@@ -48,7 +48,7 @@ post:
   consumes:
     - application/json
   responses:
-    '200':
+    '201':
       description: Returns the newly created temporary token in serialized form.
       schema:
         type: object
