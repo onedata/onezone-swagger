@@ -13,14 +13,16 @@ post:
     Creates a new named token for specific provider. The token name must be unique
     for the provider.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
   description: |
     Creates a new named token for specific provider. The token name must be unique
     for the provider.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -96,13 +98,15 @@ get:
   x-bash-codegen-description: |
     Returns the list of specific provider's named tokens.
 
-    This operation is available for the currently authorized provider,
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
   description: |
     Returns the list of specific provider's named tokens.
 
-    This operation is available for the currently authorized provider,
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -170,13 +174,15 @@ delete:
   x-bash-codegen-description: |
     Deletes all named tokens belonging to a specific provider.
 
-    This operation is available for the currently authorized provider,
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
   description: |
     Deletes all named tokens belonging to a specific provider.
 
-    This operation is available for the currently authorized provider,
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 

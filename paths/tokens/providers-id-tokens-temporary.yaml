@@ -16,8 +16,9 @@ post:
     existing temporary tokens of the provider:
     [see more](#operation/revoke_all_temporary_tokens_of_provider)).
 
-    This operation is available for the currently authorized provider,
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
   description: |
     Creates a new temporary token for specific provider. Temporary tokens must be
     confined with a time caveat and are not persisted (cannot be retrieved, listed,
@@ -25,8 +26,9 @@ post:
     existing temporary tokens of the provider:
     [see more](#operation/revoke_all_temporary_tokens_of_provider)).
 
-    This operation is available for the currently authorized provider,
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -99,14 +101,16 @@ delete:
     Immediately revokes (invalidates) all temporary tokens belonging
     to a specific provider. The operation cannot be undone.
 
-    This operation is available for the currently authorized provider,
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
   description: |
     Immediately revokes (invalidates) all temporary tokens belonging
     to a specific provider. The operation cannot be undone.
 
-    This operation is available for the currently authorized provider,
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 

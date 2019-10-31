@@ -12,13 +12,15 @@ get:
   x-bash-codegen-description: |
     Returns the information about a specific provider's named token by token name.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
   description: |
     Returns the information about a specific provider's named token by token name.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 

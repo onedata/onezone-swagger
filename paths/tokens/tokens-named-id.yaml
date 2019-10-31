@@ -12,13 +12,15 @@ get:
   x-bash-codegen-description: |
     Returns the information about a specific named token.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Returns the information about a specific named token.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -125,14 +127,16 @@ patch:
     Modifies a specific named token. Supports renaming the token,
     toggling the revoked flag and modifying the metadata.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Modifies a specific named token. Supports renaming the token,
     toggling the revoked flag and modifying the metadata.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
@@ -198,13 +202,15 @@ delete:
   x-bash-codegen-description: |
     Deletes a specific named token.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
   description: |
     Deletes a specific named token.
 
-    This operation is available for the token owner (subject),
-    otherwise requires `oz_tokens_manage` admin privilege.
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
 
     ***Example cURL requests***
 
