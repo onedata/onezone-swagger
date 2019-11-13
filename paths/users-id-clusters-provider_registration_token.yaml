@@ -1,5 +1,5 @@
 post:
-  operationId: user_create_provider_registration_token
+  operationId: create_provider_registration_token_for_user
   tags:
     - User
   x-onedata-gri:
@@ -28,7 +28,7 @@ post:
 
     ***Example cURL requests***
 
-    **Create provider registration token for a specific user**
+    **Create provider registration token for a user**
     ```bash
     curl -u username:password -X POST \
     https://$HOST/api/v3/onezone/users/$USER_ID/clusters/$CLUSTER_ID
@@ -76,4 +76,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli userCreateProviderRegistrationToken id=99b930e38a8f46a1a0036db7d6422591"
+    source: "onezone-rest-cli createProviderRegistrationTokenForUser id=99b930e38a8f46a1a0036db7d6422591"
