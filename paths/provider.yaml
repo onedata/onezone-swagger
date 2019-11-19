@@ -23,7 +23,7 @@ get:
 
     **Get information about provider**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" https://$HOST/api/v3/onezone/provider
+    curl -H "x-auth-token: $TOKEN" https://$HOST/api/v3/onezone/provider
 
     {
       "name": "example",
@@ -89,7 +89,7 @@ patch:
 
     **Update provider geo location**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH \
+    curl -H "x-auth-token: $TOKEN" -X PATCH \
     -d '{"latitude": 50.068968,"longitude": 20.909444}'  \
     https://$HOST/api/v3/onezone/provider
     ```
@@ -156,7 +156,7 @@ delete:
 
     **Unregister provider from Onezone**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X DELETE  \
+    curl -H "x-auth-token: $TOKEN" -X DELETE  \
     https://$HOST/api/v3/onezone/provider
     ```
   consumes:

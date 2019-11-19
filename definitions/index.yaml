@@ -59,9 +59,6 @@ ProviderDetails:
 ProviderDomainConfig:
   $ref: ./providerdomainconfig.yaml
 
-AuthenticationToken:
-  $ref: ./authenticationtoken.yaml
-
 Space:
   $ref: ./space.yaml
 
@@ -73,6 +70,103 @@ SpaceSupportToken:
 
 SpaceSupportRequest:
   $ref: ./spacesupportrequest.yaml
+
+Tokens:
+  $ref: ./tokens/tokens.yaml
+NamedToken:
+  $ref: ./tokens/named_token.yaml
+ExaminedToken:
+  $ref: ./tokens/examined_token.yaml
+NamedTokenUpdateRequest:
+  $ref: ./tokens/named_token_update_request.yaml
+NamedTokenCreateRequest:
+  $ref: ./tokens/named_token_create_request.yaml
+NamedTokenCreateResponse:
+  $ref: ./tokens/named_token_create_response.yaml
+TemporaryTokenCreateRequest:
+  $ref: ./tokens/temporary_token_create_request.yaml
+VerifyAccessTokenRequest:
+  $ref: ./tokens/verify_access_token_request.yaml
+VerifyInviteTokenRequest:
+  $ref: ./tokens/verify_invite_token_request.yaml
+# ------------------------------------------------------------------------------
+# Token properties
+SerializedToken:
+  $ref: ./tokens/serialized_token.yaml
+TokenPropertyName:
+  $ref: ./tokens/token_property_name.yaml
+TokenPropertyOnezoneDomain:
+  $ref: ./tokens/token_property_onezone_domain.yaml
+TokenPropertyId:
+  $ref: ./tokens/token_property_id.yaml
+TokenPropertyPersistence:
+  $ref: ./tokens/token_property_persistence.yaml
+TokenPropertySubject:
+  $ref: ./tokens/token_property_subject.yaml
+TokenPropertyTokenType:
+  $ref: ./tokens/token_property_token_type.yaml
+TokenPropertyCaveats:
+  $ref: ./tokens/token_property_caveats.yaml
+TokenPropertyMetadata:
+  $ref: ./tokens/token_property_metadata.yaml
+TokenPropertyCustomMetadata:
+  $ref: ./tokens/token_property_custom_metadata.yaml
+TokenPropertyRevoked:
+  $ref: ./tokens/token_property_revoked.yaml
+# ------------------------------------------------------------------------------
+# Invite token type and its subclasses
+InviteToken:
+  $ref: ./tokens/invite_token.yaml
+userJoinGroup:
+  $ref: ./tokens/invite_token_user_join_group.yaml
+groupJoinGroup:
+  $ref: ./tokens/invite_token_group_join_group.yaml
+userJoinSpace:
+  $ref: ./tokens/invite_token_user_join_space.yaml
+groupJoinSpace:
+  $ref: ./tokens/invite_token_group_join_space.yaml
+supportSpace:
+  $ref: ./tokens/invite_token_support_space.yaml
+registerOneprovider:
+  $ref: ./tokens/invite_token_register_oneprovider.yaml
+userJoinCluster:
+  $ref: ./tokens/invite_token_user_join_cluster.yaml
+groupJoinCluster:
+  $ref: ./tokens/invite_token_group_join_cluster.yaml
+userJoinHarvester:
+  $ref: ./tokens/invite_token_user_join_harvester.yaml
+groupJoinHarvester:
+  $ref: ./tokens/invite_token_group_join_harvester.yaml
+spaceJoinHarvester:
+  $ref: ./tokens/invite_token_space_join_harvester.yaml
+# ------------------------------------------------------------------------------
+# Caveat and its subclasses
+Caveat:
+  $ref: ./tokens/caveat.yaml
+time:
+  $ref: ./tokens/caveat_time.yaml
+authorizationNone:
+  $ref: ./tokens/caveat_authorization_none.yaml
+audience:
+  $ref: ./tokens/caveat_audience.yaml
+ip:
+  $ref: ./tokens/caveat_ip.yaml
+asn:
+  $ref: ./tokens/caveat_asn.yaml
+geo.country:
+  $ref: ./tokens/caveat_geo_country.yaml
+geo.region:
+  $ref: ./tokens/caveat_geo_region.yaml
+api:
+  $ref: ./tokens/caveat_api.yaml
+data.space:
+  $ref: ./tokens/caveat_data_space.yaml
+data.access:
+  $ref: ./tokens/caveat_data_access.yaml
+data.path:
+  $ref: ./tokens/caveat_data_path.yaml
+data.objectid:
+  $ref: ./tokens/caveat_data_objectid.yaml
 
 ClientToken:
   $ref: ./clienttoken.yaml

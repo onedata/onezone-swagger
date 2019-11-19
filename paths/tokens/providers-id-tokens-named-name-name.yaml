@@ -1,0 +1,117 @@
+get:
+  operationId: get_named_token_of_provider_by_name
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(name)
+    aspect: "{provider_named_token, ?BINDING(id)}"
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Get named token of a provider by name
+  x-bash-codegen-description: |
+    Returns the information about a specific provider's named token by token name.
+
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
+  description: |
+    Returns the information about a specific provider's named token by token name.
+
+    This operation is available for the subject provider (`id`), or the provider's
+    cluster member with `cluster_update` privilege. Otherwise requires
+    `oz_tokens_manage` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get named token of a provider by name**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET \
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named/name/my-token-1
+    {
+      "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
+      "name": "my-token-1",
+      "subject": {
+        "type": "provider",
+        "id": "6ebe7ac282e0188b5336b5d8cfa564d5"
+      },
+      "type": {
+        "inviteToken": {
+          "subtype": "userJoinCluster",
+          "clusterId": "fb73f7ceff5abd995357abbe01c812ce"
+        }
+      },
+      "caveats": [
+        {
+          "type": "time",
+          "validUntil": 1571147494
+        },
+        {
+          "type": "ip",
+          "whitelist": [
+            "189.34.15.0/8",
+            "127.0.0.0/24",
+            "167.73.12.17"
+          ]
+        }
+      ],
+      "metadata": {
+        "creationTime": 1564721024,
+        "usageLimit": 15,
+        "usageCount": 3,
+        "privileges": [
+          "space_view",
+          "space_read_data",
+          "space_view_views",
+          "space_view_statistics"
+        ],
+        "custom": {
+          "jobName": "experiment-15",
+          "vm": "worker156.cloud.local"
+        }
+      },
+      "revoked": false,
+      "token": "MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the details of a specific named token.
+      schema:
+        $ref: '#/definitions/NamedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Provider Id
+      type: string
+      required: true
+    - name: name
+      in: path
+      description: Token name
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getNamedTokenOfProviderByName id=$PROVIDER_ID name==my-token-1"

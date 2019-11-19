@@ -1,0 +1,39 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [data.path]
+      x-discriminator-value: "data.path"
+      description: >
+        Data path caveat - limits the paths in which data can be accessed with the token.
+        The paths are absolute (must include space name) and must be base64 encoded.
+        If a directory path is given, the token allows to access all nested
+        files and directories starting from the specified directory.
+      # @TODO VFS-5776 Add link to token docs
+    whitelist:
+      type: array
+      items:
+        type: string
+      description: |
+        List of base64 encoded file paths in which data can be accessed using the token.
+
+        Example:
+        ```json
+          {
+            "type": "data.path",
+            "whitelist": [
+              "L2RpcjEvZmlsZTEudHh0",
+              "L2ZvbGRlcjIvdmlkZW8zLm1wNA=="
+            ]
+          }
+        ```
+required:
+  - type
+  - whitelist
+example:
+  type: data.path
+  whitelist:
+    - L2RpcjEvZmlsZTEudHh0
+    - L2ZvbGRlcjIvdmlkZW8zLm1wNA==

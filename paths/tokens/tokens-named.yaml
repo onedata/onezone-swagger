@@ -1,0 +1,70 @@
+get:
+  operationId: list_all_named_tokens
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: list
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: List all named tokens
+  x-bash-codegen-description: |
+    Returns the list of all tokens in the system. The results include ids of
+    users' and providers' named tokens - temporary tokens are not included
+    as they are not persisted in the system.
+
+    Requires `oz_tokens_manage` admin privilege.
+  description: |
+    Returns the list of all tokens in the system. The results include ids of
+    users' and providers' named tokens - temporary tokens are not included
+    as they are not persisted in the system.
+
+    Requires `oz_tokens_manage` admin privilege.
+
+    ***Example cURL requests***
+
+    **List all named tokens**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/tokens
+
+    {
+      "tokens": [
+        "2b5d0dd5aa6443a69277b5ce0544fec2",
+        "818bf8d4404c2bcee2b47f024f6c0890",
+        "4a5e5dabcd55e03f1e9237eeca2548ff",
+        "81336b59656653a481d1e65168f3f213"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all named token ids
+      schema:
+        $ref: '#/definitions/Tokens'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli listAllNamedTokens"

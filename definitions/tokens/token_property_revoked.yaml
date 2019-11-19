@@ -1,0 +1,2 @@
+type: boolean
+description: Determines if this token is revoked (cannot be used) - can be toggled at will

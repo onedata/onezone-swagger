@@ -1,0 +1,37 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      description: Data space caveat - limits the data access with the token to certain spaces.
+      # @TODO VFS-5776 Add link to token docs
+      enum: [data.space]
+      x-discriminator-value: "data.space"
+    whitelist:
+      type: array
+      items:
+        type: string
+      description: |
+        List of space ids that can be accessed using the token.
+
+        Example:
+        ```json
+          {
+            "type": "data.space",
+            "whitelist": [
+              "24fd0c2efefd4b780445043954849a3b",
+              "19936d41290f065fe21e9ed9f3bba634",
+              "8237f4038e92edcf337ea4878cb46221"
+            ]
+          }
+        ```
+required:
+  - type
+  - whitelist
+example:
+  type: data.space
+  whitelist:
+    - 24fd0c2efefd4b780445043954849a3b
+    - 19936d41290f065fe21e9ed9f3bba634
+    - 8237f4038e92edcf337ea4878cb46221

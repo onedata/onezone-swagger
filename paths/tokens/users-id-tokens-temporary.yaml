@@ -1,0 +1,159 @@
+post:
+  operationId: create_temporary_token_for_user
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{user_temporary_token, ?BINDING(id)}"
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Create temporary token for a user
+  x-bash-codegen-description: |
+    Creates a new temporary token for specific user. Temporary tokens must be
+    confined with a time caveat and are not persisted (cannot be retrieved, listed,
+    revoked, updated or deleted). However, it is possible to revoke all
+    existing temporary tokens of the user:
+    [see more](#operation/revoke_all_temporary_tokens_of_user)).
+
+    In case of invite tokens, invite / add member privileges are required in
+    the target entity to create a token. For example, `space_add_group` in
+    the space when creating a `groupJoinSpace` invite token.
+
+    This operation is available for the currently authorized user,
+    otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Creates a new temporary token for specific user. Temporary tokens must be
+    confined with a time caveat and are not persisted (cannot be retrieved, listed,
+    revoked, updated or deleted). However, it is possible to revoke all
+    existing temporary tokens of the user:
+    [see more](#operation/revoke_all_temporary_tokens_of_user)).
+
+    In case of invite tokens, invite / add member privileges are required in
+    the target entity to create a token. For example, `space_add_group` in
+    the space when creating a `groupJoinSpace` invite token.
+
+    This operation is available for the currently authorized user,
+    otherwise requires `oz_tokens_manage` admin privilege.
+
+    ***Example cURL requests***
+
+    **Create temporary token for a user**
+    ```bash
+    curl -u username:password -X POST \
+    -d '{"type": {"accessToken":{}}, "caveats": [{"type": "time", "validUntil": 1571147494}]}' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/temporary
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: Returns the newly created temporary token in serialized form.
+      schema:
+        type: object
+        properties:
+          token:
+            $ref: '#/definitions/SerializedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: User Id
+      type: string
+      required: true
+    - name: data
+      in: body
+      description: Properties of the new temporary token.
+      schema:
+        $ref: '#/definitions/TemporaryTokenCreateRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli createTemporaryTokenForUser id=c26bab23d12f7389c3c311caf9c15902"
+
+
+delete:
+  operationId: revoke_all_temporary_tokens_of_user
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{user_temporary_tokens, ?BINDING(id)}"
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Revoke all temporary tokens of a user
+  x-bash-codegen-description: |
+    Immediately revokes (invalidates) all temporary tokens belonging
+    to a specific user. The operation cannot be undone.
+
+    This operation is available for the currently authorized user,
+    otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Immediately revokes (invalidates) all temporary tokens belonging
+    to a specific user. The operation cannot be undone.
+
+    This operation is available for the currently authorized user,
+    otherwise requires `oz_tokens_manage` admin privilege.
+
+    ***Example cURL requests***
+
+    **Revoke all temporary tokens of a user**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X DELETE \
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/temporary
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: The temporary tokens have been revoked.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: User Id
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli revokeAllTemporaryTokensOfUser id=c26bab23d12f7389c3c311caf9c15902"

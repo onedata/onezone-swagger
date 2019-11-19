@@ -1,0 +1,32 @@
+type: object
+description: Verify token request.
+properties:
+  token:
+    $ref: '#/definitions/SerializedToken'
+  peerIp:
+    type: string
+    description: The IP address of the token bearer.
+    example: 38.190.241.12
+  expectedInviteTokenType:
+    type: string
+    description: |
+      Expected type of the invite token - verification will not succeed if it
+      does not match the actual invite token type.
+    enum:
+      - userJoinGroup
+      - groupJoinGroup
+      - userJoinSpace
+      - groupJoinSpace
+      - supportSpace
+      - registerOneprovider
+      - userJoinCluster
+      - groupJoinCluster
+      - userJoinHarvester
+      - groupJoinHarvester
+      - spaceJoinHarvester
+required:
+  - token
+example:
+  token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
+  peerIp: 38.190.241.12
+  expectedInviteTokenType: userJoinGroup

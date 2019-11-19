@@ -1,0 +1,106 @@
+get:
+  operationId: get_named_token_of_current_user_by_name
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(name)
+    aspect: "{user_named_token, ?CLIENT_ID}"
+  summary: Get named token of current user by name
+  x-bash-codegen-description: |
+    Returns the information about a user's named token by token name.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the information about a user's named token by token name.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get named token of current user by name**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/tokens/named/name/my-token-1
+    {
+      "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
+      "name": "my-token-1",
+      "subject": {
+        "type": "user",
+        "id": "c26bab23d12f7389c3c311caf9c15902"
+      },
+      "type": {
+        "inviteToken": {
+          "subtype": "userJoinCluster",
+          "clusterId": "fb73f7ceff5abd995357abbe01c812ce"
+        }
+      },
+      "caveats": [
+        {
+          "type": "time",
+          "validUntil": 1571147494
+        },
+        {
+          "type": "ip",
+          "whitelist": [
+            "189.34.15.0/8",
+            "127.0.0.0/24",
+            "167.73.12.17"
+          ]
+        }
+      ],
+      "metadata": {
+        "creationTime": 1564721024,
+        "usageLimit": 15,
+        "usageCount": 3,
+        "privileges": [
+          "space_view",
+          "space_read_data",
+          "space_view_views",
+          "space_view_statistics"
+        ],
+        "custom": {
+          "jobName": "experiment-15",
+          "vm": "worker156.cloud.local"
+        }
+      },
+      "revoked": false,
+      "token": "MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the details of a specific named token.
+      schema:
+        $ref: '#/definitions/NamedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: name
+    in: path
+    description: Token name
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getNamedTokenOfCurrentUserByName name==my-token-1"

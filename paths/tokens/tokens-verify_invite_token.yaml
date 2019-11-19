@@ -1,0 +1,87 @@
+post:
+  operationId: verify_invite_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: verify_invite_token
+    scope: public
+  summary: Verify an invite token
+  x-bash-codegen-description: |
+    Verifies an invite token provided in serialized form.
+    Upon success, returns the token's subject. Does not check if the token
+    can be effectively consumed (only if prerequisites are satisfied).
+    Optionally, IP address of the token bearer can be provided,
+    which will be used to verify against the IP and geolocation related caveats.
+    It is possible to specify the expected invite token type, which will cause
+    verification to fail if it does not match the actual token type. If not
+    specified, the procedure will check if given token is an invite token of
+    any type.
+
+    This operation has public access.
+  description: |
+    Verifies an invite token provided in serialized form.
+    Upon success, returns the token's subject. Does not check if the token
+    can be effectively consumed (only if prerequisites are satisfied).
+    Optionally, IP address of the token bearer can be provided,
+    which will be used to verify against the IP and geolocation related caveats.
+    It is possible to specify the expected invite token type, which will cause
+    verification to fail if it does not match the actual token type. If not
+    specified, the procedure will check if given token is an invite token of
+    any type.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Verify an invite token**
+    ```bash
+    curl -d '{
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
+      "peerIp": "38.190.241.12",
+      "expectedInviteTokenType": "userJoinGroup"
+    }' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/tokens/verify_invite_token
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Returns the token's subject.
+      schema:
+        type: object
+        properties:
+          subject:
+            $ref: '#/definitions/TokenPropertySubject'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: data
+      in: body
+      description: The token to be verified and optional parameters.
+      schema:
+        $ref: '#/definitions/VerifyInviteTokenRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli verifyInviteToken token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

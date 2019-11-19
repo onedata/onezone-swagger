@@ -1,0 +1,48 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [audience]
+      x-discriminator-value: "audience"
+      description: >
+        Audience caveat - limits the audiences that can utilize the token.
+        If the caveat is present, the party that utilizes the token must include
+        its access token in the x-onedata-audience-token header to prove its identity.
+        The audiences must be encoded using proper audience format.
+      # @TODO VFS-5776 Add link to token docs
+    whitelist:
+      type: array
+      items:
+        type: string
+      description: |
+        List of audiences that are allowed to utilize the token.
+
+        Example:
+        ```json
+          {
+            "type": "audience",
+            "whitelist": [
+              "usr-d4f5876dbe7f1e7e8a511de6dd31144c",
+              "grp-0921135ee61fe53a3df449365228e9b4",
+              "ozw-onezone",
+              "ozp-onezone",
+              "opp-01c4455bef059353c9dfb35ba93a24f3",
+              "opw-01c4455bef059353c9dfb35ba93a24f3"
+            ]
+          }
+        ```
+required:
+  - type
+  - whitelist
+example:
+  type: audience
+  whitelist:
+    - usr-d4f5876dbe7f1e7e8a511de6dd31144c
+    - grp-0921135ee61fe53a3df449365228e9b4
+    - ozw-onezone
+    - ozp-onezone
+    - opp-01c4455bef059353c9dfb35ba93a24f3
+    - opw-01c4455bef059353c9dfb35ba93a24f3
+

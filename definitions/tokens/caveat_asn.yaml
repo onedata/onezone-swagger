@@ -1,0 +1,40 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [asn]
+      x-discriminator-value: "asn"
+      description: >
+        ASN caveat - limits the ASNs (Autonomous System Number) from which the
+        token can be utilized. The client's ASN is resolved based on
+        client's IP and MaxMind's GeoLite database.
+      # @TODO VFS-5776 Add link to token docs
+    whitelist:
+      type: array
+      items:
+        type: integer
+      description: |
+        List of ASNs from which the token can be utilized.
+
+        Example:
+        ```json
+          {
+            "type": "api",
+            "whitelist": [
+              631,
+              632,
+              1671
+            ]
+          }
+        ```
+required:
+  - type
+  - whitelist
+example:
+  type: asn
+  whitelist:
+    - 631
+    - 632
+    - 1671
