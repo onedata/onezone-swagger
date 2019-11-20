@@ -7,8 +7,16 @@ properties:
     type: string
     description: The IP address of the token bearer.
     example: 38.190.241.12
+  interface:
+    type: string
+    enum:
+      - rest
+      - oneclient
+      - graphsync
+    description: The interface to which the token bearer has connected.
 required:
   - token
 example:
   token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
   peerIp: 38.190.241.12
+  interface: rest

@@ -1,0 +1,37 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      description: Interface caveat - limits the available interfaces of the system to a certain one.
+      # @TODO VFS-5776 Add link to token docs
+      # @TODO VFS-5776 Add link to data access caveat docs
+      enum: [interface]
+      x-discriminator-value: "interface"
+    interface:
+      type: string
+      enum:
+        - gui
+        - rest
+        - oneclient
+      description: |
+        The interface on which this token will be exclusively accepted.
+
+        If the *oneclient* interface is specified, this caveat is treated as a
+        *data access caveat* - if added to a token, it greatly limits
+        its power in the system APIs, to the minimum required for data acccess.
+
+        Example:
+        ```json
+          {
+            "type": "interface",
+            "interface": "rest"
+          }
+        ```
+required:
+  - type
+  - interface
+example:
+  type: interface
+  interface: rest

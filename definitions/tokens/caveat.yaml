@@ -10,9 +10,9 @@ x-onedata-subclasses:
   - asn
   - geo.country
   - geo.region
+  - interface
   - api
-  - data.space
-  - data.access
+  - data.readonly
   - data.path
   - data.objectid
 properties:

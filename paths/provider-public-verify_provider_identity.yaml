@@ -1,4 +1,6 @@
 post:
+  # @TODO VFS-5846 DEPRECATED
+  deprecated: true
   operationId: verify_provider_identity
   tags:
     - Provider
