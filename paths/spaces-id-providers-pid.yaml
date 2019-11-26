@@ -98,12 +98,12 @@ delete:
   x-bash-codegen-description: |
     Removes support from provider for a specific space.
 
-    This operation requires `space_remove_provider` privilege
+    This operation requires `space_remove_support` privilege
     or `oz_spaces_remove_relationships` admin privilege.
   description: |
     Removes support from provider for a specific space.
 
-    This operation requires `space_remove_provider` privilege
+    This operation requires `space_remove_support` privilege
     or `oz_spaces_remove_relationships` admin privilege.
 
     ***Example cURL requests***

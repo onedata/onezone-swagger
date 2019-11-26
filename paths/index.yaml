@@ -533,6 +533,10 @@
   $ref: ./spaces-id-providers-pid.yaml
 
 
+/spaces/{id}/storages/{sid}:
+  $ref: ./spaces-id-storages-sid.yaml
+
+
 /spaces/{id}/harvesters:
   $ref: ./spaces-id-harvesters.yaml
 

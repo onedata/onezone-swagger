@@ -1,0 +1,67 @@
+delete:
+  operationId: remove_storage_supporting_space
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{storage, ?BINDING(sid)}"
+  x-onedata-permissions:
+    - space_remove_provider
+    - oz_spaces_remove_relationships
+  summary: Remove space support
+  x-bash-codegen-description: |
+    Removes support from storage for a specific space.
+
+    This operation requires `space_remove_support` privilege
+    or `oz_spaces_remove_relationships` admin privilege.
+  description: |
+    Removes support from storage for a specific space.
+
+    This operation requires `space_remove_support` privilege
+    or `oz_spaces_remove_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove space support**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
+    ```
+  responses:
+    '204':
+      description: A space is no longer supported by this provider.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: sid
+    in: path
+    description: Provider Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeStorageSupportingSpace id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"
