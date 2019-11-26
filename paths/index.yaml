@@ -617,10 +617,6 @@
   $ref: ./provider-spaces.yaml
 
 
-/provider/spaces/support:
-  $ref: ./provider-spaces-support.yaml
-
-
 /provider/spaces/{sid}:
   $ref: ./provider-spaces-sid.yaml
 
