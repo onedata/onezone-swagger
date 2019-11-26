@@ -14,9 +14,14 @@ properties:
       - oneclient
       - graphsync
     description: The interface to which the token bearer has connected.
+  allowDataAccessCaveats:
+    type: boolean
+    description: The interface to which the token bearer has connected.
+
 required:
   - token
 example:
   token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
   peerIp: 38.190.241.12
   interface: rest
+  allowDataAccessCaveats: false
