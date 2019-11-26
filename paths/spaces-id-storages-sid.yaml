@@ -1,5 +1,5 @@
 delete:
-  operationId: remove_storage_supporting_space
+  operationId: cease_support_by_storage
   tags:
     - Space
   x-onedata-gri:
@@ -9,14 +9,16 @@ delete:
   x-onedata-permissions:
     - space_remove_provider
     - oz_spaces_remove_relationships
-  summary: Remove space support
+  summary: Ceases space support by storage
   x-bash-codegen-description: |
-    Removes support from storage for a specific space.
+    Ceases the space's support from given storage. WARNING: this will cause
+    irreversible data loss if the data located on the storage is not replicated beforehand.
 
     This operation requires `space_remove_support` privilege
     or `oz_spaces_remove_relationships` admin privilege.
   description: |
-    Removes support from storage for a specific space.
+    Ceases the space's support from given storage. WARNING: this will cause
+    irreversible data loss if the data located on the storage is not replicated beforehand.
 
     This operation requires `space_remove_support` privilege
     or `oz_spaces_remove_relationships` admin privilege.
@@ -30,7 +32,7 @@ delete:
     ```
   responses:
     '204':
-      description: A space is no longer supported by this provider.
+      description: A space is no longer supported by this storage.
     '400':
       description: Invalid request.
       schema:
@@ -59,9 +61,9 @@ delete:
     required: true
   - name: sid
     in: path
-    description: Provider Id.
+    description: Storage Id.
     type: string
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeStorageSupportingSpace id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"
+    source: "onezone-rest-cli ceaseSupportByStorage id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"
