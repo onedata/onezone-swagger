@@ -84,7 +84,7 @@ get:
 
 
 delete:
-  operationId: remove_provider_supporting_space
+  operationId: cease_support_by_provider
   tags:
     - Space
   x-onedata-gri:
@@ -94,14 +94,16 @@ delete:
   x-onedata-permissions:
     - space_remove_provider
     - oz_spaces_remove_relationships
-  summary: Remove space support
+  summary: Ceases space support by provider
   x-bash-codegen-description: |
-    Removes support from provider for a specific space.
+    Ceases the space's support from given provider. WARNING: this will cause irreversible
+    data loss if the data located in given space on given provider is not replicated beforehand.
 
     This operation requires `space_remove_support` privilege
     or `oz_spaces_remove_relationships` admin privilege.
   description: |
-    Removes support from provider for a specific space.
+    Ceases the space's support from given provider. WARNING: this will cause irreversible
+    data loss if the data located in given space on given provider is not replicated beforehand.
 
     This operation requires `space_remove_support` privilege
     or `oz_spaces_remove_relationships` admin privilege.
@@ -149,4 +151,4 @@ delete:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli removeProviderSupportingSpace id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"
+    source: "onezone-rest-cli ceaseSupportByProvider id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"
