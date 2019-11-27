@@ -89,6 +89,8 @@ VerifyAccessTokenRequest:
   $ref: ./tokens/verify_access_token_request.yaml
 VerifyInviteTokenRequest:
   $ref: ./tokens/verify_invite_token_request.yaml
+VerifyTokenResponse:
+  $ref: ./tokens/verify_token_response.yaml
 # ------------------------------------------------------------------------------
 # Token properties
 SerializedToken:

@@ -39,12 +39,9 @@ post:
     - application/json
   responses:
     '200':
-      description: Returns the token's subject.
+      description: Successful token verification result.
       schema:
-        type: object
-        properties:
-          subject:
-            $ref: '#/definitions/TokenPropertySubject'
+        $ref: '#/definitions/VerifyTokenResponse'
     '400':
       description: Invalid request.
       schema:
