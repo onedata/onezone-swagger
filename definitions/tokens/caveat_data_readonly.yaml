@@ -1,0 +1,26 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [data.readonly]
+      x-discriminator-value: "data.readonly"
+      # @TODO VFS-5776 Add link to token docs
+      # @TODO VFS-5776 Add link to data access caveat docs
+      description: |
+        Data readonly caveat - allows only read access to user data.
+
+        This is a *data access caveat* - if added to a token, it greatly limits
+        its power in the system APIs, to the minimum required for data acccess.
+
+        Example:
+        ```json
+          {
+            "type": "data.readonly"
+          }
+        ```
+required:
+  - type
+example:
+  type: data.readonly
