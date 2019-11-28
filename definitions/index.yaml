@@ -86,6 +86,8 @@ VerifyAccessTokenRequest:
   $ref: ./tokens/verify_access_token_request.yaml
 VerifyInviteTokenRequest:
   $ref: ./tokens/verify_invite_token_request.yaml
+VerifyTokenResponse:
+  $ref: ./tokens/verify_token_response.yaml
 # ------------------------------------------------------------------------------
 # Token properties
 SerializedToken:
@@ -154,12 +156,12 @@ geo.country:
   $ref: ./tokens/caveat_geo_country.yaml
 geo.region:
   $ref: ./tokens/caveat_geo_region.yaml
+interface:
+  $ref: ./tokens/caveat_interface.yaml
 api:
   $ref: ./tokens/caveat_api.yaml
-data.space:
-  $ref: ./tokens/caveat_data_space.yaml
-data.access:
-  $ref: ./tokens/caveat_data_access.yaml
+data.readonly:
+  $ref: ./tokens/caveat_data_readonly.yaml
 data.path:
   $ref: ./tokens/caveat_data_path.yaml
 data.objectid:

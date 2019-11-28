@@ -1,0 +1,17 @@
+type: object
+description: Verify token response
+properties:
+  subject:
+    $ref: '#/definitions/TokenPropertySubject'
+  ttl:
+    type: integer
+    description: Token's TTL in seconds (or null if infinite)
+    example: 3600
+required:
+  - subject
+  - ttl
+example:
+  subject:
+    type: user
+    id: 1b510f18b3b05611871c0acdffa9aed4
+  ttl: 3600

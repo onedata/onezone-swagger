@@ -637,6 +637,7 @@
   $ref: ./provider-public-map_idp_group.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /provider/public/verify_provider_identity:
   $ref: ./provider-public-verify_provider_identity.yaml
 
