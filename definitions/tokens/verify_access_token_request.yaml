@@ -13,10 +13,10 @@ properties:
       - rest
       - oneclient
       - graphsync
-    description: The interface to which the token bearer has connected.
+    description: The interface to which the token bearer has connected as seen by the verifying party.
   allowDataAccessCaveats:
     type: boolean
-    description: The interface to which the token bearer has connected.
+    description: Indication if verifying party allows data access caveats in the token.
 
 required:
   - token
