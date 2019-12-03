@@ -68,9 +68,6 @@ SpaceCreateRequest:
 SpaceSupportToken:
   $ref: ./spacesupporttoken.yaml
 
-SpaceSupportRequest:
-  $ref: ./spacesupportrequest.yaml
-
 Tokens:
   $ref: ./tokens/tokens.yaml
 NamedToken:
