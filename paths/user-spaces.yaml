@@ -25,9 +25,8 @@ get:
 
     {
       "spaces": [
-        "IkHB2CCoAFm5FCswhAJynbFU4fj26yiE1lhpK3p-0Y8"
-      ],
-      "default": "undefined"
+        "c45fb16186931e6c2b44648cedd6b878ed1f6931"
+      ]
     }
     ```
   produces:
@@ -35,7 +34,7 @@ get:
   responses:
     '200':
       description: >
-        Returns the list of user spaces, including information which space is default.
+        Returns the list of user spaces.
       schema:
         type: object
         properties:
@@ -44,9 +43,6 @@ get:
             type: array
             items:
               type: string
-          default:
-            description: The Id of the default user space.
-            type: string
     '400':
       description: Invalid request.
       schema:
