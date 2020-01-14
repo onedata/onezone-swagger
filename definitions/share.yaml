@@ -10,25 +10,30 @@ properties:
   publicUrl:
     type: string
     description: The publicly accessible URL for the share.
-  rootFileId:
-    type: string
-    description: The Id of the shared file or folder.
   spaceId:
     type: string
     description: The Id of the space in which the share was created.
   handleId:
     type: string
     description: The Id of open data Handle (e.g. DOI or PID) assigned to this share.
+  rootFileId:
+    type: string
+    description: The Id of the shared file or directory.
+  fileType:
+    type: string
+    description: Denotes the type of the shared element (file or directory)
 required:
   - shareId
   - name
   - publicUrl
-  - rootFileId
   - spaceId
+  - rootFileId
+  - fileType
 example:
   shareId: 303884afb761d91a7362b2841647bc08
   name: MyShare
   publicUrl: https://onedata.org/shares/303884afb761d91a7362b2841647bc08
-  rootFileId: 46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53
   spaceId: 04b0d63bdaa15cc600212082e50e5e25
   handleId: doi:10.15911/MyShare.726855
+  rootFileId: 46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53
+  fileType: dir
