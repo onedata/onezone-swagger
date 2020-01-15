@@ -26,6 +26,9 @@ items:
     - space_schedule_eviction
     - space_cancel_eviction
 
+    - space_view_qos
+    - space_manage_qos
+
     - space_add_user
     - space_remove_user
 
@@ -41,6 +44,6 @@ example: [
   space_view, space_update, space_delete, space_view_privileges, space_set_privileges, space_read_data, space_write_data,
   space_manage_shares, space_view_views, space_manage_views, space_query_views, space_view_statistics,
   space_view_changes_stream, space_view_transfers, space_schedule_replication, space_cancel_replication,
-  space_schedule_eviction, space_cancel_eviction, space_add_user, space_remove_user, space_add_group,
-  space_remove_group, space_add_support, space_remove_support, space_add_harvester, space_remove_harvester
+  space_schedule_eviction, space_cancel_eviction, space_view_qos, space_manage_qos, space_add_user, space_remove_user,
+  space_add_group, space_remove_group, space_add_support, space_remove_support, space_add_harvester, space_remove_harvester
 ]
