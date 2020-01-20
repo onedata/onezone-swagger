@@ -6,14 +6,19 @@ allOf:
       type: string
       enum: [data.path]
       x-discriminator-value: "data.path"
-      description: >
+      description: |
         Data path caveat - limits the paths in which data can be accessed with the token.
-        The paths must be canonical - starting with a slash and space id and without
+        The paths must be canonical - starting with a slash + space id and without
         a trailing slash - and must be base64 encoded.
         If a directory path is given, the token allows to access all nested
         files and directories starting from the specified directory.
-      # @TODO VFS-5776 Add link to token docs
-      # @TODO VFS-5776 Add link to data access caveat docs
+
+        This is a **data access caveat** - if added to a token, it greatly limits
+        its power in the system APIs, to the minimum required for data access -
+        [see more](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#data-access-caveats).
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
     whitelist:
       type: array
       items:
@@ -21,15 +26,12 @@ allOf:
       description: |
         List of base64 encoded file paths in which data can be accessed using the token.
 
-        This is a *data access caveat* - if added to a token, it greatly limits
-        its power in the system APIs, to the minimum required for data acccess.
-
         Example:
         ```json
           {
             "type": "data.path",
             "whitelist": [
-              "L2QxYjM4OGY3Yzc=",   # /d1b388f7c7c622299429f
+              "L2QxYjM4OGY3Yzc=",   # /d1b388f7c7
               "L2QxYjM4OGY3YzcvZGlyL2ZpbGUudHh0"    # /d1b388f7c7/dir/file.txt
             ]
           }

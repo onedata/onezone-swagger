@@ -4,9 +4,17 @@ allOf:
   properties:
     type:
       type: string
-      description: Interface caveat - limits the available interfaces of the system to a certain one.
-      # @TODO VFS-5776 Add link to token docs
-      # @TODO VFS-5776 Add link to data access caveat docs
+      description: |
+        Interface caveat - limits the available interfaces on which
+        the token can be used to a certain one.
+
+        If the *oneclient* interface is specified, this caveat is treated as a
+        **data access caveat** - if added to a token, it greatly limits
+        its power in the system APIs, to the minimum required for data access -
+        [see more](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#data-access-caveats).
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
       enum: [interface]
       x-discriminator-value: "interface"
     interface:
@@ -17,10 +25,6 @@ allOf:
         - oneclient
       description: |
         The interface on which this token will be exclusively accepted.
-
-        If the *oneclient* interface is specified, this caveat is treated as a
-        *data access caveat* - if added to a token, it greatly limits
-        its power in the system APIs, to the minimum required for data acccess.
 
         Example:
         ```json

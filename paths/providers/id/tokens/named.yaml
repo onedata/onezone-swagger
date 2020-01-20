@@ -24,6 +24,9 @@ post:
     cluster member with `cluster_update` privilege. Otherwise requires
     `oz_tokens_manage` admin privilege.
 
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+
     ***Example cURL requests***
 
     **Create named token for a provider**
@@ -108,6 +111,9 @@ get:
     cluster member with `cluster_update` privilege. Otherwise requires
     `oz_tokens_manage` admin privilege.
 
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+
     ***Example cURL requests***
 
     **List named tokens of a provider**
@@ -183,6 +189,9 @@ delete:
     This operation is available for the subject provider (`id`), or the provider's
     cluster member with `cluster_update` privilege. Otherwise requires
     `oz_tokens_manage` admin privilege.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
 
     ***Example cURL requests***
 

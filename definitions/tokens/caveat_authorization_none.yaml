@@ -10,13 +10,15 @@ allOf:
         Authorization none caveat - nullifies the authorization carried by the token.
         Such token can only be used for identity verification (a.k.a. identity token).
 
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
+
         Example:
         ```json
           {
             "type": "authorizationNone"
           }
         ```
-      # @TODO VFS-5776 Add link to token docs
 required:
   - type
 example:

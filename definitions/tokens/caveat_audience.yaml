@@ -6,12 +6,14 @@ allOf:
       type: string
       enum: [audience]
       x-discriminator-value: "audience"
-      description: >
+      description: |
         Audience caveat - limits the audiences that can utilize the token.
         If the caveat is present, the party that utilizes the token must include
         its access token in the x-onedata-audience-token header to prove its identity.
         The audiences must be encoded using proper audience format.
-      # @TODO VFS-5776 Add link to token docs
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
     whitelist:
       type: array
       items:

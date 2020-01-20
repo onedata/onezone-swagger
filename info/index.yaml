@@ -255,8 +255,8 @@ description: |
   ```
 
   Below you can find some tutorials which show how to use this API in practice:
-    * [User oriented tutorial](https://onedata.org/docs/doc/using_onedata/using_onedata_from_cli.html)
-    * [Administrator oriented tutorial](https://onedata.org/docs/doc/administering_onedata/administering_onedata_from_cli.html)
+    * [User oriented tutorial](https://onedata.org/#/home/documentation/doc/using_onedata/using_onedata_from_cli.html)
+    * [Administrator oriented tutorial](https://onedata.org/#/home/documentation/doc/administering_onedata/administering_onedata_from_cli.html)
 
 
   ## Examples
@@ -283,7 +283,7 @@ description: |
   > * tokenPrefix must be set to "github/"
   >
   > You can learn more in
-  > [the documentation](https://onedata.org/#/home/documentation/doc/administering_onedata/openid_saml_configuration[authority-delegation].html).
+  > [the documentation](https://onedata.org/#/home/documentation/doc/administering_onedata/openid_saml_configuration/openid_saml_configuration_19_02[authority-delegation].html).
 
 contact:
   name: Onedata support

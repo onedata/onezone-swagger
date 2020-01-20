@@ -18,6 +18,9 @@ post:
 
     This operation can be invoked on behalf of the current provider only.
 
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+
     ***Example cURL requests***
 
     **Create named token for current provider**
@@ -91,6 +94,9 @@ get:
 
     This operation can be invoked on behalf of the current provider only.
 
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+
     ***Example cURL requests***
 
     **List named tokens of current provider**
@@ -156,6 +162,9 @@ delete:
     Deletes all provider's named tokens.
 
     This operation can be invoked on behalf of the current provider only.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
 
     ***Example cURL requests***
 
