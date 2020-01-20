@@ -14,12 +14,18 @@ post:
     Optionally, IP address of the token bearer can be provided,
     which will be used to verify against the IP and geolocation related caveats.
 
+    If the token cannot be positively verified, HTTP code 4xx is returned with
+    an error describing the reason of failure.
+
     This operation has public access.
   description: |
     Verifies an access token provided in serialized form.
     Upon success, returns the token's subject.
     Optionally, IP address of the token bearer can be provided,
     which will be used to verify against the IP and geolocation related caveats.
+
+    If the token cannot be positively verified, HTTP code 4xx is returned with
+    an error describing the reason of failure.
 
     This operation has public access.
 

@@ -17,6 +17,7 @@ properties:
   allowDataAccessCaveats:
     type: boolean
     description: Indication if verifying party allows data access caveats in the token.
+    default: false
 
 required:
   - token

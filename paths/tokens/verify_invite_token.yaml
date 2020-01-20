@@ -19,6 +19,9 @@ post:
     specified, the procedure will check if given token is an invite token of
     any type.
 
+    If the token cannot be positively verified, HTTP code 4xx is returned with
+    an error describing the reason of failure.
+
     This operation has public access.
   description: |
     Verifies an invite token provided in serialized form.
@@ -30,6 +33,9 @@ post:
     verification to fail if it does not match the actual token type. If not
     specified, the procedure will check if given token is an invite token of
     any type.
+
+    If the token cannot be positively verified, HTTP code 4xx is returned with
+    an error describing the reason of failure.
 
     This operation has public access.
 
