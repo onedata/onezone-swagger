@@ -22,6 +22,9 @@ properties:
   fileType:
     type: string
     description: Denotes the type of the shared element (file or directory)
+    enum:
+      - file
+      - dir
 required:
   - shareId
   - name
