@@ -1,0 +1,154 @@
+get:
+  operationId: get_space_provider
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_providers_view
+  summary: Get space provider details
+  x-bash-codegen-description: |
+    Returns details about a specific provider supporting the space.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_providers_view` admin privilege.
+  description: |
+    Returns details about a specific provider supporting the space.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_providers_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space provider details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
+
+    {
+      "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk",
+      "name": "example",
+      "domain": "195.216.97.151",
+      "latitude": 50.068968,
+      "longitude": 19.909444
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details about a specific provider supporting a space.
+      schema:
+        $ref: '#/definitions/ProviderDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: pid
+    in: path
+    description: Provider Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceProvider id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"
+
+
+delete:
+  operationId: remove_provider_supporting_space
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{provider, ?BINDING(pid)}"
+  x-onedata-permissions:
+    - space_remove_provider
+    - oz_spaces_remove_relationships
+  summary: Remove space support
+  x-bash-codegen-description: |
+    Removes support from provider for a specific space.
+
+    This operation requires `space_remove_provider` privilege
+    or `oz_spaces_remove_relationships` admin privilege.
+  description: |
+    Removes support from provider for a specific space.
+
+    This operation requires `space_remove_provider` privilege
+    or `oz_spaces_remove_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove space support**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
+    ```
+  responses:
+    '204':
+      description: A space is no longer supported by this provider.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: pid
+    in: path
+    description: Provider Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeProviderSupportingSpace id=b752ceafabb662b4e5728b2ded25cdd1 pid=f1c8b1a37aa7447b22eb65a742d40524"

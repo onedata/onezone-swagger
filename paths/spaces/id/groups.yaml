@@ -1,0 +1,161 @@
+get:
+  operationId: list_space_groups
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: groups
+  summary: List space groups
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_relationships
+  x-bash-codegen-description: |
+    Returns the list of groups belonging to a specific space.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_list_relationships` admin privilege.
+  description: |
+    Returns the list of groups belonging to a specific space.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_list_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space groups**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups
+
+    {
+      "groups": [
+        "f1c8b1a37aa7447b22eb65a742d40524",
+        "8e1cea0b379e3683257c32f896d55115"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all group Ids that belong to a specific space
+      schema:
+        $ref: '#/definitions/Groups'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listSpaceGroups id=b752ceafabb662b4e5728b2ded25cdd1"
+
+
+post:
+  operationId: create_space_group
+  tags:
+  - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "group"
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - space_add_group
+    - oz_groups_create
+    - oz_spaces_add_relationships
+  summary: Create group in space
+  x-bash-codegen-description: |
+    Creates a new group belonging to the space of {id}.
+
+    This operation requires `space_add_group` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_add_relationships` and `oz_groups_create`
+    privileges are required.
+  description: |
+    Creates a new group belonging to the space of {id}.
+
+    This operation requires `space_add_group` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_add_relationships` and `oz_groups_create`
+    privileges are required.
+
+    ***Example cURL requests***
+
+    **Create group in space**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups
+    ```
+  produces:
+  - application/json
+  responses:
+    '201':
+      description: >
+        URI of the added group in form https://$HOST/api/onezone/v3/spaces/{id}/groups/{cid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created group.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Group properties.
+    schema:
+      $ref: '#/definitions/GroupCreateRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createSpaceGroup id=538ef9643ae6b9e40817e51eece7e341 name==Group2 type==team"

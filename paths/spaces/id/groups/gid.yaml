@@ -1,0 +1,253 @@
+get:
+  operationId: get_space_group
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(gid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_groups_view
+  summary: Get space's group details
+  x-bash-codegen-description: |
+    Returns details about a specific group in a space.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_groups_view` admin privilege.
+  description: |
+    Returns details about a specific group in a space.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_groups_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space group details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID
+
+    {
+      "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
+      "name": "new_groupX",
+      "type": "team"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Details of a specific group in a space.
+      schema:
+        $ref: '#/definitions/Group'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
+
+
+put:
+  operationId: add_group_to_space
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - space_add_group
+    - space_set_privileges
+    - oz_spaces_add_relationships
+    - oz_groups_add_relationships
+    - oz_space_set_privileges
+  summary: Add group to space
+  x-bash-codegen-description: |
+    Adds group {gid} as member of space {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the group in this space.
+
+    This operation requires `space_add_group` privilege in the space and
+    `group_add_space` privilege in the group. If `privileges` are
+    specified in the request, `space_set_privileges` privilege is also required.
+
+    For administrator who does not belong to the group / space,
+    `oz_groups_add_relationships` and `oz_spaces_add_relationships` privileges
+    are required, and `oz_spaces_set_privileges` if `privileges` are specified
+    in the request.
+  description: |
+    Adds group {gid} as member of space {id}. Optional privileges
+    can be passed in the request body, otherwise default
+    privileges will be set for the group in this space.
+
+    This operation requires `space_add_group` privilege in the space and
+    `group_add_space` privilege in the group. If `privileges` are
+    specified in the request, `space_set_privileges` privilege is also required.
+
+    For administrator who does not belong to the group / space,
+    `oz_groups_add_relationships` and `oz_spaces_add_relationships` privileges
+    are required, and `oz_spaces_set_privileges` if `privileges` are specified
+    in the request.
+
+    ***Example cURL requests***
+
+    **Add group to space**
+    ```bash
+    curl -u username:password  -H "Content-type: application/json" -X PUT \
+     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The group was added to the space.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: privileges
+    in: body
+    schema:
+      $ref: '#/definitions/SpacePrivileges'
+    required: false
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addGroupToSpace id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"
+
+
+delete:
+  operationId: remove_space_group
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{group, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - space_remove_group
+    - oz_spaces_remove_relationships
+  summary: Remove group from space
+  x-bash-codegen-description: |
+    Removes a specific group from space.
+
+    For regular users, who belong to this space it requires
+    `space_remove_group` privilege to remove a group from this space.
+
+    For administrators, who are not members of this space,
+    `oz_spaces_remove_relationships` privilege is required.
+  description: |
+    Removes a specific group from space.
+
+    For regular users, who belong to this space it requires
+    `space_remove_group` privilege to remove a group from this space.
+
+    For administrators, who are not members of this space,
+    `oz_spaces_remove_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get space group details**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID
+    ```
+  responses:
+    '204':
+      description: A group was removed from space.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: gid
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeSpaceGroup id=b752ceafabb662b4e5728b2ded25cdd1 gid=f1c8b1a37aa7447b22eb65a742d40524"

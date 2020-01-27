@@ -1,0 +1,55 @@
+get:
+  operationId: check_current_time
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: current_time
+  summary: Show current clock time
+  x-bash-codegen-description: |
+    Returns current clock time of this OneZone instance,
+    in milliseconds since epoch.
+
+    This operation has public access.
+  description: |
+    Returns current clock time of this OneZone instance,
+    in milliseconds since epoch.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Check provider IP**
+    ```bash
+    curl --tlsv1.2 -H "X-Auth-Token: $TOKEN" -X GET https://onezone.example.com/api/v3/onezone/provider/public/get_current_time
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The current clock time of this Onezone.
+      schema:
+        type: integer
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli checkCurrentTime"

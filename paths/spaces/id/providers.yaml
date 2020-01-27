@@ -1,0 +1,76 @@
+get:
+  operationId: list_space_providers
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: providers
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_list_relationships
+  summary: List space providers
+  x-bash-codegen-description: |
+    Returns the list of providers supporting specific space.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_list_relationships` admin privilege.
+  description: |
+    Returns the list of providers supporting specific space.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_list_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space support token**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers
+
+    {
+      "providers": [
+        "MDAxNmxvYZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all provider Ids that support a specific space.
+      schema:
+        $ref: '#/definitions/Providers'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listSpaceProviders id=b752ceafabb662b4e5728b2ded25cdd1"

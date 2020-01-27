@@ -1,0 +1,219 @@
+get:
+  operationId: get_space
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_spaces_view
+  summary: Get space details
+  x-bash-codegen-description: |
+    Returns the details about a specific space.
+
+    This operation requires any of the following authentication:
+    * as user who is an effective member of the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_view` admin privilege.
+  description: |
+    Returns the details about a specific space.
+
+    This operation requires any of the following authentication:
+    * as user who is an effective member of the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space details**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+
+    {
+      "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "name": "new_space1",
+      "providers": {
+        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
+      }
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a space.
+      schema:
+        $ref: '#/definitions/Space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpace id=b752ceafabb662b4e5728b2ded25cdd1"
+
+
+patch:
+  operationId: modify_space
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_update
+    - oz_spaces_update
+  summary: Modify space details
+  x-bash-codegen-description: |
+    Updates the details about a space.
+
+    This operation requires `space_update` privilege
+    or `oz_spaces_update` admin privilege.
+  description: |
+    Updates the details about a space.
+
+    This operation requires `space_update` privilege
+    or `oz_spaces_update` admin privilege.
+
+    ***Example cURL requests***
+
+    **Change space name**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" \
+    -X PATCH -d '{"name": "new_space12"}' \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Space has been updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Space parameters
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The new name of the space.
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifySpace id=b752ceafabb662b4e5728b2ded25cdd1 name==\"New Space Name\""
+
+
+delete:
+  operationId: remove_space
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - space_delete
+    - oz_spaces_delete
+  summary: Remove space
+  x-bash-codegen-description: |
+    Removes a specific space.
+
+    This operation requires `space_delete` privilege
+    or `oz_spaces_delete` admin privilege.
+  description: |
+    Removes a specific space.
+
+    This operation requires `space_delete` privilege
+    or `oz_spaces_delete` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove space**
+    ```bash
+    curl -u admin:password -X DELETE \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+    ```
+  responses:
+    '204':
+      description: The space was removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeSpace id=b752ceafabb662b4e5728b2ded25cdd1"
