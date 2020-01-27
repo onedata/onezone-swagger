@@ -13,13 +13,17 @@ get:
   x-bash-codegen-description: |
     Returns the details about a specific space.
 
-    This operation requires membership in the space or
-    `oz_spaces_view` admin privilege.
+    This operation requires any of the following authentication:
+    * as user who is an effective member of the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_view` admin privilege.
   description: |
     Returns the details about a specific space.
 
-    This operation requires membership in the space or
-    `oz_spaces_view` admin privilege.
+    This operation requires any of the following authentication:
+    * as user who is an effective member of the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_view` admin privilege.
 
     ***Example cURL requests***
 

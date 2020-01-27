@@ -15,15 +15,17 @@ get:
   x-bash-codegen-description: |
     Returns details about a specific group in a space.
 
-    This operation requires `space_view` privilege.
-    For administrators who do not have to be members of this space,
-    `oz_groups_view` privilege is required.
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_groups_view` admin privilege.
   description: |
     Returns details about a specific group in a space.
 
-    This operation requires `space_view` privilege.
-    For administrators who do not have to be members of this space,
-    `oz_groups_view` privilege is required.
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_groups_view` admin privilege.
 
     ***Example cURL requests***
 

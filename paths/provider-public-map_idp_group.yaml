@@ -23,7 +23,7 @@ post:
     ```bash
     curl --tlsv1.2 -H "X-Auth-Token: $TOKEN" \
     -d '{"idp": "elixir", "groupId": "elixir:members"}' \
-    -X GET https://beta.onedata.org/api/v3/onezone/provider/public/map_idp_group
+    -X GET https://onezone.example.com/api/v3/onezone/provider/public/map_idp_group
 
     {
       "groupId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg"

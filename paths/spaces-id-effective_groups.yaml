@@ -13,13 +13,17 @@ get:
   x-bash-codegen-description: |
     Returns the list of effective groups belonging to a specific space.
 
-    This operation requires `space_view` privilege
-    or `oz_spaces_list_relationships` admin privilege.
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_list_relationships` admin privilege.
   description: |
     Returns the list of effective groups belonging to a specific space.
 
-    This operation requires `space_view` privilege
-    or `oz_spaces_list_relationships` admin privilege.
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_list_relationships` admin privilege.
 
     ***Example cURL requests***
 
