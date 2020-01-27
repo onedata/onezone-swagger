@@ -7,12 +7,12 @@ get:
     aspect: current_time
   summary: Show current clock time
   x-bash-codegen-description: |
-    Returns current clock time of this OneZone instance,
+    Returns current clock time of this Onezone instance,
     in milliseconds since epoch.
 
     This operation has public access.
   description: |
-    Returns current clock time of this OneZone instance,
+    Returns current clock time of this Onezone instance,
     in milliseconds since epoch.
 
     This operation has public access.

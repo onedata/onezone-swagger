@@ -1,19 +1,17 @@
 post:
-  operationId: map_idp_group
+  operationId: map_idp_user
   tags:
     - Provider
   x-onedata-gri:
     type: od_provider
-    aspect: map_idp_group
-  summary: Map IdP group to Onezone group
+    aspect: map_idp_user
+  summary: Map IdP user to Onezone user
   x-bash-codegen-description: |
-    Maps external IdP group id into internal group id in Onezone.
-    The IdP must have group mapping enabled.
+    Maps external IdP user id into internal user id in Onezone.
 
     This operation has public access.
   description: |
-    Maps external IdP group id into internal group id in Onezone.
-    The IdP must have group mapping enabled.
+    Maps external IdP user id into internal user id in Onezone.
 
     This operation has public access.
 
@@ -22,28 +20,28 @@ post:
     **Check provider IP**
     ```bash
     curl --tlsv1.2 -H "X-Auth-Token: $TOKEN" \
-    -d '{"idp": "elixir", "groupId": "elixir:members"}' \
-    -X GET https://onezone.example.com/api/v3/onezone/provider/public/map_idp_group
+    -d '{"idp": "elixir", "userId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg"}' \
+    -X GET https://onezone.example.com/api/v3/onezone/provider/public/map_idp_user
 
     {
-      "groupId": "302da048de67e2ea05f0af1d0fe7c8a2"
+      "userId": "0fe7c8a20ffdf07480c46f084bc3b8d5"
     }
     ```
   produces:
     - application/json
   responses:
     '200':
-      description: The group Id in external IdP.
+      description: The user Id in external IdP.
       schema:
         type: object
         properties:
-          groupId:
+          userId:
             type: string
-            description: Internal group Id in Onezone.
+            description: Internal user Id in Onezone.
             items:
               type: string
         example:
-          groupId: 302da048de67e2ea05f0af1d0fe7c8a2
+          userId: 0fe7c8a20ffdf07480c46f084bc3b8d5
     '400':
       description: Invalid request.
       schema:
@@ -74,10 +72,10 @@ post:
         ipd:
           type: string
           description: External IdP (identity provider).
-        groupId:
+        userId:
           type: string
-          description: GroupId in given IdP.
+          description: UserId in given IdP.
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli mapIdpGroup ipd==\"elixir\" groupId==\"elixir:members\" "
+    source: "onezone-rest-cli mapIdpUser ipd==\"elixir\" userId==\"elixir:members\" "

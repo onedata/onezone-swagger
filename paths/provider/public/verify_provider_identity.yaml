@@ -5,7 +5,7 @@ post:
   x-onedata-gri:
     type: od_provider
     aspect: verify_provider_identity
-  summary: Verifies the identity of given provider
+  summary: Verify the identity of given provider
   x-bash-codegen-description: |
     Verifies the identity of given provider based on its identity macaroon.
 

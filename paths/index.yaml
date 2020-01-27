@@ -625,6 +625,10 @@
   $ref: ./provider/public/get_current_time.yaml
 
 
+/provider/public/map_idp_user:
+  $ref: ./provider/public/map_idp_user.yaml
+
+
 /provider/public/map_idp_group:
   $ref: ./provider/public/map_idp_group.yaml
 
