@@ -127,7 +127,7 @@ put:
 
     **Add group to harvester**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X PUT \
+    curl -u username:password -H "Content-type: application/json" -X PUT \
      https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/$GROUP_ID
     ```
   consumes:

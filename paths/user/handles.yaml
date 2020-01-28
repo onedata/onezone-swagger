@@ -90,7 +90,7 @@ post:
 
     **Create new user handle**
     ```bash
-    curl -u admin:password  -H "Content-type: application/json" -X POST \
+    curl -u admin:password -H "Content-type: application/json" -X POST \
     -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }'
     https://$HOST/api/v3/onezone/user/handles
     ```

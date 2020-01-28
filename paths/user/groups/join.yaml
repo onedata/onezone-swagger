@@ -21,7 +21,7 @@ post:
     **Join group**
 
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{ "token": "9ef3973a007d616cb6b3e95829dec18a" }' \
     https://$HOST/api/v3/onezone/user/groups/join
     ```

@@ -127,7 +127,7 @@ patch:
 
     **Update user's privileges in a space**
     ```bash
-    curl -i -k -u admin:password -X PATCH \
+    curl -u admin:password -X PATCH \
     -d '{"grant": ["space_view", "space_update"], "revoke": ["space_delete"]}' \
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID/privileges
     ```

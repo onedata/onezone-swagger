@@ -79,7 +79,7 @@ post:
 
     **Create new user**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{ "username" : "new_user", "password": "lS1c6FD2mxB2ff" }' \
     https://$HOST/api/v3/onezone/users
     ```

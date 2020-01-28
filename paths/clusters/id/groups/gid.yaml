@@ -127,7 +127,7 @@ put:
 
     **Add group to cluster**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X PUT \
+    curl -u username:password -H "Content-type: application/json" -X PUT \
      https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
     ```
   consumes:

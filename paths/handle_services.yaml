@@ -90,7 +90,7 @@ post:
 
     **Add handle services**
     ```bash
-    curl -u username:password -X POST  -H "Content-type: application/json" \
+    curl -u username:password -X POST -H "Content-type: application/json" \
     -d '{ ... }' https://$HOST/api/v3/handle_services
     ```
   consumes:

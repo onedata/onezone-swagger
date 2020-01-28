@@ -92,7 +92,7 @@ post:
 
     **Create new user space**
     ```bash
-    curl -u admin:password  -H "Content-type: application/json" -X POST \
+    curl -u admin:password -H "Content-type: application/json" -X POST \
     -d '{ "name" : "test_space"}' https://$HOST/api/v3/onezone/user/spaces
     ```
   consumes:

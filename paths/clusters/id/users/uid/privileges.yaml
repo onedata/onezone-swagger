@@ -125,7 +125,7 @@ patch:
 
     **Update user's privileges in a cluster**
     ```bash
-    curl -i -k -u admin:password -X PATCH \
+    curl -u admin:password -X PATCH \
     -d '{"grant": ["cluster_view", "cluster_update"], "revoke": ["cluster_delete"]}' \
     https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID/privileges
     ```
