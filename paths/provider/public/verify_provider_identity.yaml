@@ -25,6 +25,8 @@ post:
     ```
   produces:
     - application/json
+  consumes:
+    - application/json
   responses:
     '204':
       description: The identity macaroon is valid for this provider.

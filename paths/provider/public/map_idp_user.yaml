@@ -37,6 +37,8 @@ post:
     ```
   produces:
     - application/json
+  consumes:
+    - application/json
   responses:
     '200':
       description: The user Id in external IdP.
