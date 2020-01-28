@@ -7,23 +7,31 @@ post:
     aspect: map_idp_group
   summary: Map IdP group to Onezone group
   x-bash-codegen-description: |
-    Maps external IdP group id into internal group id in Onezone.
+    Maps external IdP group Id into internal group Id in Onezone.
     The IdP must have group mapping enabled.
+
+    The group does not have to exist in Onezone or the IdP - this method merely
+    transforms the Id using a deterministic procedure. It can be used to
+    predict the group Id in Onezone before it is created.
 
     This operation has public access.
   description: |
-    Maps external IdP group id into internal group id in Onezone.
+    Maps external IdP group Id into internal group Id in Onezone.
     The IdP must have group mapping enabled.
+
+    The group does not have to exist in Onezone or the IdP - this method merely
+    transforms the Id using a deterministic procedure. It can be used to
+    predict the group Id in Onezone before it is created.
 
     This operation has public access.
 
     ***Example cURL requests***
 
-    **Check provider IP**
+    **Map IdP group to Onezone group**
     ```bash
     curl -H "X-Auth-Token: $TOKEN" \
     -d '{"idp": "elixir", "groupId": "elixir:members"}' \
-    -X GET https://onezone.example.com/api/v3/onezone/provider/public/map_idp_group
+    -X POST https://onezone.example.com/api/v3/onezone/provider/public/map_idp_group
 
     {
       "groupId": "302da048de67e2ea05f0af1d0fe7c8a2"
@@ -80,4 +88,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli mapIdpGroup ipd==\"elixir\" groupId==\"elixir:members\" "
+    source: "onezone-rest-cli mapIdpGroup ipd==elixir groupId==elixir:members"

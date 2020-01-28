@@ -21,7 +21,7 @@ post:
     ```bash
     curl -H "X-Auth-Token: $TOKEN" \
     -d '{"providerId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg", "macaroon": "JKAxNWxvY2F0aW9uIG9uZXp..."}' \
-    -X GET https://onezone.example.com/api/v3/onezone/provider/public/verify_provider_identity
+    -X POST https://onezone.example.com/api/v3/onezone/provider/public/verify_provider_identity
     ```
   produces:
     - application/json

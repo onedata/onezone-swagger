@@ -9,19 +9,27 @@ post:
   x-bash-codegen-description: |
     Maps external IdP user id into internal user id in Onezone.
 
+    The user does not have to exist in Onezone or the IdP - this method merely
+    transforms the Id using a deterministic procedure. It can be used to
+    predict the user Id in Onezone before it is created.
+
     This operation has public access.
   description: |
     Maps external IdP user id into internal user id in Onezone.
+
+    The user does not have to exist in Onezone or the IdP - this method merely
+    transforms the Id using a deterministic procedure. It can be used to
+    predict the user Id in Onezone before it is created.
 
     This operation has public access.
 
     ***Example cURL requests***
 
-    **Check provider IP**
+    **Map IdP user to Onezone user**
     ```bash
     curl -H "X-Auth-Token: $TOKEN" \
     -d '{"idp": "elixir", "userId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg"}' \
-    -X GET https://onezone.example.com/api/v3/onezone/provider/public/map_idp_user
+    -X POST https://onezone.example.com/api/v3/onezone/provider/public/map_idp_user
 
     {
       "userId": "0fe7c8a20ffdf07480c46f084bc3b8d5"
@@ -78,4 +86,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli mapIdpUser ipd==\"elixir\" userId==\"elixir:members\" "
+    source: "onezone-rest-cli mapIdpUser ipd==elixir userId==elixir:members"

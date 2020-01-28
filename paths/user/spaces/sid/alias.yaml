@@ -106,7 +106,7 @@ put:
     **Set space alias**
     ```bash
     curl -u username:password -X PUT -d '{"alias": "Space alias"}' \
-   -H 'Content-type: application/json' \
+    -H 'Content-type: application/json' \
     https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
     ```
   consumes:
