@@ -115,7 +115,7 @@ put:
 
     **Add space to harvester**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X PUT \
+    curl -u username:password -H "Content-type: application/json" -X PUT \
      https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/$SPACE_ID
     ```
   consumes:

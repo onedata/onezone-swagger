@@ -116,7 +116,7 @@ patch:
 
     **Modify handle resource**
     ```bash
-    curl -u username:password -X PATCH  -H "Content-type: application/json" \
+    curl -u username:password -X PATCH -H "Content-type: application/json" \
     -d '{"metadata": "<?xml..."}' \
     https://$HOST/api/v3/handles/$HANDLE_ID
     ```

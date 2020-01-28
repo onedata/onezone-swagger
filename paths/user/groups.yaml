@@ -85,7 +85,7 @@ post:
 
     **Create new group**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{ "name" : "test_group" , "type" : "team" }' \
     https://$HOST/api/v3/onezone/user/groups
     ```

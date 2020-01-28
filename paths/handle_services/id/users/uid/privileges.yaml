@@ -117,7 +117,7 @@ patch:
 
     **Update user's privileges in a handle service**
     ```bash
-    curl -u username:password -X PATCH  -H "Content-type: application/json" \
+    curl -u username:password -X PATCH -H "Content-type: application/json" \
     -d '{"grant": ["handle_service_register_handle"], "revoke": ["handle_service_update"]}' \
     https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID/privileges
     ```

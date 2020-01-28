@@ -34,7 +34,7 @@ post:
     **Join parent group**
 
     ```bash
-    curl  -u admin:password -H "Content-type: application/json" -X POST \
+    curl -u admin:password -H "Content-type: application/json" -X POST \
     -d  '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW"}'  \
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents/join
     ```

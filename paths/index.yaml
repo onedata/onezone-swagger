@@ -72,14 +72,6 @@
   $ref: ./user/client_tokens/tid.yaml
 
 
-/user/default_space:
-  $ref: ./user/default_space.yaml
-
-
-/user/default_provider:
-  $ref: ./user/default_provider.yaml
-
-
 /user/idp_access_token/{idp}:
   $ref: ./user/idp_access_token/idp.yaml
 
@@ -631,6 +623,10 @@
 
 /provider/public/get_current_time:
   $ref: ./provider/public/get_current_time.yaml
+
+
+/provider/public/map_idp_user:
+  $ref: ./provider/public/map_idp_user.yaml
 
 
 /provider/public/map_idp_group:

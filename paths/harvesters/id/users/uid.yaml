@@ -129,7 +129,7 @@ put:
 
     **Add user to harvester**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X PUT \
+    curl -u username:password -H "Content-type: application/json" -X PUT \
     https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/users/$USER_ID
     ```
   consumes:
@@ -206,7 +206,7 @@ delete:
 
     **Get harvester user data**
     ```bash
-    curl  -u admin:password -X DELETE \
+    curl -u admin:password -X DELETE \
     https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/users/$USER_ID
     ```
   consumes:

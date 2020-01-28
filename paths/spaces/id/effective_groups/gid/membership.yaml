@@ -19,6 +19,7 @@ get:
     This operation requires any of the following authentication:
     * as user who is an effective member of the group (`{gid}`),
     * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space,
     * as user who has `oz_spaces_view` admin privilege.
   description: |
     Returns the effective group's (`{gid}`) space membership intermediaries -
@@ -29,6 +30,7 @@ get:
     This operation requires any of the following authentication:
     * as user who is an effective member of the group (`{gid}`),
     * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space,
     * as user who has `oz_spaces_view` admin privilege.
 
     ***Example cURL requests***
