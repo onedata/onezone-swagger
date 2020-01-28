@@ -198,7 +198,7 @@ delete:
 
     **Remove all group's admin privileges in Onezone**
     ```bash
-    curl -i -u username:password -X DELETE \
+    curl -u username:password -X DELETE \
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/privileges
     ```
   responses:

@@ -125,7 +125,7 @@ patch:
 
     **Update user's privileges in a harvester**
     ```bash
-    curl -i -k -u admin:password -X PATCH \
+    curl -u admin:password -X PATCH \
     -d '{"grant": ["harvester_view", "harvester_update"], "revoke": ["harvester_delete"]}' \
     https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/users/$USER_ID/privileges
     ```

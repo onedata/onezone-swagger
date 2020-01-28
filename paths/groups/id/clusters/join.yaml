@@ -16,7 +16,7 @@ post:
 
     **Join group to an existing cluster**
     ```bash
-    curl -u admin:password  -H "Content-type: application/json" -X POST \
+    curl -u admin:password -H "Content-type: application/json" -X POST \
     -d '{ "token" : "MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcmLciFsOgyUkPI3f02le6PM01IX8go" }'  \
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/clusters/join
     ```

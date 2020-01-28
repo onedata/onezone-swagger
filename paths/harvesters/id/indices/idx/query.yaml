@@ -32,7 +32,7 @@ post:
 
     **query harvester index**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X POST \
+    curl -u username:password -H "Content-type: application/json" -X POST \
     -d '{ "method" : "get", "path" : "resource_id"}'
      https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID/query
     ```

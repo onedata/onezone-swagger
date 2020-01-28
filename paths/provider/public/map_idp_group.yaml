@@ -21,7 +21,7 @@ post:
 
     **Check provider IP**
     ```bash
-    curl --tlsv1.2 -H "X-Auth-Token: $TOKEN" \
+    curl -H "X-Auth-Token: $TOKEN" \
     -d '{"idp": "elixir", "groupId": "elixir:members"}' \
     -X GET https://onezone.example.com/api/v3/onezone/provider/public/map_idp_group
 

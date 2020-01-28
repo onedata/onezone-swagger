@@ -95,7 +95,7 @@ post:
 
     **Register provider**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{
       "token" : "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
       "name" : "My provider",

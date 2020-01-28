@@ -125,7 +125,7 @@ patch:
 
     **Update group's privileges in a space**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -d '{"grant": ["space_view", "space_update"], "revoke": ["space_delete"]}' \
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/groups/$GROUP_ID/privileges
     ```
