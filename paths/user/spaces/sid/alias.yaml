@@ -1,0 +1,222 @@
+get:
+  # @TODO VFS-2999 Reimplement space aliases
+  deprecated: true
+  operationId: get_user_space_alias
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
+  summary: Get user space alias
+  x-bash-codegen-description: |
+    Returns the alias (user defined name) for a specific space. Will return
+    404 NOT FOUND if no alias is defined for the space.
+
+    NOTE: Space aliases are not yet implemented - setting an alias is possible
+    but will have no effect.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the alias (user defined name) for a specific space. Will return
+    404 NOT FOUND if no alias is defined for the space.
+
+    NOTE: Space aliases are not yet implemented - setting an alias is possible
+    but will have no effect.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get space alias**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
+
+    {
+      "alias": "Test space 2"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the details of a specific space.
+      schema:
+        $ref: '#/definitions/SpaceAlias'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387"
+
+
+put:
+  # @TODO VFS-2999 Reimplement space aliases
+  deprecated: true
+  operationId: set_user_space_alias
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
+  summary: Set user space alias
+  x-bash-codegen-description: |
+    Sets the alias (user defined name) for a specific space.
+
+    NOTE: Space aliases are not yet implemented - setting an alias is possible
+    but will have no effect.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Sets the alias (user defined name) for a specific space.
+
+    NOTE: Space aliases are not yet implemented - setting an alias is possible
+    but will have no effect.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Set space alias**
+    ```bash
+    curl -u username:password -X PUT -d '{"alias": "Space alias"}' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Space alias has been successfully set.
+      schema:
+        $ref: '#/definitions/SpaceAlias'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: New space alias.
+    schema:
+      $ref: '#/definitions/SpaceAlias'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: onezone-rest-cli setUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387 alias=="Space alias"
+
+
+delete:
+  # @TODO VFS-2999 Reimplement space aliases
+  deprecated: true
+  operationId: remove_user_space_alias
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: "{space_alias, ?BINDING(sid)}"
+  summary: Remove space alias
+  x-bash-codegen-description: |
+    Removes the alias (user defined name) for a specific space.
+
+    NOTE: Space aliases are not yet implemented - setting an alias is possible
+    but will have no effect.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Removes the alias (user defined name) for a specific space.
+
+    NOTE: Space aliases are not yet implemented - setting an alias is possible
+    but will have no effect.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Remove user space alias**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: The space alias was removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeUserSpaceAlias sid=95b663a6467c72ab1256865efef9e387"

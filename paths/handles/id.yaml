@@ -1,0 +1,227 @@
+get:
+  operationId: get_handle
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - handle_view
+    - oz_handles_view
+  summary: Get handle
+  x-bash-codegen-description: |
+    Returns the properties of a specific handle.
+
+    This operation requires `handle_view` privilege
+    or `oz_handles_view` admin privilege.
+  description: |
+    Returns the properties of a specific handle.
+
+    This operation requires `handle_view` privilege
+    or `oz_handles_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get handle**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/$HANDLE_ID
+
+    {
+      "handle": "10.5072/w95Zlng"
+      "handleId": "95b663a6467c72ab1256865efef9e387",
+      "handleServiceId": "97c27230017cd54c1220189e357322c4",
+      "resourceType": "Share",
+      "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
+      "metadata": "<?xml version=\"1.0\"?>
+          <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
+          <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
+                   xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+            <rdf:Description rdf:about=\"http://example.com/resouces/1\">
+              <dc:title>Example Resource</dc:title>
+              <dc:creator>John Doe</dc:creator>
+              <dc:publisher>MIT</dc:publisher>
+              <dc:date>2000-06-06</dc:date>
+            </rdf:Description>
+          </rdf:RDF>",
+      "timestamp": "1997-07-16T19:20"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The properties of a specific handle.
+      schema:
+        $ref: '#/definitions/Handle'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+      description: The handle Id (internal Onedata GUID) of the identifier.
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandle id=45bf25a5cb16e12a9faa6d088a2c7088"
+
+
+patch:
+  operationId: handle_update
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - handle_update
+    - oz_handles_update
+  summary: Modify handle
+  x-bash-codegen-description: |
+    Allows to update a registered handle, currently it only allows
+    to modify the handle metadata property.
+
+    This operation requires `handle_update` privilege
+    or `oz_handles_update` admin privilege.
+  description: |
+    Allows to update a registered handle, currently it only allows
+    to modify the handle metadata property.
+
+    This operation requires `handle_update` privilege
+    or `oz_handles_update` admin privilege.
+
+    ***Example cURL requests***
+
+    **Modify handle resource**
+    ```bash
+    curl -u username:password -X PATCH -H "Content-type: application/json" \
+    -d '{"metadata": "<?xml..."}' \
+    https://$HOST/api/v3/handles/$HANDLE_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Update was successful.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    - name: handle
+      in: body
+      required: true
+      schema:
+        type: object
+        properties:
+          metadata:
+            type: string
+            description: Dublin Core metadata in XML for the handle.
+  x-code-samples:
+  - lang: Shell
+    source: "cat handl_metadata.json | onezone-rest-cli modifyHandle id=45bf25a5cb16e12a9faa6d088a2c7088"
+
+
+delete:
+  operationId: remove_handle
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - handle_delete
+    - oz_handles_delete
+  summary: Unregister handle
+  x-bash-codegen-description: |
+    Allows to unregister a registered handle.
+
+    This operation requires `handle_delete` privilege
+    or `oz_handles_delete` admin privilege.
+  description: |
+    Allows to unregister a registered handle.
+
+    This operation requires `handle_delete` privilege
+    or `oz_handles_delete` admin privilege.
+
+    ***Example cURL requests***
+
+    **Unregister handle**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/handles/$HANDLE_ID
+    ```
+  responses:
+    '204':
+      description: Handle was removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeHandle id=45bf25a5cb16e12a9faa6d088a2c7088"

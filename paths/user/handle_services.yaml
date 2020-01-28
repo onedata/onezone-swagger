@@ -1,0 +1,128 @@
+get:
+  operationId: list_user_handle_services
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: handle_services
+  summary: List user handle services
+  x-bash-codegen-description: |
+    Returns the list of registered user handle services.
+  description: |
+    Returns the list of registered user handle services.
+
+    ***Example cURL requests***
+
+    **Get user handle services**
+    ```bash
+    curl -u username:password -X GET https://$HOST/api/v3/user/handle_services
+
+    {
+      "handle_services": [
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of identifiers of registered handle services.
+      schema:
+        $ref: '#/definitions/HandleServices'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listUserHandleServices"
+
+
+post:
+  operationId: add_user_handle_service
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_handle_service
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - oz_handle_service_create
+  summary: Create a new handle service for the current user
+  x-bash-codegen-description: |
+    Allows to register a new handle service.
+
+    This operation can be invoked on behalf of the current user only and requires
+    `oz_handle_service_create` admin privilege.
+  description: |
+    Allows to register a new handle service.
+
+    This operation can be invoked on behalf of the current user only and requires
+    `oz_handle_service_create` admin privilege.
+
+    ***Example cURL requests***
+
+    **Add user handle services**
+    ```bash
+    curl -u username:password -X POST -H "Content-type: application/json" \
+    -d '{ ... }' https://$HOST/api/v3/user/handle_services
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the created handle service in form https://$HOST/api/onezone/v3/user/handle_services/{id}
+        is returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created handle service.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: handleService
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/HandleService'
+  x-code-samples:
+  - lang: Shell
+    source: "cat hndl_service.json | onezone-rest-cli addUserHandleService -"

@@ -1,0 +1,91 @@
+post:
+  operationId: map_idp_user
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: map_idp_user
+  summary: Map IdP user to Onezone user
+  x-bash-codegen-description: |
+    Maps external IdP user id into internal user id in Onezone.
+
+    The user does not have to exist in Onezone or the IdP - this method merely
+    transforms the Id using a deterministic procedure. It can be used to
+    predict the user Id in Onezone before it is created.
+
+    This operation has public access.
+  description: |
+    Maps external IdP user id into internal user id in Onezone.
+
+    The user does not have to exist in Onezone or the IdP - this method merely
+    transforms the Id using a deterministic procedure. It can be used to
+    predict the user Id in Onezone before it is created.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Map IdP user to Onezone user**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" \
+    -d '{"idp": "elixir", "userId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg"}' \
+    -X POST https://onezone.example.com/api/v3/onezone/provider/public/map_idp_user
+
+    {
+      "userId": "0fe7c8a20ffdf07480c46f084bc3b8d5"
+    }
+    ```
+  produces:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The user Id in external IdP.
+      schema:
+        type: object
+        properties:
+          userId:
+            type: string
+            description: Internal user Id in Onezone.
+            items:
+              type: string
+        example:
+          userId: 0fe7c8a20ffdf07480c46f084bc3b8d5
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: data
+    in: body
+    description: Mapping parameters
+    schema:
+      type: object
+      properties:
+        ipd:
+          type: string
+          description: External IdP (identity provider).
+        userId:
+          type: string
+          description: UserId in given IdP.
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli mapIdpUser ipd==elixir userId==elixir:members"

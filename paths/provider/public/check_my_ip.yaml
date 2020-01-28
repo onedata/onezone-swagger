@@ -1,0 +1,55 @@
+get:
+  operationId: check_my_ip
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: "{check_my_ip, ?CLIENT_IP}"
+  summary: Show client IP address
+  x-bash-codegen-description: |
+    Returns the IP of the request peer. Will return the external IP (as seen
+    by the Onezone).
+
+    This operation has public access.
+  description: |
+    Returns the IP of the request peer. Will return the external IP (as seen
+    by the Onezone).
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Check provider IP**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://onezone.example.com/api/v3/onezone/provider/public/check_my_ip
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The IP of the requesting peer.
+      schema:
+        type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli checkMyIp"

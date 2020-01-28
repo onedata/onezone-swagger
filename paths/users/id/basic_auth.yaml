@@ -1,0 +1,68 @@
+patch:
+  operationId: change_user_basic_auth_settings
+  tags:
+  - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: basic_auth
+  summary: Change user's basic auth settings
+  x-bash-codegen-description: |
+    Changes user's basic auth settings - the ability to authenticate with
+    username & password, and/or the password itself.
+
+    This operation requires `oz_users_manage_passwords` admin privilege.
+  description: |
+    Changes user's basic auth settings - the ability to authenticate with
+    username & password, and/or the password itself.
+
+    This operation requires `oz_users_manage_passwords` admin privilege.
+
+    ***Example cURL requests***
+
+    **Change user's basic auth settings**
+    ```bash
+    curl -u admin:password -H "Content-type: application/json" -X PATCH  \
+    -d '{"basicAuthEnabled": true, "newPassword": "password123"}' \
+    https://$HOST/api/v3/onezone/users/c5cb69ce45940468596ed16310a45e49/basic_auth
+    ```
+  consumes:
+  - application/json
+  responses:
+    '204':
+      description: User basic auth settings updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: User basic auth settings update request.
+    schema:
+      $ref: '#/definitions/UserBasicAuthSettingsUpdate'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli changeUserBasicAuthSettings id=c5cb69ce45940468596ed16310a45e49 basicAuthEnabled==true newPassword==password123"

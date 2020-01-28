@@ -1,0 +1,93 @@
+post:
+  operationId: map_idp_group
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: map_idp_group
+  summary: Map IdP group to Onezone group
+  x-bash-codegen-description: |
+    Maps external IdP group Id into internal group Id in Onezone.
+    The IdP must have group mapping enabled.
+
+    The group does not have to exist in Onezone or the IdP - this method merely
+    transforms the Id using a deterministic procedure. It can be used to
+    predict the group Id in Onezone before it is created.
+
+    This operation has public access.
+  description: |
+    Maps external IdP group Id into internal group Id in Onezone.
+    The IdP must have group mapping enabled.
+
+    The group does not have to exist in Onezone or the IdP - this method merely
+    transforms the Id using a deterministic procedure. It can be used to
+    predict the group Id in Onezone before it is created.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Map IdP group to Onezone group**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" \
+    -d '{"idp": "elixir", "groupId": "elixir:members"}' \
+    -X POST https://onezone.example.com/api/v3/onezone/provider/public/map_idp_group
+
+    {
+      "groupId": "302da048de67e2ea05f0af1d0fe7c8a2"
+    }
+    ```
+  produces:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The group Id in external IdP.
+      schema:
+        type: object
+        properties:
+          groupId:
+            type: string
+            description: Internal group Id in Onezone.
+            items:
+              type: string
+        example:
+          groupId: 302da048de67e2ea05f0af1d0fe7c8a2
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: data
+    in: body
+    description: Mapping parameters
+    schema:
+      type: object
+      properties:
+        ipd:
+          type: string
+          description: External IdP (identity provider).
+        groupId:
+          type: string
+          description: GroupId in given IdP.
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli mapIdpGroup ipd==elixir groupId==elixir:members"

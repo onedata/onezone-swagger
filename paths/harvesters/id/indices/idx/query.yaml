@@ -1,0 +1,84 @@
+post:
+  operationId: query_harvester_index
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: "{query, ?BINDING(idx)}"
+  x-onedata-permissions:
+    - oz_harvesters_view
+  summary: Query harvester index
+  x-bash-codegen-description: |
+    Performs query to index {idx} in harvester {id}.
+
+    This operation does not require any privileges when the harvester is public 
+    otherwise being member of the harvester is required.
+    For administrators who do not have to be members of this harvester,
+    `oz_harvesters_view` privilege is required.
+
+    Request body depends on selected `harvester_plugin`. This is example for `elasticsearch_plugin`.
+  description: |
+    Performs query to index {idx} in harvester {id}.
+
+    This operation does not require any privileges when the harvester is public 
+    otherwise being member of the harvester is required.
+    For administrators who do not have to be members of this harvester,
+    `oz_harvesters_view` privilege is required.
+
+    Request body and response depend on selected `harvester_plugin`. Below examples are for `elasticsearch_plugin`.
+    
+    ***Example cURL requests***
+
+    **query harvester index**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" -X POST \
+    -d '{ "method" : "get", "path" : "resource_id"}'
+     https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID/query
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Results of the query on given index.
+      schema:
+        $ref: '#/definitions/HarvesterQueryResponse'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Harvester Id.
+      type: string
+      required: true
+    - name: idx
+      in: path
+      description: Index Id.
+      type: string
+      required: true
+    - name: query
+      in: body
+      schema:
+        $ref: '#/definitions/HarvesterQuery'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli queryHarvesterIndex id=b752ceafabb662b4e5728b2ded25cdd1 idx=f1c8b1a37aa7447b22eb65a742d40524"

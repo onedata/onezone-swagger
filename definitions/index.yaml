@@ -80,12 +80,6 @@ ClientToken:
 ClientTokens:
   $ref: ./clienttokens.yaml
 
-DefaultSpace:
-  $ref: ./defaultspace.yaml
-
-DefaultProvider:
-  $ref: ./defaultprovider.yaml
-
 SpaceInviteToken:
   $ref: ./spaceinvitetoken.yaml
 

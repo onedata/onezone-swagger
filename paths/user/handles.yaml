@@ -1,0 +1,137 @@
+get:
+  operationId: list_user_handles
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?CLIENT_ID
+    aspect: handles
+  summary: List user handles
+  x-bash-codegen-description: |
+    Returns the list of users' handles.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the list of users' handles.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get user handles**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/handles
+
+    {
+      "handles": [
+        "c45fb16186931e6c2b44648cedd6b878ed1f6931"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: >
+        Returns the list of user handles.
+      schema:
+        $ref: '#/definitions/Handles'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listUserHandles"
+
+
+post:
+  operationId: create_user_handle
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_handle
+    aspect: instance
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - handle_service_register_handle
+  summary: Create a new handle for the current user
+  x-bash-codegen-description: |
+    Creates a new handle as current user.
+
+    This operation can be invoked on behalf of the current user only and requires
+    'handle_service_register_handle' privilege in the handle service
+    where the new handle is to be registered
+  description: |
+    Creates a new handle as current user.
+
+    This operation can be invoked on behalf of the current user only and requires
+    'handle_service_register_handle' privilege in the handle service
+    where the new handle is to be registered
+
+    ***Example cURL requests***
+
+    **Create new user handle**
+    ```bash
+    curl -u admin:password -H "Content-type: application/json" -X POST \
+    -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }'
+    https://$HOST/api/v3/onezone/user/handles
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the created space in form https://$HOST/api/onezone/v3/user/handles/{id} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created handle.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: handle
+    in: body
+    description: New handle parameters.
+    schema:
+      $ref: '#/definitions/HandleRegistrationRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "cat handle.json | onezone-rest-cli createUserHandle -"
