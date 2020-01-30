@@ -27,16 +27,16 @@ x-bash-codegen-description: |
     it is possible to provide an access token from the IdP, which must be prefixed
     properly (depending on the configuration), e.g.: `github/GST5aasdA...`.
 
-    * **Oneproviders** - can authenticate using the provider root macaroon token,
+    * **Oneproviders** - can authenticate using the provider root token,
     which was assigned during registration in Onezone. It can be found in
-    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user
+    `/etc/op_worker/provider_root_token.txt`. It is used just like a user
     access token, for example:
     ```bash
     curl -H "x-auth-token: $TOKEN" [...]
     curl -H "authorization: Bearer $TOKEN" [...]
     curl -H "macaroon: $TOKEN" [...]   # DEPRECATED
     ```
-    > Please mind that the provider root macaroon is highly confidential and must
+    > Please mind that the provider root token is highly confidential and must
     be kept secret (similarly to a private RSA key).
 
     * **anonymous** - there is a small subset of operations that do not require
@@ -145,16 +145,16 @@ description: |
     it is possible to provide an access token from the IdP, which must be prefixed
     properly (depending on the configuration), e.g.: `github/GST5aasdA...`.
 
-    * **Oneproviders** - can authenticate using the provider root macaroon token,
+    * **Oneproviders** - can authenticate using the provider root token,
     which was assigned during registration in Onezone. It can be found in
-    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user
+    `/etc/op_worker/provider_root_token.txt`. It is used just like a user
     access token, for example:
     ```bash
     curl -H "x-auth-token: $TOKEN" [...]
     curl -H "authorization: Bearer $TOKEN" [...]
     curl -H "macaroon: $TOKEN" [...]   # DEPRECATED
     ```
-    > Please mind that the provider root macaroon is highly confidential and must
+    > Please mind that the provider root token is highly confidential and must
     be kept secret (similarly to a private RSA key).
 
     * **anonymous** - there is a small subset of operations that do not require

@@ -106,7 +106,7 @@ post:
 
     **Add group handle services**
     ```bash
-    curl -u username:password -X POST  -H "Content-type: application/json" \
+    curl -u username:password -X POST -H "Content-type: application/json" \
     -d '{ ... }' https://$HOST/api/v3/groups/4ebd9efd1e67f6c18695db1d762a914a/handle_services
     ```
   consumes:

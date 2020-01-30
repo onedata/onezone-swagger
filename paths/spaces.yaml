@@ -90,7 +90,7 @@ post:
 
     **Create new space**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{ "name" : "new_space" }' \
     https://$HOST/api/v3/onezone/spaces
     ```

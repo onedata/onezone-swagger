@@ -35,7 +35,7 @@ get:
     {
       "name": "provider1",
       "providerId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
-      "domain": "provider1.beta.onedata.org",
+      "domain": "provider1.onezone.example.com",
       "latitude": 50.0647,
       "longitude": 19.9450
     }

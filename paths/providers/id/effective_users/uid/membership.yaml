@@ -16,6 +16,8 @@ get:
 
     This operation requires any of the following authentication:
     * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
     * as user (`{uid}`) who is an effective member of the provider (`{id}`),
     * as user who has `oz_providers_view` admin privilege.
   description: |
@@ -24,6 +26,8 @@ get:
 
     This operation requires any of the following authentication:
     * as the subject provider (`{id}`),
+    * as user who has `cluster_view` privilege in the cluster corresponding to
+      the subject provider,
     * as user (`{uid}`) who is an effective member of the provider (`{id}`),
     * as user who has `oz_providers_view` admin privilege.
 

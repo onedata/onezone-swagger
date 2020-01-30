@@ -15,15 +15,17 @@ get:
   x-bash-codegen-description: |
     Returns details about a specific provider supporting the space.
 
-    For users who are members of space it requires `space_view`.
-    For administrators who do not have to be members of this space,
-    `oz_providers_view` privilege is required.
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_providers_view` admin privilege.
   description: |
     Returns details about a specific provider supporting the space.
 
-    For users who are members of space it requires `space_view`.
-    For administrators who do not have to be members of this space,
-    `oz_providers_view` privilege is required.
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_providers_view` admin privilege.
 
     ***Example cURL requests***
 

@@ -35,7 +35,7 @@ get:
 
     **Get effective user's group membership intermediaries**
     ```bash
-    curl -i -u username:password -X GET \
+    curl -u username:password -X GET \
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_users/$USER_ID/membership
 
     {

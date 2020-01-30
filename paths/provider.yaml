@@ -12,12 +12,12 @@ get:
     Returns information about the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Returns information about the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
@@ -78,12 +78,12 @@ patch:
     Updates information about the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Updates information about the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
@@ -144,13 +144,13 @@ delete:
     Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Allows Oneprovider service to unregister from Onezone - concerns the
     Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 

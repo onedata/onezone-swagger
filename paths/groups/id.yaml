@@ -101,7 +101,7 @@ patch:
 
     **Modify group name**
     ```bash
-    curl -i -u admin:password  -H "Content-type: application/json" \
+    curl -u admin:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_group_name"}' \
     https://$HOST/api/v3/onezone/groups/$GROUP_ID
     ```

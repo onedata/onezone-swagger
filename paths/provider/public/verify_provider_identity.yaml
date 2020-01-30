@@ -7,13 +7,13 @@ post:
   x-onedata-gri:
     type: od_provider
     aspect: verify_provider_identity
-  summary: Verifies the identity of given provider
+  summary: Verify the identity of given provider
   x-bash-codegen-description: |
-    Verifies the identity of given provider based on its identity macaroon.
+    Verifies the identity of given provider based on its identity token.
 
     This operation has public access.
   description: |
-    Verifies the identity of given provider based on its identity macaroon.
+    Verifies the identity of given provider based on its identity token.
 
     This operation has public access.
 
@@ -21,15 +21,17 @@ post:
 
     **Check provider IP**
     ```bash
-    curl --tlsv1.2 -H "X-Auth-Token: $TOKEN" \
-    -d '{"providerId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg", "macaroon": "JKAxNWxvY2F0aW9uIG9uZXp..."}' \
-    -X GET https://beta.onedata.org/api/v3/onezone/provider/public/verify_provider_identity
+    curl -H "X-Auth-Token: $TOKEN" \
+    -d '{"providerId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg", "token": "JKAxNWxvY2F0aW9uIG9uZXp..."}' \
+    -X POST https://onezone.example.com/api/v3/onezone/provider/public/verify_provider_identity
     ```
   produces:
     - application/json
+  consumes:
+    - application/json
   responses:
     '204':
-      description: The identity macaroon is valid for this provider.
+      description: The identity token is valid for this provider.
     '400':
       description: Invalid request.
       schema:
@@ -60,10 +62,10 @@ post:
         providerId:
           type: string
           description: Provider Id.
-        macaroon:
+        token:
           type: string
-          description: Provider identity macaroon.
+          description: Provider identity token.
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli verifyProviderIdentity providerId==\"dqs1ew2afn9q28rnweu8fb23r9jqwtfg\" macaroon==\"JKAxNWxvY2F0aW9uIG9uZXp...\" "
+    source: "onezone-rest-cli verifyProviderIdentity providerId==\"dqs1ew2afn9q28rnweu8fb23r9jqwtfg\" token==\"JKAxNWxvY2F0aW9uIG9uZXp...\" "

@@ -28,7 +28,7 @@ get:
     {
       "providerId":"95b663a6467c72ab1256865efef9e387",
       "name": "provider2",
-      "domain": "provider2.beta.onedata.org",
+      "domain": "provider2.onezone.example.com",
       "latitude": 50.0647,
       "longitude": 19.9450
     }

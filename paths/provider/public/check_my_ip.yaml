@@ -21,7 +21,7 @@ get:
 
     **Check provider IP**
     ```bash
-    curl --tlsv1.2 -H "X-Auth-Token: $TOKEN" -X GET https://beta.onedata.org/api/v3/onezone/provider/public/check_my_ip
+    curl -H "X-Auth-Token: $TOKEN" -X GET https://onezone.example.com/api/v3/onezone/provider/public/check_my_ip
     ```
   produces:
     - application/json
