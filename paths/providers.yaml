@@ -95,12 +95,12 @@ post:
 
     **Register provider**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{
       "token" : "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
       "name" : "My provider",
       "subdomainDelegation" : "false",
-      "domain" : "provider2.onezone.example.com",
+      "domain" : "my-provider.example.com",
       "latitude" : "50.0647",
       "longitude" : "19.9450",
     }' \

@@ -13,15 +13,17 @@ get:
   x-bash-codegen-description: |
     Returns the list of user's (`{uid}`) privileges in a space (`{id}`).
 
-    This operation requires `space_view_privileges` privilege.
-    For administrators who do not have to be members of this space,
-    `oz_spaces_view_privileges` privilege is required.
+    This operation requires any of the following authentication:
+    * as user who has `space_view_privileges` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_view_privileges` admin privilege.
   description: |
     Returns the list of user's (`{uid}`) privileges in a space (`{id}`).
 
-    This operation requires `space_view_privileges` privilege.
-    For administrators who do not have to be members of this space,
-    `oz_spaces_view_privileges` privilege is required.
+    This operation requires any of the following authentication:
+    * as user who has `space_view_privileges` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_view_privileges` admin privilege.
 
     ***Example cURL requests***
 
@@ -125,7 +127,7 @@ patch:
 
     **Update user's privileges in a space**
     ```bash
-    curl -i -k -u admin:password -X PATCH \
+    curl -u admin:password -X PATCH \
     -d '{"grant": ["space_view", "space_update"], "revoke": ["space_delete"]}' \
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID/privileges
     ```

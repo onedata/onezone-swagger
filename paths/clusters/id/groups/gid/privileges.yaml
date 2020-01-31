@@ -121,7 +121,7 @@ patch:
 
     **Update group's privileges in a cluster**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -d '{"grant": ["cluster_view", "cluster_update"], "revoke": ["cluster_delete"]}' \
     https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID/privileges
     ```

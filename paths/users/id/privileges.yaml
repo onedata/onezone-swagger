@@ -126,7 +126,7 @@ patch:
 
     **Updates user's admin privileges in Onezone**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X PATCH \
+    curl -u username:password -H "Content-type: application/json" -X PATCH \
     -d '{"grant": ["oz_spaces_list"], "revoke": ["oz_groups_update"]}' \
     https://$HOST/api/v3/onezone/users/$USER_ID/privileges
     ```

@@ -121,7 +121,7 @@ patch:
 
     **Update group's privileges in a harvester**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" \
+    curl -u username:password -H "Content-type: application/json" \
     -d '{"grant": ["harvester_view", "harvester_update"], "revoke": ["harvester_delete"]}' \
     https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups/$GROUP_ID/privileges
     ```

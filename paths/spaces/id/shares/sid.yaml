@@ -19,8 +19,10 @@ get:
     preferred for all share operations. Onezone API is limited to retrieving
     share details and updating share names.
 
-    This operation requires `space_view` privilege in space where share is created or
-    `oz_shares_view` admin privilege.
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_shares_view` admin privilege.
   description: |
     Returns the details about a share from specific space.
 
@@ -28,8 +30,10 @@ get:
     preferred for all share operations. Onezone API is limited to retrieving
     share details and updating share names.
 
-    This operation requires `space_view` privilege in space where share is created or
-    `oz_shares_view` admin privilege.
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_shares_view` admin privilege.
 
     ***Example cURL requests***
 

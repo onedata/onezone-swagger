@@ -4,8 +4,8 @@ properties:
   providerId:
     description: The Id of the newly registered provider.
     type: string
-  macaroon:
-    description: The Oneprovider root macaroon - bearing its identity and full authorization.
+  providerRootToken:
+    description: The Oneprovider root token - bearing its identity and full authorization.
     type: string
   adminUserId:
     description: The Id of the Onezone user that is linked to the Oneprovider panel admin account.

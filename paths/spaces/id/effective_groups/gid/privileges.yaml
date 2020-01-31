@@ -16,16 +16,20 @@ get:
     Effective privileges are a sum of group's privileges and privileges
     inherited from its parent group memberships.
 
-    This operation requires `space_view_privileges` privilege
-    or `oz_spaces_view_privileges` admin privilege.
+    This operation requires any of the following authentication:
+    * as user who has `space_view_privileges` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_groups_view_privileges` admin privilege.
   description: |
     Returns the list of effective group's (`{gid}`) privileges in a space (`{id}`).
 
     Effective privileges are a sum of group's privileges and privileges
     inherited from its parent group memberships.
 
-    This operation requires `space_view_privileges` privilege
-    or `oz_spaces_view_privileges` admin privilege.
+    This operation requires any of the following authentication:
+    * as user who has `space_view_privileges` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_groups_view_privileges` admin privilege.
 
     ***Example cURL requests***
 

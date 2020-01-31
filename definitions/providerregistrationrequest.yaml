@@ -41,6 +41,6 @@ example:
   token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
   name: Example provider
   subdomainDelegation: false
-  domain: provider2.beta.onedata.org
+  domain: provider2.example.com
   latitude: 50.0647
   longitude: 19.9450

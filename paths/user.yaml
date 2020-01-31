@@ -82,7 +82,7 @@ patch:
 
     **Change user fullName**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X PATCH  \
+    curl -u username:password -H "Content-type: application/json" -X PATCH  \
     -d '{"fullName": "John Doe"}' \
     https://$HOST/api/v3/onezone/user
     ```
