@@ -92,6 +92,82 @@ post:
       source: "onezone-rest-cli createTemporaryTokenForUser id=c26bab23d12f7389c3c311caf9c15902"
 
 
+get:
+  operationId: get_temporary_token_generation_of_user
+  tags:
+    - Token
+  x-onedata-gri:
+    type: temporary_token_secret
+    id: ?BINDING(id)
+    aspect: user
+    scope: shared
+  summary: Get temporary token generation of a user
+  x-bash-codegen-description: |
+    Returns the generation of temporary tokens of a specific user. The
+    generation is an increasing number that denotes the generation of shared
+    token secret - if the secret changes (temporary tokens are revoked), the
+    generation is incremented.
+
+    This operation is available for the currently authorized user and provider
+    that supports the user, otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Returns the generation of temporary tokens of a specific user. The
+    generation is an increasing number that denotes the generation of shared
+    token secret - if the secret changes (temporary tokens are revoked), the
+    generation is incremented.
+
+    This operation is available for the currently authorized user and provider
+    that supports the user, otherwise requires `oz_tokens_manage` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get temporary token generation of a user**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET \
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/temporary
+
+    {
+      "generation": 3
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the current temporary token generation.
+      schema:
+        $ref: '#/definitions/TemporaryTokenGeneration'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: User Id
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getTemporaryTokenGenerationOfUser id=c26bab23d12f7389c3c311caf9c15902"
+
+
 delete:
   operationId: revoke_all_temporary_tokens_of_user
   tags:
