@@ -661,6 +661,8 @@
   $ref: ./tokens/named.yaml
 /tokens/named/{id}:
   $ref: ./tokens/named/id.yaml
+/tokens/named/{id}/status:
+  $ref: ./tokens/named/id/status.yaml
 
 /users/{id}/tokens/temporary:
   $ref: ./users/id/tokens/temporary.yaml

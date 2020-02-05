@@ -72,6 +72,8 @@ Tokens:
   $ref: ./tokens/tokens.yaml
 NamedToken:
   $ref: ./tokens/named_token.yaml
+NamedTokenStatus:
+  $ref: ./tokens/named_token_status.yaml
 ExaminedToken:
   $ref: ./tokens/examined_token.yaml
 NamedTokenUpdateRequest:
@@ -82,6 +84,8 @@ NamedTokenCreateResponse:
   $ref: ./tokens/named_token_create_response.yaml
 TemporaryTokenCreateRequest:
   $ref: ./tokens/temporary_token_create_request.yaml
+TemporaryTokenGeneration:
+  $ref: ./tokens/temporary_token_generation.yaml
 VerifyAccessTokenRequest:
   $ref: ./tokens/verify_access_token_request.yaml
 VerifyInviteTokenRequest:

@@ -1,0 +1,10 @@
+type: object
+description: Object containing the current temporary token generation.
+properties:
+  generation:
+    type: integer
+    description: Current temporary token generation
+required:
+  - generation
+example:
+  generation: 3
