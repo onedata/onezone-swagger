@@ -3,5 +3,7 @@ description: Named token status.
 properties:
   revoked:
     $ref: '#/definitions/TokenPropertyRevoked'
+required:
+  - revoked
 example:
   revoked: false
