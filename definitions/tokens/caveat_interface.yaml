@@ -20,9 +20,9 @@ allOf:
     interface:
       type: string
       enum:
-        - gui
         - rest
         - oneclient
+        - graphsync
       description: |
         The interface on which this token will be exclusively accepted.
 

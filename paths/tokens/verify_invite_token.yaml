@@ -17,7 +17,8 @@ post:
     It is possible to specify the expected invite token type, which will cause
     verification to fail if it does not match the actual token type. If not
     specified, the procedure will check if given token is an invite token of
-    any type.
+    any type. The consumer context depends on the authentication of the client
+    that performs verification.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -32,7 +33,8 @@ post:
     It is possible to specify the expected invite token type, which will cause
     verification to fail if it does not match the actual token type. If not
     specified, the procedure will check if given token is an invite token of
-    any type.
+    any type. The consumer context depends on the authentication of the client
+    that performs verification.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.

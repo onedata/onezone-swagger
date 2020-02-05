@@ -11,8 +11,12 @@ post:
   x-bash-codegen-description: |
     Verifies an access token provided in serialized form.
     Upon success, returns the token's subject.
-    Optionally, IP address of the token bearer can be provided,
-    which will be used to verify against the IP and geolocation related caveats.
+    Optionally, contextual information that may be required to verify token
+    caveats can be provided in the request body: IP address of the token bearer,
+    service which is handling the request, interface on which the request has
+    been made and information if data access caveats should be allowed in the
+    token. One exception is the consumer, which depends on the authentication
+    of the client that performs verification.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -21,8 +25,12 @@ post:
   description: |
     Verifies an access token provided in serialized form.
     Upon success, returns the token's subject.
-    Optionally, IP address of the token bearer can be provided,
-    which will be used to verify against the IP and geolocation related caveats.
+    Optionally, contextual information that may be required to verify token
+    caveats can be provided in the request body: IP address of the token bearer,
+    service which is handling the request, interface on which the request has
+    been made and information if data access caveats should be allowed in the
+    token. One exception is the consumer, which depends on the authentication
+    of the client that performs verification.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
