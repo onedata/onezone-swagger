@@ -12,6 +12,12 @@ properties:
     description: |
       The service that received the client's request, in proper
       [service format](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#service).
+      Applicable only to access tokens.
+  consumer:
+    type: string
+    description: |
+      The consumer of the token being verified, in proper
+      [consumer format](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#consumer).
   interface:
     type: string
     enum:
@@ -30,5 +36,6 @@ example:
   token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
   peerIp: 38.190.241.12
   service: opw-01c4455bef059353c9dfb35ba93a24f3
+  consumer: usr-fb73f7ceff5abd995357abbe01c812ce
   interface: rest
   allowDataAccessCaveats: false

@@ -12,13 +12,13 @@ post:
     Verifies an invite token provided in serialized form.
     Upon success, returns the token's subject. Does not check if the token
     can be effectively consumed (only if prerequisites are satisfied).
-    Optionally, IP address of the token bearer can be provided,
-    which will be used to verify against the IP and geolocation related caveats.
-    It is possible to specify the expected invite token type, which will cause
+
+    Optionally, contextual information that may be required to verify token
+    caveats can be provided in the request body: IP address of the token bearer,
+    consumer of the token and the expected invite token type, which will cause
     verification to fail if it does not match the actual token type. If not
     specified, the procedure will check if given token is an invite token of
-    any type. The consumer context depends on the authentication of the client
-    that performs verification.
+    any type.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -28,13 +28,13 @@ post:
     Verifies an invite token provided in serialized form.
     Upon success, returns the token's subject. Does not check if the token
     can be effectively consumed (only if prerequisites are satisfied).
-    Optionally, IP address of the token bearer can be provided,
-    which will be used to verify against the IP and geolocation related caveats.
-    It is possible to specify the expected invite token type, which will cause
+
+    Optionally, contextual information that may be required to verify token
+    caveats can be provided in the request body: IP address of the token bearer,
+    consumer of the token and the expected invite token type, which will cause
     verification to fail if it does not match the actual token type. If not
     specified, the procedure will check if given token is an invite token of
-    any type. The consumer context depends on the authentication of the client
-    that performs verification.
+    any type.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
