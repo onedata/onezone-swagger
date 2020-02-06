@@ -40,15 +40,8 @@ x-bash-codegen-description: |
     be kept secret (similarly to a private RSA key).
 
     * **anonymous** - there is a small subset of operations that do not require
-      any authentication and are publicly available, for example:
-      * `POST /user/authorize` - authorizes user with authentication token through
-        Onezone web interface. This interface is called typically by providers,
-      * `POST /provider` - registers a Oneprovider in Onezone service
-        (however a valid registration token in the body is required),
-      * `POST /provider/test/check_my_ports` - checks if all given ports are
-        reachable from Onezone,
-      * `GET /provider/test/check_my_ip` - returns the external IP of the
-        request peer (as seen by the Onezone).
+      any authentication and are publicly available (look for information about
+      public availability in the endpoint descriptions).
 
   The authorization of the client is determined based on existing relations and
   privileges in the system. In most cases, the rules below can be roughly applied:
@@ -158,15 +151,8 @@ description: |
     be kept secret (similarly to a private RSA key).
 
     * **anonymous** - there is a small subset of operations that do not require
-      any authentication and are publicly available, for example:
-      * `POST /user/authorize` - authorizes user with authentication token through
-        Onezone web interface. This interface is called typically by providers,
-      * `POST /provider` - registers a Oneprovider in Onezone service
-        (however a valid registration token in the body is required),
-      * `POST /provider/test/check_my_ports` - checks if all given ports are
-        reachable from Onezone,
-      * `GET /provider/test/check_my_ip` - returns the external IP of the
-        request peer (as seen by the Onezone).
+      any authentication and are publicly available (look for information about
+      public availability in the endpoint descriptions).
 
   The authorization of the client is determined based on existing relations and
   privileges in the system. In most cases, the rules below can be roughly applied:
