@@ -6,11 +6,13 @@ allOf:
       type: string
       enum: [api]
       x-discriminator-value: "api"
-      description: >
+      description: |
         API caveat - limits the API operations that can be performed with the token.
         The operations are whitelisted using the Onedata API matchspec format, which
         includes the service identifier, operation type (CRUD) and resource identifier.
-      # @TODO VFS-5776 Add link to token docs
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
     whitelist:
       type: array
       items:

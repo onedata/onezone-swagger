@@ -6,23 +6,25 @@ allOf:
       type: string
       enum: [data.objectid]
       x-discriminator-value: "data.objectid"
-      description: >
+      description: |
         Data objectid caveat - limits the object ids in which data can be accessed with the token.
         The object ids comply with the CDMI format and can be used in the
         Oneprovider's REST and CDMI APIs.
         If a directory object id is given, the token allows to access all nested
         files and directories starting from the specified directory.
-      # @TODO VFS-5776 Add link to token docs
-      # @TODO VFS-5776 Add link to data access caveat docs
+
+        This is a **data access caveat** - if added to a token, it greatly limits
+        its power in the system APIs, to the minimum required for data access -
+        [see more](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#data-access-caveats).
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
     whitelist:
       type: array
       items:
         type: string
       description: |
         List of CDMI ObjectIds in which data can be accessed using the token.
-
-        This is a *data access caveat* - if added to a token, it greatly limits
-        its power in the system APIs, to the minimum required for data acccess.
 
         Example:
         ```json

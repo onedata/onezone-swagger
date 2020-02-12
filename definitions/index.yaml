@@ -148,10 +148,6 @@ Caveat:
   $ref: ./tokens/caveat.yaml
 time:
   $ref: ./tokens/caveat_time.yaml
-authorizationNone:
-  $ref: ./tokens/caveat_authorization_none.yaml
-audience:
-  $ref: ./tokens/caveat_audience.yaml
 ip:
   $ref: ./tokens/caveat_ip.yaml
 asn:
@@ -160,6 +156,12 @@ geo.country:
   $ref: ./tokens/caveat_geo_country.yaml
 geo.region:
   $ref: ./tokens/caveat_geo_region.yaml
+scope:
+  $ref: ./tokens/caveat_scope.yaml
+service:
+  $ref: ./tokens/caveat_service.yaml
+consumer:
+  $ref: ./tokens/caveat_consumer.yaml
 interface:
   $ref: ./tokens/caveat_interface.yaml
 api:

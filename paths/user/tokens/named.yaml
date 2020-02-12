@@ -26,6 +26,9 @@ post:
 
     This operation can be invoked on behalf of the current user only.
 
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+
     ***Example cURL requests***
 
     **Create named token for current user**
@@ -99,6 +102,9 @@ get:
 
     This operation can be invoked on behalf of the current user only.
 
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+
     ***Example cURL requests***
 
     **List named tokens of current user**
@@ -164,6 +170,9 @@ delete:
     Deletes all user's named tokens.
 
     This operation can be invoked on behalf of the current user only.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
 
     ***Example cURL requests***
 

@@ -6,8 +6,11 @@ allOf:
       type: string
       enum: [time]
       x-discriminator-value: "time"
-      description: Time caveat - limits the validity of the token.
-      # @TODO VFS-5776 Add link to token docs
+      description: |
+        Time caveat - limits the validity of the token.
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
     validUntil:
       type: integer
       description: |

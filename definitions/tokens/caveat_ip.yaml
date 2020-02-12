@@ -6,9 +6,11 @@ allOf:
       type: string
       enum: [ip]
       x-discriminator-value: "ip"
-      description: >
+      description: |
         IP caveat - limits the allowed client IPs to a certain whitelist (masks are supported).
-      # @TODO VFS-5776 Add link to token docs
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
     whitelist:
       type: array
       items:
@@ -21,8 +23,8 @@ allOf:
           {
             "type": "ip",
             "whitelist": [
-              "189.34.15.0/8",
-              "127.0.0.0/24",
+              "189.34.15.0/24",
+              "127.0.0.0/8",
               "167.73.12.17"
             ]
           }
@@ -33,6 +35,6 @@ required:
 example:
   type: ip
   whitelist:
-    - 189.34.15.0/8
-    - 127.0.0.0/24
+    - 189.34.15.0/24
+    - 127.0.0.0/8
     - 167.73.12.17
