@@ -11,6 +11,10 @@ properties:
     $ref: '#/definitions/TokenPropertyCustomMetadata'
   revoked:
     $ref: '#/definitions/TokenPropertyRevoked'
+  privileges:
+    $ref: '#/definitions/InviteTokenPropertyPrivileges'
+  usageLimit:
+    $ref: '#/definitions/InviteTokenPropertyUsageLimit'
 required:
   - name
 example:
@@ -31,3 +35,10 @@ example:
     jobName: experiment-15
     vm: worker156.cloud.local
   revoked: false
+  privileges:
+    - cluster_view
+    - cluster_update
+    - cluster_delete
+    - cluster_view_privileges
+    - cluster_set_privileges
+  usageLimit: 15

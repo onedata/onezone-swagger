@@ -1,0 +1,9 @@
+type: array
+description: >
+  A list of privileges that will be granted to the user that consumes the
+  invite token. NOTE that this parameter is recognized only if the token type is
+  invite token and the invitation target supports member privileges. The
+  privileges must be valid for given invite token type (for example, group
+  privileges for `userJoinGroup` type).
+items:
+  type: string

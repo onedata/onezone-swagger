@@ -1,0 +1,4 @@
+type: integer
+description: >
+  Usage limit for an invite token (positive integer) or `"infinity"`. NOTE that
+  this parameter is recognized only if the token type is invite token.
