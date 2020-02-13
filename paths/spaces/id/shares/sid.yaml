@@ -13,14 +13,22 @@ get:
     - oz_shares_view
   summary: Get space share
   x-bash-codegen-description: |
-    Get share from specific space.
+    Returns the details about a share from specific space.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    share details and updating share names.
 
     This operation requires any of the following authentication:
     * as user who has `space_view` privilege in the space (`{id}`),
     * as provider that supports the space (`{id}`),
     * as user who has `oz_shares_view` admin privilege.
   description: |
-    Get share from specific space.
+    Returns the details about a share from specific space.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    share details and updating share names.
 
     This operation requires any of the following authentication:
     * as user who has `space_view` privilege in the space (`{id}`),
@@ -29,7 +37,7 @@ get:
 
     ***Example cURL requests***
 
-    **Add group to space**
+    **Get space share**
     ```bash
     curl -u username:password -H "Content-type: application/json" -X GET \
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/shares/$SHARE_ID
@@ -38,9 +46,10 @@ get:
       "shareId": "31502ffabdbd95a227aef81d152ddfdc",
       "name": "MyNewShare",
       "publicUrl": "https://onezone.example.com/shares/31502ffabdbd95a227aef81d152ddfdc",
-      "rootFileId": "46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53",
       "spaceId": "b45d02d01066b8794ad7f927becf4bde",
-      "handleId": null
+      "handleId": null,
+      "rootFileId": "46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53",
+      "fileType": "file"
     }
     ```
   consumes:

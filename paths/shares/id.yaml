@@ -32,7 +32,7 @@ get:
 
     ***Example cURL requests***
 
-    **Get space details**
+    **Get share details**
     ```bash
     curl -u admin:password -X GET \
     https://$HOST/api/v3/onezone/shares/$SHARE_ID
@@ -41,9 +41,10 @@ get:
       "shareId": "303884afb761d91a7362b2841647bc08",
       "name": "MyShare",
       "publicUrl": "http://onezone.example.com/shares/303884afb761d91a7362b2841647bc08",
-      "rootFileId": "46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53",
       "spaceId": "04b0d63bdaa15cc600212082e50e5e25",
-      "handleId": "doi:10.15911/MyShare.726855"
+      "handleId": "doi:10.15911/MyShare.726855",
+      "rootFileId": "46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53",
+      "fileType": "dir"
     }
     ```
   produces:

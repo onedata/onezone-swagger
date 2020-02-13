@@ -22,7 +22,7 @@ post:
     **Check provider IP**
     ```bash
     curl -H "X-Auth-Token: $TOKEN" \
-    -d '{"providerId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg", "token": "JKAxNWxvY2F0aW9uIG9uZXp..."}' \
+    -d '{"providerId": "f3a3fbcc6e85e1b7829e4901a8e1809", "token": "JKAxNWxvY2F0aW9uIG9uZXp..."}' \
     -X POST https://onezone.example.com/api/v3/onezone/provider/public/verify_provider_identity
     ```
   produces:
