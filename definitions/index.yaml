@@ -116,6 +116,10 @@ TokenPropertyCustomMetadata:
   $ref: ./tokens/token_property_custom_metadata.yaml
 TokenPropertyRevoked:
   $ref: ./tokens/token_property_revoked.yaml
+InviteTokenPropertyPrivileges:
+  $ref: ./tokens/invite_token_property_privileges.yaml
+InviteTokenPropertyUsageLimit:
+  $ref: ./tokens/invite_token_property_usage_limit.yaml
 # ------------------------------------------------------------------------------
 # Invite token type and its subclasses
 InviteToken:
