@@ -4,12 +4,13 @@ discriminator: type
 x-onedata-oneof: true
 x-onedata-subclasses:
   - time
-  - authorizationNone
-  - audience
   - ip
   - asn
   - geo.country
   - geo.region
+  - scope
+  - service
+  - consumer
   - interface
   - api
   - data.readonly

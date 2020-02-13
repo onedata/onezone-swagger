@@ -32,6 +32,9 @@ post:
 
     This operation can be invoked on behalf of the current user only.
 
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+
     ***Example cURL requests***
 
     **Create temporary token for current user**
@@ -83,6 +86,74 @@ post:
       source: "onezone-rest-cli createTemporaryTokenForCurrentUser"
 
 
+get:
+  operationId: get_temporary_token_generation_of_current_user
+  tags:
+    - Token
+  x-onedata-gri:
+    type: temporary_token_secret
+    id: ?CLIENT_ID
+    aspect: user
+    scope: shared
+  summary: Get temporary token generation of current user
+  x-bash-codegen-description: |
+    Returns the generation of temporary tokens of the user. The generation is an
+    increasing number that denotes the generation of shared token secret - if
+    the secret changes (temporary tokens are revoked), the generation is
+    incremented.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the generation of temporary tokens of the user. The generation is an
+    increasing number that denotes the generation of shared token secret - if
+    the secret changes (temporary tokens are revoked), the generation is
+    incremented.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get temporary token generation of current user**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET \
+    https://$HOST/api/v3/onezone/user/tokens/temporary
+
+    {
+      "generation": 3
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the current temporary token generation.
+      schema:
+        $ref: '#/definitions/TemporaryTokenGeneration'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getTemporaryTokenGenerationOfCurrentUser"
+
+
 delete:
   operationId: revoke_all_temporary_tokens_of_current_user
   tags:
@@ -102,6 +173,9 @@ delete:
     to the user. The operation cannot be undone.
 
     This operation can be invoked on behalf of the current user only.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
 
     ***Example cURL requests***
 

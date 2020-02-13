@@ -72,6 +72,8 @@ Tokens:
   $ref: ./tokens/tokens.yaml
 NamedToken:
   $ref: ./tokens/named_token.yaml
+NamedTokenStatus:
+  $ref: ./tokens/named_token_status.yaml
 ExaminedToken:
   $ref: ./tokens/examined_token.yaml
 NamedTokenUpdateRequest:
@@ -82,6 +84,8 @@ NamedTokenCreateResponse:
   $ref: ./tokens/named_token_create_response.yaml
 TemporaryTokenCreateRequest:
   $ref: ./tokens/temporary_token_create_request.yaml
+TemporaryTokenGeneration:
+  $ref: ./tokens/temporary_token_generation.yaml
 VerifyAccessTokenRequest:
   $ref: ./tokens/verify_access_token_request.yaml
 VerifyInviteTokenRequest:
@@ -144,10 +148,6 @@ Caveat:
   $ref: ./tokens/caveat.yaml
 time:
   $ref: ./tokens/caveat_time.yaml
-authorizationNone:
-  $ref: ./tokens/caveat_authorization_none.yaml
-audience:
-  $ref: ./tokens/caveat_audience.yaml
 ip:
   $ref: ./tokens/caveat_ip.yaml
 asn:
@@ -156,6 +156,12 @@ geo.country:
   $ref: ./tokens/caveat_geo_country.yaml
 geo.region:
   $ref: ./tokens/caveat_geo_region.yaml
+scope:
+  $ref: ./tokens/caveat_scope.yaml
+service:
+  $ref: ./tokens/caveat_service.yaml
+consumer:
+  $ref: ./tokens/caveat_consumer.yaml
 interface:
   $ref: ./tokens/caveat_interface.yaml
 api:

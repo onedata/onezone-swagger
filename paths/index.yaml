@@ -617,10 +617,6 @@
   $ref: ./provider/public/check_my_ip.yaml
 
 
-/provider/public/check_my_ports:
-  $ref: ./provider/public/check_my_ports.yaml
-
-
 /provider/public/get_current_time:
   $ref: ./provider/public/get_current_time.yaml
 
@@ -661,6 +657,8 @@
   $ref: ./tokens/named.yaml
 /tokens/named/{id}:
   $ref: ./tokens/named/id.yaml
+/tokens/named/{id}/status:
+  $ref: ./tokens/named/id/status.yaml
 
 /users/{id}/tokens/temporary:
   $ref: ./users/id/tokens/temporary.yaml
