@@ -8,7 +8,6 @@ x-onedata-subclasses:
   - asn
   - geo.country
   - geo.region
-  - scope
   - service
   - consumer
   - interface

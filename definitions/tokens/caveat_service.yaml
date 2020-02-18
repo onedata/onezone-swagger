@@ -8,18 +8,18 @@ allOf:
       x-discriminator-value: "service"
       description: |
         Service caveat - limits the services that can process the token.
-        [Service](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#service)
+        [Service](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[service].html)
         is the Onedata service that received the client's request - e.g. the
         Oneprovider service chosen by a user to mount a Oneclient or make a CDMI
         request. If the caveat is present, the service must prove its identity
         by sending their
-        [identity token](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#identity-tokens)
+        [identity token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[identity-tokens].html)
         in the `x-onedata-service-token header` along with the request.
         The services must be encoded using proper
-        [service format](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#service).
+        [service format](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[service].html).
 
         You can learn more about token caveats
-        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[token-caveats].html).
     whitelist:
       type: array
       items:

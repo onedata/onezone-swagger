@@ -2,7 +2,7 @@ allOf:
 - $ref: '#/definitions/InviteToken'
 - type: object
   properties:
-    subtype:
+    inviteType:
       type: string
       enum: [groupJoinSpace]
       x-discriminator-value: "groupJoinSpace"
@@ -11,8 +11,8 @@ allOf:
       type: string
       description: Id of the invitation target space
 required:
-  - subtype
+  - inviteType
   - spaceId
 example:
-  subtype: groupJoinSpace
+  inviteType: groupJoinSpace
   spaceId: 1b29cf9ea2f540e7c0874d7d09976b23

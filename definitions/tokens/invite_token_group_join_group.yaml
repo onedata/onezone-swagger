@@ -2,7 +2,7 @@ allOf:
 - $ref: '#/definitions/InviteToken'
 - type: object
   properties:
-    subtype:
+    inviteType:
       type: string
       enum: [groupJoinGroup]
       x-discriminator-value: "groupJoinGroup"
@@ -11,8 +11,8 @@ allOf:
       type: string
       description: Id of the invitation target group
 required:
-  - subtype
+  - inviteType
   - groupId
 example:
-  subtype: groupJoinGroup
+  inviteType: groupJoinGroup
   groupId: 0921135ee61fe53a3df449365228e9b4

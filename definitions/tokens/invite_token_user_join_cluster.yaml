@@ -2,7 +2,7 @@ allOf:
 - $ref: '#/definitions/InviteToken'
 - type: object
   properties:
-    subtype:
+    inviteType:
       type: string
       enum: [userJoinCluster]
       x-discriminator-value: "userJoinCluster"
@@ -11,8 +11,8 @@ allOf:
       type: string
       description: Id of the invitation target cluster
 required:
-  - subtype
+  - inviteType
   - clusterId
 example:
-  subtype: userJoinCluster
+  inviteType: userJoinCluster
   clusterId: d4f5876dbe7f1e7e8a511de6dd31144b

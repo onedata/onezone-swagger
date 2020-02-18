@@ -10,16 +10,14 @@ post:
   summary: Verify an identity token
   x-bash-codegen-description: |
     Verifies an
-    [identity token][identity token](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#identity-tokens)
-    provided in serialized form. Identity token is
-    essentially an access token that can have the `scope = identityToken` caveat
-    (which nullifies the authorization carried by the token).
-    Upon success, returns the token's subject.
+    [identity token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[identity-tokens].html)
+    provided in serialized form. Identity token is a token that carries proof
+    of identity, but does not carry authorization to perform any operations in
+    the system. Upon success, returns the token's subject.
 
     Optionally, contextual information that may be required to verify token
     caveats can be provided in the request body: IP address of the token bearer,
-    consumer of the token, interface on which the request has been made and
-    information if data access caveats should be allowed in the token.
+    consumer's identity token and the interface to which the token bearer has connected.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -27,16 +25,14 @@ post:
     This operation has public access.
   description: |
     Verifies an
-    [identity token][identity token](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#identity-tokens)
-    provided in serialized form. Identity token is
-    essentially an access token that can have the `scope = identityToken` caveat
-    (which nullifies the authorization carried by the token).
-    Upon success, returns the token's subject.
+    [identity token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[identity-tokens].html)
+    provided in serialized form. Identity token is a token that carries proof
+    of identity, but does not carry authorization to perform any operations in
+    the system. Upon success, returns the token's subject.
 
     Optionally, contextual information that may be required to verify token
     caveats can be provided in the request body: IP address of the token bearer,
-    consumer of the token, interface on which the request has been made and
-    information if data access caveats should be allowed in the token.
+    consumer's identity token and the interface to which the token bearer has connected.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -83,7 +79,7 @@ post:
       in: body
       description: The token to be verified and optionally peer's IP address.
       schema:
-        $ref: '#/definitions/VerifyAccessTokenRequest'
+        $ref: '#/definitions/VerifyIdentityTokenRequest'
       required: true
   x-code-samples:
     - lang: Shell

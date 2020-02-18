@@ -19,7 +19,7 @@ post:
     This operation can be invoked on behalf of the current provider only.
 
     You can learn more about named and temporary tokens
-    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
 
     ***Example cURL requests***
 
@@ -95,7 +95,7 @@ get:
     This operation can be invoked on behalf of the current provider only.
 
     You can learn more about named and temporary tokens
-    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
 
     ***Example cURL requests***
 
@@ -164,7 +164,7 @@ delete:
     This operation can be invoked on behalf of the current provider only.
 
     You can learn more about named and temporary tokens
-    [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#named-and-temporary-tokens).
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
 
     ***Example cURL requests***
 

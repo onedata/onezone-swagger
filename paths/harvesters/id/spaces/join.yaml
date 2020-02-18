@@ -1,49 +1,49 @@
 post:
-  operationId: space_join_harvester
+  operationId: harvester_join_space
   tags:
-    - Space
+    - Harvester
   x-onedata-gri:
-    type: od_harvester
+    type: od_space
     aspect: join
-  x-onedata-auth-hint: ?AS_SPACE(?BINDING(id))
+  x-onedata-auth-hint: ?AS_HARVESTER(?BINDING(id))
   x-onedata-permissions:
-    - space_add_harvester
+    - harvester_add_space
     - oz_harvesters_add_relationships
     - oz_spaces_add_relationships
-  summary: Join space to a harvester
+  summary: Join harvester to a space
   x-bash-codegen-description: |
-    Joins the space to an existing harvester based on provided `spaceJoinHarvester`
+    Joins the harvester to an existing space based on provided `harvesterJoinSpace`
     invitation token (the space becomes a metadata source for the harvester).
 
-    This operation requires `space_add_harvester` privilege.
+    This operation requires `harvester_add_space` privilege.
     For administrator who does not belong to this space
     `oz_harvesters_add_relationships` and `oz_spaces_add_relationships` privilege is required.
   description: |
-    Joins the space to an existing harvester based on provided `spaceJoinHarvester`
+    Joins the harvester to an existing space based on provided `harvesterJoinSpace`
     invitation token (the space becomes a metadata source for the harvester).
 
-    This operation requires `space_add_harvester` privilege.
+    This operation requires `harvester_add_space` privilege.
     For administrator who does not belong to this space
     `oz_harvesters_add_relationships` and `oz_spaces_add_relationships` privilege is required.
 
     ***Example cURL requests***
 
-    **Join space to a harvester**
+    **Join harvester to a space**
     ```bash
     curl -u admin:password -H "Content-type: application/json" \
     -d '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVuJ3l02U1JXzstRdK00ZHbso02rRcG8bJLAo"}' \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/join
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/join
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the joined harvester in form https://$HOST/api/onezone/v3/spaces/{id}/harvesters/{hid} is
+        URI of the joined harvester in form https://$HOST/api/onezone/v3/harvesters/{id}/spaces/{sid} is
         returned in the response `Location` header.
       headers:
         Location:
-          description: URI of the joined harvester.
+          description: URI of the space where harvested was added.
           type: string
     '400':
       description: Invalid request.
@@ -68,14 +68,14 @@ post:
   parameters:
   - name: id
     in: path
-    description: Space Id.
+    description: Harvester Id.
     type: string
     required: true
   - name: data
     in: body
-    description: spaceJoinHarvester invite token.
+    description: harvesterJoinSpace invite token.
     schema:
-      $ref: '#/definitions/HarvesterInviteToken'
+      $ref: '#/definitions/SpaceInviteToken'
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli spaceJoinHarvester id=f1c8b1a37aa7447b22eb65a742d40524 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"
+    source: "onezone-rest-cli harvesterJoinSpace id=f1c8b1a37aa7447b22eb65a742d40524 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"
