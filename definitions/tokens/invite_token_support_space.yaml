@@ -22,7 +22,8 @@ allOf:
     metadataReplication:
       type: string
       enum:
-        - global
+        - eager
+        - lazy
         - none
       description: |
         [NOT YET IMPLEMENTED - always `eager`] indicates the level of metadata
