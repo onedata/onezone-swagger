@@ -2,7 +2,7 @@ allOf:
 - $ref: '#/definitions/InviteToken'
 - type: object
   properties:
-    subtype:
+    inviteType:
       type: string
       enum: [registerOneprovider]
       x-discriminator-value: "registerOneprovider"
@@ -11,8 +11,8 @@ allOf:
       type: string
       description: Id of the user to become an admin of the newly registered Oneprovider
 required:
-  - subtype
+  - inviteType
   - adminUserId
 example:
-  subtype: registerOneprovider
+  inviteType: registerOneprovider
   adminUserId: d4f5876dbe7f1e7e8a511de6dd31144b

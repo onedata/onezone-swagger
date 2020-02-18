@@ -14,7 +14,7 @@ allOf:
         resolved based on client's IP and MaxMind's GeoLite database.
 
         You can learn more about token caveats
-        [here](https://onedata.org/#/home/documentation/doc/using_onedata/access_and_invite_tokens.html#token-caveats).
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[token-caveats].html).
     filter:
       type: string
       enum:

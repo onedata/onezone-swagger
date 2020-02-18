@@ -88,6 +88,8 @@ TemporaryTokenGeneration:
   $ref: ./tokens/temporary_token_generation.yaml
 VerifyAccessTokenRequest:
   $ref: ./tokens/verify_access_token_request.yaml
+VerifyIdentityTokenRequest:
+  $ref: ./tokens/verify_identity_token_request.yaml
 VerifyInviteTokenRequest:
   $ref: ./tokens/verify_invite_token_request.yaml
 VerifyTokenResponse:
@@ -134,6 +136,8 @@ groupJoinSpace:
   $ref: ./tokens/invite_token_group_join_space.yaml
 supportSpace:
   $ref: ./tokens/invite_token_support_space.yaml
+harvesterJoinSpace:
+  $ref: ./tokens/invite_token_harvester_join_space.yaml
 registerOneprovider:
   $ref: ./tokens/invite_token_register_oneprovider.yaml
 userJoinCluster:
@@ -160,8 +164,6 @@ geo.country:
   $ref: ./tokens/caveat_geo_country.yaml
 geo.region:
   $ref: ./tokens/caveat_geo_region.yaml
-scope:
-  $ref: ./tokens/caveat_scope.yaml
 service:
   $ref: ./tokens/caveat_service.yaml
 consumer:

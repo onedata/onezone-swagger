@@ -9,28 +9,30 @@ post:
     scope: public
   summary: Verify an access token
   x-bash-codegen-description: |
-    Verifies an access token provided in serialized form.
-    Upon success, returns the token's subject.
+    Verifies an
+    [access token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[access-tokens].html)
+    provided in serialized form. Upon success, returns the token's subject.
 
     Optionally, contextual information that may be required to verify token
     caveats can be provided in the request body: IP address of the token bearer,
-    service which is handling the request, consumer of the token, interface on
-    which the request has been made and information if data access caveats
-    should be allowed in the token.
+    identity token of the service which is handling the request, consumer's
+    identity token, interface to which the token bearer has connected and
+    information if data access caveats should be allowed in the token.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
 
     This operation has public access.
   description: |
-    Verifies an access token provided in serialized form.
-    Upon success, returns the token's subject.
+    Verifies an
+    [access token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[access-tokens].html)
+    provided in serialized form. Upon success, returns the token's subject.
 
     Optionally, contextual information that may be required to verify token
     caveats can be provided in the request body: IP address of the token bearer,
-    service which is handling the request, consumer of the token, interface on
-    which the request has been made and information if data access caveats
-    should be allowed in the token.
+    identity token of the service which is handling the request, consumer's
+    identity token, interface to which the token bearer has connected and
+    information if data access caveats should be allowed in the token.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.

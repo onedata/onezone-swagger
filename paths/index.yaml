@@ -915,6 +915,8 @@
 /harvesters/{id}/spaces/token:
   $ref: ./harvesters/id/spaces/token.yaml
 
+/harvesters/{id}/spaces/join:
+  $ref: ./harvesters/id/spaces/join.yaml
 
 /harvesters/{id}/spaces/{sid}:
   $ref: ./harvesters/id/spaces/sid.yaml

@@ -9,13 +9,15 @@ post:
     scope: public
   summary: Verify an invite token
   x-bash-codegen-description: |
-    Verifies an invite token provided in serialized form.
-    Upon success, returns the token's subject. Does not check if the token
-    can be effectively consumed (only if prerequisites are satisfied).
+    Verifies an
+    [invite token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[invite-tokens].html)
+    provided in serialized form. Upon success, returns the token's subject.
+    Does not check if the token can be effectively consumed
+    (only if prerequisites are satisfied - the token itself is valid).
 
     Optionally, contextual information that may be required to verify token
     caveats can be provided in the request body: IP address of the token bearer,
-    consumer of the token and the expected invite token type, which will cause
+    consumer's identity token and the expected invite token type, which will cause
     verification to fail if it does not match the actual token type. If not
     specified, the procedure will check if given token is an invite token of
     any type.
@@ -25,13 +27,15 @@ post:
 
     This operation has public access.
   description: |
-    Verifies an invite token provided in serialized form.
-    Upon success, returns the token's subject. Does not check if the token
-    can be effectively consumed (only if prerequisites are satisfied).
+    Verifies an
+    [invite token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[invite-tokens].html)
+    provided in serialized form. Upon success, returns the token's subject.
+    Does not check if the token can be effectively consumed
+    (only if prerequisites are satisfied - the token itself is valid).
 
     Optionally, contextual information that may be required to verify token
     caveats can be provided in the request body: IP address of the token bearer,
-    consumer of the token and the expected invite token type, which will cause
+    consumer's identity token and the expected invite token type, which will cause
     verification to fail if it does not match the actual token type. If not
     specified, the procedure will check if given token is an invite token of
     any type.
@@ -48,7 +52,7 @@ post:
     curl -d '{
       "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
       "peerIp": "38.190.241.12",
-      "expectedInviteTokenType": "userJoinGroup"
+      "expectedInviteType": "userJoinGroup"
     }' \
     -H 'Content-type: application/json' \
     https://$HOST/api/v3/onezone/tokens/verify_invite_token

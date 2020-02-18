@@ -8,7 +8,7 @@ properties:
 example:
   type:
     inviteToken:
-      subtype: userJoinCluster
+      inviteType: userJoinCluster
       clusterId: fb73f7ceff5abd995357abbe01c812ce
   caveats:
     - type: time

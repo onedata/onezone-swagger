@@ -2,11 +2,18 @@ type: object
 description: The type of the token (object)
 enum:
   - "{accessToken: {}}"
+  - "{identityToken: {}}"
   - "{inviteToken: {\"...\": \"...\"}}"
 properties:
   accessToken:
     type: object
+    # sessionId parameter is omitted in docs on purpose, as it is only usable
+    # by internal logic of GUI tokens
     description: Indicates the access token type - currently has no parameters (empty object)
+    properties: {}
+  identityToken:
+    type: object
+    description: Indicates the identity token type - currently has no parameters (empty object)
     properties: {}
   inviteToken:
     $ref: '#/definitions/InviteToken'

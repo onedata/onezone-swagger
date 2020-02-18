@@ -25,7 +25,7 @@ example:
     id: 1b510f18b3b05611871c0acdffa9aed4
   type:
     inviteToken:
-      subtype: userJoinCluster
+      inviteType: userJoinCluster
       clusterId: fb73f7ceff5abd995357abbe01c812ce
   caveats:
     - type: time
