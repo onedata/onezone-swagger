@@ -525,6 +525,10 @@
   $ref: ./spaces/id/providers/pid.yaml
 
 
+/spaces/{id}/providers/{pid}/support_parameters:
+  $ref: ./spaces/id/providers/pid/support_parameters.yaml
+
+
 /spaces/{id}/harvesters:
   $ref: ./spaces/id/harvesters.yaml
 

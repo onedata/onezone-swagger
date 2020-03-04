@@ -1,0 +1,76 @@
+patch:
+  operationId: update_space_support_parameters_of_provider
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: support_parameters
+  x-onedata-permissions:
+    - space_update
+    - oz_spaces_update
+  summary: Update space support parameters of provider
+  x-bash-codegen-description: |
+    Updates space support parameters of a provider in the space. These parameters
+    indicate if the provider can modify files in the space and how file metadata
+    should be replicated.
+
+    This operation can only be invoked by a user and requires `space_update`
+    privilege in the space or `oz_spaces_update` admin privilege for non-members.
+  description: |
+    Updates space support parameters of a provider in the space. These parameters
+    indicate if the provider can modify files in the space and how file metadata
+    should be replicated.
+
+    This operation can only be invoked by a user and requires `space_update`
+    privilege in the space or `oz_spaces_update` admin privilege for non-members.
+
+    ***Example cURL requests***
+
+    **Update space support parameters of provider**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" \
+    -X PATCH -d '{"dataWrite": "none", "metadataReplication": "lazy"}' \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID/support_parameters
+    ```
+  produces:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Space support parameters has been updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: pid
+    in: path
+    description: Provider Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "echo '{\"dataWrite\": \"none\", \"metadataReplication\": \"lazy\"}' | onezone-rest-cli updateSpaceSupportParametersOfProvider id=b752ceafabb662b4e5728b2ded25cdd1 pid=ea662b7a7bded25cdd1fb2b4eb2852c5"

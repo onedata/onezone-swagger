@@ -221,6 +221,15 @@ SpacePrivilegesUpdate:
 SpaceAlias:
   $ref: ./spacealias.yaml
 
+SpaceSupportParameters:
+  $ref: ./spacesupportparameters.yaml
+
+SpaceDBSyncState:
+  $ref: ./spacedbsyncstate.yaml
+
+SpaceSupportState:
+  $ref: ./spacesupportstate.yaml
+
 GroupPrivileges:
   $ref: ./groupprivileges.yaml
 

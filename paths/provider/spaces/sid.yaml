@@ -30,7 +30,7 @@ get:
     https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
 
     {
-      "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "spaceId": "2c0160248ba9a66f45da751ca459535a",
       "name": "new_space1",
       "providers": {
         "296ebe3c20e9666dc489b647f8647f12" : 5368709120

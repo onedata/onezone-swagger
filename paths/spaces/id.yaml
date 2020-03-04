@@ -33,10 +33,41 @@ get:
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID
 
     {
-      "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
-      "name": "new_space1",
+      "spaceId": "2c0160248ba9a66f45da751ca459535a",
+      "name": "My Private space",
       "providers": {
-        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
+        "296ebe3c20e9666dc489b647f8647f12": 5368709120,
+        "dcf12429647c204896eebe3b6f686967": 14400000
+      },
+      "supportParameters": {
+        "296ebe3c20e9666dc489b647f8647f12": {
+          "dataWrite": "global",
+          "metadataReplication": "lazy"
+        },
+        "dcf12429647c204896eebe3b6f686967": {
+          "dataWrite": "none",
+          "metadataReplication": "eager"
+        }
+      },
+      "dbsyncState": {
+        "296ebe3c20e9666dc489b647f8647f12": {
+          "lastUpdate": 1571147494,
+          "seqPerProvider": {
+            "296ebe3c20e9666dc489b647f8647f12": 1450,
+            "dcf12429647c204896eebe3b6f686967": 49870
+          }
+        },
+        "dcf12429647c204896eebe3b6f686967": {
+          "lastUpdate": 1580525418,
+          "seqPerProvider": {
+            "296ebe3c20e9666dc489b647f8647f12": 1390,
+            "dcf12429647c204896eebe3b6f686967": 50312
+          }
+        }
+      },
+      "supportState": {
+        "296ebe3c20e9666dc489b647f8647f12": "active",
+        "dcf12429647c204896eebe3b6f686967": "retiring"
       }
     }
     ```

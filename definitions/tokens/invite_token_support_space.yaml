@@ -10,31 +10,11 @@ allOf:
     spaceId:
       type: string
       description: Id of the space to be supported
-    dataWrite:
-      type: string
-      enum:
-        - global
-        - none
+    parameters:
+      $ref: '#/definitions/SpaceSupportParameters'
       description: |
-        [NOT YET IMPLEMENTED - always `global`] indicates if the Oneprovider
-        that supports the space by consuming this token will be able to modify
-        files in the space (`global`) or not (`none`).
-    metadataReplication:
-      type: string
-      enum:
-        - eager
-        - lazy
-        - none
-      description: |
-        [NOT YET IMPLEMENTED - always `eager`] indicates the level of metadata
-        replication on the Oneprovider that supports the space by consuming this
-        token. `eager` - all metadata is replicated, might take days to become
-        in sync if the space is already populated with large amount of data.
-        `lazy` - only required metadata is replicated when specific file is
-        accessed. `none` - all metadata is fetched from remote Oneproviders
-        every time a request is performed, which is the slowest option but
-        requires minimal resources on the Oneprovider.
-
+        Space support parameters - optional, default to `dataWrite = global`
+        and `metadataReplication = eager`.
 
 required:
   - inviteType
@@ -42,5 +22,6 @@ required:
 example:
   inviteType: supportSpace
   spaceId: d4f5876dbe7f1e7e8a511de6dd31144b
-  dataWrite: global
-  metadataReplication: eager
+  parameters:
+    dataWrite: global
+    metadataReplication: eager

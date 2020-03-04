@@ -7,7 +7,7 @@ allOf:
       enum: [time]
       x-discriminator-value: "time"
       description: |
-        Time caveat - limits the validity of the token.
+        Time caveat - limits the token's validity in time.
 
         You can learn more about token caveats
         [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[token-caveats].html).
