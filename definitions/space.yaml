@@ -10,18 +10,65 @@ properties:
   providers:
     type: object
     description: >
-      The map of providers Ids supporting this space
-      and the size of provisioned storage in bytes.
+      A map of provider Ids supporting this space
+      and corresponding size of provisioned storage in bytes.
     additionalProperties:
       type: integer
       description: |
         Size of storage provisioned for this space by provider.
+  supportParameters:
+    type: object
+    description: >
+      The map of provider Ids supporting this space
+      and corresponding support parameters of the provider.
+    additionalProperties:
+      $ref: '#/definitions/SpaceSupportParameters'
+  dbsyncState:
+    type: object
+    description: >
+      The map of provider Ids supporting this space
+      and corresponding dbsync state of the provider.
+    additionalProperties:
+      $ref: '#/definitions/SpaceDBSyncState'
+  supportState:
+    type: object
+    description: >
+      The map of provider Ids supporting this space
+      and corresponding support state of the provider.
+    additionalProperties:
+      $ref: '#/definitions/SpaceSupportState'
+
 required:
   - spaceId
   - name
   - providers
+  - supportParameters
+  - dbsyncState
+  - supportState
 example:
   spaceId: 2c0160248ba9a66f45da751ca459535a
   name: My Private space
   providers:
     296ebe3c20e9666dc489b647f8647f12: 5368709120
+    dcf12429647c204896eebe3b6f686967: 14400000
+  supportParameters:
+    296ebe3c20e9666dc489b647f8647f12:
+      dataWrite: global
+      metadataReplication: lazy
+    dcf12429647c204896eebe3b6f686967:
+      dataWrite: none
+      metadataReplication: eager
+  dbsyncState:
+    296ebe3c20e9666dc489b647f8647f12:
+      lastUpdate: 1571147494
+      seqPerProvider:
+        296ebe3c20e9666dc489b647f8647f12: 1450
+        dcf12429647c204896eebe3b6f686967: 49870
+    dcf12429647c204896eebe3b6f686967:
+      lastUpdate: 1580525418
+      seqPerProvider:
+        296ebe3c20e9666dc489b647f8647f12: 1390
+        dcf12429647c204896eebe3b6f686967: 50312
+  supportState:
+    296ebe3c20e9666dc489b647f8647f12: active
+    dcf12429647c204896eebe3b6f686967: retiring

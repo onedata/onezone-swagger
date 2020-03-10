@@ -20,7 +20,7 @@ post:
     Creates a token which can be submitted to a selected provider in order to
     add storage support for the space.
 
-    This operation requires `space_invite_provider` privilege
+    This operation requires `space_add_support` privilege
     or `oz_spaces_add_relationships` admin privilege.
   description: |
     This enpoint is deprecated and will be removed in future release,
@@ -31,7 +31,7 @@ post:
     Creates a token which can be submitted to a selected provider in order to
     add storage support for the space.
 
-    This operation requires `space_invite_provider` privilege
+    This operation requires `space_add_support` privilege
     or `oz_spaces_add_relationships` admin privilege.
 
     ***Example cURL requests***
