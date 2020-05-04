@@ -21,7 +21,7 @@ post:
 
     **Check provider IP**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" \
+    curl -H "X-Auth-Token: $TOKEN" -H "Content-type: application/json" \
     -d '{"providerId": "f3a3fbcc6e85e1b7829e4901a8e1809", "token": "JKAxNWxvY2F0aW9uIG9uZXp..."}' \
     -X POST https://onezone.example.com/api/v3/onezone/provider/public/verify_provider_identity
     ```

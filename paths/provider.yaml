@@ -89,7 +89,7 @@ patch:
 
     **Update provider geo location**
     ```bash
-    curl -H "x-auth-token: $TOKEN" -X PATCH \
+    curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" -X PATCH \
     -d '{"latitude": 50.068968,"longitude": 20.909444}'  \
     https://$HOST/api/v3/onezone/provider
     ```

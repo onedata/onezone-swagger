@@ -1,5 +1,5 @@
 patch:
-  operationId: update_space_support_parameters_of_provider
+  operationId: update_support_parameters_of_provider
   tags:
     - Space
   x-onedata-gri:
@@ -73,4 +73,4 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "echo '{\"dataWrite\": \"none\", \"metadataReplication\": \"lazy\"}' | onezone-rest-cli updateSpaceSupportParametersOfProvider id=b752ceafabb662b4e5728b2ded25cdd1 pid=ea662b7a7bded25cdd1fb2b4eb2852c5"
+    source: "echo '{\"dataWrite\": \"none\", \"metadataReplication\": \"lazy\"}' | onezone-rest-cli updateSupportParametersOfProvider id=b752ceafabb662b4e5728b2ded25cdd1 pid=ea662b7a7bded25cdd1fb2b4eb2852c5"
