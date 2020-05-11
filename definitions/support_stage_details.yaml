@@ -44,7 +44,7 @@ properties:
     additionalProperties:
       type: string
       description: >
-        Current support stage of the provider - depends on the stages of its storages:
+        Current support stage of the storage:
 
         * `joining` - phase of initial setup after a space is supported and when the
           storage cannot be used yet, transitions to active when the
@@ -65,13 +65,6 @@ properties:
           is purging the database by deleting docs related to space support.
 
         * `retired` - the storage has supported the space in the past, but not anymore
-      enum:
-        - joining
-        - active
-        - "resizing:<targetSize>"
-        - purging
-        - retiring
-        - retired
 example:
   providerStage: remodelling
   perStorage:
