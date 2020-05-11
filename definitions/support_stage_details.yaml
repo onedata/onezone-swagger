@@ -1,0 +1,73 @@
+type: object
+description: Summary of provider's support stage and stages of its storages.
+properties:
+  providerStage:
+    type: string
+    description: >
+      Current support stage of the provider - depends on the stages of its storages:
+
+      * `joining` - the provider has freshly supported the space and is catching up
+        with dbsync changes from other providers
+
+      * `active` - the provider is operational and up-to-date with other providers,
+        all storages are in 'active' stage
+
+      * `remodelling` - the provider is undergoing changes concerning its storage(s)
+        that support the space, e.g. a storage has been added or removed
+        and is not yet in active stage (such modifications may require
+        long-lasting data transfers between storages).
+
+      * `evicting_replicas` (unsupporting) - the provider has chosen to cease support
+        for the space with all of its storages and is now safely migrating
+        data to other providers
+
+      * `purging_storages` (unsupporting) - the provider has evicted all replicas and
+        is now purging its storages from support remnants
+
+      * `purging_database` (unsupporting) - the provider purged its storages and is
+        now purging the database (including file metadata, locations etc)
+
+      * `retired` - the provider has supported the space in the past, but not anymore
+    enum:
+      - joining
+      - active
+      - remodelling
+      - evicting_replicas
+      - purging_storages
+      - purging_database
+      - retired
+  perStorage:
+    type: object
+    description: >
+      The map of storage Ids of the provider that support this space
+      and their corresponding support stages.
+    additionalProperties:
+      type: string
+      description: >
+        Current support stage of the storage:
+
+        * `joining` - phase of initial setup after a space is supported and when the
+          storage cannot be used yet, transitions to active when the
+          provider has caught up with dbsync changes from other providers.
+
+        * `active` - the storage is operational
+
+        * `resizing:<targetSize>` - the granted storage quota by this storage is being
+          changed, which may be a long process if replicas need to be
+          evicted to free up space. If support is being completely revoked,
+          the stage yields `resizing:0`. During resizing, the target size
+          may be changed.
+
+        * `purging` (unsupporting) - the file data on the storage is being purged
+
+        * `retiring` (unsupporting) - the owning provider is finalizing the storage's
+          retirement process - if this was the last supporting storage, it
+          is purging the database by deleting docs related to space support.
+
+        * `retired` - the storage has supported the space in the past, but not anymore
+example:
+  providerStage: remodelling
+  perStorage:
+    0b1db3c83e9d59fe9d09e5b2cba3c4045cfa0f62: "resizing:157382223842"
+    3e35742f8e800bd18d62aa749bf7ef418bd159ef: active
+    e3137a5d63d7ddda3fd9663347e9e54f622b70e5: joining

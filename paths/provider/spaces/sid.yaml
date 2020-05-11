@@ -103,7 +103,8 @@ patch:
 
     **Change supported size**
     ```bash
-    curl -H "x-auth-token: $TOKEN" -X PATCH -d '{"size": 1024000}' \
+    curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
+    -X PATCH -d '{"size": 1024000}' \
     https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:

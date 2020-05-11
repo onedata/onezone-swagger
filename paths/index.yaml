@@ -439,6 +439,10 @@
   $ref: ./spaces/id.yaml
 
 
+/spaces/{id}/stats:
+  $ref: ./spaces/id/stats.yaml
+
+
 /spaces/{id}/users:
   $ref: ./spaces/id/users.yaml
 

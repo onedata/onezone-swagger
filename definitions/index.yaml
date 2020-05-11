@@ -62,6 +62,9 @@ ProviderDomainConfig:
 Space:
   $ref: ./space.yaml
 
+SpaceStats:
+  $ref: ./space_stats.yaml
+
 SpaceCreateRequest:
   $ref: ./spacecreaterequest.yaml
 
@@ -221,14 +224,14 @@ SpacePrivilegesUpdate:
 SpaceAlias:
   $ref: ./spacealias.yaml
 
-SpaceSupportParameters:
-  $ref: ./spacesupportparameters.yaml
+SupportParameters:
+  $ref: ./support_parameters.yaml
 
-SpaceDBSyncState:
-  $ref: ./spacedbsyncstate.yaml
+SupportStageDetails:
+  $ref: ./support_stage_details.yaml
 
-SpaceSupportState:
-  $ref: ./spacesupportstate.yaml
+ProviderSyncProgress:
+  $ref: ./provider_sync_progress.yaml
 
 GroupPrivileges:
   $ref: ./groupprivileges.yaml

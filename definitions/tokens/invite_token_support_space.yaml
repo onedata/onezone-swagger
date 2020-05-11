@@ -11,7 +11,7 @@ allOf:
       type: string
       description: Id of the space to be supported
     parameters:
-      $ref: '#/definitions/SpaceSupportParameters'
+      $ref: '#/definitions/SupportParameters'
       description: |
         Space support parameters - optional, default to `dataWrite = global`
         and `metadataReplication = eager`.

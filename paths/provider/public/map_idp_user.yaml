@@ -27,7 +27,7 @@ post:
 
     **Map IdP user to Onezone user**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" \
+    curl -H 'Content-type: application/json' \
     -d '{"idp": "elixir", "userId": "dqs1ew2afn9q28rnweu8fb23r9jqwtfg"}' \
     -X POST https://onezone.example.com/api/v3/onezone/provider/public/map_idp_user
 
