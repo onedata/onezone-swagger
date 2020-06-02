@@ -439,10 +439,6 @@
   $ref: ./spaces/id.yaml
 
 
-/spaces/{id}/stats:
-  $ref: ./spaces/id/stats.yaml
-
-
 /spaces/{id}/users:
   $ref: ./spaces/id/users.yaml
 
@@ -527,10 +523,6 @@
 
 /spaces/{id}/providers/{pid}:
   $ref: ./spaces/id/providers/pid.yaml
-
-
-/spaces/{id}/providers/{pid}/support_parameters:
-  $ref: ./spaces/id/providers/pid/support_parameters.yaml
 
 
 /spaces/{id}/harvesters:
