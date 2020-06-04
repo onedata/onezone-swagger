@@ -16,48 +16,14 @@ properties:
       type: integer
       description: |
         Size of storage provisioned for this space by provider.
-  supportParametersPerProvider:
-    type: object
-    description: >
-      The map of provider Ids supporting this space
-      and corresponding support parameters of the provider.
-    additionalProperties:
-      $ref: '#/definitions/SupportParameters'
-  supportStagePerProvider:
-    type: object
-    description: >
-      The map of provider Ids supporting this space
-      and corresponding support stage details of the provider.
-    additionalProperties:
-      $ref: '#/definitions/SupportStageDetails'
 
 required:
   - spaceId
   - name
   - providers
-  - supportParametersPerProvider
-  - supportStagePerProvider
 example:
   spaceId: 2c0160248ba9a66f45da751ca459535a
   name: My Private space
   providers:
     296ebe3c20e9666dc489b647f8647f12: 5368709120
     dcf12429647c204896eebe3b6f686967: 14400000
-  supportParametersPerProvider:
-    296ebe3c20e9666dc489b647f8647f12:
-      dataWrite: global
-      metadataReplication: lazy
-    dcf12429647c204896eebe3b6f686967:
-      dataWrite: none
-      metadataReplication: eager
-  supportStagePerProvider:
-    296ebe3c20e9666dc489b647f8647f12:
-      providerStage: active
-      perStorage:
-        fd9663347e9e54f622bd09e5b2cba3c4045fa0f6: active
-    dcf12429647c204896eebe3b6f686967:
-      providerStage: remodelling
-      perStorage:
-        0b1db3c83e9d59fe9d09e5b2cba3c4045cfa0f62: "resizing:157382223842"
-        3e35742f8e800bd18d62aa749bf7ef418bd159ef: purging
-        e3137a5d63d7ddda3fd9663347e9e54f622b70e5: joining
