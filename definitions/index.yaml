@@ -314,12 +314,6 @@ HandleServicePrivilegesUpdate:
 Share:
   $ref: ./share.yaml
 
-ShareUpdateRequest:
-  $ref: ./shareupdaterequest.yaml
-
-ShareCreateRequest:
-  $ref: ./sharecreaterequest.yaml
-
 Providers:
   $ref: ./providers.yaml
 
