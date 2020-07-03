@@ -102,7 +102,7 @@ patch:
     - oz_shares_update
   summary: Modify share details
   x-bash-codegen-description: |
-    Updates the share properties - name or description.
+    Updates the share details - name or description.
 
     NOTE: Only Oneprovider API supports creating / deleting shares and is
     preferred for all share operations. Onezone API is limited to retrieving
@@ -111,7 +111,7 @@ patch:
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_update` admin privilege.
   description: |
-    Updates the share properties - name or description.
+    Updates the share details - name or description.
 
     NOTE: Only Oneprovider API supports creating / deleting shares and is
     preferred for all share operations. Onezone API is limited to retrieving
@@ -122,17 +122,17 @@ patch:
 
     ***Example cURL requests***
 
-    **Change share name**
+    **Modify share details**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
-    -X PATCH -d '{"name": "NewShareName"}' \
+    -X PATCH -d '{"name": "NewShareName", "description": "# New description"}' \
     https://$HOST/api/v3/onezone/shares/$SHARE_ID
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: Share name has been updated.
+      description: Share details have been updated.
     '400':
       description: Invalid request.
       schema:
