@@ -16,7 +16,7 @@ get:
 
     NOTE: Only Oneprovider API supports creating / deleting shares and is
     preferred for all share operations. Onezone API is limited to retrieving
-    share details and updating share names.
+    and modifying share details.
     
     This operation requires `space_view` privilege in space where share is created or
     `oz_shares_view` admin privilege.
@@ -25,7 +25,7 @@ get:
 
     NOTE: Only Oneprovider API supports creating / deleting shares and is
     preferred for all share operations. Onezone API is limited to retrieving
-    share details and updating share names.
+    and modifying share details.
     
     This operation requires `space_view` privilege in space where share is created or
     `oz_shares_view` admin privilege.
@@ -38,13 +38,17 @@ get:
     https://$HOST/api/v3/onezone/shares/$SHARE_ID
 
     {
-      "shareId": "303884afb761d91a7362b2841647bc08",
-      "name": "MyShare",
-      "publicUrl": "http://onezone.example.com/shares/303884afb761d91a7362b2841647bc08",
-      "spaceId": "04b0d63bdaa15cc600212082e50e5e25",
-      "handleId": "doi:10.15911/MyShare.726855",
-      "rootFileId": "46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53",
-      "fileType": "dir"
+      "shareId": "1f4b762b1380946e73aeca574c77f14c",
+      "name": "Experiment XYZ",
+      "description": "# Experiment XYZ\nThis collection contains results from Experiment XYZ.",
+      "publicUrl": "https://onedata.org/shares/1f4b762b1380946e73aeca574c77f14c",
+      "fileType": "dir",
+      "rootFileId": "00000000006CB663736861726547756964233339643236366165646365\
+      6266666164353939663761373734313235363166342336656331613534313362366634653\
+      2623031613563383561386664373937653223316634623736326231333830393436653733\
+      6165636135373463373766313463",
+      "spaceId": "6ec1a5413b6f4e2b01a5c85a8fd797e2",
+      "handleId" "doi:10.15911/MyShares.726855"
     }
     ```
   produces:
@@ -98,37 +102,37 @@ patch:
     - oz_shares_update
   summary: Modify share details
   x-bash-codegen-description: |
-    Updates the share properties - currently only name change is supported.
+    Updates the share details - name or description.
 
     NOTE: Only Oneprovider API supports creating / deleting shares and is
     preferred for all share operations. Onezone API is limited to retrieving
-    share details and updating share names.
+    and modifying share details.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_update` admin privilege.
   description: |
-    Updates the share properties - currently only name change is supported.
+    Updates the share details - name or description.
 
     NOTE: Only Oneprovider API supports creating / deleting shares and is
     preferred for all share operations. Onezone API is limited to retrieving
-    share details and updating share names.
+    and modifying share details.
 
     This operation requires privilege `space_manage_shares` in space
     in which the share was created or `oz_shares_update` admin privilege.
 
     ***Example cURL requests***
 
-    **Change share name**
+    **Modify share details**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
-    -X PATCH -d '{"name": "NewShareName"}' \
+    -X PATCH -d '{"name": "NewShareName", "description": "# New description"}' \
     https://$HOST/api/v3/onezone/shares/$SHARE_ID
     ```
   consumes:
     - application/json
   responses:
     '204':
-      description: Share name has been updated.
+      description: Share details have been updated.
     '400':
       description: Invalid request.
       schema:
@@ -157,17 +161,20 @@ patch:
     required: true
   - name: data
     in: body
-    description: Share parameters
+    description: New share details
     schema:
       type: object
       properties:
         name:
           type: string
-          description: The name of the share.
+          description: New name for the share.
+        description:
+          type: string
+          description: New description of the share.
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyShare id=303884afb761d91a7362b2841647bc08 name==Share20"
+    source: "onezone-rest-cli modifyShare id=303884afb761d91a7362b2841647bc08 name==NewShareName description==\"# New description\""
 
 
 # @TODO VFS-5845 not supported in REST (only GraphSync)

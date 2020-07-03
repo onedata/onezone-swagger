@@ -9,20 +9,20 @@ get:
   x-onedata-permissions:
     - oz_shares_list
   x-bash-codegen-description: |
-    Returns the list of shares.
+    Returns the list of all shares managed by the Onezone service.
 
     NOTE: Only Oneprovider API supports creating / deleting shares and is
     preferred for all share operations. Onezone API is limited to retrieving
-    share details and updating share names.
+    and modifying share details.
 
     This operation requires admin privilege `oz_shares_list`.
 
   description: |
-    Returns the list of shares.
+    Returns the list of all shares managed by the Onezone service.
 
     NOTE: Only Oneprovider API supports creating / deleting shares and is
     preferred for all share operations. Onezone API is limited to retrieving
-    share details and updating share names.
+    and modifying share details.
 
     This operation requires admin privilege `oz_shares_list`.
 
@@ -33,7 +33,7 @@ get:
     curl -u admin:password -X GET https://$HOST/api/v3/onezone/shares
 
     {
-      "shares: [
+      "shares": [
         "303884afb761d91a7362b2841647bc08",
         "32919d6a51bac9b040c7cb7961fdccf3"
       ]
