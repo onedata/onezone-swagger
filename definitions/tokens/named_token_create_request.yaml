@@ -1,0 +1,44 @@
+type: object
+description: Named token create request.
+properties:
+  name:
+    $ref: '#/definitions/TokenPropertyName'
+  type:
+    $ref: '#/definitions/TokenPropertyTokenType'
+  caveats:
+    $ref: '#/definitions/TokenPropertyCaveats'
+  customMetadata:
+    $ref: '#/definitions/TokenPropertyCustomMetadata'
+  revoked:
+    $ref: '#/definitions/TokenPropertyRevoked'
+  privileges:
+    $ref: '#/definitions/InviteTokenPropertyPrivileges'
+  usageLimit:
+    $ref: '#/definitions/InviteTokenPropertyUsageLimit'
+required:
+  - name
+example:
+  name: New Token
+  type:
+    inviteToken:
+      inviteType: userJoinCluster
+      clusterId: fb73f7ceff5abd995357abbe01c812ce
+  caveats:
+    - type: time
+      validUntil: 1571147494
+    - type: ip
+      whitelist:
+      - 189.34.15.0/8
+      - 127.0.0.0/24
+      - 167.73.12.17
+  customMetadata:
+    jobName: experiment-15
+    vm: worker156.cloud.local
+  revoked: false
+  privileges:
+    - cluster_view
+    - cluster_update
+    - cluster_delete
+    - cluster_view_privileges
+    - cluster_set_privileges
+  usageLimit: 15

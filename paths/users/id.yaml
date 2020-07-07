@@ -1,0 +1,134 @@
+get:
+  operationId: get_user
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_users_view
+  summary: Get user details
+  x-bash-codegen-description: |
+    Returns the information about a specific user.
+
+    This operation requires `oz_users_view` admin privilege.
+  description: |
+    Returns the information about a specific user.
+
+    This operation requires `oz_users_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get user details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/users/$USER_ID
+
+    {
+      "userId": "a5b469a2b0516b662a49da74d6d7d7bc",
+      "fullName": "Mr Admin",
+      "username": "admin",
+      "linkedAccounts": []
+      "emails": [],
+      "basicAuthEnabled": false
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a user.
+      schema:
+        $ref: '#/definitions/UserProtectedInfo'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUser id=a5b469a2b0516b662a49da74d6d7d7bc"
+
+
+delete:
+  operationId: remove_user
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - oz_users_delete
+  summary: Remove user
+  x-bash-codegen-description: |
+    Removes a specific user.
+
+    This operation requires `oz_users_delete` admin privilege.
+  description: |
+    Removes a specific user.
+
+    This operation requires `oz_users_delete` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove user**
+    ```bash
+    curl -u admin:password -X DELETE  \
+    https://$HOST/api/v3/onezone/users/$USER_ID
+    ```
+  responses:
+    '204':
+      description: The user was removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeUser id=a4d3bc73aada63052310652d421609f1"

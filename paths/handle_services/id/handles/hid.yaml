@@ -1,0 +1,92 @@
+get:
+  operationId: get_handle_service_handle
+  tags:
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(hid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
+  x-onedata-permissions:
+    - handle_service_view
+    - oz_handles_view
+  summary: Get handle from handle service
+  x-bash-codegen-description: |
+    Returns the details of a specific handle registered by handle service.
+
+    This operation requires `handle_service_view` privilege or
+    `oz_handles_view` admin privilege.
+  description: |
+    Returns the details of a specific handle registered by handle service.
+
+    This operation requires `handle_service_view` privilege
+    or `oz_handles_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get handle services handle**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handle_services/13c6bf68ed88dd01f396571f976b148d/handles/$HANDLE_ID
+
+    {
+      "handleId": "95b663a6467c72ab1256865efef9e387",
+      "handleServiceId": "97c27230017cd54c1220189e357322c4",
+      "resourceType": "Share",
+      "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
+      "metadata": "<?xml version=\"1.0\"?>
+          <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
+          <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
+                   xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+            <rdf:Description rdf:about=\"http://example.com/resouces/1\">
+              <dc:title>Example Resource</dc:title>
+              <dc:creator>John Doe</dc:creator>
+              <dc:publisher>MIT</dc:publisher>
+              <dc:date>2000-06-06</dc:date>
+            </rdf:Description>
+          </rdf:RDF>",
+      "timestamp": "1997-07-16T19:20"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of handle identifiers (Onedata internal GUIDs).
+      schema:
+        $ref: '#/definitions/Handle'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Handle service Id.
+    required: true
+    type: string
+  - name: hid
+    in: path
+    description: Handle Id.
+    required: true
+    type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleServiceHandle id=33f5e5925f6ec7ddf8f68516b2980fdb hid=f3322ec0d5557f9d94c89180f83b462f"

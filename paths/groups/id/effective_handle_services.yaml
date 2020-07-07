@@ -1,0 +1,74 @@
+get:
+  operationId: list_effective_group_handle_services
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_handle_services
+  x-onedata-permissions:
+    - group_view
+    - oz_groups_list_relationships
+  summary: List effective group handle services
+  x-bash-codegen-description: |
+    Returns the list of registered group effective handle services.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
+  description: |
+    Returns the list of registered group effective handle services.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_list_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get group effective handle services**
+    ```bash
+    curl -u username:password -X GET https://$HOST/api/v3/groups/$GROUP_ID/effective_handle_services
+
+    {
+      "handle_services": [
+        "95b663a6467c72ab1256865efef9e387",
+        "67222da37f90559bcca1f85edd745e5c"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of identifiers of effective handle services.
+      schema:
+        $ref: '#/definitions/HandleServices'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Group Id.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli listGroupEffectiveHandleServices"

@@ -1,0 +1,210 @@
+get:
+  operationId: get_supported_space
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_PROVIDER(?CLIENT_ID)
+  summary: Get space details by provider
+  x-bash-codegen-description: |
+    Returns information about a specific space supported by the Oneprovider that
+    performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth token](#section/Overview/Authentication-and-authorization).
+  description: |
+    Returns information about a specific space supported by the Oneprovider that
+    performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth token](#section/Overview/Authentication-and-authorization).
+
+    ***Example cURL requests***
+
+    **Get space details**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET \
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
+
+    {
+      "spaceId": "2c0160248ba9a66f45da751ca459535a",
+      "name": "new_space1",
+      "providers": {
+        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
+      }
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the information about a specific space.
+      schema:
+        $ref: '#/definitions/Space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSupportedSpace sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+
+
+patch:
+  # TODO VFS-5856
+  deprecated: true
+  operationId: modify_supported_space
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: "{space, ?BINDING(sid)}"
+  summary: Modify supported space
+  x-bash-codegen-description: |
+    Modifies the support size of a space supported by the Oneprovider that
+    performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth token](#section/Overview/Authentication-and-authorization).
+  description: |
+    Modifies the support size of a space supported by the Oneprovider that
+    performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth token](#section/Overview/Authentication-and-authorization).
+
+    ***Example cURL requests***
+
+    **Change supported size**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
+    -X PATCH -d '{"size": 1024000}' \
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Space modified successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifySupportedSpace sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc name==\"New space name\""
+
+
+delete:
+  # TODO VFS-5856
+  deprecated: true
+  operationId: remove_space_support
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: "{space, ?BINDING(sid)}"
+  summary: Remove space support
+  x-bash-codegen-description: |
+    Revokes support for a space supported by the Oneprovider that performed the
+    request.
+
+    This operation requires provider authentication - see
+    [provider auth token](#section/Overview/Authentication-and-authorization).
+  description: |
+    Revokes support for a space supported by the Oneprovider that performed the
+    request.
+
+    This operation requires provider authentication - see
+    [provider auth token](#section/Overview/Authentication-and-authorization).
+
+    ***Example cURL requests***
+
+    **Revoke space support**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X DELETE \
+    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Support for space will be revoked.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeSpaceSupport sid=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

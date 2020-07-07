@@ -1,0 +1,6 @@
+type: array
+description: A subset of harvester privileges suggested for harvester members.
+items:
+  type: string
+  enum:
+    - harvester_view

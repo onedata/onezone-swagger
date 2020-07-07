@@ -1,0 +1,24 @@
+type: object
+description: Results of the Elasticsearch query on given index.
+properties:
+  headers:
+    type: object
+    description: Headers of the Elasticseach response.
+  code:
+    type: integer
+    description: Status code of the Elasticsearch response.
+  body:
+    type: string
+    description: Body of the Elasticsearch response.
+required:
+  - headers
+  - code
+  - body
+example:
+  headers: {
+    "content-type": "application/json; charset=UTF-8",
+    "content-length": "142"
+  }
+  code: 404
+  body: "{\"_index\":\"ngi1mdnly2i5od\",\"_type\":\"_doc\",\"_id\":\"awda\",\"found\":false}"
+

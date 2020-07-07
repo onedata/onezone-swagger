@@ -1,0 +1,13 @@
+type: object
+description: Named token id and serialized form.
+properties:
+  tokenId:
+    $ref: '#/definitions/TokenPropertyId'
+  token:
+    $ref: '#/definitions/SerializedToken'
+required:
+  - tokenId
+  - token
+example:
+  tokenId: 2b5d0dd5aa6443a69277b5ce0544fec2
+  token: MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR

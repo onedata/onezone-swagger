@@ -1,0 +1,81 @@
+get:
+  operationId: get_effective_group_user
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_users_view
+  summary: Get effective group user details
+  x-bash-codegen-description: |
+    Returns information about a specific effective group user.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_users_view` privilege is required.
+  description: |
+    Returns information about a specific effective group user.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_users_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get group user details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_users/$USER_ID
+
+    {
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe",
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the information about a group user.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveGroupUser id=538ef9643ae6b9e40817e51eece7e341 uid=a5b469a2b0516b662a49da74d6d7d7bc"

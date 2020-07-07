@@ -1,0 +1,62 @@
+get:
+  operationId: list_current_provider_supported_spaces
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?CLIENT_ID
+    aspect: spaces
+  summary: List current provider's supported spaces
+  x-bash-codegen-description: |
+    Returns the list of spaces managed by the Oneprovider that performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth token](#section/Overview/Authentication-and-authorization).
+  description: |
+    Returns the list of spaces managed by the Oneprovider that performed the request.
+
+    This operation requires provider authentication - see
+    [provider auth token](#section/Overview/Authentication-and-authorization).
+
+    ***Example cURL requests***
+
+    **Get spaces supported by provider**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET https://$HOST/api/v3/onezone/provider/spaces
+
+    {
+      "spaces": [
+        "1ad4551e2c127fac3850374eeb2dfec4"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of space Ids.
+      schema:
+        $ref: '#/definitions/Spaces'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listCurrentProviderSupportedSpaces"

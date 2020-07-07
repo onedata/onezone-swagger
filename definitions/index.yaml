@@ -8,14 +8,26 @@ Configuration:
 Error:
   $ref: ./error.yaml
 
+VersionInfo:
+  $ref: ./versioninfo.yaml
+
 User:
   $ref: ./user.yaml
+
+UserCreateRequest:
+  $ref: ./usercreaterequest.yaml
 
 UserProtectedInfo:
   $ref: ./userprotectedinfo.yaml
 
 UserUpdateRequest:
   $ref: ./userupdaterequest.yaml
+
+UserPasswordUpdate:
+  $ref: ./userpasswordupdate.yaml
+
+UserBasicAuthSettingsUpdate:
+  $ref: ./userbasicauthsettingsupdate.yaml
 
 IdPAccessToken:
   $ref: ./idpaccesstoken.yaml
@@ -29,6 +41,9 @@ Groups:
 Shares:
   $ref: ./shares.yaml
 
+ProviderRegistrationToken:
+  $ref: ./providerregistrationtoken.yaml
+
 ProviderRegistrationRequest:
   $ref: ./providerregistrationrequest.yaml
 
@@ -41,11 +56,14 @@ ProviderRegistrationResponse:
 ProviderDetails:
   $ref: ./providerdetails.yaml
 
-AuthenticationToken:
-  $ref: ./authenticationtoken.yaml
+ProviderDomainConfig:
+  $ref: ./providerdomainconfig.yaml
 
 Space:
   $ref: ./space.yaml
+
+SpaceStats:
+  $ref: ./space_stats.yaml
 
 SpaceCreateRequest:
   $ref: ./spacecreaterequest.yaml
@@ -53,20 +71,122 @@ SpaceCreateRequest:
 SpaceSupportToken:
   $ref: ./spacesupporttoken.yaml
 
-SpaceSupportRequest:
-  $ref: ./spacesupportrequest.yaml
+Tokens:
+  $ref: ./tokens/tokens.yaml
+NamedToken:
+  $ref: ./tokens/named_token.yaml
+NamedTokenStatus:
+  $ref: ./tokens/named_token_status.yaml
+ExaminedToken:
+  $ref: ./tokens/examined_token.yaml
+NamedTokenUpdateRequest:
+  $ref: ./tokens/named_token_update_request.yaml
+NamedTokenCreateRequest:
+  $ref: ./tokens/named_token_create_request.yaml
+NamedTokenCreateResponse:
+  $ref: ./tokens/named_token_create_response.yaml
+TemporaryTokenCreateRequest:
+  $ref: ./tokens/temporary_token_create_request.yaml
+TemporaryTokenGeneration:
+  $ref: ./tokens/temporary_token_generation.yaml
+VerifyAccessTokenRequest:
+  $ref: ./tokens/verify_access_token_request.yaml
+VerifyIdentityTokenRequest:
+  $ref: ./tokens/verify_identity_token_request.yaml
+VerifyInviteTokenRequest:
+  $ref: ./tokens/verify_invite_token_request.yaml
+VerifyTokenResponse:
+  $ref: ./tokens/verify_token_response.yaml
+# ------------------------------------------------------------------------------
+# Token properties
+SerializedToken:
+  $ref: ./tokens/serialized_token.yaml
+TokenPropertyName:
+  $ref: ./tokens/token_property_name.yaml
+TokenPropertyOnezoneDomain:
+  $ref: ./tokens/token_property_onezone_domain.yaml
+TokenPropertyId:
+  $ref: ./tokens/token_property_id.yaml
+TokenPropertyPersistence:
+  $ref: ./tokens/token_property_persistence.yaml
+TokenPropertySubject:
+  $ref: ./tokens/token_property_subject.yaml
+TokenPropertyTokenType:
+  $ref: ./tokens/token_property_token_type.yaml
+TokenPropertyCaveats:
+  $ref: ./tokens/token_property_caveats.yaml
+TokenPropertyMetadata:
+  $ref: ./tokens/token_property_metadata.yaml
+TokenPropertyCustomMetadata:
+  $ref: ./tokens/token_property_custom_metadata.yaml
+TokenPropertyRevoked:
+  $ref: ./tokens/token_property_revoked.yaml
+InviteTokenPropertyPrivileges:
+  $ref: ./tokens/invite_token_property_privileges.yaml
+InviteTokenPropertyUsageLimit:
+  $ref: ./tokens/invite_token_property_usage_limit.yaml
+# ------------------------------------------------------------------------------
+# Invite token type and its subclasses
+InviteToken:
+  $ref: ./tokens/invite_token.yaml
+userJoinGroup:
+  $ref: ./tokens/invite_token_user_join_group.yaml
+groupJoinGroup:
+  $ref: ./tokens/invite_token_group_join_group.yaml
+userJoinSpace:
+  $ref: ./tokens/invite_token_user_join_space.yaml
+groupJoinSpace:
+  $ref: ./tokens/invite_token_group_join_space.yaml
+supportSpace:
+  $ref: ./tokens/invite_token_support_space.yaml
+harvesterJoinSpace:
+  $ref: ./tokens/invite_token_harvester_join_space.yaml
+registerOneprovider:
+  $ref: ./tokens/invite_token_register_oneprovider.yaml
+userJoinCluster:
+  $ref: ./tokens/invite_token_user_join_cluster.yaml
+groupJoinCluster:
+  $ref: ./tokens/invite_token_group_join_cluster.yaml
+userJoinHarvester:
+  $ref: ./tokens/invite_token_user_join_harvester.yaml
+groupJoinHarvester:
+  $ref: ./tokens/invite_token_group_join_harvester.yaml
+spaceJoinHarvester:
+  $ref: ./tokens/invite_token_space_join_harvester.yaml
+# ------------------------------------------------------------------------------
+# Caveat and its subclasses
+Caveat:
+  $ref: ./tokens/caveat.yaml
+time:
+  $ref: ./tokens/caveat_time.yaml
+ip:
+  $ref: ./tokens/caveat_ip.yaml
+asn:
+  $ref: ./tokens/caveat_asn.yaml
+geo.country:
+  $ref: ./tokens/caveat_geo_country.yaml
+geo.region:
+  $ref: ./tokens/caveat_geo_region.yaml
+service:
+  $ref: ./tokens/caveat_service.yaml
+consumer:
+  $ref: ./tokens/caveat_consumer.yaml
+interface:
+  $ref: ./tokens/caveat_interface.yaml
+api:
+  $ref: ./tokens/caveat_api.yaml
+data.readonly:
+  $ref: ./tokens/caveat_data_readonly.yaml
+data.path:
+  $ref: ./tokens/caveat_data_path.yaml
+data.objectid:
+  $ref: ./tokens/caveat_data_objectid.yaml
 
 ClientToken:
   $ref: ./clienttoken.yaml
 
 ClientTokens:
   $ref: ./clienttokens.yaml
-
-DefaultSpace:
-  $ref: ./defaultspace.yaml
-
-DefaultProvider:
-  $ref: ./defaultprovider.yaml
 
 SpaceInviteToken:
   $ref: ./spaceinvitetoken.yaml
@@ -86,8 +206,17 @@ GroupInviteToken:
 LinkedAccount:
   $ref: ./linkedaccount.yaml
 
+Spaces:
+  $ref: ./spaces.yaml
+
 SpacePrivileges:
   $ref: ./spaceprivileges.yaml
+
+SpaceManagerPrivileges:
+  $ref: ./spacemanagerprivileges.yaml
+
+SpaceMemberPrivileges:
+  $ref: ./spacememberprivileges.yaml
 
 SpacePrivilegesUpdate:
   $ref: ./spaceprivilegesupdate.yaml
@@ -95,22 +224,36 @@ SpacePrivilegesUpdate:
 SpaceAlias:
   $ref: ./spacealias.yaml
 
+SupportParameters:
+  $ref: ./support_parameters.yaml
+
+SupportStageDetails:
+  $ref: ./support_stage_details.yaml
+
+ProviderSyncProgress:
+  $ref: ./provider_sync_progress.yaml
+
 GroupPrivileges:
   $ref: ./groupprivileges.yaml
+
+GroupManagerPrivileges:
+  $ref: ./groupmanagerprivileges.yaml
+
+GroupMemberPrivileges:
+  $ref: ./groupmemberprivileges.yaml
 
 GroupPrivilegesUpdate:
   $ref: ./groupprivilegesupdate.yaml
 
-PrivilegesUpdateOperation:
-  $ref: ./updateprivilegesoperation.yaml
+AdminPrivileges:
+  $ref: ./zoneadminprivileges.yaml
 
-OnezonePrivileges:
-  $ref: ./onezoneprivileges.yaml
+ViewerPrivileges:
+  $ref: ./zoneviewerprivileges.yaml
 
-OnezonePrivilegesUpdate:
-  $ref: ./onezoneprivilegesupdate.yaml
+AdminPrivilegesUpdate:
+  $ref: ./zoneadminprivilegesupdate.yaml
 
-# Handle definitions
 HandleService:
   $ref: ./handleservice.yaml
 
@@ -150,6 +293,9 @@ HandleRegistrationRequest:
 HandlePrivileges:
   $ref: ./handleprivileges.yaml
 
+HandleMemberPrivileges:
+  $ref: ./handlememberprivileges.yaml
+
 HandlePrivilegesUpdate:
   $ref: ./handleprivilegesupdate.yaml
 
@@ -159,20 +305,89 @@ HandleServices:
 HandleServicePrivileges:
   $ref: ./handleserviceprivileges.yaml
 
+HandleServiceMemberPrivileges:
+  $ref: ./handleservicememberprivileges.yaml
+
 HandleServicePrivilegesUpdate:
   $ref: ./handleserviceprivilegesupdate.yaml
 
 Share:
   $ref: ./share.yaml
 
-ShareUpdateRequest:
-  $ref: ./shareupdaterequest.yaml
-
-ShareCreateRequest:
-  $ref: ./sharecreaterequest.yaml
-
-Spaces:
-  $ref: ./spaces.yaml
-
 Providers:
   $ref: ./providers.yaml
+
+Harvester:
+  $ref: ./harvester.yaml
+
+Harvesters:
+  $ref: ./harvesters.yaml
+
+HarvesterInviteToken:
+  $ref: ./harvesterinvitetoken.yaml
+
+HarvesterPrivileges:
+  $ref: ./harvesterprivileges.yaml
+
+HarvesterManagerPrivileges:
+  $ref: ./harvestermanagerprivileges.yaml
+
+HarvesterMemberPrivileges:
+  $ref: ./harvestermemberprivileges.yaml
+
+HarvesterPrivilegesUpdate:
+  $ref: ./harvesterprivilegesupdate.yaml
+
+HarvesterCreateRequest:
+  $ref: ./harvestercreaterequest.yaml
+
+HarvesterUpdateRequest:
+  $ref: ./harvesterupdaterequest.yaml
+
+HarvesterGuiPluginConfig:
+  $ref: ./harvesterguipluginconfig.yaml
+
+HarvesterIndex:
+  $ref: ./harvesterindex.yaml
+
+HarvesterIndices:
+  $ref: ./harvesterindices.yaml
+
+HarvesterIndexCreateRequest:
+  $ref: ./harvesterindexcreaterequest.yaml
+
+HarvesterQuery:
+  $ref: ./harvesterquery.yaml
+
+HarvesterQueryResponse:
+  $ref: ./harvesterqueryresponse.yaml
+
+HarvesterIndexStatsDetails:
+  $ref: ./harvesterindexstatsdetails.yaml
+
+Cluster:
+  $ref: ./cluster.yaml
+
+Clusters:
+  $ref: ./clusters.yaml
+
+ClusterUpdateRequest:
+  $ref: ./clusterupdaterequest.yaml
+
+ClusterInviteToken:
+  $ref: ./clusterinvitetoken.yaml
+
+ClusterPrivileges:
+  $ref: ./clusterprivileges.yaml
+
+ClusterManagerPrivileges:
+  $ref: ./clustermanagerprivileges.yaml
+
+ClusterMemberPrivileges:
+  $ref: ./clustermemberprivileges.yaml
+
+ClusterPrivilegesUpdate:
+  $ref: ./clusterprivilegesupdate.yaml
+
+MembershipIntermediaries:
+  $ref: ./membershipintermediaries.yaml

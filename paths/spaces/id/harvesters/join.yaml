@@ -1,0 +1,81 @@
+post:
+  operationId: space_join_harvester
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_harvester
+    aspect: join
+  x-onedata-auth-hint: ?AS_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_add_harvester
+    - oz_harvesters_add_relationships
+    - oz_spaces_add_relationships
+  summary: Join space to a harvester
+  x-bash-codegen-description: |
+    Joins the space to an existing harvester based on provided `spaceJoinHarvester`
+    invitation token (the space becomes a metadata source for the harvester).
+
+    This operation requires `space_add_harvester` privilege.
+    For administrator who does not belong to this space
+    `oz_harvesters_add_relationships` and `oz_spaces_add_relationships` privilege is required.
+  description: |
+    Joins the space to an existing harvester based on provided `spaceJoinHarvester`
+    invitation token (the space becomes a metadata source for the harvester).
+
+    This operation requires `space_add_harvester` privilege.
+    For administrator who does not belong to this space
+    `oz_harvesters_add_relationships` and `oz_spaces_add_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Join space to a harvester**
+    ```bash
+    curl -u admin:password -H "Content-type: application/json" \
+    -d '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVuJ3l02U1JXzstRdK00ZHbso02rRcG8bJLAo"}' \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/join
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the joined harvester in form https://$HOST/api/onezone/v3/spaces/{id}/harvesters/{hid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the joined harvester.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: spaceJoinHarvester invite token.
+    schema:
+      $ref: '#/definitions/HarvesterInviteToken'
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli spaceJoinHarvester id=f1c8b1a37aa7447b22eb65a742d40524 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

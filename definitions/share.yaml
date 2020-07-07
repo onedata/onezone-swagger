@@ -3,32 +3,48 @@ description: Share parameters.
 properties:
   shareId:
     type: string
-    description: Share ID.
+    description: Share Id.
   name:
     type: string
-    description: The user defined name for the share.
+    description: The name of the share.
+  description:
+    type: string
+    description: Description of the share contents, interpreted as markdown format when displayed in GUI.
   publicUrl:
     type: string
     description: The publicly accessible URL for the share.
-  rootFileId:
-    type: string
-    description: The ID of the shared file or folder.
   spaceId:
     type: string
-    description: The ID of the space in which the share was created.
+    description: The Id of the space in which the share was created.
+  rootFileId:
+    type: string
+    description: Public Id of shared file or directory, allowing read access to its contents without authentication.
+  fileType:
+    type: string
+    description: Denotes the type of the shared element (file or directory)
+    enum:
+      - file
+      - dir
   handleId:
     type: string
-    description: The Id of open data Handle (e.g. DOI or PID) assigned to this share.
+    description: The Id of open data Handle (e.g. DOI or PID) assigned to this share or null.
 required:
   - shareId
   - name
+  - description
   - publicUrl
-  - rootFileId
   - spaceId
+  - fileType
+  - rootFileId
 example:
-  shareId: 8asd89asdlbKJSBD79a8sdkLKJH8asdkjasd8989
-  name: MyNewShare
-  publicUrl: https://onedata.org/shares/ASDLKJH8asdkjasd89898asd89asdlbKJSBDikjab89-asdmASD
-  rootFileId: ASDkjlkkasdjoiwnafldnacbaasd8879a8sdkjb
-  spaceId: LKJH8asdkjasd89898asd89asdlbKJSBD79a8sdk
+  shareId: 1f4b762b1380946e73aeca574c77f14c
+  name: Experiment XYZ
+  description: '# Experiment XYZ\nThis collection contains results from Experiment XYZ.'
+  publicUrl: https://onedata.org/shares/1f4b762b1380946e73aeca574c77f14c
+  spaceId: 6ec1a5413b6f4e2b01a5c85a8fd797e2
+  rootFileId: 00000000006CB663736861726547756964233339643236366165646365\
+    6266666164353939663761373734313235363166342336656331613534313362366634653\
+    2623031613563383561386664373937653223316634623736326231333830393436653733\
+    6165636135373463373766313463
+  fileType: dir
   handleId: doi:10.15911/MyShares.726855

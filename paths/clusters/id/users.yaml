@@ -1,0 +1,74 @@
+get:
+  operationId: list_cluster_users
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: users
+  x-onedata-permissions:
+    - cluster_view
+    - oz_clusters_list_relationships
+  summary: List cluster's users
+  x-bash-codegen-description: |
+    Returns the list of users belonging to a specific cluster.
+
+    This operation requires `cluster_view` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_clusters_list_relationships` privilege is required.
+  description: |
+    Returns the list of users belonging to a specific cluster.
+
+    This operation requires `cluster_view` privilege.
+    For administrators who do not have to be members of this cluster,
+    `oz_clusters_list_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get cluster users**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/users
+
+    {
+      "users": [
+        "a5b469a2b0516b662a49da74d6d7d7bc"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all user Ids that belong to a specific cluster
+      schema:
+        $ref: '#/definitions/Users'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listClusterUsers id=b752ceafabb662b4e5728b2ded25cdd1"

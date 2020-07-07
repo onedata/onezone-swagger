@@ -1,0 +1,92 @@
+get:
+  operationId: list_effective_user_handle_service_privileges
+  tags:
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: "{eff_user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - handle_service_view
+    - oz_handle_services_view_privileges
+  summary: List effective user's handle service privileges
+  x-bash-codegen-description: |
+    Returns the list of effective user's (`{uid}`) privileges in a handle service (`{id}`).
+
+    Effective privileges are a sum of user's privileges and privileges
+    inherited from his group memberships.
+
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_view_privileges` admin privilege.
+  description: |
+    Returns the list of effective user's (`{uid}`) privileges in a handle service (`{id}`).
+
+    Effective privileges are a sum of user's privileges and privileges
+    inherited from his group memberships.
+
+    This operation requires `handle_service_view` privilege
+    or `oz_handle_services_view_privileges` admin privilege.
+
+    ***Example cURL requests***
+
+    **List effective user's privileges in a handle service**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/effective_users/$USER_ID/privileges
+
+    {
+      "privileges": [
+        "handle_service_register_handle",
+        "handle_service_update",
+        "handle_service_view"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of effective user's privileges in the handle service.
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/HandleServicePrivileges'
+        example:
+          privileges:
+            - handle_service_register_handle
+            - handle_service_update
+            - handle_service_view
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Handle service Id.
+      type: string
+      required: true
+    - name: uid
+      in: path
+      description: Effective user Id.
+      type: string
+      required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listUserEffectiveHandleServicePrivileges id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"

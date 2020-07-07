@@ -1,0 +1,227 @@
+get:
+  operationId: get_handle_user
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(uid)
+    aspect: instance
+    scope: shared
+  x-onedata-auth-hint: ?THROUGH_HANDLE(?BINDING(id))
+  x-onedata-permissions:
+    - handle_view
+    - oz_users_view
+  summary: Get handle user
+  x-bash-codegen-description: |
+    Allows to add a user to a handle.
+
+    This operation requires `handle_view` privilege
+    or `oz_users_view` admin privilege.
+  description: |
+    Allows to add a user to a handle.
+
+    This operation requires `handle_view` privilege
+    or `oz_users_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get handle user**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
+
+    {
+       "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
+       "fullName" : "John Doe",
+       "username" : "jodoe"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: User details returned successfully.
+      schema:
+        $ref: '#/definitions/User'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Handle Id.
+      required: true
+      type: string
+    - name: uid
+      in: path
+      description: The Id of the user to add to handle.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleUser id=45bf25a5cb16e12a9faa6d088a2c7088 uid=5ca9574418d5a2c509265d37356ee549"
+
+
+put:
+  operationId: add_handle_user
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - handle_update
+    - oz_handles_add_relationships
+    - oz_users_add_relationships
+  summary: Add handle user
+  x-bash-codegen-description: |
+    Allows to add a user to a handle.
+
+    This operation requires `handle_update` privilege
+    or `oz_handles_add_relationships` and `oz_users_add_relationships` admin privilege.
+  description: |
+    Allows to add a user to a handle.
+
+    This operation requires `handle_update` privilege
+    or `oz_handles_add_relationships` and `oz_users_add_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Add handle user**
+    ```bash
+    curl -u username:password -X PUT \
+    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
+    ```
+  produces:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the added user in form https://$HOST/api/onezone/v3/handles/{id}/users/{uid} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the added user.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Handle Id.
+      required: true
+      type: string
+    - name: uid
+      in: path
+      description: The Id of the user to add to handle.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addHandleUser id=45bf25a5cb16e12a9faa6d088a2c7088 uid=5ca9574418d5a2c509265d37356ee549"
+
+
+delete:
+  operationId: remove_handle_user
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(id)
+    aspect: "{user, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - handle_update
+    - oz_handles_remove_relationships
+    - oz_users_remove_relationships
+  summary: Remove handle user
+  x-bash-codegen-description: |
+    Allows to revoke users access to a handle.
+
+    This operation requires `handle_update` privilege
+    or `oz_handles_remove_relationships` and `oz_users_remove_relationships` admin privilege.
+  description: |
+    Allows to revoke users access to a handle.
+
+    This operation requires `handle_update` privilege
+    or `oz_handles_remove_relationships` and `oz_users_remove_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove handle service user**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
+    ```
+  responses:
+    '204':
+      description: User was removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Handle Id.
+      required: true
+      type: string
+    - name: uid
+      in: path
+      description: The Id of the user to remove from handle.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeHandleUser id=45bf25a5cb16e12a9faa6d088a2c7088 uid=5ca9574418d5a2c509265d37356ee549"

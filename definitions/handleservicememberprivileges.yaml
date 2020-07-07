@@ -1,0 +1,10 @@
+type: array
+description: A subset of handle service privileges suggested for handle service managers.
+items:
+  type: string
+  enum:
+    - handle_service_view
+    - handle_service_register_handle
+example: [
+  handle_service_view, handle_service_register_handle
+]

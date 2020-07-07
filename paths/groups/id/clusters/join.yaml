@@ -1,0 +1,69 @@
+post:
+  operationId: group_join_cluster
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_cluster
+    aspect: join
+  x-onedata-auth-hint: ?AS_GROUP(?BINDING(id))
+  summary: Join group to a cluster
+  x-bash-codegen-description: |
+    Join an existing cluster using an inivitation token.
+  description: |
+    Join an existing cluster using an inivitation token.
+
+    ***Example cURL requests***
+
+    **Join group to an existing cluster**
+    ```bash
+    curl -u admin:password -H "Content-type: application/json" -X POST \
+    -d '{ "token" : "MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcmLciFsOgyUkPI3f02le6PM01IX8go" }'  \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/clusters/join
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the joined cluster in form
+        https://$HOST/api/onezone/v3/groups/$GROUP_ID/clusters/{id}
+        is returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the joined cluster.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: clusterinvitetoken
+    in: body
+    description: Token for joining a cluster.
+    schema:
+      $ref: '#/definitions/ClusterInviteToken'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli groupJoinCluster id=f8d843beda24e54545455ecc0f4b8886 token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

@@ -1,0 +1,71 @@
+post:
+  # @TODO VFS-5846 DEPRECATED
+  deprecated: true
+  operationId: verify_provider_identity
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    aspect: verify_provider_identity
+  summary: Verify the identity of given provider
+  x-bash-codegen-description: |
+    Verifies the identity of given provider based on its identity token.
+
+    This operation has public access.
+  description: |
+    Verifies the identity of given provider based on its identity token.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Check provider IP**
+    ```bash
+    curl -H "X-Auth-Token: $TOKEN" -H "Content-type: application/json" \
+    -d '{"providerId": "f3a3fbcc6e85e1b7829e4901a8e1809", "token": "JKAxNWxvY2F0aW9uIG9uZXp..."}' \
+    -X POST https://onezone.example.com/api/v3/onezone/provider/public/verify_provider_identity
+    ```
+  produces:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The identity token is valid for this provider.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: data
+    in: body
+    description: Identity parameters
+    schema:
+      type: object
+      properties:
+        providerId:
+          type: string
+          description: Provider Id.
+        token:
+          type: string
+          description: Provider identity token.
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli verifyProviderIdentity providerId==\"dqs1ew2afn9q28rnweu8fb23r9jqwtfg\" token==\"JKAxNWxvY2F0aW9uIG9uZXp...\" "

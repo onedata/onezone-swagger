@@ -1,0 +1,73 @@
+get:
+  operationId: list_handleservice_handles
+  tags:
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: handles
+  x-onedata-permissions:
+    - handle_service_list_handles
+    - oz_handle_services_list_relationships
+  summary: List handle service handles
+  x-bash-codegen-description: |
+    Returns the list of Ids of all handles registered by handle service.
+
+    This operation requires `handle_service_list_handles` privilege
+    or `oz_handle_services_list_relationships` admin privilege.
+  description: |
+    Returns the list of Ids of all handles registered by handle service.
+
+    This operation requires `handle_service_list_handles` privilege
+    or `oz_handle_services_list_relationships` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get handle services handles**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handle_services/13c6bf68ed88dd01f396571f976b148d/handles
+
+    {
+      "handles": [
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of handle identifiers (Onedata internal GUIDs).
+      schema:
+        $ref: '#/definitions/Handles'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Handle service Id.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHandleServicesHandles id=33f5e5925f6ec7ddf8f68516b2980fdb"

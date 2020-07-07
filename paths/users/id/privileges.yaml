@@ -1,0 +1,234 @@
+get:
+  operationId: list_user_admin_privileges
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
+  summary: List user admin privileges
+  x-bash-codegen-description: |
+    Returns the list of user's (`{id}`) admin privileges in Onezone.
+
+    This operation requires `oz_view_privileges` admin privilege.
+  description: |
+    Returns the list of user's (`{id}`) admin privileges in Onezone.
+
+    This operation requires `oz_view_privileges` admin privilege.
+
+    ***Example cURL requests***
+
+    **List user's admin privileges in Onezone**
+    ```bash
+    curl -u username:password -X GET  \
+    https://$HOST/api/v3/onezone/users/$USER_ID/privileges
+
+    {
+      "privileges": [
+        "oz_view_privileges",
+        "oz_users_list",
+        "oz_users_view",
+        "oz_groups_list",
+        "oz_groups_view",
+        "oz_spaces_list",
+        "oz_spaces_view",
+        "oz_shares_list",
+        "oz_shares_view",
+        "oz_providers_list",
+        "oz_providers_view",
+        "oz_handle_services_list",
+        "oz_handle_services_view",
+        "oz_handles_list",
+        "oz_handles_view"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of user's admin privileges in Onezone.
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/AdminPrivileges'
+        example:
+          privileges:
+          - oz_view_privileges
+          - oz_users_list
+          - oz_users_view
+          - oz_groups_list
+          - oz_groups_view
+          - oz_spaces_list
+          - oz_spaces_view
+          - oz_shares_list
+          - oz_shares_view
+          - oz_providers_list
+          - oz_providers_view
+          - oz_handle_services_list
+          - oz_handle_services_view
+          - oz_handles_list
+          - oz_handles_view
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listUserAdminPrivileges id=f1c8b1a37aa7447b22eb65a742d40524"
+
+
+patch:
+  operationId: update_user_admin_privileges
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
+  summary: Update user's admin privileges
+  x-bash-codegen-description: |
+    Updates user's (`{id}`) admin privileges in Onezone.
+
+    This operation requires `oz_set_privileges` admin privilege.
+  description: |
+    Updates user's (`{id}`) admin privileges in Onezone.
+
+    This operation requires `oz_set_privileges` admin privilege.
+
+    ***Example cURL requests***
+
+    **Updates user's admin privileges in Onezone**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" -X PATCH \
+    -d '{"grant": ["oz_spaces_list"], "revoke": ["oz_groups_update"]}' \
+    https://$HOST/api/v3/onezone/users/$USER_ID/privileges
+    ```
+  responses:
+    '204':
+      description: The privileges have been updated.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: User admin privileges.
+    schema:
+      $ref: '#/definitions/AdminPrivilegesUpdate'
+  x-code-samples:
+  - lang: Shell
+    source: "echo '[\"oz_spaces_list\", \"oz_groups_update\"]' | onezone-rest-cli updateUserAdminPrivileges id=f1c8b1a37aa7447b22eb65a742d40524 -"
+
+
+delete:
+  operationId: remove_user_admin_privileges
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: oz_privileges
+  x-onedata-permissions:
+    - oz_set_privileges
+  summary: Remove user's admin privileges
+  x-bash-codegen-description: |
+    Removes all user's (`{id}`) admin privileges in Onezone.
+
+    This operation requires `oz_set_privileges` admin privilege.
+  description: |
+    Removes all user's (`{id}`) admin privileges in Onezone.
+
+    This operation requires `oz_set_privileges` admin privilege.
+
+    The `grant` field specifies a list of privileges to be granted. The `revoke`
+    field specifies a list of privileges to be revoked. At least one of those
+    fields must be given.
+
+    ***Example cURL requests***
+
+    **Removes all user's admin privileges in Onezone**
+    ```bash
+    curl -u username:password -X DELETE  \
+    https://$HOST/api/v3/onezone/users/$USER_ID/privileges
+    ```
+  responses:
+    '204':
+      description: The user admin privileges have been removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeUserAdminPrivileges id=f1c8b1a37aa7447b22eb65a742d40524"

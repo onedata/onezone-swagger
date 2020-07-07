@@ -1,0 +1,92 @@
+get:
+  operationId: list_effective_group_handle_privileges
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(id)
+    aspect: "{eff_group_privileges, ?BINDING(gid)}"
+  x-onedata-permissions:
+    - handle_view
+    - oz_handles_view_privileges
+  summary: List effective group's handle privileges
+  x-bash-codegen-description: |
+    Returns the list of effective group's (`{gid}`) privileges in a handle (`{id}`).
+
+    Effective privileges are a sum of group's privileges and privileges
+    inherited from its parent group memberships.
+
+    This operation requires `handle_view` privilege
+    or `oz_handles_view_privileges` admin privilege.
+  description: |
+    Returns the list of effective group's (`{gid}`) privileges in a handle (`{id}`).
+
+    Effective privileges are a sum of group's privileges and privileges
+    inherited from its parent group memberships.
+
+    This operation requires `handle_view` privilege
+    or `oz_handles_view_privileges` admin privilege.
+
+    ***Example cURL requests***
+
+    **List effective group's privileges in a handle**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/handles/$HANDLE_ID/effective_groups/$GROUP_ID/privileges
+
+    {
+      "privileges": [
+        "handle_delete",
+        "handle_update",
+        "handle_view"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of effective group's privileges in the handle.
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/HandleServicePrivileges'
+        example:
+          privileges:
+            - handle_delete
+            - handle_update
+            - handle_view
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Handle Id.
+      required: true
+      type: string
+    - name: gid
+      in: path
+      description: Group Id.
+      required: true
+      type: string
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listEffectiveGroupHandlePrivileges id=45bf25a5cb16e12a9faa6d088a2c7088 gid=c44d4ab910245342be5a0a89fdff095e"

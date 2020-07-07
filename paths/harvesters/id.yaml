@@ -1,0 +1,213 @@
+get:
+  operationId: get_harvester
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_harvesters_view
+  summary: Get harvester details
+  x-bash-codegen-description: |
+    Returns the details about a specific harvester.
+
+    If called by user who is not member of the harvester, requires `oz_harvesters_view`
+    admin privilege.
+  description: |
+    Returns the details about a specific harvester.
+
+    If called by user who is not member of the harvester, requires `oz_harvesters_view`
+    admin privilege.
+
+    ***Example cURL requests***
+
+    **Get harvester details**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID
+
+    {
+      "harvesterId": "2c0160248ba9a66f45da751ca459535a",
+      "name": "new_harvester1",
+      "public" : true,
+      "plugin" : "elasticsearch_plugin",
+      "endpoint" : "https://example.elastic.com",
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a harvester.
+      schema:
+        $ref: '#/definitions/Harvester'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getHarvester id=b752ceafabb662b4e5728b2ded25cdd1"
+
+
+patch:
+  operationId: modify_harvester
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - harvester_update
+    - oz_harvesters_update
+  summary: Modify harvester details
+  x-bash-codegen-description: |
+    Updates the details about a harvester.
+
+    This operation requires `harvester_update` privilege
+    or `oz_harvesters_update` admin privilege.
+  description: |
+    Updates the details about a harvester.
+
+    This operation requires `harvester_update` privilege
+    or `oz_harvesters_update` admin privilege.
+
+    ***Example cURL requests***
+
+    **Change harvester name**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" \
+    -X PATCH -d '{"name": "new_harvester12"}' \
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Harvester has been updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Harvester parameters
+    schema:
+      $ref: '#/definitions/HarvesterUpdateRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifyHarvester id=b752ceafabb662b4e5728b2ded25cdd1 name==\"New Harvester Name\""
+
+
+delete:
+  operationId: remove_harvester
+  tags:
+    - Harvester
+  x-onedata-gri:
+    type: od_harvester
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - harvester_delete
+    - oz_harvesters_delete
+  summary: Remove harvester
+  x-bash-codegen-description: |
+    Removes a specific harvester. **It will be no longer possible to access harvested data through onezone service**.
+
+    This operation requires `harvester_delete` privilege
+    or `oz_harvesters_delete` admin privilege.
+  description: |
+    Removes a specific harvester. **It will be no longer possible to access harvested data through onezone service**.\
+    If you wish to remove harvested metadata see: 
+    [Remove harvested data](#operation/remove_harvested_data)
+
+    This operation requires `harvester_delete` privilege
+    or `oz_harvesters_delete` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove harvester**
+    ```bash
+    curl -u admin:password -X DELETE \
+    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID
+    ```
+  responses:
+    '204':
+      description: The harvester was removed.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Harvester Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeHarvester id=b752ceafabb662b4e5728b2ded25cdd1"

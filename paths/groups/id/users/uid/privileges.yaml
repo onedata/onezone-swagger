@@ -1,0 +1,174 @@
+get:
+  operationId: list_user_group_privileges
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - group_view_privileges
+    - oz_groups_view_privileges
+  summary: List user's group privileges
+  x-bash-codegen-description: |
+    Returns the list of user's (`{uid}`) privileges in a group (`{id}`).
+
+    This operation requires `group_view_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view_privileges` privilege is required.
+  description: |
+    Returns the list of user's (`{uid}`) privileges in a group (`{id}`).
+
+    This operation requires `group_view_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_view_privileges` privilege is required.
+
+    ***Example cURL requests***
+
+    **List user's privileges in a group**
+    ```bash
+    curl -u username:password -X GET
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID/privileges
+
+    {
+      "privileges": [
+        "group_view",
+        "group_update",
+        "group_delete",
+        "group_view_privileges",
+        "group_set_privileges"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of user's privileges in the group.
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/GroupPrivileges'
+        example:
+          privileges:
+          - group_view
+          - group_update
+          - group_delete
+          - group_view_privileges
+          - group_set_privileges
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listUserGroupPrivileges id=a4d3bc73aada63052310652d421609f1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
+
+
+patch:
+  operationId: update_user_group_privileges
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{user_privileges, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - group_set_privileges
+    - oz_groups_set_privileges
+  summary: Update user's group privileges
+  x-bash-codegen-description: |
+    Updates user's (`{uid}`) privileges in a group (`{id}`).
+
+    This operation requires `group_set_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_set_privileges` privilege is required.
+  description: |
+    Updates user's (`{uid}`) privileges in a group (`{id}`).
+
+    This operation requires `group_set_privileges` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_set_privileges` privilege is required.
+
+    The `grant` field specifies a list of privileges to be granted. The `revoke`
+    field specifies a list of privileges to be revoked. At least one of those
+    fields must be given.
+
+    ***Example cURL requests***
+
+    **Update user's privileges in a group**
+    ```bash
+    curl -H "Content-type: application/json" -X PATCH \
+    -d '{"grant": ["group_view", "group_update"], "revoke": ["group_delete"]}' \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID/privileges
+    ```
+  responses:
+    '204':
+      description: The privileges have been updated.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Group privileges update request.
+    schema:
+      $ref: '#/definitions/GroupPrivilegesUpdate'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "echo '{\"grant\": [\"group_view\", \"group_update\"], \"revoke\": [\"group_delete\"]}' | onezone-rest-cli updateUserGroupPrivileges id=a4d3bc73aada63052310652d421609f1 uid=a5b469a2b0516b662a49da74d6d7d7bc -"

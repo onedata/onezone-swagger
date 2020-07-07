@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of all groups in the system.
 
-    Requires `oz_groups_list` administrator privilege.
+    Requires `oz_groups_list` admin privilege.
   description: |
     Returns the list of all groups in the system.
 
-    Requires `oz_groups_list` administrator privilege.
+    Requires `oz_groups_list` admin privilege.
 
     ***Example cURL requests***
 
@@ -28,7 +28,7 @@ get:
   responses:
     '200':
       description: >
-        The list of group ID's created within the Onezone service.
+        The list of group Ids created within the Onezone service.
       schema:
         $ref: '#/definitions/Groups'
     '400':
@@ -63,31 +63,36 @@ post:
   x-onedata-gri:
     type: od_group
     aspect: instance
-  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  x-onedata-permissions:
+    - oz_groups_create
   summary: Create new group
   x-bash-codegen-description: |
     Creates a new group.
 
-    This operation does not require any specific privileges.
+    This operation requires `oz_groups_create` privilege.
   description: |
     Creates a new group.
 
-    This operation does require any specific privileges.
+    This operation requires `oz_groups_create` privilege.  
+    
+    See also:  
+    [Create a new group for the current user](#operation/create_group_for_user)  
+    [Create a new parent group for given group](#operation/create_parent_group)  
 
     ***Example cURL requests***
 
     **Create new group of type `team`**
     ```bash
-     curl -u username:password  -H "Content-type: application/json" \
+     curl -u username:password -H "Content-type: application/json" \
      -X POST -d '{ "name":"new_group" , "type":"team" }' \
-     https://$HOST/api/v3/onezone/groups/
+     https://$HOST/api/v3/onezone/groups/$GROUP_ID
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the group created in form https://onezone.domain/api/onezone/v3/user/groups/{id} is
+        URI of the group created in form https://$HOST/api/onezone/v3/groups/{id} is
         returned in the response `Location` header.
       headers:
         Location:

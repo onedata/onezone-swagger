@@ -1,0 +1,99 @@
+get:
+  operationId: get_space_share
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: private
+  x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
+  x-onedata-permissions:
+    - space_view
+    - oz_shares_view
+  summary: Get space share
+  x-bash-codegen-description: |
+    Returns the details about a share from specific space.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    and modifying share details.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_shares_view` admin privilege.
+  description: |
+    Returns the details about a share from specific space.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    and modifying share details.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_shares_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space share**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" -X GET \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/shares/$SHARE_ID
+
+    {
+      "shareId": "1f4b762b1380946e73aeca574c77f14c",
+      "name": "Experiment XYZ",
+      "description": "# Experiment XYZ\nThis collection contains results from Experiment XYZ.",
+      "publicUrl": "https://onedata.org/shares/1f4b762b1380946e73aeca574c77f14c",
+      "fileType": "dir",
+      "rootFileId": "00000000006CB663736861726547756964233339643236366165646365\
+      6266666164353939663761373734313235363166342336656331613534313362366634653\
+      2623031613563383561386664373937653223316634623736326231333830393436653733\
+      6165636135373463373766313463",
+      "spaceId": "6ec1a5413b6f4e2b01a5c85a8fd797e2",
+      "handleId" "doi:10.15911/MyShares.726855"
+    }
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The shares was successfully created.
+      schema:
+        $ref: '#/definitions/Share'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: sid
+    in: path
+    description: Share Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceShare id=b752ceafabb662b4e5728b2ded25cdd1 sid=b45d02d01066b8794ad7f927becf4bde"

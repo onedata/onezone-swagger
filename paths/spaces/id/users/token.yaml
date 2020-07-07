@@ -1,0 +1,85 @@
+post:
+  deprecated: true
+  operationId: create_space_user_invite_token
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: invite_user_token
+  x-onedata-permissions:
+    - space_add_user
+    - oz_spaces_add_relationships
+  summary: Create space user invite token
+  x-bash-codegen-description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_named_token_for_current_user)
+    * [create temporary token](#operation/create_temporary_token_for_current_user)
+
+    Creates a token allowing new user to join a space.
+
+    This operation requires `space_add_user` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_add_relationships` privilege is required.
+  description: |
+    This enpoint is deprecated and will be removed in future release,
+    please use one of:
+    * [create named token](#operation/create_named_token_for_current_user)
+    * [create temporary token](#operation/create_temporary_token_for_current_user)
+
+    Creates a token allowing new user to join a space.
+
+    This operation requires `space_add_user` privilege.
+    For administrators who do not have to be members of this space,
+    `oz_spaces_add_relationships` privilege is required.
+
+    ***Example cURL requests***
+
+    **Create space user invite token**
+    ```bash
+    curl -u username:password -X POST \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/token
+
+    {
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIG00zcEJ2UDVuOHhkQUNhdk9hbTlyNnIwNldPSzVhc"
+    }
+    ```
+  produces:
+    - application/json
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: The token for joining a specific group.
+      schema:
+        $ref: '#/definitions/SpaceInviteToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli createSpaceUserInviteToken id=b752ceafabb662b4e5728b2ded25cdd1"

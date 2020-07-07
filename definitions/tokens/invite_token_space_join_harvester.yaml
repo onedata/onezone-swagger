@@ -1,0 +1,20 @@
+allOf:
+- $ref: '#/definitions/InviteToken'
+- type: object
+  properties:
+    inviteType:
+      type: string
+      enum: [spaceJoinHarvester]
+      x-discriminator-value: "spaceJoinHarvester"
+      description: >
+        Invite token type - invitation for a space to join a harvester
+        (become a source of metadata).
+    harvesterId:
+      type: string
+      description: Id of the invitation target harvester
+required:
+  - inviteType
+  - harvesterId
+example:
+  inviteType: spaceJoinHarvester
+  harvesterId: 8c64eec93fac95822e90dd144b5ea0a5

@@ -1,0 +1,28 @@
+type: object
+description: Verify identity token request.
+properties:
+  token:
+    $ref: '#/definitions/SerializedToken'
+  peerIp:
+    type: string
+    description: The IP address of the token bearer.
+    example: 38.190.241.12
+  consumerToken:
+    $ref: '#/definitions/SerializedToken'
+    description: |
+      Identity token of the consumer that wishes to use the token being verified.
+  interface:
+    type: string
+    enum:
+      - rest
+      - oneclient
+      - graphsync
+    description: The interface to which the token bearer has connected as seen by the verifying party.
+
+required:
+  - token
+example:
+  token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
+  peerIp: 38.190.241.12
+  consumerToken: MDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTRsNk5
+  interface: rest

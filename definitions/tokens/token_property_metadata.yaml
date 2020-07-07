@@ -1,0 +1,24 @@
+type: object
+description: Metadata describing the token
+properties:
+  creationTime:
+    type: integer
+    description: >
+      Timestamp in seconds (UNIX epoch) of the token creation
+  usageLimit:
+    type: integer
+    description: >
+      (Invite tokens only) limits how many times the token can be consumed
+  usageCount:
+    type: integer
+    description: >
+      (Invite tokens only) informs how many times the token has been consumed so far
+  privileges:
+    type: array
+    description: >
+      (Invite tokens only) the list of privileges that will be granted to
+      the joining user/group upon token consumption
+    items:
+      type: string
+  custom:
+    $ref: '#/definitions/TokenPropertyCustomMetadata'

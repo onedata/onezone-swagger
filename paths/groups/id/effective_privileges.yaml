@@ -1,0 +1,108 @@
+get:
+  operationId: list_group_effective_admin_privileges
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: eff_oz_privileges
+  x-onedata-permissions:
+    - oz_view_privileges
+  summary: List group's effective admin privileges
+  x-bash-codegen-description: |
+    Returns the list of group's (`{id}`) effective admin privileges in Onezone.
+
+    Effective privileges are a sum of group's privileges and privileges inherited
+    from its parent group memberships.
+
+    This operation requires `oz_view_privileges` admin privilege.
+  description: |
+    Returns the list of group's (`{id}`) effective admin privileges in Onezone.
+
+    Effective privileges are a sum of group's privileges and privileges inherited
+    from its parent group memberships.
+
+    This operation requires `oz_view_privileges` admin privilege.
+
+    ***Example cURL requests***
+
+    **List group's effective admin privileges in Onezone**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_privileges
+
+    {
+      "privileges": [
+        "oz_view_privileges",
+        "oz_users_list",
+        "oz_users_view",
+        "oz_groups_list",
+        "oz_groups_view",
+        "oz_spaces_list",
+        "oz_spaces_view",
+        "oz_shares_list",
+        "oz_shares_view",
+        "oz_providers_list",
+        "oz_providers_view",
+        "oz_handle_services_list",
+        "oz_handle_services_view",
+        "oz_handles_list",
+        "oz_handles_view"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of group's effective admin privileges in Onezone.
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/AdminPrivileges'
+        example:
+          privileges:
+          - oz_view_privileges
+          - oz_users_list
+          - oz_users_view
+          - oz_groups_list
+          - oz_groups_view
+          - oz_spaces_list
+          - oz_spaces_view
+          - oz_shares_list
+          - oz_shares_view
+          - oz_providers_list
+          - oz_providers_view
+          - oz_handle_services_list
+          - oz_handle_services_view
+          - oz_handles_list
+          - oz_handles_view
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listGroupEffectiveAdminPrivileges id=f1c8b1a37aa7447b22eb65a742d40524"

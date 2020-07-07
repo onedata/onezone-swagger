@@ -1,27 +1,29 @@
 type: object
-description: User space parameters.
+description: Space parameters.
 properties:
   spaceId:
     type: string
-    description: Unique ID of the space.
+    description: Unique Id of the space.
   name:
     type: string
     description: The name of the space.
   providers:
     type: object
     description: >
-      The map of providers Ids supporting this space
-      and the size of provisioned storage in bytes.
+      A map of provider Ids supporting this space
+      and corresponding size of provisioned storage in bytes.
     additionalProperties:
       type: integer
       description: |
         Size of storage provisioned for this space by provider.
+
 required:
   - spaceId
   - name
   - providers
 example:
-  spaceId: Xnp1JVpWfL8_stHJgct76AFALjRsI0W3rNs1nfMwqnY
+  spaceId: 2c0160248ba9a66f45da751ca459535a
   name: My Private space
   providers:
-    hxfMCWmquqAIjG1GeG2eZY8qvs8iRIn09HzjCJilnSE: 5368709120
+    296ebe3c20e9666dc489b647f8647f12: 5368709120
+    dcf12429647c204896eebe3b6f686967: 14400000

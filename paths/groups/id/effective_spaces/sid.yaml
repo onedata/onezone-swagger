@@ -1,0 +1,83 @@
+get:
+  operationId: get_effective_group_space
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_spaces_view
+  summary: Get effective group space details
+  x-bash-codegen-description: |
+    Returns information about a specific effective space to which the group has access.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_view` privilege is required.
+  description: |
+    Returns information about a specific effective space to which the group has access.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get group's space details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_spaces/$SPACE_ID
+
+    {
+       "providers" : {
+          "296ebe3c20e9666dc489b647f8647f12" : 5368709120
+       },
+       "spaceId" : "f8d843beda24e54545455ecc0f4b8886",
+       "name" : "Test"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a specific space in a group.
+      schema:
+        $ref: '#/definitions/Space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: sid
+    in: path
+    description: Effective space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveGroupSpace id=a4d3bc73aada63052310652d421609f1 sid=HUUPOMNGzikwiLXHaFYcE8"

@@ -10,19 +10,25 @@ tags:
   - name: Zone
     description: Information about the Onezone service
   - name: User
-    description: User management operations
+    description: User management
   - name: Group
-    description: Group management operations
+    description: Group management
   - name: Space
-    description: Space management operations
+    description: Space management
   - name: Share
-    description: Share management operations
+    description: Share management
   - name: Provider
-    description: Provider management operations
+    description: Provider management
+  - name: Token
+    description: Token (access/invite) management
   - name: Handle
     description: Operations for managing Handle system service and identifier generation.
   - name: Handle Service
-    description: Handle service management operations.
+    description: Handle service management
+  - name: Harvester
+    description: Harvester management
+  - name: Cluster
+    description: Cluster management
 x-tagGroups:
   - name: Service information
     tags:
@@ -42,19 +48,36 @@ x-tagGroups:
   - name: Provider management
     tags:
       - Provider
+  - name: Token management
+    tags:
+    - Token
   - name: Handle (DOI, PID) management
     tags:
       - Handle
   - name: Handle service management
     tags:
       - Handle Service
+  - name: Harvester management
+    tags:
+      - Harvester
+  - name: Cluster management
+    tags:
+    - Cluster
 securityDefinitions:
-  api_key:
+  # api_key1 is used by Bash generated clients as default
+  # header for sending api key
+  basic:
+    type: basic
+  api_key1:
     type: apiKey
     name: X-Auth-Token
     in: header
-  basic:
-    type: basic
+  api_key2:
+    type: apiKey
+    # When using this method, the token must be prefixed with 'Bearer '
+    name: Authorization
+    in: header
 security:
   - basic: []
-  - api_key: []
+  - api_key1: []
+  - api_key2: []

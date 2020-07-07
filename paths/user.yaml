@@ -11,24 +11,25 @@ get:
   x-bash-codegen-description: |
     Returns details about currently authenticated user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Returns details about currently authenticated user.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
     **Get user details**
     ```bash
-    curl -u username:password -X GET https://$HOST/api/v3/onezone/user
+    curl -u admin:password -X GET https://$HOST/api/v3/onezone/user
 
     {
-      "userId": "lb0NvUXIVguzjQ3dBOXAyd1c61fWKB5dKJDQ6YvB7a0",
-      "alias": "admin",
-      "name": "admin",
+      "userId": "a5b469a2b0516b662a49da74d6d7d7bc",
+      "fullName": "Mr Admin",
+      "username": "admin",
       "linkedAccounts": [],
-      "emails": []
+      "emails": [],
+      "basicAuthEnabled": false
     }
     ```
   produces:
@@ -71,18 +72,18 @@ patch:
   x-bash-codegen-description: |
     Modifies user account details based on information provided in the request body.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
   description: |
     Modifies user account details based on information provided in the request body.
 
-    This operation can be invoked on behalf of current user only.
+    This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Change user name**
+    **Change user fullName**
     ```bash
-    curl -u username:password  -H "Content-type: application/json" -X PATCH  \
-    -d '{"name": "new_name"}' \
+    curl -u username:password -H "Content-type: application/json" -X PATCH  \
+    -d '{"fullName": "John Doe"}' \
     https://$HOST/api/v3/onezone/user
     ```
   consumes:
@@ -119,7 +120,7 @@ patch:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli modifyCurrentUser name==new_name"
+    source: "onezone-rest-cli modifyCurrentUser fullName==new_name"
 
 
 delete:
@@ -145,7 +146,7 @@ delete:
     ```
   responses:
     '204':
-      description: User will be removed.
+      description: User was removed.
     '400':
       description: Invalid request.
       schema:

@@ -1,10 +1,22 @@
 type: object
-description: Spaces privileges update request.
-allOf:
-  - $ref: '#/definitions/PrivilegesUpdateOperation'
-  - $ref: '#/definitions/SpacePrivileges'
+description: Space privileges update request.
+properties:
+  grant:
+    $ref: '#/definitions/SpacePrivileges'
+  revoke:
+    $ref: '#/definitions/SpacePrivileges'
+
 example:
-  operation: update
-  privileges:
-        - space_invite_provider
-        - space_invite_user
+  grant:
+    - space_view
+    - space_update
+    - space_delete
+    - space_view_privileges
+    - space_set_privileges
+  revoke:
+    - space_read_data
+    - space_write_data
+    - space_manage_shares
+    - space_manage_views
+    - space_query_views
+    - space_view_statistics

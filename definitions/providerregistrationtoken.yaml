@@ -1,0 +1,10 @@
+type: object
+description: Provider registration token.
+properties:
+  token:
+    type: string
+    description: The token for registering a new provider.
+required:
+  - token
+example:
+  token: JKAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTRsNk1CVHZTU3Z0OThwcHA2OTQ4czhRN1NPawowMDFhY2lkIHRpbWUgPCAxNDk2MTQwMTQ0CjAwMmZzaWduYXR1cmUg88OI1d24c36707d99197c6cd995810a43aca

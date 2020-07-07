@@ -1,0 +1,153 @@
+get:
+  operationId: get_group_space
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(sid)
+    aspect: instance
+    scope: protected
+  x-onedata-auth-hint: ?THROUGH_GROUP(?BINDING(id))
+  x-onedata-permissions:
+    - group_view
+    - oz_spaces_view
+  summary: Get group's space details
+  x-bash-codegen-description: |
+    Returns information about a specific space to which the group has access.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_view` privilege is required.
+  description: |
+    Returns information about a specific space to which the group has access.
+
+    This operation requires `group_view` privilege.
+    For administrator who does not belong to this group
+    `oz_spaces_view` privilege is required.
+
+    ***Example cURL requests***
+
+    **Get group's space details**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/spaces/$SPACE_ID
+
+    {
+      "spaceId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
+      "name": "Personal space",
+      "providers": {
+        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
+      }
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a specific space in a group.
+      schema:
+        $ref: '#/definitions/Space'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getGroupSpace id=a4d3bc73aada63052310652d421609f1 sid=HUUPOMNGzikwiLXHaFYcE8"
+
+
+delete:
+  operationId: remove_group_from_space
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{space, ?BINDING(sid)}"
+  x-onedata-permissions:
+    - group_leave_space
+    - oz_spaces_remove_relationships
+    - oz_groups_remove_relationships
+  summary: Remove group from space
+  x-bash-codegen-description: |
+    Removes the group {id} from space {sid} (the group will no longer have access to space).
+
+    This operation requires `group_leave_space` privilege.
+  description: |
+    Removes the group {id} from space {sid} (the group will no longer have access to space).
+
+    This operation requires `group_leave_space` privilege.
+    For administrator who does not belong to this group
+    `oz_groups_remove_relationships` and `oz_spaces_remove_relationships` privileges are required.
+
+    ***Example cURL requests***
+
+    **Remove space from group**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/spaces/$SPACE_ID
+    ```
+  responses:
+    '204':
+      description: A group was removed from the space.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: sid
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeGroupFromSpace id=a4d3bc73aada63052310652d421609f1 sid=HUUPOMNGzikwiLXHaFYcE8"

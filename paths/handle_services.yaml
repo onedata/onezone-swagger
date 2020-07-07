@@ -11,11 +11,11 @@ get:
   x-bash-codegen-description: |
     Returns the list of registered handle services.
 
-    This operation requires `oz_handle_services_list` administrator privilege.
+    This operation requires `oz_handle_services_list` admin privilege.
   description: |
     Returns the list of registered handle services.
 
-    This operation requires `oz_handle_services_list` administrator privilege.
+    This operation requires `oz_handle_services_list` admin privilege.
 
 
     ***Example cURL requests***
@@ -26,8 +26,8 @@ get:
 
     {
       "handle_services": [
-        "SADHLKJhlkASHDLAKSHDLKJHJjLH",
-        "LAKSHDLKJHJjLHSADHLKJhlkASHD"
+        "0fe7c8a20ffdf07480c46f084bc3b8d5",
+        "302da048de67e2ea05f0af1d0fe7c8a2"
       ]
     }
     ```
@@ -70,24 +70,27 @@ post:
   x-onedata-gri:
     type: od_handle_service
     aspect: instance
-  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - oz_handle_services_create
   summary: Add handle service
   x-bash-codegen-description: |
     Allows to register a new handle service.
 
-    This operation requires `oz_handle_services_create` administrator privilege.
+    This operation requires `oz_handle_services_create` admin privilege.
   description: |
     Allows to register a new handle service.
 
-    This operation requires `oz_handle_services_create` administrator privilege.
+    This operation requires `oz_handle_services_create` admin privilege.
+    
+    See also:  
+    [Create a new handle service for the current user](#operation/add_user_handle_service)  
+    [Create a new handle service for given group](#operation/add_group_handle_service)  
 
     ***Example cURL requests***
 
     **Add handle services**
     ```bash
-    curl -u username:password -X POST  -H "Content-type: application/json" \
+    curl -u username:password -X POST -H "Content-type: application/json" \
     -d '{ ... }' https://$HOST/api/v3/handle_services
     ```
   consumes:
@@ -95,7 +98,7 @@ post:
   responses:
     '201':
       description: >
-        URI of the created handle service in form https://onezone.domain/api/onezone/v3/handle_services/{id} is
+        URI of the created handle service in form https://$HOST/api/onezone/v3/handle_services/{id} is
         returned in the response `Location` header.
       headers:
         Location:

@@ -1,36 +1,37 @@
-type: object
-description: The list of group privileges.
-properties:
-  privileges:
-    type: array
-    items:
-      type: string
-      enum:
-        - group_create_space
-        - group_delete
-        - group_invite_group
-        - group_invite_user
-        - group_join_group
-        - group_join_space
-        - group_leave_space
-        - group_remove_group
-        - group_remove_user
-        - group_set_privileges
-        - group_update
-        - group_view
-required:
-  - privileges
-example:
-  privileges:
-    - group_create_space
-    - group_delete
-    - group_invite_group
-    - group_invite_user
-    - group_join_group
-    - group_join_space
-    - group_leave_space
-    - group_remove_group
-    - group_remove_user
-    - group_set_privileges
-    - group_update
+type: array
+description: A list of privileges in the group.
+items:
+  type: string
+  enum:
     - group_view
+    - group_update
+    - group_delete
+    - group_view_privileges
+    - group_set_privileges
+
+    - group_add_parent
+    - group_leave_parent
+
+    - group_add_child
+    - group_remove_child
+
+    - group_add_user
+    - group_remove_user
+
+    - group_add_space
+    - group_leave_space
+
+    - group_create_handle_service
+    - group_leave_handle_service
+
+    - group_create_handle
+    - group_leave_handle
+
+    - group_add_harvester
+    - group_remove_harvester
+example: [
+  group_view, group_update, group_delete, group_view_privileges, group_set_privileges, group_add_parent,
+  group_leave_parent, group_add_child, group_remove_child, group_add_user, group_remove_user, group_add_space,
+  group_leave_space, group_create_handle_service, group_leave_handle_service, group_create_handle,
+  group_leave_handle, group_add_harvester, group_remove_harvester
+]

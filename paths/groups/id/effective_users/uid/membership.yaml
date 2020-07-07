@@ -1,0 +1,89 @@
+get:
+  operationId: get_effective_user_group_membership_intermediaries
+  tags:
+    - Group
+  x-onedata-gri:
+    type: od_group
+    id: ?BINDING(id)
+    aspect: "{eff_user_membership, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - group_view
+    - oz_groups_view
+  summary: Get effective user's group membership intermediaries
+  x-bash-codegen-description: |
+    Returns the effective user's (`{uid}`) group membership intermediaries -
+    entities from which the user inherits access to the group (`{id}`).
+    Special keyword `"self"` in entity id indicates that the user (`{uid}`)
+    has a direct access to the group (`{id}`).
+
+    This operation requires any of the following authentication:
+    * as user (`{uid}`) who is an effective member of the group (`{id}`),
+    * as user who has `group_view` privilege in the group (`{id}`),
+    * as user who has `oz_groups_view` admin privilege.
+  description: |
+    Returns the effective user's (`{uid}`) group membership intermediaries -
+    entities from which the user inherits access to the group (`{id}`).
+    Special keyword `"self"` in entity id indicates that the user (`{uid}`)
+    has a direct access to the group (`{id}`).
+
+    This operation requires any of the following authentication:
+    * as user (`{uid}`) who is an effective member of the group (`{id}`),
+    * as user who has `group_view` privilege in the group (`{id}`),
+    * as user who has `oz_groups_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get effective user's group membership intermediaries**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_users/$USER_ID/membership
+
+    {
+      "intermediaries": [
+        {"type": "group", "id": "95527367966a95639e93a88718450b36"},
+        {"type": "group", "id": "2ef3de15fd49b3d6420f58428a6ad219"},
+        {"type": "group", "id": "self"}
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of membership intermediaries.
+      schema:
+        $ref: '#/definitions/MembershipIntermediaries'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Group Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getEffectiveUserGroupMembershipIntermediaries id=a4d3bc73aada63052310652d421609f1 uid=a5b469a2b0516b662a49da74d6d7d7bc"

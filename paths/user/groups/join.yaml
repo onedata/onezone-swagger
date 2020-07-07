@@ -1,0 +1,68 @@
+post:
+  operationId: join_group
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_group
+    aspect: join
+  x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
+  summary: Join group
+  x-bash-codegen-description: |
+    Join existing group using an invitation token.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Join existing group using an invitation token.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Join group**
+
+    ```bash
+    curl -u username:password -H "Content-type: application/json" \
+    -X POST -d '{ "token": "9ef3973a007d616cb6b3e95829dec18a" }' \
+    https://$HOST/api/v3/onezone/user/groups/join
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: >
+        URI of the joined group in form https://$HOST/api/onezone/v3/user/groups/{id} is
+        returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the joined group.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: groupinvitetoken
+    in: body
+    description: Token for joining a group.
+    schema:
+      $ref: '#/definitions/GroupInviteToken'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli joinGroup token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

@@ -1,0 +1,68 @@
+get:
+  operationId: get_user_spaces_in_effective_provider
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(pid)
+    aspect: "{user_spaces, ?CLIENT_ID}"
+    scope: private
+  summary: Get user's spaces that are supported by given effective provider
+  x-bash-codegen-description: |
+    Returns the list of user's spaces that are supported by given effective provider.
+
+    This operation can be invoked on behalf of the current user only.
+  description: |
+    Returns the list of user's spaces that are supported by given effective provider.
+
+    This operation can be invoked on behalf of the current user only.
+
+    ***Example cURL requests***
+
+    **Get user's spaces supported by effective provider**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/user/effective_providers/$PROVIDER_ID/spaces
+
+    {
+      "spaces": [
+        "6825604b0eb6a47b8b7a04b6369eb24d"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the list of user's spaces that are supported by given effective provider.
+      schema:
+        $ref: '#/definitions/Spaces'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: pid
+    in: path
+    description: Provider Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getUserSpacesInEffectiveProvider pid=95b663a6467c72ab1256865efef9e387"

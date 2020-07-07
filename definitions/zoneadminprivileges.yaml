@@ -1,0 +1,136 @@
+type: array
+description: A list of admin privileges in Onezone.
+items:
+  type: string
+  enum:
+    # OZ privileges to administrate admin privileges of users or groups in Onezone
+    - oz_view_privileges
+    - oz_set_privileges
+
+    # Privileges to administrate users in OZ
+    - oz_users_list
+    - oz_users_view
+    - oz_users_create
+    - oz_users_manage_passwords
+    - oz_users_update
+    - oz_users_delete
+    - oz_users_list_relationships
+    - oz_users_add_relationships
+    - oz_users_remove_relationships
+
+    # Privileges to administrate groups in OZ
+    - oz_groups_list
+    - oz_groups_view
+    - oz_groups_create
+    - oz_groups_update
+    - oz_groups_delete
+    - oz_groups_view_privileges
+    - oz_groups_set_privileges
+    - oz_groups_list_relationships
+    - oz_groups_add_relationships
+    - oz_groups_remove_relationships
+
+    # Privileges to administrate spaces in OZ
+    - oz_spaces_list
+    - oz_spaces_view
+    - oz_spaces_create
+    - oz_spaces_update
+    - oz_spaces_delete
+    - oz_spaces_view_privileges
+    - oz_spaces_set_privileges
+    - oz_spaces_list_relationships
+    - oz_spaces_add_relationships
+    - oz_spaces_remove_relationships
+
+    # Privileges to administrate shares in OZ
+    - oz_shares_list
+    - oz_shares_view
+    - oz_shares_create
+    - oz_shares_update
+    - oz_shares_delete
+
+    # Privileges to administrate providers in OZ
+    - oz_providers_list
+    - oz_providers_view
+    - oz_providers_update
+    - oz_providers_delete
+    - oz_providers_list_relationships
+    - oz_providers_invite
+
+    # Privileges to administrate handle services in OZ
+    - oz_handle_services_list
+    - oz_handle_services_view
+    - oz_handle_services_create
+    - oz_handle_services_update
+    - oz_handle_services_delete
+    - oz_handle_services_view_privileges
+    - oz_handle_services_set_privileges
+    - oz_handle_services_list_relationships
+    - oz_handle_services_add_relationships
+    - oz_handle_services_remove_relationships
+
+    # Privileges to administrate handles in OZ
+    - oz_handles_list
+    - oz_handles_view
+    - oz_handles_create
+    - oz_handles_update
+    - oz_handles_delete
+    - oz_handles_view_privileges
+    - oz_handles_set_privileges
+    - oz_handles_list_relationships
+    - oz_handles_add_relationships
+    - oz_handles_remove_relationships
+
+    # Privileges to administrate harvesters in OZ
+    - oz_harvesters_list
+    - oz_harvesters_view
+    - oz_harvesters_create
+    - oz_harvesters_update
+    - oz_harvesters_delete
+    - oz_harvesters_view_privileges
+    - oz_harvesters_set_privileges
+    - oz_harvesters_list_relationships
+    - oz_harvesters_add_relationships
+    - oz_harvesters_remove_relationships
+
+    # Privileges to administrate clusters in OZ
+    - oz_clusters_list
+    - oz_clusters_view
+    - oz_clusters_update
+    - oz_clusters_view_privileges
+    - oz_clusters_set_privileges
+    - oz_clusters_list_relationships
+    - oz_clusters_add_relationships
+    - oz_clusters_remove_relationships
+example: [
+   oz_view_privileges, oz_set_privileges,
+
+   oz_users_list, oz_users_view, oz_users_create, oz_users_manage_passwords, oz_users_update,
+   oz_users_delete, oz_users_list_relationships, oz_users_add_relationships, oz_users_remove_relationships,
+
+   oz_groups_list, oz_groups_view, oz_groups_create, oz_groups_update, oz_groups_delete, oz_groups_view_privileges,
+   oz_groups_set_privileges, oz_groups_list_relationships, oz_groups_add_relationships, oz_groups_remove_relationships,
+
+   oz_spaces_list, oz_spaces_view, oz_spaces_create, oz_spaces_update, oz_spaces_delete, oz_spaces_view_privileges,
+   oz_spaces_set_privileges, oz_spaces_list_relationships, oz_spaces_add_relationships, oz_spaces_remove_relationships,
+
+   oz_shares_list, oz_shares_view, oz_shares_create, oz_shares_update, oz_shares_delete,
+
+   oz_providers_list, oz_providers_view, oz_providers_update, oz_providers_delete,
+   oz_providers_list_relationships, oz_providers_invite,
+
+   oz_handle_services_list, oz_handle_services_view, oz_handle_services_create, oz_handle_services_update,
+   oz_handle_services_delete, oz_handle_services_view_privileges, oz_handle_services_set_privileges,
+   oz_handle_services_list_relationships, oz_handle_services_add_relationships, oz_handle_services_remove_relationships,
+
+   oz_handles_list, oz_handles_view, oz_handles_create, oz_handles_update, oz_handles_delete,
+   oz_handles_view_privileges, oz_handles_set_privileges, oz_handles_list_relationships,
+   oz_handles_add_relationships, oz_handles_remove_relationships,
+
+   oz_harvesters_list, oz_harvesters_view, oz_harvesters_create, oz_harvesters_update, oz_harvesters_delete,
+   oz_harvesters_view_privileges, oz_harvesters_set_privileges, oz_harvesters_list_relationships,
+   oz_harvesters_add_relationships, oz_harvesters_remove_relationships,
+
+   oz_clusters_list, oz_clusters_view, oz_clusters_update, oz_clusters_view_privileges, oz_clusters_set_privileges,
+   oz_clusters_list_relationships, oz_clusters_add_relationships, oz_clusters_remove_relationships,
+]

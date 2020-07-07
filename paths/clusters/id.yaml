@@ -1,0 +1,156 @@
+get:
+  operationId: get_cluster
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_clusters_view
+  summary: Get cluster details
+  x-bash-codegen-description: |
+    Returns the details about a specific cluster.
+
+    This operation requires membership in the cluster or
+    `oz_clusters_view` admin privilege.
+  description: |
+    Returns the details about a specific cluster.
+
+    This operation requires membership in the cluster or
+    `oz_clusters_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get cluster details**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID
+
+    {
+      "clusterId" : "f8d843beda24e54545455ecc0f4b8886",
+      "type" : "oneprovider",
+      "workerVersion": {
+        "release": "20.02.0-beta4",
+        "build": "1-gfabf02d",
+        "gui": "129c549fbe9b3e730c3d9910492228566e39e1236945766a74381405cc57fb04"
+      },
+      "onepanelVersion": {
+        "release": "20.02.0-beta4",
+        "build": "3-89fc6bad",
+        "gui": "68e7e1472adb719ddf2d88908775091dfb10e5d0b916f06125ea1af4056044e3"
+      },
+      "online" : true,
+      "onepanelProxy" : false
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a cluster.
+      schema:
+        $ref: '#/definitions/Cluster'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getCluster id=b752ceafabb662b4e5728b2ded25cdd1"
+
+
+patch:
+  operationId: modify_cluster
+  tags:
+    - Cluster
+  x-onedata-gri:
+    type: od_cluster
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - cluster_update
+    - oz_clusters_update
+  summary: Modify cluster details
+  x-bash-codegen-description: |
+    Updates the details about a cluster.
+
+    This operation requires `cluster_update` privilege
+    or `oz_clusters_update` admin privilege.
+  description: |
+    Updates the details about a cluster.
+
+    This operation requires `cluster_update` privilege
+    or `oz_clusters_update` admin privilege.
+
+    ***Example cURL requests***
+
+    **Change cluster name**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" \
+    -X PATCH -d '{"name": "new_cluster12"}' \
+    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Cluster has been updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Cluster Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: Cluster data.
+    schema:
+      $ref: '#/definitions/ClusterUpdateRequest'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli modifyCluster id=b752ceafabb662b4e5728b2ded25cdd1 proxy=true"

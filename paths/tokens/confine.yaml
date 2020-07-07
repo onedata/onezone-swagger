@@ -1,0 +1,80 @@
+post:
+  operationId: confine_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: confine
+    scope: public
+  summary: Confine a token
+  x-bash-codegen-description: |
+    Confines (restricts) a token provided in serialized form with given caveats.
+    Returns the confined token. Does not verify the token.
+
+    This operation has public access.
+  description: |
+    Confines (restricts) a token provided in serialized form with given caveats.
+    Returns the confined token. Does not verify the token.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Confine a token**
+    ```bash
+    curl -d '{
+      "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
+      "caveats": [{"type": "time", "validUntil": 1571147494}]
+    }' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/tokens/confine
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Returns the confined token.
+      schema:
+        type: object
+        properties:
+          token:
+            $ref: '#/definitions/SerializedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: data
+      in: body
+      description: The token to be confined and caveats.
+      schema:
+        type: object
+        properties:
+          token:
+            $ref: '#/definitions/SerializedToken'
+          caveats:
+            $ref: '#/definitions/TokenPropertyCaveats'
+        required:
+          - token
+          - caveats
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "echo '{\"token\": \"MDAx...\", \"caveats\": [{\"type\": \"time\", \"validUntil\": 1571147494}]}' | onezone-rest-cli confineToken -"

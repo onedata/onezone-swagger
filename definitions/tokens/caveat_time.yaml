@@ -1,0 +1,31 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [time]
+      x-discriminator-value: "time"
+      description: |
+        Time caveat - limits the token's validity in time.
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[token-caveats].html).
+    validUntil:
+      type: integer
+      description: |
+        Timestamp in seconds (UNIX epoch) when the token expires.
+
+        Example:
+        ```json
+          {
+            "type": "time",
+            "validUntil": 1571147494
+          }
+        ```
+required:
+  - type
+  - validUntil
+example:
+  type: time
+  validUntil: 1571147494

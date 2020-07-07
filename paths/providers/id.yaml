@@ -1,0 +1,139 @@
+get:
+  operationId: get_provider_details
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(id)
+    aspect: instance
+    scope: protected
+  x-onedata-permissions:
+    - oz_providers_view
+  summary: Get provider details
+  x-bash-codegen-description: |
+    Returns the information about a specific Oneprovider service that is
+    registered in Onezone.
+
+    This operation requires any of the following authentication:
+    * as any provider (providers are allowed to view each other's data),
+    * as user who is an effective member in a space supported by the subject provider,
+    * as user who has `oz_providers_view` admin privilege.
+  description: |
+    Returns the information about a specific Oneprovider service that is
+    registered in Onezone.
+
+    This operation requires any of the following authentication:
+    * as any provider (providers are allowed to view each other's data),
+    * as user who is an effective member in a space supported by the subject provider,
+    * as user who has `oz_providers_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get specific provider details**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X GET  \
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Information about a provider.
+      schema:
+        $ref: '#/definitions/ProviderDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Provider Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getProviderDetails id=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"
+
+
+delete:
+  operationId: remove_provider
+  tags:
+    - Provider
+  x-onedata-gri:
+    type: od_provider
+    id: ?BINDING(id)
+    aspect: instance
+  summary: Remove provider
+  x-onedata-permissions:
+    - oz_providers_delete
+  x-bash-codegen-description: |
+    Removes (unregisters) given Oneprovider from Onezone.
+
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `oz_providers_delete` admin privilege.
+  description: |
+    Removes (unregisters) given Oneprovider from Onezone.
+
+    This operation requires any of the following authentication:
+    * as the subject provider (`{id}`),
+    * as user who has `oz_providers_delete` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get specific provider details**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -X DELETE  \
+    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: Provider will be unregistered.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Provider Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeProvider id=WEavnRE7c49EU2sjF0Rz7l_kpiA1IBrwbDxNfH87Plc"

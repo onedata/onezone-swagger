@@ -3,8 +3,8 @@ description: Space alias.
 properties:
   alias:
     type: string
-    description: Unique ID of the space.
+    description: User defined name for the space.
 required:
   - alias
 example:
-  alias: Another name.
+  alias: My space name

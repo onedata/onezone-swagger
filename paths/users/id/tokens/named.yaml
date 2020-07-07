@@ -1,0 +1,238 @@
+post:
+  operationId: create_named_token_for_user
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{user_named_token, ?BINDING(id)}"
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Create named token for a user
+  x-bash-codegen-description: |
+    Creates a new named token for specific user. The token name must be unique
+    for the user.
+
+    In case of invite tokens, invite / add member privileges are required in
+    the target entity to create a token. For example, `space_add_group` in
+    the space when creating a `groupJoinSpace` invite token.
+
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Creates a new named token for specific user. The token name must be unique
+    for the user.
+
+    In case of invite tokens, invite / add member privileges are required in
+    the target entity to create a token. For example, `space_add_group` in
+    the space when creating a `groupJoinSpace` invite token.
+
+    This operation is available for the token owner (subject),
+    otherwise requires `oz_tokens_manage` admin privilege.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
+
+    ***Example cURL requests***
+
+    **Create named token for a user**
+    ```bash
+    curl -u username:password -X POST -d '{"name": "new-token-1"}' \
+    -H 'Content-type: application/json' \
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named
+    ```
+  consumes:
+    - application/json
+  responses:
+    '201':
+      description: >
+        Response body contains the Id of newly created named token and its serialized form.
+        Additionally, URI of the created named token in form
+        https://$HOST/api/onezone/v3/tokens/named/{id}
+        is returned in the response `Location` header.
+      headers:
+        Location:
+          description: URI of the created named token.
+          type: string
+      schema:
+        $ref: '#/definitions/NamedTokenCreateResponse'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: User Id
+      type: string
+      required: true
+    - name: data
+      in: body
+      description: Properties of the new named token.
+      schema:
+        $ref: '#/definitions/NamedTokenCreateRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli createNamedTokenForUser id=$USER_ID name==new-token"
+
+
+get:
+  operationId: list_named_tokens_of_user
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{user_named_tokens, ?BINDING(id)}"
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: List named tokens of a user
+  x-bash-codegen-description: |
+    Returns the list of specific user's named tokens.
+
+    This operation is available for the currently authorized user,
+    otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Returns the list of specific user's named tokens.
+
+    This operation is available for the currently authorized user,
+    otherwise requires `oz_tokens_manage` admin privilege.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
+
+    ***Example cURL requests***
+
+    **List named tokens of a user**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named
+
+    {
+      "tokens": [
+        "2b5d0dd5aa6443a69277b5ce0544fec2",
+        "818bf8d4404c2bcee2b47f024f6c0890",
+        "4a5e5dabcd55e03f1e9237eeca2548ff",
+        "81336b59656653a481d1e65168f3f213"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all user named tokens
+      schema:
+        $ref: '#/definitions/Tokens'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: User Id
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli listNamedTokensOfUser id=c26bab23d12f7389c3c311caf9c15902"
+
+
+delete:
+  operationId: delete_named_tokens_of_user
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: "{user_named_tokens, ?BINDING(id)}"
+  summary: Delete named tokens of a user
+  x-bash-codegen-description: |
+    Deletes all named tokens belonging to a specific user.
+
+    This operation is available for the currently authorized user,
+    otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Deletes all named tokens belonging to a specific user.
+
+    This operation is available for the currently authorized user,
+    otherwise requires `oz_tokens_manage` admin privilege.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
+
+    ***Example cURL requests***
+
+    **Delete named tokens of a user**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/users/$USER_ID/tokens/named
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: All user's named tokens have been deleted.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: User Id
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli deleteNamedTokensOfUser id=c26bab23d12f7389c3c311caf9c15902"
