@@ -6,7 +6,7 @@ get:
     type: od_harvester
     id: ?BINDING(hid)
     aspect: instance
-    scope: protected
+    scope: shared
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
