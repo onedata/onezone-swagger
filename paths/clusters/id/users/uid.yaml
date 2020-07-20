@@ -168,10 +168,12 @@ put:
     description: User Id.
     type: string
     required: true
-  - name: privileges
+  - name: data
     in: body
     schema:
-      $ref: '#/definitions/ClusterPrivileges'
+      properties:
+        privileges:
+          $ref: '#/definitions/ClusterPrivileges'
     required: false
   x-code-samples:
   - lang: Shell

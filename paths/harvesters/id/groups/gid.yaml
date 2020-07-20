@@ -169,7 +169,9 @@ put:
   - name: privileges
     in: body
     schema:
-      $ref: '#/definitions/HarvesterPrivileges'
+      properties:
+        privileges:
+          $ref: '#/definitions/HarvesterPrivileges'
     required: false
   x-code-samples:
   - lang: Shell

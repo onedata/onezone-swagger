@@ -6,7 +6,7 @@ get:
     type: od_cluster
     aspect: privileges
   x-onedata-permissions: []
-  summary: List all cluster privileges.
+  summary: List all cluster privileges
   x-bash-codegen-description: |
     Returns list of all possible cluster privileges.
 
@@ -20,7 +20,7 @@ get:
 
     **Get list of all cluster privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/cluster/privileges
+    curl https://$HOST/api/v3/onezone/clusters/privileges
 
     {
       "admin": [

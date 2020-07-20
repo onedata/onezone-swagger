@@ -166,6 +166,13 @@ put:
     description: Child group Id.
     type: string
     required: true
+  - name: data
+    in: body
+    required: false
+    schema:
+      properties:
+        privileges:
+          $ref: '#/definitions/GroupPrivileges'
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli addChildGroup id=538ef9643ae6b9e40817e51eece7e341 cid=0ec9817801d74e2fa6cc50a476ed5d4d"

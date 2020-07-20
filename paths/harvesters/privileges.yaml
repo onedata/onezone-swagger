@@ -6,7 +6,7 @@ get:
     type: od_harvester
     aspect: privileges
   x-onedata-permissions: []
-  summary: List all harvester privileges.
+  summary: List all harvester privileges
   x-bash-codegen-description: |
     Returns list of all possible harvester privileges.
 
@@ -20,7 +20,7 @@ get:
 
     **Get list of all harvester privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/harvester/privileges
+    curl https://$HOST/api/v3/onezone/harvesters/privileges
 
     {
       "admin": [

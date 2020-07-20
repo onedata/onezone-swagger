@@ -168,10 +168,12 @@ put:
     description: Group Id.
     type: string
     required: true
-  - name: privileges
+  - name: data
     in: body
     schema:
-      $ref: '#/definitions/SpacePrivileges'
+      properties:
+        privileges:
+          $ref: '#/definitions/SpacePrivileges'
     required: false
   x-code-samples:
   - lang: Shell
