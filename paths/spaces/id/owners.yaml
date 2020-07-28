@@ -1,0 +1,86 @@
+get:
+  operationId: list_space_owners
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: owners
+  x-onedata-permissions:
+    - space_view
+    - oz_spaces_view
+  summary: List space owners
+  x-bash-codegen-description: |
+    Returns the list of owners of a specific space.
+
+    Space owners are members (users) of the space that have absolute power
+    regarding the space API and files (analogical to "root", but in the scope
+    of one space). Being an owner means that user privileges are essentially
+    ignored and all API operations are allowed.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_view` admin privilege.
+  description: |
+    Returns the list of owners of a specific space.
+
+    Space owners are members (users) of the space that have absolute power
+    regarding the space API and files (analogical to "root", but in the scope
+    of one space). Being an owner means that user privileges are essentially
+    ignored and all API operations are allowed.
+
+    This operation requires any of the following authentication:
+    * as user who has `space_view` privilege in the space (`{id}`),
+    * as provider that supports the space (`{id}`),
+    * as user who has `oz_spaces_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space owners**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/owners
+
+    {
+      "users": [
+        "a5b469a2b0516b662a49da74d6d7d7bc"
+      ]
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The list of all user Ids that are owners of the space.
+      schema:
+        $ref: '#/definitions/Users'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listSpaceOwners id=b752ceafabb662b4e5728b2ded25cdd1"
