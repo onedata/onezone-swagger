@@ -152,6 +152,12 @@ put:
       description: The Id of the group to add to handle service.
       required: true
       type: string
+    - name: data
+      in: body
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/HandleServicePrivileges'
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli addHandleServiceGroup id=a4d3bc73aada63052310652d421609f1 gid=5ca9574418d5a2c509265d37356ee549"

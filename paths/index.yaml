@@ -537,6 +537,14 @@
   $ref: ./spaces/id/harvesters/hid.yaml
 
 
+/spaces/{id}/owners:
+  $ref: ./spaces/id/owners.yaml
+
+
+/spaces/{id}/owners/{uid}:
+  $ref: ./spaces/id/owners/uid.yaml
+
+
 ###############################################################################
 # Shares
 ###############################################################################

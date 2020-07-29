@@ -174,12 +174,13 @@ put:
     description: User Id.
     type: string
     required: true
-  - name: privileges
+  - name: data
     in: body
     required: false
-    description: The list of privileges for the
     schema:
-      $ref: '#/definitions/GroupPrivileges'
+      properties:
+        privileges:
+          $ref: '#/definitions/GroupPrivileges'
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli addGroupUser id=a4d3bc73aada63052310652d421609f1 uid=a5b469a2b0516b662a49da74d6d7d7bc"

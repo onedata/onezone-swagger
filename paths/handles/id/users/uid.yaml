@@ -152,6 +152,12 @@ put:
       description: The Id of the user to add to handle.
       required: true
       type: string
+    - name: data
+      in: body
+      schema:
+        properties:
+          privileges:
+            $ref: '#/definitions/HandlePrivileges'
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli addHandleUser id=45bf25a5cb16e12a9faa6d088a2c7088 uid=5ca9574418d5a2c509265d37356ee549"
