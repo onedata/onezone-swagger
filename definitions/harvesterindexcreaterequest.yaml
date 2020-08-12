@@ -13,9 +13,40 @@ properties:
   schema:
     type: string
     description: Schema of the index provided as string (e.g. encoded JSON).
+  includeMetadata:
+    type: array
+    items:
+      type: string
+      enum: [json, xattrs, rdf]
+    minItems: 1
+    description: 
+      List of metadata types that will be harvested in this index.
+  includeFileDetails:
+    type: array
+    items:
+      type: string
+      enum: [fileName, spaceId, metadataExistenceFlags]
+    description: 
+      List of file details that will be harvested alongside metadata. 
+      Special value `metadataExistenceFlags` for each of harvested metadata type will 
+      add information whether file has metadata of this type.
+  includeRejectionReason:
+    type: boolean
+    description: 
+      If enabled, the index will include an error description in case of a file indexing failure. 
+      It allows to preserve file rejection reasons for a later analysis.
+  retryOnRejection:
+    type: boolean
+    description: 
+      If enabled, after a file indexing rejection the data will be sent to the index again, 
+      possibly without the problematic data causing the rejection. Might slow down harvesting process.
 required:
   - name
 example:
   name: My study index
   guiPluginName: study
   schema: "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"
+  includeMetadata: ["json", "xattrs"]
+  includeFileDetails: ["fileName", "metadataExistenceFlags"]
+  includeRejectionReason: false
+  retryOnRejection: true

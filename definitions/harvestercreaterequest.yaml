@@ -6,7 +6,9 @@ properties:
     description: The name of the harvester.
   endpoint:
     type: string
-    description: URL of the harvester backend (e.g. elasticsearch service).
+    description: 
+      URL of the harvester backend (e.g. elasticsearch service).
+      Might be ommited if default harvester endpoint is set up in Onezone.
   plugin:
     type: string
     description: Name of the erlang plugin used for communication with the harvester backend.
