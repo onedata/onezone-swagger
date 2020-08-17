@@ -20,26 +20,28 @@ properties:
       enum: [json, xattrs, rdf]
     minItems: 1
     description: 
-      List of metadata types that will be harvested in this index.
+      Specifies what types of file metadata should be harvested in this index. At least one type must be given.
   includeFileDetails:
     type: array
     items:
       type: string
       enum: [fileName, spaceId, metadataExistenceFlags]
     description: 
-      List of file details that will be harvested alongside metadata. 
-      Special value `metadataExistenceFlags` for each of harvested metadata type will 
-      add information whether file has metadata of this type.
+      Specifies what file details should be harvested alongside the metadata. Enabling 
+      `metadataExistenceFlags` will add boolean flags saying whether the file has any metadata 
+      of certain type. The `fileName` field may be utilized by the GUI plugin to improve the 
+      browsing experience.
   includeRejectionReason:
     type: boolean
     description: 
-      If enabled, the index will include an error description in case of a file indexing failure. 
-      It allows to preserve file rejection reasons for a later analysis.
+      If enabled, all harvesting errors (e.g. when the index rejects a payload due to non-matching schema) 
+      are stored as text in the index, which may be useful for later analysis.
   retryOnRejection:
     type: boolean
     description: 
-      If enabled, after a file indexing rejection the data will be sent to the index again, 
-      possibly without the problematic data causing the rejection. Might slow down harvesting process.
+      If enabled, all payloads rejected by the harvesting backend will be automatically analysed for 
+      offending data (e.g. fields that do not match the schema), pruned and submitted again. This might 
+      slow down the harvesting process and cause nonconformant metadata to be lost.
 required:
   - name
 example:

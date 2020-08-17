@@ -36,6 +36,10 @@ get:
       "name": "My study index"
       "guiPluginName": "study"
       "schema": "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"
+      "includeMetadata": ["json", "xattrs"]
+      "includeFileDetails": ["fileName", "metadataExistenceFlags"]
+      "includeRejectionReason": false
+      "retryOnRejection": true
     }
     ```
   produces:
