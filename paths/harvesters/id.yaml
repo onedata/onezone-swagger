@@ -33,7 +33,7 @@ get:
       "name": "new_harvester1",
       "public" : true,
       "harvestingBackendType" : "elasticsearch_harvesting_backend",
-      "harvestingBackendEndpoint" : "https://example.elastic.com",
+      "harvestingBackendEndpoint" : "example.elastic.com:9200"
     }
     ```
   produces:

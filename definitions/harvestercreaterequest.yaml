@@ -24,7 +24,7 @@ required:
 example:
   name: My private harvester
   harvestingBackendType: elasticsearch_harvesting_backend
-  harvestingBackendEndpoint: https://example.elastic.com
+  harvestingBackendEndpoint: example.elastic.com:9200
   guiPluginConfig: {
     "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
     "externalHelpLink": "http://example.com/some_help_page",

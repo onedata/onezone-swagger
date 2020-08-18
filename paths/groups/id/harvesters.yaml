@@ -105,7 +105,7 @@ post:
     **Create new harvester for group**
     ```bash
     curl -u admin:password -H "Content-type: application/json" \
-    -X POST -d '{ "name" : "new_harvester", "endpoint" : "https://example.elastic.com", "plugin" : "elasticsearch_plugin"  \
+    -X POST -d '{ "name" : "new_harvester", "harvestingBackendEndpoint" : "example.elastic.com:9200", "harvestingBackendType" : "elasticsearch_harvesting_backend"  \
     "config" : { "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
                  "externalHelpLink": "http://example.com/some_help_page",
                  "refreshDataTimeout": 1000 }, \
@@ -152,7 +152,7 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli createHarvesterForGroup id=a4d3bc73aada63052310652d421609f1 name==\"New harvester name\" endpoint== \"https://example.elastic.com\" plugin==\"elasticsearch_plugin\"
+    source: "onezone-rest-cli createHarvesterForGroup id=a4d3bc73aada63052310652d421609f1 name==\"New harvester name\" harvestingBackendEndpoint== \"example.elastic.com:9200\" harvestingBackendType==\"elasticsearch_harvesting_backend\"
     config=={
     \"typeMapping\": [ { \"id\": 0, \"name\": \"Type 1\" }, { \"id\": 1, \"name\": \"Type 1\" } ],
     \"externalHelpLink\": \"http://example.com/some_help_page\",
