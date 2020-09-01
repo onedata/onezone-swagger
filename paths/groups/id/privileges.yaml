@@ -51,6 +51,7 @@ get:
     '200':
       description: The list of group's admin privileges in Onezone.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/AdminPrivileges'

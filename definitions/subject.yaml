@@ -1,0 +1,14 @@
+type: object
+description: >
+  Object representing a subject in the system, can be perceived as client (actor) identity.
+properties:
+  type:
+    type: string
+    description: Type of the subject
+    enum:
+      - nobody
+      - user
+      - oneprovider
+  id:
+    type: string
+    description: Id of the subject (null for nobody)

@@ -11,6 +11,9 @@ Error:
 VersionInfo:
   $ref: ./versioninfo.yaml
 
+Subject:
+  $ref: ./subject.yaml
+
 User:
   $ref: ./user.yaml
 

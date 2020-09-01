@@ -171,6 +171,7 @@ put:
   - name: data
     in: body
     schema:
+      type: object
       properties:
         privileges:
           $ref: '#/definitions/SpacePrivileges'

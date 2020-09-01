@@ -44,6 +44,7 @@ get:
     '200':
       description: The list of group's privileges in the harvester.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/HarvesterPrivileges'

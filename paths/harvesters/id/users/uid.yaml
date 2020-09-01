@@ -171,6 +171,7 @@ put:
   - name: privileges
     in: body
     schema:
+      type: object
       properties:
         privileges:
           $ref: '#/definitions/HarvesterPrivileges'

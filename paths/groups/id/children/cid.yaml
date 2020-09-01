@@ -170,6 +170,7 @@ put:
     in: body
     required: false
     schema:
+      type: object
       properties:
         privileges:
           $ref: '#/definitions/GroupPrivileges'

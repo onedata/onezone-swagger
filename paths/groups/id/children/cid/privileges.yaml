@@ -46,6 +46,7 @@ get:
     '200':
       description: The list of child group's privileges in the group.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/GroupPrivileges'
