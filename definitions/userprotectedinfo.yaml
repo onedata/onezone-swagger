@@ -1,5 +1,5 @@
 type: object
-description: Describes a user account.
+description: Describes a user account (protected info).
 properties:
   userId:
     type: string
@@ -24,9 +24,18 @@ properties:
   basicAuthEnabled:
     type: boolean
     description: Specifies if this user is allowed to authenticate with username & password.
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+
 required:
   - userId
   - fullName
+  - username
+  - linkedAccounts
+  - emails
+  - basicAuthEnabled
+  - creationTime
+
 example:
   userId: f1c8b1a37aa7447b22eb65a742d40524
   fullName: Rudolf Lingens
@@ -40,3 +49,4 @@ example:
     - rudolf.lingens@example.com
     - john.doe@example.com
   basicAuthEnabled: false
+  creationTime: 1576152793

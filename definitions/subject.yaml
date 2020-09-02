@@ -11,4 +11,4 @@ properties:
       - oneprovider
   id:
     type: string
-    description: Id of the subject (null for nobody)
+    description: Id of the subject (`null` for nobody)

@@ -27,12 +27,25 @@ get:
     https://$HOST/api/v3/onezone/users/$USER_ID
 
     {
-      "userId": "a5b469a2b0516b662a49da74d6d7d7bc",
-      "fullName": "Mr Admin",
-      "username": "admin",
-      "linkedAccounts": []
-      "emails": [],
-      "basicAuthEnabled": false
+      "userId": "f1c8b1a37aa7447b22eb65a742d40524",
+      "fullName": "Rudolf Lingens",
+      "username": "r.lingens",
+      "linkedAccounts": [
+        {
+          "idp": "github",
+          "subjectId": "1978f5775ae2dc16730418bf3fc81764"
+        },
+        {
+          "idp": "elixir",
+          "subjectId": "38bf3fc2f4c16730481764bd775ae2d1"
+        }
+      ],
+      "emails": [
+        "rudolf.lingens@example.com",
+        "john.doe@example.com"
+      ],
+      "basicAuthEnabled": false,
+      "creationTime": 1576152793
     }
     ```
   produces:

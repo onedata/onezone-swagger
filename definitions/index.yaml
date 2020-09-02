@@ -14,6 +14,9 @@ VersionInfo:
 Subject:
   $ref: ./subject.yaml
 
+Timestamp:
+  $ref: ./timestamp.yaml
+
 User:
   $ref: ./user.yaml
 

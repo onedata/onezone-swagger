@@ -26,8 +26,8 @@ get:
     https://$HOST/api/v3/onezone/user/clusters/$CLUSTER_ID
 
     {
-      "clusterId" : "f8d843beda24e54545455ecc0f4b8886",
-      "type" : "oneprovider",
+      "clusterId": "f8d843beda24e54545455ecc0f4b8886",
+      "type": "oneprovider",
       "workerVersion": {
         "release": "20.02.1",
         "build": "1-gfabf02d",
@@ -38,8 +38,13 @@ get:
         "build": "3-89fc6bad",
         "gui": "68e7e1472adb719ddf2d88908775091dfb10e5d0b916f06125ea1af4056044e3"
       },
-      "online" : true,
-      "onepanelProxy" : false
+      "online": true,
+      "onepanelProxy": false,
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:

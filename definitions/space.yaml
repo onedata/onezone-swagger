@@ -17,12 +17,17 @@ properties:
       description: |
         Size of storage provisioned for this space by provider.
   creator:
-      $ref: '#/definitions/Subject'
+    $ref: '#/definitions/Subject'
+  creationTime:
+    $ref: '#/definitions/Timestamp'
 
 required:
   - spaceId
   - name
   - providers
+  - creator
+  - creationTime
+
 example:
   spaceId: 2c0160248ba9a66f45da751ca459535a
   name: My Private space
@@ -31,4 +36,5 @@ example:
     dcf12429647c204896eebe3b6f686967: 14400000
   creator:
     type: user
-    id: 7434b256e71e1052e0d5e3e9da657ebfc1a770c3
+    id: 7434b256e71e1052e0d5e3e9da657ebf
+  creationTime: 1576152793

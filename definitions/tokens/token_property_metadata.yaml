@@ -2,9 +2,7 @@ type: object
 description: Metadata describing the token
 properties:
   creationTime:
-    type: integer
-    description: >
-      Timestamp in seconds (UNIX epoch) of the token creation
+    $ref: '#/definitions/Timestamp'
   usageLimit:
     type: integer
     description: >
