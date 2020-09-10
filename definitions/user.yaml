@@ -19,6 +19,7 @@ required:
   - userId
   - fullName
   - username
+  - creationTime
 
 example:
   userId: f1c8b1a37aa7447b22eb65a742d40524

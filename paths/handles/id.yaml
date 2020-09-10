@@ -30,7 +30,7 @@ get:
     https://$HOST/api/v3/handles/$HANDLE_ID
 
     {
-      "handle": "10.5072/w95Zlng"
+      "publicHandle": "10.5072/w95Zlng",
       "handleId": "95b663a6467c72ab1256865efef9e387",
       "handleServiceId": "97c27230017cd54c1220189e357322c4",
       "resourceType": "Share",
