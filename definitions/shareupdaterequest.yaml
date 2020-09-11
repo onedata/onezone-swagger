@@ -1,8 +1,0 @@
-type: object
-description: Share update parameters.
-properties:
-  name:
-    type: string
-    description: The user defined name for the share.
-example:
-  name: NewShareName

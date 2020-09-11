@@ -1,0 +1,28 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [data.readonly]
+      x-discriminator-value: "data.readonly"
+      description: |
+        Data readonly caveat - allows only read access to user files.
+
+        This is a **data access caveat** - if added to a token, it greatly limits
+        its power in the system APIs, to the minimum required for data access -
+        [see more](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[data-access-caveats].html).
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[token-caveats].html).
+
+        Example:
+        ```json
+          {
+            "type": "data.readonly"
+          }
+        ```
+required:
+  - type
+example:
+  type: data.readonly

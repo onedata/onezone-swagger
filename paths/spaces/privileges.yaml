@@ -6,7 +6,7 @@ get:
     type: od_space
     aspect: privileges
   x-onedata-permissions: []
-  summary: List all space privileges.
+  summary: List all space privileges
   x-bash-codegen-description: |
     Returns list of all possible space privileges.
 
@@ -20,7 +20,7 @@ get:
 
     **Get list of all space privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/space/privileges
+    curl https://$HOST/api/v3/onezone/spaces/privileges
 
     {
       "admin": [
@@ -31,6 +31,7 @@ get:
         "space_set_privileges",
         "space_read_data",
         "space_write_data",
+        "space_register_files",
         "space_manage_shares",
         "space_view_views",
         "space_manage_views",
@@ -42,6 +43,8 @@ get:
         "space_cancel_replication",
         "space_schedule_eviction",
         "space_cancel_eviction",
+        "space_view_qos",
+        "space_manage_qos",
         "space_add_user",
         "space_remove_user",
         "space_add_group",
@@ -56,6 +59,7 @@ get:
         "space_view_privileges",
         "space_read_data",
         "space_write_data",
+        "space_register_files",
         "space_manage_shares",
         "space_view_views",
         "space_query_views",
@@ -63,6 +67,7 @@ get:
         "space_view_changes_stream",
         "space_view_transfers",
         "space_schedule_replication",
+        "space_view_qos",
         "space_add_user",
         "space_remove_user",
         "space_add_group",

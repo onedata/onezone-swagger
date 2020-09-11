@@ -13,12 +13,12 @@ get:
     Returns the domain config of the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Returns the domain config of the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 

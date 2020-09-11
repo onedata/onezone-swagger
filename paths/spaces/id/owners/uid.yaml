@@ -1,0 +1,170 @@
+put:
+  operationId: add_space_owner
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{owner, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - oz_spaces_set_privileges
+  summary: Add space owner
+  x-bash-codegen-description: |
+    Adds user `{uid}` as an owner of space `{id}`. Ownership can only be granted
+    to effective members of the space - if the desired user is not a member, they
+    have to be added to the space first. If the new owner is only an indirect
+    member (via a group), he is automatically added as a direct member when
+    granted ownership.
+
+    Space owners are members of the space (users) that have absolute power
+    regarding the space API and files (analogical to "root", but in the scope
+    of one space). Being an owner means that user privileges are essentially
+    ignored and all API operations are allowed.
+
+    This operation requires any of the following authentication:
+    * as user who is currently an owner of the space (`{id}`),
+    * as user who has `oz_spaces_set_privileges` admin privilege.
+  description: |
+    Adds user `{uid}` as an owner of space `{id}`. Ownership can only be granted
+    to effective members of the space - if the desired user is not a member, they
+    have to be added to the space first. If the new owner is only an indirect
+    member (via a group), he is automatically added as a direct member when
+    granted ownership.
+
+    Space owners are members of the space (users) that have absolute power
+    regarding the space API and files (analogical to "root", but in the scope
+    of one space). Being an owner means that user privileges are essentially
+    ignored and all API operations are allowed.
+
+    This operation requires any of the following authentication:
+    * as user who is currently an owner of the space (`{id}`),
+    * as user who has `oz_spaces_set_privileges` admin privilege.
+
+    ***Example cURL requests***
+
+    **Add space space owner**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" -X PUT \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/owners/$USER_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The user was added as an owner of the space.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli addSpaceOwner id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"
+
+
+delete:
+  operationId: remove_space_owner
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: "{owner, ?BINDING(uid)}"
+  x-onedata-permissions:
+    - oz_spaces_set_privileges
+  summary: Remove space owner
+  x-bash-codegen-description: |
+    Removes user `{uid}` from the owners of space `{id}`. The user is not
+    removed from the space as a member, but his ownership is revoked.
+
+    This operation will fail if the `{uid}` is the last owner of the space.
+    First, ownership must be granted to another user so that the space has at
+    least one owner.
+
+    This operation requires any of the following authentication:
+    * as user who is currently an owner of the space (`{id}`),
+    * as user who has `oz_spaces_set_privileges` admin privilege.
+  description: |
+    Removes user `{uid}` from the owners of space `{id}`. The user is not
+    removed from the space as a member, but his ownership is revoked.
+
+    This operation will fail if the `{uid}` is the last owner of the space.
+    First, ownership must be granted to another user so that the space has at
+    least one owner.
+
+    This operation requires any of the following authentication:
+    * as user who is currently an owner of the space (`{id}`),
+    * as user who has `oz_spaces_set_privileges` admin privilege.
+
+    ***Example cURL requests***
+
+    **Remove space owner**
+    ```bash
+    curl -u admin:password -X DELETE \
+    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/owners/$USER_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: The user was removed from the space owners.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: uid
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli removeSpaceOwner id=b752ceafabb662b4e5728b2ded25cdd1 uid=a5b469a2b0516b662a49da74d6d7d7bc"

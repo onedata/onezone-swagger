@@ -1,0 +1,18 @@
+allOf:
+- $ref: '#/definitions/InviteToken'
+- type: object
+  properties:
+    inviteType:
+      type: string
+      enum: [groupJoinGroup]
+      x-discriminator-value: "groupJoinGroup"
+      description: Invite token type - invitation for a group to join a group.
+    groupId:
+      type: string
+      description: Id of the invitation target group
+required:
+  - inviteType
+  - groupId
+example:
+  inviteType: groupJoinGroup
+  groupId: 0921135ee61fe53a3df449365228e9b4

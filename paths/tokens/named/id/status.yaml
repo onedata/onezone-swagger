@@ -1,0 +1,77 @@
+get:
+  operationId: get_named_token_status
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(id)
+    aspect: instance
+    scope: shared
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Get named token status
+  x-bash-codegen-description: |
+    Returns the status of a specific named token - information if the token is
+    currently revoked.
+
+    This operation is available for:
+    * the token owner (subject)
+    * in case of user tokens - a provider that supports the user
+    * in case of provider tokens - the provider cluster member
+    * admins with `oz_tokens_manage` privilege.
+  description: |
+    Returns the status of a specific named token - information if the token is
+    currently revoked.
+
+    This operation is available for:
+    * the token owner (subject)
+    * in case of user tokens - a provider that supports the user
+    * in case of provider tokens - the provider cluster member
+    * admins with `oz_tokens_manage` privilege.
+
+    ***Example cURL requests***
+
+    **Get named token status**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID/status
+    {
+      "revoked": false
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the status of a specific named token.
+      schema:
+        $ref: '#/definitions/NamedTokenStatus'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Token Id
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getNamedTokenStatus id=$TOKEN_ID"

@@ -35,6 +35,7 @@
   $ref: ./users/id/effective_privileges.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /users/{id}/clusters/provider_registration_token:
   $ref: ./users/id/clusters/provider_registration_token.yaml
 
@@ -53,10 +54,6 @@
   $ref: ./user/password.yaml
 
 
-/user/authorize:
-  $ref: ./user/authorize.yaml
-
-
 /user/privileges:
   $ref: ./user/privileges.yaml
 
@@ -65,10 +62,12 @@
   $ref: ./user/effective_privileges.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /user/client_tokens:
   $ref: ./user/client_tokens.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /user/client_tokens/{tid}:
   $ref: ./user/client_tokens/tid.yaml
 
@@ -189,6 +188,7 @@
   $ref: ./user/clusters.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /user/clusters/provider_registration_token:
   $ref: ./user/clusters/provider_registration_token.yaml
 
@@ -237,6 +237,7 @@
   $ref: ./groups/id/users.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /groups/{id}/users/token:
   $ref: ./groups/id/users/token.yaml
 
@@ -289,6 +290,7 @@
   $ref: ./groups/id/children.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /groups/{id}/children/token:
   $ref: ./groups/id/children/token.yaml
 
@@ -441,6 +443,7 @@
   $ref: ./spaces/id/users.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /spaces/{id}/users/token:
   $ref: ./spaces/id/users/token.yaml
 
@@ -473,6 +476,7 @@
   $ref: ./spaces/id/groups.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /spaces/{id}/groups/token:
   $ref: ./spaces/id/groups/token.yaml
 
@@ -512,6 +516,7 @@
 /spaces/{id}/providers:
   $ref: ./spaces/id/providers.yaml
 
+# @TODO VFS-5846 DEPRECATED
 /spaces/{id}/providers/token:
   $ref: ./spaces/id/providers/token.yaml
 
@@ -530,6 +535,14 @@
 
 /spaces/{id}/harvesters/{hid}:
   $ref: ./spaces/id/harvesters/hid.yaml
+
+
+/spaces/{id}/owners:
+  $ref: ./spaces/id/owners.yaml
+
+
+/spaces/{id}/owners/{uid}:
+  $ref: ./spaces/id/owners/uid.yaml
 
 
 ###############################################################################
@@ -592,7 +605,6 @@
   $ref: ./providers/id/domain_config.yaml
 
 
-
 ###############################################################################
 # Provider
 ###############################################################################
@@ -605,20 +617,12 @@
   $ref: ./provider/spaces.yaml
 
 
-/provider/spaces/support:
-  $ref: ./provider/spaces/support.yaml
-
-
 /provider/spaces/{sid}:
   $ref: ./provider/spaces/sid.yaml
 
 
 /provider/public/check_my_ip:
   $ref: ./provider/public/check_my_ip.yaml
-
-
-/provider/public/check_my_ports:
-  $ref: ./provider/public/check_my_ports.yaml
 
 
 /provider/public/get_current_time:
@@ -633,6 +637,7 @@
   $ref: ./provider/public/map_idp_group.yaml
 
 
+# @TODO VFS-5846 DEPRECATED
 /provider/public/verify_provider_identity:
   $ref: ./provider/public/verify_provider_identity.yaml
 
@@ -640,6 +645,54 @@
 /provider/domain_config:
   $ref: ./provider/domain_config.yaml
 
+
+###############################################################################
+# Tokens
+###############################################################################
+
+/tokens/examine:
+  $ref: ./tokens/examine.yaml
+/tokens/confine:
+  $ref: ./tokens/confine.yaml
+/tokens/verify_access_token:
+  $ref: ./tokens/verify_access_token.yaml
+/tokens/verify_identity_token:
+  $ref: ./tokens/verify_identity_token.yaml
+/tokens/verify_invite_token:
+  $ref: ./tokens/verify_invite_token.yaml
+
+/tokens/named:
+  $ref: ./tokens/named.yaml
+/tokens/named/{id}:
+  $ref: ./tokens/named/id.yaml
+/tokens/named/{id}/status:
+  $ref: ./tokens/named/id/status.yaml
+
+/users/{id}/tokens/temporary:
+  $ref: ./users/id/tokens/temporary.yaml
+/users/{id}/tokens/named:
+  $ref: ./users/id/tokens/named.yaml
+/users/{id}/tokens/named/name/{name}:
+  $ref: ./users/id/tokens/named/name/name.yaml
+/user/tokens/temporary:
+  $ref: ./user/tokens/temporary.yaml
+/user/tokens/named:
+  $ref: ./user/tokens/named.yaml
+/user/tokens/named/name/{name}:
+  $ref: ./user/tokens/named/name/name.yaml
+
+/providers/{id}/tokens/temporary:
+  $ref: ./providers/id/tokens/temporary.yaml
+/providers/{id}/tokens/named:
+  $ref: ./providers/id/tokens/named.yaml
+/providers/{id}/tokens/named/name/{name}:
+  $ref: ./providers/id/tokens/named/name/name.yaml
+/provider/tokens/temporary:
+  $ref: ./provider/tokens/temporary.yaml
+/provider/tokens/named:
+  $ref: ./provider/tokens/named.yaml
+/provider/tokens/named/name/{name}:
+  $ref: ./provider/tokens/named/name/name.yaml
 
 ###############################################################################
 # Handle services
@@ -802,7 +855,7 @@
 /harvesters/{id}/users:
   $ref: ./harvesters/id/users.yaml
 
-
+# @TODO VFS-5846 DEPRECATED
 /harvesters/{id}/users/token:
   $ref: ./harvesters/id/users/token.yaml
 
@@ -834,7 +887,7 @@
 /harvesters/{id}/groups:
   $ref: ./harvesters/id/groups.yaml
 
-
+# @TODO VFS-5846 DEPRECATED
 /harvesters/{id}/groups/token:
   $ref: ./harvesters/id/groups/token.yaml
 
@@ -866,10 +919,12 @@
 /harvesters/{id}/spaces:
   $ref: ./harvesters/id/spaces.yaml
 
-
+# @TODO VFS-5846 DEPRECATED
 /harvesters/{id}/spaces/token:
   $ref: ./harvesters/id/spaces/token.yaml
 
+/harvesters/{id}/spaces/join:
+  $ref: ./harvesters/id/spaces/join.yaml
 
 /harvesters/{id}/spaces/{sid}:
   $ref: ./harvesters/id/spaces/sid.yaml
@@ -918,7 +973,7 @@
 /clusters/{id}/users:
   $ref: ./clusters/id/users.yaml
 
-
+# @TODO VFS-5846 DEPRECATED
 /clusters/{id}/users/token:
   $ref: ./clusters/id/users/token.yaml
 
@@ -950,7 +1005,7 @@
 /clusters/{id}/groups:
   $ref: ./clusters/id/groups.yaml
 
-
+# @TODO VFS-5846 DEPRECATED
 /clusters/{id}/groups/token:
   $ref: ./clusters/id/groups/token.yaml
 

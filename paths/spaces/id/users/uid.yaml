@@ -170,10 +170,12 @@ put:
     description: User Id.
     type: string
     required: true
-  - name: privileges
+  - name: data
     in: body
     schema:
-      $ref: '#/definitions/SpacePrivileges'
+      properties:
+        privileges:
+          $ref: '#/definitions/SpacePrivileges'
     required: false
   x-code-samples:
   - lang: Shell
@@ -206,7 +208,7 @@ delete:
 
     ***Example cURL requests***
 
-    **Get space user data**
+    **Remove user from space**
     ```bash
     curl -u admin:password -X DELETE \
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users/$USER_ID

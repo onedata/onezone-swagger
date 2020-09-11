@@ -5,7 +5,7 @@ get:
   x-onedata-gri:
     type: od_space
     id: ?BINDING(id)
-    aspect: providers
+    aspect: eff_providers
   x-onedata-permissions:
     - space_view
     - oz_spaces_list_relationships

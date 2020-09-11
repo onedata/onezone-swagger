@@ -1,0 +1,16 @@
+type: object
+description: List of token ids.
+properties:
+  tokens:
+    type: array
+    description: List of token ids.
+    items:
+      type: string
+required:
+  - tokens
+example:
+  tokens:
+    - 2b5d0dd5aa6443a69277b5ce0544fec2
+    - 818bf8d4404c2bcee2b47f024f6c0890
+    - 4a5e5dabcd55e03f1e9237eeca2548ff
+    - 81336b59656653a481d1e65168f3f213

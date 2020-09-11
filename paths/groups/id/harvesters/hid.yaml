@@ -36,8 +36,8 @@ get:
       "harvesterId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
       "name": "new_harvester1",
       "public" : true,
-      "plugin" : "elasticsearch_plugin",
-      "endpoint" : "https://example.elastic.com"
+      "harvestingBackendType" : "elasticsearch_harvesting_backend",
+      "harvestingBackendEndpoint" : "example.elastic.com:9200"
     }
     ```
   produces:

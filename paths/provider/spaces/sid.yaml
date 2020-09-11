@@ -14,23 +14,23 @@ get:
     performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Returns information about a specific space supported by the Oneprovider that
     performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Get space details**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET \
+    curl -H "x-auth-token: $TOKEN" -X GET \
     https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
 
     {
-      "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "spaceId": "2c0160248ba9a66f45da751ca459535a",
       "name": "new_space1",
       "providers": {
         "296ebe3c20e9666dc489b647f8647f12" : 5368709120
@@ -76,6 +76,8 @@ get:
 
 
 patch:
+  # TODO VFS-5856
+  deprecated: true
   operationId: modify_supported_space
   tags:
     - Provider
@@ -89,19 +91,20 @@ patch:
     performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Modifies the support size of a space supported by the Oneprovider that
     performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Change supported size**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH -d '{"size": 1024000}' \
+    curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
+    -X PATCH -d '{"size": 1024000}' \
     https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
@@ -141,6 +144,8 @@ patch:
 
 
 delete:
+  # TODO VFS-5856
+  deprecated: true
   operationId: remove_space_support
   tags:
     - Provider
@@ -154,19 +159,19 @@ delete:
     request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Revokes support for a space supported by the Oneprovider that performed the
     request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Revoke space support**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X DELETE \
+    curl -H "x-auth-token: $TOKEN" -X DELETE \
     https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:

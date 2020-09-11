@@ -12,22 +12,27 @@ properties:
     description: | 
       Whether given harvester is public. 
       More on public harvesters: [Query harvester index](#operation/query_harvester_index)  
-  plugin:
+  harvestingBackendType:
     type: string
-    description: Name of the erlang plugin used for communication with the harvester backend.
-  endpoint:
+    description:
+      Type of external harvesting backend that will provide persistence and analytics for harvested
+      metadata. Can be chosen from predefined backends and optionally custom ones configured by Onezone admins.
+      Can be omitted if default harvester backend is set up in Onezone.
+  harvestingBackendEndpoint:
     type: string
-    description: URL of the harvester backend (e.g. elasticsearch service).
+    description:
+      Endpoint where the specified harvesting backend can be reached by Onezone to feed incoming metadata and perform queries.
+      Can be omitted if default harvester backend is set up in Onezone.
     
 required:
   - harvesterId
   - name
   - public
-  - plugin
-  - endpoint
+  - harvestingBackendType
+  - harvestingBackendEndpoint
 example:
   harvesterId: 5989b9476b7d1b2f955c65efb24c0917
   name: Test harvester
   public: true
-  plugin: elasticsearch_plugin
-  endpoint: https://example.elastic.com
+  harvestingBackendType: elasticsearch_harvesting_backend
+  harvestingBackendEndpoint: example.elastic.com:9200

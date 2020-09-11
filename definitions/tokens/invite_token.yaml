@@ -1,0 +1,23 @@
+type: object
+description: Indicates the invite token type.
+discriminator: inviteType
+x-onedata-oneof: true
+x-onedata-subclasses:
+  - userJoinGroup
+  - groupJoinGroup
+  - userJoinSpace
+  - groupJoinSpace
+  - supportSpace
+  - harvesterJoinSpace
+  - registerOneprovider
+  - userJoinCluster
+  - groupJoinCluster
+  - userJoinHarvester
+  - groupJoinHarvester
+  - spaceJoinHarvester
+properties:
+  inviteType:
+    type: string
+    description: Type of invitation
+required:
+  - inviteType

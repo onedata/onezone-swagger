@@ -1,0 +1,50 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [consumer]
+      x-discriminator-value: "consumer"
+      description: |
+        Consumer caveat - limits the consumers that can use the token.
+        [Consumer](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[consumer].html)
+        is the token bearer that utilizes the token - performs a
+        request with an access token or attempts to consume an invite token.
+        If the caveat is present, the consumer must prove their identity by
+        sending their
+        [identity token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[identity-tokens].html)
+        in the `x-onedata-consumer-token header` along with the request.
+        The consumers must be encoded using proper
+        [consumer format](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[consumer].html).
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[token-caveats].html).
+    whitelist:
+      type: array
+      items:
+        type: string
+      description: |
+        List of consumers that are allowed to utilize the token.
+
+        Example:
+        ```json
+          {
+            "type": "consumer",
+            "whitelist": [
+              "usr-d4f5876dbe7f1e7e8a511de6dd31144c",
+              "grp-0921135ee61fe53a3df449365228e9b4",
+              "prv-*"
+            ]
+          }
+        ```
+required:
+  - type
+  - whitelist
+example:
+  type: consumer
+  whitelist:
+    - usr-d4f5876dbe7f1e7e8a511de6dd31144c
+    - grp-0921135ee61fe53a3df449365228e9b4
+    - prv-*
+

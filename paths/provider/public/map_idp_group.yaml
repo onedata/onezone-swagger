@@ -29,7 +29,7 @@ post:
 
     **Map IdP group to Onezone group**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" \
+    curl -H 'Content-type: application/json' \
     -d '{"idp": "elixir", "groupId": "elixir:members"}' \
     -X POST https://onezone.example.com/api/v3/onezone/provider/public/map_idp_group
 

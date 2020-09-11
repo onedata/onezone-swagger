@@ -6,7 +6,7 @@ get:
     type: od_harvester
     id: ?BINDING(hid)
     aspect: instance
-    scope: protected
+    scope: shared
   x-onedata-auth-hint: ?THROUGH_SPACE(?BINDING(id))
   x-onedata-permissions:
     - space_view
@@ -35,11 +35,11 @@ get:
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/$HARVESTER_ID
 
     {
-      "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "harvesterId": "2c0160248ba9a66f45da751ca459535a",
       "name": "new_harvester1",
       "public" : true,
-      "plugin" : "elasticsearch_plugin",
-      "endpoint" : "https://example.elastic.com"
+      "harvestingBackendType" : "elasticsearch_harvesting_backend",
+      "harvestingBackendEndpoint" : "example.elastic.com:9200"
     }
     ```
   produces:

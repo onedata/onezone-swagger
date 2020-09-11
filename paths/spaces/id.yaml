@@ -33,10 +33,11 @@ get:
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID
 
     {
-      "spaceId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
-      "name": "new_space1",
+      "spaceId": "2c0160248ba9a66f45da751ca459535a",
+      "name": "My Private space",
       "providers": {
-        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
+        "296ebe3c20e9666dc489b647f8647f12": 5368709120,
+        "dcf12429647c204896eebe3b6f686967": 14400000
       }
     }
     ```

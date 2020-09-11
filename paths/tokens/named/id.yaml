@@ -1,0 +1,264 @@
+get:
+  operationId: get_named_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Get named token
+  x-bash-codegen-description: |
+    Returns the information about a specific named token.
+
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Returns the information about a specific named token.
+
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
+
+    ***Example cURL requests***
+
+    **Get named token**
+    ```bash
+    curl -u username:password -X GET \
+    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
+    {
+      "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
+      "name": "my-token-1",
+      "subject": {
+        "type": "user",
+        "id": "1b510f18b3b05611871c0acdffa9aed4"
+      },
+      "type": {
+        "inviteToken": {
+          "inviteType": "userJoinCluster",
+          "clusterId": "fb73f7ceff5abd995357abbe01c812ce"
+        }
+      },
+      "caveats": [
+        {
+          "type": "time",
+          "validUntil": 1571147494
+        },
+        {
+          "type": "ip",
+          "whitelist": [
+            "189.34.15.0/8",
+            "127.0.0.0/24",
+            "167.73.12.17"
+          ]
+        }
+      ],
+      "metadata": {
+        "creationTime": 1564721024,
+        "usageLimit": 15,
+        "usageCount": 3,
+        "privileges": [
+          "space_view",
+          "space_read_data",
+          "space_view_views",
+          "space_view_statistics"
+        ],
+        "custom": {
+          "jobName": "experiment-15",
+          "vm": "worker156.cloud.local"
+        }
+      },
+      "revoked": false,
+      "token": "MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Returns the details of a specific named token.
+      schema:
+        $ref: '#/definitions/NamedToken'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Token Id
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getNamedToken id=$TOKEN_ID"
+
+
+patch:
+  operationId: modify_named_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Modify named token
+  x-bash-codegen-description: |
+    Modifies a specific named token. Supports renaming the token,
+    toggling the revoked flag and modifying the metadata.
+
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Modifies a specific named token. Supports renaming the token,
+    toggling the revoked flag and modifying the metadata.
+
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
+
+    ***Example cURL requests***
+
+    **Modify named token**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" \
+    -X PATCH -d '{"revoked": true}' \
+    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Named token has been updated successfully.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Token Id
+      type: string
+      required: true
+    - name: data
+      in: body
+      description: Named token update request
+      schema:
+        $ref: '#/definitions/NamedTokenUpdateRequest'
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli modifyNamedToken id=$TOKEN_ID revoked==true"
+
+
+delete:
+  operationId: delete_named_token
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: ?BINDING(id)
+    aspect: instance
+  x-onedata-permissions:
+    - oz_tokens_manage
+  summary: Delete named token
+  x-bash-codegen-description: |
+    Deletes a specific named token.
+
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
+  description: |
+    Deletes a specific named token.
+
+    This operation is available for the token owner (subject), or (in case of
+    provider tokens) cluster member with `cluster_update` privilege.
+    Otherwise requires `oz_tokens_manage` admin privilege.
+
+    You can learn more about named and temporary tokens
+    [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[named-and-temporary-tokens].html).
+
+    ***Example cURL requests***
+
+    **Delete named token**
+    ```bash
+    curl -u username:password -X DELETE \
+    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
+    ```
+  produces:
+    - application/json
+  responses:
+    '204':
+      description: The named token was deleted.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      description: Token Id
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli deleteNamedToken id=$TOKEN_ID"

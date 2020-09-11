@@ -10,12 +10,13 @@ properties:
   providers:
     type: object
     description: >
-      The map of providers Ids supporting this space
-      and the size of provisioned storage in bytes.
+      A map of provider Ids supporting this space
+      and corresponding size of provisioned storage in bytes.
     additionalProperties:
       type: integer
       description: |
         Size of storage provisioned for this space by provider.
+
 required:
   - spaceId
   - name
@@ -25,3 +26,4 @@ example:
   name: My Private space
   providers:
     296ebe3c20e9666dc489b647f8647f12: 5368709120
+    dcf12429647c204896eebe3b6f686967: 14400000

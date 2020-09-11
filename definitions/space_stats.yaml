@@ -1,0 +1,29 @@
+type: object
+description: Space statistics.
+properties:
+  syncProgressPerProvider:
+    type: object
+    description: >
+      The map of provider Ids supporting this space
+      and corresponding sync progress of the provider.
+    additionalProperties:
+      $ref: '#/definitions/ProviderSyncProgress'
+
+required:
+  - syncProgressPerProvider
+example:
+  syncProgressPerProvider:
+    296ebe3c20e9666dc489b647f8647f12:
+      296ebe3c20e9666dc489b647f8647f12:
+        seq: 1450
+        timestamp: 1571147494
+      dcf12429647c204896eebe3b6f686967:
+        seq: 49870
+        timestamp: 1563819329
+    dcf12429647c204896eebe3b6f686967:
+      296ebe3c20e9666dc489b647f8647f12:
+        seq: 1390
+        timestamp: 1570525418
+      dcf12429647c204896eebe3b6f686967:
+        seq: 50312
+        timestamp: 1575049210

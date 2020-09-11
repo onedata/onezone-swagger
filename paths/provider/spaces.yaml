@@ -11,18 +11,18 @@ get:
     Returns the list of spaces managed by the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Returns the list of spaces managed by the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Get spaces supported by provider**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X GET https://$HOST/api/v3/onezone/provider/spaces
+    curl -H "x-auth-token: $TOKEN" -X GET https://$HOST/api/v3/onezone/provider/spaces
 
     {
       "spaces": [

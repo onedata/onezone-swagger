@@ -6,7 +6,7 @@ get:
     type: od_handle
     aspect: privileges
   x-onedata-permissions: []
-  summary: List all handle privileges.
+  summary: List all handle privileges
   x-bash-codegen-description: |
     Returns list of all possible handle privileges.
 
@@ -20,7 +20,7 @@ get:
 
     **Get list of all handle privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/handle/privileges
+    curl https://$HOST/api/v3/onezone/handles/privileges
 
     {
       "admin": [

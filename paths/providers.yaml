@@ -34,7 +34,7 @@ get:
     - application/json
   responses:
     '200':
-      description: List of providers Ids.
+      description: List of provider Ids.
       schema:
         $ref: '#/definitions/Providers'
     '400':

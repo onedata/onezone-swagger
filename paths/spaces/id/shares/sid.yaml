@@ -13,14 +13,22 @@ get:
     - oz_shares_view
   summary: Get space share
   x-bash-codegen-description: |
-    Get share from specific space.
+    Returns the details about a share from specific space.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    and modifying share details.
 
     This operation requires any of the following authentication:
     * as user who has `space_view` privilege in the space (`{id}`),
     * as provider that supports the space (`{id}`),
     * as user who has `oz_shares_view` admin privilege.
   description: |
-    Get share from specific space.
+    Returns the details about a share from specific space.
+
+    NOTE: Only Oneprovider API supports creating / deleting shares and is
+    preferred for all share operations. Onezone API is limited to retrieving
+    and modifying share details.
 
     This operation requires any of the following authentication:
     * as user who has `space_view` privilege in the space (`{id}`),
@@ -29,18 +37,23 @@ get:
 
     ***Example cURL requests***
 
-    **Add group to space**
+    **Get space share**
     ```bash
     curl -u username:password -H "Content-type: application/json" -X GET \
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/shares/$SHARE_ID
 
     {
-      "shareId": "31502ffabdbd95a227aef81d152ddfdc",
-      "name": "MyNewShare",
-      "publicUrl": "https://onezone.example.com/shares/31502ffabdbd95a227aef81d152ddfdc",
-      "rootFileId": "46D00000016726D75766662565765386857595139592D594E736C676D0000002B43592D347247454C53",
-      "spaceId": "b45d02d01066b8794ad7f927becf4bde",
-      "handleId": null
+      "shareId": "1f4b762b1380946e73aeca574c77f14c",
+      "name": "Experiment XYZ",
+      "description": "# Experiment XYZ\nThis collection contains results from Experiment XYZ.",
+      "publicUrl": "https://onedata.org/shares/1f4b762b1380946e73aeca574c77f14c",
+      "fileType": "dir",
+      "rootFileId": "00000000006CB663736861726547756964233339643236366165646365\
+      6266666164353939663761373734313235363166342336656331613534313362366634653\
+      2623031613563383561386664373937653223316634623736326231333830393436653733\
+      6165636135373463373766313463",
+      "spaceId": "6ec1a5413b6f4e2b01a5c85a8fd797e2",
+      "handleId" "doi:10.15911/MyShares.726855"
     }
     ```
   consumes:

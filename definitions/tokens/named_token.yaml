@@ -1,0 +1,51 @@
+type: object
+description: Named token details.
+properties:
+  id:
+    $ref: '#/definitions/TokenPropertyId'
+  name:
+    $ref: '#/definitions/TokenPropertyName'
+  subject:
+    $ref: '#/definitions/TokenPropertySubject'
+  type:
+    $ref: '#/definitions/TokenPropertyTokenType'
+  caveats:
+    $ref: '#/definitions/TokenPropertyCaveats'
+  metadata:
+    $ref: '#/definitions/TokenPropertyMetadata'
+  revoked:
+    $ref: '#/definitions/TokenPropertyRevoked'
+  token:
+    $ref: '#/definitions/SerializedToken'
+example:
+  id: 2b5d0dd5aa6443a69277b5ce0544fec2
+  name: my-token-1
+  subject:
+    type: user
+    id: 1b510f18b3b05611871c0acdffa9aed4
+  type:
+    inviteToken:
+      inviteType: userJoinCluster
+      clusterId: fb73f7ceff5abd995357abbe01c812ce
+  caveats:
+    - type: time
+      validUntil: 1571147494
+    - type: ip
+      whitelist:
+      - 189.34.15.0/8
+      - 127.0.0.0/24
+      - 167.73.12.17
+  metadata:
+    creationTime: 1564721024
+    usageLimit: 15
+    usageCount: 3
+    privileges:
+      - space_view
+      - space_read_data
+      - space_view_views
+      - space_view_statistics
+    custom:
+      jobName: experiment-15
+      vm: worker156.cloud.local
+  revoked: false
+  token: MDAxNWxvY2F0aW9uIG9uZXpvbmUKMDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTR

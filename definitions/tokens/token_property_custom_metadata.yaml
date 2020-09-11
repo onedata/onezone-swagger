@@ -1,0 +1,2 @@
+type: object
+description: Arbitrary user metadata (JSON) attached to the token

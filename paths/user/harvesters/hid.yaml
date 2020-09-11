@@ -26,11 +26,11 @@ get:
     https://$HOST/api/v3/onezone/user/harvesters/$HARVESTER_ID
 
     {
-      "harvesterId": "803ZirkUfdiWDd4W3bI4QaPBog_0kCdUddUIsgAxi5I",
+      "harvesterId": "2c0160248ba9a66f45da751ca459535a",
       "name": "new_harvester1",
       "public" : true,
-      "plugin" : "elasticsearch_plugin",
-      "endpoint" : "https://example.elastic.com"
+      "harvestingBackendType" : "elasticsearch_harvesting_backend",
+      "harvestingBackendEndpoint" : "example.elastic.com:9200"
     }
     ```
   produces:

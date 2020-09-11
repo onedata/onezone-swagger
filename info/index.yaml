@@ -1,4 +1,4 @@
-version: 19.02.4
+version: 20.02.1
 title: Onezone
 x-bash-codegen-description: |
   This is the RESTful API definition of Onezone component of Onedata
@@ -17,38 +17,31 @@ x-bash-codegen-description: |
     * **users** - can authenticate using an access token or basic credentials
     (only for users originating from Onezone's onepanel). Examples:
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" [...]
-    curl -H "Authorization: Bearer $TOKEN" [...]
+    curl -H "x-auth-token: $TOKEN" [...]
+    curl -H "authorization: Bearer $TOKEN" [...]
     curl -u "username:password" [...]
-    curl -H "Macaroon: $TOKEN" [...]   # DEPRECATED
+    curl -H "macaroon: $TOKEN" [...]   # DEPRECATED
     ```
     > `$TOKEN` can ba a Onedata access token, obtained via Onezone GUI or API, in the form
     `MDAxNWxvY2F00aW9...`. If authority delegation for given IdP is enabled,
     it is possible to provide an access token from the IdP, which must be prefixed
     properly (depending on the configuration), e.g.: `github/GST5aasdA...`.
 
-    * **Oneproviders** - can authenticate using the provider root macaroon token,
+    * **Oneproviders** - can authenticate using the provider root token,
     which was assigned during registration in Onezone. It can be found in
-    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user
+    `/etc/op_worker/provider_root_token.txt`. It is used just like a user
     access token, for example:
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" [...]
-    curl -H "Authorization: Bearer $TOKEN" [...]
-    curl -H "Macaroon: $TOKEN" [...]   # DEPRECATED
+    curl -H "x-auth-token: $TOKEN" [...]
+    curl -H "authorization: Bearer $TOKEN" [...]
+    curl -H "macaroon: $TOKEN" [...]   # DEPRECATED
     ```
-    > Please mind that the provider root macaroon is highly confidential and must
+    > Please mind that the provider root token is highly confidential and must
     be kept secret (similarly to a private RSA key).
 
     * **anonymous** - there is a small subset of operations that do not require
-      any authentication and are publicly available, for example:
-      * `POST /user/authorize` - authorizes user with authentication token through
-        Onezone web interface. This interface is called typically by providers,
-      * `POST /provider` - registers a Oneprovider in Onezone service
-        (however a valid registration token in the body is required),
-      * `POST /provider/test/check_my_ports` - checks if all given ports are
-        reachable from Onezone,
-      * `GET /provider/test/check_my_ip` - returns the external IP of the
-        request peer (as seen by the Onezone).
+      any authentication and are publicly available (look for information about
+      public availability in the endpoint descriptions).
 
   The authorization of the client is determined based on existing relations and
   privileges in the system. In most cases, the rules below can be roughly applied:
@@ -135,38 +128,31 @@ description: |
     * **users** - can authenticate using an access token or basic credentials
     (only for users originating from Onezone's onepanel). Examples:
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" [...]
-    curl -H "Authorization: Bearer $TOKEN" [...]
+    curl -H "x-auth-token: $TOKEN" [...]
+    curl -H "authorization: Bearer $TOKEN" [...]
     curl -u "username:password" [...]
-    curl -H "Macaroon: $TOKEN" [...]   # DEPRECATED
+    curl -H "macaroon: $TOKEN" [...]   # DEPRECATED
     ```
     > `$TOKEN` can ba a Onedata access token, obtained via Onezone GUI or API, in the form
     `MDAxNWxvY2F00aW9...`. If authority delegation for given IdP is enabled,
     it is possible to provide an access token from the IdP, which must be prefixed
     properly (depending on the configuration), e.g.: `github/GST5aasdA...`.
 
-    * **Oneproviders** - can authenticate using the provider root macaroon token,
+    * **Oneproviders** - can authenticate using the provider root token,
     which was assigned during registration in Onezone. It can be found in
-    `/etc/op_worker/provider_root_macaroon.txt`. It is used just like a user
+    `/etc/op_worker/provider_root_token.txt`. It is used just like a user
     access token, for example:
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" [...]
-    curl -H "Authorization: Bearer $TOKEN" [...]
-    curl -H "Macaroon: $TOKEN" [...]   # DEPRECATED
+    curl -H "x-auth-token: $TOKEN" [...]
+    curl -H "authorization: Bearer $TOKEN" [...]
+    curl -H "macaroon: $TOKEN" [...]   # DEPRECATED
     ```
-    > Please mind that the provider root macaroon is highly confidential and must
+    > Please mind that the provider root token is highly confidential and must
     be kept secret (similarly to a private RSA key).
 
     * **anonymous** - there is a small subset of operations that do not require
-      any authentication and are publicly available, for example:
-      * `POST /user/authorize` - authorizes user with authentication token through
-        Onezone web interface. This interface is called typically by providers,
-      * `POST /provider` - registers a Oneprovider in Onezone service
-        (however a valid registration token in the body is required),
-      * `POST /provider/test/check_my_ports` - checks if all given ports are
-        reachable from Onezone,
-      * `GET /provider/test/check_my_ip` - returns the external IP of the
-        request peer (as seen by the Onezone).
+      any authentication and are publicly available (look for information about
+      public availability in the endpoint descriptions).
 
   The authorization of the client is determined based on existing relations and
   privileges in the system. In most cases, the rules below can be roughly applied:
@@ -251,12 +237,12 @@ description: |
   operations and attributes.
 
   ```
-  docker run -it onedata/rest-cli:19.02.4
+  docker run -it onedata/rest-cli:20.02.1
   ```
 
   Below you can find some tutorials which show how to use this API in practice:
-    * [User oriented tutorial](https://onedata.org/docs/doc/using_onedata/using_onedata_from_cli.html)
-    * [Administrator oriented tutorial](https://onedata.org/docs/doc/administering_onedata/administering_onedata_from_cli.html)
+    * [User oriented tutorial](https://onedata.org/#/home/documentation/doc/using_onedata/using_onedata_from_cli.html)
+    * [Administrator oriented tutorial](https://onedata.org/#/home/documentation/doc/administering_onedata/administering_onedata_from_cli.html)
 
 
   ## Examples
@@ -283,7 +269,7 @@ description: |
   > * tokenPrefix must be set to "github/"
   >
   > You can learn more in
-  > [the documentation](https://onedata.org/#/home/documentation/doc/administering_onedata/openid_saml_configuration[authority-delegation].html).
+  > [the documentation](https://onedata.org/#/home/documentation/doc/administering_onedata/openid_saml_configuration/openid_saml_configuration_19_02[authority-delegation].html).
 
 contact:
   name: Onedata support

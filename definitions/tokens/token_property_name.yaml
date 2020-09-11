@@ -1,0 +1,2 @@
+type: string
+description: Token name (unique for subject user/provider)

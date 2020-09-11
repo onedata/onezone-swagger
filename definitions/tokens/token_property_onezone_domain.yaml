@@ -1,0 +1,2 @@
+type: string
+description: Domain of the Onezone service that issued the token.

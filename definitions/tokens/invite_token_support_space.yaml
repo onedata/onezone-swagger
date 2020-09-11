@@ -1,0 +1,27 @@
+allOf:
+- $ref: '#/definitions/InviteToken'
+- type: object
+  properties:
+    inviteType:
+      type: string
+      enum: [supportSpace]
+      x-discriminator-value: "supportSpace"
+      description: Invite token type - invitation for a provider to support a space.
+    spaceId:
+      type: string
+      description: Id of the space to be supported
+    parameters:
+      $ref: '#/definitions/SupportParameters'
+      description: |
+        Space support parameters - optional, default to `dataWrite = global`
+        and `metadataReplication = eager`.
+
+required:
+  - inviteType
+  - spaceId
+example:
+  inviteType: supportSpace
+  spaceId: d4f5876dbe7f1e7e8a511de6dd31144b
+  parameters:
+    dataWrite: global
+    metadataReplication: eager

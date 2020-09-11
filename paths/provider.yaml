@@ -12,18 +12,18 @@ get:
     Returns information about the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Returns information about the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Get information about provider**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" https://$HOST/api/v3/onezone/provider
+    curl -H "x-auth-token: $TOKEN" https://$HOST/api/v3/onezone/provider
 
     {
       "name": "example",
@@ -78,18 +78,18 @@ patch:
     Updates information about the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Updates information about the Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Update provider geo location**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X PATCH \
+    curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" -X PATCH \
     -d '{"latitude": 50.068968,"longitude": 20.909444}'  \
     https://$HOST/api/v3/onezone/provider
     ```
@@ -144,19 +144,19 @@ delete:
     Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
   description: |
     Allows Oneprovider service to unregister from Onezone - concerns the
     Oneprovider that performed the request.
 
     This operation requires provider authentication - see
-    [provider auth macaroon](#section/Overview/Authentication-and-authorization).
+    [provider auth token](#section/Overview/Authentication-and-authorization).
 
     ***Example cURL requests***
 
     **Unregister provider from Onezone**
     ```bash
-    curl -H "X-Auth-Token: $TOKEN" -X DELETE  \
+    curl -H "x-auth-token: $TOKEN" -X DELETE  \
     https://$HOST/api/v3/onezone/provider
     ```
   consumes:

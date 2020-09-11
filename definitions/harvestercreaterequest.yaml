@@ -4,22 +4,27 @@ properties:
   name:
     type: string
     description: The name of the harvester.
-  endpoint:
+  harvestingBackendType:
     type: string
-    description: URL of the harvester backend (e.g. elasticsearch service).
-  plugin:
+    description:
+      Type of external harvesting backend that will provide persistence and analytics for harvested
+      metadata. Can be chosen from predefined backends and optionally custom ones configured by Onezone admins.
+      Can be omitted if default harvester backend is set up in Onezone.
+  harvestingBackendEndpoint: 
     type: string
-    description: Name of the erlang plugin used for communication with the harvester backend.
+    description: 
+      Endpoint where the specified harvesting backend can be reached by Onezone to feed incoming metadata and perform queries.
+      Can be omitted if default harvester backend is set up in Onezone.
   guiPluginConfig:
     $ref: '#/definitions/HarvesterGuiPluginConfig'
 required:
   - name
-  - endpoint
-  - plugin
+  - harvestingBackendType
+  - harvestingBackendEndpoint
 example:
   name: My private harvester
-  endpoint: https://example.elastic.com
-  plugin: elasticsearch_plugin
+  harvestingBackendType: elasticsearch_harvesting_backend
+  harvestingBackendEndpoint: example.elastic.com:9200
   guiPluginConfig: {
     "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
     "externalHelpLink": "http://example.com/some_help_page",

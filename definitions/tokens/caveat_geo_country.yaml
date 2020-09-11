@@ -1,0 +1,53 @@
+allOf:
+- $ref: '#/definitions/Caveat'
+- type: object
+  properties:
+    type:
+      type: string
+      enum: [geo.country]
+      x-discriminator-value: "geo.country"
+      description: |
+        GEO Country caveat - limits the countries from which the token can be utilized.
+        The client's country is resolved based on client's IP and MaxMind's
+        GeoLite database.
+
+        You can learn more about token caveats
+        [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[token-caveats].html).
+    filter:
+      type: string
+      enum:
+        - whitelist
+        - blacklist
+      description: |
+        Filter type to be applied:
+        * whitelist limits allowed countries to the ones on the list only
+        * blacklist limits allowed countries to any region that is not on the list
+    list:
+      type: array
+      items:
+        type: string
+      description: |
+        List of countries (ISO3166 2 letter codes) from which the token can be utilized.
+
+        Example:
+        ```json
+          {
+            "type": "geo.country",
+            "filter": "whitelist",
+            "list": [
+              "PL", "UK", "DE", "NL"
+            ]
+          }
+        ```
+required:
+  - type
+  - filter
+  - list
+example:
+  type: geo.country
+  filter: whitelist
+  list:
+    - PL
+    - UK
+    - DE
+    - NL
