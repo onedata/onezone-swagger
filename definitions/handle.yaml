@@ -1,12 +1,15 @@
 type: object
 description: Handle properties.
 properties:
-  handle:
-    type: string
-    description: Unique Id of the handle as registered in the handle service.
   handleId:
     type: string
     description: Unique Id of the handle in Onedata.
+  publicHandle:
+    type: string
+    description: >
+      Unique Id of the handle as registered in the handle service. Depending on
+      the handle service, can be an Id (DOI: 10.5072/w95Zlng) or an URL
+      (PID: http://hdl.handle.net/21.T15999/TgAl7s0).
   handleServiceId:
     type: string
     description: Id of the service where the handle was registered.
@@ -24,12 +27,28 @@ properties:
   timestamp:
     type: string
     description: Handle registration timestamp.
+  creator:
+    $ref: '#/definitions/Subject'
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+
+required:
+  - handleId
+  - publicHandle
+  - handleServiceId
+  - resourceType
+  - resourceId
+  - metadata
+  - timestamp
+  - creator
+  - creationTime
+
 example:
-  handle: 10.5072/w95Zlng
   handleId: 14208c48fe063d26fd45144b90977a56
+  publicHandle: 10.5072/w95Zlng
+  handleServiceId: f480c4889db90d93996ee89d0ee5f8f0
   resourceType: Share
   resourceId: 3d8cd457cef92ba08261bf1bb8d40438
-  handleServiceId: f480c4889db90d93996ee89d0ee5f8f0
   metadata: >
     <?xml version=\"1.0\"?>
     <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
@@ -43,3 +62,7 @@ example:
       </rdf:Description>
     </rdf:RDF>
   timestamp: 2016-07-16T19:20:30.45+01:00
+  creator:
+    type: user
+    id: 7434b256e71e1052e0d5e3e9da657ebf
+  creationTime: 1576152793

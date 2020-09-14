@@ -37,7 +37,12 @@ get:
       "name": "Personal space",
       "providers": {
         "296ebe3c20e9666dc489b647f8647f12" : 5368709120
-      }
+      },
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebfc1a770c3"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:

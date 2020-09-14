@@ -1,5 +1,5 @@
 type: object
-description: Describes a user account.
+description: Describes a user account (info available to collaborators).
 properties:
   userId:
     type: string
@@ -12,10 +12,17 @@ properties:
     description: >
       User's human-readable identifier, unique across the system. Makes it
       easier to identify the user and can be used for signing in with password.
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+
 required:
   - userId
   - fullName
+  - username
+  - creationTime
+
 example:
   userId: f1c8b1a37aa7447b22eb65a742d40524
   fullName: Rudolf Lingens
   username: r.lingens
+  creationTime: 1576152793

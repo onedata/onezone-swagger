@@ -26,11 +26,16 @@ get:
     https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID
 
     {
-       "providers" : {
-          "296ebe3c20e9666dc489b647f8647f12" : 5368709120
-       },
-       "spaceId" : "f8d843beda24e54545455ecc0f4b8886",
-       "name" : "Test"
+      "spaceId": "2c0160248ba9a66f45da751ca459535a",
+      "name": "new_space1",
+      "providers": {
+        "296ebe3c20e9666dc489b647f8647f12" : 5368709120
+      },
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebfc1a770c3"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:

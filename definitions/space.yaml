@@ -16,14 +16,25 @@ properties:
       type: integer
       description: |
         Size of storage provisioned for this space by provider.
+  creator:
+    $ref: '#/definitions/Subject'
+  creationTime:
+    $ref: '#/definitions/Timestamp'
 
 required:
   - spaceId
   - name
   - providers
+  - creator
+  - creationTime
+
 example:
   spaceId: 2c0160248ba9a66f45da751ca459535a
   name: My Private space
   providers:
     296ebe3c20e9666dc489b647f8647f12: 5368709120
     dcf12429647c204896eebe3b6f686967: 14400000
+  creator:
+    type: user
+    id: 7434b256e71e1052e0d5e3e9da657ebf
+  creationTime: 1576152793

@@ -42,6 +42,7 @@ get:
     '200':
       description: The list of user's privileges in the handle.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/HandleServicePrivileges'

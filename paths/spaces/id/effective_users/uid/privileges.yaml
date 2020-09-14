@@ -54,6 +54,7 @@ get:
     '200':
       description: The list of effective user's privileges in the space.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/SpacePrivileges'

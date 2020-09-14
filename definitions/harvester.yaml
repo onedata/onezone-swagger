@@ -23,16 +23,27 @@ properties:
     description:
       Endpoint where the specified harvesting backend can be reached by Onezone to feed incoming metadata and perform queries.
       Can be omitted if default harvester backend is set up in Onezone.
-    
+  creator:
+    $ref: '#/definitions/Subject'
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+
 required:
   - harvesterId
   - name
   - public
   - harvestingBackendType
   - harvestingBackendEndpoint
+  - creator
+  - creationTime
+
 example:
   harvesterId: 5989b9476b7d1b2f955c65efb24c0917
   name: Test harvester
   public: true
   harvestingBackendType: elasticsearch_harvesting_backend
   harvestingBackendEndpoint: example.elastic.com:9200
+  creator:
+    type: user
+    id: 7434b256e71e1052e0d5e3e9da657ebf
+  creationTime: 1576152793

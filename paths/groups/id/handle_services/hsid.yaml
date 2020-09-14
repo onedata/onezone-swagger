@@ -33,21 +33,26 @@ get:
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/handle_services/$HANDLE_SERVICE_ID
 
     {
-        "name": "MyCommunity Handle service",
-        "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
-        "proxyEndpoint": "https://localhost:17000/handle_proxy",
-        "serviceProperties": {
-            "allowTemplateOverride": false,
-            "doiEndpoint": "/doi",
-            "host": "https://mds.test.datacite.org",
-            "identifierTemplate": "{{space.name}}-{{space.guid}}",
-            "mediaEndpoint": "/media",
-            "metadataEndpoint": "/metadata",
-            "password": "pa$$word",
-            "prefix": 10.5072,
-            "type": "DOI",
-            "username": "alice"
-        }
+      "name": "MyCommunity Handle service",
+      "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
+      "proxyEndpoint": "https://localhost:17000/handle_proxy",
+      "serviceProperties": {
+        "allowTemplateOverride": false,
+        "doiEndpoint": "/doi",
+        "host": "https://mds.test.datacite.org",
+        "identifierTemplate": "{{space.name}}-{{space.guid}}",
+        "mediaEndpoint": "/media",
+        "metadataEndpoint": "/metadata",
+        "password": "pa$$word",
+        "prefix": 10.5072,
+        "type": "DOI",
+        "username": "alice"
+      },
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:

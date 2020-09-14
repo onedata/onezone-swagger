@@ -29,9 +29,14 @@ get:
     https://$HOST/api/v3/onezone/groups/$GROUP_ID
 
     {
-      "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
-      "name":"new_group",
-      "type":"team"
+      "groupId": "a4d3bc73aada63052310652d421609f1",
+      "name": "Test group",
+      "type": "team",
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:

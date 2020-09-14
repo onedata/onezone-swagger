@@ -16,11 +16,19 @@ properties:
       logic specific for particular Handle service.
   serviceProperties:
     $ref: '#/definitions/HandleServiceProperties'
+  creator:
+    $ref: '#/definitions/Subject'
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+
 required:
   - handleServiceId
   - name
   - proxyEndpoint
   - serviceProperties
+  - creator
+  - creationTime
+
 example:
   handleServiceId: cdca849d2b71bc7205f3eab686cf62fb
   name: MyCommunity Handle service
@@ -36,3 +44,7 @@ example:
     password: pa$$word
     identifierTemplate: "{{space.name}}-{{space.guid}}"
     allowTemplateOverride: false
+  creator:
+    type: user
+    id: 7434b256e71e1052e0d5e3e9da657ebf
+  creationTime: 1576152793

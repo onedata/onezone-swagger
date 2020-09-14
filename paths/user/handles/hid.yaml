@@ -26,7 +26,7 @@ get:
     https://$HOST/api/v3/onezone/user/handles/$HANDLE_ID
 
     {
-      "handle": "10.5072/w95Zlng",
+      "publicHandle": "10.5072/w95Zlng",
       "handleId": "95b663a6467c72ab1256865efef9e387",
       "handleServiceId": "97c27230017cd54c1220189e357322c4",
       "resourceType": "Share",
@@ -42,7 +42,12 @@ get:
               <dc:date>2000-06-06</dc:date>
             </rdf:Description>
           </rdf:RDF>",
-      "timestamp": "1997-07-16T19:20"
+      "timestamp": "1997-07-16T19:20",
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:

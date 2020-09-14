@@ -50,6 +50,7 @@ get:
     '200':
       description: The list of effective group's privileges in the cluster.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/ClusterPrivileges'

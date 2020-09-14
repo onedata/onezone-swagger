@@ -39,7 +39,12 @@ get:
       "name": "new_harvester1",
       "public" : true,
       "harvestingBackendType" : "elasticsearch_harvesting_backend",
-      "harvestingBackendEndpoint" : "example.elastic.com:9200"
+      "harvestingBackendEndpoint" : "example.elastic.com:9200",
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:

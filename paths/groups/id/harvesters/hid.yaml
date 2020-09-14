@@ -33,11 +33,16 @@ get:
     https://$HOST/api/v3/onezone/groups/$GROUP_ID/harvesters/$HARVESTER_ID
 
     {
-      "harvesterId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
+      "harvesterId": "2c0160248ba9a66f45da751ca459535a",
       "name": "new_harvester1",
       "public" : true,
       "harvestingBackendType" : "elasticsearch_harvesting_backend",
-      "harvestingBackendEndpoint" : "example.elastic.com:9200"
+      "harvestingBackendEndpoint" : "example.elastic.com:9200",
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:
