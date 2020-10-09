@@ -4,9 +4,9 @@ properties:
   creationTime:
     $ref: '#/definitions/Timestamp'
   usageLimit:
-    type: integer
     description: >
-      (Invite tokens only) limits how many times the token can be consumed
+      (Invite tokens only) limits how many times the token can be consumed -
+      can be a positive integer or the literal string "infinity"
   usageCount:
     type: integer
     description: >
