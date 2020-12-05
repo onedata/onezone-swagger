@@ -16,14 +16,14 @@ properties:
       type: integer
       description: |
         Size of storage provisioned for this space by provider.
-  supportParametersPerProvider:
+  supportParametersRegistry:
     type: object
     description: >
       The map of provider Ids supporting this space
       and corresponding support parameters of the provider.
     additionalProperties:
       $ref: '#/definitions/SupportParameters'
-  supportStagePerProvider:
+  supportStageRegistry:
     type: object
     description: >
       The map of provider Ids supporting this space
@@ -39,8 +39,8 @@ required:
   - spaceId
   - name
   - providers
-  - supportParametersPerProvider
-  - supportStagePerProvider
+  - supportParametersRegistry
+  - supportStageRegistry
   - creator
   - creationTime
 
@@ -50,14 +50,14 @@ example:
   providers:
     296ebe3c20e9666dc489b647f8647f12: 5368709120
     dcf12429647c204896eebe3b6f686967: 14400000
-  supportParametersPerProvider:
+  supportParametersRegistry:
     296ebe3c20e9666dc489b647f8647f12:
       dataWrite: global
       metadataReplication: lazy
     dcf12429647c204896eebe3b6f686967:
       dataWrite: none
       metadataReplication: eager
-  supportStagePerProvider:
+  supportStageRegistry:
     296ebe3c20e9666dc489b647f8647f12:
       providerStage: active
       perStorage:

@@ -1,0 +1,37 @@
+type: object
+properties:
+  seenSeq:
+    type: integer
+    description: |
+      Last sequence number of the corresponding provider that has been seen
+      and processed by *subject* provider.
+  seqTimestamp:
+    type: integer
+    description: |
+      Timestamp in seconds (UNIX epoch) when the sequence number has been
+      emitted by the corresponding provider.
+  diff:
+    type: integer
+    description: |
+      Difference between the latest seq emitted by a peer provider and the
+      latest seq seen by the *subject* provider. Indicates the number of
+      changes that need to be seen to become fully synced.
+  delay:
+    type: integer
+    description: |
+      Difference between the timestamp of the latest seq emitted by a peer provider
+      and the timestamp of the latest seq seen by the *subject* provider (in seconds).
+      Indicates the delay of changes propagation between the providers.
+  desync:
+    type: boolean
+    description: |
+      Indicates desynchronization state - when the seq synchronization delay
+      between the *subject* and peer providers exceeds a certain threshold.
+      If true, the *subject* provider should be perceived as having a
+      considerably outdated view on changes made by the peer.
+example:
+  seenSeq: 2450
+  seqTimestamp: 1571147494
+  diff: 198
+  delay: 18
+  desync: false

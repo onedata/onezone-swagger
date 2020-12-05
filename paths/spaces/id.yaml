@@ -39,7 +39,7 @@ get:
         "296ebe3c20e9666dc489b647f8647f12": 5368709120,
         "dcf12429647c204896eebe3b6f686967": 14400000
       },
-      "supportParametersPerProvider": {
+      "supportParametersRegistry": {
         "296ebe3c20e9666dc489b647f8647f12": {
           "dataWrite": "global",
           "metadataReplication": "lazy"
@@ -49,7 +49,7 @@ get:
           "metadataReplication": "eager"
         }
       },
-      "supportStagePerProvider": {
+      "supportStageRegistry": {
         "296ebe3c20e9666dc489b647f8647f12": {
           "providerStage": "active",
           "perStorage": {

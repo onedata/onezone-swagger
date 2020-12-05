@@ -1,29 +1,54 @@
 type: object
 description: Space statistics.
 properties:
-  syncProgressPerProvider:
+  syncProgressRegistry:
     type: object
     description: >
-      The map of provider Ids supporting this space
-      and corresponding sync progress of the provider.
+      The map of provider Ids supporting this space and corresponding sync
+      progress summary of the *subject* provider.
     additionalProperties:
-      $ref: '#/definitions/ProviderSyncProgress'
+      $ref: '#/definitions/SyncProgressProviderSummary'
 
 required:
-  - syncProgressPerProvider
+  - syncProgressRegistry
+
 example:
-  syncProgressPerProvider:
+  syncProgressRegistry:
     296ebe3c20e9666dc489b647f8647f12:
-      296ebe3c20e9666dc489b647f8647f12:
-        seq: 1450
-        timestamp: 1571147494
-      dcf12429647c204896eebe3b6f686967:
-        seq: 49870
-        timestamp: 1563819329
+      legacy: false
+      joining: false
+      archival: false
+      desync: true
+      lastReport: 1571147511
+      perPeer:
+        296ebe3c20e9666dc489b647f8647f12:
+          seenSeq: 1450
+          seqTimestamp: 1571147494
+          diff: 0
+          delay: 0
+          desync: false
+        dcf12429647c204896eebe3b6f686967:
+          seenSeq: 46731
+          seqTimestamp: 1563818960
+          diff: 3139
+          delay: 369
+          desync: true
     dcf12429647c204896eebe3b6f686967:
-      296ebe3c20e9666dc489b647f8647f12:
-        seq: 1390
-        timestamp: 1570525418
-      dcf12429647c204896eebe3b6f686967:
-        seq: 50312
-        timestamp: 1575049210
+      legacy: false
+      joining: false
+      archival: false
+      desync: false
+      lastReport: 1563819334
+      perPeer:
+        296ebe3c20e9666dc489b647f8647f12:
+          seenSeq: 1397
+          seqTimestamp: 1571147456
+          diff: 53
+          delay: 38
+          desync: false
+        dcf12429647c204896eebe3b6f686967:
+          seenSeq: 49870
+          seqTimestamp: 1563819329
+          diff: 0
+          delay: 0
+          desync: false
