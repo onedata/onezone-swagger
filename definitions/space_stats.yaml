@@ -4,8 +4,9 @@ properties:
   syncProgressRegistry:
     type: object
     description: >
-      The map of provider Ids supporting this space and corresponding sync
-      progress summary of the *subject* provider.
+      A map (key-value) with all providers supporting this space, where key is
+      the Id of *subject* provider and value is the corresponding sync progress
+      summary of the provider.
     additionalProperties:
       $ref: '#/definitions/SyncProgressProviderSummary'
 
@@ -33,6 +34,12 @@ example:
           diff: 3139
           delay: 369
           desync: true
+        10e0c835dc08bf6f9519a93889db4b00:
+          seenSeq: 1
+          seqTimestamp: 1562012300
+          diff: 0
+          delay: 0
+          desync: false
     dcf12429647c204896eebe3b6f686967:
       legacy: false
       joining: false
@@ -49,6 +56,37 @@ example:
         dcf12429647c204896eebe3b6f686967:
           seenSeq: 49870
           seqTimestamp: 1563819329
+          diff: 0
+          delay: 0
+          desync: false
+        10e0c835dc08bf6f9519a93889db4b00:
+          seenSeq: 1
+          seqTimestamp: 1562012300
+          diff: 0
+          delay: 0
+          desync: false
+    10e0c835dc08bf6f9519a93889db4b00:
+      legacy: true
+      joining: true
+      archival: false
+      desync: true
+      lastReport: 0
+      perPeer:
+        296ebe3c20e9666dc489b647f8647f12:
+          seenSeq: 1
+          seqTimestamp: 1562012300
+          diff: 1449
+          delay: 9135194
+          desync: true
+        dcf12429647c204896eebe3b6f686967:
+          seenSeq: 1
+          seqTimestamp: 1562012300
+          diff: 49869
+          delay: 1807029
+          desync: true
+        10e0c835dc08bf6f9519a93889db4b00:
+          seenSeq: 1
+          seqTimestamp: 1562012300
           diff: 0
           delay: 0
           desync: false

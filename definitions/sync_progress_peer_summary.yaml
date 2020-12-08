@@ -1,34 +1,49 @@
 type: object
+description: >
+  Expresses the sync progress of the *subject* provider with a *peer* provider.
+  Each provider has a peer_summary record for itself that denotes the latest
+  emitted seq and its timestamp.
 properties:
   seenSeq:
     type: integer
     description: |
-      Last sequence number of the corresponding provider that has been seen
-      and processed by *subject* provider.
+      Last sequence number of the *peer* provider that has been seen
+      and processed by *subject* provider. Seq stands for database sequence -
+      an increasing number that reflects the number of changed documents in
+      database since the beginning of space support.
   seqTimestamp:
     type: integer
     description: |
-      Timestamp in seconds (UNIX epoch) when the sequence number has been
-      emitted by the corresponding provider.
+      Timestamp in seconds (UNIX epoch) when the database document associated
+      with the sequence number has been persisted by the *peer* provider.
+      Initially set to the space creation time (for `seq = 1`).
   diff:
     type: integer
     description: |
-      Difference between the latest seq emitted by a peer provider and the
+      Difference between the latest seq emitted by a *peer* provider and the
       latest seq seen by the *subject* provider. Indicates the number of
       changes that need to be seen to become fully synced.
   delay:
     type: integer
     description: |
-      Difference between the timestamp of the latest seq emitted by a peer provider
+      Difference between the timestamp of the latest seq emitted by a *peer* provider
       and the timestamp of the latest seq seen by the *subject* provider (in seconds).
       Indicates the delay of changes propagation between the providers.
   desync:
     type: boolean
     description: |
       Indicates desynchronization state - when the seq synchronization delay
-      between the *subject* and peer providers exceeds a certain threshold.
+      between the *subject* and *peer* providers exceeds a certain threshold.
       If true, the *subject* provider should be perceived as having a
-      considerably outdated view on changes made by the peer.
+      considerably outdated view on changes made by the *peer*.
+
+required:
+  - seenSeq
+  - seqTimestamp
+  - diff
+  - delay
+  - desync
+
 example:
   seenSeq: 2450
   seqTimestamp: 1571147494
