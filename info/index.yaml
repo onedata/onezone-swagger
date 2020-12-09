@@ -15,7 +15,7 @@ x-bash-codegen-description: |
 
   There are essentially three types of REST clients depending on the authentication:
     * **users** - can authenticate using an access token or basic credentials
-    (only for users originating from Onezone's onepanel). Examples:
+    (only for special user accounts created by Onezone admin). Examples:
     ```bash
     curl -H "x-auth-token: $TOKEN" [...]
     curl -H "authorization: Bearer $TOKEN" [...]
@@ -126,7 +126,7 @@ description: |
 
   There are essentially three types of REST clients depending on the authentication:
     * **users** - can authenticate using an access token or basic credentials
-    (only for users originating from Onezone's onepanel). Examples:
+    (only for special user accounts created by Onezone admin). Examples:
     ```bash
     curl -H "x-auth-token: $TOKEN" [...]
     curl -H "authorization: Bearer $TOKEN" [...]

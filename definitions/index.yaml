@@ -236,8 +236,11 @@ SupportParameters:
 SupportStageDetails:
   $ref: ./support_stage_details.yaml
 
-ProviderSyncProgress:
-  $ref: ./provider_sync_progress.yaml
+SyncProgressProviderSummary:
+  $ref: ./sync_progress_provider_summary.yaml
+
+SyncProgressPeerSummary:
+  $ref: ./sync_progress_peer_summary.yaml
 
 GroupPrivileges:
   $ref: ./groupprivileges.yaml

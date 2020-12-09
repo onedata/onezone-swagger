@@ -3,24 +3,24 @@ get:
   tags:
     - Space
   x-onedata-gri:
-    type: od_space
+    type: space_stats
     id: ?BINDING(id)
-    aspect: stats
+    aspect: instance
     scope: private
   x-onedata-permissions:
     - oz_spaces_view
   summary: Get space stats
   x-bash-codegen-description: |
-    Returns space statistics, including synchronization progress and capacity
-    usage (NYI) for providers and storages that support the space.
+    Returns space statistics (currently only synchronization progress,
+    to be extended) for providers and storages that support the space.
 
     This operation requires any of the following authentication:
     * as user who is an effective member of the space (`{id}`),
     * as provider that supports the space (`{id}`),
     * as user who has `oz_spaces_view` admin privilege.
   description: |
-    Returns space statistics, including synchronization progress and capacity
-    usage (NYI) for providers and storages that support the space.
+    Returns space statistics (currently only synchronization progress,
+    to be extended) for providers and storages that support the space.
 
     This operation requires any of the following authentication:
     * as user who is an effective member of the space (`{id}`),
@@ -35,25 +35,95 @@ get:
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/stats
 
     {
-      "syncProgressPerProvider": {
+      "syncProgressRegistry": {
         "296ebe3c20e9666dc489b647f8647f12": {
-          "296ebe3c20e9666dc489b647f8647f12": {
-            "seq": 1450,
-            "timestamp": 1571147494
-          },
-          "dcf12429647c204896eebe3b6f686967": {
-            "seq": 49870,
-            "timestamp": 1563819329
+          "legacy": false,
+          "joining": false,
+          "archival": false,
+          "desync": true,
+          "lastReport": 1571147511,
+          "perPeer": {
+            "296ebe3c20e9666dc489b647f8647f12": {
+              "seenSeq": 1450,
+              "seqTimestamp": 1571147494,
+              "diff": 0,
+              "delay": 0,
+              "desync": false
+            },
+            "dcf12429647c204896eebe3b6f686967": {
+              "seenSeq": 46731,
+              "seqTimestamp": 1563818960,
+              "diff": 3139,
+              "delay": 369,
+              "desync": true
+            },
+            "10e0c835dc08bf6f9519a93889db4b00": {
+              "seenSeq": 1,
+              "seqTimestamp": 1562012300,
+              "diff": 0,
+              "delay": 0,
+              "desync": false
+            }
           }
         },
         "dcf12429647c204896eebe3b6f686967": {
-          "296ebe3c20e9666dc489b647f8647f12": {
-            "seq": 1390,
-            "timestamp": 1580525418
-          },
-          "dcf12429647c204896eebe3b6f686967": {
-            "seq": 50312,
-            "timestamp": 1575049210
+          "legacy": false,
+          "joining": false,
+          "archival": false,
+          "desync": false,
+          "lastReport": 1563819334,
+          "perPeer": {
+            "296ebe3c20e9666dc489b647f8647f12": {
+              "seenSeq": 1397,
+              "seqTimestamp": 1571147456,
+              "diff": 53,
+              "delay": 38,
+              "desync": false
+            },
+            "dcf12429647c204896eebe3b6f686967": {
+              "seenSeq": 49870,
+              "seqTimestamp": 1563819329,
+              "diff": 0,
+              "delay": 0,
+              "desync": false
+            },
+            "10e0c835dc08bf6f9519a93889db4b00": {
+              "seenSeq": 1,
+              "seqTimestamp": 1562012300,
+              "diff": 0,
+              "delay": 0,
+              "desync": false
+            }
+          }
+        },
+        "10e0c835dc08bf6f9519a93889db4b00": {
+          "legacy": true,
+          "joining": true,
+          "archival": false,
+          "desync": true,
+          "lastReport": 0,
+          "perPeer": {
+            "296ebe3c20e9666dc489b647f8647f12": {
+              "seenSeq": 1,
+              "seqTimestamp": 1562012300,
+              "diff": 1449,
+              "delay": 9135194,
+              "desync": true
+            },
+            "dcf12429647c204896eebe3b6f686967": {
+              "seenSeq": 1,
+              "seqTimestamp": 1562012300,
+              "diff": 49869,
+              "delay": 1807029,
+              "desync": true
+            },
+            "10e0c835dc08bf6f9519a93889db4b00": {
+              "seenSeq": 1,
+              "seqTimestamp": 1562012300,
+              "diff": 0,
+              "delay": 0,
+              "desync": false
+            }
           }
         }
       }
