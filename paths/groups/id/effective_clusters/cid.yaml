@@ -29,12 +29,12 @@ get:
       "clusterId": "f8d843beda24e54545455ecc0f4b8886",
       "type": "oneprovider",
       "workerVersion": {
-        "release": "20.02.5",
+        "release": "20.02.6",
         "build": "1-gfabf02d",
         "gui": "129c549fbe9b3e730c3d9910492228566e39e1236945766a74381405cc57fb04"
       },
       "onepanelVersion": {
-        "release": "20.02.5",
+        "release": "20.02.6",
         "build": "3-89fc6bad",
         "gui": "68e7e1472adb719ddf2d88908775091dfb10e5d0b916f06125ea1af4056044e3"
       },
