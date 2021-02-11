@@ -6,6 +6,11 @@ properties:
     description: >
       Current support stage of the provider - depends on the stages of its storages:
 
+      * `legacy` - the provider supports the space using the legacy model -
+        this value is set for all supports granted by providers that are in an
+        older version. Can transition to joining (when the provider upgraded)
+        or directly to retired.
+
       * `joining` - the provider has freshly supported the space and is catching up
         with dbsync changes from other providers.
 
@@ -29,6 +34,7 @@ properties:
 
       * `retired` - the provider has supported the space in the past, but not anymore.
     enum:
+      - legacy
       - joining
       - active
       - remodelling
@@ -46,10 +52,15 @@ properties:
       description: >
         Current support stage of the storage:
 
+        * `legacy` - the storage supports the space using the legacy model -
+          this value is set for all supports granted by providers that are in an
+          older version. Can transition to joining (when the provider upgraded)
+          or directly to retired.
+
         * `joining` - phase of initial setup after a space is supported and when the
           storage cannot be used yet, transitions to active when the
           provider has caught up with dbsync changes from other providers.
-          May be interrupted by initializing unsupport (transitions to `{resizing, 0}`).
+          May be interrupted by initializing unsupport (transitions to `resizing:0`).
 
         * `active` - the storage is operational.
 

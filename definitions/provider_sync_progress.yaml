@@ -37,8 +37,10 @@ properties:
     type: integer
     description: |
       Timestamp in seconds (UNIX epoch) of the last sync progress report
-      submitted by the *subject* provider. Initially set to zero, until the
-      first report is received.
+      submitted by the *subject* provider. The special value of `-1` denotes that
+      the time of last report is **unknown** - the provider has not reported its
+      sync progress yet, or it is in legacy version and the last report time
+      will not be known until it is upgraded.
   perPeer:
     type: object
     description: |
@@ -55,7 +57,7 @@ properties:
       newest sequence number emmitted by *subject* provider and its timestamp.
     properties:
       additionalProperties:
-        $ref: '#/definitions/SyncProgressPeerSummary'
+        $ref: '#/definitions/SyncProgressWithPeer'
 
 required:
   - legacy

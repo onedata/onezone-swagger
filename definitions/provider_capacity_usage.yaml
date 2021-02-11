@@ -1,0 +1,58 @@
+type: object
+description: >
+  Capacity usage summary of the provider.
+properties:
+  overfull:
+    type: boolean
+    description: |
+      True if at least one of the provider's storages that support the
+      space is overfull.
+  perStorage:
+    type: object
+    description: |
+      A map (key-value) with all storages of the provider that support this
+      space, where key is the Id of a storage and value is the corresponding
+      capacity usage summary of the storage.
+    properties:
+      additionalProperties:
+        type: object
+        description: >
+          A map (key-value) with all storages of the provider that support this
+          space, where key is the Id of a storage and value is the corresponding
+          capacity usage summary of the storage.
+        properties:
+          total:
+            type: integer
+            description: Total granted storage space for the support, in bytes.
+          used:
+            type: integer
+            description: |
+              Currently occupied storage space, in bytes. The special value of
+              `-1` denotes that the used space is **unknown** - the provider
+              has not reported any usage yet, or it is in legacy version and
+              the usage will not be known until it is upgraded.
+          overfull:
+            type: boolean
+            description: |
+              Denotes that the granted storage space is either fully or
+              close to fully utilized.
+    required:
+      - total
+      - used
+      - overfull
+
+required:
+  - overfull
+  - perStorage
+
+example:
+  overfull: true
+  perStorage:
+    6eab9305c3b754b8e80dc8697f642f20:
+      total: 8332927821
+      used: 3764234
+      overfull: false
+    164b72f5c9c9d8fcbb22895be3d00863:
+      total: 10240000000
+      used: 10240000000
+      overfull: true

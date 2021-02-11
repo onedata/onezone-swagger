@@ -11,16 +11,16 @@ get:
     - oz_spaces_view
   summary: Get space stats
   x-bash-codegen-description: |
-    Returns space statistics (currently only synchronization progress,
-    to be extended) for providers and storages that support the space.
+    Returns space statistics (sync progress and capacity usage) for providers
+    and storages that support the space.
 
     This operation requires any of the following authentication:
     * as user who is an effective member of the space (`{id}`),
     * as provider that supports the space (`{id}`),
     * as user who has `oz_spaces_view` admin privilege.
   description: |
-    Returns space statistics (currently only synchronization progress,
-    to be extended) for providers and storages that support the space.
+    Returns space statistics (sync progress and capacity usage) for providers
+    and storages that support the space.
 
     This operation requires any of the following authentication:
     * as user who is an effective member of the space (`{id}`),
@@ -33,96 +33,138 @@ get:
     ```bash
     curl -u admin:password -X GET \
     https://$HOST/api/v3/onezone/spaces/$SPACE_ID/stats
+    ```
 
+    ```json
     {
-      "syncProgressRegistry": {
+      "capacityUsageRegistry": {
         "296ebe3c20e9666dc489b647f8647f12": {
-          "legacy": false,
-          "joining": false,
-          "archival": false,
-          "desync": true,
-          "lastReport": 1571147511,
-          "perPeer": {
-            "296ebe3c20e9666dc489b647f8647f12": {
-              "seenSeq": 1450,
-              "seqTimestamp": 1571147494,
-              "diff": 0,
-              "delay": 0,
-              "desync": false
+          "overfull": true,
+          "perStorage": {
+            "6eab9305c3b754b8e80dc8697f642f20": {
+              "total": 8332927821,
+              "used": 3764234,
+              "overfull": false
             },
-            "dcf12429647c204896eebe3b6f686967": {
-              "seenSeq": 46731,
-              "seqTimestamp": 1563818960,
-              "diff": 3139,
-              "delay": 369,
-              "desync": true
-            },
-            "10e0c835dc08bf6f9519a93889db4b00": {
-              "seenSeq": 1,
-              "seqTimestamp": 1562012300,
-              "diff": 0,
-              "delay": 0,
-              "desync": false
+            "164b72f5c9c9d8fcbb22895be3d00863": {
+              "total": 10240000000,
+              "used": 10240000000,
+              "overfull": true
             }
           }
         },
         "dcf12429647c204896eebe3b6f686967": {
-          "legacy": false,
-          "joining": false,
-          "archival": false,
-          "desync": false,
-          "lastReport": 1563819334,
-          "perPeer": {
-            "296ebe3c20e9666dc489b647f8647f12": {
-              "seenSeq": 1397,
-              "seqTimestamp": 1571147456,
-              "diff": 53,
-              "delay": 38,
-              "desync": false
-            },
-            "dcf12429647c204896eebe3b6f686967": {
-              "seenSeq": 49870,
-              "seqTimestamp": 1563819329,
-              "diff": 0,
-              "delay": 0,
-              "desync": false
-            },
-            "10e0c835dc08bf6f9519a93889db4b00": {
-              "seenSeq": 1,
-              "seqTimestamp": 1562012300,
-              "diff": 0,
-              "delay": 0,
-              "desync": false
+          "overfull": false,
+          "perStorage": {
+            "24d16407ab7919b87981aa945b7536d4": {
+              "total": 500000000000,
+              "used": 87626914333,
+              "overfull": false
             }
           }
         },
         "10e0c835dc08bf6f9519a93889db4b00": {
-          "legacy": true,
-          "joining": true,
-          "archival": false,
-          "desync": true,
-          "lastReport": 0,
-          "perPeer": {
-            "296ebe3c20e9666dc489b647f8647f12": {
-              "seenSeq": 1,
-              "seqTimestamp": 1562012300,
-              "diff": 1449,
-              "delay": 9135194,
-              "desync": true
-            },
-            "dcf12429647c204896eebe3b6f686967": {
-              "seenSeq": 1,
-              "seqTimestamp": 1562012300,
-              "diff": 49869,
-              "delay": 1807029,
-              "desync": true
-            },
-            "10e0c835dc08bf6f9519a93889db4b00": {
-              "seenSeq": 1,
-              "seqTimestamp": 1562012300,
-              "diff": 0,
-              "delay": 0,
-              "desync": false
+          "overfull": true,
+          "perStorage": {
+            "3f7e7fac7d858f9a6d7ffbf57bc608b6": {
+              "total": 650000000000,
+              "used": 650000000156,
+              "overfull": true
+            }
+          }
+        }
+      },
+      "syncProgressRegistry": {
+        "spaceCreationTime": 1613819329,
+        "perProvider": {
+          "296ebe3c20e9666dc489b647f8647f12": {
+            "legacy": false,
+            "joining": false,
+            "archival": false,
+            "desync": true,
+            "lastReport": 1571147511,
+            "perPeer": {
+              "296ebe3c20e9666dc489b647f8647f12": {
+                "seenSeq": 1450,
+                "seqTimestamp": 1571147494,
+                "diff": 0,
+                "delay": 0,
+                "desync": false
+              },
+              "dcf12429647c204896eebe3b6f686967": {
+                "seenSeq": 46731,
+                "seqTimestamp": 1563818960,
+                "diff": 3139,
+                "delay": 369,
+                "desync": true
+              },
+              "10e0c835dc08bf6f9519a93889db4b00": {
+                "seenSeq": 1,
+                "seqTimestamp": 1562012300,
+                "diff": 0,
+                "delay": 0,
+                "desync": false
+              }
+            }
+          },
+          "dcf12429647c204896eebe3b6f686967": {
+            "legacy": false,
+            "joining": false,
+            "archival": false,
+            "desync": false,
+            "lastReport": 1563819334,
+            "perPeer": {
+              "296ebe3c20e9666dc489b647f8647f12": {
+                "seenSeq": 1397,
+                "seqTimestamp": 1571147456,
+                "diff": 53,
+                "delay": 38,
+                "desync": false
+              },
+              "dcf12429647c204896eebe3b6f686967": {
+                "seenSeq": 49870,
+                "seqTimestamp": 1563819329,
+                "diff": 0,
+                "delay": 0,
+                "desync": false
+              },
+              "10e0c835dc08bf6f9519a93889db4b00": {
+                "seenSeq": 1,
+                "seqTimestamp": 1562012300,
+                "diff": 0,
+                "delay": 0,
+                "desync": false
+              }
+            }
+          },
+          "10e0c835dc08bf6f9519a93889db4b00": {
+            "legacy": true,
+            "joining": true,
+            "archival": false,
+            "desync": true,
+            "lastReport": 0,
+            "perPeer": {
+              "296ebe3c20e9666dc489b647f8647f12": {
+                "seenSeq": 1,
+                "seqTimestamp": 1562012300,
+                "diff": 1449,
+                "delay": 9135194,
+                "desync": true
+              },
+              "dcf12429647c204896eebe3b6f686967": {
+                "seenSeq": 1,
+                "seqTimestamp": 1562012300,
+                "diff": 49869,
+                "delay": 1807029,
+                "desync": true
+              },
+              "10e0c835dc08bf6f9519a93889db4b00": {
+                "seenSeq": 1,
+                "seqTimestamp": 1562012300,
+                "diff": 0,
+                "delay": 0,
+                "desync": false
+              }
             }
           }
         }
