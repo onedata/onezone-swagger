@@ -35,6 +35,9 @@ UserPasswordUpdate:
 UserBasicAuthSettingsUpdate:
   $ref: ./userbasicauthsettingsupdate.yaml
 
+UserAccessBlockUpdate:
+  $ref: ./user_access_block_update.yaml
+
 IdPAccessToken:
   $ref: ./idpaccesstoken.yaml
 

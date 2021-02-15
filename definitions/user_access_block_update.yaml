@@ -1,0 +1,8 @@
+type: object
+description: User access block modification request.
+properties:
+  blocked:
+    type: boolean
+    description: Toggles access block for given user.
+example:
+  blocked: true

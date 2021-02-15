@@ -23,7 +23,10 @@ properties:
       type: string
   basicAuthEnabled:
     type: boolean
-    description: Specifies if this user is allowed to authenticate with username & password.
+    description: Denotes if this user is allowed to authenticate with username & password.
+  blocked:
+    type: boolean
+    description: Denotes if this user's account has been blocked by the administrators.
   creationTime:
     $ref: '#/definitions/Timestamp'
 
@@ -34,6 +37,7 @@ required:
   - linkedAccounts
   - emails
   - basicAuthEnabled
+  - blocked
   - creationTime
 
 example:
@@ -49,4 +53,5 @@ example:
     - rudolf.lingens@example.com
     - john.doe@example.com
   basicAuthEnabled: false
+  blocked: false
   creationTime: 1576152793
