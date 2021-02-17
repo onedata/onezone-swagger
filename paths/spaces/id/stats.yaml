@@ -42,12 +42,12 @@ get:
           "overfull": true,
           "perStorage": {
             "6eab9305c3b754b8e80dc8697f642f20": {
-              "total": 8332927821,
+              "granted": 8332927821,
               "used": 3764234,
               "overfull": false
             },
             "164b72f5c9c9d8fcbb22895be3d00863": {
-              "total": 10240000000,
+              "granted": 10240000000,
               "used": 10240000000,
               "overfull": true
             }
@@ -57,7 +57,7 @@ get:
           "overfull": false,
           "perStorage": {
             "24d16407ab7919b87981aa945b7536d4": {
-              "total": 500000000000,
+              "granted": 500000000000,
               "used": 87626914333,
               "overfull": false
             }
@@ -67,7 +67,7 @@ get:
           "overfull": true,
           "perStorage": {
             "3f7e7fac7d858f9a6d7ffbf57bc608b6": {
-              "total": 650000000000,
+              "granted": 650000000000,
               "used": 650000000156,
               "overfull": true
             }

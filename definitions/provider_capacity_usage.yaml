@@ -17,18 +17,20 @@ properties:
       additionalProperties:
         type: object
         description: >
-          A map (key-value) with all storages of the provider that support this
-          space, where key is the Id of a storage and value is the corresponding
-          capacity usage summary of the storage.
+          Capacity usage summary of the storage.
         properties:
-          total:
+          granted:
             type: integer
-            description: Total granted storage space for the support, in bytes.
+            description: |
+              The size of granted storage space for the support, in bytes.
           used:
             type: integer
             description: |
-              Currently occupied storage space, in bytes. The special value of
-              `-1` denotes that the used space is **unknown** - the provider
+              Currently occupied storage space, in bytes. Onedata implements
+              *soft quota*, meaning that in some cases it is possible to exceed
+              the granted support size before write operations are denied (hence
+              the `used` value can be larger than `granted`). The special value
+              of `-1` denotes that the used space is **unknown** - the provider
               has not reported any usage yet, or it is in legacy version and
               the usage will not be known until it is upgraded.
           overfull:
@@ -37,7 +39,7 @@ properties:
               Denotes that the granted storage space is either fully or
               close to fully utilized.
     required:
-      - total
+      - granted
       - used
       - overfull
 
@@ -49,10 +51,10 @@ example:
   overfull: true
   perStorage:
     6eab9305c3b754b8e80dc8697f642f20:
-      total: 8332927821
+      granted: 8332927821
       used: 3764234
       overfull: false
     164b72f5c9c9d8fcbb22895be3d00863:
-      total: 10240000000
-      used: 10240000000
+      granted: 10240000000
+      used: 10240056000
       overfull: true
