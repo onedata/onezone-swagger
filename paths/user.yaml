@@ -42,6 +42,7 @@ get:
         "john.doe@example.com"
       ],
       "basicAuthEnabled": false,
+      "blocked": false,
       "creationTime": 1576152793
     }
     ```
