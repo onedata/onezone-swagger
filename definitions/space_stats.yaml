@@ -4,89 +4,137 @@ properties:
   syncProgressRegistry:
     type: object
     description: >
+      Registry object holding all sync progress information for the space.
+    properties:
+      spaceCreationTime:
+        type: integer
+        description: >
+          Timestamp in seconds (UNIX epoch) when the space was created, at the
+          same time denotes the time of the first sequences emitted within the space.
+      perProvider:
+        type: object
+        description: >
+          A map (key-value) with all providers supporting this space, where key is
+          the Id of *subject* provider and value is the corresponding sync progress
+          summary of the provider.
+        additionalProperties:
+          $ref: '#/definitions/ProviderSyncProgress'
+  capacityUsageRegistry:
+    type: object
+    description: >
+      Registry object holding all capacity usage information for the space.
       A map (key-value) with all providers supporting this space, where key is
-      the Id of *subject* provider and value is the corresponding sync progress
-      summary of the provider.
+      the Id of a provider and value is the corresponding capacity usage summary
+      of the provider.
     additionalProperties:
-      $ref: '#/definitions/SyncProgressProviderSummary'
+      $ref: '#/definitions/ProviderCapacityUsage'
 
 required:
   - syncProgressRegistry
+  - capacityUsageRegistry
 
 example:
-  syncProgressRegistry:
+  capacityUsageRegistry:
     296ebe3c20e9666dc489b647f8647f12:
-      legacy: false
-      joining: false
-      archival: false
-      desync: true
-      lastReport: 1571147511
-      perPeer:
-        296ebe3c20e9666dc489b647f8647f12:
-          seenSeq: 1450
-          seqTimestamp: 1571147494
-          diff: 0
-          delay: 0
-          desync: false
-        dcf12429647c204896eebe3b6f686967:
-          seenSeq: 46731
-          seqTimestamp: 1563818960
-          diff: 3139
-          delay: 369
-          desync: true
-        10e0c835dc08bf6f9519a93889db4b00:
-          seenSeq: 1
-          seqTimestamp: 1562012300
-          diff: 0
-          delay: 0
-          desync: false
+      overfull: true
+      perStorage:
+        6eab9305c3b754b8e80dc8697f642f20:
+          granted: 8332927821
+          used: 3764234
+          overfull: false
+        164b72f5c9c9d8fcbb22895be3d00863:
+          granted: 10240000000
+          used: 10240000000
+          overfull: true
     dcf12429647c204896eebe3b6f686967:
-      legacy: false
-      joining: false
-      archival: false
-      desync: false
-      lastReport: 1563819334
-      perPeer:
-        296ebe3c20e9666dc489b647f8647f12:
-          seenSeq: 1397
-          seqTimestamp: 1571147456
-          diff: 53
-          delay: 38
-          desync: false
-        dcf12429647c204896eebe3b6f686967:
-          seenSeq: 49870
-          seqTimestamp: 1563819329
-          diff: 0
-          delay: 0
-          desync: false
-        10e0c835dc08bf6f9519a93889db4b00:
-          seenSeq: 1
-          seqTimestamp: 1562012300
-          diff: 0
-          delay: 0
-          desync: false
+      overfull: false
+      perStorage:
+        24d16407ab7919b87981aa945b7536d4:
+          granted: 500000000000
+          used: 87626914333
+          overfull: false
     10e0c835dc08bf6f9519a93889db4b00:
-      legacy: true
-      joining: true
-      archival: false
-      desync: true
-      lastReport: 0
-      perPeer:
-        296ebe3c20e9666dc489b647f8647f12:
-          seenSeq: 1
-          seqTimestamp: 1562012300
-          diff: 1449
-          delay: 9135194
-          desync: true
-        dcf12429647c204896eebe3b6f686967:
-          seenSeq: 1
-          seqTimestamp: 1562012300
-          diff: 49869
-          delay: 1807029
-          desync: true
-        10e0c835dc08bf6f9519a93889db4b00:
-          seenSeq: 1
-          seqTimestamp: 1562012300
-          diff: 0
-          delay: 0
-          desync: false
+      overfull: true
+      perStorage:
+        3f7e7fac7d858f9a6d7ffbf57bc608b6:
+          granted: 650000000000
+          used: 650000000156
+          overfull: true
+  syncProgressRegistry:
+    spaceCreationTime: 1613819329
+    perProvider:
+      296ebe3c20e9666dc489b647f8647f12:
+        legacy: false
+        joining: false
+        archival: false
+        desync: true
+        lastReport: 1571147511
+        perPeer:
+          296ebe3c20e9666dc489b647f8647f12:
+            seenSeq: 1450
+            seqTimestamp: 1571147494
+            diff: 0
+            delay: 0
+            desync: false
+          dcf12429647c204896eebe3b6f686967:
+            seenSeq: 46731
+            seqTimestamp: 1563818960
+            diff: 3139
+            delay: 369
+            desync: true
+          10e0c835dc08bf6f9519a93889db4b00:
+            seenSeq: 1
+            seqTimestamp: 1562012300
+            diff: 0
+            delay: 0
+            desync: false
+      dcf12429647c204896eebe3b6f686967:
+        legacy: false
+        joining: false
+        archival: false
+        desync: false
+        lastReport: 1563819334
+        perPeer:
+          296ebe3c20e9666dc489b647f8647f12:
+            seenSeq: 1397
+            seqTimestamp: 1571147456
+            diff: 53
+            delay: 38
+            desync: false
+          dcf12429647c204896eebe3b6f686967:
+            seenSeq: 49870
+            seqTimestamp: 1563819329
+            diff: 0
+            delay: 0
+            desync: false
+          10e0c835dc08bf6f9519a93889db4b00:
+            seenSeq: 1
+            seqTimestamp: 1562012300
+            diff: 0
+            delay: 0
+            desync: false
+      10e0c835dc08bf6f9519a93889db4b00:
+        legacy: true
+        joining: true
+        archival: false
+        desync: true
+        lastReport: 0
+        perPeer:
+          296ebe3c20e9666dc489b647f8647f12:
+            seenSeq: 1
+            seqTimestamp: 1562012300
+            diff: 1449
+            delay: 9135194
+            desync: true
+          dcf12429647c204896eebe3b6f686967:
+            seenSeq: 1
+            seqTimestamp: 1562012300
+            diff: 49869
+            delay: 1807029
+            desync: true
+          10e0c835dc08bf6f9519a93889db4b00:
+            seenSeq: 1
+            seqTimestamp: 1562012300
+            diff: 0
+            delay: 0
+            desync: false

@@ -1,8 +1,8 @@
 type: object
 description: >
   Expresses the sync progress of the *subject* provider with a *peer* provider.
-  Each provider has a peer_summary record for itself that denotes the latest
-  emitted seq and its timestamp.
+  Each provider has an entry for itself that denotes the latest emitted seq and
+  its timestamp.
 properties:
   seenSeq:
     type: integer

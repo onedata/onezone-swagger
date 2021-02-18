@@ -12,7 +12,7 @@ allOf:
         You can learn more about token caveats
         [here](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[token-caveats].html).
     validUntil:
-      $ref: '#/definitions/Timestamp'
+      type: integer
       description: |
         Timestamp in seconds (UNIX epoch) when the token expires.
 
