@@ -1,0 +1,67 @@
+patch:
+  operationId: toggle_user_access_block
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_user
+    id: ?BINDING(id)
+    aspect: access_block
+  x-onedata-permissions:
+    - oz_users_update
+  summary: Block or unblock user access
+  x-bash-codegen-description: |
+    Allows to block or unblock access to Onedata services for a specific user.
+
+    This operation requires `oz_users_update` admin privilege.
+  description: |
+    Allows to block or unblock access to Onedata services for a specific user.
+
+    This operation requires `oz_users_update` admin privilege.
+
+    ***Example cURL requests***
+
+    **Block or unblock user access**
+    ```bash
+    curl -u admin:password -X PATCH https://$HOST/api/v3/onezone/users/$USER_ID/access_block \
+    -H "Content-Type: application/json" -d '{"blocked": true}'
+    ```
+  consumes:
+  - application/json
+  responses:
+    '204':
+      description: User was successfully blocked / unblocked.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: User Id.
+    type: string
+    required: true
+  - name: data
+    in: body
+    description: User access block modification request.
+    schema:
+      $ref: '#/definitions/UserAccessBlockUpdate'
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli toggleUserAccessBlock id=c5cb69ce45940468596ed16310a45e49 blocked==true"
