@@ -5,7 +5,7 @@ get:
   x-onedata-gri:
     type: od_share
     id: undefined
-    aspect: "{shared_dir_children, ?BINDING(objectid)}"
+    aspect: "{shared_dir_children, ?BINDING(file_id)}"
     scope: public
   summary: List shared directory files and subdirectories
   x-bash-codegen-description: |
@@ -75,19 +75,19 @@ get:
       schema:
         $ref: '#/definitions/Error'
     '501':
-      description: Not Implemented.
+      description: Not Implemented - all available providers are in versions older than `20.02.*`.
       schema:
         $ref: '#/definitions/Error'
     '503':
-      description: Service Unavailable.
+      description: Service Unavailable - there is no suitable provider to handle the request.
       schema:
         $ref: '#/definitions/Error'
   parameters:
-    - name: objectid
+    - name: file_id
       in: path
       description: Shared directory Id.
       type: string
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli listSharedDirectoryChildren id=000000000055D4E4836803640004677569646D00"
+      source: "onezone-rest-cli listSharedDirectoryChildren file_id=000000000055D4E4836803640004677569646D00"

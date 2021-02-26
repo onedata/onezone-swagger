@@ -564,11 +564,11 @@
 /shares/{id}/public:
   $ref: ./shares/id/public.yaml
 
-/shares/data/{objectid}/content:
-  $ref: ./shares/data/objectid/content.yaml
+/shares/data/{file_id}/content:
+  $ref: ./shares/data/file_id/content.yaml
 
-/shares/data/{objectid}/children:
-  $ref: ./shares/data/objectid/children.yaml
+/shares/data/{file_id}/children:
+  $ref: ./shares/data/file_id/children.yaml
 
 ###############################################################################
 # Providers
