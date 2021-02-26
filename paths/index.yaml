@@ -561,6 +561,15 @@
   $ref: ./shares/id.yaml
 
 
+/shares/{id}/public:
+  $ref: ./shares/id/public.yaml
+
+/shares/data/{objectid}/content:
+  $ref: ./shares/data/objectid/content.yaml
+
+/shares/data/{objectid}/children:
+  $ref: ./shares/data/objectid/children.yaml
+
 ###############################################################################
 # Providers
 ###############################################################################

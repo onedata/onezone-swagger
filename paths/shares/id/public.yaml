@@ -1,0 +1,75 @@
+get:
+  operationId: get_public_share
+  tags:
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: ?BINDING(id)
+    aspect: instance
+    scope: public
+  summary: Get public share details
+  x-bash-codegen-description: |
+    Returns the publicly available details about a specific share. This endpoint
+    is available for anyone knowing the share Id without authentication.
+  description: |
+    Returns the publicly available details about a specific share. This endpoint
+    is available for anyone knowing the share Id without authentication.
+
+    ***Example cURL requests***
+
+    **Get public share details**
+    ```bash
+    curl -u admin:password -X GET \
+    https://$HOST/api/v3/onezone/shares/$SHARE_ID/public
+
+    {
+      "shareId": "1f4b762b1380946e73aeca574c77f14c",
+      "name": "Experiment XYZ",
+      "description": "# Experiment XYZ\nThis collection contains results from Experiment XYZ.",
+      "publicUrl": "https://example.com/shares/1f4b762b1380946e73aeca574c77f14c",
+      "publicRestUrl": "https://example.com/api/v3/onezone/shares/1f4b762b1380946e73aeca574c77f14c/public",
+      "fileType": "dir",
+      "rootFileId": "00000000006CB663736861726547756964233339643236366165646365\
+      6266666164353939663761373734313235363166342336656331613534313362366634653\
+      2623031613563383561386664373937653223316634623736326231333830393436653733\
+      6165636135373463373766313463",
+      "handleId" "70570c0ebcd081835ca29560708fd98f",
+      "creationTime": 1576152793
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Public information about a share.
+      schema:
+        $ref: '#/definitions/Share'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Share Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getShare id=303884afb761d91a7362b2841647bc08"

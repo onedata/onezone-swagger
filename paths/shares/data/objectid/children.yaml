@@ -1,0 +1,93 @@
+get:
+  operationId: list_shared_directory_children
+  tags:
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: undefined
+    aspect: "{shared_dir_children, ?BINDING(objectid)}"
+    scope: public
+  summary: List shared directory files and subdirectories
+  x-bash-codegen-description: |
+    This endpoint can be used to list a shared directory knowing its directory Id,
+    without any authentication. It redirects to the corresponding
+    [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/list_children)
+    in one of the supporting providers. The provider is chosen dynamically and
+    may change in time, so the redirection URL should not be cached.
+
+    The shared directory Id can be acquired either by fetching public share details
+    (if the shared object was a directory), or by listing a shared parent directory.
+
+    The endpoint will return `503 Service Unavailable` when there is no suitable
+    provider to handle the request and `501 Not Implemented` when all available
+    providers are in versions older than `20.02.*`.
+  description: |
+    This endpoint can be used to list a shared directory knowing its directory Id,
+    without any authentication. It redirects to the corresponding
+    [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/list_children)
+    in one of the supporting providers. The provider is chosen dynamically and
+    may change in time, so the redirection URL should not be cached.
+
+    The shared directory Id can be acquired either by fetching public share details
+    (if the shared object was a directory), or by listing a shared parent directory.
+
+    The endpoint will return `503 Service Unavailable` when there is no suitable
+    provider to handle the request and `501 Not Implemented` when all available
+    providers are in versions older than `20.02.*`.
+
+    ***Example cURL requests***
+
+    **List shared directory files and subdirectories**
+    ```bash
+    curl -v -X GET https://$HOST/api/v3/onezone/shares/data/$DIR_ID/children
+
+    < HTTP/1.1 307 Temporary Redirect
+    < location: https://provider.example.com/api/v3/oneprovider/data/$DIR_ID/children
+    ```
+  produces:
+    - application/json
+  responses:
+    '307':
+      description: >
+        Redirection to one of the supporting providers in the response `Location` header.
+      headers:
+        Location:
+          description: URL of the endpoint that can be used to list the directory children.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+    '501':
+      description: Not Implemented.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Service Unavailable.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: objectid
+      in: path
+      description: Shared directory Id.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli listSharedDirectoryChildren id=000000000055D4E4836803640004677569646D00"
