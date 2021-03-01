@@ -1,0 +1,145 @@
+get:
+  operationId: get_shared_file_or_directory_data
+  tags:
+    - Share
+  x-onedata-gri:
+    type: od_share
+    id: undefined
+    aspect: "{shared_file_or_directory_data, ?BINDING(file_id)}"
+    scope: public
+  summary: Get shared file or directory data
+  x-bash-codegen-description: |
+    This endpoint can be used to fetch publicly available information and
+    content of a shared file or directory knowing its Id, without any
+    authentication. It redirects to the corresponding REST endpoint in one of
+    the supporting Oneproviders. The Oneprovider is chosen dynamically and may
+    change in time, so the redirection URL should not be cached.
+
+    Currently available operations:
+    * `/content` - download binary file content
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/download_file_content))
+
+    * `/children` - list directory files and subdirectories
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/list_children))
+
+    * `/` - get basic attributes of a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_attrs))
+
+    * `/metadata/json` - get custom JSON metadata associated with a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_json_metadata))
+
+    * `/metadata/rdf` - get custom RDF metadata associated with a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_rdf_metadata))
+
+    * `/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
+
+    The shared file/directory Id can be acquired either by fetching
+    public share details or by listing a shared directory.
+
+    The endpoint will return `503 Service Unavailable` when there is no suitable
+    Oneprovider to handle the request and `501 Not Implemented` when all available
+    Oneproviders are in versions older than `20.02.*`.
+  description: |
+    This endpoint can be used to fetch publicly available information and
+    content of a shared file or directory knowing its Id, without any
+    authentication. It redirects to the corresponding REST endpoint in one of
+    the supporting Oneproviders. The Oneprovider is chosen dynamically and may
+    change in time, so the redirection URL should not be cached.
+
+    Currently available operations:
+    * `/content` - download binary file content
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/download_file_content))
+
+    * `/children` - list directory files and subdirectories
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/list_children))
+
+    * `/` - get basic attributes of a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_attrs))
+
+    * `/metadata/json` - get custom JSON metadata associated with a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_json_metadata))
+
+    * `/metadata/rdf` - get custom RDF metadata associated with a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_rdf_metadata))
+
+    * `/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
+
+    The shared file/directory Id can be acquired either by fetching
+    public share details or by listing a shared directory.
+
+    The endpoint will return `503 Service Unavailable` when there is no suitable
+    Oneprovider to handle the request and `501 Not Implemented` when all available
+    Oneproviders are in versions older than `20.02.*`.
+
+    ***Example cURL requests***
+
+    **Get shared file or directory data**
+    ```bash
+    curl -v -X GET https://$HOST/api/v3/onezone/shares/data/$FILE_ID/content
+
+    < HTTP/1.1 307 Temporary Redirect
+    < location: https://provider.example.com/api/v3/oneprovider/data/$FILE_ID/content
+
+
+    # automatically follow redirects with -L option
+    curl -L -X GET https://$HOST/api/v3/onezone/shares/data/$FILE_ID/content
+
+    <binary file content>
+    ```
+  produces:
+    - application/json
+  responses:
+    '307':
+      description: >
+        Redirection to one of the supporting providers in the response `Location` header.
+      headers:
+        Location:
+          description: URL of the endpoint that can be used to perform the operation.
+          type: string
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+    '501':
+      description: Not Implemented - all available providers are in versions older than `20.02.*`.
+      schema:
+        $ref: '#/definitions/Error'
+    '503':
+      description: Service Unavailable - there is no suitable provider to handle the request.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: file_id
+      in: path
+      description: Shared file/directory Id.
+      type: string
+      required: true
+    - name: operation
+      in: path
+      description: |
+        Subpath corresponding to
+        [Oneprovider REST API](https://onedata.org/#/home/api/stable/oneprovider?anchor=tag/Basic-File-Operations)
+        operation.
+      type: string
+      required: true
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli getSharedFileOrDirectoryData file_id=000000000055D4E4836803640004677569646D00 operation='/content'"
