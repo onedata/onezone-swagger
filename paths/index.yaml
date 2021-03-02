@@ -564,8 +564,8 @@
 /shares/{id}/public:
   $ref: ./shares/id/public.yaml
 
-/shares/data/{file_id}/{operation}:
-  $ref: ./shares/data/file_id/operation.yaml
+/shares/data/{file_id}/{subpath}:
+  $ref: ./shares/data/file_id/subpath.yaml
 
 ###############################################################################
 # Providers

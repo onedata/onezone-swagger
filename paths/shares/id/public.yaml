@@ -71,4 +71,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getShare id=303884afb761d91a7362b2841647bc08"
+    source: "onezone-rest-cli getPublicShare id=303884afb761d91a7362b2841647bc08"

@@ -16,22 +16,22 @@ get:
     change in time, so the redirection URL should not be cached.
 
     Currently available operations:
-    * `/content` - download binary file content
+    * `{...}/$FILE_ID/content` - download binary file content
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/download_file_content))
 
-    * `/children` - list directory files and subdirectories
+    * `{...}/$FILE_ID/children` - list directory files and subdirectories
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/list_children))
 
-    * `/` - get basic attributes of a file or directory
+    * `{...}/$FILE_ID` - get basic attributes of a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_attrs))
 
-    * `/metadata/json` - get custom JSON metadata associated with a file or directory
+    * `{...}/$FILE_ID/metadata/json` - get custom JSON metadata associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_json_metadata))
 
-    * `/metadata/rdf` - get custom RDF metadata associated with a file or directory
+    * `{...}/$FILE_ID/metadata/rdf` - get custom RDF metadata associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_rdf_metadata))
 
-    * `/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
+    * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
 
     The shared file/directory Id can be acquired either by fetching
@@ -39,7 +39,8 @@ get:
 
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available
-    Oneproviders are in versions older than `20.02.*`.
+    Oneproviders are in versions older than `20.02.*`. If an invalid subpath
+    is requested, the Oneprovider will respond with a proper error.
   description: |
     This endpoint can be used to fetch publicly available information and
     content of a shared file or directory knowing its Id, without any
@@ -48,22 +49,22 @@ get:
     change in time, so the redirection URL should not be cached.
 
     Currently available operations:
-    * `/content` - download binary file content
+    * `{...}/$FILE_ID/content` - download binary file content
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/download_file_content))
 
-    * `/children` - list directory files and subdirectories
+    * `{...}/$FILE_ID/children` - list directory files and subdirectories
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/list_children))
 
-    * `/` - get basic attributes of a file or directory
+    * `{...}/$FILE_ID` - get basic attributes of a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_attrs))
 
-    * `/metadata/json` - get custom JSON metadata associated with a file or directory
+    * `{...}/$FILE_ID/metadata/json` - get custom JSON metadata associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_json_metadata))
 
-    * `/metadata/rdf` - get custom RDF metadata associated with a file or directory
+    * `{...}/$FILE_ID/metadata/rdf` - get custom RDF metadata associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_rdf_metadata))
 
-    * `/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
+    * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
 
     The shared file/directory Id can be acquired either by fetching
@@ -71,7 +72,8 @@ get:
 
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available
-    Oneproviders are in versions older than `20.02.*`.
+    Oneproviders are in versions older than `20.02.*`. If an invalid subpath
+    is requested, the Oneprovider will respond with a proper error.
 
     ***Example cURL requests***
 
@@ -132,14 +134,14 @@ get:
       description: Shared file/directory Id.
       type: string
       required: true
-    - name: operation
+    - name: subpath
       in: path
       description: |
-        Subpath corresponding to
+        Subpath corresponding to desired
         [Oneprovider REST API](https://onedata.org/#/home/api/stable/oneprovider?anchor=tag/Basic-File-Operations)
         operation.
       type: string
-      required: true
+      required: false
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getSharedFileOrDirectoryData file_id=000000000055D4E4836803640004677569646D00 operation='/content'"
+      source: "onezone-rest-cli getSharedFileOrDirectoryData file_id=000000000055D4E4836803640004677569646D00 subpath='content'"
