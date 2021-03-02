@@ -15,7 +15,15 @@ get:
     the supporting Oneproviders. The Oneprovider is chosen dynamically and may
     change in time, so the redirection URL should not be cached.
 
-    Currently available operations:
+    The endpoint accepts only identifiers of shared files/directories and will
+    reject requests if a containing share is deleted. The shared file/directory
+    Id can be acquired either by fetching public share details or by listing a
+    shared directory.
+
+    The provided query string (if any) is preserved during redirection - consult
+    corresponding Oneprovider REST endpoints for possible options.
+
+    Currently, publicly available operations are:
     * `{...}/$FILE_ID/content` - download binary file content
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/download_file_content))
 
@@ -34,13 +42,10 @@ get:
     * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
 
-    The shared file/directory Id can be acquired either by fetching
-    public share details or by listing a shared directory.
-
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available
     Oneproviders are in versions older than `20.02.*`. If an invalid subpath
-    is requested, the Oneprovider will respond with a proper error.
+    is requested, the target Oneprovider will respond with a proper error.
   description: |
     This endpoint can be used to fetch publicly available information and
     content of a shared file or directory knowing its Id, without any
@@ -48,7 +53,15 @@ get:
     the supporting Oneproviders. The Oneprovider is chosen dynamically and may
     change in time, so the redirection URL should not be cached.
 
-    Currently available operations:
+    The endpoint accepts only identifiers of shared files/directories and will
+    reject requests if a containing share is deleted. The shared file/directory
+    Id can be acquired either by fetching public share details or by listing a
+    shared directory.
+
+    The provided query string (if any) is preserved during redirection - consult
+    corresponding Oneprovider REST endpoints for possible options.
+
+    Currently, publicly available operations are:
     * `{...}/$FILE_ID/content` - download binary file content
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/download_file_content))
 
@@ -67,13 +80,10 @@ get:
     * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
 
-    The shared file/directory Id can be acquired either by fetching
-    public share details or by listing a shared directory.
-
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available
     Oneproviders are in versions older than `20.02.*`. If an invalid subpath
-    is requested, the Oneprovider will respond with a proper error.
+    is requested, the target Oneprovider will respond with a proper error.
 
     ***Example cURL requests***
 
@@ -84,11 +94,20 @@ get:
     < HTTP/1.1 307 Temporary Redirect
     < location: https://provider.example.com/api/v3/oneprovider/data/$FILE_ID/content
 
+    # -------------------------------------------------------------------------------
 
-    # automatically follow redirects with -L option
-    curl -L -X GET https://$HOST/api/v3/onezone/shares/data/$FILE_ID/content
+    curl -v -X GET https://$HOST/api/v3/onezone/shares/data/$FILE_ID/children?limit=3
 
-    <binary file content>
+    < HTTP/1.1 307 Temporary Redirect
+    < location: https://provider.example.com/api/v3/oneprovider/data/$FILE_ID/children?limit=3
+
+    # -------------------------------------------------------------------------------
+
+    # automatically follow redirects with -L option, request a byte range
+    curl -L -X GET https://$HOST/api/v3/onezone/shares/data/$FILE_ID/content \
+    -H "Range: bytes=5-8"
+
+    fghi
     ```
   produces:
     - application/json
@@ -141,7 +160,7 @@ get:
         [Oneprovider REST API](https://onedata.org/#/home/api/stable/oneprovider?anchor=tag/Basic-File-Operations)
         operation.
       type: string
-      required: false
+      required: true
   x-code-samples:
     - lang: Shell
       source: "onezone-rest-cli getSharedFileOrDirectoryData file_id=000000000055D4E4836803640004677569646D00 subpath='content'"
