@@ -33,14 +33,14 @@ get:
     * `{...}/$FILE_ID` - get basic attributes of a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_attrs))
 
+    * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
+
     * `{...}/$FILE_ID/metadata/json` - get custom JSON metadata associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_json_metadata))
 
     * `{...}/$FILE_ID/metadata/rdf` - get custom RDF metadata associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_rdf_metadata))
-
-    * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
 
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available
@@ -71,14 +71,14 @@ get:
     * `{...}/$FILE_ID` - get basic attributes of a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_attrs))
 
+    * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
+
     * `{...}/$FILE_ID/metadata/json` - get custom JSON metadata associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_json_metadata))
 
     * `{...}/$FILE_ID/metadata/rdf` - get custom RDF metadata associated with a file or directory
       (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_rdf_metadata))
-
-    * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
 
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available

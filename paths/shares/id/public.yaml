@@ -1,5 +1,5 @@
 get:
-  operationId: get_public_share
+  operationId: get_public_share_details
   tags:
     - Share
   x-onedata-gri:
@@ -9,11 +9,11 @@ get:
     scope: public
   summary: Get public share details
   x-bash-codegen-description: |
-    Returns the publicly available details about a specific share. This endpoint
-    is available for anyone knowing the share Id without authentication.
+    Returns the publicly available details of a specific share. This endpoint
+    is available for anyone knowing the share Id, without authentication.
   description: |
-    Returns the publicly available details about a specific share. This endpoint
-    is available for anyone knowing the share Id without authentication.
+    Returns the publicly available details of a specific share. This endpoint
+    is available for anyone knowing the share Id, without authentication.
 
     ***Example cURL requests***
 
@@ -71,4 +71,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getPublicShare id=303884afb761d91a7362b2841647bc08"
+    source: "onezone-rest-cli getPublicShareDetails id=303884afb761d91a7362b2841647bc08"

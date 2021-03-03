@@ -12,12 +12,12 @@ get:
     - oz_handles_view
   summary: Get handle
   x-bash-codegen-description: |
-    Returns the properties of a specific handle.
+    Returns the details of a specific handle.
 
     This operation requires `handle_view` privilege
     or `oz_handles_view` admin privilege.
   description: |
-    Returns the properties of a specific handle.
+    Returns the details of a specific handle.
 
     This operation requires `handle_view` privilege
     or `oz_handles_view` admin privilege.
@@ -86,7 +86,7 @@ get:
       in: path
       required: true
       type: string
-      description: The handle Id (internal Onedata GUID) of the identifier.
+      description: The handle Id.
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli getHandle id=45bf25a5cb16e12a9faa6d088a2c7088"

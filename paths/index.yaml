@@ -794,6 +794,10 @@
   $ref: ./handles/id.yaml
 
 
+/handles/{id}/public:
+  $ref: ./handles/id/public.yaml
+
+
 /handles/{id}/users:
   $ref: ./handles/id/users.yaml
 
