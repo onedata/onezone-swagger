@@ -1,11 +1,11 @@
 get:
-  operationId: get_shared_file_or_directory_data
+  operationId: get_shared_data
   tags:
     - Share
   x-onedata-gri:
     type: od_share
     id: undefined
-    aspect: "{shared_file_or_directory_data, ?BINDING(file_id)}"
+    aspect: "{shared_data, ?BINDING(file_id)}"
     scope: public
   summary: Get shared file or directory data
   x-bash-codegen-description: |
@@ -163,4 +163,4 @@ get:
       required: true
   x-code-samples:
     - lang: Shell
-      source: "onezone-rest-cli getSharedFileOrDirectoryData file_id=000000000055D4E4836803640004677569646D00 subpath='content'"
+      source: "onezone-rest-cli getSharedData file_id=000000000055D4E4836803640004677569646D00 subpath='content'"
