@@ -14,10 +14,14 @@ post:
     provided in serialized form. Upon success, returns the token's subject.
 
     Optionally, contextual information that may be required to verify token
-    caveats can be provided in the request body: IP address of the token bearer,
-    identity token of the service which is handling the request, consumer's
-    identity token, interface to which the token bearer has connected and
-    information if data access caveats should be allowed in the token.
+    caveats can be provided in the request body:
+
+    * IP address of the token bearer - defaults to the requesting client's IP,
+    * identity token of the service which is handling the request - defaults to `null`,
+    * consumer's identity token - consumer defaults to the authenticated client
+      if valid token credentials are sent with this request, or `null` otherwise,
+    * interface to which the token bearer has connected - defaults to `null` (undefined interface),
+    * information if data access caveats should be allowed in the token - defaults to `false`.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -29,10 +33,14 @@ post:
     provided in serialized form. Upon success, returns the token's subject.
 
     Optionally, contextual information that may be required to verify token
-    caveats can be provided in the request body: IP address of the token bearer,
-    identity token of the service which is handling the request, consumer's
-    identity token, interface to which the token bearer has connected and
-    information if data access caveats should be allowed in the token.
+    caveats can be provided in the request body:
+
+    * IP address of the token bearer - defaults to the requesting client's IP,
+    * identity token of the service which is handling the request - defaults to `null`,
+    * consumer's identity token - consumer defaults to the authenticated client
+      if valid token credentials are sent with this request, or `null` otherwise,
+    * interface to which the token bearer has connected - defaults to `null` (undefined interface),
+    * information if data access caveats should be allowed in the token - defaults to `false`.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -46,6 +54,14 @@ post:
     curl -d '{"token": "MDAxNmxvY2F00aW9uIHZ2...", "peerIp": "38.190.241.12"}' \
     -H 'Content-type: application/json' \
     https://$HOST/api/v3/onezone/tokens/verify_access_token
+
+    {
+      "subject": {
+        "type": "user",
+        "id": "1b510f18b3b05611871c0acdffa9aed4"
+      },
+      "ttl": 3600
+    }
     ```
   consumes:
     - application/json

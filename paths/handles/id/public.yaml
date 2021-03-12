@@ -1,38 +1,29 @@
 get:
-  operationId: get_handle_service_handle
+  operationId: get_public_handle_details
   tags:
-    - Handle Service
+    - Handle
   x-onedata-gri:
     type: od_handle
-    id: ?BINDING(hid)
+    id: ?BINDING(id)
     aspect: instance
-    scope: protected
-  x-onedata-auth-hint: ?THROUGH_HANDLE_SERVICE(?BINDING(id))
-  x-onedata-permissions:
-    - handle_service_view
-    - oz_handles_view
-  summary: Get handle from handle service
+    scope: public
+  summary: Get public handle details
   x-bash-codegen-description: |
-    Returns the details of a specific handle registered by handle service.
-
-    This operation requires `handle_service_view` privilege or
-    `oz_handles_view` admin privilege.
+    Returns the publicly available details of a specific handle. This endpoint
+    is available for anyone knowing the handle Id, without authentication.
   description: |
-    Returns the details of a specific handle registered by handle service.
-
-    This operation requires `handle_service_view` privilege
-    or `oz_handles_view` admin privilege.
+    Returns the publicly available details of a specific handle. This endpoint
+    is available for anyone knowing the handle Id, without authentication.
 
     ***Example cURL requests***
 
-    **Get handle services handle**
+    **Get public handle details**
     ```bash
-    curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/13c6bf68ed88dd01f396571f976b148d/handles/$HANDLE_ID
+    curl -X GET https://$HOST/api/v3/handles/$HANDLE_ID/public
 
     {
       "handleId": "95b663a6467c72ab1256865efef9e387",
-      "handleServiceId": "97c27230017cd54c1220189e357322c4",
+      "publicHandle": "10.5072/w95Zlng",
       "resourceType": "Share",
       "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
       "metadata": "<?xml version=\"1.0\"?>
@@ -47,10 +38,6 @@ get:
             </rdf:Description>
           </rdf:RDF>",
       "timestamp": "1997-07-16T19:20",
-      "creator": {
-        "type": "user",
-        "id": "7434b256e71e1052e0d5e3e9da657ebf"
-      },
       "creationTime": 1576152793
     }
     ```
@@ -58,7 +45,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of handle identifiers.
+      description: The publicly available details of a specific handle.
       schema:
         $ref: '#/definitions/Handle'
     '400':
@@ -82,16 +69,11 @@ get:
       schema:
         $ref: '#/definitions/Error'
   parameters:
-  - name: id
-    in: path
-    description: Handle service Id.
-    required: true
-    type: string
-  - name: hid
-    in: path
-    description: Handle Id.
-    required: true
-    type: string
+    - name: id
+      in: path
+      required: true
+      type: string
+      description: The handle Id.
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getHandleServiceHandle id=33f5e5925f6ec7ddf8f68516b2980fdb hid=f3322ec0d5557f9d94c89180f83b462f"
+    source: "onezone-rest-cli getPublicHandleDetails id=45bf25a5cb16e12a9faa6d088a2c7088"

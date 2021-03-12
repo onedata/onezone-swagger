@@ -120,7 +120,7 @@ post:
         Location:
           type: string
           description: |
-            The endpoint of the new handle service resource including the generated GUID.
+            The endpoint of the new handle service resource including the generated Id.
     '400':
       description: Invalid request.
       schema:

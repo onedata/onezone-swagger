@@ -561,6 +561,12 @@
   $ref: ./shares/id.yaml
 
 
+/shares/{id}/public:
+  $ref: ./shares/id/public.yaml
+
+/shares/data/{file_id}/{subpath}:
+  $ref: ./shares/data/file_id/subpath.yaml
+
 ###############################################################################
 # Providers
 ###############################################################################
@@ -786,6 +792,10 @@
 
 /handles/{id}:
   $ref: ./handles/id.yaml
+
+
+/handles/{id}/public:
+  $ref: ./handles/id/public.yaml
 
 
 /handles/{id}/users:
