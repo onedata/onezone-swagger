@@ -12,7 +12,9 @@ properties:
       (PID: http://hdl.handle.net/21.T15999/TgAl7s0).
   handleServiceId:
     type: string
-    description: Id of the service where the handle was registered.
+    description: |
+      Id of the service where the handle was registered.
+      *Not included in public handle details.*
   resourceType:
     type: string
     description: The type of resource to be registered.
@@ -20,14 +22,17 @@ properties:
       - Share
   resourceId:
     type: string
-    description: The Onedata GUID of the resource to which the handle should be resolved.
+    description: The Id of the resource, corresponding to resourceType (currently, always a share Id).
   metadata:
     type: string
     description: Dublin Core metadata for the resource encoded in XML.
   timestamp:
     type: string
-    description: Handle registration timestamp.
+    description: Timestamp of the last Handle modification.
   creator:
+    description: |
+      The creator of the handle.
+      *Not included in public handle details.*
     $ref: '#/definitions/Subject'
   creationTime:
     $ref: '#/definitions/Timestamp'
@@ -35,12 +40,10 @@ properties:
 required:
   - handleId
   - publicHandle
-  - handleServiceId
   - resourceType
   - resourceId
   - metadata
   - timestamp
-  - creator
   - creationTime
 
 example:
