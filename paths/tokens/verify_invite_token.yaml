@@ -16,11 +16,14 @@ post:
     (only if prerequisites are satisfied - the token itself is valid).
 
     Optionally, contextual information that may be required to verify token
-    caveats can be provided in the request body: IP address of the token bearer,
-    consumer's identity token and the expected invite token type, which will cause
-    verification to fail if it does not match the actual token type. If not
-    specified, the procedure will check if given token is an invite token of
-    any type.
+    caveats can be provided in the request body:
+
+    * IP address of the token bearer - defaults to the requesting client's IP,
+    * consumer's identity token - consumer defaults to the authenticated client
+      if valid token credentials are sent with this request, or `null` otherwise,
+    * expected invite token type, which will cause verification to fail if it
+      does not match the actual token type. If not specified, the procedure will
+      check if given token is an invite token of any type.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -34,11 +37,14 @@ post:
     (only if prerequisites are satisfied - the token itself is valid).
 
     Optionally, contextual information that may be required to verify token
-    caveats can be provided in the request body: IP address of the token bearer,
-    consumer's identity token and the expected invite token type, which will cause
-    verification to fail if it does not match the actual token type. If not
-    specified, the procedure will check if given token is an invite token of
-    any type.
+    caveats can be provided in the request body:
+
+    * IP address of the token bearer - defaults to the requesting client's IP,
+    * consumer's identity token - consumer defaults to the authenticated client
+      if valid token credentials are sent with this request, or `null` otherwise,
+    * expected invite token type, which will cause verification to fail if it
+      does not match the actual token type. If not specified, the procedure will
+      check if given token is an invite token of any type.
 
     If the token cannot be positively verified, HTTP code 4xx is returned with
     an error describing the reason of failure.
@@ -56,6 +62,14 @@ post:
     }' \
     -H 'Content-type: application/json' \
     https://$HOST/api/v3/onezone/tokens/verify_invite_token
+
+    {
+      "subject": {
+        "type": "user",
+        "id": "1b510f18b3b05611871c0acdffa9aed4"
+      },
+      "ttl": 3600
+    }
     ```
   consumes:
     - application/json
