@@ -39,7 +39,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of handle identifiers (Onedata internal GUIDs).
+      description: The list of handle identifiers.
       schema:
         $ref: '#/definitions/Handles'
     '400':

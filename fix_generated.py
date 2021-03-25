@@ -66,6 +66,9 @@ for n in os.listdir(GENERATED_FILES_DIR):
         lines = re.sub('\\&\\#x3D\\;\\&gt\\;', '=>', lines)
         lines = re.sub('\\&\\#x60\\;', '`', lines)
 
+        # Adjust subpath bindings to cowboy router syntax
+        lines = re.sub(':subpath">>', '[...]">>', lines)
+
         # Write new file.
         f.seek(0)
         f.truncate()
