@@ -24,23 +24,23 @@ get:
     corresponding Oneprovider REST endpoints for possible options.
 
     Currently, publicly available operations are:
-    * `{...}/$FILE_ID/content` - download binary file content
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/download_file_content))
+    * `{...}/$FILE_ID/content` - download file or directory content
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/download_file_content))
 
     * `{...}/$FILE_ID/children` - list directory files and subdirectories
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/list_children))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/list_children))
 
     * `{...}/$FILE_ID` - get basic attributes of a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_attrs))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_attrs))
 
     * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_xattrs))
 
     * `{...}/$FILE_ID/metadata/json` - get custom JSON metadata associated with a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_json_metadata))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_json_metadata))
 
     * `{...}/$FILE_ID/metadata/rdf` - get custom RDF metadata associated with a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_rdf_metadata))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_rdf_metadata))
 
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available
@@ -62,23 +62,23 @@ get:
     corresponding Oneprovider REST endpoints for possible options.
 
     Currently, publicly available operations are:
-    * `{...}/$FILE_ID/content` - download binary file content
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/download_file_content))
+    * `{...}/$FILE_ID/content` - download file or directory content
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/download_file_content))
 
     * `{...}/$FILE_ID/children` - list directory files and subdirectories
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/list_children))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/list_children))
 
     * `{...}/$FILE_ID` - get basic attributes of a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_attrs))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_attrs))
 
     * `{...}/$FILE_ID/metadata/xattrs` - get custom extended attributes (xattrs) associated with a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_xattrs))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_xattrs))
 
     * `{...}/$FILE_ID/metadata/json` - get custom JSON metadata associated with a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_json_metadata))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_json_metadata))
 
     * `{...}/$FILE_ID/metadata/rdf` - get custom RDF metadata associated with a file or directory
-      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/stable/oneprovider?anchor=operation/get_rdf_metadata))
+      (see Oneprovider [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_rdf_metadata))
 
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available
@@ -157,7 +157,7 @@ get:
       in: path
       description: |
         Subpath corresponding to desired
-        [Oneprovider REST API](https://onedata.org/#/home/api/stable/oneprovider?anchor=tag/Basic-File-Operations)
+        [Oneprovider REST API](https://onedata.org/#/home/api/latest/oneprovider?anchor=tag/Basic-File-Operations)
         operation.
       type: string
       required: true
