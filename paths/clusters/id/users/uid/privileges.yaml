@@ -28,7 +28,7 @@ get:
     **List user's privileges in a cluster**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID/privileges
 
     {
       "privileges": [
@@ -128,7 +128,7 @@ patch:
     ```bash
     curl -u admin:password -X PATCH -H "Content-type: application/json" \
     -d '{"grant": ["cluster_view", "cluster_update"], "revoke": ["cluster_delete"]}' \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID/privileges
     ```
   responses:
     '204':

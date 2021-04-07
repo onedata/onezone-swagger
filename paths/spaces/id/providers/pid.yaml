@@ -32,7 +32,7 @@ get:
     **Get space provider details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
 
     {
       "providerId": "6b9bc70630547d925861a27e1f050dfe",
@@ -118,7 +118,7 @@ delete:
     **Remove space support**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
     ```
   responses:
     '204':

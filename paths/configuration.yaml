@@ -20,7 +20,7 @@ get:
 
     **Get public information about the Onezone service**
     ```bash
-     curl https://$HOST/api/v3/onezone/configuration
+     curl https://$ZONE_HOST/api/v3/onezone/configuration
     ```
   produces:
     - application/json

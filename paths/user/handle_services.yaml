@@ -16,7 +16,7 @@ get:
 
     **Get user handle services**
     ```bash
-    curl -u username:password -X GET https://$HOST/api/v3/user/handle_services
+    curl -u username:password -X GET https://$ZONE_HOST/api/v3/user/handle_services
 
     {
       "handle_services": [
@@ -84,14 +84,14 @@ post:
     **Add user handle services**
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
-    -d '{ ... }' https://$HOST/api/v3/user/handle_services
+    -d '{ ... }' https://$ZONE_HOST/api/v3/user/handle_services
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the created handle service in form https://$HOST/api/onezone/v3/user/handle_services/{id}
+        URI of the created handle service in form https://$ZONE_HOST/api/onezone/v3/user/handle_services/{id}
         is returned in the response `Location` header.
       headers:
         Location:

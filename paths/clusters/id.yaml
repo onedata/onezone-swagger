@@ -26,7 +26,7 @@ get:
     **Get cluster details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID
 
     {
       "clusterId": "f8d843beda24e54545455ecc0f4b8886",
@@ -117,7 +117,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_cluster12"}' \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID
     ```
   consumes:
     - application/json

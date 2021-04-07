@@ -30,7 +30,7 @@ get:
     **Get harvester groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups
 
     {
       "groups": [
@@ -111,14 +111,14 @@ post:
     **Create group in harvester**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/groups
     ```
   produces:
   - application/json
   responses:
     '201':
       description: >
-        URI of the added group in form https://$HOST/api/onezone/v3/harvesters/{id}/groups/{gid} is
+        URI of the added group in form https://$ZONE_HOST/api/onezone/v3/harvesters/{id}/groups/{gid} is
         returned in the response `Location` header.
       headers:
         Location:

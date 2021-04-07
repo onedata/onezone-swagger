@@ -23,7 +23,7 @@ get:
     **Get user's effective group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/user/effective_groups/$GROUP_ID
 
     {
       "groupId": "59fec3bd894eef1cdae81623f477e370",

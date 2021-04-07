@@ -21,7 +21,7 @@ get:
 
     **List all groups in the system**
     ```bash
-     curl -u username:password -X GET https://$HOST/api/v3/onezone/groups
+     curl -u username:password -X GET https://$ZONE_HOST/api/v3/onezone/groups
     ```
   produces:
     - application/json
@@ -85,14 +85,14 @@ post:
     ```bash
      curl -u username:password -H "Content-type: application/json" \
      -X POST -d '{ "name":"new_group" , "type":"team" }' \
-     https://$HOST/api/v3/onezone/groups/$GROUP_ID
+     https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the group created in form https://$HOST/api/onezone/v3/groups/{id} is
+        URI of the group created in form https://$ZONE_HOST/api/onezone/v3/groups/{id} is
         returned in the response `Location` header.
       headers:
         Location:

@@ -45,7 +45,7 @@ put:
     **Add space space owner**
     ```bash
     curl -u username:password -H "Content-type: application/json" -X PUT \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/owners/$USER_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/owners/$USER_ID
     ```
   consumes:
     - application/json
@@ -127,7 +127,7 @@ delete:
     **Remove space owner**
     ```bash
     curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/owners/$USER_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/owners/$USER_ID
     ```
   consumes:
     - application/json

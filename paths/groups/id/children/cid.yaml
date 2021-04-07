@@ -30,7 +30,7 @@ get:
     **Get child group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
 
     {
       "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
@@ -122,14 +122,14 @@ put:
     **Add child group**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
     ```
   produces:
     - application/json
   responses:
     '201':
       description: >
-        URI of the added group in form https://$HOST/api/onezone/v3/groups/{id}/children/{cid} is
+        URI of the added group in form https://$ZONE_HOST/api/onezone/v3/groups/{id}/children/{cid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -209,7 +209,7 @@ delete:
     **Remove child group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID
     ```
   responses:
     '204':

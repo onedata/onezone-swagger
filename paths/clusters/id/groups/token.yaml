@@ -37,7 +37,7 @@ post:
     **Create cluster invitation token for group**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/token
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/token
 
     {
       "token": "MDAxNmxvY0cGUgKWsjcpnrLE00RtOd2F00cGUgKWsjcpnrLE00RtOdhmnQycSICwMsugo"

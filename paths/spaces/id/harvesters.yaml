@@ -30,7 +30,7 @@ get:
     **Get space harvesters**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters
 
     {
       "harvesters": [

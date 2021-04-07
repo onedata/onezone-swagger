@@ -21,7 +21,7 @@ get:
 
     **Get handles**
     ```bash
-    curl -u username:password -X GET https://$HOST/api/v3/handles
+    curl -u username:password -X GET https://$ZONE_HOST/api/v3/handles
 
     {
       "handles": [
@@ -100,14 +100,14 @@ post:
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
     -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }' \
-    https://$HOST/api/v3/handles
+    https://$ZONE_HOST/api/v3/handles
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the created handle in form https://$HOST/api/onezone/v3/handles/{id} is
+        URI of the created handle in form https://$ZONE_HOST/api/onezone/v3/handles/{id} is
         returned in the response `Location` header.
       headers:
         Location:
