@@ -26,7 +26,7 @@ get:
     **Get handle groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/$HANDLE_ID/effective_groups
+    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID/effective_groups
 
     {
       "groups": [

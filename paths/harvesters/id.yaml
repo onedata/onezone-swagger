@@ -26,7 +26,7 @@ get:
     **Get harvester details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID
 
     {
       "harvesterId": "2c0160248ba9a66f45da751ca459535a",
@@ -108,7 +108,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_harvester12"}' \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID
     ```
   consumes:
     - application/json
@@ -182,7 +182,7 @@ delete:
     **Remove harvester**
     ```bash
     curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID
     ```
   responses:
     '204':

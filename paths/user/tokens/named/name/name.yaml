@@ -24,7 +24,7 @@ get:
     **Get named token of current user by name**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/tokens/named/name/my-token-1
+    https://$ZONE_HOST/api/v3/onezone/user/tokens/named/name/my-token-1
     {
       "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
       "name": "my-token-1",

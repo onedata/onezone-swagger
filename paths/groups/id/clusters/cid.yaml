@@ -23,7 +23,7 @@ get:
     **Get group's cluster details**
     ```bash
     curl -u groupname:password -X GET \
-    https://$HOST/api/v3/onezone/group/clusters/$CLUSTER_ID
+    https://$ZONE_HOST/api/v3/onezone/group/clusters/$CLUSTER_ID
 
     {
       "clusterId": "f8d843beda24e54545455ecc0f4b8886",
@@ -110,7 +110,7 @@ delete:
     **Group leave cluster**
     ```bash
     curl -u groupname:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/clusters/$CLUSTER_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/clusters/$CLUSTER_ID
     ```
   produces:
     - application/json

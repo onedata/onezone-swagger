@@ -53,7 +53,7 @@ post:
     ```bash
     curl -d '{"token": "MDAxNmxvY2F00aW9uIHZ2...", "peerIp": "38.190.241.12"}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/tokens/verify_identity_token
+    https://$ZONE_HOST/api/v3/onezone/tokens/verify_identity_token
 
     {
       "subject": {

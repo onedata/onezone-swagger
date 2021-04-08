@@ -28,7 +28,7 @@ get:
     **Get group spaces**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/spaces
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/spaces
 
     {
       "spaces": [
@@ -106,7 +106,7 @@ post:
     ```bash
     curl -u admin:password -H "Content-type: application/json" \
     -X POST -d '{"name": "new_space"}' \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/spaces
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/spaces
     ```
   produces:
     - application/json

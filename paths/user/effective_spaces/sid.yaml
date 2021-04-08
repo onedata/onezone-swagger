@@ -23,7 +23,7 @@ get:
     **Get user effective space**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/user/effective_spaces/$SPACE_ID
 
     {
       "spaceId": "2c0160248ba9a66f45da751ca459535a",

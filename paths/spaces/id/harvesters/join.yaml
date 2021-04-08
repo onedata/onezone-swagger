@@ -32,14 +32,14 @@ post:
     ```bash
     curl -u admin:password -H "Content-type: application/json" \
     -d '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVuJ3l02U1JXzstRdK00ZHbso02rRcG8bJLAo"}' \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/join
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/join
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the joined harvester in form https://$HOST/api/onezone/v3/spaces/{id}/harvesters/{hid} is
+        URI of the joined harvester in form https://$ZONE_HOST/api/onezone/v3/spaces/{id}/harvesters/{hid} is
         returned in the response `Location` header.
       headers:
         Location:

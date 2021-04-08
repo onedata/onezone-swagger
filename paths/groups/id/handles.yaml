@@ -28,7 +28,7 @@ get:
     **Get group handles**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/handles
 
     {
       "handles": [
@@ -113,14 +113,14 @@ post:
     ```bash
     curl -u admin:password -H "Content-type: application/json" -X POST \
     -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }'
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/handles
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the created space in form https://$HOST/api/onezone/v3/groups/{id}/handles/{sid} is
+        URI of the created space in form https://$ZONE_HOST/api/onezone/v3/groups/{id}/handles/{sid} is
         returned in the response `Location` header.
       headers:
         Location:

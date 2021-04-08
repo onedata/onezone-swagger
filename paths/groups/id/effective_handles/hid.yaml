@@ -30,7 +30,7 @@ get:
     **Get effective handle details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/effective_handles/$HANDLE_ID
 
     {
       "publicHandle": "10.5072/w95Zlng",

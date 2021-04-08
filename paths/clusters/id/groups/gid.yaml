@@ -30,7 +30,7 @@ get:
     **Get cluster group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
 
     {
       "groupId": "f1c8b1a37aa7447b22eb65a742d40524",
@@ -128,7 +128,7 @@ put:
     **Add group to cluster**
     ```bash
     curl -u username:password -H "Content-type: application/json" -X PUT \
-     https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
+     https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
     ```
   consumes:
     - application/json
@@ -213,7 +213,7 @@ delete:
     **Get cluster group details**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID
     ```
   responses:
     '204':

@@ -30,7 +30,7 @@ get:
     **Get space support token**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/providers
 
     {
       "providers": [

@@ -36,7 +36,7 @@ get:
     **List effective user's privileges in a space**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/effective_users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/effective_users/$USER_ID/privileges
 
     {
       "privileges": [

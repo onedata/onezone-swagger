@@ -42,7 +42,7 @@ post:
     curl -u username:password -X POST \
     -d '{"type": {"accessToken":{}}, "caveats": [{"type": "time", "validUntil": 1571147494}]}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/user/tokens/temporary
+    https://$ZONE_HOST/api/v3/onezone/user/tokens/temporary
     ```
   consumes:
     - application/json
@@ -116,7 +116,7 @@ get:
     **Get temporary token generation of current user**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onezone/user/tokens/temporary
+    https://$ZONE_HOST/api/v3/onezone/user/tokens/temporary
 
     {
       "generation": 3
@@ -182,7 +182,7 @@ delete:
     **Revoke all temporary tokens of current user**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X DELETE \
-    https://$HOST/api/v3/onezone/user/tokens/temporary
+    https://$ZONE_HOST/api/v3/onezone/user/tokens/temporary
     ```
   produces:
     - application/json

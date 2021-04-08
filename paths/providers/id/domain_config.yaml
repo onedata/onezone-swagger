@@ -31,7 +31,7 @@ get:
     **Get provider's domain config**
     ```bash
     curl -sS -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/domain_config
+    https://$ZONE_HOST/api/v3/onezone/providers/$PROVIDER_ID/domain_config
 
     {
       "subdomainDelegation": true,

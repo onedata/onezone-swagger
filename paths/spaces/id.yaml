@@ -30,7 +30,7 @@ get:
     **Get space details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID
 
     {
       "spaceId": "2c0160248ba9a66f45da751ca459535a",
@@ -113,7 +113,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_space12"}' \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID
     ```
   consumes:
     - application/json
@@ -189,7 +189,7 @@ delete:
     **Remove space**
     ```bash
     curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID
     ```
   responses:
     '204':

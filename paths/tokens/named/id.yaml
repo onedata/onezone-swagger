@@ -30,7 +30,7 @@ get:
     **Get named token**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
+    https://$ZONE_HOST/api/v3/onezone/tokens/named/$TOKEN_ID
     {
       "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
       "name": "my-token-1",
@@ -150,7 +150,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"revoked": true}' \
-    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
+    https://$ZONE_HOST/api/v3/onezone/tokens/named/$TOKEN_ID
     ```
   consumes:
     - application/json
@@ -226,7 +226,7 @@ delete:
     **Delete named token**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID
+    https://$ZONE_HOST/api/v3/onezone/tokens/named/$TOKEN_ID
     ```
   produces:
     - application/json

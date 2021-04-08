@@ -30,7 +30,7 @@ get:
     **Get group's space details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/spaces/$SPACE_ID
 
     {
       "spaceId": "7e1af0c5f0bfdfe9d2e7edb731247f5f",
@@ -117,7 +117,7 @@ delete:
     **Remove space from group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/spaces/$SPACE_ID
     ```
   responses:
     '204':

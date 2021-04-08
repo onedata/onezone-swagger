@@ -32,7 +32,7 @@ get:
     **Get space harvester details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/$HARVESTER_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/$HARVESTER_ID
 
     {
       "harvesterId": "2c0160248ba9a66f45da751ca459535a",
@@ -121,7 +121,7 @@ delete:
     **Get space harvester details**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/$HARVESTER_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/harvesters/$HARVESTER_ID
     ```
   responses:
     '204':

@@ -28,7 +28,7 @@ get:
     **Get handle user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
 
     {
        "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
@@ -108,14 +108,14 @@ put:
     **Add handle user**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
     ```
   produces:
     - application/json
   responses:
     '201':
       description: >
-        URI of the added user in form https://$HOST/api/onezone/v3/handles/{id}/users/{uid} is
+        URI of the added user in form https://$ZONE_HOST/api/onezone/v3/handles/{id}/users/{uid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -193,7 +193,7 @@ delete:
     **Remove handle service user**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID
     ```
   responses:
     '204':

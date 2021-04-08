@@ -61,7 +61,7 @@ post:
       "expectedInviteType": "userJoinGroup"
     }' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/tokens/verify_invite_token
+    https://$ZONE_HOST/api/v3/onezone/tokens/verify_invite_token
 
     {
       "subject": {

@@ -29,7 +29,7 @@ get:
     **Get harvester space details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
 
     {
       "indexId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk",
@@ -113,7 +113,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name" : "new_name", "guiPluginName" : "new_gui_plugin_name"}' \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
     ```
   consumes:
     - application/json
@@ -199,7 +199,7 @@ delete:
     **Remove harvester index**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
     ```
   responses:
     '204':

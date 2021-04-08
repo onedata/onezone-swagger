@@ -89,14 +89,14 @@ get:
 
     **Get shared file or directory data**
     ```bash
-    curl -v -X GET https://$HOST/api/v3/onezone/shares/data/$FILE_ID/content
+    curl -v -X GET https://$ZONE_HOST/api/v3/onezone/shares/data/$FILE_ID/content
 
     < HTTP/1.1 307 Temporary Redirect
     < location: https://provider.example.com/api/v3/oneprovider/data/$FILE_ID/content
 
     # -------------------------------------------------------------------------------
 
-    curl -v -X GET https://$HOST/api/v3/onezone/shares/data/$FILE_ID/children?limit=3
+    curl -v -X GET https://$ZONE_HOST/api/v3/onezone/shares/data/$FILE_ID/children?limit=3
 
     < HTTP/1.1 307 Temporary Redirect
     < location: https://provider.example.com/api/v3/oneprovider/data/$FILE_ID/children?limit=3
@@ -104,7 +104,7 @@ get:
     # -------------------------------------------------------------------------------
 
     # automatically follow redirects with -L option, request a byte range
-    curl -L -X GET https://$HOST/api/v3/onezone/shares/data/$FILE_ID/content \
+    curl -L -X GET https://$ZONE_HOST/api/v3/onezone/shares/data/$FILE_ID/content \
     -H "Range: bytes=5-8"
 
     fghi

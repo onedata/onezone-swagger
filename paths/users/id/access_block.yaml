@@ -22,7 +22,7 @@ patch:
 
     **Block or unblock user access**
     ```bash
-    curl -u admin:password -X PATCH https://$HOST/api/v3/onezone/users/$USER_ID/access_block \
+    curl -u admin:password -X PATCH https://$ZONE_HOST/api/v3/onezone/users/$USER_ID/access_block \
     -H "Content-Type: application/json" -d '{"blocked": true}'
     ```
   consumes:
