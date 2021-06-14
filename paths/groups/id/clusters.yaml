@@ -17,7 +17,7 @@ get:
     **Get group's clusters**
     ```bash
     curl -u groupname:password -X GET \
-    https://$HOST/api/v3/onezone/group/GVC8lKEasj4q253sptVqF8HwUpk8j/clusters
+    https://$ZONE_HOST/api/v3/onezone/group/GVC8lKEasj4q253sptVqF8HwUpk8j/clusters
 
     {
       "clusters": [

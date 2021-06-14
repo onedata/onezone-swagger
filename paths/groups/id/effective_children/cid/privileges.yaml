@@ -34,7 +34,7 @@ get:
     **List effective child group's privileges in a group**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_children/$CHILD_GROUP_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/effective_children/$CHILD_GROUP_ID/privileges
 
     {
       "privileges": [

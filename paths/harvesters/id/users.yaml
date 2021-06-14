@@ -28,7 +28,7 @@ get:
     **Get harvester users**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/users
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/users
 
     {
       "users": [

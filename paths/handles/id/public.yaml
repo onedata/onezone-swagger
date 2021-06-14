@@ -19,7 +19,7 @@ get:
 
     **Get public handle details**
     ```bash
-    curl -X GET https://$HOST/api/v3/handles/$HANDLE_ID/public
+    curl -X GET https://$ZONE_HOST/api/v3/handles/$HANDLE_ID/public
 
     {
       "handleId": "95b663a6467c72ab1256865efef9e387",

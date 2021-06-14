@@ -24,7 +24,7 @@ patch:
     ```bash
     curl -u admin:password -H "Content-type: application/json" -X PATCH  \
     -d '{"basicAuthEnabled": true, "newPassword": "password123"}' \
-    https://$HOST/api/v3/onezone/users/c5cb69ce45940468596ed16310a45e49/basic_auth
+    https://$ZONE_HOST/api/v3/onezone/users/c5cb69ce45940468596ed16310a45e49/basic_auth
     ```
   consumes:
   - application/json

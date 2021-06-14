@@ -20,7 +20,7 @@ get:
 
     **Get list of all group privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/groups/privileges
+    curl https://$ZONE_HOST/api/v3/onezone/groups/privileges
 
     {
       "admin": [

@@ -21,7 +21,7 @@ get:
     **Get user effective groups**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_groups
+    https://$ZONE_HOST/api/v3/onezone/user/effective_groups
 
     {
       "groups": [

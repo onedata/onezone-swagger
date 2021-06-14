@@ -20,7 +20,7 @@ get:
 
     **Get list of all space privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/spaces/privileges
+    curl https://$ZONE_HOST/api/v3/onezone/spaces/privileges
 
     {
       "admin": [

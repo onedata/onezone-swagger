@@ -30,7 +30,7 @@ get:
     **Get cluster user data**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID
 
     {
        "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
@@ -130,7 +130,7 @@ put:
     **Add user to cluster**
     ```bash
     curl -u username:password -H "Content-type: application/json" -X PUT \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID
     ```
   consumes:
     - application/json
@@ -210,7 +210,7 @@ delete:
     **Get cluster user data**
     ```bash
     curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/users/$USER_ID
     ```
   consumes:
     - application/json

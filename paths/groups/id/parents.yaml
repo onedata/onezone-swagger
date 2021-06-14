@@ -28,7 +28,7 @@ get:
     **Get parent groups**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/parents
 
     {
       "groups": []
@@ -106,14 +106,14 @@ post:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{ "name" : "test_group" , "type" : "team" }' \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/parents
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the created group in form https://$HOST/api/onezone/v3/groups/{gid}/parents/{pid} is
+        URI of the created group in form https://$ZONE_HOST/api/onezone/v3/groups/{gid}/parents/{pid} is
         returned in the response `Location` header.
       headers:
         Location:
