@@ -37,11 +37,11 @@ example:
   clusterId: 2c0160248ba9a66f45da751ca459535a
   type: oneprovider
   workerVersion:
-    release: 21.02.0-alpha20
+    release: 21.02.0-alpha21
     build: 1-gfabf02d
     gui: 68e7e1472adb719ddf2d88908775091dfb10e5d0b916f06125ea1af4056044e3
   onepanelVersion:
-    release: 21.02.0-alpha20
+    release: 21.02.0-alpha21
     build: 1-gd76fac2
     gui: 5d9dd608775091dfb10ef2d888e7e14720b916f06125ea1af4056044eadb7193
   onepanelProxy: true
