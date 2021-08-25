@@ -11,8 +11,8 @@ get:
     Returns status code indicating onezone service health status.
     This endpoint does not require authentication.
   description: >
-    Returns status code indicating oneprovider service health status.
-        This endpoint does not require authentication.
+    Returns status code indicating onezone service health status.
+    This endpoint does not require authentication.
   produces:
     - application/json
   responses:
