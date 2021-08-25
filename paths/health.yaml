@@ -8,8 +8,8 @@ get:
   x-onedata-permissions: []
   summary: Perform healthckeck
   x-bash-codegen-description: |
-    Returns status code indicating oneprovider service health status.
-        This endpoint does not require authentication.
+    Returns status code indicating onezone service health status.
+    This endpoint does not require authentication.
   description: >
     Returns status code indicating oneprovider service health status.
         This endpoint does not require authentication.
