@@ -6,7 +6,7 @@ get:
     type: oz_worker
     aspect: health
   x-onedata-permissions: []
-  summary: Perform healthckeck
+  summary: Check cluster health
   x-bash-codegen-description: |
     Returns status code indicating onezone service health status.
     This endpoint does not require authentication.
@@ -19,6 +19,6 @@ get:
     '200':
       description: Service is healthy.
     '500':
-      description: Internal server Error.
+      description: Service is unhealthy.
       schema:
         $ref: '#/definitions/Error'
