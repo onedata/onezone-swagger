@@ -30,7 +30,7 @@ get:
     **Get handle details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/handles/$HANDLE_ID
 
     {
       "publicHandle": "10.5072/w95Zlng",
@@ -131,7 +131,7 @@ delete:
     **Delete user space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/handles/$HANDLE_ID
     ```
   produces:
     - application/json

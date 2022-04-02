@@ -40,7 +40,7 @@ get:
     **Get space share**
     ```bash
     curl -u username:password -H "Content-type: application/json" -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/shares/$SHARE_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/shares/$SHARE_ID
 
     {
       "shareId": "1f4b762b1380946e73aeca574c77f14c",

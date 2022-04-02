@@ -32,7 +32,7 @@ get:
     **List effective group's privileges in a handle service**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/effective_groups/$GROUP_ID/privileges
+    https://$ZONE_HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/effective_groups/$GROUP_ID/privileges
 
     {
       "privileges": [

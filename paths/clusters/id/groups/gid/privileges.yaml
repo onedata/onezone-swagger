@@ -26,7 +26,7 @@ get:
     **List groups's privileges in a cluster**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID/privileges
 
     {
       "privileges": [
@@ -124,7 +124,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -d '{"grant": ["cluster_view", "cluster_update"], "revoke": ["cluster_delete"]}' \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/groups/$GROUP_ID/privileges
     ```
   responses:
     '204':

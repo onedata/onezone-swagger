@@ -27,7 +27,7 @@ get:
     **Get space details**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/provider/spaces/$SPACE_ID
 
     {
       "spaceId": "2c0160248ba9a66f45da751ca459535a",
@@ -110,7 +110,7 @@ patch:
     ```bash
     curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
     -X PATCH -d '{"size": 1024000}' \
-    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
     - application/json
@@ -177,7 +177,7 @@ delete:
     **Revoke space support**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X DELETE \
-    https://$HOST/api/v3/onezone/provider/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/provider/spaces/$SPACE_ID
     ```
   produces:
     - application/json

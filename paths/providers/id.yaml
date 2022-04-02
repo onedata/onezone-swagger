@@ -32,7 +32,7 @@ get:
     **Get specific provider details**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X GET  \
-    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID
+    https://$ZONE_HOST/api/v3/onezone/providers/$PROVIDER_ID
 
     {
       "providerId": "6b9bc70630547d925861a27e1f050dfe",
@@ -112,7 +112,7 @@ delete:
     **Get specific provider details**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X DELETE  \
-    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID
+    https://$ZONE_HOST/api/v3/onezone/providers/$PROVIDER_ID
     ```
   produces:
     - application/json

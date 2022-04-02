@@ -27,7 +27,7 @@ get:
     **List user's effective admin privileges in Onezone**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/user/effective_privileges
+    https://$ZONE_HOST/api/v3/onezone/user/effective_privileges
 
     {
       "privileges": [

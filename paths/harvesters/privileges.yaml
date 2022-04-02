@@ -20,7 +20,7 @@ get:
 
     **Get list of all harvester privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/harvesters/privileges
+    curl https://$ZONE_HOST/api/v3/onezone/harvesters/privileges
 
     {
       "admin": [

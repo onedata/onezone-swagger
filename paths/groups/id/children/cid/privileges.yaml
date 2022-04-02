@@ -28,7 +28,7 @@ get:
     **List child group's privileges in a group**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID/privileges
 
     {
       "privileges": [
@@ -128,7 +128,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" -X PATCH \
     -d '{"grant": ["group_view", "group_update"], "revoke": ["group_delete"]}' \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/children/$CHILD_GROUP_ID/privileges
     ```
   responses:
     '204':

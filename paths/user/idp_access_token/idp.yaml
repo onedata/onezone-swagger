@@ -35,7 +35,7 @@ post:
     **Acquire IdP access token**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/user/idp_access_token/github
+    https://$ZONE_HOST/api/v3/onezone/user/idp_access_token/github
     ```
   produces:
     - application/json
