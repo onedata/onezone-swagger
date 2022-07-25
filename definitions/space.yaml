@@ -16,6 +16,13 @@ properties:
       type: integer
       description: |
         Size of storage provisioned for this space by provider.
+  supportParametersRegistry:
+    type: object
+    description: >
+      A map of provider Ids supporting this space
+      and corresponding support parameters of the provider.
+    additionalProperties:
+      $ref: '#/definitions/SupportParameters'
   creator:
     $ref: '#/definitions/Subject'
   creationTime:
@@ -25,6 +32,7 @@ required:
   - spaceId
   - name
   - providers
+  - supportParametersRegistry
   - creator
   - creationTime
 
@@ -34,6 +42,15 @@ example:
   providers:
     296ebe3c20e9666dc489b647f8647f12: 5368709120
     dcf12429647c204896eebe3b6f686967: 14400000
+  supportParametersRegistry:
+    296ebe3c20e9666dc489b647f8647f12:
+      accountingEnabled: false
+      dirStatsServiceEnabled: true
+      dirStatsServiceStatus: enabled
+    dcf12429647c204896eebe3b6f686967:
+      accountingEnabled: false
+      dirStatsServiceEnabled: false
+      dirStatsServiceStatus: stopping
   creator:
     type: user
     id: 7434b256e71e1052e0d5e3e9da657ebf
