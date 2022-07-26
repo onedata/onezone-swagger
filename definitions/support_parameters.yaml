@@ -15,7 +15,7 @@ properties:
     description: |
       Indicates if the directory statistics service should be enabled.
       The service gathers statistics concerning logical and physical
-      directory size, file count and update times..<br/>
+      directory size, file count and update times.<br/>
       It can be toggled by a space member with `space_update` privilege,
       by an administrator of the provider with `cluster_update` privilege
       or by an administrator of the zone with `oz_spaces_update` privilege.<br/>
@@ -38,10 +38,6 @@ properties:
       supporting provider. It cannot be modified by a user. May be different from
       the `dirStatsServiceEnabled` setting if the service is in one of the intermediate
       states or the provider has not yet acknowledged a change in the parameters.
-required:
-  - accountingEnabled
-  - dirStatsServiceEnabled
-  - dirStatsServiceStatus
 example:
   accountingEnabled: false
   dirStatsServiceEnabled: true
