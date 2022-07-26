@@ -28,6 +28,7 @@ properties:
       process is reflected by the `initializing` and `stopping` intermediate statuses.
   dirStatsServiceStatus:
     type: string
+    readOnly: true
     enum:
       - initializing
       - enabled
@@ -41,4 +42,5 @@ properties:
 example:
   accountingEnabled: false
   dirStatsServiceEnabled: true
-  dirStatsServiceStatus: enabled
+  # dirStatsServiceStatus is omitted as this example is only used in the update operation,
+  # where this field should not be shown
