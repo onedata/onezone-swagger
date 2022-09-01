@@ -32,7 +32,7 @@ get:
     **List effective groups's privileges in a harvester**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/effective_groups/$GROUP_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/effective_groups/$GROUP_ID/privileges
 
     {
       "privileges": [

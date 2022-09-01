@@ -30,7 +30,7 @@ get:
 
     **Get shares**
     ```bash
-    curl -u admin:password -X GET https://$HOST/api/v3/onezone/shares
+    curl -u admin:password -X GET https://$ZONE_HOST/api/v3/onezone/shares
 
     {
       "shares": [
@@ -104,14 +104,14 @@ get:
 #    ```bash
 #    curl -u username:password -H "Content-type: application/json" -X POST -d \
 #    '{"shareId": "32919d6a51bac9b040c7cb7961fdccf3", "name": "NewShare", "spaceId": "f795b603a27402a6adbf612a86b9e08b", "rootFileId": "72b84d00aef3a054a4df24e282a4f50d"}' \
-#    https://$HOST/api/v3/onezone/shares
+#    https://$ZONE_HOST/api/v3/onezone/shares
 #    ```
 #  consumes:
 #    - application/json
 #  responses:
 #    '201':
 #      description: >
-#        URI of the created share in form https://$HOST/api/onezone/v3/shares/{id} is
+#        URI of the created share in form https://$ZONE_HOST/api/onezone/v3/shares/{id} is
 #        returned in the response `Location` header.
 #      headers:
 #        Location:

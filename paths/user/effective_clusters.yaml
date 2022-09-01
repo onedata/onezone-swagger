@@ -21,7 +21,7 @@ get:
     **Get user's effective clusters**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_clusters
+    https://$ZONE_HOST/api/v3/onezone/user/effective_clusters
 
     {
       "clusters": [

@@ -37,7 +37,7 @@ post:
     **Create harvester invite space token**
     ```bash
     curl -u admin:password -X POST \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/token
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/token
 
     {
       "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIHZjUGlIcGkweGZta1ZOdEp00eUNINVNvR2001Wl"

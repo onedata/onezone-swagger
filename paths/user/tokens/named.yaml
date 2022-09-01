@@ -35,7 +35,7 @@ post:
     ```bash
     curl -u username:password -X POST -d '{"name": "new-token-1"}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/user/tokens/named
+    https://$ZONE_HOST/api/v3/onezone/user/tokens/named
     ```
   consumes:
     - application/json
@@ -44,7 +44,7 @@ post:
       description: >
         Response body contains the Id of newly created named token and its serialized form.
         Additionally, URI of the created named token in form
-        https://$HOST/api/onezone/v3/tokens/named/{id}
+        https://$ZONE_HOST/api/onezone/v3/tokens/named/{id}
         is returned in the response `Location` header.
       headers:
         Location:
@@ -110,7 +110,7 @@ get:
     **List named tokens of current user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/tokens/named
+    https://$ZONE_HOST/api/v3/onezone/user/tokens/named
 
     {
       "tokens": [
@@ -179,7 +179,7 @@ delete:
     **Delete named tokens of current user**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/tokens/named
+    https://$ZONE_HOST/api/v3/onezone/user/tokens/named
     ```
   produces:
     - application/json

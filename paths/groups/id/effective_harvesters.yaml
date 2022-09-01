@@ -28,7 +28,7 @@ get:
     **Get group effective harvesters**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_harvesters
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/effective_harvesters
 
     {
       "harvesters": [

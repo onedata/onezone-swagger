@@ -30,7 +30,7 @@ get:
     **Get space details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID
 
     {
       "spaceId": "2c0160248ba9a66f45da751ca459535a",
@@ -38,6 +38,18 @@ get:
       "providers": {
         "296ebe3c20e9666dc489b647f8647f12": 5368709120,
         "dcf12429647c204896eebe3b6f686967": 14400000
+      },
+      "supportParametersRegistry": {
+        "296ebe3c20e9666dc489b647f8647f12": {
+          "accountingEnabled": false,
+          "dirStatsServiceEnabled": true,
+          "dirStatsServiceStatus": "enabled"
+        },
+        "dcf12429647c204896eebe3b6f686967": {
+          "accountingEnabled": false,
+          "dirStatsServiceEnabled": false,
+          "dirStatsServiceStatus": "stopping"
+        }
       },
       "creator": {
         "type": "user",
@@ -113,7 +125,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_space12"}' \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID
     ```
   consumes:
     - application/json
@@ -189,7 +201,7 @@ delete:
     **Remove space**
     ```bash
     curl -u admin:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID
     ```
   responses:
     '204':

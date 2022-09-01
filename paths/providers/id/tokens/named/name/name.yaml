@@ -30,7 +30,7 @@ get:
     **Get named token of a provider by name**
     ```bash
     curl -H "x-auth-token: $TOKEN" -X GET \
-    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named/name/my-token-1
+    https://$ZONE_HOST/api/v3/onezone/providers/$PROVIDER_ID/tokens/named/name/my-token-1
     {
       "id": "2b5d0dd5aa6443a69277b5ce0544fec2",
       "name": "my-token-1",

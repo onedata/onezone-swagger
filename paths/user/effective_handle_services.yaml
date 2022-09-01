@@ -21,7 +21,7 @@ get:
     **Get user effective handle services**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/user/effective_handle_services
+    https://$ZONE_HOST/api/v3/onezone/user/effective_handle_services
 
     {
       "handle_services": [

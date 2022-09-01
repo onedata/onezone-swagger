@@ -36,12 +36,12 @@ post:
     ```bash
     curl -u admin:password -H "Content-type: application/json" -X POST \
     -d  '{"token":"MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW"}'  \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents/join
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/parents/join
     ```
   responses:
     '201':
       description: >
-        URI of the joined group in form https://$HOST/api/onezone/v3/groups/{id}/parents/{pid} is
+        URI of the joined group in form https://$ZONE_HOST/api/onezone/v3/groups/{id}/parents/{pid} is
         returned in the response `Location` header.
       headers:
         Location:

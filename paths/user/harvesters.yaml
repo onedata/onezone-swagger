@@ -21,7 +21,7 @@ get:
     **Get user harvesters**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/harvesters
+    https://$ZONE_HOST/api/v3/onezone/user/harvesters
 
     {
       "harvesters": [
@@ -97,14 +97,14 @@ post:
     "config" : { "typeMapping": [ { "id": 0, "name": "Type 1" }, { "id": 1, "name": "Type 1" } ],
                  "externalHelpLink": "http://example.com/some_help_page",
                  "refreshDataTimeout": 1000 }, \
-    https://$HOST/api/v3/onezone/user/harvesters
+    https://$ZONE_HOST/api/v3/onezone/user/harvesters
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the created harvester in form https://$HOST/api/onezone/v3/user/harvesters/{id} is
+        URI of the created harvester in form https://$ZONE_HOST/api/onezone/v3/user/harvesters/{id} is
         returned in the response `Location` header.
       headers:
         Location:

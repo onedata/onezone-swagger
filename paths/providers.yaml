@@ -22,7 +22,7 @@ get:
     **Get list of providers**
     ```bash
     curl -Ssk -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers
+    https://$ZONE_HOST/api/v3/onezone/providers
 
     {
       "providers": [
@@ -104,7 +104,7 @@ post:
       "latitude" : "50.0647",
       "longitude" : "19.9450",
     }' \
-    https://$HOST/api/v3/onezone/provider
+    https://$ZONE_HOST/api/v3/onezone/provider
     ```
 
   consumes:

@@ -28,7 +28,7 @@ get:
     **Add handle group**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/$HANDLE_ID/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID/groups/$GROUP_ID
 
     {
       "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
@@ -108,14 +108,14 @@ put:
     **Add handle group**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/handles/$HANDLE_ID/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID/groups/$GROUP_ID
     ```
   produces:
     - application/json
   responses:
     '201':
       description: >
-        URI of the added group in form https://$HOST/api/onezone/v3/handles/{id}/groups/{gid} is
+        URI of the added group in form https://$ZONE_HOST/api/onezone/v3/handles/{id}/groups/{gid} is
         returned in the response `Location` header.
       headers:
         Location:
@@ -193,7 +193,7 @@ delete:
     **Remove handle service group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handles/$HANDLE_ID/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID/groups/$GROUP_ID
     ```
   responses:
     '204':

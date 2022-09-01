@@ -35,7 +35,7 @@ get:
     **Get share details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/shares/$SHARE_ID
+    https://$ZONE_HOST/api/v3/onezone/shares/$SHARE_ID
 
     {
       "shareId": "1f4b762b1380946e73aeca574c77f14c",
@@ -132,7 +132,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "NewShareName", "description": "# New description"}' \
-    https://$HOST/api/v3/onezone/shares/$SHARE_ID
+    https://$ZONE_HOST/api/v3/onezone/shares/$SHARE_ID
     ```
   consumes:
     - application/json
@@ -214,7 +214,7 @@ patch:
 #    **Remove space**
 #    ```bash
 #    curl -u admin:password -X DELETE \
-#    https://$HOST/api/v3/onezone/shares/$SHARE_ID
+#    https://$ZONE_HOST/api/v3/onezone/shares/$SHARE_ID
 #    ```
 #  responses:
 #    '204':

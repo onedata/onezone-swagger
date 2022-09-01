@@ -30,7 +30,7 @@ get:
     **Get space effective groups**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/effective_groups
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/effective_groups
 
     {
       "groups": [

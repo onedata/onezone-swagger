@@ -20,7 +20,7 @@ get:
 
     **Get list of all handle service privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/handle_services/privileges
+    curl https://$ZONE_HOST/api/v3/onezone/handle_services/privileges
 
     {
       "admin": [
