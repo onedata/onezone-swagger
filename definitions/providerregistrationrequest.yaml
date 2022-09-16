@@ -4,21 +4,35 @@ properties:
   token:
     type: string
     description: >
-      Token for registering a new Oneprovider.
+      Token for registering a new Oneprovider. If Onezone allows regular users
+      to freely register Oneproviders, it can be obtained from GUI or REST API.
+      Otherwise, only a Onezone admin can issue such token.
   name:
     type: string
     description: Oneprovider name.
+  adminEmail:
+    type: string
+    description: Contact email address of the Oneprovider admin.
   subdomainDelegation:
     type: boolean
     description: >
-      If enabled, the Oneprovider will be assigned a subdomain in onezone's domain
-      and 'subdomain' property must be provided. If disabled, 'domain' property
-      should be provided.
+      If enabled, the Oneprovider will be assigned a subdomain in Onezone's domain
+      and 'subdomain', 'ipList' properties must be provided. If disabled, 'domain'
+      property must be provided.
   subdomain:
     type: string
     description: >
       Unique subdomain in onezone's domain for the Oneprovider. Required if
       subdomain delegation is enabled.
+  ipList:
+    type: array
+    description: >
+      List of Oneprovider's IPv4 addresses to be advertised by Onezone's DNS.
+      Required if subdomain delegation is enabled.
+    items:
+      type: string
+      description: >
+        IPv4 address in textual representation, for example `"123.45.6.78"`.
   domain:
     type: string
     description: >
@@ -34,13 +48,15 @@ properties:
     x-erlang-type: float
     description: The geographical longitude of the Oneprovider's data center location.
 required:
-  - name
-  - subdomainDelegation
   - token
+  - name
+  - adminEmail
+  - subdomainDelegation
 example:
-  token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
-  name: Example provider
+  token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW...
+  name: My provider
+  adminEmail: person@example.com
   subdomainDelegation: false
-  domain: provider2.example.com
+  domain: my-provider.example.com
   latitude: 50.0647
   longitude: 19.9450
