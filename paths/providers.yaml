@@ -95,16 +95,16 @@ post:
 
     **Register provider**
     ```bash
-    curl -u username:password -H "Content-type: application/json" \
-    -X POST -d '{
-      "token" : "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
+    curl -H "Content-type: application/json" -X POST -d '{
+      "token" : "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW...",
       "name" : "My provider",
+      "adminEmail" : "person@example.com",
       "subdomainDelegation" : "false",
       "domain" : "my-provider.example.com",
       "latitude" : "50.0647",
       "longitude" : "19.9450",
     }' \
-    https://$ZONE_HOST/api/v3/onezone/provider
+    https://$ZONE_HOST/api/v3/onezone/providers
     ```
 
   consumes:
