@@ -1,0 +1,42 @@
+type: object
+description: Space marketplace details.
+properties:
+  name:
+    type: string
+    description: The name of the space.
+  description:
+    $ref: '#/definitions/SpaceDescription'
+  organizationName:
+    $ref: '#/definitions/SpaceOrganizationName'
+  tags:
+    $ref: '#/definitions/SpaceTags'
+  providerNames:
+    type: array
+    items:
+      type: string
+    description: Names of providers supporting this space.
+  totalSupportSize:
+    type: integer
+    description: Sum of every supporting provider support.
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+required:
+  - name
+  - description
+  - organizationName
+  - tags
+  - providerNames
+  - totalSupportSize
+  - creationTime
+example:
+  name: My Private space
+  description: My Private data
+  organizationName: ""
+  tags:
+    - images
+    - sport
+  providerNames:
+    - krakow
+    - paris
+  totalSupportSize: 1000000
+  creationTime: 1576152793

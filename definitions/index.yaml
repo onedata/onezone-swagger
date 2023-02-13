@@ -69,10 +69,28 @@ ProviderDomainConfig:
   $ref: ./providerdomainconfig.yaml
 
 Space:
-  $ref: ./space.yaml
+  $ref: ./space/space.yaml
+
+SpaceDescription:
+  $ref: ./space/space_description.yaml
+
+SpaceOrganizationName:
+  $ref: ./space/space_organization_name.yaml
+
+SpaceTags:
+  $ref: ./space/space_tags.yaml
+
+SpaceAdvertisedInMarketplace:
+  $ref: ./space/space_advertised_in_marketplace.yaml
+
+SpaceMarketplaceContactEmail:
+  $ref: ./space/space_marketplace_contact_email.yaml
+
+SpaceMarketplaceData:
+  $ref: ./space/space marketplace_data.yaml
 
 SpaceStats:
-  $ref: ./space_stats.yaml
+  $ref: ./space/space_stats.yaml
 
 SpaceCreateRequest:
   $ref: ./spacecreaterequest.yaml

@@ -135,6 +135,16 @@ post:
         name:
           type: string
           description: The name of the new space.
+        description:
+          $ref: '#/definitions/SpaceDescription'
+        organizationName:
+          $ref: '#/definitions/SpaceOrganizationName'
+        tags:
+          $ref: '#/definitions/SpaceTags'
+        advertisedInMarketplace:
+          $ref: '#/definitions/SpaceAdvertisedInMarketplace'
+        marketplaceContactEmail:
+          $ref: '#/definitions/SpaceMarketplaceContactEmail'
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createSpace name==\"Space 1\""

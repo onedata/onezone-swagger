@@ -1,0 +1,4 @@
+type: boolean
+description: >
+  Specifies whether space should be publicly advertised.
+example: false
