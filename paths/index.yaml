@@ -434,6 +434,14 @@
 # Spaces
 ###############################################################################
 
+/space_marketplace:
+  $ref: ./space_marketplace.yaml
+
+
+/space_marketplace/{id}:
+  $ref: ./space_marketplace/id.yaml
+
+
 /spaces:
   $ref: ./spaces.yaml
 
