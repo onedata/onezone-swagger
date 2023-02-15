@@ -91,6 +91,14 @@ post:
     schema:
       type: object
       properties:
+        tags:
+          type: array
+          items:
+            type: string
+          description: >
+            A list of tags to be used as listing filter. The resulting list will contain
+            only the spaces that have at least one of the specified tags.
+          # fixme add reference to zone configuration for available tags
         limit:
           type: integer
           description: >
