@@ -1,5 +1,5 @@
 type: object
-description: Space marketplace details.
+description: Space details in marketplace.
 properties:
   name:
     type: string
@@ -17,7 +17,7 @@ properties:
     description: Names of providers supporting this space.
   totalSupportSize:
     type: integer
-    description: Sum of every supporting provider support.
+    description: Sum of granted support sizes.
   creationTime:
     $ref: '#/definitions/Timestamp'
 required:
@@ -29,14 +29,16 @@ required:
   - totalSupportSize
   - creationTime
 example:
-  name: My Private space
-  description: My Private data
-  organizationName: ""
+  name: Meteo dataset
+  description: This dataset contains meteorological data for major Polish cities in years 2012-2014.
+  organizationName: "ACK Cyfronet AGH"
   tags:
-    - images
-    - sport
+    - archival
+    - big-data
+    - open-data
+    - environment
   providerNames:
     - krakow
     - paris
-  totalSupportSize: 1000000
+  totalSupportSize: 30500000000
   creationTime: 1576152793
