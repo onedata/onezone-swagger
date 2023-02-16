@@ -1,0 +1,130 @@
+# fixme should index be included in the API? if so, we need to return indices
+
+post:
+  operationId: list_marketplace
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    aspect: list_marketplace
+  summary: List space marketplace
+  x-bash-codegen-description: |
+    List spaces advertised in marketplace.
+  description: |
+    List spaces advertised in marketplace.
+    
+    ***Example cURL requests***
+
+    **List spaces advertised in marketplace**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
+    -X POST -d '{ "limit" : 2 }' \
+    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace
+
+    {
+      "spaces": [
+        "d6ee1aecf03b23f09756d6a49e435455",
+        "3b23a49e1aecf06d6555d6e4354f097e"
+      ],
+      "isLast": false,
+      "nextPageToken": "UkdseU1qWTBNak16TXpNNU5qUXpNak0yTXpZMk1UWTFOalEyTXpZMU5qSTJOalky"
+    }
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: >
+        List of spaces advertised in marketplace.
+      schema:
+        type: object
+        description: List of spaces advertised in marketplace.
+        properties:
+          spaces:
+            type: array
+            description: The list of Ids of spaces advertised in marketplace.
+            items:
+              type: string
+          isLast:
+            type: boolean
+            description: Flag indicating whether the last batch of spaces in marketplace was listed.
+          nextPageToken:
+            type: string
+            description: >
+              A token in the listing response that can be passed in the consecutive request to
+              start listing from the next page of entries.
+              When end of list is reached, the token is returned with a `null` value.
+        required:
+          - spaces
+          - isLast
+          - nextPageToken
+        example:
+          spaces:
+            - 1d24c36707d99197c6cd995810a43aca
+            - 6825604b0eb6a47b8b7a04b6369eb24d
+          isLast: true
+          nextPageToken: null
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: listing options
+    in: body
+    description: Space marketplace listing options.
+    schema:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            type: string
+          description: >
+            A list of tags to be used as listing filter. The resulting list will contain
+            only the spaces that have at least one of the specified tags.
+          # fixme add reference to zone configuration for available tags
+        limit:
+          type: integer
+          description: >
+            Allows specifying maximum number of spaces that should be returned.
+            If there are more spaces, they can be retrieved using the `token` or `index` options
+            in the consecutive call.
+          minimum: 1
+          maximum: 1000
+          default: 1000
+        token:
+          type: string
+          description: >
+            Determines the starting point for listing. The listing will start from the next page (batch) of entries
+            which follows the page previously obtained along with the corresponding `nextPageToken`.
+            Cannot be provided alongside the `index` parameter.
+        index:
+          type: string
+          description: >
+            Determines the starting point for listing - it will be started from given file name (inclusively).
+            Cannot be provided alongside the `token` parameter.
+        offset:
+          type: integer
+          description: >
+            Expressed in number of entries, further adjusts the starting point of listing indicated by
+            `index` or `token` parameters. The value can be negative, in such case entries preceding
+            the starting point will be returned.
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listMarketplace"

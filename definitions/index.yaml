@@ -87,7 +87,7 @@ SpaceMarketplaceContactEmail:
   $ref: ./space/space_marketplace_contact_email.yaml
 
 SpaceMarketplaceData:
-  $ref: ./space/space marketplace_data.yaml
+  $ref: ./space/space_marketplace_data.yaml
 
 SpaceStats:
   $ref: ./space/space_stats.yaml

@@ -1,4 +1,4 @@
 type: boolean
 description: >
-  Specifies whether space should be publicly advertised.
+  Specifies whether the space should be publicly advertised in marketplace.
 example: false

@@ -1,5 +1,5 @@
 get:
-  operationId: get_space_marketplace_data
+  operationId: get_space_data_in_marketplace
   tags:
     - Space
   x-onedata-gri:
@@ -7,32 +7,32 @@ get:
     id: ?BINDING(id)
     aspect: marketplace_data
     scope: protected
-  summary: Get space marketplace details
+  summary: Get space details in marketplace
   x-bash-codegen-description: |
-    Returns the marketplace relaited details about a specific space.
+    Returns the marketplace related details about a specific space.
 
-    This operation requires can be performed by any user but only for spaces 
+    This operation can be performed by any user, but only for spaces
     advertised in marketplace.
   description: |
-    Returns the marketplace relaited details about a specific space.
+    Returns the marketplace related details about a specific space.
 
-    This operation requires can be performed by any user but only for spaces 
+    This operation can be performed by any user, but only for spaces
     advertised in marketplace.
 
     ***Example cURL requests***
 
-    **Get space marketplace details**
+    **Get space details in marketplace**
     ```bash
-    curl -u admin:password -X GET \
-    https://$ZONE_HOST/api/v3/onezone/space_marketplace/$SPACE_ID
+    curl -H "x-auth-token: $TOKEN" -H \
+    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/$SPACE_ID
 
     {
-      "name": "My Private space",
-      "description": "My Private data",
-      "organizationName": "",
-      "tags": ["images", "sport"],
+      "name": "Meteo dataset",
+      "description": "This dataset contains meteorological data for major Polish cities in years 2012-2014.",
+      "organizationName": "ACK Cyfronet AGH",
+      "tags": ["archival", "big-data", "open-data", "environment"],
       "providerNames": ["krakow", "paris"],
-      "totalSupportSize": 1000000,
+      "totalSupportSize": 30500000000,
       "creationTime": 1576152793
     }
     ```
@@ -40,7 +40,7 @@ get:
     - application/json
   responses:
     '200':
-      description: Marketplace related information about a space.
+      description: Marketplace related details about a space.
       schema:
         $ref: '#/definitions/SpaceMarketplaceData'
     '400':
@@ -71,4 +71,4 @@ get:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli getSpaceMarketplaceData id=b752ceafabb662b4e5728b2ded25cdd1"
+    source: "onezone-rest-cli getSpaceDataInMarketplace id=b752ceafabb662b4e5728b2ded25cdd1"
