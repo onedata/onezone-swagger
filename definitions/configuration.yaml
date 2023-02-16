@@ -22,6 +22,9 @@ properties:
     description: List of compatible Oneprovider versions
     items:
       type: string
+  compatibilityRegistryRevision:
+    type: integer
+    description: Revision of the compatibility registry enforced by this Onezone service
   supportedIdPs:
     type: array
     description: List of IdPs supported by Onezone
@@ -39,7 +42,11 @@ properties:
             the user being logged in.
   availableSpaceTags:
     type: object
-    description: asd
+    description: |
+      A map of tag categories and corresponding available tags for each category.
+
+      Space tag is a short keyword or phrase that helps to understand the purpose of a space.
+      Tag categories and available tags are arbitrary strings configured by the Onezone admin.
     additionalProperties:
       type: array
       items:
@@ -47,8 +54,38 @@ properties:
         description: Short keywords or phrases that helps to understand the purpose of a space.
 required:
   - name
+  - domain
   - version
   - build
   - subdomainDelegationSupported
   - compatibleOneproviderVersions
+  - compatibilityRegistryRevision
+  - supportedIdPs
   - availableSpaceTags
+example:
+  name: Example zone
+  domain: zone.example.com
+  version: 21.02.0-alpha28
+  build: g52dbeca23
+  subdomainDelegationSupported: true
+  compatibleOneproviderVersions:
+    - 20.02.1
+    - 20.02.2
+    - 21.02.0-alpha28
+  compatibilityRegistryRevision: 2022122100
+  supportedIdPs:
+    - id: google
+      offlineAccess: true
+    - id: basicAuth
+      offlineAccess: false
+  availableSpaceTags:
+    general:
+      - big-data
+      - demo
+      - open-data
+      - simulation
+    domains:
+      - agriculture
+      - forestry
+      - justice
+      - science

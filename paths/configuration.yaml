@@ -20,7 +20,45 @@ get:
 
     **Get public information about the Onezone service**
     ```bash
-     curl https://$ZONE_HOST/api/v3/onezone/configuration
+    curl https://$ZONE_HOST/api/v3/onezone/configuration
+
+    {
+      "name": "Example zone",
+      "domain": "zone.example.com",
+      "version": "21.02.0-alpha28",
+      "build": "g52dbeca23",
+      "subdomainDelegationSupported": true,
+      "compatibleOneproviderVersions": [
+          "20.02.1",
+          "20.02.2",
+          "21.02.0-alpha28"
+      ],
+      "compatibilityRegistryRevision": 2022122100,
+      "supportedIdPs": [
+        {
+          "id": "google",
+          "offlineAccess": true
+        },
+        {
+          "id": "basicAuth",
+          "offlineAccess": false
+        }
+      ],
+      "availableSpaceTags": {
+        "general": [
+            "big-data",
+            "demo",
+            "open-data",
+            "simulation"
+        ],
+        "domains": [
+            "agriculture",
+            "forestry",
+            "justice",
+            "science"
+        ]
+      }
+    }
     ```
   produces:
     - application/json
