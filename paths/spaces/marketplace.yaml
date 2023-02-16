@@ -23,8 +23,14 @@ post:
 
     {
       "spaces": [
-        "d6ee1aecf03b23f09756d6a49e435455",
-        "3b23a49e1aecf06d6555d6e4354f097e"
+        {
+          "spaceId": "d6ee1aecf03b23f09756d6a49e435455", 
+          "index": "aqua@d6ee1aecf03b23f09756d6a49e435455"
+        },
+        {
+          "spaceId": "3b23a49e1aecf06d6555d6e4354f097e", 
+          "index": "terra@3b23a49e1aecf06d6555d6e4354f097e"
+        }
       ],
       "isLast": false,
       "nextPageToken": "UkdseU1qWTBNak16TXpNNU5qUXpNak0yTXpZMk1UWTFOalEyTXpZMU5qSTJOalky"
@@ -44,7 +50,14 @@ post:
             type: array
             description: The list of Ids of spaces advertised in marketplace.
             items:
-              type: string
+              type: object
+              properties:
+                spaceId:
+                  type: string
+                  description: Unique Id of the space.
+                index:
+                  type: string
+                  description: Determines the starting point for listing.
           isLast:
             type: boolean
             description: Flag indicating whether the last batch of spaces in marketplace was listed.
@@ -117,7 +130,7 @@ post:
         index:
           type: string
           description: >
-            Determines the starting point for listing - it will be started from given file name (inclusively).
+            Determines the starting point for listing - it will be started from given space (inclusively).
             Cannot be provided alongside the `token` parameter.
         offset:
           type: integer

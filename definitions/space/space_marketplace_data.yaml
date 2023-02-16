@@ -4,6 +4,11 @@ properties:
   name:
     type: string
     description: The name of the space.
+  index:
+    type: string
+    description: >
+      Determines the starting point for listing - it will be started from 
+      given space (inclusively).
   description:
     $ref: '#/definitions/SpaceDescription'
   organizationName:
@@ -22,6 +27,7 @@ properties:
     $ref: '#/definitions/Timestamp'
 required:
   - name
+  - index
   - description
   - organizationName
   - tags
@@ -30,6 +36,7 @@ required:
   - creationTime
 example:
   name: Meteo dataset
+  index: Meteo dataset@2c0160248ba9a66f45da751ca459535a
   description: This dataset contains meteorological data for major Polish cities in years 2012-2014.
   organizationName: "ACK Cyfronet AGH"
   tags:

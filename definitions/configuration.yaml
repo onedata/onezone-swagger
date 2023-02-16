@@ -37,10 +37,18 @@ properties:
           description: Determines whether given IdP can be used in the offline
             access flow, i.e. Onezone can acquire access tokens in the IdP without
             the user being logged in.
-
+  availableSpaceTags:
+    type: object
+    description: asd
+    additionalProperties:
+      type: array
+      items:
+        type: string
+        description: Short keywords or phrases that helps to understand the purpose of a space.
 required:
   - name
   - version
   - build
   - subdomainDelegationSupported
   - compatibleOneproviderVersions
+  - availableSpaceTags

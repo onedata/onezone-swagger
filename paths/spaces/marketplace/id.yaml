@@ -28,6 +28,7 @@ get:
 
     {
       "name": "Meteo dataset",
+      "index": "Meteo dataset@2c0160248ba9a66f45da751ca459535a",
       "description": "This dataset contains meteorological data for major Polish cities in years 2012-2014.",
       "organizationName": "ACK Cyfronet AGH",
       "tags": ["archival", "big-data", "open-data", "environment"],

@@ -1,50 +1,7 @@
 type: array
-description: A list of short keywords or phrases that helps to understand the purpose of a space.
+description: >
+  A list of short keywords or phrases that helps to understand the purpose of a space.
+  To see available space tags [consult Zone configuration](#operation/get_configuration)  
 items:
   type: string
-  enum:
-    - agriculture
-    - archival
-    - big-data
-    - copyrighted
-    - culture
-    - demo
-    - dynamic
-    - economy
-    - education
-    - energy
-    - environment
-    - experiment
-    - EU-funded
-    - finance
-    - fisheries
-    - food
-    - forestry
-    - government
-    - health
-    - images
-    - incomplete
-    - international-issues
-    - justice
-    - legal-system
-    - multidimensional-data
-    - open-data
-    - open-science
-    - population
-    - preliminary
-    - public-safety
-    - public-sector
-    - raw-data
-    - regions-and-cities
-    - science
-    - simulation
-    - society
-    - spatial-data
-    - sport
-    - static
-    - technology
-    - text-data
-    - transport
-    - training-set
-    - videos
 example: [images, open-data, sport, training-set]
