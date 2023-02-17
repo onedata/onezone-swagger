@@ -1,5 +1,3 @@
-# fixme should index be included in the API? if so, we need to return indices
-
 post:
   operationId: list_marketplace
   tags:
@@ -19,7 +17,7 @@ post:
     ```bash
     curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
     -X POST -d '{ "limit" : 2 }' \
-    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace
+    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/list
 
     {
       "spaces": [
@@ -57,7 +55,9 @@ post:
                   description: Unique Id of the space.
                 index:
                   type: string
-                  description: Determines the starting point for listing.
+                  description: >
+                    Indicates the position of this space in the marketplace list
+                    (can be used to specify a custom listing starting point).
           isLast:
             type: boolean
             description: Flag indicating whether the last batch of spaces in marketplace was listed.
@@ -111,7 +111,7 @@ post:
           description: >
             A list of tags to be used as listing filter. The resulting list will contain
             only the spaces that have at least one of the specified tags.
-          # fixme add reference to zone configuration for available tags
+            Available space tags can be retrieved from the [configuration endpoint](#operation/get_configuration).
         limit:
           type: integer
           description: >

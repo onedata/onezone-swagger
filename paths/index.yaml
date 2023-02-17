@@ -443,8 +443,8 @@
   $ref: ./spaces/privileges.yaml
 
 
-/spaces/marketplace:
-  $ref: ./spaces/marketplace.yaml
+/spaces/marketplace/list:
+  $ref: ./spaces/marketplace/list.yaml
 
 
 /spaces/marketplace/{id}:
