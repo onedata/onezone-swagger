@@ -39,7 +39,7 @@ required:
   - totalSupportSize
   - creationTime
 example:
-  spaceId: 2c0160248ba9a66f45da751ca459535a  # fixme add in oz-worker
+  spaceId: 2c0160248ba9a66f45da751ca459535a
   name: Meteo dataset
   index: Meteo dataset@2c0160248ba9a66f45da751ca459535a
   description: This dataset contains meteorological data for major Polish cities in years 2012-2014.
