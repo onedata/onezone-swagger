@@ -89,6 +89,12 @@ SpaceMarketplaceContactEmail:
 SpaceMarketplaceData:
   $ref: ./space/space_marketplace_data.yaml
 
+SpaceMembershipRequest:
+  $ref: ./space/space_membership_request.yaml
+
+SpaceMembershipRequests:
+  $ref: ./space/space_membership_requests.yaml
+
 SpaceStats:
   $ref: ./space/space_stats.yaml
 
