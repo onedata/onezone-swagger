@@ -1,7 +1,7 @@
 post:
   operationId: resolve_space_membership_request
   tags:
-    - User
+    - Space
   x-onedata-gri:
     type: od_space
     id: ?BINDING(id)
@@ -80,4 +80,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli resolveSpaceMembershipRequest requestId==97216a666edd09945880a0785ad66a7b grant==true"
+    source: "onezone-rest-cli resolveSpaceMembershipRequest id=$SPACE_ID requestId==97216a666edd09945880a0785ad66a7b grant==true"

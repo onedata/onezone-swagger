@@ -95,6 +95,9 @@ SpaceMembershipRequest:
 SpaceMembershipRequests:
   $ref: ./space/space_membership_requests.yaml
 
+SpaceMembershipRequesterInfo:
+  $ref: ./space/space_membership_requester_info.yaml
+
 SpaceStats:
   $ref: ./space/space_stats.yaml
 

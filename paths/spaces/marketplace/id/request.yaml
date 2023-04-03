@@ -1,7 +1,7 @@
 post:
   operationId: request_space_membership
   tags:
-    - User
+    - Space
   x-onedata-gri:
     type: od_space
     id: ?BINDING(id)
@@ -74,4 +74,4 @@ post:
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli requestSpaceMembership contactEmail==user@contact.mail"
+    source: "onezone-rest-cli requestSpaceMembership id=$SPACE_ID contactEmail==user@contact.mail"
