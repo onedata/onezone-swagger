@@ -119,6 +119,10 @@
   $ref: ./user/spaces/sid/alias.yaml
 
 
+/user/space_membership_requests:
+  $ref: ./user/space_membership_requests.yaml
+
+
 /user/effective_spaces:
   $ref: ./user/effective_spaces.yaml
 
@@ -449,6 +453,10 @@
 
 /spaces/marketplace/{id}:
   $ref: ./spaces/marketplace/id.yaml
+
+
+/spaces/marketplace/{id}/request:
+  $ref: ./spaces/marketplace/id/request.yaml
 
 
 /spaces/{id}:
