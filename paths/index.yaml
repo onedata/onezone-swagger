@@ -459,6 +459,10 @@
   $ref: ./spaces/marketplace/id/request.yaml
 
 
+/spaces/marketplace/{id}/request/resolve:
+  $ref: ./spaces/marketplace/id/request/resolve.yaml
+
+
 /spaces/{id}:
   $ref: ./spaces/id.yaml
 

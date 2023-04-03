@@ -1,0 +1,83 @@
+post:
+  operationId: resolve_space_membership_request
+  tags:
+    - User
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: resolve_membership_request
+  summary: Resolve space membership request
+  x-bash-codegen-description: |
+    Resolve space membership request. 
+
+    This operation requires privilege `space_manage_marketplace` and, 
+    in case of positive resolution, `space_add_user` in space for which 
+    the request was made.
+  description: |
+    Resolve space membership request. 
+
+    This operation requires privilege `space_manage_marketplace` and, 
+    in case of positive resolution, `space_add_user` in space for which 
+    the request was made.
+
+    ***Example cURL requests***
+
+    **Resolve space membership request**
+    ```bash
+    curl -u admin:password -H "Content-type: application/json" -X POST \
+    -d '{ "requestId": "97216a666edd09945880a0785ad66a7b", "grant": true}' \
+    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/$SPACE_ID/request/resolve
+    ```
+  consumes:
+    - application/json
+  responses:
+    '204':
+      description: Request has been resolved.
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: request
+    in: body
+    description: Space membership request resolution conclusion.
+    schema:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: Space membership request Id.
+        grant:
+          type: boolean
+          description: Decision whether to grant (`true`) or reject (`false`) request.
+      required:
+        - requestId
+        - grant
+      example:
+        requestId: 97216a666edd09945880a0785ad66a7b
+        grant: true
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli resolveSpaceMembershipRequest requestId==97216a666edd09945880a0785ad66a7b grant==true"
