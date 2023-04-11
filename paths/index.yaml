@@ -459,12 +459,12 @@
   $ref: ./spaces/marketplace/id/request.yaml
 
 
-/spaces/marketplace/{id}/request/resolve:
-  $ref: ./spaces/marketplace/id/request/resolve.yaml
-
-
 /spaces/marketplace/{id}/request/{rid}/requester_info:
   $ref: ./spaces/marketplace/id/request/rid/requester_info.yaml
+
+
+/spaces/marketplace/{id}/request/{rid}/resolve:
+  $ref: ./spaces/marketplace/id/request/rid/resolve.yaml
 
 
 /spaces/{id}:

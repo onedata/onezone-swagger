@@ -5,7 +5,7 @@ post:
   x-onedata-gri:
     type: od_space
     id: ?BINDING(id)
-    aspect: resolve_membership_request
+    aspect: {resolve_membership_request, ?BINDING(rid)}
   summary: Resolve space membership request
   x-bash-codegen-description: |
     Resolve space membership request. 
@@ -26,7 +26,7 @@ post:
     ```bash
     curl -u admin:password -H "Content-type: application/json" -X POST \
     -d '{ "requestId": "97216a666edd09945880a0785ad66a7b", "grant": true}' \
-    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/$SPACE_ID/request/resolve
+    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/$SPACE_ID/request/$REQUEST_ID/resolve
     ```
   consumes:
     - application/json
@@ -59,25 +59,28 @@ post:
     description: Space Id.
     type: string
     required: true
+  - name: rid
+    in: path
+    description: Space membership request Id.
+    type: string
+    required: true
   - name: request
     in: body
     description: Space membership request resolution conclusion.
     schema:
       type: object
       properties:
-        requestId:
+        decision:
           type: string
-          description: Space membership request Id.
-        grant:
-          type: boolean
-          description: Decision whether to grant (`true`) or reject (`false`) request.
+          description: Decision whether to grant or reject request.
+          enum:
+            - grant
+            - reject
       required:
-        - requestId
-        - grant
+        - decision
       example:
-        requestId: 97216a666edd09945880a0785ad66a7b
-        grant: true
+        decision: grant
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli resolveSpaceMembershipRequest id=$SPACE_ID requestId==97216a666edd09945880a0785ad66a7b grant==true"
+    source: "onezone-rest-cli resolveSpaceMembershipRequest id=$SPACE_ID rid=$REQUEST_ID decision==grant"
