@@ -7,21 +7,21 @@ get:
     id: ?BINDING(id)
     aspect: marketplace_data
     scope: protected
-  summary: Get space details in marketplace
+  summary: Get space details in the Marketplace
   x-bash-codegen-description: |
-    Returns the marketplace related details about a specific space.
+    Returns the Marketplace related details about a specific space.
 
     This operation can be performed by any user, but only for spaces
-    advertised in marketplace.
+    advertised in the Marketplace.
   description: |
-    Returns the marketplace related details about a specific space.
+    Returns the Marketplace related details about a specific space.
 
     This operation can be performed by any user, but only for spaces
-    advertised in marketplace.
+    advertised in the Marketplace.
 
     ***Example cURL requests***
 
-    **Get space details in marketplace**
+    **Get space details in the Marketplace**
     ```bash
     curl -H "x-auth-token: $TOKEN" -H \
     https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/$SPACE_ID

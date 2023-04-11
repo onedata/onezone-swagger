@@ -10,13 +10,13 @@ properties:
   lastActivity:
     type: integer
     description: >
-      The time of request submission (or last reminder) in case of pending request
-      or the time of rejection in case of rejected request.
+      Timestamp in seconds (UNIX epoch) - the time of request submission (or last reminder)
+      in case of pending request or the time of rejection in case of rejected request.
 required:
   - requestId
   - contactEmail
   - lastActivity
 example:
   requestId: 505d9bb03bd5e0e54b3e9685b08c168c
-  contactEmail: user@contact.mail
+  contactEmail: user@example.com
   lastActivity: 1563819329

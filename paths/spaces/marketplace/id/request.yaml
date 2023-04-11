@@ -6,29 +6,39 @@ post:
     type: od_space
     id: ?BINDING(id)
     aspect: membership_request
-  summary: Request space membership
+  summary: Request space membership via Marketplace
   x-bash-codegen-description: |
-    Request space membership as current user. 
+    Request space membership for a space advertised in the Marketplace
+    as currently authenticated user.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Request space membership as current user. 
+    Request space membership for a space advertised in the Marketplace
+    as currently authenticated user.
 
     This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Request space membership**
+    **Request space membership via Marketplace**
     ```bash
     curl -u admin:password -H "Content-type: application/json" -X POST \
-    -d '{ "contactEmail" : "user@contact.mail"}' \
+    -d '{ "contactEmail" : "user@example.com"}' \
     https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/$SPACE_ID/request
     ```
   consumes:
     - application/json
   responses:
-    '204':
-      description: Request has been delivered and awaits resolution.
+    '200':
+      description: The request has been delivered and awaits resolution.
+      schema:
+        type: object
+        properties:
+          requestId:
+            description: Unique Id of the request.
+            type: string
+        example:
+          requestId: 97216a666edd09945880a0785ad66a7b
     '400':
       description: Invalid request.
       schema:
@@ -57,21 +67,26 @@ post:
     required: true
   - name: request
     in: body
-    description: Space membership request details.
+    description: Space membership request body.
     schema:
       type: object
       properties:
         contactEmail:
           type: string
-          description: Requester email address.
+          description: |
+            Requester email address, which will be passed to the space maintainer for
+            the purpose of processing the request and used for notifying about their decision.
+            By providing the address, the user agrees to the above.
         message:
           type: string
-          description: A message describing the purpose of joining the space.
+          description: |
+            A message to the maintainer stating user's motivation to join the space and/or
+            any information that may help in making the decision.
       required:
         - contactEmail
       example:
-        contactEmail: user@contact.mail
+        contactEmail: user@example.com
     required: true
   x-code-samples:
   - lang: Shell
-    source: "onezone-rest-cli requestSpaceMembership id=$SPACE_ID contactEmail==user@contact.mail"
+    source: "onezone-rest-cli requestSpaceMembership id=$SPACE_ID contactEmail==user@example.com"

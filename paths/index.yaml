@@ -447,6 +447,10 @@
   $ref: ./spaces/privileges.yaml
 
 
+/spaces/{id}:
+  $ref: ./spaces/id.yaml
+
+
 /spaces/marketplace/list:
   $ref: ./spaces/marketplace/list.yaml
 
@@ -465,10 +469,6 @@
 
 /spaces/marketplace/{id}/request/{rid}/resolve:
   $ref: ./spaces/marketplace/id/request/rid/resolve.yaml
-
-
-/spaces/{id}:
-  $ref: ./spaces/id.yaml
 
 
 /spaces/{id}/users:
