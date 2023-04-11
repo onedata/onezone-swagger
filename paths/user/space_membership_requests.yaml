@@ -6,19 +6,19 @@ get:
     type: od_user
     id: ?CLIENT_ID
     aspect: space_membership_requests
-  summary: Get user space membership requests summary
+  summary: Get summary of space membership requests
   x-bash-codegen-description: |
-    Returns the summary of user space membership requests.
+    Returns the summary of user's space membership requests.
 
     This operation can be invoked on behalf of the current user only.
   description: |
-    Returns the summary of user space membership requests.
+    Returns the summary of user's space membership requests.
 
     This operation can be invoked on behalf of the current user only.
 
     ***Example cURL requests***
 
-    **Get user space membership requests summary**
+    **Get summary of space membership requests**
     ```bash
     curl -u admin:password -X GET \
     https://$ZONE_HOST/api/v3/onezone/user/space_membership_requests
@@ -27,19 +27,19 @@ get:
       "pending": {
         "715f5cf924cf8f69899a4ee8bbce8120": {
           "requestId": "585110fde9d1a52c93f8eb22c0614e47",
-          "contactEmail": "user@contact.mail",
+          "contactEmail": "user@example.com",
           "lastActivity": 1563819329
         },
         "6db7e3095d8aedf5c145ef576339b10d": {
           "requestId": "97216a666edd09945880a0785ad66a7b",
-          "contactEmail": "user@contact.mail",
+          "contactEmail": "user@example.com",
           "lastActivity": 1563819923
         }
       },
       "rejected": { 
         "ee7aa1c60642646b9a5d1962dcd02b89": {
           "requestId": "8467b1458989b8454a2faa8b5a45df7b",
-          "contactEmail": "user@contact.mail",
+          "contactEmail": "user@example.com",
           "lastActivity": 1563823164
         }
       }
@@ -49,7 +49,7 @@ get:
     - application/json
   responses:
     '200':
-      description: User space membership requests summary.
+      description: Summary of user's space membership requests.
       schema:
         $ref: '#/definitions/SpaceMembershipRequests'
     '400':

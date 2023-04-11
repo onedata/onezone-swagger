@@ -6,15 +6,15 @@ post:
     type: od_space
     aspect: list_marketplace
     scope: protected
-  summary: List space marketplace
+  summary: List the Space Marketplace
   x-bash-codegen-description: |
-    List spaces advertised in marketplace.
+    List spaces advertised in the Marketplace.
   description: |
-    List spaces advertised in marketplace.
+    List spaces advertised in the Marketplace.
     
     ***Example cURL requests***
 
-    **List spaces advertised in marketplace**
+    **List spaces advertised in the Marketplace**
     ```bash
     curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
     -X POST -d '{ "limit" : 2 }' \
@@ -40,14 +40,14 @@ post:
   responses:
     '200':
       description: >
-        List of spaces advertised in marketplace.
+        List of spaces advertised in the Marketplace.
       schema:
         type: object
-        description: List of spaces advertised in marketplace.
+        description: List of spaces advertised in the Marketplace.
         properties:
           spaces:
             type: array
-            description: The list of Ids of spaces advertised in marketplace.
+            description: The list of Ids of spaces advertised in the Marketplace.
             items:
               type: object
               properties:
@@ -57,11 +57,11 @@ post:
                 index:
                   type: string
                   description: >
-                    Indicates the position of this space in the marketplace list
+                    Indicates the position of this space in the Marketplace list
                     (can be used to specify a custom listing starting point).
           isLast:
             type: boolean
-            description: Flag indicating whether the last batch of spaces in marketplace was listed.
+            description: Flag indicating whether the last batch of spaces in the Marketplace was listed.
           nextPageToken:
             type: string
             description: >
@@ -101,7 +101,7 @@ post:
   parameters:
   - name: listing options
     in: body
-    description: Space marketplace listing options.
+    description: Space Marketplace listing options.
     schema:
       type: object
       properties:

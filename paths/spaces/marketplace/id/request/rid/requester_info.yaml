@@ -7,18 +7,20 @@ get:
     id: ?BINDING(id)
     aspect: {membership_requester_info, ?BINDING(rid)}
   x-onedata-permissions:
-    - space_manage_marketplace
+    - space_manage_in_marketplace
     - oz_spaces_view
   summary: Get membership requester info
   x-bash-codegen-description: |
-    Get space membership requester info. 
+    Get requester info for a specific space membership request made
+    via the Marketplace.
 
-    This operation requires privilege `space_manage_marketplace` 
+    This operation requires privilege `space_manage_in_marketplace`
     or `oz_spaces_view` admin privilege.
   description: |
-    Get space membership requester info. 
+    Get requester info for a specific space membership request made
+    via the Marketplace.
 
-    This operation requires privilege `space_manage_marketplace` 
+    This operation requires privilege `space_manage_in_marketplace`
     or `oz_spaces_view` admin privilege.
 
     ***Example cURL requests***
@@ -32,7 +34,7 @@ get:
       "userId": "585110fde9d1a52c93f8eb22c0614e47",
       "fullName": "Joe Joester",
       "username": "JoJo",
-      "contactEmail": user@contact.mail
+      "contactEmail": user@example.com
     }
     ```
   responses:
