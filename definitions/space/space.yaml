@@ -7,6 +7,16 @@ properties:
   name:
     type: string
     description: The name of the space.
+  description:
+    $ref: '#/definitions/SpaceDescription'
+  organizationName:
+    $ref: '#/definitions/SpaceOrganizationName'
+  tags:
+    $ref: '#/definitions/SpaceTags'
+  advertisedInMarketplace:
+    $ref: '#/definitions/SpaceAdvertisedInMarketplace'
+  marketplaceContactEmail:
+    $ref: '#/definitions/SpaceMarketplaceContactEmail'
   providers:
     type: object
     description: >
@@ -31,6 +41,11 @@ properties:
 required:
   - spaceId
   - name
+  - description
+  - organizationName
+  - tags
+  - advertisedInMarketplace
+  - marketplaceContactEmail
   - providers
   - supportParametersRegistry
   - creator
@@ -39,6 +54,13 @@ required:
 example:
   spaceId: 2c0160248ba9a66f45da751ca459535a
   name: My Private space
+  description: My Private data
+  organizationName: ""
+  tags:
+    - images
+    - sport
+  advertisedInMarketplace: false
+  marketplaceContactEmail: ""
   providers:
     296ebe3c20e9666dc489b647f8647f12: 5368709120
     dcf12429647c204896eebe3b6f686967: 14400000

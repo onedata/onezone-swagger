@@ -1,5 +1,5 @@
 get:
-  operationId: oz_spaces_list
+  operationId: list_spaces
   tags:
     - Space
   x-onedata-gri:
@@ -26,8 +26,8 @@ get:
 
     {
       "spaces": [
-        "S0Y9FSe9TFJFFzzLtBEs8",
-        "IkHBv8CoAFmbFU4fj26"
+        "d6ee1aecf03b23f09756d6a49e435455",
+        "3b23a49e1aecf06d6555d6e4354f097e"
       ]
     }
     ```
@@ -128,13 +128,25 @@ post:
   parameters:
   - name: name
     in: body
-    description: Space name.
+    description: Space creation data.
     schema:
       type: object
       properties:
         name:
           type: string
           description: The name of the new space.
+        description:
+          $ref: '#/definitions/SpaceDescription'
+        organizationName:
+          $ref: '#/definitions/SpaceOrganizationName'
+        tags:
+          $ref: '#/definitions/SpaceTags'
+        advertisedInMarketplace:
+          $ref: '#/definitions/SpaceAdvertisedInMarketplace'
+        marketplaceContactEmail:
+          $ref: '#/definitions/SpaceMarketplaceContactEmail'
+      required:
+        - name
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli createSpace name==\"Space 1\""

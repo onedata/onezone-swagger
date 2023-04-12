@@ -1,0 +1,56 @@
+type: object
+description: Space details in the Marketplace.
+properties:
+  spaceId:
+    type: string
+    description: Unique Id of the space.
+  name:
+    type: string
+    description: The name of the space.
+  index:
+    type: string
+    description: >
+      Indicates the position of this space in the Marketplace list
+      (can be used to specify a custom listing starting point).
+  description:
+    $ref: '#/definitions/SpaceDescription'
+  organizationName:
+    $ref: '#/definitions/SpaceOrganizationName'
+  tags:
+    $ref: '#/definitions/SpaceTags'
+  providerNames:
+    type: array
+    items:
+      type: string
+    description: Names of providers supporting this space.
+  totalSupportSize:
+    type: integer
+    description: Sum of granted support sizes.
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+required:
+  - spaceId
+  - name
+  - index
+  - description
+  - organizationName
+  - tags
+  - providerNames
+  - totalSupportSize
+  - creationTime
+example:
+  spaceId: 2c0160248ba9a66f45da751ca459535a
+  name: Meteo dataset
+  index: Meteo dataset@2c0160248ba9a66f45da751ca459535a
+  description: This dataset contains meteorological data for major Polish cities in years 2012-2014.
+  organizationName: "ACK Cyfronet AGH"
+  tags:
+    - archival
+    - big-data
+    - open-data
+    - environment
+  providerNames:
+    - krakow
+    - paris
+  totalSupportSize: 30500000000
+  creationTime: 1576152793

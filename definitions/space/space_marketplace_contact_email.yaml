@@ -1,0 +1,5 @@
+type: string
+description: >
+  Email address that will be used for notifying the person responsible for 
+  space management in the Marketplace about new membership requests.
+example: "support@onedata.org"

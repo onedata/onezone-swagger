@@ -1,0 +1,33 @@
+type: object
+description: Summary of space membership requests of a user.
+properties:
+  pending:
+    type: object
+    description: |
+      A map of space Ids and corresponding pending (not resolved) membership requests.
+    additionalProperties:
+      $ref: '#/definitions/SpaceMembershipRequest'
+  rejected:
+    type: object
+    description: |
+      A map of space Ids and corresponding rejected membership requests.
+    additionalProperties:
+      $ref: '#/definitions/SpaceMembershipRequest'
+required:
+  - pending
+  - rejected
+example:
+  pending: 
+    715f5cf924cf8f69899a4ee8bbce8120:
+      requestId: 585110fde9d1a52c93f8eb22c0614e47
+      contactEmail: user@example.com
+      lastActivity: 1563819329
+    6db7e3095d8aedf5c145ef576339b10d:
+      requestId: 97216a666edd09945880a0785ad66a7b
+      contactEmail: user@example.com
+      lastActivity: 1563819923
+  rejected: 
+    ee7aa1c60642646b9a5d1962dcd02b89:
+      requestId: 8467b1458989b8454a2faa8b5a45df7b
+      contactEmail: user@example.com
+      lastActivity: 1563823164
