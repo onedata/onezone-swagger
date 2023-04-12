@@ -1,5 +1,5 @@
 type: object
-description: Space details in marketplace.
+description: Space details in the Marketplace.
 properties:
   spaceId:
     type: string
@@ -10,7 +10,7 @@ properties:
   index:
     type: string
     description: >
-      Indicates the position of this space in the marketplace list
+      Indicates the position of this space in the Marketplace list
       (can be used to specify a custom listing starting point).
   description:
     $ref: '#/definitions/SpaceDescription'

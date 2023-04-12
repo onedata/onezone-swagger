@@ -119,6 +119,10 @@
   $ref: ./user/spaces/sid/alias.yaml
 
 
+/user/space_membership_requests:
+  $ref: ./user/space_membership_requests.yaml
+
+
 /user/effective_spaces:
   $ref: ./user/effective_spaces.yaml
 
@@ -443,6 +447,10 @@
   $ref: ./spaces/privileges.yaml
 
 
+/spaces/{id}:
+  $ref: ./spaces/id.yaml
+
+
 /spaces/marketplace/list:
   $ref: ./spaces/marketplace/list.yaml
 
@@ -451,8 +459,16 @@
   $ref: ./spaces/marketplace/id.yaml
 
 
-/spaces/{id}:
-  $ref: ./spaces/id.yaml
+/spaces/marketplace/{id}/request:
+  $ref: ./spaces/marketplace/id/request.yaml
+
+
+/spaces/marketplace/{id}/request/{rid}/requester_info:
+  $ref: ./spaces/marketplace/id/request/rid/requester_info.yaml
+
+
+/spaces/marketplace/{id}/request/{rid}/resolve:
+  $ref: ./spaces/marketplace/id/request/rid/resolve.yaml
 
 
 /spaces/{id}/users:

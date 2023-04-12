@@ -1,0 +1,78 @@
+get:
+  operationId: get_membership_requester_info
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: {membership_requester_info, ?BINDING(rid)}
+  x-onedata-permissions:
+    - space_manage_in_marketplace
+    - oz_spaces_view
+  summary: Get membership requester info
+  x-bash-codegen-description: |
+    Get requester info for a specific space membership request made
+    via the Marketplace.
+
+    This operation requires privilege `space_manage_in_marketplace`
+    or `oz_spaces_view` admin privilege.
+  description: |
+    Get requester info for a specific space membership request made
+    via the Marketplace.
+
+    This operation requires privilege `space_manage_in_marketplace`
+    or `oz_spaces_view` admin privilege.
+
+    ***Example cURL requests***
+
+    **Get space membership requester info**
+    ```bash
+    curl -u admin:password -H "Content-type: application/json" -X GET \
+    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/$SPACE_ID/request/$REQUEST_ID/requester_info
+
+    {
+      "userId": "585110fde9d1a52c93f8eb22c0614e47",
+      "fullName": "Joe Joester",
+      "username": "JoJo",
+      "contactEmail": user@example.com
+    }
+    ```
+  responses:
+    '200':
+      description: Space membership requester info.
+      schema:
+        $ref: '#/definitions/SpaceMembershipRequesterInfo'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  - name: rid
+    in: path
+    description: Space membership request Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getMembershipRequesterInfo id=$SPACE_ID rid=$REQUEST_ID"
