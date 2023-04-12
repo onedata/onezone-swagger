@@ -1,0 +1,27 @@
+type: object
+description: Space membership requester info.
+properties:
+  userId:
+    type: string
+    description: Unique user Id.
+  fullName:
+    type: string
+    description: User's full name (given names + surname).
+  username:
+    type: string
+    description: >
+      User's human-readable identifier, unique across the system. Makes it
+      easier to identify the user and can be used for signing in with password.
+  contactEmail:
+    type: string
+    description: User contact email address.
+required:
+  - userId
+  - fullName
+  - username
+  - contactEmail
+example:
+  userId: 585110fde9d1a52c93f8eb22c0614e47
+  fullName: Joe Joester
+  username: JoJo 
+  contactEmail: user@example.com

@@ -1,0 +1,7 @@
+type: array
+description: >
+  A list of short keywords or phrases that helps to understand the purpose of a space.
+  Available space tags can be retrieved from the [configuration endpoint](#operation/get_configuration).
+items:
+  type: string
+example: [images, open-data, sport, training-set]
