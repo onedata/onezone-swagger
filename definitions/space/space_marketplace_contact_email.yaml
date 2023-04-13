@@ -1,5 +1,8 @@
 type: string
 description: >
   Email address that will be used for notifying the person responsible for 
-  space management in the Marketplace about new membership requests.
+  space management in the Marketplace about new membership requests. This field
+  is visible only to space members with both `space_view` and `space_manage_in_marketplace`
+  privileges, otherwise an empty string is returned. Similarly, it can be modified only
+  by users with the `space_manage_in_marketplace` privilege.
 example: "support@onedata.org"
