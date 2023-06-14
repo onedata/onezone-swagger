@@ -27,7 +27,7 @@ get:
 
     **Get group handle services**
     ```bash
-    curl -u username:password -X GET https://$ZONE_HOST/api/v3/groups/$GROUP_ID/handle_services
+    curl -u username:password -X GET https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/handle_services
 
     {
       "handle_services": [
@@ -107,7 +107,7 @@ post:
     **Add group handle services**
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
-    -d '{ ... }' https://$ZONE_HOST/api/v3/groups/4ebd9efd1e67f6c18695db1d762a914a/handle_services
+    -d '{ ... }' https://$ZONE_HOST/api/v3/onezone/groups/4ebd9efd1e67f6c18695db1d762a914a/handle_services
     ```
   consumes:
     - application/json
