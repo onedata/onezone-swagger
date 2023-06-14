@@ -27,7 +27,7 @@ get:
     **Get handle**
     ```bash
     curl -u username:password -X GET \
-    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID
 
     {
       "publicHandle": "10.5072/w95Zlng",
@@ -123,7 +123,7 @@ patch:
     ```bash
     curl -u username:password -X PATCH -H "Content-type: application/json" \
     -d '{"metadata": "<?xml..."}' \
-    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID
     ```
   consumes:
     - application/json
@@ -197,7 +197,7 @@ delete:
     **Unregister handle**
     ```bash
     curl -u username:password -X DELETE \
-    https://$ZONE_HOST/api/v3/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID
     ```
   responses:
     '204':

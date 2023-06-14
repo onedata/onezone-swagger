@@ -28,7 +28,7 @@ get:
     **Get handle services handle**
     ```bash
     curl -u username:password -X GET \
-    https://$ZONE_HOST/api/v3/handle_services/13c6bf68ed88dd01f396571f976b148d/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/handle_services/13c6bf68ed88dd01f396571f976b148d/handles/$HANDLE_ID
 
     {
       "handleId": "95b663a6467c72ab1256865efef9e387",
