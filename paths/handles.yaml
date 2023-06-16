@@ -21,7 +21,7 @@ get:
 
     **Get handles**
     ```bash
-    curl -u username:password -X GET https://$ZONE_HOST/api/v3/handles
+    curl -u username:password -X GET https://$ZONE_HOST/api/v3/onezone/handles
 
     {
       "handles": [
@@ -100,7 +100,7 @@ post:
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
     -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }' \
-    https://$ZONE_HOST/api/v3/handles
+    https://$ZONE_HOST/api/v3/onezone/handles
     ```
   consumes:
     - application/json
