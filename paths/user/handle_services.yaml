@@ -16,7 +16,7 @@ get:
 
     **Get user handle services**
     ```bash
-    curl -u username:password -X GET https://$ZONE_HOST/api/v3/user/handle_services
+    curl -u username:password -X GET https://$ZONE_HOST/api/v3/onezone/user/handle_services
 
     {
       "handle_services": [
@@ -84,7 +84,7 @@ post:
     **Add user handle services**
     ```bash
     curl -u username:password -X POST -H "Content-type: application/json" \
-    -d '{ ... }' https://$ZONE_HOST/api/v3/user/handle_services
+    -d '{ ... }' https://$ZONE_HOST/api/v3/onezone/user/handle_services
     ```
   consumes:
     - application/json
