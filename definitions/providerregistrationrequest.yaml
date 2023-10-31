@@ -17,7 +17,7 @@ properties:
     type: boolean
     description: >
       If enabled, the Oneprovider will be assigned a subdomain in Onezone's domain
-      and 'subdomain', 'ipList' properties must be provided. If disabled, 'domain'
+      and 'subdomain', 'ipList'/'ips' properties must be provided. If disabled, 'domain'
       property must be provided.
   subdomain:
     type: string
@@ -33,6 +33,16 @@ properties:
       type: string
       description: >
         IPv4 address in textual representation, for example `"123.45.6.78"`.
+  ips:
+    type: object
+    description: A map of Oneprovider services and their corresponding IP addresses.
+    additionalProperties:
+      type: array
+      items:
+        type: string
+        description: >
+          The list of service IP addresses advertised by Onezone on behalf of the Oneprovider.
+          Applicable if subdomain delegation is enabled.
   domain:
     type: string
     description: >
