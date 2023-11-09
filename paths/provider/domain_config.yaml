@@ -32,10 +32,10 @@ get:
       "domain": "provider1.onezone.example.com",
       "subdomain": "provider1",
       "ipList": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
-      "ips": {
-        "": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
-        "s3": ["172.17.0.3", "172.17.0.4"]
-      }
+      "opWorkerIpAddresses": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
+      "opWorkerPort": 443,
+      "oneS3IpAddresses": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
+      "oneS3Port": 9999
     }
     ```
   produces:

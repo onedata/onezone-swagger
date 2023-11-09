@@ -22,21 +22,38 @@ properties:
     type: array
     items:
       type: string
-  ips:
-    type: object
-    description: A map of Oneprovider services and their corresponding IP addresses.
-    additionalProperties:
-      type: array
-      items:
-        type: string
-        description: >
-          The list of service IP addresses advertised by Onezone on behalf of the Oneprovider.
-          Applicable if subdomain delegation is enabled.
+  opWorkerIpAddresses:
+    description: >
+      The list of Oneprovider Worker IP addresses advertised by Onezone on behalf of the Oneprovider.
+      Applicable if subdomain delegation is enabled, empty list otherwise.
+    type: array
+    items:
+      type: string
+  opWorkerPort:
+    description: >
+      The port number of Oneprovider Worker advertised by Onezone on behalf of the Oneprovider.
+    type: integer
+    minimum: 0
+    maximum: 65535
+  oneS3IpAddresses:
+    description: >
+      The list of Oneprovider OneS3 IP addresses advertised by Onezone on behalf of the Oneprovider.
+      Applicable if subdomain delegation is enabled, empty list otherwise.
+    type: array
+    items:
+      type: string
+  oneS3Port:
+    description: >
+      The port number of Oneprovider OneS3 advertised by Onezone on behalf of the Oneprovider.
+    type: integer
+    minimum: 0
+    maximum: 65535
 example:
   subdomainDelegation: true
   domain: provider1.onezone.example.com
   subdomain: provider1
   ipList: ["172.17.0.1", "172.17.0.2", "172.17.0.3"]
-  ips:
-    "": ["172.17.0.1", "172.17.0.2", "172.17.0.3"]
-    "s3": ["172.17.0.3", "172.17.0.4"]
+  opWorkerIpAddresses: ["172.17.0.1", "172.17.0.2", "172.17.0.3"]
+  opWorkerPort: 443
+  oneS3IpAddresses: ["172.17.0.1", "172.17.0.2", "172.17.0.3"]
+  oneS3Port: 9999
