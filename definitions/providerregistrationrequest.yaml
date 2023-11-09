@@ -27,22 +27,39 @@ properties:
   ipList:
     type: array
     description: >
-      List of Oneprovider's IPv4 addresses to be advertised by Onezone's DNS.
-      Required if subdomain delegation is enabled.
+      The list of Oneprovider Worker IP addresses advertised by Onezone on behalf of the Oneprovider.
+      Either this or `opWorkerIpAddresses` is required if subdomain delegation is enabled.
     items:
       type: string
       description: >
         IPv4 address in textual representation, for example `"123.45.6.78"`.
-  ips:
-    type: object
-    description: A map of Oneprovider services and their corresponding IP addresses.
-    additionalProperties:
-      type: array
-      items:
-        type: string
-        description: >
-          The list of service IP addresses advertised by Onezone on behalf of the Oneprovider.
-          Applicable if subdomain delegation is enabled.
+  opWorkerIpAddresses:
+    description: >
+      The list of Oneprovider Worker IP addresses advertised by Onezone on behalf of the Oneprovider.
+      Either this or `ipList` is required if subdomain delegation is enabled.
+    type: array
+    items:
+      type: string
+  opWorkerPort:
+    description: >
+      The port number of Oneprovider Worker advertised by Onezone on behalf of the Oneprovider.
+    type: integer
+    minimum: 0
+    maximum: 65535
+    default: 443
+  oneS3IpAddresses:
+    description: >
+      The list of Oneprovider OneS3 IP addresses advertised by Onezone on behalf of the Oneprovider.
+      Must be provided alongside `oneS3Port` if subdomain delegation is enabled and OneS3 deployed.
+    type: array
+    items:
+      type: string
+  oneS3Port:
+    description: >
+      The port number of Oneprovider OneS3 advertised by Onezone on behalf of the Oneprovider.
+    type: integer
+    minimum: 0
+    maximum: 65535
   domain:
     type: string
     description: >

@@ -17,7 +17,7 @@ properties:
     type: string
   ipList:
     description: >
-      The list of IP addresses advertised by Onezone on behalf of the Oneprovider.
+      The list of Oneprovider Worker IP addresses advertised by Onezone on behalf of the Oneprovider.
       Applicable if subdomain delegation is enabled, empty list otherwise.
     type: array
     items:
@@ -35,6 +35,7 @@ properties:
     type: integer
     minimum: 0
     maximum: 65535
+    default: 443
   oneS3IpAddresses:
     description: >
       The list of Oneprovider OneS3 IP addresses advertised by Onezone on behalf of the Oneprovider.
