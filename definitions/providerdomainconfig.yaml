@@ -19,6 +19,7 @@ properties:
     description: >
       The list of Oneprovider Worker IP addresses advertised by Onezone on behalf of the Oneprovider.
       Applicable if subdomain delegation is enabled, empty list otherwise.
+      **Deprecated in favor of `opWorkerIpAddresses`**.
     type: array
     items:
       type: string
