@@ -93,7 +93,7 @@ post:
   parameters:
     - name: data
       in: body
-      description: The token to be verified and optionally peer's IP address.
+      description: The token to be verified and optional parameters.
       schema:
         $ref: '#/definitions/VerifyAccessTokenRequest'
   x-code-samples:

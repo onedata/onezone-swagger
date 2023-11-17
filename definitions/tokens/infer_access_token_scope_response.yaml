@@ -1,0 +1,93 @@
+type: object
+description: Inferred data access scope and validity.
+properties:
+  validUntil:
+    type: integer
+    description: Token's expiration time in seconds (UNIX epoch)
+    example: 1700276800
+  dataAccessScope:
+    type: object
+    description: Data access scope info.
+    properties:
+      readonly:
+        type: boolean
+        description: Indicates if this token can be used exclusively for readonly data access.
+        example: false
+      spaces:
+        type: object
+        description: > 
+          A map of space Ids available with this token and corresponding data access scope info.
+          The map can be empty if the token cannot be used to access data in any space.
+        additionalProperties:
+          type: object
+          description: Data access scope info for a space.
+          properties:
+            name:
+              type: string
+              description: The name of the space.
+            supports:
+              type: object
+              description: |
+                A map of supporting provider Ids and corresponding relevant support attributes.
+                The map can be empty if there are no supporting providers that can be accessed with this token.
+              additionalProperties:
+                type: object
+                description: Relevant space support attributes.
+                properties:
+                  readonly:
+                    type: boolean
+                    description: Indicates if the provider offers exclusively readonly access to the data.
+                    example: false
+      providers:
+        type: object
+        description: A map of provider Ids available with this token and corresponding details.
+        additionalProperties:
+          type: object
+          description: Provider details.
+          properties:
+            name:
+              type: string
+              description: Provider name.
+            domain:
+              type: string
+              description: >
+                The fully qualified domain name of the Oneprovider or its IP address
+                (only for single-node deployments or clusters with a reverse proxy).
+            version:
+              type: string
+              description: The release version of the Oneprovider software.
+            online:
+              type: boolean
+              description: True if this Oneprovider is online - connected to Onezone.
+
+required:
+  - validUntil
+  - dataAccessScope
+example:
+  validUntil: 1700276800,
+  dataAccessScope:
+    readonly: false
+    spaces:
+      f5a7f8b2336fae4bef8fe0fcc73a6e19ch1978:
+        name: Gamma
+        supports:
+          6c215505a969202341a74c8f2c394318ch47a3:
+            readonly: false
+          36e032c90969f520b84bf55bbc4d35c6chd39b:
+            readonly: false
+      77849ee136244225207db1457cce8543ch8050:
+        name: Delta
+        supports:
+          36e032c90969f520b84bf55bbc4d35c6chd39b:
+            readonly: true
+    providers:
+      6c215505a969202341a74c8f2c394318ch47a3:
+        version: 21.02.5
+        online: true
+        name: Krakow
+        domain: krakow.onedata.example.com
+      36e032c90969f520b84bf55bbc4d35c6chd39b:
+        name: Lisbon
+        domain: lisbon.onedata.example.com
+        version: 21.02.2
+        online: false
