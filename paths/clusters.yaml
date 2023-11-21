@@ -7,7 +7,7 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_clusters_list
-  summary: List all clusters
+  summary: List all clusters (admin)
   x-bash-codegen-description: |
     Returns the list of all clusters managed by the Onezone service.
 
@@ -16,6 +16,10 @@ get:
     Returns the list of all clusters managed by the Onezone service.
 
     This operation requires `oz_clusters_list` admin privilege.
+    
+    Equivalent endpoints for regular users: 
+    * [List effective clusters of the current user](#operation/list_user_effective_clusters)  
+    * [List effective clusters of given group](#operation/list_group_effective_clusters)  
 
     ***Example cURL requests***
 
@@ -26,8 +30,8 @@ get:
 
     {
       "clusters": [
-        "S0Y9FSe9TFJFFzzLtBEs8",
-        "IkHBv8CoAFmbFU4fj26"
+        "fb2839a69f670891c86fa9d3aee1bd7fa74f8278",
+        "b2dd04b18f7410ac6d4b4e4111d78828be24e140"
       ]
     }
     ```

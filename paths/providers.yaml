@@ -7,7 +7,7 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_providers_list
-  summary: List providers
+  summary: List providers (admin)
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.
 
@@ -16,6 +16,10 @@ get:
     Returns the list of providers registered in the Onezone service.
 
     This operation requires `oz_providers_list` admin privilege.
+    
+    Equivalent endpoints for regular users: 
+    * [List effective providers of the current user](#operation/list_effective_user_providers) 
+    * [List effective providers of given group](#operation/list_effective_group_providers) 
 
     ***Example cURL requests***
 

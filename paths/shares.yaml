@@ -5,7 +5,7 @@ get:
   x-onedata-gri:
     type: od_share
     aspect: list
-  summary: List all shares
+  summary: List all shares (admin)
   x-onedata-permissions:
     - oz_shares_list
   x-bash-codegen-description: |
@@ -25,6 +25,8 @@ get:
     and modifying share details.
 
     This operation requires admin privilege `oz_shares_list`.
+    
+    Equivalent endpoint for regular users: [List shares in a space](#operation/list_space_shares)  
 
     ***Example cURL requests***
 
