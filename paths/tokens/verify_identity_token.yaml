@@ -51,10 +51,10 @@ post:
 
     **Verify an identity token**
     ```bash
-    curl -d '{"token": "MDAxNmxvY2F00aW9uIHZ2...", "peerIp": "38.190.241.12"}' \
+    curl -X POST https://$ZONE_HOST/api/v3/onezone/tokens/verify_identity_token \
     -H 'Content-type: application/json' \
-    https://$ZONE_HOST/api/v3/onezone/tokens/verify_identity_token
-
+    -d '{"token": "MDAxNmxvY2F00aW9uIHZ2...", "peerIp": "38.190.241.12"}'
+    
     {
       "subject": {
         "type": "user",

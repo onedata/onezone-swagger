@@ -11,9 +11,11 @@ post:
   x-bash-codegen-description: |
     Analyses the provided
     [access token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[access-tokens].html)
-    provided in serialized form to infer the scope of data access the token can be used for.
+    in serialized form to infer the scope of data access the token can be used for.
     In essence, it returns what spaces can be accessed with the token and what Oneprovider
-    services can be called to realize the data access.    
+    services can be called to realize the data access. The response contains essential information
+    about the spaces and supporting providers, which can be especially useful when implementing
+    scripts and middleware performing data access on behalf of a user.
 
     In the process, the token is first verified, but the following caveats are ignored:
     `service`, `interface`, `api`. This way, it is possible to learn the data access scope
@@ -36,9 +38,11 @@ post:
   description: |
     Analyses the provided
     [access token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[access-tokens].html)
-    provided in serialized form to infer the scope of data access the token can be used for.
+    in serialized form to infer the scope of data access the token can be used for.
     In essence, it returns what spaces can be accessed with the token and what Oneprovider
-    services can be called to realize the data access.    
+    services can be called to realize the data access. The response contains essential information
+    about the spaces and supporting providers, which can be especially useful when implementing
+    scripts and middleware performing data access on behalf of a user.
 
     In the process, the token is first verified, but the following caveats are ignored:
     `service`, `interface`, `api`. This way, it is possible to learn the data access scope
@@ -63,9 +67,9 @@ post:
 
     **Verify an access token**
     ```bash
-    curl -d '{"token": "MDAxNmxvY2F00aW9uIHZ2...", "consumerToken": "MDAx0aWNmH8g7SajXXZ8s..."}' \
+    curl -X POST https://$ZONE_HOST/api/v3/onezone/tokens/infer_access_token_scope \
     -H 'Content-type: application/json' \
-    https://$ZONE_HOST/api/v3/onezone/tokens/infer_access_token_scope
+    -d '{"token": "MDAxNmxvY2F00aW9uIHZ2...", "consumerToken": "MDAx0aWNmH8g7SajXXZ8s..."}'
 
     {
       "validUntil": 1700276800,

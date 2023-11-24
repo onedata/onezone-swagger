@@ -36,7 +36,11 @@ properties:
                 properties:
                   readonly:
                     type: boolean
-                    description: Indicates if the provider offers exclusively readonly access to the data.
+                    description: |
+                      Indicates if the provider offers exclusively readonly access to the data,
+                      as far as storage configuration is concerned. Does not take into account
+                      the token caveats, which may further limit the access to readonly (see the
+                      flag at `dataAccessScope.readonly`).
                     example: false
       providers:
         type: object
@@ -51,8 +55,8 @@ properties:
             domain:
               type: string
               description: >
-                The fully qualified domain name of the Oneprovider or its IP address
-                (only for single-node deployments or clusters with a reverse proxy).
+                The fully qualified domain name of the Oneprovider. In rare cases, the
+                domain may have the form of an IP address instead of an FQDN.
             version:
               type: string
               description: The release version of the Oneprovider software.
