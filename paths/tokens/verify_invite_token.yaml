@@ -55,13 +55,13 @@ post:
 
     **Verify an invite token**
     ```bash
-    curl -d '{
+    curl -X POST https://$ZONE_HOST/api/v3/onezone/tokens/verify_invite_token \
+    -H 'Content-type: application/json' \
+    -d '{
       "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
       "peerIp": "38.190.241.12",
       "expectedInviteType": "userJoinGroup"
-    }' \
-    -H 'Content-type: application/json' \
-    https://$ZONE_HOST/api/v3/onezone/tokens/verify_invite_token
+    }'
 
     {
       "subject": {

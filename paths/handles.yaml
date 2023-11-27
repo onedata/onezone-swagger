@@ -7,7 +7,7 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_handles_list
-  summary: List handles
+  summary: List handles (admin)
   x-bash-codegen-description: |
     Returns the list of Ids of all handles registered in Onezone.
 
@@ -16,6 +16,10 @@ get:
     Returns the list of Ids of all handles registered in Onezone.
 
     This operation requires `oz_handles_list` admin privilege.
+    
+    Equivalent endpoints for regular users: 
+    * [List effective handles of the current user](#operation/list_user_effective_handles) 
+    * [List effective handles of given group](#operation/list_effective_group_handles) 
 
     ***Example cURL requests***
 
@@ -76,7 +80,7 @@ post:
   x-bash-codegen-description: |
     Allows to register a new handle identifier, using a specific handle service.
 
-    The handle service must be registered in Onedata separately.
+    The handle service must be created beforehand.
 
     This operation requires `handle_service_register_handle` privilege, which needs to
     be assigned to a specific handle service
@@ -84,11 +88,11 @@ post:
   description: |
     Allows to register a new handle identifier, using a specific handle service.
 
-    The handle service must be registered in Onedata separately.
+    The handle service must be created beforehand.
     
     See also:  
-    [Create a new handle for the current user](#operation/create_user_handle)  
-    [Create a new handle for given group](#operation/create_group_handle)  
+    * [Create a new handle for the current user](#operation/create_user_handle)  
+    * [Create a new handle for given group](#operation/create_group_handle)  
 
     This operation requires `handle_service_register_handle` privilege, which needs to
     be assigned to a specific handle service

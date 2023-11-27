@@ -7,7 +7,7 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_spaces_list
-  summary: List all spaces
+  summary: List all spaces (admin)
   x-bash-codegen-description: |
     Returns the list of all spaces managed by the Onezone service.
 
@@ -16,6 +16,10 @@ get:
     Returns the list of all spaces managed by the Onezone service.
 
     This operation requires `oz_spaces_list` admin privilege.
+    
+    Equivalent endpoints for regular users: 
+    * [List effective spaces of the current user](#operation/list_effective_user_spaces) 
+    * [List effective spaces of given group](#operation/list_effective_group_spaces) 
 
     ***Example cURL requests***
 
@@ -72,23 +76,23 @@ post:
     aspect: instance
   x-onedata-permissions:
     - oz_spaces_create
-  summary: Create new space
+  summary: Create new space (admin)
   x-bash-codegen-description: |
-    Creates new space.
+    Creates a new space.
 
     This operation requires `oz_spaces_create` admin privilege.
   description: |
-    Creates new space.
+    Creates a new space.
 
     This operation requires `oz_spaces_create` admin privilege.
     
-    See also:  
-    [Create a new space for the current user](#operation/create_user_space)  
-    [Create a new space for given group](#operation/create_space_for_group)  
+    Equivalent endpoints for regular users:     
+    * [Create a new space for the current user](#operation/create_user_space)  
+    * [Create a new space for given group](#operation/create_space_for_group)  
 
     ***Example cURL requests***
 
-    **Create new space**
+    **Create a new space**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{ "name" : "new_space" }' \

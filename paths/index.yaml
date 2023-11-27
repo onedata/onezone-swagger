@@ -696,6 +696,8 @@
   $ref: ./tokens/examine.yaml
 /tokens/confine:
   $ref: ./tokens/confine.yaml
+/tokens/infer_access_token_scope:
+  $ref: ./tokens/infer_access_token_scope.yaml
 /tokens/verify_access_token:
   $ref: ./tokens/verify_access_token.yaml
 /tokens/verify_identity_token:

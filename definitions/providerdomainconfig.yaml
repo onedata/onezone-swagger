@@ -7,8 +7,8 @@ properties:
     type: boolean
   domain:
     description: >
-      The fully qualified domain name of the Oneprovider or its IP address
-      (only for single-node deployments or clusters with a reverse proxy).
+      The fully qualified domain name of the Oneprovider. In rare cases, the
+      domain may have the form of an IP address instead of an FQDN.
     type: string
   subdomain:
     description: >

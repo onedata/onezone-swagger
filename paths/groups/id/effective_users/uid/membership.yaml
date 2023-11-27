@@ -1,4 +1,9 @@
 get:
+  # @TODO VFS-11565 Unify the operation naming conventions in swaggers
+  # The non-exhaustive list of known discrepancies:
+  #   handle_for_group vs group_handle
+  #   get_effective_* vs list_effective_*
+  #   list_user_effective_handles vs list_effective_group_handles
   operationId: get_effective_user_group_membership_intermediaries
   tags:
     - Group

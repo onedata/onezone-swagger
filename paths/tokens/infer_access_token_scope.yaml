@@ -1,0 +1,151 @@
+post:
+  operationId: infer_access_token_scope
+  tags:
+    - Token
+  x-onedata-gri:
+    type: od_token
+    id: undefined
+    aspect: infer_access_token_scope
+    scope: public
+  summary: Infer access token scope
+  x-bash-codegen-description: |
+    Analyses the provided
+    [access token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[access-tokens].html)
+    in serialized form to infer the scope of data access the token can be used for.
+    In essence, it returns what spaces can be accessed with the token and what Oneprovider
+    services can be called to realize the data access. The response contains essential information
+    about the spaces and supporting providers, which can be especially useful when implementing
+    scripts and middleware performing data access on behalf of a user.
+
+    In the process, the token is first verified, but the following caveats are ignored:
+    `service`, `interface`, `api`. This way, it is possible to learn the data access scope
+    of a token that is limited to e.g. Oneclient access on a specific provider. That
+    would not be possible using the other Onezone API endpoints, since they are disallowed
+    due to the caveats.
+    
+    Remaining caveats, such as `time` or `ip`, are still verified, hence 
+    only a client qualified to use the token can learn its data access scope. 
+    
+    Optionally, a consumer's identity token can be provided in the body to satisfy possible
+    consumer caveats.
+
+    If the token cannot be positively verified, HTTP code 4xx is returned with
+    an error describing the reason of failure.
+    
+    If a provider access token is specified, the returned `dataAccessScope` is `null`.
+
+    This operation has public access.
+  description: |
+    Analyses the provided
+    [access token](https://onedata.org/#/home/documentation/doc/using_onedata/tokens[access-tokens].html)
+    in serialized form to infer the scope of data access the token can be used for.
+    In essence, it returns what spaces can be accessed with the token and what Oneprovider
+    services can be called to realize the data access. The response contains essential information
+    about the spaces and supporting providers, which can be especially useful when implementing
+    scripts and middleware performing data access on behalf of a user.
+
+    In the process, the token is first verified, but the following caveats are ignored:
+    `service`, `interface`, `api`. This way, it is possible to learn the data access scope
+    of a token that is limited to e.g. Oneclient access on a specific provider. That
+    would not be possible using the other Onezone API endpoints, since they are disallowed
+    due to the caveats.
+    
+    Remaining caveats, such as `time` or `ip`, are still verified, hence 
+    only a client qualified to use the token can learn its data access scope. 
+    
+    Optionally, a consumer's identity token can be provided in the body to satisfy possible
+    consumer caveats.
+
+    If the token cannot be positively verified, HTTP code 4xx is returned with
+    an error describing the reason of failure.
+    
+    If a provider access token is specified, the returned `dataAccessScope` is `null`.
+
+    This operation has public access.
+
+    ***Example cURL requests***
+
+    **Verify an access token**
+    ```bash
+    curl -X POST https://$ZONE_HOST/api/v3/onezone/tokens/infer_access_token_scope \
+    -H 'Content-type: application/json' \
+    -d '{"token": "MDAxNmxvY2F00aW9uIHZ2...", "consumerToken": "MDAx0aWNmH8g7SajXXZ8s..."}'
+
+    {
+      "validUntil": 1700276800,
+      "dataAccessScope": {
+        "readonly": false,
+        "spaces": {
+          "f5a7f8b2336fae4bef8fe0fcc73a6e19ch1978": {
+            "supports": {
+              "6c215505a969202341a74c8f2c394318ch47a3": {
+                "readonly": false
+              },
+              "36e032c90969f520b84bf55bbc4d35c6chd39b": {
+                "readonly": false
+              }
+            },
+            "name": "Gamma"
+          },
+          "77849ee136244225207db1457cce8543ch8050": {
+            "supports": {
+              "36e032c90969f520b84bf55bbc4d35c6chd39b": {
+                "readonly": true
+              }
+            },
+            "name": "Delta"
+          }
+        },
+        "providers": {
+          "6c215505a969202341a74c8f2c394318ch47a3": {
+            "version": "21.02.5",
+            "online": true,
+            "name": "Krakow",
+            "domain": "krakow.onedata.example.com"
+          },
+          "36e032c90969f520b84bf55bbc4d35c6chd39b": {
+            "version": "21.02.2",
+            "online": false,
+            "name": "Lisbon",
+            "domain": "lisbon.onedata.example.com"
+          }
+        }
+      }
+    }
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: Inferred data access scope and validity.
+      schema:
+        $ref: '#/definitions/InferAccessTokenScopeResponse'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: data
+      in: body
+      description: The token to be verified and optionally a consumer token.
+      schema:
+        $ref: '#/definitions/InferAccessTokenScopeRequest'
+  x-code-samples:
+    - lang: Shell
+      source: "onezone-rest-cli inferAccessTokenScope token==MDAxNmxvY2F00aW9uRVM2TVo5UlZ5cGFjZV9jcm"

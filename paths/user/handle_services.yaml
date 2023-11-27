@@ -67,7 +67,7 @@ post:
   x-onedata-auth-hint: ?AS_USER(?CLIENT_ID)
   x-onedata-permissions:
     - oz_handle_service_create
-  summary: Create a new handle service for the current user
+  summary: Create handle service for the current user (admin)
   x-bash-codegen-description: |
     Allows to register a new handle service.
 

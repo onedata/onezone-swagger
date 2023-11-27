@@ -7,7 +7,7 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_harvesters_list
-  summary: List all harvesters
+  summary: List all harvesters (admin)
   x-bash-codegen-description: |
     Returns the list of all harvesters managed by the Onezone service.
 
@@ -16,6 +16,10 @@ get:
     Returns the list of all harvesters managed by the Onezone service.
 
     This operation requires `oz_harvesters_list` admin privilege.
+    
+    Equivalent endpoints for regular users: 
+    * [List effective harvesters of the current user](#operation/list_effective_user_harvesters) 
+    * [List effective harvesters of given group](#operation/list_effective_group_harvesters) 
 
     ***Example cURL requests***
 
@@ -26,8 +30,8 @@ get:
 
     {
       "harvesters": [
-        "S0Y9FSe9TFJFFzzLtBEs8",
-        "IkHBv8CoAFmbFU4fj26"
+        "b2dd04b18f7410ac6d4b4e4111d78828be24e140",
+        "f6eda453776f1713c3a632ab19c4ab5c0c4b9f2f"
       ]
     }
     ```
@@ -72,19 +76,19 @@ post:
     aspect: instance
   x-onedata-permissions:
     - oz_harvesters_create
-  summary: Create new harvester
+  summary: Create new harvester (admin)
   x-bash-codegen-description: |
-    Creates new harvester.
+    Creates a new harvester.
 
     This operation requires `oz_harvesters_create` admin privilege.
   description: |
-    Creates new harvester.
+    Creates a new harvester.
 
     This operation requires `oz_harvesters_create` admin privilege.
     
-    See also:  
-    [Create a new harvester for the current user](#operation/create_user_harvester)  
-    [Create a new harvester for given group](#operation/create_harvester_for_group)  
+    Equivalent endpoints for regular users: 
+    * [Create a new harvester for the current user](#operation/create_user_harvester)  
+    * [Create a new harvester for given group](#operation/create_harvester_for_group)  
 
     ***Example cURL requests***
 

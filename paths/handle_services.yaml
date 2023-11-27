@@ -7,7 +7,7 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_handle_services_list
-  summary: List handle services
+  summary: List handle services (admin)
   x-bash-codegen-description: |
     Returns the list of registered handle services.
 
@@ -16,7 +16,10 @@ get:
     Returns the list of registered handle services.
 
     This operation requires `oz_handle_services_list` admin privilege.
-
+    
+    Equivalent endpoints for regular users: 
+    * [List effective handle services of the current user](#operation/list_user_effective_handle_services) 
+    * [List effective handle services of given group](#operation/list_effective_group_handle_services) 
 
     ***Example cURL requests***
 
@@ -72,19 +75,19 @@ post:
     aspect: instance
   x-onedata-permissions:
     - oz_handle_services_create
-  summary: Add handle service
+  summary: Create handle service (admin)
   x-bash-codegen-description: |
-    Allows to register a new handle service.
+    Creates a new handle service.
 
     This operation requires `oz_handle_services_create` admin privilege.
   description: |
-    Allows to register a new handle service.
+    Creates a new handle service.
 
     This operation requires `oz_handle_services_create` admin privilege.
     
-    See also:  
-    [Create a new handle service for the current user](#operation/add_user_handle_service)  
-    [Create a new handle service for given group](#operation/add_group_handle_service)  
+    See also:
+    * [Create a new handle service for the current user](#operation/add_user_handle_service)  
+    * [Create a new handle service for given group](#operation/add_group_handle_service)  
 
     ***Example cURL requests***
 

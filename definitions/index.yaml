@@ -125,6 +125,10 @@ TemporaryTokenCreateRequest:
   $ref: ./tokens/temporary_token_create_request.yaml
 TemporaryTokenGeneration:
   $ref: ./tokens/temporary_token_generation.yaml
+InferAccessTokenScopeRequest:
+  $ref: ./tokens/infer_access_token_scope_request.yaml
+InferAccessTokenScopeResponse:
+  $ref: ./tokens/infer_access_token_scope_response.yaml
 VerifyAccessTokenRequest:
   $ref: ./tokens/verify_access_token_request.yaml
 VerifyIdentityTokenRequest:

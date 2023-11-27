@@ -7,7 +7,7 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_groups_list
-  summary: List all groups
+  summary: List all groups (admin)
   x-bash-codegen-description: |
     Returns the list of all groups in the system.
 
@@ -16,6 +16,10 @@ get:
     Returns the list of all groups in the system.
 
     Requires `oz_groups_list` admin privilege.
+    
+    Equivalent endpoints for regular users: 
+    * [List effective groups of the current user](#operation/list_effective_user_groups)  
+    * [List effective child groups of given group](#operation/get_effective_children_groups)  
 
     ***Example cURL requests***
 
@@ -65,23 +69,23 @@ post:
     aspect: instance
   x-onedata-permissions:
     - oz_groups_create
-  summary: Create new group
+  summary: Create a new group (admin)
   x-bash-codegen-description: |
     Creates a new group.
 
-    This operation requires `oz_groups_create` privilege.
+    This operation requires `oz_groups_create` admin privilege.
   description: |
     Creates a new group.
 
-    This operation requires `oz_groups_create` privilege.  
+    This operation requires `oz_groups_create` admin privilege.  
     
-    See also:  
-    [Create a new group for the current user](#operation/create_group_for_user)  
-    [Create a new parent group for given group](#operation/create_parent_group)  
+    Equivalent endpoints for regular users: 
+    * [Create a new group for the current user](#operation/create_user_group)  
+    * [Create a new parent group for given group](#operation/create_parent_group)  
 
     ***Example cURL requests***
 
-    **Create new group of type `team`**
+    **Create a new group of type `team`**
     ```bash
      curl -u username:password -H "Content-type: application/json" \
      -X POST -d '{ "name":"new_group" , "type":"team" }' \
