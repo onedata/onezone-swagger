@@ -172,28 +172,30 @@ delete:
   x-onedata-permissions:
     - handle_service_delete
     - oz_handle_services_delete
-  summary: Unregister handle service
+  summary: Delete handle service
   x-bash-codegen-description: |
-    Allows to unregister a registeed handle service.
+    Deletes a handle service. Does not delete the handles that were
+    registered in the handle service.
 
     This operation requires `handle_service_delete` privilege or
     `oz_handle_services_delete` admin privilege.
   description: |
-    Allows to unregister a registeed handle service.
+    Deletes a handle service. Does not delete the handles that were
+    registered in the handle service.
 
     This operation requires `handle_service_delete` privilege or
     `oz_handle_services_delete` admin privilege.
 
     ***Example cURL requests***
 
-    **Unregister handle service**
+    **Delete handle service**
     ```bash
     curl -u username:password -X DELETE \
     https://$ZONE_HOST/api/v3/onezone/handle_services/$HANDLE_SERVICE_ID
     ```
   responses:
     '204':
-      description: Handle service will be unregistered.
+      description: The handle service was deleted.
     '400':
       description: Invalid request.
       schema:
