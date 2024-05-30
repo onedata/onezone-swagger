@@ -90,7 +90,16 @@ post:
     - oz_groups_add_relationships
   summary: Create a new handle for given group
   x-bash-codegen-description: |
-    Creates a new handle on behalf of a group.
+    Registers a new Open Data handle in the specified handle service on behalf of a group.
+    
+    An Open Data handle is essentially a persistent identifier (PID/DOI) that points to
+    a resource in Onedata that is to be shared publicly as an Open Data record. 
+    All handles are advertised via the OAI-PMH protocol (Onezone serves as a repository
+    of Open Data records, to be harvested by Open Data aggregators).
+
+    The handle service serves as a proxy that registers persistent identifiers in an external service
+    such as **DataCite** or **handle.net**. It is typically set up by Onezone admins, who grant
+    the rights to register handles to specific users/groups.
 
     This operation requires `group_create_handle` privilege in the group and
     `handle_service_register_handle` privilege in the handle service specified
@@ -98,7 +107,16 @@ post:
     For administrator who does not belong to this group
     `oz_groups_add_relationships` and `oz_handles_create` privilege is required.
   description: |
-    Creates a new handle on behalf of a group.
+    Registers a new Open Data handle in the specified handle service on behalf of a group.
+    
+    An Open Data handle is essentially a persistent identifier (PID/DOI) that points to
+    a resource in Onedata that is to be shared publicly as an Open Data record. 
+    All handles are advertised via the OAI-PMH protocol (Onezone serves as a repository
+    of Open Data records, to be harvested by Open Data aggregators).
+
+    The handle service serves as a proxy that registers persistent identifiers in an external service
+    such as **DataCite** or **handle.net**. It is typically set up by Onezone admins, who grant
+    the rights to register handles to specific users/groups.
 
     This operation requires `group_create_handle` privilege in the group and
     `handle_service_register_handle` privilege in the handle service specified
@@ -106,14 +124,19 @@ post:
     For administrator who does not belong to this group
     `oz_groups_add_relationships` and `oz_handles_create` privilege is required.
 
-
     ***Example cURL requests***
 
-    **Create new group handle**
+    **Create new handle for given group**
     ```bash
-    curl -u admin:password -H "Content-type: application/json" -X POST \
-    -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }'
-    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/handles
+    curl -H "x-auth-token: $TOKEN" -H "content-type: application/json" \
+      -X POST https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/handles \
+      -d '{ 
+        "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", 
+        "resourceType": "Share", 
+        "resourceId": "4fa683cbda8d8f686d15d42720af431d", 
+        "metadataPrefix": "oai_dc", 
+        "metadata": "<?xml version=\"1.0\" encoding=\"utf-8\" ?>..." 
+      }'
     ```
   consumes:
     - application/json

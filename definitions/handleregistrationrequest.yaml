@@ -1,38 +1,47 @@
 type: object
 description: |
-  This type contains attributes necessary to register a handle identifier
-  for some Onedata resource (e.g. share).
+  Attributes needed to register an Open Data handle identifier for a Onedata resource (e.g. share).
 properties:
   handleServiceId:
     type: string
-    description: The Onedata GUID of the handle service registered.
+    description: The Id of the handle service through which the handle will be registered.
   resourceType:
     type: string
-    description: The type of resource to be registered.
+    enum:
+      - Share
+    description: The type of resource for which a handle will be registered - currently, only the `Share` type is supported.
   resourceId:
     type: string
-    description: The Id of the resource to be assigned a handle identifier.
+    description: The Id of the resource to be assigned a handle identifier (currently, always a share Id).
+  metadataPrefix:
+    type: string
+    enum:
+      - oai_dc
+      - edm
+    description: |
+      Short keyword that indicates the schema of the metadata that will be attached to the handle 
+      (refers to the concept of metadataPrefix in the OAI-PMH protocol).
+      * `oai_dc` - OAI-PMH-compliant Dublin Core metadata schema.
+      * `edm` - Europeana Data Model metadata schema.
   metadata:
     type: string
-    description: Dublin Core metadata for the resource encoded in XML.
+    description: Metadata (in XML format) compliant with the schema indicated by the metadata prefix.
 required:
   - handleServiceId
   - resourceType
   - resourceId
+  - metadataPrefix
   - metadata
 example:
   handleServiceId: f1c8b1a37aa7447b22eb65a742d40524
   resourceType: Share
   resourceId: f7a6d2ea511e728c9b3f3972cecb7af4
+  metadataPrefix: oai_dc
   metadata: >
-    <?xml version=\"1.0\"?>
-    <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
-    <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
-             xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
-      <rdf:Description rdf:about=\"http://example.com/resouces/1\">
-        <dc:title>Example Resource</dc:title>
-        <dc:creator>John Doe</dc:creator>
-        <dc:publisher>MIT</dc:publisher>
-        <dc:date>2000-06-06</dc:date>
-      </rdf:Description>
-    </rdf:RDF>
+    <?xml version=\"1.0\" encoding=\"utf-8\" ?>
+    <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+      <dc:title>Example Resource</dc:title>
+      <dc:creator>John Doe</dc:creator>
+      <dc:publisher>ACC Cyfronet AGH</dc:publisher>
+      <dc:date>2024-06-15</dc:date>
+    </metadata>

@@ -38,17 +38,14 @@ get:
       "handleServiceId": "97c27230017cd54c1220189e357322c4",
       "resourceType": "Share",
       "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
-      "metadata": "<?xml version=\"1.0\"?>
-          <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
-          <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
-                   xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
-            <rdf:Description rdf:about=\"http://example.com/resouces/1\">
-              <dc:title>Example Resource</dc:title>
-              <dc:creator>John Doe</dc:creator>
-              <dc:publisher>MIT</dc:publisher>
-              <dc:date>2000-06-06</dc:date>
-            </rdf:Description>
-          </rdf:RDF>",
+      "metadataPrefix": "oai_dc",
+      "metadata": "<?xml version=\"1.0\" encoding=\"utf-8\" ?>
+        <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+          <dc:title>Example Resource</dc:title>
+          <dc:creator>John Doe</dc:creator>
+          <dc:publisher>ACC Cyfronet AGH</dc:publisher>
+          <dc:date>2024-06-15</dc:date>
+        </metadata>",
       "timestamp": "1997-07-16T19:20",
       "creator": {
         "type": "user",

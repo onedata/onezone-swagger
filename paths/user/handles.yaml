@@ -74,25 +74,49 @@ post:
     - handle_service_register_handle
   summary: Create a new handle for the current user
   x-bash-codegen-description: |
-    Creates a new handle as current user.
+    Registers a new Open Data handle in the specified handle service as the current user.
+    
+    An Open Data handle is essentially a persistent identifier (PID/DOI) that points to
+    a resource in Onedata that is to be shared publicly as an Open Data record. 
+    All handles are advertised via the OAI-PMH protocol (Onezone serves as a repository
+    of Open Data records, to be harvested by Open Data aggregators).
+
+    The handle service serves as a proxy that registers persistent identifiers in an external service
+    such as **DataCite** or **handle.net**. It is typically set up by Onezone admins, who grant
+    the rights to register handles to specific users/groups.
 
     This operation can be invoked on behalf of the current user only and requires
     'handle_service_register_handle' privilege in the handle service
-    where the new handle is to be registered
+    where the new handle is to be registered.
   description: |
-    Creates a new handle as current user.
+    Registers a new Open Data handle in the specified handle service as the current user.
+    
+    An Open Data handle is essentially a persistent identifier (PID/DOI) that points to
+    a resource in Onedata that is to be shared publicly as an Open Data record. 
+    All handles are advertised via the OAI-PMH protocol (Onezone serves as a repository
+    of Open Data records, to be harvested by Open Data aggregators).
+
+    The handle service serves as a proxy that registers persistent identifiers in an external service
+    such as **DataCite** or **handle.net**. It is typically set up by Onezone admins, who grant
+    the rights to register handles to specific users/groups.
 
     This operation can be invoked on behalf of the current user only and requires
     'handle_service_register_handle' privilege in the handle service
-    where the new handle is to be registered
+    where the new handle is to be registered.
 
     ***Example cURL requests***
 
-    **Create new user handle**
+    **Create new handle for the current user**
     ```bash
-    curl -u admin:password -H "Content-type: application/json" -X POST \
-    -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }'
-    https://$ZONE_HOST/api/v3/onezone/user/handles
+    curl -H "x-auth-token: $TOKEN" -H "content-type: application/json" \
+      -X POST https://$ZONE_HOST/api/v3/onezone/user/handles \
+      -d '{ 
+        "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", 
+        "resourceType": "Share", 
+        "resourceId": "4fa683cbda8d8f686d15d42720af431d", 
+        "metadataPrefix": "oai_dc", 
+        "metadata": "<?xml version=\"1.0\" encoding=\"utf-8\" ?>..." 
+      }'
     ```
   consumes:
     - application/json
