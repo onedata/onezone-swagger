@@ -26,12 +26,14 @@ properties:
   metadata:
     type: string
     description: Metadata (in XML format) compliant with the schema indicated by the metadata prefix.
+
 required:
   - handleServiceId
   - resourceType
   - resourceId
   - metadataPrefix
   - metadata
+
 example:
   handleServiceId: f1c8b1a37aa7447b22eb65a742d40524
   resourceType: Share
