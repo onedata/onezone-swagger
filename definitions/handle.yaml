@@ -4,31 +4,41 @@ properties:
   handleId:
     type: string
     description: Unique Id of the handle in Onedata.
+  handleServiceId:
+    type: string
+    description: |
+      Id of the service through which the handle was registered.
+      *Not included in the public handle details.*
   publicHandle:
     type: string
     description: >
       Unique Id of the handle as registered in the handle service. Depending on
       the handle service, can be an Id (DOI: 10.5072/w95Zlng) or an URL
       (PID: http://hdl.handle.net/21.T15999/TgAl7s0).
-  handleServiceId:
-    type: string
-    description: |
-      Id of the service where the handle was registered.
-      *Not included in public handle details.*
   resourceType:
     type: string
-    description: The type of resource to be registered.
     enum:
       - Share
+    description: The type of resource to which the handle points - currently, only the `Share` type is supported.
   resourceId:
     type: string
-    description: The Id of the resource, corresponding to resourceType (currently, always a share Id).
+    description: The Id of the resource to which the handle points (currently, always a share Id).
+  metadataPrefix:
+    type: string
+    enum:
+      - oai_dc
+      - edm
+    description: |
+      Short keyword that indicates the schema of the metadata that will be attached to the handle 
+      (refers to the concept of metadataPrefix in the OAI-PMH protocol).
+      * `oai_dc` - OAI-PMH-compliant Dublin Core metadata schema.
+      * `edm` - Europeana Data Model metadata schema.
   metadata:
     type: string
-    description: Dublin Core metadata for the resource encoded in XML.
+    description: Metadata (in XML format) compliant with the schema indicated by the metadata prefix.
   timestamp:
     type: string
-    description: Timestamp of the last Handle modification.
+    description: Timestamp of the last handle modification.
   creator:
     description: |
       The creator of the handle.
@@ -42,28 +52,26 @@ required:
   - publicHandle
   - resourceType
   - resourceId
+  - metadataPrefix
   - metadata
   - timestamp
   - creationTime
 
 example:
   handleId: 14208c48fe063d26fd45144b90977a56
-  publicHandle: 10.5072/w95Zlng
   handleServiceId: f480c4889db90d93996ee89d0ee5f8f0
+  publicHandle: 10.5072/w95Zlng
   resourceType: Share
   resourceId: 3d8cd457cef92ba08261bf1bb8d40438
+  metadataPrefix: oai_dc
   metadata: >
-    <?xml version=\"1.0\"?>
-    <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
-    <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
-             xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
-      <rdf:Description rdf:about=\"http://example.com/resouces/1\">
-        <dc:title>Example Resource</dc:title>
-        <dc:creator>John Doe</dc:creator>
-        <dc:publisher>MIT</dc:publisher>
-        <dc:date>2000-06-06</dc:date>
-      </rdf:Description>
-    </rdf:RDF>
+    <?xml version=\"1.0\" encoding=\"utf-8\" ?>
+    <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+      <dc:title>Example Resource</dc:title>
+      <dc:creator>John Doe</dc:creator>
+      <dc:publisher>ACC Cyfronet AGH</dc:publisher>
+      <dc:date>2024-06-15</dc:date>
+    </metadata>
   timestamp: 2016-07-16T19:20:30.45+01:00
   creator:
     type: user
