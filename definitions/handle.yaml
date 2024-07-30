@@ -8,7 +8,6 @@ properties:
     type: string
     description: |
       Id of the service through which the handle was registered.
-      *Not included in the public handle details.*
   publicHandle:
     type: string
     description: >
@@ -49,6 +48,7 @@ properties:
 
 required:
   - handleId
+  - handleServiceId
   - publicHandle
   - resourceType
   - resourceId
