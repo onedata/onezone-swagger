@@ -1,0 +1,64 @@
+get:
+  operationId: get_public_handle_service_details
+  tags:
+    - Handle Service
+  x-onedata-gri:
+    type: od_handle_service
+    id: ?BINDING(id)
+    aspect: instance
+    scope: public
+  summary: Get public handle service details
+  x-bash-codegen-description: |
+    Returns the publicly available details of a specific handle service. This endpoint
+    is available for anyone knowing the handle service Id, without authentication.
+  description: |
+    Returns the publicly available details of a specific handle service. This endpoint
+    is available for anyone knowing the handle service Id, without authentication.
+
+    ***Example cURL requests***
+
+    **Get public handle service details**
+    ```bash
+    curl -X GET https://$ZONE_HOST/api/v3/onezone/handle_services/$HANDLE_ID/public
+
+    {
+      "handleServiceId": "95b663a6467c72ab1256865efef9e387",
+      "name": "EOSC-hub B2HANDLE"
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The publicly available details of a specific handle service.
+      schema:
+        $ref: '#/definitions/HandleServicePublicDetails'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+      description: The handle service Id.
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getPublicHandleServiceDetails id=45bf25a5cb16e12a9faa6d088a2c7088"

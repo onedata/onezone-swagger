@@ -297,6 +297,9 @@ AdminPrivilegesUpdate:
 HandleService:
   $ref: ./handleservice.yaml
 
+HandleServicePublicDetails:
+  $ref: ./handleservicepublicdetails.yaml
+
 HandleServiceCreateRequest:
   $ref: ./handleservicecreaterequest.yaml
 
