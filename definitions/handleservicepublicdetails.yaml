@@ -1,6 +1,6 @@
 type: object
 description: |
-  Public handle service details.
+  Publicly available details about the handle service.
 properties:
   handleServiceId:
     type: string
