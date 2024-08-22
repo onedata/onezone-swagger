@@ -755,6 +755,10 @@
   $ref: ./handle_services/id.yaml
 
 
+/handle_services/{id}/public:
+  $ref: ./handle_services/id/public.yaml
+
+
 /handle_services/{id}/users:
   $ref: ./handle_services/id/users.yaml
 

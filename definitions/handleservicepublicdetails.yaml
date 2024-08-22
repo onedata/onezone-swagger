@@ -1,0 +1,19 @@
+type: object
+description: |
+  Publicly available details about the handle service.
+properties:
+  handleServiceId:
+    type: string
+    description: Handle service Id.
+  name:
+    type: string
+    description: >
+      The user defined name of the service.
+
+required:
+  - handleServiceId
+  - name
+
+example:
+  handleServiceId: cdca849d2b71bc7205f3eab686cf62fb
+  name: EOSC-hub B2HANDLE
