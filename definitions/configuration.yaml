@@ -65,13 +65,13 @@ required:
 example:
   name: Example zone
   domain: zone.example.com
-  version: 21.02.5
+  version: 21.02.6
   build: g52dbeca23
   subdomainDelegationSupported: true
   compatibleOneproviderVersions:
     - 20.02.1
     - 20.02.2
-    - 21.02.5
+    - 21.02.6
   compatibilityRegistryRevision: 2022122100
   supportedIdPs:
     - id: google
