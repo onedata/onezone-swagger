@@ -15,10 +15,16 @@ properties:
     description: Contact email address of the Oneprovider admin.
   subdomainDelegation:
     type: boolean
-    description: >
-      If enabled, the Oneprovider will be assigned a subdomain in Onezone's domain
-      and 'subdomain', 'ipList'/'ips' properties must be provided. If disabled, 'domain'
-      property must be provided.
+    description: |
+      When enabled, Oneprovider will be assigned a subdomain within Onezone's 
+      domain. In this case, the following properties must also be specified:
+      - `subdomain`
+      - `ipList` or `opWorkerIpAddresses`
+
+      If the OneS3 service is deployed, the `oneS3IpAddresses` and `oneS3Port` 
+      properties are additionally required.
+
+      If this option is disabled, the `domain` property must be provided instead. 
   subdomain:
     type: string
     description: >
