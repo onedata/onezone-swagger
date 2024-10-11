@@ -25,13 +25,13 @@ get:
     {
       "name": "Example zone",
       "domain": "zone.example.com",
-      "version": "21.02.6",
+      "version": "21.02.7",
       "build": "g52dbeca23",
       "subdomainDelegationSupported": true,
       "compatibleOneproviderVersions": [
           "20.02.1",
           "20.02.2",
-          "21.02.6"
+          "21.02.7"
       ],
       "compatibilityRegistryRevision": 2022122100,
       "supportedIdPs": [
