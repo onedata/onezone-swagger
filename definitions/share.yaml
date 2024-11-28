@@ -32,10 +32,10 @@ properties:
     description: Public Id of shared file or directory, allowing read access to its contents without authentication.
   fileType:
     type: string
-    description: Denotes the type of the shared element (file or directory)
+    description: Denotes the type of the shared element (regular file or directory)
     enum:
-      - file
-      - dir
+      - REG
+      - DIR
   handleId:
     type: string
     description: The Id of open data Handle (e.g. DOI or PID) assigned to this share or null.
@@ -65,7 +65,7 @@ example:
   publicUrl: https://example.com/shares/1f4b762b1380946e73aeca574c77f14c
   publicRestUrl: https://example.com/api/v3/onezone/shares/1f4b762b1380946e73aeca574c77f14c/public
   spaceId: 6ec1a5413b6f4e2b01a5c85a8fd797e2
-  fileType: dir
+  fileType: DIR
   rootFileId: 00000000006CB663736861726547756964233339643236366165646365\
     6266666164353939663761373734313235363166342336656331613534313362366634653\
     2623031613563383561386664373937653223316634623736326231333830393436653733\
