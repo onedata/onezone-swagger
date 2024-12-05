@@ -19,7 +19,7 @@ properties:
       When enabled, Oneprovider will be assigned a subdomain within Onezone's 
       domain. In this case, the following properties must also be specified:
       - `subdomain`
-      - `ipList` or `opWorkerIpAddresses`
+      - `opWorkerIpAddresses` (successor of the deprecated `ipList`)
 
       If the OneS3 service is deployed, the `oneS3IpAddresses` and `oneS3Port` 
       properties are additionally required.

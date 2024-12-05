@@ -35,7 +35,7 @@ get:
       "opWorkerIpAddresses": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
       "opWorkerPort": 443,
       "oneS3IpAddresses": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
-      "oneS3Port": 9999
+      "oneS3Port": 4443
     }
     ```
   produces:
