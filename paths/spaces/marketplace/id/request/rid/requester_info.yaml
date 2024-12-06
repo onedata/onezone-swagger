@@ -5,7 +5,7 @@ get:
   x-onedata-gri:
     type: od_space
     id: ?BINDING(id)
-    aspect: {membership_requester_info, ?BINDING(rid)}
+    aspect: "{membership_requester_info, ?BINDING(rid)}"
   x-onedata-permissions:
     - space_manage_in_marketplace
     - oz_spaces_view
