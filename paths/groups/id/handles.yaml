@@ -90,12 +90,12 @@ post:
     - oz_groups_add_relationships
   summary: Create a new handle for given group
   x-bash-codegen-description: |
-    Registers a new Open Data handle in the specified handle service on behalf of a group.
+    Registers a new Public Data handle in the specified handle service on behalf of a group.
     
-    An Open Data handle is essentially a persistent identifier (PID/DOI) that points to
-    a resource in Onedata that is to be shared publicly as an Open Data record. 
+    A Public Data handle is essentially a persistent identifier (PID/DOI) that points to
+    a resource in Onedata that is to be shared publicly as a Public Data record. 
     All handles are advertised via the OAI-PMH protocol (Onezone serves as a repository
-    of Open Data records, to be harvested by Open Data aggregators).
+    of Public Data records, to be harvested by Public Data aggregators).
 
     The handle service serves as a proxy that registers persistent identifiers in an external service
     such as **DataCite** or **handle.net**. It is typically set up by Onezone admins, who grant
@@ -107,12 +107,12 @@ post:
     For administrator who does not belong to this group
     `oz_groups_add_relationships` and `oz_handles_create` privilege is required.
   description: |
-    Registers a new Open Data handle in the specified handle service on behalf of a group.
+    Registers a new Public Data handle in the specified handle service on behalf of a group.
     
-    An Open Data handle is essentially a persistent identifier (PID/DOI) that points to
-    a resource in Onedata that is to be shared publicly as an Open Data record. 
+    A Public Data handle is essentially a persistent identifier (PID/DOI) that points to
+    a resource in Onedata that is to be shared publicly as a Public Data record. 
     All handles are advertised via the OAI-PMH protocol (Onezone serves as a repository
-    of Open Data records, to be harvested by Open Data aggregators).
+    of Public Data records, to be harvested by Public Data aggregators).
 
     The handle service serves as a proxy that registers persistent identifiers in an external service
     such as **DataCite** or **handle.net**. It is typically set up by Onezone admins, who grant

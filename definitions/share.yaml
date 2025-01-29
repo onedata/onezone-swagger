@@ -38,7 +38,7 @@ properties:
       - DIR
   handleId:
     type: string
-    description: The Id of open data Handle (e.g. DOI or PID) assigned to this share or null.
+    description: The Id of Public Data Handle (e.g. DOI or PID) assigned to this share, or null.
   creator:
     description: |
       The creator of the share.

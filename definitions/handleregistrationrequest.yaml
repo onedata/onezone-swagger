@@ -1,6 +1,6 @@
 type: object
 description: |
-  Attributes needed to register an Open Data handle identifier for a Onedata resource (e.g. share).
+  Attributes needed to register a Public Data handle identifier for a Onedata resource (e.g. share).
 properties:
   handleServiceId:
     type: string

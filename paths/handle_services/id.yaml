@@ -175,14 +175,14 @@ delete:
   summary: Delete handle service
   x-bash-codegen-description: |
     Deletes a handle service. The handle service must not have any registered handles
-    (all the handles have to be deleted first, but proceed with caution as Open Data 
+    (all the handles have to be deleted first, but proceed with caution as Public Data 
     records should be persistent).
 
     This operation requires `handle_service_delete` privilege or
     `oz_handle_services_delete` admin privilege.
   description: |
     Deletes a handle service. The handle service must not have any registered handles
-    (all the handles have to be deleted first, but proceed with caution as Open Data 
+    (all the handles have to be deleted first, but proceed with caution as Public Data 
     records should be persistent).
 
     This operation requires `handle_service_delete` privilege or
