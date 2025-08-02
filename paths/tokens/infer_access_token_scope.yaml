@@ -79,10 +79,23 @@ post:
           "f5a7f8b2336fae4bef8fe0fcc73a6e19ch1978": {
             "supports": {
               "6c215505a969202341a74c8f2c394318ch47a3": {
-                "readonly": false
+                "readonly": false,
+                "storages": {
+                  "6920215505a94c8f2c394318ch47a3341a76c2": {
+                    "readonly": false,
+                  }
+                }
               },
               "36e032c90969f520b84bf55bbc4d35c6chd39b": {
-                "readonly": false
+                "readonly": false,
+                "storages": {
+                  "f2c36920215505a94c8h47a3341a76c294318c": {
+                    "readonly": false,
+                  },
+                  "2021558h47a3341a76c294318c05a9f2c3694c": {
+                    "readonly": true,
+                  }
+                }
               }
             },
             "name": "Gamma"
@@ -90,7 +103,15 @@ post:
           "77849ee136244225207db1457cce8543ch8050": {
             "supports": {
               "36e032c90969f520b84bf55bbc4d35c6chd39b": {
-                "readonly": true
+                "readonly": true,
+                "storages": {
+                  "4318cfh47a3341a76c292c36920215505a94c8": {
+                    "readonly": true,
+                  },
+                  "8h47a3320215541a7605a9f2c3694cc294318c": {
+                    "readonly": true,
+                  }
+                }
               }
             },
             "name": "Delta"
@@ -101,13 +122,22 @@ post:
             "version": "21.02.8",
             "online": true,
             "name": "Krakow",
-            "domain": "krakow.onedata.example.com"
+            "domain": "krakow.onedata.example.com",
+            "storages": [
+              "6920215505a94c8f2c394318ch47a3341a76c2"
+            ]
           },
           "36e032c90969f520b84bf55bbc4d35c6chd39b": {
             "version": "21.02.2",
             "online": false,
             "name": "Lisbon",
-            "domain": "lisbon.onedata.example.com"
+            "domain": "lisbon.onedata.example.com",
+            "storages": [
+              "f2c36920215505a94c8h47a3341a76c294318c",
+              "2021558h47a3341a76c294318c05a9f2c3694c",
+              "4318cfh47a3341a76c292c36920215505a94c8",
+              "8h47a3320215541a7605a9f2c3694cc294318c"
+            ]
           }
         }
       }
