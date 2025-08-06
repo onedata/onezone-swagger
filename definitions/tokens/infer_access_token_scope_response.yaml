@@ -32,16 +32,30 @@ properties:
                 The map can be empty if there are no supporting providers that can be accessed with this token.
               additionalProperties:
                 type: object
-                description: Relevant space support attributes.
+                description: Relevant space support attributes for given provider.
                 properties:
                   readonly:
                     type: boolean
                     description: |
                       Indicates if the provider offers exclusively readonly access to the data,
-                      as far as storage configuration is concerned. Does not take into account
+                      as far as storage configuration is concerned. True if and only if all the
+                      supporting storage backends are readonly. Does not take into account
                       the token caveats, which may further limit the access to readonly (see the
                       flag at `dataAccessScope.readonly`).
                     example: false
+                  storages:
+                    type: object
+                    description: |
+                      A map of supporting storage backend Ids of given provider and corresponding relevant support attributes.
+                    additionalProperties:
+                      type: object
+                      description: Relevant space support attributes for given storage backend.
+                      properties:
+                        readonly:
+                          type: boolean
+                          description: Indicates if the storage backend is configured as readonly.
+                          example: true
+
       providers:
         type: object
         description: A map of provider Ids available with this token and corresponding details.
@@ -63,6 +77,11 @@ properties:
             online:
               type: boolean
               description: True if this Oneprovider is online - connected to Onezone.
+            storages:
+              type: array
+              description: A list of storage backend Ids owned by the provider which are available with this token.
+              items:
+                type: string
 
 required:
   - validUntil
@@ -77,21 +96,41 @@ example:
         supports:
           6c215505a969202341a74c8f2c394318ch47a3:
             readonly: false
+            storages:
+              6920215505a94c8f2c394318ch47a3341a76c2:
+                readonly: false
           36e032c90969f520b84bf55bbc4d35c6chd39b:
             readonly: false
+            storages:
+              f2c36920215505a94c8h47a3341a76c294318c:
+                readonly: false
+              2021558h47a3341a76c294318c05a9f2c3694c:
+                readonly: true
       77849ee136244225207db1457cce8543ch8050:
         name: Delta
         supports:
           36e032c90969f520b84bf55bbc4d35c6chd39b:
             readonly: true
+            storages:
+              4318cfh47a3341a76c292c36920215505a94c8:
+                readonly: true
+              8h47a3320215541a7605a9f2c3694cc294318c:
+                readonly: true
     providers:
       6c215505a969202341a74c8f2c394318ch47a3:
         version: 21.02.8
         online: true
         name: Krakow
         domain: krakow.onedata.example.com
+        storages:
+          - 6920215505a94c8f2c394318ch47a3341a76c2
       36e032c90969f520b84bf55bbc4d35c6chd39b:
         name: Lisbon
         domain: lisbon.onedata.example.com
         version: 21.02.2
         online: false
+        storages:
+          - f2c36920215505a94c8h47a3341a76c294318c
+          - 2021558h47a3341a76c294318c05a9f2c3694c
+          - 4318cfh47a3341a76c292c36920215505a94c8
+          - 8h47a3320215541a7605a9f2c3694cc294318c
