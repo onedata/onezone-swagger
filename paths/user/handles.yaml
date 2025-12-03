@@ -114,7 +114,7 @@ post:
         "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", 
         "resourceType": "Share", 
         "resourceId": "4fa683cbda8d8f686d15d42720af431d", 
-        "metadataPrefix": "oai_dc", 
+        "metadataSchema": "oai_dc", 
         "metadata": "<?xml version=\"1.0\" encoding=\"utf-8\" ?><metadata><dc:contributor>John Doe</dc:contributor></metadata>"
       }'
     ```

@@ -31,7 +31,7 @@ get:
       "handleServiceId": "97c27230017cd54c1220189e357322c4",
       "resourceType": "Share",
       "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
-      "metadataPrefix": "oai_dc",
+      "metadataSchema": "oai_dc",
       "metadata": "<?xml version=\"1.0\" encoding=\"utf-8\" ?>
         <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
           <dc:title>Example Resource</dc:title>

@@ -13,16 +13,20 @@ properties:
   resourceId:
     type: string
     description: The Id of the resource to be assigned a handle identifier (currently, always a share Id).
-  metadataPrefix:
+  metadataSchema:
     type: string
     enum:
       - oai_dc
+      - oai_datacite
       - edm
     description: |
-      Short keyword that indicates the schema of the metadata that will be attached to the handle 
-      (refers to the concept of metadataPrefix in the OAI-PMH protocol).
-      * `oai_dc` - OAI-PMH-compliant Dublin Core metadata schema.
-      * `edm` - Europeana Data Model metadata schema.
+      Short keyword that indicates the schema of the metadata attached to the handle.
+      The keywords are borrowed from the concept of metadataPrefix in the OAI-PMH protocol.
+      * `oai_dc` - Dublin Core
+      * `oai_datacite` - Datacite
+      * `edm` - Europeana Data Model
+      Each handle metadata schema can be disseminated using one or more OAI-PMH metadata prefixes, 
+      but each OAI-PMH metadata prefix has only one corresponding handle metadata schema.
   metadata:
     type: string
     description: Metadata (in XML format) compliant with the schema indicated by the metadata prefix.
@@ -31,14 +35,14 @@ required:
   - handleServiceId
   - resourceType
   - resourceId
-  - metadataPrefix
+  - metadataSchema
   - metadata
 
 example:
   handleServiceId: f1c8b1a37aa7447b22eb65a742d40524
   resourceType: Share
   resourceId: f7a6d2ea511e728c9b3f3972cecb7af4
-  metadataPrefix: oai_dc
+  metadataSchema: oai_dc
   metadata: >
     <?xml version=\"1.0\" encoding=\"utf-8\" ?>
     <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
