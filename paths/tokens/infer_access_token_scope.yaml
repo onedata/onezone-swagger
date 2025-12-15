@@ -119,7 +119,7 @@ post:
         },
         "providers": {
           "6c215505a969202341a74c8f2c394318ch47a3": {
-            "version": "21.02.8",
+            "version": "25.0",
             "online": true,
             "name": "Krakow",
             "domain": "krakow.onedata.example.com",
