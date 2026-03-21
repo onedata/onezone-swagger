@@ -68,19 +68,72 @@ post:
   summary: Create new user
   x-bash-codegen-description: |
     Creates a new user.
+    
+    The `fullName` and `username` may be provided directly or derived from linked accounts.
+
+    **Full name resolution** (`Unnamed User` is treated as undefined):
+    1. The value provided in the `fullName` parameter, if defined
+    2. The first valid `fullName` from the linked accounts (after normalization)
+    3. `Unnamed User`, if none of the above
+
+    **Username resolution**:
+    1. The value provided in the `username` parameter, if defined
+    2. The first valid `username` from the linked accounts (after normalization)
+    3. `null` (no username), if none of the above
 
     This operation requires `oz_users_create` admin privilege.
   description: |
     Creates a new user.
+    
+    The `fullName` and `username` may be provided directly or derived from linked accounts.
+
+    **Full name resolution** (`Unnamed User` is treated as undefined):
+    1. The value provided in the `fullName` parameter, if defined
+    2. The first valid `fullName` from the linked accounts (after normalization)
+    3. `Unnamed User`, if none of the above
+
+    **Username resolution**:
+    1. The value provided in the `username` parameter, if defined
+    2. The first valid `username` from the linked accounts (after normalization)
+    3. `null` (no username), if none of the above
 
     This operation requires `oz_users_create` admin privilege.
 
     ***Example cURL requests***
 
-    **Create new user**
+    **Create a new user**
     ```bash
     curl -u username:password -H "Content-type: application/json" \
     -X POST -d '{ "username" : "new_user", "password": "lS1c6FD2mxB2ff" }' \
+    https://$ZONE_HOST/api/v3/onezone/users
+    ```
+
+    **Create a new user with a preconfigured linked account**
+    ```bash
+    curl -u username:password -H "Content-type: application/json" \
+    -X POST -d '{ 
+      "linkedAccounts": [{
+        "idp" : "egi",
+        "username" : "jdoe",
+        "subjectId" : "96ac30df1113de761bb42967da314dffe725d7b9@egi.eu",
+        "groups" : [
+          "urn:mace:egi.eu:group:test-group.egi.eu:role=vm_operator#aai.egi.eu",
+          "urn:mace:egi.eu:group:test-group.egi.eu:role=member#aai.egi.eu"
+        ],
+        "fullName" : "John Done",
+        "entitlements" : [
+          "urn:mace:egi.eu:group:test-group.egi.eu:role=vm_operator#aai.egi.eu",
+          "urn:mace:egi.eu:group:test-group.egi.eu:role=member#aai.egi.eu"
+        ],
+        "emails" : [
+          "johndoe@example.com"
+        ],
+        "custom" : {
+          "gender": "M"
+          "role": "developer"
+        }
+      }]
+    }' \
     https://$ZONE_HOST/api/v3/onezone/users
     ```
   consumes:
