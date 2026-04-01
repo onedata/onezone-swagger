@@ -71,13 +71,16 @@ post:
     
     The `fullName` and `username` may be provided directly or derived from linked accounts.
 
-    **Full name resolution** (`Unnamed User` is treated as undefined):
-    1. The value provided in the `fullName` parameter, if defined
+    **Full name resolution**:
+    
+    1. The value of the `fullName` parameter, if provided
     2. The first valid `fullName` from the linked accounts (after normalization)
     3. `Unnamed User`, if none of the above
 
+    > NOTE: the value `Unnamed User` is treated as a *missing value* (i.e. equivalent to unspecified `fullName`).
+
     **Username resolution**:
-    1. The value provided in the `username` parameter, if defined
+    1. The value of the `username` parameter, if provided
     2. The first valid `username` from the linked accounts (after normalization)
     3. `null` (no username), if none of the above
 
@@ -87,13 +90,16 @@ post:
     
     The `fullName` and `username` may be provided directly or derived from linked accounts.
 
-    **Full name resolution** (`Unnamed User` is treated as undefined):
-    1. The value provided in the `fullName` parameter, if defined
+    **Full name resolution**:
+    
+    1. The value of the `fullName` parameter, if provided
     2. The first valid `fullName` from the linked accounts (after normalization)
     3. `Unnamed User`, if none of the above
 
+    > NOTE: the value `Unnamed User` is treated as a *missing value* (i.e. equivalent to unspecified `fullName`).
+
     **Username resolution**:
-    1. The value provided in the `username` parameter, if defined
+    1. The value of the `username` parameter, if provided
     2. The first valid `username` from the linked accounts (after normalization)
     3. `null` (no username), if none of the above
 
@@ -114,22 +120,21 @@ post:
     -X POST -d '{ 
       "linkedAccounts": [{
         "idp" : "egi",
-        "username" : "jdoe",
+        "username" : "janedoe",
         "subjectId" : "96ac30df1113de761bb42967da314dffe725d7b9@egi.eu",
         "groups" : [
           "urn:mace:egi.eu:group:test-group.egi.eu:role=vm_operator#aai.egi.eu",
           "urn:mace:egi.eu:group:test-group.egi.eu:role=member#aai.egi.eu"
         ],
-        "fullName" : "John Done",
+        "fullName" : "Jane Done",
         "entitlements" : [
           "urn:mace:egi.eu:group:test-group.egi.eu:role=vm_operator#aai.egi.eu",
           "urn:mace:egi.eu:group:test-group.egi.eu:role=member#aai.egi.eu"
         ],
         "emails" : [
-          "johndoe@example.com"
+          "janedoe@example.com"
         ],
         "custom" : {
-          "gender": "M"
           "role": "developer"
         }
       }]
