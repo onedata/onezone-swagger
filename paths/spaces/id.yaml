@@ -56,6 +56,7 @@ get:
           "dirStatsServiceStatus": "stopping"
         }
       },
+      "shareCount": 58,
       "creator": {
         "type": "user",
         "id": "7434b256e71e1052e0d5e3e9da657ebfc1a770c3"

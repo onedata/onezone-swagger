@@ -33,6 +33,11 @@ properties:
       and corresponding support parameters of the provider.
     additionalProperties:
       $ref: '#/definitions/SupportParameters'
+  shareCount:
+    type: integer
+    description: >
+      The total number of shares (including public data records)
+      in this space.
   creator:
     $ref: '#/definitions/Subject'
   creationTime:

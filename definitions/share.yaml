@@ -46,6 +46,9 @@ properties:
     $ref: '#/definitions/Subject'
   creationTime:
     $ref: '#/definitions/Timestamp'
+  visitCount:
+    type: integer
+    description: The number of hits for the publicUrl.
 
 required:
   - shareId
