@@ -118,7 +118,7 @@ example:
                 readonly: true
     providers:
       6c215505a969202341a74c8f2c394318ch47a3:
-        version: "25.0"
+        version: "25.1"
         online: true
         name: Krakow
         domain: krakow.onedata.example.com
