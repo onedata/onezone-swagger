@@ -179,19 +179,27 @@ head:
   x-bash-codegen-description: |
     HEAD counterpart of [Get shared file or directory data](#operation/get_shared_data).
     Redirects (in the same way as the GET variant) to the corresponding REST endpoint
-    in one of the supporting Oneproviders, so that a HEAD request against the shared
-    resource (e.g. `{...}/$FILE_ID/content` to obtain file content headers such as
-    `Content-Length` and `Accept-Ranges`) can be served without any authentication.
+    in one of the supporting Oneproviders, so that the request can be served without
+    any authentication. The provided query string (if any) is preserved during redirection.
 
-    The provided query string (if any) is preserved during redirection.
+    In practice, HEAD is only meaningful for the `{...}/$FILE_ID/content` subpath and
+    only for regular files, where it returns content headers such as `Content-Length`
+    and `Accept-Ranges` (see the Oneprovider
+    [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_file_content_headers)).
+    It is not supported for directories, since the resulting TAR archive is created on
+    the fly and its `Content-Length` cannot be determined up front.
   description: |
     HEAD counterpart of [Get shared file or directory data](#operation/get_shared_data).
     Redirects (in the same way as the GET variant) to the corresponding REST endpoint
-    in one of the supporting Oneproviders, so that a HEAD request against the shared
-    resource (e.g. `{...}/$FILE_ID/content` to obtain file content headers such as
-    `Content-Length` and `Accept-Ranges`) can be served without any authentication.
+    in one of the supporting Oneproviders, so that the request can be served without
+    any authentication. The provided query string (if any) is preserved during redirection.
 
-    The provided query string (if any) is preserved during redirection.
+    In practice, HEAD is only meaningful for the `{...}/$FILE_ID/content` subpath and
+    only for regular files, where it returns content headers such as `Content-Length`
+    and `Accept-Ranges` (see the Oneprovider
+    [REST endpoint](https://onedata.org/#/home/api/latest/oneprovider?anchor=operation/get_file_content_headers)).
+    It is not supported for directories, since the resulting TAR archive is created on
+    the fly and its `Content-Length` cannot be determined up front.
 
     The endpoint will return `503 Service Unavailable` when there is no suitable
     Oneprovider to handle the request and `501 Not Implemented` when all available
