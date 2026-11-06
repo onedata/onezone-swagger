@@ -9,6 +9,9 @@
 /test_image:
   $ref: ./test_image.yaml
 
+/health:
+  $ref: ./health.yaml
+
 /privileges:
   $ref: ./privileges.yaml
 
@@ -26,6 +29,10 @@
 
 /users/{id}/basic_auth:
   $ref: ./users/id/basic_auth.yaml
+
+
+/users/{id}/access_block:
+  $ref: ./users/id/access_block.yaml
 
 /users/{id}/privileges:
   $ref: ./users/id/privileges.yaml
@@ -110,6 +117,10 @@
 
 /user/spaces/{sid}/alias:
   $ref: ./user/spaces/sid/alias.yaml
+
+
+/user/space_membership_requests:
+  $ref: ./user/space_membership_requests.yaml
 
 
 /user/effective_spaces:
@@ -427,12 +438,33 @@
 # Spaces
 ###############################################################################
 
+
 /spaces:
   $ref: ./spaces.yaml
 
 
 /spaces/privileges:
   $ref: ./spaces/privileges.yaml
+
+
+/spaces/marketplace/list:
+  $ref: ./spaces/marketplace/list.yaml
+
+
+/spaces/marketplace/{id}:
+  $ref: ./spaces/marketplace/id.yaml
+
+
+/spaces/marketplace/{id}/request:
+  $ref: ./spaces/marketplace/id/request.yaml
+
+
+/spaces/marketplace/{id}/request/{rid}/requester_info:
+  $ref: ./spaces/marketplace/id/request/rid/requester_info.yaml
+
+
+/spaces/marketplace/{id}/request/{rid}/resolve:
+  $ref: ./spaces/marketplace/id/request/rid/resolve.yaml
 
 
 /spaces/{id}:
@@ -525,6 +557,10 @@
   $ref: ./spaces/id/providers/pid.yaml
 
 
+/spaces/{id}/providers/{pid}/support_parameters:
+  $ref: ./spaces/id/providers/pid/support_parameters.yaml
+
+
 /spaces/{id}/harvesters:
   $ref: ./spaces/id/harvesters.yaml
 
@@ -535,6 +571,14 @@
 
 /spaces/{id}/harvesters/{hid}:
   $ref: ./spaces/id/harvesters/hid.yaml
+
+
+/spaces/{id}/owners:
+  $ref: ./spaces/id/owners.yaml
+
+
+/spaces/{id}/owners/{uid}:
+  $ref: ./spaces/id/owners/uid.yaml
 
 
 ###############################################################################
@@ -548,6 +592,12 @@
 /shares/{id}:
   $ref: ./shares/id.yaml
 
+
+/shares/{id}/public:
+  $ref: ./shares/id/public.yaml
+
+/shares/data/{file_id}/{subpath}:
+  $ref: ./shares/data/file_id/subpath.yaml
 
 ###############################################################################
 # Providers
@@ -646,6 +696,8 @@
   $ref: ./tokens/examine.yaml
 /tokens/confine:
   $ref: ./tokens/confine.yaml
+/tokens/infer_access_token_scope:
+  $ref: ./tokens/infer_access_token_scope.yaml
 /tokens/verify_access_token:
   $ref: ./tokens/verify_access_token.yaml
 /tokens/verify_identity_token:
@@ -701,6 +753,10 @@
 
 /handle_services/{id}:
   $ref: ./handle_services/id.yaml
+
+
+/handle_services/{id}/public:
+  $ref: ./handle_services/id/public.yaml
 
 
 /handle_services/{id}/users:
@@ -774,6 +830,10 @@
 
 /handles/{id}:
   $ref: ./handles/id.yaml
+
+
+/handles/{id}/public:
+  $ref: ./handles/id/public.yaml
 
 
 /handles/{id}/users:

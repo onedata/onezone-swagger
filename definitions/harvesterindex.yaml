@@ -16,14 +16,51 @@ properties:
       Mapping of index name to one recognized by gui plugin.  
       Allows to specify this index to be used by GUI plugin to produce search results. 
       Recognized gui index names are listed in gui plugin manifest.
+  includeMetadata:
+    type: array
+    items:
+      type: string
+      enum: [json, xattrs, rdf]
+    minItems: 1
+    description:
+      Specifies what types of file metadata should be harvested in this index. At least one type must be given.
+  includeFileDetails:
+    type: array
+    items:
+      type: string
+      enum: [fileName, spaceId, metadataExistenceFlags]
+    description:
+      Specifies what file details should be harvested alongside the metadata. Enabling
+      `metadataExistenceFlags` will add boolean flags saying whether the file has any metadata
+      of certain type. The `fileName` field may be utilized by the GUI plugin to improve the
+      browsing experience.
+  includeRejectionReason:
+    type: boolean
+    description:
+      If enabled, all harvesting errors (e.g. when the index rejects a payload due to non-matching schema)
+      are stored as text in the index, which may be useful for later analysis.
+  retryOnRejection:
+    type: boolean
+    description:
+      If enabled, all payloads rejected by the harvesting backend will be automatically analysed for
+      offending data (e.g. fields that do not match the schema), pruned and submitted again. This might
+      slow down the harvesting process and cause nonconformant metadata to be lost.
 
 required:
   - indexId
   - name
   - schema
   - guiPluginName
+  - includeMetadata
+  - includeFileDetails
+  - includeRejectionReason
+  - retryOnRejection
 example:
   indexId: 2c0160248ba9a66f45da751ca459535a
   name: My study index
   guiPluginName: study
   schema: "{ \"mappings\": { \"properties\": { \"foo\": { \"type\": \"keyword\" } } } }"
+  includeMetadata: ["json", "xattrs"]
+  includeFileDetails: ["fileName", "metadataExistenceFlags"]
+  includeRejectionReason: false
+  retryOnRejection: true

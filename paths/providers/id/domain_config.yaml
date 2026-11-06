@@ -31,13 +31,17 @@ get:
     **Get provider's domain config**
     ```bash
     curl -sS -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/domain_config
+    https://$ZONE_HOST/api/v3/onezone/providers/$PROVIDER_ID/domain_config
 
     {
       "subdomainDelegation": true,
       "domain": "provider1.onezone.example.com",
       "subdomain": "provider1",
-      "ipList": ["172.17.0.1", "172.17.0.2", "172.17.0.3"]
+      "ipList": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
+      "opWorkerIpAddresses": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
+      "opWorkerPort": 443,
+      "oneS3IpAddresses": ["172.17.0.1", "172.17.0.2", "172.17.0.3"],
+      "oneS3Port": 4443
     }
     ```
   produces:

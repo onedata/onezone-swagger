@@ -1,0 +1,84 @@
+type: object
+description: Space parameters.
+properties:
+  spaceId:
+    type: string
+    description: Unique Id of the space.
+  name:
+    type: string
+    description: The name of the space.
+  description:
+    $ref: '#/definitions/SpaceDescription'
+  organizationName:
+    $ref: '#/definitions/SpaceOrganizationName'
+  tags:
+    $ref: '#/definitions/SpaceTags'
+  advertisedInMarketplace:
+    $ref: '#/definitions/SpaceAdvertisedInMarketplace'
+  marketplaceContactEmail:
+    $ref: '#/definitions/SpaceMarketplaceContactEmail'
+  providers:
+    type: object
+    description: >
+      A map of provider Ids supporting this space
+      and corresponding size of provisioned storage in bytes.
+    additionalProperties:
+      type: integer
+      description: |
+        Size of storage provisioned for this space by provider.
+  supportParametersRegistry:
+    type: object
+    description: >
+      A map of provider Ids supporting this space
+      and corresponding support parameters of the provider.
+    additionalProperties:
+      $ref: '#/definitions/SupportParameters'
+  shareCount:
+    type: integer
+    description: >
+      The total number of shares (including public data records)
+      in this space.
+  creator:
+    $ref: '#/definitions/Subject'
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+
+required:
+  - spaceId
+  - name
+  - description
+  - organizationName
+  - tags
+  - advertisedInMarketplace
+  - marketplaceContactEmail
+  - providers
+  - supportParametersRegistry
+  - creator
+  - creationTime
+
+example:
+  spaceId: 2c0160248ba9a66f45da751ca459535a
+  name: My Private space
+  description: My Private data
+  organizationName: ""
+  tags:
+    - images
+    - sport
+  advertisedInMarketplace: false
+  marketplaceContactEmail: ""
+  providers:
+    296ebe3c20e9666dc489b647f8647f12: 5368709120
+    dcf12429647c204896eebe3b6f686967: 14400000
+  supportParametersRegistry:
+    296ebe3c20e9666dc489b647f8647f12:
+      accountingEnabled: false
+      dirStatsServiceEnabled: true
+      dirStatsServiceStatus: enabled
+    dcf12429647c204896eebe3b6f686967:
+      accountingEnabled: false
+      dirStatsServiceEnabled: false
+      dirStatsServiceStatus: stopping
+  creator:
+    type: user
+    id: 7434b256e71e1052e0d5e3e9da657ebf
+  creationTime: 1576152793

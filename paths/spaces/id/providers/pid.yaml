@@ -32,14 +32,17 @@ get:
     **Get space provider details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
 
     {
-      "providerId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk",
-      "name": "example",
-      "domain": "195.216.97.151",
-      "latitude": 50.068968,
-      "longitude": 19.909444
+      "providerId": "6b9bc70630547d925861a27e1f050dfe",
+      "name": "Example provider",
+      "domain": "provider1.example.com",
+      "latitude": 50.0647,
+      "longitude": 19.945,
+      "clusterId": "6b9bc70630547d925861a27e1f050dfe",
+      "online": true,
+      "creationTime": 1576152793
     }
     ```
   produces:
@@ -115,7 +118,7 @@ delete:
     **Remove space support**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/providers/$PROVIDER_ID
     ```
   responses:
     '204':

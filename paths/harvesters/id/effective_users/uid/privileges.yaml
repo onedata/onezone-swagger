@@ -32,7 +32,7 @@ get:
     **List effective user's privileges in a harvester**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/effective_users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/effective_users/$USER_ID/privileges
 
     {
       "privileges": [
@@ -50,6 +50,7 @@ get:
     '200':
       description: The list of effective user's privileges in the harvester.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/HarvesterPrivileges'

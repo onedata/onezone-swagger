@@ -34,7 +34,7 @@ get:
     **List effective user's privileges in a group**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/effective_users/$USER_ID/privileges
 
     {
       "privileges": [
@@ -52,6 +52,7 @@ get:
     '200':
       description: The list of effective user's privileges in the group.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/GroupPrivileges'

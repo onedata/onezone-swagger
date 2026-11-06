@@ -18,6 +18,5 @@ x-onedata-subclasses:
 properties:
   type:
     type: string
-    description: Type of the caveat
 required:
   - type

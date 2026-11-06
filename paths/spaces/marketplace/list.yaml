@@ -1,0 +1,144 @@
+post:
+  operationId: list_marketplace
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    aspect: list_marketplace
+    scope: protected
+  summary: List the Space Marketplace
+  x-bash-codegen-description: |
+    List spaces advertised in the Marketplace.
+  description: |
+    List spaces advertised in the Marketplace.
+    
+    ***Example cURL requests***
+
+    **List spaces advertised in the Marketplace**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -H "Content-type: application/json" \
+    -X POST -d '{ "limit" : 2 }' \
+    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/list
+
+    {
+      "spaces": [
+        {
+          "spaceId": "d6ee1aecf03b23f09756d6a49e435455", 
+          "index": "aqua@d6ee1aecf03b23f09756d6a49e435455"
+        },
+        {
+          "spaceId": "3b23a49e1aecf06d6555d6e4354f097e", 
+          "index": "terra@3b23a49e1aecf06d6555d6e4354f097e"
+        }
+      ],
+      "isLast": false,
+      "nextPageToken": "UkdseU1qWTBNak16TXpNNU5qUXpNak0yTXpZMk1UWTFOalEyTXpZMU5qSTJOalky"
+    }
+    ```
+  consumes:
+    - application/json
+  responses:
+    '200':
+      description: >
+        List of spaces advertised in the Marketplace.
+      schema:
+        type: object
+        description: List of spaces advertised in the Marketplace.
+        properties:
+          spaces:
+            type: array
+            description: The list of Ids of spaces advertised in the Marketplace.
+            items:
+              type: object
+              properties:
+                spaceId:
+                  type: string
+                  description: Unique Id of the space.
+                index:
+                  type: string
+                  description: >
+                    Indicates the position of this space in the Marketplace list
+                    (can be used to specify a custom listing starting point).
+          isLast:
+            type: boolean
+            description: Flag indicating whether the last batch of spaces in the Marketplace was listed.
+          nextPageToken:
+            type: string
+            description: >
+              A token in the listing response that can be passed in the consecutive request to
+              start listing from the next page of entries.
+              When end of list is reached, the token is returned with a `null` value.
+        required:
+          - spaces
+          - isLast
+          - nextPageToken
+        example:
+          spaces:
+            - 1d24c36707d99197c6cd995810a43aca
+            - 6825604b0eb6a47b8b7a04b6369eb24d
+          isLast: true
+          nextPageToken: null
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: listing options
+    in: body
+    description: Space Marketplace listing options.
+    schema:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            type: string
+          description: >
+            A list of tags to be used as listing filter. The resulting list will contain
+            only the spaces that have at least one of the specified tags.
+            Available space tags can be retrieved from the [configuration endpoint](#operation/get_configuration).
+        limit:
+          type: integer
+          description: >
+            Allows specifying maximum number of spaces that should be returned.
+            If there are more spaces, they can be retrieved using the `token` or `index` options
+            in the consecutive call.
+          minimum: 1
+          maximum: 1000
+          default: 1000
+        token:
+          type: string
+          description: >
+            Determines the starting point for listing. The listing will start from the next page (batch) of entries
+            which follows the page previously obtained along with the corresponding `nextPageToken`.
+            Cannot be provided alongside the `index` parameter.
+        index:
+          type: string
+          description: >
+            Determines the starting point for listing - it will be started from given space (inclusively).
+            Cannot be provided alongside the `token` parameter.
+        offset:
+          type: integer
+          description: >
+            Expressed in number of entries, further adjusts the starting point of listing indicated by
+            `index` or `token` parameters. The value can be negative, in such case entries preceding
+            the starting point will be returned.
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli listMarketplace"

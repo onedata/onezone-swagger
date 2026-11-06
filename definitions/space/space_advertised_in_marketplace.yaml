@@ -1,0 +1,4 @@
+type: boolean
+description: >
+  Specifies whether the space should be publicly advertised in the Space Marketplace.
+example: false

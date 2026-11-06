@@ -32,7 +32,7 @@ get:
     **List effective groups's privileges in a cluster**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/effective_groups/$GROUP_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/effective_groups/$GROUP_ID/privileges
 
     {
       "privileges": [
@@ -50,6 +50,7 @@ get:
     '200':
       description: The list of effective group's privileges in the cluster.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/ClusterPrivileges'

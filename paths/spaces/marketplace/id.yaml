@@ -1,0 +1,75 @@
+get:
+  operationId: get_space_data_in_marketplace
+  tags:
+    - Space
+  x-onedata-gri:
+    type: od_space
+    id: ?BINDING(id)
+    aspect: marketplace_data
+    scope: protected
+  summary: Get space details in the Marketplace
+  x-bash-codegen-description: |
+    Returns the Marketplace related details about a specific space.
+
+    This operation can be performed by any user, but only for spaces
+    advertised in the Marketplace.
+  description: |
+    Returns the Marketplace related details about a specific space.
+
+    This operation can be performed by any user, but only for spaces
+    advertised in the Marketplace.
+
+    ***Example cURL requests***
+
+    **Get space details in the Marketplace**
+    ```bash
+    curl -H "x-auth-token: $TOKEN" -H \
+    https://$ZONE_HOST/api/v3/onezone/spaces/marketplace/$SPACE_ID
+
+    {
+      "name": "Meteo dataset",
+      "index": "Meteo dataset@2c0160248ba9a66f45da751ca459535a",
+      "description": "This dataset contains meteorological data for major Polish cities in years 2012-2014.",
+      "organizationName": "ACK Cyfronet AGH",
+      "tags": ["archival", "big-data", "open-data", "environment"],
+      "providerNames": ["krakow", "paris"],
+      "totalSupportSize": 30500000000,
+      "creationTime": 1576152793
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: Marketplace related details about a space.
+      schema:
+        $ref: '#/definitions/SpaceMarketplaceData'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+  - name: id
+    in: path
+    description: Space Id.
+    type: string
+    required: true
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getSpaceDataInMarketplace id=b752ceafabb662b4e5728b2ded25cdd1"

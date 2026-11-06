@@ -19,7 +19,7 @@ properties:
           Last sequence number of the corresponding provider that has been seen
           and processed by *this* provider.
       timestamp:
-        type: integer
+        $ref: '#/definitions/Timestamp'
         description: |
           Timestamp in seconds (UNIX epoch) when the sequence number has been
           emitted by the corresponding provider.

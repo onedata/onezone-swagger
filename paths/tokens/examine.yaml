@@ -25,7 +25,7 @@ post:
     ```bash
     curl -d '{"token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW"}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/tokens/examine
+    https://$ZONE_HOST/api/v3/onezone/tokens/examine
     ```
   consumes:
     - application/json

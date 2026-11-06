@@ -27,7 +27,7 @@ delete:
     **Remove harvested index metadata**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/indices/$INDEX_ID
     ```
   responses:
     '204':

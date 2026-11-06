@@ -7,7 +7,7 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_providers_list
-  summary: List providers
+  summary: List providers (admin)
   x-bash-codegen-description: |
     Returns the list of providers registered in the Onezone service.
 
@@ -16,13 +16,17 @@ get:
     Returns the list of providers registered in the Onezone service.
 
     This operation requires `oz_providers_list` admin privilege.
+    
+    Equivalent endpoints for regular users: 
+    * [List effective providers of the current user](#operation/list_effective_user_providers) 
+    * [List effective providers of given group](#operation/list_effective_group_providers) 
 
     ***Example cURL requests***
 
     **Get list of providers**
     ```bash
     curl -Ssk -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers
+    https://$ZONE_HOST/api/v3/onezone/providers
 
     {
       "providers": [
@@ -95,16 +99,16 @@ post:
 
     **Register provider**
     ```bash
-    curl -u username:password -H "Content-type: application/json" \
-    -X POST -d '{
-      "token" : "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW",
+    curl -H "Content-type: application/json" -X POST -d '{
+      "token" : "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW...",
       "name" : "My provider",
+      "adminEmail" : "person@example.com",
       "subdomainDelegation" : "false",
       "domain" : "my-provider.example.com",
       "latitude" : "50.0647",
       "longitude" : "19.9450",
     }' \
-    https://$HOST/api/v3/onezone/provider
+    https://$ZONE_HOST/api/v3/onezone/providers
     ```
 
   consumes:

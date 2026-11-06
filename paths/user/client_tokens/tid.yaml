@@ -28,7 +28,7 @@ delete:
     **Delete user access token**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/client_tokens/PMPs42mROSS7Rg7z7BwU9JYpSof4SvIW5v14uQY8X08
+    https://$ZONE_HOST/api/v3/onezone/user/client_tokens/PMPs42mROSS7Rg7z7BwU9JYpSof4SvIW5v14uQY8X08
     ```
   produces:
     - application/json

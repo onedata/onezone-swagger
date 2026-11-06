@@ -12,12 +12,12 @@ get:
     - oz_handles_view
   summary: Get handle
   x-bash-codegen-description: |
-    Returns the properties of a specific handle.
+    Returns the details of a specific handle.
 
     This operation requires `handle_view` privilege
     or `oz_handles_view` admin privilege.
   description: |
-    Returns the properties of a specific handle.
+    Returns the details of a specific handle.
 
     This operation requires `handle_view` privilege
     or `oz_handles_view` admin privilege.
@@ -27,26 +27,28 @@ get:
     **Get handle**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID
 
     {
-      "handle": "10.5072/w95Zlng"
       "handleId": "95b663a6467c72ab1256865efef9e387",
       "handleServiceId": "97c27230017cd54c1220189e357322c4",
+      "publicHandle": "10.5072/w95Zlng",
       "resourceType": "Share",
       "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
-      "metadata": "<?xml version=\"1.0\"?>
-          <!DOCTYPE rdf:RDF SYSTEM \\"http://dublincore.org/2000/12/01-dcmes-xml-dtd.dtd\">
-          <rdf:RDF xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
-                   xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
-            <rdf:Description rdf:about=\"http://example.com/resouces/1\">
-              <dc:title>Example Resource</dc:title>
-              <dc:creator>John Doe</dc:creator>
-              <dc:publisher>MIT</dc:publisher>
-              <dc:date>2000-06-06</dc:date>
-            </rdf:Description>
-          </rdf:RDF>",
-      "timestamp": "1997-07-16T19:20"
+      "metadataSchema": "oai_dc",
+      "metadata": "<?xml version=\"1.0\" encoding=\"utf-8\" ?>
+        <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+          <dc:title>Example Resource</dc:title>
+          <dc:creator>John Doe</dc:creator>
+          <dc:publisher>ACC Cyfronet AGH</dc:publisher>
+          <dc:date>2024-06-15</dc:date>
+        </metadata>",
+      "timestamp": "1997-07-16T19:20",
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:
@@ -81,7 +83,7 @@ get:
       in: path
       required: true
       type: string
-      description: The handle Id (internal Onedata GUID) of the identifier.
+      description: The handle Id.
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli getHandle id=45bf25a5cb16e12a9faa6d088a2c7088"
@@ -118,7 +120,7 @@ patch:
     ```bash
     curl -u username:password -X PATCH -H "Content-type: application/json" \
     -d '{"metadata": "<?xml..."}' \
-    https://$HOST/api/v3/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID
     ```
   consumes:
     - application/json
@@ -158,7 +160,7 @@ patch:
         properties:
           metadata:
             type: string
-            description: Dublin Core metadata in XML for the handle.
+            description: Metadata (in XML format) compliant with the schema indicated by the handle's metadata prefix.
   x-code-samples:
   - lang: Shell
     source: "cat handl_metadata.json | onezone-rest-cli modifyHandle id=45bf25a5cb16e12a9faa6d088a2c7088"
@@ -192,7 +194,7 @@ delete:
     **Unregister handle**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handles/$HANDLE_ID
+    https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID
     ```
   responses:
     '204':

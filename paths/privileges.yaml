@@ -20,7 +20,7 @@ get:
 
     **Get list of all Onezone admin privileges**
     ```bash
-    curl https://$HOST/api/v3/onezone/privileges
+    curl https://$ZONE_HOST/api/v3/onezone/privileges
 
     {
       "admin": [

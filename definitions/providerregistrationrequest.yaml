@@ -4,21 +4,70 @@ properties:
   token:
     type: string
     description: >
-      Token for registering a new Oneprovider.
+      Token for registering a new Oneprovider. If Onezone allows regular users
+      to freely register Oneproviders, it can be obtained from GUI or REST API.
+      Otherwise, only a Onezone admin can issue such token.
   name:
     type: string
     description: Oneprovider name.
+  adminEmail:
+    type: string
+    description: Contact email address of the Oneprovider admin.
   subdomainDelegation:
     type: boolean
-    description: >
-      If enabled, the Oneprovider will be assigned a subdomain in onezone's domain
-      and 'subdomain' property must be provided. If disabled, 'domain' property
-      should be provided.
+    description: |
+      When enabled, Oneprovider will be assigned a subdomain within Onezone's 
+      domain. In this case, the following properties must also be specified:
+      - `subdomain`
+      - `opWorkerIpAddresses` (successor of the deprecated `ipList`)
+
+      If the OneS3 service is deployed, the `oneS3IpAddresses` and `oneS3Port` 
+      properties are additionally required.
+
+      If this option is disabled, the `domain` property must be provided instead. 
   subdomain:
     type: string
     description: >
       Unique subdomain in onezone's domain for the Oneprovider. Required if
       subdomain delegation is enabled.
+  ipList:
+    type: array
+    description: >
+      The list of Oneprovider Worker IP addresses advertised by Onezone on behalf of the Oneprovider.
+      **Deprecated in favor of `opWorkerIpAddresses`**. Either this or `opWorkerIpAddresses` 
+      is required if subdomain delegation is enabled.
+    items:
+      type: string
+      description: >
+        IPv4 address in textual representation, for example `"123.45.6.78"`.
+  opWorkerIpAddresses:
+    description: >
+      The list of Oneprovider Worker IP addresses advertised by Onezone on behalf of the Oneprovider.
+      Successor of the **deprecated `ipList`**. Either this or `ipList` is required if subdomain 
+      delegation is enabled.
+    type: array
+    items:
+      type: string
+  opWorkerPort:
+    description: >
+      The port number of Oneprovider Worker advertised by Onezone on behalf of the Oneprovider.
+    type: integer
+    minimum: 0
+    maximum: 65535
+    default: 443
+  oneS3IpAddresses:
+    description: >
+      The list of Oneprovider OneS3 IP addresses advertised by Onezone on behalf of the Oneprovider.
+      Must be provided alongside `oneS3Port` if subdomain delegation is enabled and OneS3 deployed.
+    type: array
+    items:
+      type: string
+  oneS3Port:
+    description: >
+      The port number of Oneprovider OneS3 advertised by Onezone on behalf of the Oneprovider.
+    type: integer
+    minimum: 0
+    maximum: 65535
   domain:
     type: string
     description: >
@@ -34,13 +83,15 @@ properties:
     x-erlang-type: float
     description: The geographical longitude of the Oneprovider's data center location.
 required:
-  - name
-  - subdomainDelegation
   - token
+  - name
+  - adminEmail
+  - subdomainDelegation
 example:
-  token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
-  name: Example provider
+  token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW...
+  name: My provider
+  adminEmail: person@example.com
   subdomainDelegation: false
-  domain: provider2.example.com
+  domain: my-provider.example.com
   latitude: 50.0647
   longitude: 19.9450

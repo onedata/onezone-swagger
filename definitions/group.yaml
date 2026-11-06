@@ -15,11 +15,23 @@ properties:
       - unit
       - team
       - role_holders
+  # the creator field is returned only in protected scope
+  creator:
+    $ref: '#/definitions/Subject'
+  creationTime:
+    $ref: '#/definitions/Timestamp'
+
 required:
   - groupId
   - name
   - type
+  - creationTime
+
 example:
   groupId: a4d3bc73aada63052310652d421609f1
   name: Test group
   type: team
+  creator:
+    type: user
+    id: 7434b256e71e1052e0d5e3e9da657ebf
+  creationTime: 1576152793

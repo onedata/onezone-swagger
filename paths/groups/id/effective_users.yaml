@@ -32,7 +32,7 @@ get:
     **Get effective group users**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/effective_users
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/effective_users
 
     {
       "users":  [

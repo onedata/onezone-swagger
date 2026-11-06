@@ -31,7 +31,7 @@ get:
     **Get space alias**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
+    https://$ZONE_HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
 
     {
       "alias": "Test space 2"
@@ -107,7 +107,7 @@ put:
     ```bash
     curl -u username:password -X PUT -d '{"alias": "Space alias"}' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
+    https://$ZONE_HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
     ```
   consumes:
     - application/json
@@ -184,7 +184,7 @@ delete:
     **Remove user space alias**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
+    https://$ZONE_HOST/api/v3/onezone/user/spaces/$SPACE_ID/alias
     ```
   produces:
     - application/json

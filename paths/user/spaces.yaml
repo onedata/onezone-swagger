@@ -21,7 +21,7 @@ get:
     **Get user spaces**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/user/spaces
+    https://$ZONE_HOST/api/v3/onezone/user/spaces
 
     {
       "spaces": [
@@ -93,14 +93,14 @@ post:
     **Create new user space**
     ```bash
     curl -u admin:password -H "Content-type: application/json" -X POST \
-    -d '{ "name" : "test_space"}' https://$HOST/api/v3/onezone/user/spaces
+    -d '{ "name" : "test_space"}' https://$ZONE_HOST/api/v3/onezone/user/spaces
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the created space in form https://$HOST/api/onezone/v3/user/spaces/{id} is
+        URI of the created space in form https://$ZONE_HOST/api/onezone/v3/user/spaces/{id} is
         returned in the response `Location` header.
       headers:
         Location:

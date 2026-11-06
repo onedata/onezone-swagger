@@ -34,7 +34,7 @@ get:
     **Get named token status**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/tokens/named/$TOKEN_ID/status
+    https://$ZONE_HOST/api/v3/onezone/tokens/named/$TOKEN_ID/status
     {
       "revoked": false
     }

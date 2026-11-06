@@ -17,8 +17,8 @@ properties:
             type: string
             description: Short description of encountered error if last harvesting failed
           lastUpdate:
-            type: integer
-            description: Timestamp of last harvesting in this index
+            $ref: '#/definitions/Timestamp'
+            description: Timestamp in seconds (UNIX epoch) of the last harvesting in this index
           archival:
             type: boolean
             description:

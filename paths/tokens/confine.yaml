@@ -28,7 +28,7 @@ post:
       "caveats": [{"type": "time", "validUntil": 1571147494}]
     }' \
     -H 'Content-type: application/json' \
-    https://$HOST/api/v3/onezone/tokens/confine
+    https://$ZONE_HOST/api/v3/onezone/tokens/confine
     ```
   consumes:
     - application/json

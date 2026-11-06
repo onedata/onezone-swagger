@@ -39,7 +39,7 @@ post:
     **Create invitation token for child group**
     ```bash
     curl -u username:password -X POST \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID
 
     {
       "token": "MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaWVyIZdrenY00SX"

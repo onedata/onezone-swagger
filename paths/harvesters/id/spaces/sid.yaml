@@ -30,7 +30,7 @@ get:
     **Get harvester space details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/$SPACE_ID
 
     {
       "spaceId": "H8ez0CwDZ7JMYRWn1ipmBpgJHPXzIXj0-upGkf9tk",
@@ -116,7 +116,7 @@ put:
     **Add space to harvester**
     ```bash
     curl -u username:password -H "Content-type: application/json" -X PUT \
-     https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/$SPACE_ID
+     https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/$SPACE_ID
     ```
   consumes:
     - application/json
@@ -192,7 +192,7 @@ delete:
     **Remove harvester space**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/$SPACE_ID
+    https://$ZONE_HOST/api/v3/onezone/harvesters/$HARVESTER_ID/spaces/$SPACE_ID
     ```
   responses:
     '204':

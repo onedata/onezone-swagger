@@ -7,21 +7,25 @@ get:
     aspect: list
   x-onedata-permissions:
     - oz_handles_list
-  summary: List handles
+  summary: List handles (admin)
   x-bash-codegen-description: |
-    Returns the list of Ids of all handles registered in Onezone.
+    Returns the list of Ids of all Public Data handles registered in Onezone.
 
     This operation requires `oz_handles_list` admin privilege.
   description: |
-    Returns the list of Ids of all handles registered in Onezone.
+    Returns the list of Ids of all Public Data handles registered in Onezone.
 
     This operation requires `oz_handles_list` admin privilege.
+    
+    Equivalent endpoints for regular users: 
+    * [List effective handles of the current user](#operation/list_user_effective_handles) 
+    * [List effective handles of given group](#operation/list_effective_group_handles) 
 
     ***Example cURL requests***
 
     **Get handles**
     ```bash
-    curl -u username:password -X GET https://$HOST/api/v3/handles
+    curl -u username:password -X GET https://$ZONE_HOST/api/v3/onezone/handles
 
     {
       "handles": [
@@ -34,7 +38,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of handle identifiers (Onedata internal GUIDs).
+      description: The list of handle identifiers.
       schema:
         $ref: '#/definitions/Handles'
     '400':
@@ -74,40 +78,59 @@ post:
     - oz_handles_create
   summary: Register handle
   x-bash-codegen-description: |
-    Allows to register a new handle identifier, using a specific handle service.
+    Registers a new Public Data handle in the specified handle service.
+    
+    A Public Data handle is essentially a persistent identifier (PID/DOI) that points to
+    a resource in Onedata that is to be shared publicly as a Public Data record. 
+    All handles are advertised via the OAI-PMH protocol (Onezone serves as a repository
+    of Public Data records, to be harvested by Public Data aggregators).
 
-    The handle service must be registered in Onedata separately.
+    The handle service serves as a proxy that registers persistent identifiers in an external service
+    such as **DataCite** or **handle.net**. It is typically set up by Onezone admins, who grant
+    the rights to register handles to specific users/groups.
 
-    This operation requires `handle_service_register_handle` privilege, which needs to
-    be assigned to a specific handle service
+    This operation requires `handle_service_register_handle` privilege in the specified handle service
     or `oz_handles_create` admin privilege.
   description: |
-    Allows to register a new handle identifier, using a specific handle service.
+    Registers a new Public Data handle in the specified handle service.
+    
+    A Public Data handle is essentially a persistent identifier (PID/DOI) that points to
+    a resource in Onedata that is to be shared publicly as a Public Data record. 
+    All handles are advertised via the OAI-PMH protocol (Onezone serves as a repository
+    of Public Data records, to be harvested by Public Data aggregators).
 
-    The handle service must be registered in Onedata separately.
+    The handle service serves as a proxy that registers persistent identifiers in an external service
+    such as **DataCite** or **handle.net**. It is typically set up by Onezone admins, who grant
+    the rights to register handles to specific users/groups.
     
     See also:  
-    [Create a new handle for the current user](#operation/create_user_handle)  
-    [Create a new handle for given group](#operation/create_group_handle)  
+    * [Create a new handle for the current user](#operation/create_user_handle)  
+    * [Create a new handle for given group](#operation/create_group_handle)  
 
-    This operation requires `handle_service_register_handle` privilege, which needs to
-    be assigned to a specific handle service
+    This operation requires `handle_service_register_handle` privilege in the specified handle service
     or `oz_handles_create` admin privilege.
 
     ***Example cURL requests***
 
     **Register handle**
     ```bash
-    curl -u username:password -X POST -H "Content-type: application/json" \
-    -d '{ "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", "resourceType": "Share", "resourceId": "4fa683cbda8d8f686d15d42720af431d", "metadata": "<?xml version=\'1.0\'?>..." }' \
-    https://$HOST/api/v3/handles
+    curl -H "x-auth-token: $TOKEN" -H "content-type: application/json" \
+      -X POST https://$ZONE_HOST/api/v3/onezone/handles \
+      -d '{ 
+        "handleServiceId": "ddb06ed993bae95f2f430664fff122f7", 
+        "resourceType": "Share", 
+        "resourceId": "4fa683cbda8d8f686d15d42720af431d", 
+        "metadataSchema": "oai_dc", 
+        "metadata": "<?xml version=\"1.0\" encoding=\"utf-8\" ?><metadata><dc:contributor>John Doe</dc:contributor></metadata>"
+      }'
+    
     ```
   consumes:
     - application/json
   responses:
     '201':
       description: >
-        URI of the created handle in form https://$HOST/api/onezone/v3/handles/{id} is
+        URI of the created handle in form https://$ZONE_HOST/api/onezone/v3/handles/{id} is
         returned in the response `Location` header.
       headers:
         Location:

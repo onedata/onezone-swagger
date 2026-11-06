@@ -26,12 +26,17 @@ get:
     **Get group details**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID
 
     {
-      "groupId":"HwUpk8jrwxKOe45uzLFX2GVa8lKEasj4q253sptVqF8",
-      "name":"new_group",
-      "type":"team"
+      "groupId": "a4d3bc73aada63052310652d421609f1",
+      "name": "Test group",
+      "type": "team",
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:
@@ -103,7 +108,7 @@ patch:
     ```bash
     curl -u admin:password -H "Content-type: application/json" \
     -X PATCH -d '{"name": "new_group_name"}' \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID
     ```
   consumes:
     - application/json
@@ -177,7 +182,7 @@ delete:
     **Remove group**
     ```bash
     curl -u admin:password -X DELETE  \
-    https://$HOST/api/v3/onezone/user/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/user/groups/$GROUP_ID
     ```
   responses:
     '204':

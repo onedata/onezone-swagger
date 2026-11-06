@@ -30,7 +30,7 @@ get:
     **Get parent group details**
     ```bash
     curl -u admin:password -X GET \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents/$PARENT_GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/parents/$PARENT_GROUP_ID
 
     {
       "groupId": "9OqgExw00RwaU2MXT51",
@@ -110,7 +110,7 @@ delete:
     **Leave parent group as group**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/parents/$PARENT_GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/parents/$PARENT_GROUP_ID
     ```
   produces:
     - application/json

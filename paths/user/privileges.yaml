@@ -21,7 +21,7 @@ get:
     **List current user's admin privileges in Onezone**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/user/privileges
+    https://$ZONE_HOST/api/v3/onezone/user/privileges
 
     {
       "privileges": [
@@ -49,6 +49,7 @@ get:
     '200':
       description: The list of user's admin privileges in Onezone.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/AdminPrivileges'
@@ -126,7 +127,7 @@ patch:
     ```bash
     curl -u username:password -H "Content-type: application/json" -X PATCH \
     -d '{"grant": ["oz_spaces_list"], "revoke": ["oz_groups_update"]}' \
-    https://$HOST/api/v3/onezone/user/privileges
+    https://$ZONE_HOST/api/v3/onezone/user/privileges
     ```
   responses:
     '204':
@@ -189,7 +190,7 @@ delete:
     **Remove all user's admin privileges in Onezone**
     ```bash
     curl -u username:password  -X DELETE  \
-    https://$HOST/api/v3/onezone/users/privileges
+    https://$ZONE_HOST/api/v3/onezone/users/privileges
     ```
   responses:
     '204':

@@ -26,7 +26,7 @@ get:
     **Get handle services handles**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/13c6bf68ed88dd01f396571f976b148d/handles
+    https://$ZONE_HOST/api/v3/onezone/handle_services/13c6bf68ed88dd01f396571f976b148d/handles
 
     {
       "handles": [
@@ -39,7 +39,7 @@ get:
     - application/json
   responses:
     '200':
-      description: The list of handle identifiers (Onedata internal GUIDs).
+      description: The list of handle identifiers.
       schema:
         $ref: '#/definitions/Handles'
     '400':

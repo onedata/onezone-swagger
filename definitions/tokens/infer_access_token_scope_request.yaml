@@ -1,0 +1,15 @@
+type: object
+description: Infer access token scope request.
+properties:
+  token:
+    $ref: '#/definitions/SerializedToken'
+  consumerToken:
+    $ref: '#/definitions/SerializedToken'
+    description: |
+      Identity token of the consumer that wishes to use the token being verified.
+
+required:
+  - token
+example:
+  token: MDAxNmxvY2F00aW9uIHJlZ2lzdHJ5CjAwM2JpZGVudGlmaW
+  consumerToken: MDAzYmlkZW50aWZpZXIgOEhmSEFSSGdrbHFCa1pWSTRsNk5

@@ -28,7 +28,7 @@ get:
     **Add handle service user**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/onezone/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
 
     {
        "userId" : "f1c8b1a37aa7447b22eb65a742d40524",
@@ -108,7 +108,7 @@ put:
     **Add handle service user**
     ```bash
     curl -u username:password -X PUT \
-    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/onezone/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
     ```
   produces:
     - application/json
@@ -146,6 +146,14 @@ put:
       description: The Id of the user to add to handle service.
       required: true
       type: string
+    - name: data
+      in: body
+      schema:
+        type: object
+        properties:
+          privileges:
+            $ref: '#/definitions/HandleServicePrivileges'
+      required: false
   x-code-samples:
   - lang: Shell
     source: "onezone-rest-cli addHandleServiceUser id=a4d3bc73aada63052310652d421609f1 uid=5ca9574418d5a2c509265d37356ee549"
@@ -180,7 +188,7 @@ delete:
     **Remove handle service user**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
+    https://$ZONE_HOST/api/v3/onezone/handle_services/$HANDLE_SERVICE_ID/users/$USER_ID
     ```
   responses:
     '204':

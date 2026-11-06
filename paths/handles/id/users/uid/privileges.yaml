@@ -26,7 +26,7 @@ get:
     **List handle user privileges**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID/users/$USER_ID/privileges
 
     {
       "privileges": [
@@ -42,6 +42,7 @@ get:
     '200':
       description: The list of user's privileges in the handle.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/HandleServicePrivileges'
@@ -119,7 +120,7 @@ patch:
     ```bash
     curl -u username:password -X PATCH -H "Content-type: application/json" \
     -d '{"grant": ["handle_view"], "revoke": ["handle_delete"]}' \
-    https://$HOST/api/v3/handles/$HANDLE_ID/users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID/users/$USER_ID/privileges
     ```
   consumes:
     - application/json

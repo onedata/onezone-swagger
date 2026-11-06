@@ -28,7 +28,7 @@ get:
     **Get cluster users**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/clusters/$CLUSTER_ID/users
+    https://$ZONE_HOST/api/v3/onezone/clusters/$CLUSTER_ID/users
 
     {
       "users": [

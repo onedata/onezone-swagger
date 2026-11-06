@@ -30,7 +30,7 @@ get:
     **Get space users**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/onezone/spaces/$SPACE_ID/users
+    https://$ZONE_HOST/api/v3/onezone/spaces/$SPACE_ID/users
 
     {
       "users": [

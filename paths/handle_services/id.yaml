@@ -26,24 +26,29 @@ get:
     **Get handle services**
     ```bash
     curl -u username:password -X GET \
-    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID
+    https://$ZONE_HOST/api/v3/onezone/handle_services/$HANDLE_SERVICE_ID
 
     {
-        "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
-        "name": "MyCommunity Handle service",
-        "proxyEndpoint": "https://localhost:17000/handle_proxy",
-        "serviceProperties": {
-            "allowTemplateOverride": false,
-            "doiEndpoint": "/doi",
-            "host": "https://mds.test.datacite.org",
-            "identifierTemplate": "{{space.name}}-{{space.guid}}",
-            "mediaEndpoint": "/media",
-            "metadataEndpoint": "/metadata",
-            "password": "pa$$word",
-            "prefix": 10.5072,
-            "type": "DOI",
-            "username": "alice"
-        }
+      "handleServiceId": "0fe7c8a20ffdf07480c46f084bc3b8d5",
+      "name": "MyCommunity Handle service",
+      "proxyEndpoint": "https://localhost:17000/handle_proxy",
+      "serviceProperties": {
+        "allowTemplateOverride": false,
+        "doiEndpoint": "/doi",
+        "host": "https://mds.test.datacite.org",
+        "identifierTemplate": "{{space.name}}-{{space.guid}}",
+        "mediaEndpoint": "/media",
+        "metadataEndpoint": "/metadata",
+        "password": "pa$$word",
+        "prefix": 10.5072,
+        "type": "DOI",
+        "username": "alice"
+      },
+      "creator": {
+        "type": "user",
+        "id": "7434b256e71e1052e0d5e3e9da657ebf"
+      },
+      "creationTime": 1576152793
     }
     ```
   produces:
@@ -113,7 +118,7 @@ patch:
     ```bash
     curl -u username:password -X PATCH -H "Content-type: application/json" \
     -d '{"name": "New handle service name"}' \
-    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID
+    https://$ZONE_HOST/api/v3/onezone/handle_services/$HANDLE_SERVICE_ID
     ```
   consumes:
     - application/json
@@ -167,28 +172,32 @@ delete:
   x-onedata-permissions:
     - handle_service_delete
     - oz_handle_services_delete
-  summary: Unregister handle service
+  summary: Delete handle service
   x-bash-codegen-description: |
-    Allows to unregister a registeed handle service.
+    Deletes a handle service. The handle service must not have any registered handles
+    (all the handles have to be deleted first, but proceed with caution as Public Data 
+    records should be persistent).
 
     This operation requires `handle_service_delete` privilege or
     `oz_handle_services_delete` admin privilege.
   description: |
-    Allows to unregister a registeed handle service.
+    Deletes a handle service. The handle service must not have any registered handles
+    (all the handles have to be deleted first, but proceed with caution as Public Data 
+    records should be persistent).
 
     This operation requires `handle_service_delete` privilege or
     `oz_handle_services_delete` admin privilege.
 
     ***Example cURL requests***
 
-    **Unregister handle service**
+    **Delete handle service**
     ```bash
     curl -u username:password -X DELETE \
-    https://$HOST/api/v3/handle_services/$HANDLE_SERVICE_ID
+    https://$ZONE_HOST/api/v3/onezone/handle_services/$HANDLE_SERVICE_ID
     ```
   responses:
     '204':
-      description: Handle service will be unregistered.
+      description: The handle service was deleted.
     '400':
       description: Invalid request.
       schema:

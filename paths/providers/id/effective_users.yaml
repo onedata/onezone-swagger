@@ -31,7 +31,7 @@ get:
     **List effective users of a provider**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/users
+    https://$ZONE_HOST/api/v3/onezone/providers/$PROVIDER_ID/users
 
     {
       "users": [

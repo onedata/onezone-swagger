@@ -33,7 +33,7 @@ get:
     **Get group of a provider**
     ```bash
     curl -u username:password -X GET  \
-    https://$HOST/api/v3/onezone/providers/$PROVIDER_ID/groups/$GROUP_ID
+    https://$ZONE_HOST/api/v3/onezone/providers/$PROVIDER_ID/groups/$GROUP_ID
 
     {
       "groupId":"051f1a51d80c664b0d9528d81ee56a93",

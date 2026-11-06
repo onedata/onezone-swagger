@@ -28,7 +28,7 @@ get:
     **List user's privileges in a group**
     ```bash
     curl -u username:password -X GET
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID/privileges
 
     {
       "privileges": [
@@ -46,6 +46,7 @@ get:
     '200':
       description: The list of user's privileges in the group.
       schema:
+        type: object
         properties:
           privileges:
             $ref: '#/definitions/GroupPrivileges'
@@ -127,7 +128,7 @@ patch:
     ```bash
     curl -H "Content-type: application/json" -X PATCH \
     -d '{"grant": ["group_view", "group_update"], "revoke": ["group_delete"]}' \
-    https://$HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID/privileges
+    https://$ZONE_HOST/api/v3/onezone/groups/$GROUP_ID/users/$USER_ID/privileges
     ```
   responses:
     '204':

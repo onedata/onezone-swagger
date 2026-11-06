@@ -1,0 +1,77 @@
+get:
+  operationId: get_public_handle_details
+  tags:
+    - Handle
+  x-onedata-gri:
+    type: od_handle
+    id: ?BINDING(id)
+    aspect: instance
+    scope: public
+  summary: Get public handle details
+  x-bash-codegen-description: |
+    Returns the publicly available details of a specific handle. This endpoint
+    is available for anyone knowing the handle Id, without authentication.
+  description: |
+    Returns the publicly available details of a specific handle. This endpoint
+    is available for anyone knowing the handle Id, without authentication.
+
+    ***Example cURL requests***
+
+    **Get public handle details**
+    ```bash
+    curl -X GET https://$ZONE_HOST/api/v3/onezone/handles/$HANDLE_ID/public
+
+    {
+      "handleId": "95b663a6467c72ab1256865efef9e387",
+      "handleServiceId": "97c27230017cd54c1220189e357322c4",
+      "publicHandle": "10.5072/w95Zlng",
+      "resourceType": "Share",
+      "resourceId": "d6ee1aecf03b23f09756d6a49e435455",
+      "metadataSchema": "oai_dc",
+      "metadata": "<?xml version=\"1.0\" encoding=\"utf-8\" ?>
+        <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">
+          <dc:title>Example Resource</dc:title>
+          <dc:creator>John Doe</dc:creator>
+          <dc:publisher>ACC Cyfronet AGH</dc:publisher>
+          <dc:date>2024-06-15</dc:date>
+        </metadata>",
+      "timestamp": "1997-07-16T19:20",
+      "creationTime": 1576152793
+    }
+    ```
+  produces:
+    - application/json
+  responses:
+    '200':
+      description: The publicly available details of a specific handle.
+      schema:
+        $ref: '#/definitions/Handle'
+    '400':
+      description: Invalid request.
+      schema:
+        $ref: '#/definitions/Error'
+    '401':
+      description: Authentication error.
+      schema:
+        $ref: '#/definitions/Error'
+    '403':
+      description: Authorization error.
+      schema:
+        $ref: '#/definitions/Error'
+    '404':
+      description: Resource not found.
+      schema:
+        $ref: '#/definitions/Error'
+    '500':
+      description: Internal server Error.
+      schema:
+        $ref: '#/definitions/Error'
+  parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+      description: The handle Id.
+  x-code-samples:
+  - lang: Shell
+    source: "onezone-rest-cli getPublicHandleDetails id=45bf25a5cb16e12a9faa6d088a2c7088"

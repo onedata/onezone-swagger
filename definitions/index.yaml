@@ -11,6 +11,12 @@ Error:
 VersionInfo:
   $ref: ./versioninfo.yaml
 
+Subject:
+  $ref: ./subject.yaml
+
+Timestamp:
+  $ref: ./timestamp.yaml
+
 User:
   $ref: ./user.yaml
 
@@ -28,6 +34,9 @@ UserPasswordUpdate:
 
 UserBasicAuthSettingsUpdate:
   $ref: ./userbasicauthsettingsupdate.yaml
+
+UserAccessBlockUpdate:
+  $ref: ./user_access_block_update.yaml
 
 IdPAccessToken:
   $ref: ./idpaccesstoken.yaml
@@ -60,10 +69,37 @@ ProviderDomainConfig:
   $ref: ./providerdomainconfig.yaml
 
 Space:
-  $ref: ./space.yaml
+  $ref: ./space/space.yaml
+
+SpaceDescription:
+  $ref: ./space/space_description.yaml
+
+SpaceOrganizationName:
+  $ref: ./space/space_organization_name.yaml
+
+SpaceTags:
+  $ref: ./space/space_tags.yaml
+
+SpaceAdvertisedInMarketplace:
+  $ref: ./space/space_advertised_in_marketplace.yaml
+
+SpaceMarketplaceContactEmail:
+  $ref: ./space/space_marketplace_contact_email.yaml
+
+SpaceMarketplaceData:
+  $ref: ./space/space_marketplace_data.yaml
+
+SpaceMembershipRequest:
+  $ref: ./space/space_membership_request.yaml
+
+SpaceMembershipRequests:
+  $ref: ./space/space_membership_requests.yaml
+
+SpaceMembershipRequesterInfo:
+  $ref: ./space/space_membership_requester_info.yaml
 
 SpaceStats:
-  $ref: ./space_stats.yaml
+  $ref: ./space/space_stats.yaml
 
 SpaceCreateRequest:
   $ref: ./spacecreaterequest.yaml
@@ -89,6 +125,10 @@ TemporaryTokenCreateRequest:
   $ref: ./tokens/temporary_token_create_request.yaml
 TemporaryTokenGeneration:
   $ref: ./tokens/temporary_token_generation.yaml
+InferAccessTokenScopeRequest:
+  $ref: ./tokens/infer_access_token_scope_request.yaml
+InferAccessTokenScopeResponse:
+  $ref: ./tokens/infer_access_token_scope_response.yaml
 VerifyAccessTokenRequest:
   $ref: ./tokens/verify_access_token_request.yaml
 VerifyIdentityTokenRequest:
@@ -256,6 +296,9 @@ AdminPrivilegesUpdate:
 
 HandleService:
   $ref: ./handleservice.yaml
+
+HandleServicePublicDetails:
+  $ref: ./handleservicepublicdetails.yaml
 
 HandleServiceCreateRequest:
   $ref: ./handleservicecreaterequest.yaml
